@@ -5,25 +5,48 @@ import '../instance/data_instance.dart';
 import '../instance/tree_element.dart';
 import '../instance/tree_reference.dart';
 
-/// Argument types a [XPathFunctionHandler] prototype can declare.
-enum XPathArgType {
+/// An argument type a [XPathFunctionHandler] prototype can declare.
+///
+/// Port of the `Class` entries of JavaRosa prototypes: [boolean],
+/// [number], [string] and [date] arguments are converted when needed;
+/// other types (including custom ones from [XPathArgType.ofType]) must
+/// match as they are.
+final class XPathArgType {
+  const XPathArgType._(this._name, this._accepts);
+
+  /// A custom type: matches values that are a [T].
+  static XPathArgType ofType<T extends Object>() =>
+      XPathArgType._('$T', (value) => value is T);
+
   /// Converted with XPath `boolean()` if needed.
-  boolean,
+  static const boolean = XPathArgType._('Boolean', _isBool);
 
   /// Converted with XPath `number()` if needed (a `double`).
-  number,
+  static const number = XPathArgType._('Double', _isDouble);
 
   /// Converted with XPath `string()` if needed.
-  string,
+  static const string = XPathArgType._('String', _isString);
 
   /// Converted with `date()` if needed (a `DateTime`).
-  date,
-
-  /// Must already be an [XPathNodeset].
-  nodeset,
+  static const date = XPathArgType._('Date', _isDate);
 
   /// Any value, passed unchanged.
-  any,
+  static const any = XPathArgType._('Object', _isAny);
+
+  final String _name;
+  final bool Function(Object value) _accepts;
+
+  /// Whether [value] already has this type.
+  bool accepts(Object value) => _accepts(value);
+
+  static bool _isBool(Object value) => value is bool;
+  static bool _isDouble(Object value) => value is double;
+  static bool _isString(Object value) => value is String;
+  static bool _isDate(Object value) => value is DateTime;
+  static bool _isAny(Object value) => true;
+
+  @override
+  String toString() => _name;
 }
 
 /// A custom XPath function, such as ODK Collect's `pulldata`.
@@ -123,6 +146,7 @@ final class EvaluationContext {
       candidateValue = base.candidateValue,
       isCheckAddChild = base.isCheckAddChild,
       outputTextForm = base.outputTextForm,
+      propertyLookup = base.propertyLookup,
       _original = base._original,
       contextPosition = base.contextPosition,
       _filterStrategyChain = base._filterStrategyChain;
@@ -173,6 +197,10 @@ final class EvaluationContext {
 
   /// When [isConstraint], whether a parent's child count is being checked.
   bool isCheckAddChild = false;
+
+  /// Looks up device/user properties for `property()` (JavaRosa's
+  /// `PropertyManager`), e.g. `deviceid` or `username`.
+  String? Function(String name)? propertyLookup;
 
   /// The itext form requested by `jr:itext()` (e.g. `audio`), if any.
   String? outputTextForm;

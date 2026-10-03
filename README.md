@@ -3,10 +3,12 @@
 A pure-Dart port of [JavaRosa](https://github.com/getodk/javarosa), the ODK
 XForms engine used by ODK Collect, for Flutter and any other Dart platform.
 
-> **Status: Phase 1 (XPath) in progress.** Done: workspace, test DSL,
-> JavaRosa conformance oracle, XPath lexer/parser/expression tree (passes
-> JavaRosa's full `XPathParseTest`), exact Java number formatting. Next:
-> XPath evaluation and functions.
+> **Status: Phase 1 (XPath) nearly complete.** Done: workspace, test DSL,
+> JavaRosa conformance oracle; XPath lexer/parser, evaluation and all ~70
+> built-in functions (passes JavaRosa's `XPathParseTest` and
+> `XPathEvalTest`); instance tree, answer values, `DateUtils`; exact Java
+> number formatting and seeded `randomize()`. Next: constraint pivots, then
+> Phase 2 (XForm parser).
 > See [`docs/PORTING_PLAN.md`](docs/PORTING_PLAN.md).
 
 ## Packages

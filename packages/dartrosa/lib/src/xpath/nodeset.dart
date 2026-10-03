@@ -11,11 +11,8 @@ import 'exceptions.dart';
 /// requires it to contain at most one node.
 class XPathNodeset {
   /// A nodeset of [refs] in [instance].
-  XPathNodeset(
-    List<TreeReference> refs,
-    DataInstance this._instance,
-    EvaluationContext this._context,
-  ) : _refs = refs,
+  XPathNodeset(List<TreeReference> refs, this._instance, this._context)
+    : _refs = refs,
       _pathEvaluated = null,
       _originalPath = null;
 

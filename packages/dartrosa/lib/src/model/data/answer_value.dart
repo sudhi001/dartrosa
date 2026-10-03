@@ -720,11 +720,17 @@ AnswerValue? wrapData(Object value, DataType dataType) {
   }
 }
 
+// Java Long.MAX_VALUE / MIN_VALUE. Parsed at runtime because dart2js can't
+// compile integer literals beyond 2^53 (on the web they become the nearest
+// double).
+final int _maxLong = int.parse('9223372036854775807');
+final int _minLong = int.parse('-9223372036854775808');
+
 /// Java `(long) d`: truncates, saturating at the 64-bit range.
 int _javaLongCast(double d) {
   if (d.isNaN) return 0;
-  if (d >= 9223372036854775807.0) return 9223372036854775807;
-  if (d <= -9223372036854775808.0) return -9223372036854775808;
+  if (d >= 9223372036854775807.0) return _maxLong;
+  if (d <= -9223372036854775808.0) return _minLong;
   return d.truncate();
 }
 

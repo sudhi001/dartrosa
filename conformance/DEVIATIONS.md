@@ -39,6 +39,25 @@ under several zones.
 - **Why:** clearer error; ODK forms don't use XPath variables.
 - **Traces affected:** none.
 
+## `property()` for an unknown property
+
+- **JavaRosa:** returns `null` from the global `PropertyManager`, which then
+  breaks wherever the value is used.
+- **DartRosa:** returns `''`; properties come from
+  `EvaluationContext.propertyLookup` (no global state).
+- **Traces affected:** none known.
+
+## `regex()` dialect
+
+- **JavaRosa:** `Pattern.matches` (Java regex, whole-string match).
+- **DartRosa:** Dart `RegExp` (ECMAScript dialect) anchored as
+  `^(?:pattern)$`; leading inline flags `(?i)`, `(?s)`, `(?m)` are
+  translated. Java-only syntax (possessive quantifiers `a*+`, atomic groups,
+  `\p{Alpha}`-style POSIX classes, `\Q…\E`) fails to compile.
+- **Why:** no Java regex engine in Dart. Common ODK patterns (digits, phone
+  numbers, e-mail) behave identically.
+- **Traces affected:** forms using Java-only regex syntax.
+
 ## Unseeded `randomize()` and other run-dependent values
 
 Not a behavioural deviation: traces normalize them (see TRACE_FORMAT.md).
