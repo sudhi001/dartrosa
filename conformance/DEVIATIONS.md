@@ -14,6 +14,23 @@ keep this list as short as possible.
   identically.
 - **Traces affected:** none (parse failures compare `ok` only).
 
+## Default locale for date names and week numbers
+
+- **JavaRosa:** `format-date` (`%b`, `%a`) and `%W` use the JVM default
+  `Locale` (on Android, the device locale).
+- **DartRosa:** the locale is an explicit optional parameter of the date
+  functions, defaulting to US English (`en_US`). The session will pass the
+  form/app locale once the engine API exists (P4).
+- **Why:** no global mutable locale; Dart has no settable default locale.
+- **Traces affected:** none (the oracle runs with the default `en_US`).
+
+## Java time zone vs Dart local zone
+
+Not a deviation in behaviour: both use the device zone. Dart cannot change
+the zone at runtime, so JavaRosa tests that call `TimeZone.setDefault` run
+when the process `TZ` matches and are skipped otherwise; CI runs the suite
+under several zones.
+
 ## Unseeded `randomize()` and other run-dependent values
 
 Not a behavioural deviation: traces normalize them (see TRACE_FORMAT.md).

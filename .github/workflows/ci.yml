@@ -18,8 +18,11 @@ jobs:
       - run: dart format --output=none --set-exit-if-changed .
       - run: dart analyze --fatal-infos
       - run: dart run tool/check_core_purity.dart
-      - name: Test (VM)
-        run: dart test packages/dartrosa
+      - name: Test (VM, several time zones)
+        run: |
+          for tz in UTC America/New_York Asia/Kolkata Europe/London Etc/GMT-2 Etc/GMT-3 Pacific/Chatham; do
+            echo "TZ=$tz"; TZ=$tz dart test packages/dartrosa
+          done
       # Browser tests must run from inside each package (test runner limitation).
       - name: Test (Chrome, dart2js and dart2wasm)
         run: |

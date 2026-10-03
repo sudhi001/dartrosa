@@ -129,8 +129,9 @@ dartrosa/                              (melos/pub workspace monorepo)
 
 ### Dependency policy (core packages)
 Allowed, all pure Dart and widely maintained: `xml`, `meta`, `collection`, `clock`, `logging`, `crypto` (md5/sha1/sha256/sha384/sha512 for `digest()`), `csv`.
+`intl` (decided in P1): used only for its bundled CLDR month/day names in `format-date` (`%b`, `%a`) and locale week rules; no global initialization. Flutter apps already depend on it.
 `dartrosa_encryption`: `pointycastle`. Ed25519 for `extract-signed()`: `cryptography` (or a vendored pure-Dart verifier) — isolated behind an interface so the core stays light.
-**Forbidden in core:** Flutter, `dart:io`, `dart:html`/`package:web`, code generation that users must run, state-management libraries, `intl` (date formatting is ODK-specific; month/day names come from a pluggable `DateSymbols` with an English default; `dartrosa_flutter` supplies locale symbols).
+**Forbidden in core:** Flutter, `dart:io`, `dart:html`/`package:web`, code generation that users must run, state-management libraries, (`intl` was originally listed here; it is now allowed for date symbols only, see above).
 
 ---
 
