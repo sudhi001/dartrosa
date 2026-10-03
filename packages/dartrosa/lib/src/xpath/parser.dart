@@ -1,3 +1,4 @@
+import '../model/instance/tree_reference.dart';
 import 'exceptions.dart';
 import 'expression.dart';
 import 'lexer.dart';
@@ -644,3 +645,32 @@ final class _PathStep extends _Node {
     };
   }
 }
+
+/// Parses [nodeset], which must be a location path.
+///
+/// Port of `XPathReference.getPathExpr`: a valid non-path expression
+/// throws [XPathTypeMismatchException]; a syntax error throws
+/// [XPathException].
+XPathPathExpr parsePathExpr(String nodeset) {
+  final XPathExpression expression;
+  try {
+    expression = parseXPath(nodeset);
+  } on XPathSyntaxException catch (e) {
+    final message = e.message;
+    throw XPathException(
+      'Parse error in XPath path: [$nodeset].'
+      '${message == null ? '' : '\n$message'}',
+    );
+  }
+  if (expression is! XPathPathExpr) {
+    throw XPathTypeMismatchException(
+      'Expected XPath path, got XPath expression: [$nodeset],null',
+    );
+  }
+  return expression;
+}
+
+/// The reference for the location path [nodeset] (port of
+/// `new XPathReference(nodeset).getReference()`).
+TreeReference parseReference(String nodeset) =>
+    parsePathExpr(nodeset).toTreeReference();

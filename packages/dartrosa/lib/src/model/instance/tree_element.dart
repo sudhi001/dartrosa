@@ -506,7 +506,7 @@ final class TreeElement {
   }
 
   static void _setAttribute(
-    TreeElement parent,
+    TreeElement? parent,
     List<TreeElement> attributes,
     String? namespace,
     String name,
@@ -526,6 +526,25 @@ final class TreeElement {
       TreeElement.attribute(namespace, name, value)..parent = parent,
     );
   }
+
+  /// The attribute called [name] in [namespace] (any namespace if `null`)
+  /// among [attributes]. Port of the static `TreeElement.getAttribute`.
+  static TreeElement? findAttributeIn(
+    List<TreeElement> attributes,
+    String? namespace,
+    String name,
+  ) => _findAttribute(attributes, namespace, name);
+
+  /// Sets, adds or (with a `null` [value]) removes an attribute in
+  /// [attributes], adopted by [parent]. Port of the static
+  /// `TreeElement.setAttribute`.
+  static void setAttributeIn(
+    TreeElement? parent,
+    List<TreeElement> attributes,
+    String? namespace,
+    String name,
+    String? value,
+  ) => _setAttribute(parent, attributes, namespace, name, value);
 
   @override
   String toString() => '${_name ?? 'NULL'} - Children: ${_children.length}';

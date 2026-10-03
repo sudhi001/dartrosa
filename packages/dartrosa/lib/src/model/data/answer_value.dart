@@ -803,3 +803,30 @@ final class MultiPointerValue extends AnswerValue {
   @override
   int get hashCode => Object.hashAll(pointers);
 }
+
+/// Parses [data] into the answer type for a node of [dataType].
+///
+/// Port of `AnswerDataFactory.templateByDataType(dataType).cast(data)`.
+/// Barcode, binary, unsupported and untyped nodes keep [UncastValue].
+/// Note that, as in JavaRosa, boolean nodes always fail
+/// (see [BooleanValue.cast]).
+AnswerValue castToDataType(UncastValue data, DataType dataType) =>
+    switch (dataType) {
+      DataType.choice => SelectOneValue.cast(data),
+      DataType.multipleItems => MultipleItemsValue.cast(data),
+      DataType.boolean => BooleanValue.cast(data),
+      DataType.date => DateValue.cast(data),
+      DataType.dateTime => DateTimeValue.cast(data),
+      DataType.decimal => DecimalValue.cast(data),
+      DataType.geopoint => GeoPointValue.cast(data),
+      DataType.geoshape => GeoShapeValue.cast(data),
+      DataType.geotrace => GeoTraceValue.cast(data),
+      DataType.integer => IntegerValue.cast(data),
+      DataType.long => LongValue.cast(data),
+      DataType.text => StringValue.cast(data),
+      DataType.time => TimeValue.cast(data),
+      DataType.barcode ||
+      DataType.binary ||
+      DataType.unsupported ||
+      DataType.nullType => UncastValue(data.string),
+    };
