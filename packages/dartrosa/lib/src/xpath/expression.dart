@@ -1,9 +1,14 @@
 import 'package:collection/collection.dart';
 import 'package:meta/meta.dart';
 
+import '../model/condition/evaluation_context.dart';
+import '../model/instance/data_instance.dart';
 import '../model/instance/tree_reference.dart';
 import '../util/java_double.dart';
+import 'conversions.dart';
 import 'exceptions.dart';
+import 'functions.dart';
+import 'nodeset.dart';
 import 'qname.dart';
 
 /// A parsed XPath expression.
@@ -15,6 +20,15 @@ import 'qname.dart';
 @immutable
 sealed class XPathExpression {
   const XPathExpression();
+
+  /// Evaluates against [model] (usually the context's main instance) in
+  /// [context]. The result is a `bool`, `double`, `String`, `DateTime`,
+  /// [XPathNodeset] or a value returned by a custom function.
+  Object eval(DataInstance? model, EvaluationContext context);
+
+  /// Evaluates against [context]'s main instance.
+  Object evalIn(EvaluationContext context) =>
+      eval(context.mainInstance, context);
 
   /// Whether evaluating this expression twice in the same form state always
   /// gives the same result (used to cache predicate results).
@@ -48,6 +62,9 @@ final class XPathNumericLiteral extends XPathExpression {
   final double value;
 
   @override
+  Object eval(DataInstance? model, EvaluationContext context) => value;
+
+  @override
   bool get isIdempotent => true;
 
   @override
@@ -70,6 +87,9 @@ final class XPathStringLiteral extends XPathExpression {
   final String value;
 
   @override
+  Object eval(DataInstance? model, EvaluationContext context) => value;
+
+  @override
   bool get isIdempotent => true;
 
   @override
@@ -89,6 +109,14 @@ final class XPathVariableReference extends XPathExpression {
 
   /// The variable's name.
   final XPathQName id;
+
+  /// JavaRosa returns `null` for an undefined variable, which later fails
+  /// in a type conversion; DartRosa reports it directly (see
+  /// DEVIATIONS.md).
+  @override
+  Object eval(DataInstance? model, EvaluationContext context) =>
+      context.variable(id.toString()) ??
+      (throw XPathUnhandledException('variable \$$id'));
 
   @override
   bool get isIdempotent => true;
@@ -162,6 +190,20 @@ final class XPathArithExpr extends XPathBinaryOpExpr {
   final ArithOp op;
 
   @override
+  Object eval(DataInstance? model, EvaluationContext context) {
+    final x = toNumeric(a.eval(model, context));
+    final y = toNumeric(b.eval(model, context));
+    return switch (op) {
+      ArithOp.add => x + y,
+      ArithOp.subtract => x - y,
+      ArithOp.multiply => x * y,
+      ArithOp.divide => x / y,
+      // Java's % keeps the dividend's sign, like Dart's remainder().
+      ArithOp.modulo => x.remainder(y),
+    };
+  }
+
+  @override
   String get _operatorString => op.symbol;
 }
 
@@ -181,6 +223,14 @@ final class XPathBoolExpr extends XPathBinaryOpExpr {
 
   /// The operator.
   final BoolOp op;
+
+  /// Short-circuits: `b` isn't evaluated when `a` decides the result.
+  @override
+  Object eval(DataInstance? model, EvaluationContext context) {
+    final x = toBoolean(a.eval(model, context));
+    if ((!x && op == BoolOp.and) || (x && op == BoolOp.or)) return x;
+    return toBoolean(b.eval(model, context));
+  }
 
   @override
   String get _operatorString => op.name;
@@ -215,6 +265,18 @@ final class XPathCmpExpr extends XPathBinaryOpExpr {
   final CmpOp op;
 
   @override
+  Object eval(DataInstance? model, EvaluationContext context) {
+    final x = toNumeric(a.eval(model, context));
+    final y = toNumeric(b.eval(model, context));
+    return switch (op) {
+      CmpOp.lt => x < y,
+      CmpOp.gt => x > y,
+      CmpOp.lte => x <= y,
+      CmpOp.gte => x >= y,
+    };
+  }
+
+  @override
   String get _operatorString => op.symbol;
 }
 
@@ -226,6 +288,25 @@ final class XPathEqExpr extends XPathBinaryOpExpr {
   /// `true` for `=`, `false` for `!=`.
   final bool equal;
 
+  /// Compares as booleans if either side is a boolean, else as numbers
+  /// (within 1e-12) if either is a number, else as strings.
+  @override
+  Object eval(DataInstance? model, EvaluationContext context) {
+    final x = unpack(a.eval(model, context));
+    final y = unpack(b.eval(model, context));
+    final bool same;
+    if (x is bool || y is bool) {
+      same = (x is bool ? x : toBoolean(x)) == (y is bool ? y : toBoolean(y));
+    } else if (x is double || y is double) {
+      final dx = x is double ? x : toNumeric(x);
+      final dy = y is double ? y : toNumeric(y);
+      same = (dx - dy).abs() < 1e-12;
+    } else {
+      same = toXPathString(x) == toXPathString(y);
+    }
+    return equal == same;
+  }
+
   @override
   String get _operatorString => equal ? '==' : '!=';
 }
@@ -234,6 +315,10 @@ final class XPathEqExpr extends XPathBinaryOpExpr {
 final class XPathUnionExpr extends XPathBinaryOpExpr {
   /// Creates `a | b`.
   const XPathUnionExpr(super.a, super.b);
+
+  @override
+  Object eval(DataInstance? model, EvaluationContext context) =>
+      throw XPathUnsupportedException('nodeset union operation');
 
   @override
   String get _operatorString => 'union';
@@ -246,6 +331,10 @@ final class XPathNumNegExpr extends XPathExpression {
 
   /// The negated operand.
   final XPathExpression a;
+
+  @override
+  Object eval(DataInstance? model, EvaluationContext context) =>
+      -toNumeric(a.eval(model, context));
 
   @override
   bool get isIdempotent => a.isIdempotent;
@@ -286,6 +375,10 @@ final class XPathFuncExpr extends XPathExpression {
   final List<XPathExpression> args;
 
   @override
+  Object eval(DataInstance? model, EvaluationContext context) =>
+      evalFunction(this, model, context);
+
+  @override
   bool get isIdempotent =>
       idempotentFunctions.contains(id.toString()) &&
       args.every((arg) => arg.isIdempotent);
@@ -321,6 +414,10 @@ final class XPathFilterExpr extends XPathExpression {
 
   /// Predicates, in order.
   final List<XPathExpression> predicates;
+
+  @override
+  Object eval(DataInstance? model, EvaluationContext context) =>
+      throw XPathUnsupportedException('filter expression');
 
   @override
   bool get isIdempotent =>
@@ -391,6 +488,52 @@ final class XPathPathExpr extends XPathExpression {
 
   /// The steps, in order.
   final List<XPathStep> steps;
+
+  late final TreeReference _reference = toTreeReference();
+
+  /// The nodeset this path selects: the path is anchored to the context
+  /// node (or, for `current()`, the original context), expanded with
+  /// predicates, and non-relevant nodes are dropped.
+  ///
+  /// Port of `XPathPathExprEval`.
+  @override
+  XPathNodeset eval(DataInstance? model, EvaluationContext context) {
+    final ref = _reference.contextualize(
+      _reference.contextType == ReferenceContext.original
+          ? context.originalContext
+          : context.contextRef,
+    )!;
+    final DataInstance instance;
+    if (ref.instanceName != null && ref.isAbsolute) {
+      instance =
+          context.instanceNamed(ref.instanceName!) ??
+          (throw XPathMissingInstanceException(
+            ref.instanceName!,
+            'Instance referenced by ${ref.toString(includePredicates: true)} '
+            'does not exist',
+          ));
+    } else {
+      instance =
+          context.mainInstance ??
+          (throw XPathException(
+            'Cannot evaluate the reference '
+            '[${ref.toString(includePredicates: true)}] in the current '
+            'evaluation context. No default instance has been declared!',
+          ));
+    }
+    if (instance.root == null) {
+      throw XPathMissingInstanceException(
+        ref.instanceName ?? '',
+        'Instance referenced by ${ref.toString(includePredicates: true)} '
+        'has not been loaded',
+      );
+    }
+    final refs = context
+        .expandReference(ref)!
+        .where((r) => instance.resolveReference(r)!.isRelevant)
+        .toList();
+    return XPathNodeset(refs, instance, context);
+  }
 
   @override
   bool get isIdempotent =>

@@ -31,6 +31,29 @@ the zone at runtime, so JavaRosa tests that call `TimeZone.setDefault` run
 when the process `TZ` matches and are skipped otherwise; CI runs the suite
 under several zones.
 
+## Undefined XPath variables
+
+- **JavaRosa:** `$name` with no such variable evaluates to `null`, which
+  fails later in an unrelated type conversion.
+- **DartRosa:** throws `XPathUnhandledException('variable $name')` at once.
+- **Why:** clearer error; ODK forms don't use XPath variables.
+- **Traces affected:** none.
+
 ## Unseeded `randomize()` and other run-dependent values
 
 Not a behavioural deviation: traces normalize them (see TRACE_FORMAT.md).
+
+# Structural changes (no behaviour change)
+
+Recorded so that nothing in JavaRosa disappears silently.
+
+| JavaRosa | DartRosa | Reason |
+|---|---|---|
+| `AbstractTreeElement` interface | `TreeElement` used directly | Only one implementation exists; `DataInstance.resolveReference` already casts to `TreeElement`. |
+| `TreeElement.tryBatchChildFetch` | not ported | Dead code in JavaRosa 6.0.0 (never called). |
+| `EvaluationContext.setPredicateProcessSet` (progress counters) | not ported | Progress reporting for a UI JavaRosa doesn't have; can be added if an app needs it. |
+| `XPathFuncExpr` constructor calling `XFormParser.recordInstanceFunctionCall` (static) | parser will walk the expression tree for `instance()` calls (P2) | No global state. |
+| `TreeElement.accept(ITreeVisitor)` | `TreeElement.selfAndDescendants` iterable | Idiomatic Dart. |
+| Mutable `IAnswerData` (`setValue`, `clone`) | immutable `AnswerValue` | JavaRosa never compares or shares-and-mutates answers. |
+| Mutable `TreeReference` | immutable `TreeReference` | Safe as map keys; same operations return new references. |
+| `TreeElement.populate` / `populateTemplate` | ported with the XForm parser and instance loading (P2/P6) | Need `FormDef`. |
