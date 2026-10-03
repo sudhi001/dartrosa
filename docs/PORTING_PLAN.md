@@ -68,6 +68,7 @@
 | ADR-7 | **No global state** | JavaRosa statics (`ReferenceManager.instance()`, `PrototypeManager`, `XFormUtils.setXFormParserFactory`, `XFormParser.registerActionHandler`, `Localization`, `PropertyManager`, `Logger`) become fields of an explicit, immutable `DartRosaConfig` passed to the parser/session. Tests run in parallel safely. |
 | ADR-8 | **Sealed result types for expected outcomes, exceptions for faults** | `AnswerResult`, `FinalizeResult`, `NavigationEvent` are sealed classes consumed with `switch` patterns. Exceptions (`FormParseException`, `XPathException` family) only for malformed input or programmer errors. |
 | ADR-9 | **Exact-compat numerics, dates, PRNG** | Port Java `Double.toString` formatting, Joda-equivalent date math, Park–Miller PRNG and Fisher–Yates exactly (see §9). |
+| ADR-11 | **XPath lives inside `dartrosa`** (decided in P1) | JavaRosa's XPath code depends directly on the instance model, references and answer types. A separate package would need an artificial abstraction layer and would force the sealed `AnswerValue` hierarchy into the XPath package. Layering is kept by directory: `lib/src/xpath` depends only on model interfaces. |
 | ADR-10 | **Pluggable resource resolution** | `jr://…` URIs resolved through an injected async `ResourceResolver` (replaces `ReferenceManager` static roots). `dart:io` implementation lives in a separate entry point via conditional import. |
 
 ---
@@ -109,8 +110,7 @@ Every row is a mandatory porting rule, enforced in code review and by lints.
 ```
 dartrosa/                              (melos/pub workspace monorepo)
 ├─ packages/
-│  ├─ dartrosa_xpath/                  pure Dart: XPath 1.0 lexer, parser, AST, evaluator, ODK function library
-│  ├─ dartrosa/                        pure Dart core: XForm parser, definition, instance, DAG, session, navigator,
+│  ├─ dartrosa/                        pure Dart core: XPath (lib/src/xpath), XForm parser, definition, instance, DAG, session, navigator,
 │  │                                   actions/events, secondary instances, i18n, serialization, plugins
 │  ├─ dartrosa_io/                     dart:io ResourceResolver (file system), form-cache store
 │  ├─ dartrosa_entities/               ODK Entities parse + finalization processors (Collect parity)
@@ -218,8 +218,8 @@ Disposition: **PORT** = behaviour ported 1:1 (idiomatic structure) · **REDESIGN
 
 | JavaRosa package (LOC) | Classes | Disposition → DartRosa location |
 |---|---|---|
-| `xpath/parser` (755) + `xpath/parser/ast` (842) | Lexer, Parser, Token, XPathSyntaxException, ASTNode* | **PORT** (hand-written lexer + recursive-descent/Pratt parser instead of generated `xpath.flex`/grammar) → `dartrosa_xpath/src/parser/` |
-| `xpath/expr` (3,913) | XPathArith/Bool/Cmp/Eq/Union/UnaryOp/NumNeg/Filter/Path/PathEval/Step/QName/StringLiteral/NumericLiteral/VariableReference/FuncExpr/FuncExprGeo, DigestAlgorithm, Encoding | **PORT** → sealed `XPathExpr` AST + evaluator `dartrosa_xpath/src/eval/`; functions split into `functions/{core,string,number,date,geo,select,crypto,random,repeat}.dart` |
+| `xpath/parser` (755) + `xpath/parser/ast` (842) | Lexer, Parser, Token, XPathSyntaxException, ASTNode* | **PORT** faithfully (JavaRosa's token-condensing parser, so associativity, quirks and error messages match) → `dartrosa/lib/src/xpath/` |
+| `xpath/expr` (3,913) | XPathArith/Bool/Cmp/Eq/Union/UnaryOp/NumNeg/Filter/Path/PathEval/Step/QName/StringLiteral/NumericLiteral/VariableReference/FuncExpr/FuncExprGeo, DigestAlgorithm, Encoding | **PORT** → sealed `XPathExpr` AST + evaluator in `dartrosa/lib/src/xpath/`; functions split into `functions/{core,string,number,date,geo,select,crypto,random,repeat}.dart` |
 | `xpath` (856) | XPathNodeset, XPathLazyNodeset, XPathConditional, XPathParseTool, IExprDataType, exceptions (Arity, TypeMismatch, Unhandled, Unsupported, MissingInstance) | **PORT** → `Nodeset` (lazy), sealed `XPathException` family |
 | `core/model` (5,787) | FormDef, FormIndex, GroupDef, QuestionDef, RangeQuestion, SelectChoice, ItemsetBinding, DataBinding, DataType(Classes), ControlType, Constants, SubmissionProfile, TriggerableDag, QuickTriggerable, ValidateOutcome, IFormElement, IDataReference, XFormExtension, FormElementStateListener, CoreModelModule, filter strategies (ComparisonExpressionCache, EqualityExpressionIndex, IdempotentExpressionCache, CompareToNodeExpression) | **REDESIGN**: `FormDef` → `FormDefinition` (immutable) + `FormSession` (state); `TriggerableDag` → `DependencyGraph`; filter strategies **PORT** (they are performance-critical for big choice lists); `CoreModelModule` **DROP** (prototype registration) |
 | `core/model/condition` (1,391) + `pivot` | Condition, Constraint, Recalculate, Triggerable, EvaluationContext, IFunctionHandler, IFallbackFunctionHandler, ChoiceNameFunctionHandler, FilterStrategy, RawFilterStrategy, ConditionAction; Pivot/RangeHint/*RangeHint/ConstraintHint/CmpPivot | **PORT**; pivots/range hints **PORT** (used by `requestConstraintHint` — renderer can show "value must be between X and Y") |
@@ -478,7 +478,7 @@ Disposition: **PORT** = behaviour ported 1:1 (idiomatic structure) · **REDESIGN
 7. **Benchmarks** — `benchmark_harness`: parse, first-load, answer cascade, 1,000-instance repeat add, 100k-row CSV choice filter. Regression gate ±10 %.
 
 ### 10.2 Coverage gate
-Line coverage ≥ 90 % for `dartrosa_xpath` and `dartrosa`; 100 % of public API members exercised.
+Line coverage ≥ 90 % for `dartrosa`; 100 % of public API members exercised.
 
 ### 10.5 1:1 JavaRosa test-class port map (all 130+ classes)
 | Suite (phase) | JavaRosa test classes |
@@ -507,7 +507,7 @@ Estimates: 1 senior Dart engineer full-time (≈ 0.6× with 2 engineers working 
 | Phase | Scope | Deliverables | Exit criteria | Est. |
 |---|---|---|---|---|
 | **P0 Foundations** | Monorepo (pub workspaces + melos), CI (analyze, format, test VM/chrome/wasm, coverage, oracle job), lint config, ADRs, JVM oracle harness, Scenario DSL skeleton, corpus import (pyxform conversion script) | repo, CI green, oracle produces traces for JavaRosa resources | CI runs oracle on 95 resources | 2 wk |
-| **P1 XPath** | §7.5, §7.6 (all functions), dates/number formatting compat (§9) | `dartrosa_xpath` 0.1 | XPath+Functions+Dates suites green; 10k-double formatting golden; VM+web | 5 wk |
+| **P1 XPath** | §7.5, §7.6 (all functions), dates/number formatting compat (§9) | `dartrosa` 0.1 (XPath) | XPath+Functions+Dates suites green; 10k-double formatting golden; VM+web | 5 wk |
 | **P2 Parse & model** | §7.1–7.4, §7.11, TreeReference, answer codecs, reporter warnings | `dartrosa` 0.1 (parse-only) | References/Parsing/Answer-data suites green; parse of all corpus forms equals oracle structure dump | 5 wk |
 | **P3 DAG** | §7.7, §7.8 | 0.2 | DAG suite green; property tests; cycle messages equal | 3 wk |
 | **P4 Session & navigation** | §7.9, §7.12, §7.13, tree API + navigator, AnswerResult, finalize (no serialization yet) | 0.3 — **MVP engine** | Form-entry + Actions suites green; random-walk oracle diff = 0 on corpus subset without secondary instances | 4 wk |

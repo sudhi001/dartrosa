@@ -3,18 +3,19 @@
 A pure-Dart port of [JavaRosa](https://github.com/getodk/javarosa), the ODK
 XForms engine used by ODK Collect, for Flutter and any other Dart platform.
 
-> **Status: Phase 0 (foundations).** The workspace, test DSL and JavaRosa
-> conformance oracle are in place; the engine is being ported phase by phase.
+> **Status: Phase 1 (XPath) in progress.** Done: workspace, test DSL,
+> JavaRosa conformance oracle, XPath lexer/parser/expression tree (passes
+> JavaRosa's full `XPathParseTest`), exact Java number formatting. Next:
+> XPath evaluation and functions.
 > See [`docs/PORTING_PLAN.md`](docs/PORTING_PLAN.md).
 
 ## Packages
 
 | Package | Purpose | Status |
 |---|---|---|
-| [`dartrosa_xpath`](packages/dartrosa_xpath) | XPath 1.0 + ODK function library | exceptions ported |
-| [`dartrosa`](packages/dartrosa) | XForm engine: parse, recalculate, validate, navigate, serialize | test DSL (`package:dartrosa/testing.dart`) |
+| [`dartrosa`](packages/dartrosa) | XForm engine: XPath, parse, recalculate, validate, navigate, serialize | XPath parser; test DSL (`package:dartrosa/testing.dart`) |
 
-Both are pure Dart (no Flutter, no `dart:io`) and are tested on the VM,
+The core is pure Dart (no Flutter, no `dart:io`) and are tested on the VM,
 dart2js and dart2wasm. `tool/check_core_purity.dart` enforces this.
 
 ## Development
@@ -23,7 +24,7 @@ dart2js and dart2wasm. `tool/check_core_purity.dart` enforces this.
 dart pub get
 dart format .
 dart analyze
-dart test packages/dartrosa_xpath packages/dartrosa
+dart test packages/dartrosa
 dart run tool/check_core_purity.dart
 # browser (run inside a package):
 (cd packages/dartrosa && dart test -p chrome && dart test -p chrome --compiler dart2wasm)

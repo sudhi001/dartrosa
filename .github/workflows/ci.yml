@@ -19,11 +19,11 @@ jobs:
       - run: dart analyze --fatal-infos
       - run: dart run tool/check_core_purity.dart
       - name: Test (VM)
-        run: dart test packages/dartrosa_xpath packages/dartrosa
+        run: dart test packages/dartrosa
       # Browser tests must run from inside each package (test runner limitation).
       - name: Test (Chrome, dart2js and dart2wasm)
         run: |
-          for p in dartrosa_xpath dartrosa; do
+          for p in dartrosa; do
             (cd packages/$p && dart test -p chrome && dart test -p chrome --compiler dart2wasm)
           done
 

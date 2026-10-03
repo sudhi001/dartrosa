@@ -1,4 +1,4 @@
-import 'package:dartrosa_xpath/dartrosa_xpath.dart';
+import 'package:dartrosa/dartrosa.dart';
 import 'package:test/test.dart';
 
 void main() {

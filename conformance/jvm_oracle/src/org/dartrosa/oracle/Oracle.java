@@ -50,15 +50,46 @@ public final class Oracle {
 
     public static void main(String[] args) throws Exception {
         if (args.length != 2) {
-            System.err.println("usage: walk <form.xml> | scenario <file.scenario.json> | batch <conformance-dir>");
+            System.err.println("usage: walk <form.xml> | scenario <file.scenario.json> | batch <conformance-dir> | doubles <out.json>");
             System.exit(64);
         }
         switch (args[0]) {
             case "walk" -> print(walkTrace(new File(args[1]), args[1]));
             case "scenario" -> print(scenarioTrace(new File(args[1]), conformanceRootOf(new File(args[1]))));
             case "batch" -> batch(new File(args[1]));
+            case "doubles" -> doubles(new File(args[1]));
             default -> { System.err.println("unknown command " + args[0]); System.exit(64); }
         }
+    }
+
+    // ---------------------------------------------------------------- numbers
+
+    /**
+     * Writes Java's {@code Double.toString} for edge cases and 10,000 seeded
+     * random doubles. Doubles are keyed by their IEEE-754 bits (hex) so no
+     * precision is lost on the way to Dart.
+     */
+    static void doubles(File out) throws Exception {
+        List<Double> values = new ArrayList<>(List.of(
+            0.0, -0.0, 1.0, -1.0, 10.0, 0.1, 0.5, 123.0, 734.04, 0.12345, 0.666, 333.333,
+            1.23e21, 1.23e-18, 1e7, 9999999.0, 9999999.999999, 1e-3, 0.00099999, 1e-4,
+            100.0, 1e21, 1e22, 1e23, 2e-323, Double.MIN_VALUE, Double.MAX_VALUE, Double.MIN_NORMAL,
+            Math.PI, Math.E, 1.0 / 3, 2.0 / 3, 0.1 + 0.2, 1e16, 12345678.9, 4.35, 2.675,
+            Double.NaN, Double.POSITIVE_INFINITY, Double.NEGATIVE_INFINITY));
+        java.util.Random random = new java.util.Random(20261003L);
+        for (int i = 0; i < 4000; i++) values.add(Double.longBitsToDouble(random.nextLong())); // any bit pattern
+        for (int i = 0; i < 3000; i++) values.add((random.nextDouble() - 0.5) * Math.pow(10, random.nextInt(30) - 10));
+        for (int i = 0; i < 3000; i++) values.add(Math.round(random.nextDouble() * 1e6) / Math.pow(10, random.nextInt(8)));
+        List<Object> cases = new ArrayList<>();
+        for (double d : values) {
+            if (Double.isNaN(d) && Double.doubleToRawLongBits(d) != Double.doubleToLongBits(Double.NaN)) continue;
+            cases.add(List.of(Long.toHexString(Double.doubleToRawLongBits(d)), Double.toString(d)));
+        }
+        Map<String, Object> result = new LinkedHashMap<>();
+        result.put("java", System.getProperty("java.version"));
+        result.put("cases", cases);
+        Files.writeString(out.toPath(), new ObjectMapper().writeValueAsString(result) + "\n");
+        System.err.printf("oracle: %d doubles written to %s%n", cases.size(), out);
     }
 
     // ---------------------------------------------------------------- batch

@@ -8,7 +8,7 @@
 set -euo pipefail
 args=()
 for a in "$@"; do
-  if [ -e "$a" ]; then args+=("$(cd "$(dirname "$a")" && pwd)/$(basename "$a")"); else args+=("$a"); fi
+  if [ -e "$a" ] || [ -d "$(dirname "$a")" -a "$a" != "$(basename "$a")" ]; then args+=("$(cd "$(dirname "$a")" && pwd)/$(basename "$a")"); else args+=("$a"); fi
 done
 cd "$(dirname "$0")"
 

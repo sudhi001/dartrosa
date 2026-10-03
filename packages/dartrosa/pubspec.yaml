@@ -10,7 +10,7 @@ environment:
   sdk: ^3.10.0
 
 dependencies:
-  dartrosa_xpath: ^0.0.1
+  collection: ^1.19.0
   meta: ^1.16.0
   xml: ">=6.5.0 <8.0.0"
 
