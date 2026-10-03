@@ -18,10 +18,12 @@ final class XPathSyntaxException implements Exception {
   String toString() => message ?? 'XPathSyntaxException';
 }
 
-/// Base class for errors raised while evaluating an XPath expression.
+/// An error raised while evaluating an XPath expression; also the base
+/// class of the more specific XPath errors below.
 ///
 /// Port of `org.javarosa.xpath.XPathException`.
-sealed class XPathException implements Exception {
+class XPathException implements Exception {
+  /// Creates an exception; the message is `XPath evaluation: [detail]`.
   XPathException([String? detail])
     : _message = detail == null ? null : 'XPath evaluation: $detail';
 

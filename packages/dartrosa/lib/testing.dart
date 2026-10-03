@@ -4,4 +4,5 @@
 /// forms the same way the engine is tested.
 library;
 
+export 'src/testing/references.dart';
 export 'src/testing/xforms_element.dart';

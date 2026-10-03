@@ -1,7 +1,9 @@
 import 'package:collection/collection.dart';
 import 'package:meta/meta.dart';
 
+import '../model/instance/tree_reference.dart';
 import '../util/java_double.dart';
+import 'exceptions.dart';
 import 'qname.dart';
 
 /// A parsed XPath expression.
@@ -367,6 +369,20 @@ final class XPathPathExpr extends XPathExpression {
   ) : start = PathStart.expression,
       steps = List.unmodifiable(steps);
 
+  /// The relative or absolute path for [ref], with plain child steps.
+  ///
+  /// Port of `XPathPathExpr.fromRef`.
+  factory XPathPathExpr.fromRef(TreeReference ref) =>
+      XPathPathExpr(ref.isAbsolute ? PathStart.root : PathStart.relative, [
+        for (var i = 0; i < ref.size; i++)
+          ref.nameAt(i) == TreeReference.nameWildcard
+              ? XPathStep.typed(XPathAxis.child, StepTest.nameWildcard)
+              : XPathStep.named(
+                  XPathAxis.child,
+                  XPathQName.parse(ref.nameAt(i)),
+                ),
+      ]);
+
   /// Where the path starts.
   final PathStart start;
 
@@ -401,6 +417,105 @@ final class XPathPathExpr extends XPathExpression {
       start == other.start &&
       const ListEquality<XPathStep>().equals(steps, other.steps) &&
       (start != PathStart.expression || filterExpr == other.filterExpr);
+
+  /// This path as a [TreeReference].
+  ///
+  /// Only the subset JavaRosa supports is allowed: `child::name`, `*`,
+  /// `@name`, `.` and leading `..` steps (with predicates), starting at the
+  /// root, the context node, `instance('id')` or `current()`. Anything else
+  /// throws [XPathUnsupportedException].
+  ///
+  /// Port of `XPathPathExpr.getReference`.
+  TreeReference toTreeReference() {
+    TreeReference ref;
+    bool parentsAllowed;
+    switch (start) {
+      case PathStart.root:
+        ref = const TreeReference.root();
+        parentsAllowed = false;
+      case PathStart.relative:
+        ref = const TreeReference.relative();
+        parentsAllowed = true;
+      case PathStart.expression:
+        final x = filterExpr!.x;
+        if (x is! XPathFuncExpr) {
+          // Also reached when a boolean operator is missing.
+          throw XPathUnsupportedException('filter expression: $this');
+        }
+        switch (x.id.toString()) {
+          case 'instance':
+            parentsAllowed = false;
+            if (x.args.length != 1) {
+              throw XPathUnsupportedException(
+                'instance() function used with ${x.args.length} arguments. '
+                'Expecting 1 argument',
+              );
+            }
+            final arg = x.args.first;
+            if (arg is! XPathStringLiteral) {
+              throw XPathUnsupportedException(
+                'instance() function expecting 1 string literal argument',
+              );
+            }
+            ref = const TreeReference.root()
+                .withContextType(ReferenceContext.instance)
+                .withInstanceName(arg.value);
+          case 'current':
+            // current() in a calculate is the node itself; in a choice
+            // filter it is the select question, not the itemset node.
+            parentsAllowed = true;
+            ref = const TreeReference.relative().withContextType(
+              ReferenceContext.original,
+            );
+          default:
+            throw XPathUnsupportedException('filter expression');
+        }
+    }
+
+    for (var i = 0; i < steps.length; i++) {
+      final step = steps[i];
+      const unsupported = "step other than 'child::name', '.', '..'";
+      switch (step.axis) {
+        case XPathAxis.self:
+          if (step.test != StepTest.node) {
+            throw XPathUnsupportedException(unsupported);
+          }
+        case XPathAxis.parent:
+          if (!parentsAllowed || step.test != StepTest.node) {
+            throw XPathUnsupportedException(unsupported);
+          }
+          ref = ref.withIncrementedRefLevel();
+        case XPathAxis.attribute:
+          if (step.test != StepTest.name) {
+            throw XPathUnsupportedException(
+              "attribute step other than 'attribute::name",
+            );
+          }
+          ref = ref.extend(step.name.toString(), TreeReference.indexAttribute);
+          parentsAllowed = false;
+        case XPathAxis.child:
+          if (step.test == StepTest.name) {
+            ref = ref.extend(step.name.toString(), TreeReference.indexUnbound);
+          } else if (step.test == StepTest.nameWildcard) {
+            ref = ref.extend(
+              TreeReference.nameWildcard,
+              TreeReference.indexUnbound,
+            );
+          } else {
+            throw XPathUnsupportedException(unsupported);
+          }
+          parentsAllowed = true;
+        default:
+          throw XPathUnsupportedException(unsupported);
+      }
+      if (step.predicates.isNotEmpty) {
+        // ".." steps add no level, so shift the index back by refLevel.
+        final level = ref.refLevel > 0 ? i - ref.refLevel : i;
+        ref = ref.withPredicates(level, step.predicates);
+      }
+    }
+    return ref;
+  }
 
   /// Like `==`, but a named step also matches a wildcard (`*`) step.
   ///

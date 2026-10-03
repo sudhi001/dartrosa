@@ -222,9 +222,12 @@ XFormsElement select1Dynamic(
   ]),
 ]);
 
-/// A `<group>`.
-XFormsElement group(String ref, [List<XFormsElement> children = const []]) =>
-    t('group ref="$ref"', children);
+/// A `<group>`. Named `formGroup` so it doesn't clash with
+/// `package:test`'s `group`.
+XFormsElement formGroup(
+  String ref, [
+  List<XFormsElement> children = const [],
+]) => t('group ref="$ref"', children);
 
 /// A `<repeat>`, optionally with a `jr:count` expression [count].
 XFormsElement repeat(
