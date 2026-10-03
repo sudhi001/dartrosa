@@ -1,0 +1,14 @@
+# Maven Central coordinates (group:artifact:version) for JavaRosa 6.0.0 and
+# its runtime dependencies, matching getodk/collect's JavaRosa version.
+org.getodk:javarosa:6.0.0
+net.sf.kxml:kxml2:2.3.0
+joda-time:joda-time:2.10.13
+com.fasterxml.jackson.core:jackson-databind:2.13.2.1
+com.fasterxml.jackson.core:jackson-core:2.13.2
+com.fasterxml.jackson.core:jackson-annotations:2.13.2
+org.apache.commons:commons-csv:1.4
+commons-io:commons-io:2.5
+org.jetbrains.kotlin:kotlin-stdlib:1.6.10
+org.slf4j:slf4j-api:1.7.33
+org.slf4j:slf4j-nop:1.7.33
+org.bouncycastle:bcprov-jdk18on:1.77

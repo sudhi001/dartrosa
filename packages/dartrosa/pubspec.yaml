@@ -1,0 +1,18 @@
+name: dartrosa
+description: >-
+  Pure-Dart ODK XForms engine: parsing, recalculation, validation, repeats,
+  navigation and serialization. A port of JavaRosa.
+version: 0.0.1
+publish_to: none
+resolution: workspace
+
+environment:
+  sdk: ^3.10.0
+
+dependencies:
+  dartrosa_xpath: ^0.0.1
+  meta: ^1.16.0
+  xml: ">=6.5.0 <8.0.0"
+
+dev_dependencies:
+  test: ^1.25.0

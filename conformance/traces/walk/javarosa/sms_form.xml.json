@@ -1,0 +1,135 @@
+{
+  "form" : "forms/javarosa/sms_form.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"build_SMS-Tester-Form_1524097605\" odk:delimiter=\";\" odk:prefix=\"FORM232\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><meta><instanceID>uuid:<uuid></instanceID></meta><first_name odk:tag=\"FN\">John</first_name><last_name odk:tag=\"LN\">Doe</last_name><address>39 Reed Street</address><country odk:tag=\"CTY\" /><dob odk:tag=\"DOB\">2015-08-05</dob><gender>male</gender><children><child_full_name odk:tag=\"CN\">Mary Doe</child_full_name><child_full_name odk:tag=\"CN\">Sara Doe</child_full_name><child_full_name odk:tag=\"CN\">Jim Doe</child_full_name><child_country>Jamaica</child_country><child_country>Jamaica</child_country><child_country>America</child_country></children><picture odk:tag=\"PIC\">test_image.jpg</picture></data>",
+  "parse" : {
+    "language" : "English",
+    "languages" : [ "English" ],
+    "ok" : true,
+    "title" : "SMS Tester Form"
+  },
+  "steps" : [ {
+    "events" : [ {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : "What's your first name?",
+      "label" : "First Name",
+      "readonly" : false,
+      "ref" : "/data/first_name[1]",
+      "required" : false,
+      "value" : "John"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "What's your last name?",
+      "readonly" : false,
+      "ref" : "/data/last_name[1]",
+      "required" : false,
+      "value" : "Doe"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : "Which street do you live on?",
+      "label" : "Street Address",
+      "readonly" : false,
+      "ref" : "/data/address[1]",
+      "required" : false,
+      "value" : "39 Reed Street"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Which country do you currently reside in?",
+      "readonly" : false,
+      "ref" : "/data/country[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "date",
+      "event" : "question",
+      "hint" : null,
+      "label" : "When were you born?",
+      "readonly" : false,
+      "ref" : "/data/dob[1]",
+      "required" : false,
+      "value" : "2015-08-05"
+    }, {
+      "appearance" : null,
+      "choices" : [ {
+        "label" : "Male",
+        "value" : "male"
+      }, {
+        "label" : "Female",
+        "value" : "female"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : "What's your gender?",
+      "readonly" : false,
+      "ref" : "/data/gender[1]",
+      "required" : false,
+      "value" : "male"
+    }, {
+      "appearance" : null,
+      "event" : "repeat",
+      "label" : "State the name of your children",
+      "ref" : "/data/children[1]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : "Put the full name of the child. Exclude the middle name.",
+      "label" : "Full Name",
+      "readonly" : false,
+      "ref" : "/data/children[1]/child_full_name[1]",
+      "required" : false,
+      "value" : "Mary Doe"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Which country do they live in?",
+      "readonly" : false,
+      "ref" : "/data/children[1]/child_country[1]",
+      "required" : false,
+      "value" : "Jamaica"
+    }, {
+      "event" : "promptNewRepeat",
+      "ref" : "/data/children[2]"
+    }, {
+      "appearance" : null,
+      "control" : "imageChoose",
+      "dataType" : "binary",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Take a picture of yourself.",
+      "readonly" : false,
+      "ref" : "/data/picture[1]",
+      "required" : false,
+      "value" : "test_image.jpg"
+    }, {
+      "event" : "endOfForm"
+    } ],
+    "op" : "walk"
+  }, {
+    "op" : "validate",
+    "outcome" : "ok",
+    "ref" : null
+  } ],
+  "traceVersion" : 1
+}

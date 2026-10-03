@@ -1,0 +1,63 @@
+{
+  "form" : "forms/javarosa/org/javarosa/xform/parse/external-select-xml.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"external-select-xml\" xmlns:h=\"http://www.w3.org/1999/xhtml\"><first /><second /><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "language" : null,
+    "languages" : [ ],
+    "ok" : true,
+    "title" : "XML External Secondary Instance"
+  },
+  "steps" : [ {
+    "events" : [ {
+      "appearance" : null,
+      "choices" : [ {
+        "label" : "A",
+        "value" : "a"
+      }, {
+        "label" : "B",
+        "value" : "b"
+      }, {
+        "label" : "C",
+        "value" : "c"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : "First",
+      "readonly" : false,
+      "ref" : "/data/first[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "choices" : [ {
+        "label" : "A",
+        "value" : "a"
+      }, {
+        "label" : "B",
+        "value" : "b"
+      }, {
+        "label" : "C",
+        "value" : "c"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Second",
+      "readonly" : false,
+      "ref" : "/data/second[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "event" : "endOfForm"
+    } ],
+    "op" : "walk"
+  }, {
+    "op" : "validate",
+    "outcome" : "ok",
+    "ref" : null
+  } ],
+  "traceVersion" : 1
+}

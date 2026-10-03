@@ -1,0 +1,249 @@
+{
+  "form" : "forms/javarosa/eIMCI-by-D-Tree.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><imci id=\"imci\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\" xmlns=\"http://dtree.org/e-imci\"><Meta><formName>eIMCI</formName><formVersion>0.0.1</formVersion><DeviceID /><TimeStart><now></TimeStart><TimeEnd /><username /><chw_id /><uid>uuid:<uuid></uid></Meta><visit_type>first</visit_type><notice /><preamble><danger_signs /><look_danger_signs /><main_symptoms /><other_complaint /><cough_doublecheck /><diarrhea_doublecheck /><ear_doublecheck /><info><child_in_danger>0</child_in_danger></info></preamble><vitals><age /><age_unit /><info /><weight /></vitals><interlude><breastfeeding /><other_feed /><feeding_change /><other_problems /><info><feed_other /><keep_feeding /><treat_problems /></info></interlude><dosing /><other_treatment><cough /><measles /><diarrhea /><ear /></other_treatment><finish><info_return_if /><done /></finish><info /><tmp><sentinel><followup_reassess>no</followup_reassess><followup_reassess_full>no</followup_reassess_full><vitals /></sentinel><normalized><has_cough>0</has_cough><has_diarrhea>0</has_diarrhea><has_ear>0</has_ear><has_fever>0</has_fever><has_cholera>0</has_cholera><has_severe>0</has_severe><age /><weight /><fast_breath>0</fast_breath><measles_risk>0</measles_risk><followup><time /><if_no_improvement>0</if_no_improvement></followup><classification><cough /><fever /><measles /><ear /><dysentery /><dehydration /><diarrhea /></classification><diagnosis><cough /><fever /><ear /><dysentery /><dehydration /><diarrhea /></diagnosis><treatment><malaria_quinine><choice /><amount /><drug /><variant /><frequency /><duration /></malaria_quinine><pneumonia_antibiotic><category /><choice /><amount /><drug /><variant /><frequency /><duration /></pneumonia_antibiotic><cholera_antibiotic><antibiotic_already>0</antibiotic_already><category /><choice /><amount /><drug /><variant /><frequency /><duration /></cholera_antibiotic><dysentery_antibiotic><antibiotic_already>0</antibiotic_already><category /><choice /><amount /><drug /><variant /><frequency /><duration /></dysentery_antibiotic><ear_antibiotic><antibiotic_already>0</antibiotic_already><category /><choice /><amount /><drug /><variant /><frequency /><duration /></ear_antibiotic><malaria_antibiotic><antibiotic_already>0</antibiotic_already><category /><choice /><amount /><drug /><variant /><frequency /><duration /></malaria_antibiotic><painkiller><amount /><drug /><variant /><frequency /></painkiller><hydration_plan /><hydration_plan_text /></treatment></normalized><const><high_malaria_risk>1</high_malaria_risk><cholera_risk>1</cholera_risk></const><dosings><diazepam>[amount unavailable for age/weight]</diazepam><alu>[amount unavailable for age/weight]</alu><amoxycillin><tablet>[amount unavailable for age/weight]</tablet><syrup>[amount unavailable for age/weight]</syrup></amoxycillin><cotrimoxazole><adult>[amount unavailable for age/weight]</adult><ped>[amount unavailable for age/weight]</ped><syrup>[amount unavailable for age/weight]</syrup></cotrimoxazole><erythromycin>[amount unavailable for age/weight]</erythromycin><nalidixic_acid>[amount unavailable for age/weight]</nalidixic_acid><paracetamol><ped>[amount unavailable for age/weight]</ped><adult>[amount unavailable for age/weight]</adult></paracetamol><procaine_penicillin>[amount unavailable for age/weight]</procaine_penicillin><quinine><injection>[amount unavailable for age/weight]</injection><tablet>[amount unavailable for age/weight]</tablet></quinine></dosings></tmp></imci>",
+  "parse" : {
+    "language" : "English",
+    "languages" : [ "English", "Swahili" ],
+    "ok" : true,
+    "title" : "eIMCI by D-Tree"
+  },
+  "steps" : [ {
+    "events" : [ {
+      "appearance" : null,
+      "control" : "trigger",
+      "dataType" : "null",
+      "event" : "question",
+      "hint" : null,
+      "label" : "eIMCI by D-Tree International is based on the IMCI Chart Booklet from the Tanzanian Ministry of Health.\n\nIT IS FOR DEMONSTRATION PURPOSES ONLY!",
+      "readonly" : false,
+      "ref" : "/imci/notice[1]",
+      "required" : true,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "choices" : [ {
+        "label" : "Is the child convulsing now",
+        "value" : "convuls"
+      }, {
+        "label" : "Is the child lethargic or unconscious",
+        "value" : "lethargy"
+      } ],
+      "control" : "selectMulti",
+      "dataType" : "multipleItems",
+      "event" : "question",
+      "hint" : null,
+      "label" : "CHECK FOR GENERAL DANGER SIGNS. LOOK:",
+      "readonly" : false,
+      "ref" : "/imci/preamble[1]/look_danger_signs[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "choices" : [ {
+        "label" : "Unable to drink/breastfeed",
+        "value" : "no_drink"
+      }, {
+        "label" : "Vomits everything",
+        "value" : "vomits"
+      }, {
+        "label" : "Had convulsions during current illness",
+        "value" : "convuls"
+      } ],
+      "control" : "selectMulti",
+      "dataType" : "multipleItems",
+      "event" : "question",
+      "hint" : null,
+      "label" : "CHECK FOR GENERAL DANGER SIGNS. ASK:",
+      "readonly" : false,
+      "ref" : "/imci/preamble[1]/danger_signs[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "event" : "group",
+      "label" : null,
+      "ref" : "/imci/tmp[1]/sentinel[1]/vitals[1]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "integer",
+      "event" : "question",
+      "hint" : null,
+      "label" : "ASK: What is the child's age (in years or months)",
+      "readonly" : false,
+      "ref" : "/imci/vitals[1]/age[1]",
+      "required" : true,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "choices" : [ {
+        "label" : "Years",
+        "value" : "years"
+      }, {
+        "label" : "Months",
+        "value" : "months"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : " years old or  months old?",
+      "readonly" : false,
+      "ref" : "/imci/vitals[1]/age_unit[1]",
+      "required" : true,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "integer",
+      "event" : "question",
+      "hint" : null,
+      "label" : "ASK: What is the child's weight in kg (skip if unknown)",
+      "readonly" : false,
+      "ref" : "/imci/vitals[1]/weight[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "event" : "group",
+      "label" : null,
+      "ref" : "/imci/preamble[1]"
+    }, {
+      "appearance" : null,
+      "choices" : [ {
+        "label" : "Cough or difficult breathing",
+        "value" : "cough"
+      }, {
+        "label" : "Diarrhea",
+        "value" : "diarrhea"
+      }, {
+        "label" : "Fever",
+        "value" : "fever"
+      }, {
+        "label" : "Ear problem",
+        "value" : "ear"
+      }, {
+        "label" : "Other/None of the above",
+        "value" : "none"
+      } ],
+      "control" : "selectMulti",
+      "dataType" : "multipleItems",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Ask about main symptoms",
+      "readonly" : false,
+      "ref" : "/imci/preamble[1]/main_symptoms[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "choices" : [ {
+        "label" : "Yes",
+        "value" : "yes"
+      }, {
+        "label" : "No",
+        "value" : "no"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : "ASK: Just to check, does the child have a cough?",
+      "readonly" : false,
+      "ref" : "/imci/preamble[1]/cough_doublecheck[1]",
+      "required" : true,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "choices" : [ {
+        "label" : "Yes",
+        "value" : "yes"
+      }, {
+        "label" : "No",
+        "value" : "no"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : "ASK: Just to check, does the child have any diarrhea?",
+      "readonly" : false,
+      "ref" : "/imci/preamble[1]/diarrhea_doublecheck[1]",
+      "required" : true,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "choices" : [ {
+        "label" : "Yes",
+        "value" : "yes"
+      }, {
+        "label" : "No",
+        "value" : "no"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : "ASK: Just to check, does the child have any ear problems?",
+      "readonly" : false,
+      "ref" : "/imci/preamble[1]/ear_doublecheck[1]",
+      "required" : true,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "event" : "group",
+      "label" : null,
+      "ref" : "/imci/other_treatment[1]"
+    }, {
+      "appearance" : null,
+      "event" : "group",
+      "label" : null,
+      "ref" : "/imci/other_treatment[1]/measles[1]"
+    }, {
+      "appearance" : null,
+      "event" : "group",
+      "label" : null,
+      "ref" : "/imci/other_treatment[1]/cough[1]"
+    }, {
+      "appearance" : null,
+      "event" : "group",
+      "label" : null,
+      "ref" : "/imci/other_treatment[1]/diarrhea[1]"
+    }, {
+      "appearance" : null,
+      "event" : "group",
+      "label" : null,
+      "ref" : "/imci/other_treatment[1]/ear[1]"
+    }, {
+      "appearance" : null,
+      "control" : "trigger",
+      "dataType" : "null",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Tell mother to return immediately if child is not able to drink/breastfeed, becomes sicker, or develops a fever",
+      "readonly" : false,
+      "ref" : "/imci/finish[1]/info_return_if[1]",
+      "required" : true,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "trigger",
+      "dataType" : "null",
+      "event" : "question",
+      "hint" : null,
+      "label" : "The protocol is complete. Thank you for using E-IMCI.",
+      "readonly" : false,
+      "ref" : "/imci/finish[1]/done[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "event" : "endOfForm"
+    } ],
+    "op" : "walk"
+  }, {
+    "op" : "validate",
+    "outcome" : "required",
+    "ref" : "/imci/notice[1]"
+  } ],
+  "traceVersion" : 1
+}

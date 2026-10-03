@@ -1,0 +1,32 @@
+{
+  "form" : "forms/javarosa/range-form-itemset.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><stats id=\"a\" xmlns:h=\"http://www.w3.org/1999/xhtml\"><balance /></stats>",
+  "parse" : {
+    "language" : null,
+    "languages" : [ ],
+    "ok" : true,
+    "title" : "Form with a Range"
+  },
+  "steps" : [ {
+    "events" : [ {
+      "appearance" : null,
+      "control" : "range",
+      "dataType" : "decimal",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Balance",
+      "readonly" : false,
+      "ref" : "/stats/balance[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "event" : "endOfForm"
+    } ],
+    "op" : "walk"
+  }, {
+    "op" : "validate",
+    "outcome" : "ok",
+    "ref" : null
+  } ],
+  "traceVersion" : 1
+}

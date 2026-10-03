@@ -1,0 +1,21 @@
+{
+  "form" : "forms/javarosa/meta-namespace-form.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"test\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:orx2=\"http://openrosa.org/xforms\"><orx2:meta><orx2:audit /><orx2:audit2 /><audit3 /></orx2:meta></data>",
+  "parse" : {
+    "language" : null,
+    "languages" : [ ],
+    "ok" : true,
+    "title" : "Namespace for Metadata"
+  },
+  "steps" : [ {
+    "events" : [ {
+      "event" : "endOfForm"
+    } ],
+    "op" : "walk"
+  }, {
+    "op" : "validate",
+    "outcome" : "ok",
+    "ref" : null
+  } ],
+  "traceVersion" : 1
+}

@@ -1,0 +1,92 @@
+{
+  "form" : "forms/javarosa/ImageSelectTester.xhtml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><icons xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><id /><name /><find-mirc /><non-local /><consTest /></icons>",
+  "parse" : {
+    "language" : "English",
+    "languages" : [ "English" ],
+    "ok" : true,
+    "title" : "RichMedia testing Images"
+  },
+  "steps" : [ {
+    "events" : [ {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "null",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Patient ID",
+      "readonly" : false,
+      "ref" : "/icons/id[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "null",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Full Name",
+      "readonly" : false,
+      "ref" : "/icons/name[1]",
+      "required" : true,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "choices" : [ {
+        "label" : "Icon 4",
+        "value" : "pand"
+      }, {
+        "label" : "Icon 3",
+        "value" : "mirc"
+      }, {
+        "label" : "Icon 1",
+        "value" : "powerp"
+      }, {
+        "label" : "Icon 2",
+        "value" : "gmail"
+      }, {
+        "label" : "Non-localized select text item label",
+        "value" : "other"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Please find the mirc icon",
+      "readonly" : false,
+      "ref" : "/icons/find-mirc[1]",
+      "required" : true,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "null",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Non-Localized label inner text!",
+      "readonly" : false,
+      "ref" : "/icons/non-local[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "integer",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Should Be Less than 10",
+      "readonly" : false,
+      "ref" : "/icons/consTest[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "event" : "endOfForm"
+    } ],
+    "op" : "walk"
+  }, {
+    "op" : "validate",
+    "outcome" : "required",
+    "ref" : "/icons/name[1]"
+  } ],
+  "traceVersion" : 1
+}

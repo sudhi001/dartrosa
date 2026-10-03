@@ -1,0 +1,236 @@
+{
+  "form" : "forms/javarosa/org/javarosa/xpath/expr/randomize.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"randomize\" xmlns:h=\"http://www.w3.org/1999/xhtml\"><no-seed-random-value>6</no-seed-random-value><no-seed-fruit1 /><no-seed-fruit2 /><static-seed-random-value>6</static-seed-random-value><static-seed-fruit1 /><static-seed-fruit2 /><seed>42</seed><nodeset-seed-random-value>6</nodeset-seed-random-value><nodeset-seed-fruit1 /><nodeset-seed-fruit2 /><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "language" : null,
+    "languages" : [ ],
+    "ok" : true,
+    "title" : "Randomize Test"
+  },
+  "steps" : [ {
+    "events" : [ {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "integer",
+      "event" : "question",
+      "hint" : null,
+      "label" : null,
+      "readonly" : false,
+      "ref" : "/data/no-seed-random-value[1]",
+      "required" : false,
+      "value" : "6"
+    }, {
+      "appearance" : null,
+      "choices" : [ {
+        "label" : "Apple",
+        "value" : "apple"
+      }, {
+        "label" : "Banana",
+        "value" : "banana"
+      }, {
+        "label" : "Cherimoya",
+        "value" : "cherimoya"
+      }, {
+        "label" : "Durian",
+        "value" : "durian"
+      }, {
+        "label" : "Elderberry",
+        "value" : "elderberry"
+      }, {
+        "label" : "Fig",
+        "value" : "fig"
+      } ],
+      "choicesOrder" : "unseededRandom",
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Fruit #1",
+      "readonly" : false,
+      "ref" : "/data/no-seed-fruit1[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "choices" : [ {
+        "label" : "Apple",
+        "value" : "apple"
+      }, {
+        "label" : "Banana",
+        "value" : "banana"
+      }, {
+        "label" : "Cherimoya",
+        "value" : "cherimoya"
+      }, {
+        "label" : "Durian",
+        "value" : "durian"
+      }, {
+        "label" : "Elderberry",
+        "value" : "elderberry"
+      }, {
+        "label" : "Fig",
+        "value" : "fig"
+      } ],
+      "choicesOrder" : "unseededRandom",
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Fruit #2",
+      "readonly" : false,
+      "ref" : "/data/no-seed-fruit2[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "integer",
+      "event" : "question",
+      "hint" : null,
+      "label" : null,
+      "readonly" : false,
+      "ref" : "/data/static-seed-random-value[1]",
+      "required" : false,
+      "value" : "6"
+    }, {
+      "appearance" : null,
+      "choices" : [ {
+        "label" : "Apple",
+        "value" : "apple"
+      }, {
+        "label" : "Fig",
+        "value" : "fig"
+      }, {
+        "label" : "Cherimoya",
+        "value" : "cherimoya"
+      }, {
+        "label" : "Banana",
+        "value" : "banana"
+      }, {
+        "label" : "Durian",
+        "value" : "durian"
+      }, {
+        "label" : "Elderberry",
+        "value" : "elderberry"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Fruit #1",
+      "readonly" : false,
+      "ref" : "/data/static-seed-fruit1[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "choices" : [ {
+        "label" : "Apple",
+        "value" : "apple"
+      }, {
+        "label" : "Fig",
+        "value" : "fig"
+      }, {
+        "label" : "Cherimoya",
+        "value" : "cherimoya"
+      }, {
+        "label" : "Banana",
+        "value" : "banana"
+      }, {
+        "label" : "Durian",
+        "value" : "durian"
+      }, {
+        "label" : "Elderberry",
+        "value" : "elderberry"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Fruit #2",
+      "readonly" : false,
+      "ref" : "/data/static-seed-fruit2[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "integer",
+      "event" : "question",
+      "hint" : null,
+      "label" : null,
+      "readonly" : false,
+      "ref" : "/data/nodeset-seed-random-value[1]",
+      "required" : false,
+      "value" : "6"
+    }, {
+      "appearance" : null,
+      "choices" : [ {
+        "label" : "Apple",
+        "value" : "apple"
+      }, {
+        "label" : "Fig",
+        "value" : "fig"
+      }, {
+        "label" : "Cherimoya",
+        "value" : "cherimoya"
+      }, {
+        "label" : "Banana",
+        "value" : "banana"
+      }, {
+        "label" : "Durian",
+        "value" : "durian"
+      }, {
+        "label" : "Elderberry",
+        "value" : "elderberry"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Fruit #1",
+      "readonly" : false,
+      "ref" : "/data/nodeset-seed-fruit1[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "choices" : [ {
+        "label" : "Apple",
+        "value" : "apple"
+      }, {
+        "label" : "Fig",
+        "value" : "fig"
+      }, {
+        "label" : "Cherimoya",
+        "value" : "cherimoya"
+      }, {
+        "label" : "Banana",
+        "value" : "banana"
+      }, {
+        "label" : "Durian",
+        "value" : "durian"
+      }, {
+        "label" : "Elderberry",
+        "value" : "elderberry"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Fruit #2",
+      "readonly" : false,
+      "ref" : "/data/nodeset-seed-fruit2[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "event" : "endOfForm"
+    } ],
+    "op" : "walk"
+  }, {
+    "op" : "validate",
+    "outcome" : "ok",
+    "ref" : null
+  } ],
+  "traceVersion" : 1
+}

@@ -1,0 +1,65 @@
+{
+  "form" : "forms/javarosa/org/javarosa/form/api/constraint-message-error.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"build_constraint_1528454900\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><meta><instanceID>uuid:<uuid></instanceID></meta><q1 /><q2 /><q3 /><q4 /></data>",
+  "parse" : {
+    "language" : "English",
+    "languages" : [ "English" ],
+    "ok" : true,
+    "title" : "Constraint"
+  },
+  "steps" : [ {
+    "events" : [ {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "integer",
+      "event" : "question",
+      "hint" : "Expected constraint: \"Your message\"",
+      "label" : "Min 5",
+      "readonly" : false,
+      "ref" : "/data/q1[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "integer",
+      "event" : "question",
+      "hint" : "Expected constraint: \"Message\"",
+      "label" : "Min 5",
+      "readonly" : false,
+      "ref" : "/data/q2[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "integer",
+      "event" : "question",
+      "hint" : "Expected constraint: \"Your message\"",
+      "label" : "Min 5",
+      "readonly" : false,
+      "ref" : "/data/q3[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "integer",
+      "event" : "question",
+      "hint" : "Expected constraint: \"Message\"",
+      "label" : "Min 5",
+      "readonly" : false,
+      "ref" : "/data/q4[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "event" : "endOfForm"
+    } ],
+    "op" : "walk"
+  }, {
+    "op" : "validate",
+    "outcome" : "ok",
+    "ref" : null
+  } ],
+  "traceVersion" : 1
+}

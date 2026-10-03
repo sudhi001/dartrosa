@@ -1,0 +1,159 @@
+{
+  "form" : "forms/javarosa/org/javarosa/core/model/three-level-cascading-multi-select.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"three-level-cascading-multi-select\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><level1 /><level2 /><level3 /><level1_contains /><level2_contains /><level3_contains /><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "language" : null,
+    "languages" : [ ],
+    "ok" : true,
+    "title" : "Three level cascading multi select"
+  },
+  "steps" : [ {
+    "events" : [ {
+      "appearance" : null,
+      "choices" : [ {
+        "label" : "A",
+        "value" : "a"
+      }, {
+        "label" : "B",
+        "value" : "b"
+      }, {
+        "label" : "C",
+        "value" : "c"
+      } ],
+      "control" : "selectMulti",
+      "dataType" : "multipleItems",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Level1",
+      "readonly" : false,
+      "ref" : "/data/level1[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "choices" : [ ],
+      "control" : "selectMulti",
+      "dataType" : "multipleItems",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Level2",
+      "readonly" : false,
+      "ref" : "/data/level2[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "choices" : [ ],
+      "control" : "selectMulti",
+      "dataType" : "multipleItems",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Level3",
+      "readonly" : false,
+      "ref" : "/data/level3[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "choices" : [ {
+        "label" : "A",
+        "value" : "a"
+      }, {
+        "label" : "B",
+        "value" : "b"
+      }, {
+        "label" : "C",
+        "value" : "c"
+      } ],
+      "control" : "selectMulti",
+      "dataType" : "multipleItems",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Level1 contains",
+      "readonly" : false,
+      "ref" : "/data/level1_contains[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "choices" : [ {
+        "label" : "AA",
+        "value" : "aa"
+      }, {
+        "label" : "AB",
+        "value" : "ab"
+      }, {
+        "label" : "AC",
+        "value" : "ac"
+      }, {
+        "label" : "BA",
+        "value" : "ba"
+      }, {
+        "label" : "BB",
+        "value" : "bb"
+      }, {
+        "label" : "BC",
+        "value" : "bc"
+      }, {
+        "label" : "CA",
+        "value" : "ca"
+      }, {
+        "label" : "CB",
+        "value" : "cb"
+      }, {
+        "label" : "CC",
+        "value" : "cc"
+      }, {
+        "label" : "CD",
+        "value" : "cd"
+      } ],
+      "control" : "selectMulti",
+      "dataType" : "multipleItems",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Level2 contains",
+      "readonly" : false,
+      "ref" : "/data/level2_contains[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "choices" : [ {
+        "label" : "AAA",
+        "value" : "aaa"
+      }, {
+        "label" : "AAB",
+        "value" : "aab"
+      }, {
+        "label" : "BAA",
+        "value" : "baa"
+      }, {
+        "label" : "BAB",
+        "value" : "bab"
+      }, {
+        "label" : "CAA",
+        "value" : "caa"
+      }, {
+        "label" : "CAB",
+        "value" : "cab"
+      } ],
+      "control" : "selectMulti",
+      "dataType" : "multipleItems",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Level3 contains",
+      "readonly" : false,
+      "ref" : "/data/level3_contains[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "event" : "endOfForm"
+    } ],
+    "op" : "walk"
+  }, {
+    "op" : "validate",
+    "outcome" : "ok",
+    "ref" : null
+  } ],
+  "traceVersion" : 1
+}

@@ -1,0 +1,10 @@
+.dart_tool/
+build/
+coverage/
+pubspec.lock
+!/pubspec.lock
+.DS_Store
+.idea/
+*.iml
+conformance/jvm_oracle/lib/
+conformance/jvm_oracle/out/

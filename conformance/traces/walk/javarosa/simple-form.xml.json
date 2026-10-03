@@ -1,0 +1,37 @@
+{
+  "form" : "forms/javarosa/simple-form.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"collect197test\" xmlns:h=\"http://www.w3.org/1999/xhtml\"><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "language" : null,
+    "languages" : [ ],
+    "ok" : true,
+    "title" : "Simple Form"
+  },
+  "steps" : [ {
+    "events" : [ {
+      "appearance" : "field-list",
+      "event" : "group",
+      "label" : null,
+      "ref" : "/data"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Instance ID:",
+      "readonly" : true,
+      "ref" : "/data/meta[1]/instanceID[1]",
+      "required" : false,
+      "value" : "uuid:<uuid>"
+    }, {
+      "event" : "endOfForm"
+    } ],
+    "op" : "walk"
+  }, {
+    "op" : "validate",
+    "outcome" : "ok",
+    "ref" : null
+  } ],
+  "traceVersion" : 1
+}

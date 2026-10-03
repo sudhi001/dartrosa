@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  dart:
+    name: Dart (analyze, test on VM / JS / Wasm)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dart-lang/setup-dart@v1
+        with:
+          sdk: stable
+      - run: dart pub get
+      - run: dart format --output=none --set-exit-if-changed .
+      - run: dart analyze --fatal-infos
+      - run: dart run tool/check_core_purity.dart
+      - name: Test (VM)
+        run: dart test packages/dartrosa_xpath packages/dartrosa
+      # Browser tests must run from inside each package (test runner limitation).
+      - name: Test (Chrome, dart2js and dart2wasm)
+        run: |
+          for p in dartrosa_xpath dartrosa; do
+            (cd packages/$p && dart test -p chrome && dart test -p chrome --compiler dart2wasm)
+          done
+
+  oracle:
+    name: JavaRosa oracle traces are up to date
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: actions/cache@v4
+        with:
+          path: conformance/jvm_oracle/lib
+          key: oracle-deps-${{ hashFiles('conformance/jvm_oracle/deps.txt') }}
+      - run: conformance/jvm_oracle/oracle.sh batch conformance
+      - name: Committed traces must match a fresh oracle run
+        run: git diff --exit-code -- conformance/traces

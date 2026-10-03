@@ -1,0 +1,21 @@
+{
+  "form" : "forms/javarosa/org/javarosa/xform/parse/external-secondary-instance.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"a\" xmlns:h=\"http://www.w3.org/1999/xhtml\"><data_set_used /></data>",
+  "parse" : {
+    "language" : null,
+    "languages" : [ ],
+    "ok" : true,
+    "title" : "Form with external secondary instance"
+  },
+  "steps" : [ {
+    "events" : [ {
+      "event" : "endOfForm"
+    } ],
+    "op" : "walk"
+  }, {
+    "op" : "validate",
+    "outcome" : "ok",
+    "ref" : null
+  } ],
+  "traceVersion" : 1
+}

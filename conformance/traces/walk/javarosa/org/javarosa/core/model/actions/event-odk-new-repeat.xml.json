@@ -1,0 +1,81 @@
+{
+  "form" : "forms/javarosa/org/javarosa/core/model/actions/event-odk-new-repeat.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"event-odk-new-repeat\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\"><meta><instanceID>uuid:<uuid></instanceID></meta><my-toplevel-value /><repeat-count /><my-repeat-without-template><my-value /></my-repeat-without-template><my-repeat-without-template><my-value /></my-repeat-without-template></data>",
+  "parse" : {
+    "language" : null,
+    "languages" : [ ],
+    "ok" : true,
+    "title" : "Event: odk-new-repeat"
+  },
+  "steps" : [ {
+    "events" : [ {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "integer",
+      "event" : "question",
+      "hint" : null,
+      "label" : "A top-level value",
+      "readonly" : false,
+      "ref" : "/data/my-toplevel-value[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "event" : "promptNewRepeat",
+      "ref" : "/data/my-repeat[1]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "integer",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Repeat count",
+      "readonly" : false,
+      "ref" : "/data/repeat-count[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "event" : "repeat",
+      "label" : null,
+      "ref" : "/data/my-repeat-without-template[1]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "integer",
+      "event" : "question",
+      "hint" : null,
+      "label" : "A value",
+      "readonly" : false,
+      "ref" : "/data/my-repeat-without-template[1]/my-value[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "event" : "repeat",
+      "label" : null,
+      "ref" : "/data/my-repeat-without-template[2]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "integer",
+      "event" : "question",
+      "hint" : null,
+      "label" : "A value",
+      "readonly" : false,
+      "ref" : "/data/my-repeat-without-template[2]/my-value[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "event" : "promptNewRepeat",
+      "ref" : "/data/my-repeat-without-template[3]"
+    }, {
+      "event" : "endOfForm"
+    } ],
+    "op" : "walk"
+  }, {
+    "op" : "validate",
+    "outcome" : "ok",
+    "ref" : null
+  } ],
+  "traceVersion" : 1
+}

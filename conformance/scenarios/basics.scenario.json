@@ -1,0 +1,17 @@
+{
+  "description": "Constraint, calculate, relevance and repeat positions",
+  "form": "forms/dartrosa/basics.xml",
+  "steps": [
+    { "op": "validate" },
+    { "op": "answer", "ref": "/data/age", "value": "200" },
+    { "op": "answer", "ref": "/data/age", "value": "30" },
+    { "op": "addRepeat", "ref": "/data/child" },
+    { "op": "addRepeat", "ref": "/data/child" },
+    { "op": "answer", "ref": "/data/child[2]/name", "value": "Bo" },
+    { "op": "removeRepeat", "ref": "/data/child[1]" },
+    { "op": "walk" },
+    { "op": "answer", "ref": "/data/age", "value": "12" },
+    { "op": "walk" },
+    { "op": "validate" }
+  ]
+}

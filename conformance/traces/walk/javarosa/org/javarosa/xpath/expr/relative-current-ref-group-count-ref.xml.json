@@ -1,0 +1,69 @@
+{
+  "form" : "forms/javarosa/org/javarosa/xpath/expr/relative-current-ref-group-count-ref.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"relative-current-ref-form-field-bind\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\"><count>3</count><my_group><name /></my_group><my_group><name /></my_group><my_group><name /></my_group><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "language" : null,
+    "languages" : [ ],
+    "ok" : true,
+    "title" : "relative-current-ref"
+  },
+  "steps" : [ {
+    "events" : [ {
+      "appearance" : null,
+      "event" : "repeat",
+      "label" : "Some label",
+      "ref" : "/data/my_group[1]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Name",
+      "readonly" : false,
+      "ref" : "/data/my_group[1]/name[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "event" : "repeat",
+      "label" : "Some label",
+      "ref" : "/data/my_group[2]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Name",
+      "readonly" : false,
+      "ref" : "/data/my_group[2]/name[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "event" : "repeat",
+      "label" : "Some label",
+      "ref" : "/data/my_group[3]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Name",
+      "readonly" : false,
+      "ref" : "/data/my_group[3]/name[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "event" : "endOfForm"
+    } ],
+    "op" : "walk"
+  }, {
+    "op" : "validate",
+    "outcome" : "ok",
+    "ref" : null
+  } ],
+  "traceVersion" : 1
+}
