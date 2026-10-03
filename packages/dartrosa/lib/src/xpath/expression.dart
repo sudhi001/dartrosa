@@ -2,9 +2,11 @@ import 'package:collection/collection.dart';
 import 'package:meta/meta.dart';
 
 import '../model/condition/evaluation_context.dart';
+import '../model/condition/pivot.dart';
 import '../model/instance/data_instance.dart';
 import '../model/instance/tree_reference.dart';
 import '../util/java_double.dart';
+import '../util/java_lang.dart';
 import 'conversions.dart';
 import 'exceptions.dart';
 import 'functions.dart';
@@ -25,6 +27,21 @@ sealed class XPathExpression {
   /// [context]. The result is a `bool`, `double`, `String`, `DateTime`,
   /// [XPathNodeset] or a value returned by a custom function.
   Object eval(DataInstance? model, EvaluationContext context);
+
+  /// Pivots this expression around [sentinel] (the validated node's
+  /// reference), adding [CmpPivot]s to [pivots]. Returns [sentinel] when
+  /// the value *is* the node, `null` when it depends on it in a supported
+  /// way, otherwise the evaluated value. Throws
+  /// [UnpivotableExpressionException] when the dependency can't be
+  /// expressed as pivots.
+  ///
+  /// Port of `XPathExpression.pivot`; see [pivotsOf].
+  Object? pivot(
+    DataInstance? model,
+    EvaluationContext context,
+    List<Object> pivots,
+    Object sentinel,
+  ) => eval(model, context);
 
   /// Evaluates against [context]'s main instance.
   Object evalIn(EvaluationContext context) =>
@@ -149,6 +166,22 @@ sealed class XPathBinaryOpExpr extends XPathExpression {
   @override
   bool containsFunc(String name) =>
       a.containsFunc(name) || b.containsFunc(name);
+
+  @override
+  Object? pivot(
+    DataInstance? model,
+    EvaluationContext context,
+    List<Object> pivots,
+    Object sentinel,
+  ) {
+    final x = a.pivot(model, context, pivots, sentinel);
+    final y = b.pivot(model, context, pivots, sentinel);
+    if (identical(x, sentinel) || identical(y, sentinel)) {
+      throw const UnpivotableExpressionException();
+    }
+    if (x == null || y == null) return null;
+    return eval(model, context);
+  }
 
   @override
   String toString() => '{binop-expr:$_operatorString,$a,$b}';
@@ -276,6 +309,44 @@ final class XPathCmpExpr extends XPathBinaryOpExpr {
     };
   }
 
+  /// A comparison of the node with a number yields a [CmpPivot].
+  @override
+  Object? pivot(
+    DataInstance? model,
+    EvaluationContext context,
+    List<Object> pivots,
+    Object sentinel,
+  ) {
+    final x = a.pivot(model, context, pivots, sentinel);
+    var y = b.pivot(model, context, pivots, sentinel);
+    if (y is XPathNodeset) y = y.unpack();
+    if (_handled(x, y, sentinel, pivots) || _handled(y, x, sentinel, pivots)) {
+      return null;
+    }
+    return eval(model, context);
+  }
+
+  bool _handled(Object? x, Object? y, Object sentinel, List<Object> pivots) {
+    if (!identical(x, sentinel)) return false;
+    if (y == null || identical(y, sentinel)) {
+      throw const UnpivotableExpressionException();
+    }
+    final value = switch (y) {
+      double() => y,
+      int() => y.toDouble(),
+      String() =>
+        javaParseDouble(y) ??
+            (throw UnpivotableExpressionException(
+              'Unrecognized numeric data in cmp expression: $y',
+            )),
+      _ => throw UnpivotableExpressionException(
+        'Unrecognized numeric data in cmp expression: $y',
+      ),
+    };
+    pivots.add(CmpPivot(value, op));
+    return true;
+  }
+
   @override
   String get _operatorString => op.symbol;
 }
@@ -378,6 +449,35 @@ final class XPathFuncExpr extends XPathExpression {
   Object eval(DataInstance? model, EvaluationContext context) =>
       evalFunction(this, model, context);
 
+  /// Only `string-length` passes the node through (as an identity); any
+  /// other function of the node is unpivotable.
+  @override
+  Object? pivot(
+    DataInstance? model,
+    EvaluationContext context,
+    List<Object> pivots,
+    Object sentinel,
+  ) {
+    final isIdentity = id.toString() == 'string-length';
+    final values = [
+      for (final arg in args) arg.pivot(model, context, pivots, sentinel),
+    ];
+    var pivoted = false;
+    for (final value in values) {
+      if (value == null) {
+        pivoted = true;
+      } else if (sentinel == value) {
+        if (isIdentity) return sentinel;
+        throw const UnpivotableExpressionException();
+      }
+    }
+    if (pivoted) {
+      if (isIdentity) return null;
+      throw const UnpivotableExpressionException();
+    }
+    return eval(model, context);
+  }
+
   @override
   bool get isIdempotent =>
       idempotentFunctions.contains(id.toString()) &&
@@ -418,6 +518,14 @@ final class XPathFilterExpr extends XPathExpression {
   @override
   Object eval(DataInstance? model, EvaluationContext context) =>
       throw XPathUnsupportedException('filter expression');
+
+  @override
+  Object? pivot(
+    DataInstance? model,
+    EvaluationContext context,
+    List<Object> pivots,
+    Object sentinel,
+  ) => throw const UnpivotableExpressionException();
 
   @override
   bool get isIdempotent =>
@@ -490,6 +598,29 @@ final class XPathPathExpr extends XPathExpression {
   final List<XPathStep> steps;
 
   late final TreeReference _reference = toTreeReference();
+
+  /// `.` or the node itself is the sentinel; paths with predicates can't
+  /// be pivoted; other paths evaluate normally.
+  @override
+  Object? pivot(
+    DataInstance? model,
+    EvaluationContext context,
+    List<Object> pivots,
+    Object sentinel,
+  ) {
+    final ref = toTreeReference();
+    if (ref == sentinel || ref.refLevel == 0) return sentinel;
+    for (var i = 0; i < ref.size; i++) {
+      final predicates = ref.predicatesAt(i);
+      if (predicates != null && predicates.isNotEmpty) {
+        throw UnpivotableExpressionException(
+          "Can't pivot filtered treereferences. Ref: "
+          '${ref.toString(includePredicates: true)} has predicates.',
+        );
+      }
+    }
+    return eval(model, context);
+  }
 
   /// The nodeset this path selects: the path is anchored to the context
   /// node (or, for `current()`, the original context), expanded with
