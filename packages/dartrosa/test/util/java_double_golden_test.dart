@@ -12,7 +12,7 @@ import 'package:test/test.dart';
 /// real Java (`oracle.sh doubles`): edge cases plus 10,000 random doubles.
 void main() {
   test('matches Java Double.toString for every golden case', () {
-    final file = File('../../conformance/numbers/double_to_string.json');
+    final file = _conformanceFile('numbers/double_to_string.json');
     final golden = jsonDecode(file.readAsStringSync()) as Map<String, Object?>;
     final cases = (golden['cases']! as List<Object?>).cast<List<Object?>>();
     expect(cases.length, greaterThan(10000));
@@ -29,4 +29,18 @@ void main() {
     }
     expect(mismatches, isEmpty, reason: mismatches.take(20).join('\n'));
   });
+}
+
+/// Finds [path] under the repository's `conformance/` directory, whether the
+/// tests run from the repository root or from the package directory.
+File _conformanceFile(String path) {
+  for (var dir = Directory.current; ; dir = dir.parent) {
+    final file = File('${dir.path}/conformance/$path');
+    if (file.existsSync()) return file;
+    if (dir.parent.path == dir.path) {
+      throw StateError(
+        'conformance/$path not found above ${Directory.current}',
+      );
+    }
+  }
 }
