@@ -67,3 +67,12 @@ If you have contributed to JavaRosa and are not included this list, please issue
 (https://github.com/getodk/collect, `test-forms/src/main/resources`),
 Copyright the ODK Collect contributors, licensed under the Apache License,
 Version 2.0. They are used unmodified as conformance inputs.
+
+## ODK Web Forms fixtures
+
+`conformance/forms/webforms/` contains XForm fixtures and their media from
+ODK Web Forms (https://github.com/getodk/web-forms,
+`packages/common/src/fixtures`, commit 4389b656), Copyright the ODK Web Forms
+contributors, licensed under the Apache License, Version 2.0. They are used
+unmodified; fixtures byte-identical to forms already in `conformance/forms/`
+were not copied.
