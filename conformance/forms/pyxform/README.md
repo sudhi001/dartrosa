@@ -11,7 +11,8 @@ pyxform output, unmodified.
   output; `fruits.csv` is the fixture used by `pull_data.xml`.
 - `tests/<module>/<test>.xml`: the markdown XLSForms embedded in pyxform's
   unit tests (`assertPyxformXform(md=...)`), converted with
-  `pyxform.xls2xform.convert(pretty_print=True, form_name="test_name")`. The
+  `pyxform.xls2xform.convert(pretty_print=True, form_name="test_name")`
+  (`tool/pyxform_corpus.py` reproduces this). The
   markdown source is kept next to each form as `<test>.md` (forms built from
   `ss_structure` dicts have none). From the 924 distinct XForms the test suite
   produces, a subset was kept: per test module, the largest form of up to
