@@ -201,7 +201,7 @@ void main() {
       expect(
         () => _import('name,sortby\na,'),
         _importError(
-          "Your sortby column should contain only numeric values. "
+          'Your sortby column should contain only numeric values. '
           "Conflicting value was ''.",
         ),
       );
