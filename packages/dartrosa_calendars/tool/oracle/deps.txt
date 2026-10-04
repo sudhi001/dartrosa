@@ -1,0 +1,7 @@
+# Libraries ODK Collect uses for its non-Gregorian date pickers
+# (collect_app/build.gradle, gradle/libs.versions.toml). Each line is
+# name|url. Joda-Time: net.danlew:android.joda 2.14.2 repackages joda-time 2.14.x.
+joda-time-2.14.0.jar|https://repo1.maven.org/maven2/joda-time/joda-time/2.14.0/joda-time-2.14.0.jar
+myanmar-calendar-1.1.1.RELEASE.jar|https://repo1.maven.org/maven2/com/github/chanmratekoko/myanmar-calendar/1.1.1.RELEASE/myanmar-calendar-1.1.1.RELEASE.jar
+persianjodatime-1.2-sources.jar|https://jitpack.io/com/github/mohamadian/persianjodatime/1.2/persianjodatime-1.2-sources.jar
+bikram-sambat-1.8.1.jar|https://raw.githubusercontent.com/getodk/collect/master/collect_app/libs/bikram-sambat-1.8.1.jar
