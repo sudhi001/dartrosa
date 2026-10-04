@@ -8,6 +8,8 @@ environment:
   sdk: ^3.10.0
 
 dependencies:
+  dartrosa:
+    path: ../../dartrosa
   dartrosa_collect:
     path: ../../dartrosa_collect
   dartrosa_encryption:
