@@ -65,6 +65,9 @@ void main() {
       ),
     );
     expect(() => fetcher.fetch('blah', null), throwsFormatException);
-    expect(() => fetcher.fetch('http://x.org/a b', null), throwsFormatException);
+    expect(
+      () => fetcher.fetch('http://x.org/a b', null),
+      throwsFormatException,
+    );
   });
 }

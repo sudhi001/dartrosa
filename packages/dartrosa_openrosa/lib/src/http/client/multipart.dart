@@ -32,7 +32,7 @@ final class FormDataPart {
 
 /// A `multipart/form-data` POST laid out byte for byte as OkHttp's
 /// `MultipartBody` writes it (parts in order, each with
-/// `Content-Disposition`, then `Content-Type` and `Content-Length`), whose
+/// `Content-Disposition`, then `Content-Type` if any), whose
 /// file content stops with an [UploadCancelledException] as soon as
 /// [isCancelled] returns `true`.
 ///
@@ -106,9 +106,7 @@ final class MultipartFormRequest extends http.BaseRequest {
     if (part.contentType != null) {
       out.write('Content-Type: ${part.contentType}\r\n');
     }
-    out
-      ..write('Content-Length: ${_partLength(part)}\r\n')
-      ..write('\r\n');
+    out.write('\r\n');
     return utf8.encode(out.toString());
   }
 
