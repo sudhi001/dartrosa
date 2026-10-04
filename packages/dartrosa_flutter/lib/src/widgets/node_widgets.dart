@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../xform_scope.dart';
 import 'label.dart';
 import 'question_widget.dart';
+import 'select_widgets.dart';
 
 /// The widget for any [node]: a question, group, repeat or repeat
 /// instance.
@@ -32,9 +33,10 @@ class GroupWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final label = node.label;
-    final children = [
-      for (final child in node.visibleChildren) nodeWidget(child),
-    ];
+    final children =
+        (node.appearance?.toLowerCase().contains('table-list') ?? false)
+        ? _tableList(context)
+        : [for (final child in node.visibleChildren) nodeWidget(child)];
     if (label.text == null || label.text!.isEmpty) {
       return Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -55,6 +57,38 @@ class GroupWidget extends StatelessWidget {
       ),
     );
   }
+
+  /// The rows of a `table-list` group: a header of the first select's
+  /// choice labels, then one row of buttons per select.
+  List<Widget> _tableList(BuildContext context) {
+    final children = node.visibleChildren;
+    final header = children
+        .whereType<QuestionNode>()
+        .where(_isSelect)
+        .firstOrNull;
+    return [
+      if (header != null)
+        ChoiceRowInput(
+          header,
+          showLabels: true,
+          showButtons: false,
+          leading: const SizedBox.shrink(),
+        ),
+      for (final child in children)
+        if (child is QuestionNode && _isSelect(child))
+          QuestionWidget(
+            child,
+            inTableList: true,
+            key: ValueKey('q:${child.ref}'),
+          )
+        else
+          nodeWidget(child),
+    ];
+  }
+
+  static bool _isSelect(QuestionNode q) =>
+      q.controlType == ControlType.selectOne ||
+      q.controlType == ControlType.selectMulti;
 }
 
 /// A repeat: its instances and an "add" button while instances can be

@@ -2,6 +2,7 @@ import 'package:dartrosa/dartrosa.dart';
 import 'package:flutter/material.dart';
 
 import 'delegates.dart';
+import 'widgets/common.dart';
 import 'widgets/label.dart';
 import 'widgets/node_widgets.dart';
 import 'xform_controller.dart';
@@ -139,11 +140,18 @@ class _PagerFormState extends State<_PagerForm> {
     if (_nav.event == FormEntryEvent.beginningOfForm) _forward();
   }
 
+  /// Whether [node] is a group shown as one screen (`field-list`, or
+  /// `table-list`, which implies it).
+  static bool _isScreen(FormNode node) =>
+      node is GroupNode &&
+      (node.isFieldList ||
+          (node.appearance?.toLowerCase().contains('table-list') ?? false));
+
   /// The field-list group containing the current position, if any.
   FormIndex? _fieldList() {
     final current = _nav.current;
     for (final ancestor in [...current.ancestors.reversed, current]) {
-      if (ancestor is GroupNode && ancestor.isFieldList) return ancestor.index;
+      if (_isScreen(ancestor)) return ancestor.index;
     }
     return null;
   }
@@ -161,8 +169,7 @@ class _PagerFormState extends State<_PagerForm> {
         continue;
       }
       if (event == FormEntryEvent.group || event == FormEntryEvent.repeat) {
-        final node = _nav.current;
-        if (node is GroupNode && node.isFieldList) break;
+        if (_isScreen(_nav.current)) break;
         event = _nav.next();
         continue;
       }
@@ -173,8 +180,7 @@ class _PagerFormState extends State<_PagerForm> {
   void _back() {
     var event = _nav.previous();
     while (event == FormEntryEvent.group || event == FormEntryEvent.repeat) {
-      final node = _nav.current;
-      if (node is GroupNode && node.isFieldList) break;
+      if (_isScreen(_nav.current)) break;
       event = _nav.previous();
     }
     if (event == FormEntryEvent.beginningOfForm) {
@@ -211,6 +217,10 @@ class _PagerFormState extends State<_PagerForm> {
     return ok;
   }
 
+  void _next() {
+    if (_validateScreen()) setState(_forward);
+  }
+
   @override
   Widget build(BuildContext context) {
     final controller = XFormScope.of(context).controller;
@@ -230,7 +240,13 @@ class _PagerFormState extends State<_PagerForm> {
           ),
           _ => SingleChildScrollView(
             padding: const EdgeInsets.all(16),
-            child: nodeWidget(_nav.current),
+            // `quick` selects advance only when alone on the screen.
+            child: _nav.current is QuestionNode
+                ? XFormPagerScope(
+                    advance: _next,
+                    child: nodeWidget(_nav.current),
+                  )
+                : nodeWidget(_nav.current),
           ),
         };
         return Column(
@@ -253,9 +269,7 @@ class _PagerFormState extends State<_PagerForm> {
                       FilledButton.icon(
                         icon: const Icon(Icons.chevron_right),
                         label: const Text('Next'),
-                        onPressed: () {
-                          if (_validateScreen()) setState(_forward);
-                        },
+                        onPressed: _next,
                       ),
                   ],
                 ),

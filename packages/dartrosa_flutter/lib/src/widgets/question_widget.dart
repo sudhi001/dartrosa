@@ -2,18 +2,41 @@ import 'package:dartrosa/dartrosa.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../appearance.dart';
 import '../xform_scope.dart';
 import 'label.dart';
+import 'select_widgets.dart';
 
 /// A question: label, hint, the input widget for its control type and
 /// appearance, and the error of a rejected answer. Rebuilds only when its
 /// node changes.
 class QuestionWidget extends StatelessWidget {
   /// Creates the widget for [node].
-  const QuestionWidget(this.node, {super.key});
+  const QuestionWidget(this.node, {this.inTableList = false, super.key});
 
   /// The question.
   final QuestionNode node;
+
+  /// Whether the question is a row of a `table-list` group (selects show
+  /// as `list-nolabel`).
+  final bool inTableList;
+
+  /// The override for [node] in [overrides]: by control type and the
+  /// whole appearance, by control type and any appearance token, or by
+  /// control type.
+  static QuestionWidgetBuilder? overrideFor(
+    QuestionNode node,
+    Map<String, QuestionWidgetBuilder> overrides,
+  ) {
+    if (overrides.isEmpty) return null;
+    final type = node.controlType.name;
+    final raw = node.appearance?.toLowerCase().trim();
+    return overrides['$type:$raw'] ??
+        Appearance.parse(
+          raw,
+        ).tokens.map((t) => overrides['$type:$t']).nonNulls.firstOrNull ??
+        overrides[type];
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,13 +45,42 @@ class QuestionWidget extends StatelessWidget {
     return ListenableBuilder(
       listenable: controller.listenableFor(node.ref),
       builder: (context, _) {
-        final appearance = node.appearance?.toLowerCase();
-        final override =
-            scope.overrides['${node.controlType.name}:$appearance'] ??
-            scope.overrides[node.controlType.name];
+        final override = overrideFor(node, scope.overrides);
         if (override != null) return override(context, node);
+        final appearance = Appearance.parse(node.appearance)..warnUnknown();
         final error = controller.errorFor(node.index);
         final theme = Theme.of(context);
+        final isSelect =
+            node.controlType == ControlType.selectOne ||
+            node.controlType == ControlType.selectMulti;
+        if (isSelect &&
+            (inTableList ||
+                appearance.has('label') ||
+                appearance.has('list-nolabel'))) {
+          final labelsOnly = !inTableList && appearance.has('label');
+          return Semantics(
+            container: true,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 4),
+              child: ChoiceRowInput(
+                node,
+                showLabels: labelsOnly,
+                showButtons: !labelsOnly,
+                leading: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    XFormLabel(node.label, required: node.isRequired),
+                    if (error != null)
+                      Text(
+                        error,
+                        style: TextStyle(color: theme.colorScheme.error),
+                      ),
+                  ],
+                ),
+              ),
+            ),
+          );
+        }
         return Semantics(
           container: true,
           child: Padding(
@@ -64,8 +116,8 @@ class QuestionWidget extends StatelessWidget {
   }
 
   Widget _input(BuildContext context) => switch (node.controlType) {
-    ControlType.selectOne => _SelectOne(node),
-    ControlType.selectMulti => _SelectMulti(node),
+    ControlType.selectOne => SelectOneInput(node),
+    ControlType.selectMulti => SelectMultiInput(node),
     ControlType.rank => _Rank(node),
     ControlType.trigger => _Trigger(node),
     ControlType.range => _Range(node),
@@ -161,106 +213,6 @@ class _TextInputState extends State<_TextInput> {
       ],
       decoration: const InputDecoration(border: OutlineInputBorder()),
       onChanged: (text) => _answer(context, node, _parse(text)),
-    );
-  }
-}
-
-/// Select one: radio buttons, or a dropdown for `minimal`.
-class _SelectOne extends StatelessWidget {
-  const _SelectOne(this.node);
-
-  final QuestionNode node;
-
-  @override
-  Widget build(BuildContext context) {
-    final choices = node.choices;
-    final selected = switch (node.value) {
-      SelectOneValue(:final selection) => selection.value,
-      final v? => v.displayText,
-      null => null,
-    };
-    void select(SelectChoice? choice) => _answer(
-      context,
-      node,
-      choice == null ? null : SelectOneValue(Selection.ofChoice(choice)),
-    );
-    if (node.appearance?.toLowerCase().contains('minimal') ?? false) {
-      return DropdownButtonFormField<String>(
-        initialValue: selected,
-        isExpanded: true,
-        items: [
-          for (final c in choices)
-            DropdownMenuItem(
-              value: c.value,
-              child: Text(node.choiceLabel(c) ?? c.value),
-            ),
-        ],
-        onChanged: node.isReadonly
-            ? null
-            : (value) => select(choices.firstWhere((c) => c.value == value)),
-      );
-    }
-    return RadioGroup<String>(
-      groupValue: selected,
-      onChanged: (value) {
-        if (node.isReadonly) return;
-        select(choices.where((c) => c.value == value).firstOrNull);
-      },
-      child: Column(
-        children: [
-          for (final c in choices)
-            RadioListTile<String>(
-              value: c.value,
-              enabled: !node.isReadonly,
-              title: Text(node.choiceLabel(c) ?? c.value),
-              toggleable: true,
-            ),
-        ],
-      ),
-    );
-  }
-}
-
-/// Select multiple: check boxes.
-class _SelectMulti extends StatelessWidget {
-  const _SelectMulti(this.node);
-
-  final QuestionNode node;
-
-  @override
-  Widget build(BuildContext context) {
-    final selected = switch (node.value) {
-      MultipleItemsValue(:final selections) => {
-        for (final s in selections) s.value,
-      },
-      _ => <String>{},
-    };
-    final choices = node.choices;
-    return Column(
-      children: [
-        for (final c in choices)
-          CheckboxListTile(
-            value: selected.contains(c.value),
-            enabled: !node.isReadonly,
-            controlAffinity: ListTileControlAffinity.leading,
-            title: Text(node.choiceLabel(c) ?? c.value),
-            onChanged: (on) {
-              final values = {...selected};
-              on! ? values.add(c.value) : values.remove(c.value);
-              _answer(
-                context,
-                node,
-                values.isEmpty
-                    ? null
-                    : MultipleItemsValue([
-                        for (final choice in choices)
-                          if (values.contains(choice.value))
-                            Selection.ofChoice(choice),
-                      ]),
-              );
-            },
-          ),
-      ],
     );
   }
 }
