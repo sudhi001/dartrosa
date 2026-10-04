@@ -303,30 +303,43 @@ final class _KXmlSerializer {
     _scopes.removeLast();
   }
 
-  void _escape(String s, String? quote) {
-    for (final c in s.codeUnits) {
-      switch (c) {
-        case 0x0A || 0x0D || 0x09:
-          if (quote == null) {
-            _out.writeCharCode(c);
-          } else {
-            _out.write('&#$c;');
-          }
-        case 0x26:
-          _out.write('&amp;');
-        case 0x3E:
-          _out.write('&gt;');
-        case 0x3C:
-          _out.write('&lt;');
-        default:
-          if (quote != null && c == quote.codeUnitAt(0)) {
-            _out.write(c == 0x22 ? '&quot;' : '&apos;');
-          } else if (c >= 0x20 && c != 0x40 && c < 127) {
-            _out.writeCharCode(c);
-          } else {
-            _out.write('&#$c;');
-          }
-      }
+  void _escape(String s, String? quote) =>
+      kxmlEscape(_out, s, quote, unicode: false);
+}
+
+/// Writes [s] escaped as kXML's `KXmlSerializer.writeEscaped` does: in
+/// attribute values ([quote] given) tabs and line breaks become numeric
+/// references and the quote is escaped; `&`, `<`, `>` always are; `@`,
+/// control characters and (unless [unicode], i.e. a UTF output encoding)
+/// characters from 127 up become `&#N;` per UTF-16 unit.
+void kxmlEscape(
+  StringSink out,
+  String s,
+  String? quote, {
+  required bool unicode,
+}) {
+  for (final c in s.codeUnits) {
+    switch (c) {
+      case 0x0A || 0x0D || 0x09:
+        if (quote == null) {
+          out.writeCharCode(c);
+        } else {
+          out.write('&#$c;');
+        }
+      case 0x26:
+        out.write('&amp;');
+      case 0x3E:
+        out.write('&gt;');
+      case 0x3C:
+        out.write('&lt;');
+      default:
+        if (quote != null && c == quote.codeUnitAt(0)) {
+          out.write(c == 0x22 ? '&quot;' : '&apos;');
+        } else if (c >= 0x20 && c != 0x40 && (c < 127 || unicode)) {
+          out.writeCharCode(c);
+        } else {
+          out.write('&#$c;');
+        }
     }
   }
 }

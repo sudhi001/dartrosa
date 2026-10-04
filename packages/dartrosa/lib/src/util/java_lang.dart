@@ -147,3 +147,36 @@ int javaIntCast(double d) {
   if (d <= -2147483648) return -2147483648;
   return d.truncate();
 }
+
+/// Java's `String.hashCode()` (over UTF-16 code units, 32-bit wrapping).
+int javaStringHashCode(String s) {
+  var h = 0;
+  for (final c in s.codeUnits) {
+    h = (31 * h + c).toSigned(32);
+  }
+  return h;
+}
+
+/// The iteration order of a `java.util.HashMap` (or `HashSet`) with
+/// default capacity holding [keys], given in insertion order.
+///
+/// Entries sit in buckets `(h ^ (h >>> 16)) & (capacity - 1)` of a table
+/// that starts at 16 and doubles past a 0.75 load factor; iteration goes
+/// bucket by bucket, in insertion order within a bucket (resizing keeps
+/// that order). Used where JavaRosa's output follows such an order.
+List<String> javaHashMapOrder(Iterable<String> keys) {
+  final list = keys.toList();
+  var capacity = 16;
+  while (list.length > capacity * 0.75) {
+    capacity *= 2;
+  }
+  int bucket(String key) {
+    final h = javaStringHashCode(key);
+    final spread = h ^ ((h & 0xFFFFFFFF) >> 16);
+    return spread & (capacity - 1);
+  }
+
+  final indexed = [for (final (i, k) in list.indexed) (bucket(k), i, k)]
+    ..sort((a, b) => a.$1 != b.$1 ? a.$1 - b.$1 : a.$2 - b.$2);
+  return [for (final e in indexed) e.$3];
+}

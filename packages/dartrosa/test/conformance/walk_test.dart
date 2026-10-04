@@ -9,6 +9,7 @@ import 'package:dartrosa/src/form_api/form_entry_model.dart';
 import 'package:dartrosa/src/model/control_type.dart';
 import 'package:dartrosa/src/model/data_type.dart';
 import 'package:dartrosa/src/xform/xform_answer_data_parser.dart';
+import 'package:dartrosa/src/xform/xform_serializing_visitor.dart';
 import 'package:dartrosa/testing.dart';
 import 'package:test/test.dart';
 
@@ -20,9 +21,8 @@ const _maxEvents = 2000;
 
 /// Replays the oracle's walk traces (`traces/walk`, one per form: walk the
 /// whole form, then validate) and scenario traces (`traces/scenarios`)
-/// through DartRosa's form-entry API and compares every event. The final
-/// serialized instance is compared once instance serialization exists
-/// (Phase 6).
+/// through DartRosa's form-entry API and compares every event and the
+/// final serialized instance.
 void main() {
   final root = conformanceDir();
   final goldens = [
@@ -77,6 +77,20 @@ void main() {
           actual.remove('error');
         }
         diff('.steps[$i]', expected, _json(actual), differences);
+      }
+      final expectedInstance = trace['instance'];
+      String? actualInstance;
+      try {
+        actualInstance = normalize(
+          XFormSerializingVisitor().serializeInstanceToString(
+            form.mainInstance,
+          ),
+        );
+      } on Object catch (e) {
+        actualInstance = 'ERROR $e';
+      }
+      if (expectedInstance is String) {
+        diff('.instance', expectedInstance, actualInstance, differences);
       }
       expect(differences, isEmpty, reason: differences.take(20).join('\n'));
     });
