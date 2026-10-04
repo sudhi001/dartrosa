@@ -27,8 +27,10 @@ const _form = '''
 
 void main() {
   const reason =
-      'Reading QuestionNode.choices of an itemset select evaluates the '
-      'itemset, which publishes an EvaluationEvent; FormSession forwards it '
+      'Reading QuestionNode.choices of an itemset select runs '
+      'ItemsetBinding.getChoices, which publishes the debug '
+      "EvaluationEvent('Dynamic choices'); FormSession._onEvaluation "
+      'forwards it '
       "as a 'condition' FormChange, and XFormController notifies the "
       "question's ListenableBuilder while SelectOneInput.build runs: "
       '"setState() or markNeedsBuild() called during build" (debug '
