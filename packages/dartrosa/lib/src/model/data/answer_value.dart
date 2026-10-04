@@ -675,7 +675,7 @@ AnswerValue? wrapData(Object value, DataType dataType) {
     final isIntegral = (value - asLong).abs() < 1.0e-9;
     if (dataType == DataType.integer ||
         (isIntegral && asLong <= 2147483647 && asLong >= -2147483648)) {
-      return IntegerValue(_javaIntCast(value));
+      return IntegerValue(javaIntCast(value));
     }
     if (dataType == DataType.long || isIntegral) return LongValue(asLong);
     return DecimalValue(value);
@@ -731,14 +731,6 @@ int _javaLongCast(double d) {
   if (d.isNaN) return 0;
   if (d >= 9223372036854775807.0) return _maxLong;
   if (d <= -9223372036854775808.0) return _minLong;
-  return d.truncate();
-}
-
-/// Java `(int) d`: truncates, saturating at the 32-bit range.
-int _javaIntCast(double d) {
-  if (d.isNaN) return 0;
-  if (d >= 2147483647) return 2147483647;
-  if (d <= -2147483648) return -2147483648;
   return d.truncate();
 }
 
@@ -830,3 +822,20 @@ AnswerValue castToDataType(UncastValue data, DataType dataType) =>
       DataType.unsupported ||
       DataType.nullType => UncastValue(data.string),
     };
+
+/// [data] as a repeat count: integers and longs as they are (a long cast
+/// to 32 bits as in Java), decimals and numeric strings floored, anything
+/// else (including no answer) 0.
+///
+/// Port of `AnswerDataUtil.answerDataToInt`.
+int answerDataToInt(AnswerValue? data) => switch (data) {
+  IntegerValue(:final n) => n,
+  LongValue(:final n) => n.toSigned(32),
+  DecimalValue(:final d) => javaIntCast(d.floorToDouble()),
+  StringValue(:final string) ||
+  UncastValue(:final string) => switch (javaParseDouble(string)) {
+    final value? => javaIntCast(value.floorToDouble()),
+    null => 0,
+  },
+  _ => 0,
+};

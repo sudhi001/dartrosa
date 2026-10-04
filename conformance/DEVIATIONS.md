@@ -80,6 +80,11 @@ Recorded so that nothing in JavaRosa disappears silently.
 | `ResourceFileDataSource`, `ReferenceDataSource` (classpath / jr:// locale files) | not ported; `parseLocaleInput` + `ResourceResolver` cover the use | JVM-specific / global `ReferenceManager`. |
 | `Localizer.equals`, `TableLocaleSource.equals` | not ported | Only used by JavaRosa's serialization tests. |
 | Global `ReferenceManager`, static `ExternalInstanceParser` registries, static `XFormParser` action handlers / processors | `ResourceResolver`, per-parser `ExternalInstanceParser`, `XFormParser.registerActionHandler` / `addProcessor` | No global state. |
+| `ReferenceManager` singleton, `RootTranslator`, `PrefixedRootFactory`, `ResourceReferenceFactory` | same logic in a per-instance `ReferenceManager`; factories receive the manager; `ReferenceManagerResolver` adapts it to `ResourceResolver` | No global state. |
+| `Reference` stream methods (`getStream`, `getOutputStream`, `remove`, `doesBinaryExist`, `probeAlternativeReferences`) | not ported; `Reference` has `uri` and `localUri` | The core does no I/O; apps read `localUri`. |
+| `org.javarosa.core.reference.InvalidReferenceException` | `InvalidReferenceUriException` | Name clash with the tree-reference `InvalidReferenceException`. |
+| Mutable answer data (`setValue`, null values, defensive `Date`/`List` copies) | immutable, non-nullable values over `DateTime` and unmodifiable lists | JavaRosa's mutation/null tests become type-system guarantees. |
+| `DataTypeClasses`, `ExtWrapIntEncoding*` | ported with the codec (P6) or not at all | Only used by `Externalizable` serialization. |
 | `XFormParser.parse` is synchronous | `Future<FormDef>` | External secondary instances are read through an async `ResourceResolver`. |
 | `XPathReference` / `IDataReference` wrappers | plain `TreeReference` | The wrapper added nothing. |
 | `RecordAudioActions` static listener | `FormDef.recordAudioListener` | No global state. |

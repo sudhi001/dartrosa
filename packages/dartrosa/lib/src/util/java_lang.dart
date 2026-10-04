@@ -138,3 +138,12 @@ String javaTrim(String s) {
   }
   return s.substring(start, end);
 }
+
+/// Java's `(int) d` cast: truncates and saturates at the 32-bit range;
+/// NaN becomes 0.
+int javaIntCast(double d) {
+  if (d.isNaN) return 0;
+  if (d >= 2147483647) return 2147483647;
+  if (d <= -2147483648) return -2147483648;
+  return d.truncate();
+}

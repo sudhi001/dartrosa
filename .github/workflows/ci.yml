@@ -20,7 +20,7 @@ jobs:
       - run: dart run tool/check_core_purity.dart
       - name: Test (VM, several time zones)
         run: |
-          for tz in UTC America/New_York Asia/Kolkata Europe/London Etc/GMT-2 Etc/GMT-3 Pacific/Chatham; do
+          for tz in UTC America/New_York Asia/Kolkata Europe/London Etc/GMT-2 Etc/GMT-3 Pacific/Chatham Europe/Warsaw Europe/Kiev; do
             echo "TZ=$tz"; TZ=$tz dart test packages/dartrosa
           done
       # Browser tests must run from inside each package (test runner limitation).

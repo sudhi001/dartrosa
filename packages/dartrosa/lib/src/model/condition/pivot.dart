@@ -8,6 +8,7 @@
 /// pivot to find the bounds.
 library;
 
+import '../../util/java_lang.dart';
 import '../../xpath/conversions.dart';
 import '../../xpath/expression.dart';
 import '../data/answer_value.dart';
