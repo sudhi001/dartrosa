@@ -43,6 +43,10 @@ class SavedInstance {
   /// Whether it was finalized.
   bool finalized = false;
 
+  /// Its `meta/instanceID` once finalized; only instances with one can be
+  /// edited.
+  String? instanceId;
+
   /// The instance's `audit.csv`.
   final audit = InMemoryAuditLogStore();
 
@@ -187,6 +191,7 @@ class Workspace extends ChangeNotifier {
     instance
       ..xml = submission.xml
       ..finalized = true
+      ..instanceId = submission.instanceId
       ..saved = DateTime.now();
     _remember(instance);
     final entityCount = formEntities(session)?.entities.length ?? 0;

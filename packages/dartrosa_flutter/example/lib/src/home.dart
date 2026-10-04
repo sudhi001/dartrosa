@@ -176,7 +176,7 @@ class InstancesPage extends StatelessWidget {
               _ => showText(context, 'Instance #${instance.id}', instance.xml),
             },
             itemBuilder: (context) => [
-              if (instance.finalized)
+              if (instance.finalized && instance.instanceId != null)
                 const PopupMenuItem(value: 'edit', child: Text('Edit')),
               const PopupMenuItem(value: 'xml', child: Text('View XML')),
               const PopupMenuItem(value: 'audit', child: Text('Audit log')),
