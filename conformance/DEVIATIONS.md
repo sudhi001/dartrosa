@@ -95,6 +95,14 @@ Recorded so that nothing in JavaRosa disappears silently.
 | `EventNotifier` | `FormDef.addEventListener` receiving `EvaluationEvent`s | Same events and messages. |
 | `RuntimeException("Error evaluating field …")` | `TriggerableEvaluationException` with the same message | Typed exception. |
 | Filter-strategy cache keys (`Object.toString()` of unpacked values) | Java formatting for numbers and booleans; dates use Dart's `toString` | Keys only need to be consistent within a run; a date node side never equals a string context side in either. |
+| `FormEntryController.EVENT_*`, `ANSWER_*`, `FormEntryModel.REPEAT_STRUCTURE_*` int constants | `FormEntryEvent` (with JavaRosa's `code`), `AnswerStatus`, `RepeatStructure` enums | Dart idiom. |
+| `answerQuestion(index?, data, midSurvey)` overloads | `answerQuestion(data, {index, midSurvey})` (same for `saveAnswer`); `deleteRepeat(int)` is `deleteRepeatAt` | No overloading in Dart. |
+| `Selection.attachChoice(QuestionDef)` mutates the selection | `QuestionDef.attachChoice(selection)` returns a bound selection | Immutable values. |
+| `IQuestionWidget` / `FormElementStateListener` registration | `QuestionWidget` + `FormEntryCaption.register` | Same events. |
+| `Scenario` overloads `answer(xpath, String/int/double/boolean/LocalDate/SelectChoice/String...)` and `answer(value)` | `answer(xpath, Object?)` dispatching on the value type; `answerCurrent(value)`; async `Scenario.init` / `fromXml`; `createNewRepeat()` (current index) is `createNewRepeatHere()` | No overloading; parsing is async. |
+| `Scenario.serializeAndDeserializeForm/Instance` | come with serialization (P6) | |
+| `FormEntryModel.getExtras()` (`Extras<Object>`) | `extras` map | |
+| `FormDef.validate()` | `FormDefValidation.validate()` extension in the form-entry library | Keeps the model layer independent of navigation. |
 | `SubmissionParser` class and `matchesCustomMethod` | inlined into `XFormParser` | JavaRosa's static `submissionParsers` list has no public registration, so only the default parser ever runs. |
 | `QuestionDef.getChildren()` returns `null` | returns an empty list | Null-safe API; `addChild` still throws. |
 | Dart `String.trim()` | `javaTrim` everywhere | Dart also strips Unicode spaces such as U+00A0; Java only characters `<= ' '`. |
