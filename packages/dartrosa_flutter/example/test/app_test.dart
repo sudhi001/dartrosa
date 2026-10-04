@@ -2,6 +2,7 @@
 // encrypt and export.
 import 'dart:io';
 
+import 'package:dartrosa_flutter_example/main.dart';
 import 'package:dartrosa_flutter_example/src/corpus.dart';
 import 'package:dartrosa_flutter_example/src/home.dart';
 import 'package:dartrosa_flutter_example/src/workspace.dart';
@@ -51,6 +52,13 @@ Future<void> _instanceMenu(WidgetTester tester, String item) async {
 }
 
 void main() {
+  testWidgets('starts on the bundled form list', (tester) async {
+    await tester.pumpWidget(const ExampleApp());
+    await _settle(tester);
+    expect(find.byType(HomeScreen), findsOneWidget);
+    expect(find.textContaining('Search 190 forms'), findsOneWidget);
+  });
+
   testWidgets('fills, saves, resumes, finalizes and audits a form', (
     tester,
   ) async {
