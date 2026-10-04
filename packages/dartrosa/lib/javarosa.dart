@@ -31,6 +31,8 @@ export 'src/util/java_lang.dart' show javaParseDouble, javaParseInt, javaTrim;
 export 'src/xform/bind_attributes.dart';
 export 'src/xform/instance_loading.dart';
 export 'src/xform/instance_structure.dart' show questionForData;
+export 'src/xform/kdom.dart'
+    show KAttribute, KElement, KNodeType, KText, getXmlDocument, xmlText;
 export 'src/xform/xform_parser.dart';
 export 'src/xpath/conversions.dart' show boolStr, toXPathString, unpack;
 export 'src/xpath/expression.dart';
