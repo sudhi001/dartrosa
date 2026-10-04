@@ -63,4 +63,7 @@ back to the default widget (with one `debugPrint` per appearance).
 - **RTL**: forms in ar, fa, he, ur, ps, sd, ug, yi or dv (by code or
   name, e.g. `Arabic (ar)`) are laid out right to left.
 
+Golden tests (`test/golden_test.dart`, light/dark, LTR/RTL) use the
+default test font; refresh them with `flutter test --update-goldens`.
+
 Run the example: `cd example && flutter create . && flutter run`.
