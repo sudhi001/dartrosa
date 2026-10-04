@@ -1,9 +1,13 @@
 import 'dart:async';
 
 import 'package:dartrosa/dartrosa.dart';
+import 'package:dartrosa/javarosa.dart' show FormEntryPrompt;
+import 'package:dartrosa_external_data/dartrosa_external_data.dart';
 import 'package:flutter/semantics.dart';
 import 'package:flutter/widgets.dart';
 
+import '../appearance.dart';
+import '../localizations.dart';
 import '../xform_scope.dart';
 
 /// Answers [node] with [value] through the nearest form's controller.
@@ -12,6 +16,56 @@ AnswerResult answerQuestion(
   QuestionNode node,
   AnswerValue? value,
 ) => XFormScope.of(context).controller.answer(node.index, value);
+
+/// [text] as an answer of [node]'s data type (kept as text if it doesn't
+/// parse, so the engine can reject it).
+AnswerValue typedAnswer(QuestionNode node, String text) {
+  final uncast = UncastValue(text);
+  try {
+    return castToDataType(uncast, node.dataType);
+  } on Object {
+    return uncast;
+  }
+}
+
+/// The choices of [node] and the warning to show if they couldn't be
+/// loaded: those of its `search()` appearance (external data, through
+/// `dartrosa_external_data`'s `loadSelectChoices`), else its own. Like
+/// ODK Collect's `ItemsWidgetUtils.loadItemsAndHandleErrors`, a failed
+/// load gives no choices and a warning.
+({List<SelectChoice> choices, String? warning}) loadChoices(
+  BuildContext context,
+  QuestionNode node,
+) {
+  if (!Appearance.parse(node.appearance).has('search()')) {
+    return (choices: node.choices, warning: null);
+  }
+  final strings = XFormLocalizations.of(context);
+  final form = XFormScope.of(context).controller.session.definition.formDef;
+  try {
+    return (
+      choices: loadSelectChoices(FormEntryPrompt(form, node.index)),
+      warning: null,
+    );
+  } on ExternalDataFileMissingException catch (e) {
+    return (choices: const [], warning: strings.fileMissing(e.path));
+  } on ExternalDataException catch (e) {
+    return (choices: const [], warning: e.message);
+  } on Object catch (e) {
+    return (choices: const [], warning: strings.parserException('$e'));
+  }
+}
+
+/// The image URI of [choice] of [node], if any (from its label, or the
+/// image column of an external data choice).
+String? choiceImage(QuestionNode node, SelectChoice choice) =>
+    choice is ExternalSelectChoice
+    ? choice.image
+    : node.choiceMedia(choice, 'image');
+
+/// The choices of [node] (see [loadChoices]).
+List<SelectChoice> choicesOf(BuildContext context, QuestionNode node) =>
+    loadChoices(context, node).choices;
 
 /// The values of [node]'s selected choices.
 Set<String> selectedValues(QuestionNode node) => switch (node.value) {
@@ -35,7 +89,7 @@ void answerSelections(
   values.isEmpty
       ? null
       : MultipleItemsValue([
-          for (final choice in node.choices)
+          for (final choice in choicesOf(context, node))
             if (values.contains(choice.value)) Selection.ofChoice(choice),
         ]),
 );

@@ -5,6 +5,7 @@ import 'delegates.dart';
 import 'localizations.dart';
 import 'theme.dart';
 import 'widgets/common.dart';
+import 'widgets/external_app_inputs.dart';
 import 'widgets/label.dart';
 import 'widgets/node_widgets.dart';
 import 'xform_controller.dart';
@@ -282,7 +283,11 @@ class _PagerFormState extends State<_PagerForm> {
             child: _nav.current is QuestionNode
                 ? XFormPagerScope(
                     advance: _next,
-                    child: nodeWidget(_nav.current),
+                    child: inIntentGroup(
+                      context,
+                      _nav.current as QuestionNode,
+                      nodeWidget(_nav.current),
+                    ),
                   )
                 : nodeWidget(_nav.current),
           ),

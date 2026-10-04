@@ -14,10 +14,23 @@ dependencies:
     path: ../dartrosa
   dartrosa_calendars:
     path: ../dartrosa_calendars
+  dartrosa_external_data:
+    path: ../dartrosa_external_data
   flutter:
     sdk: flutter
+  flutter_svg: ^2.3.0
+  intl: ^0.20.2
+  path_parsing: ^1.1.0
+  xml: ^6.6.1
 
 dev_dependencies:
   flutter_lints: ^6.0.0
+  flutter_localizations:
+    sdk: flutter
   flutter_test:
     sdk: flutter
+
+# dartrosa_external_data names dartrosa as a workspace sibling (`any`).
+dependency_overrides:
+  dartrosa:
+    path: ../dartrosa

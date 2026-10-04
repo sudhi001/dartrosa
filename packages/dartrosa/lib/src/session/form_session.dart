@@ -135,6 +135,10 @@ final class FormSession {
   Stream<FormChange> get changes => _changes.stream;
 
   void _onEvaluation(EvaluationEvent event) {
+    // Itemsets announce each (re-)evaluation of their choices, which
+    // happens while reading a question (e.g. while a UI builds); it
+    // changes nothing.
+    if (event.message == 'Dynamic choices') return;
     if (event.results.isEmpty || !_changes.hasListener) return;
     _changes.add(
       FormChange(event.message == 'Recalculate' ? 'value' : 'condition', [
@@ -261,7 +265,11 @@ final class FormSession {
       MultipleItemsValue(:final selections) => selections,
       _ => null,
     };
-    if (selections != null) {
+    // search() appearances (ODK Collect external data) take their choices
+    // from CSV media, not from the question's items.
+    final external =
+        prompt.appearanceHint?.toLowerCase().contains('search(') ?? false;
+    if (selections != null && !external) {
       final offered = {for (final c in prompt.selectChoices) c.value};
       for (final s in selections) {
         final choice = s.choice?.value ?? s.xmlValue;

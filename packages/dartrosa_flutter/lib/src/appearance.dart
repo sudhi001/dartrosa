@@ -9,10 +9,13 @@ class Appearance {
   factory Appearance.parse(String? raw) {
     final tokens = <String>{};
     // `search(...)` (external data) may contain spaces.
-    final text = (raw ?? '').toLowerCase().replaceAll(
-      RegExp(r'search\([^)]*\)?'),
-      ' search() ',
-    );
+    // `search(...)` (external data) and `ex:app(...)` (external apps)
+    // may contain spaces.
+    final text = (raw ?? '')
+        .toLowerCase()
+        .replaceAll(RegExp(r'search\([^)]*\)?'), ' search() ')
+        .replaceAll(RegExp(r'ex:[^\s(]*(?:\(.*\)|\(.*)?'), ' ex: ')
+        .replaceAll(RegExp(r'printer:\S*'), ' printer ');
     for (final token in text.split(RegExp(r'\s+'))) {
       if (token.isEmpty) continue;
       tokens.add(token);
@@ -25,6 +28,9 @@ class Appearance {
           tokens.add('columns');
         case 'horizontal-compact':
           tokens.add('columns-pack');
+        case 'search':
+          // Collect's deprecated name of `autocomplete`.
+          tokens.add('autocomplete');
       }
       final compactN = RegExp(r'^(?:quick)?compact-(\d+)$').firstMatch(token);
       if (compactN != null) {
@@ -65,7 +71,8 @@ class Appearance {
     'numbers', 'thousands-sep', 'masked', 'no-calendar', 'month-year',
     'year', 'vertical', 'picker', 'rating', 'no-ticks', 'field-list',
     'table-list', 'quickcompact', 'compact', 'horizontal',
-    'horizontal-compact',
+    'horizontal-compact', 'image-map', 'map', 'maps', 'placement-map',
+    'hidden-answer', 'search', 'ex:', 'printer', 'url', 'bearing', 'counter',
   };
 
   static final RegExp _knownPattern = RegExp(

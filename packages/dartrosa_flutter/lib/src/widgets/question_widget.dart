@@ -8,9 +8,12 @@ import '../markdown.dart';
 import '../theme.dart';
 import '../xform_scope.dart';
 import 'date_input.dart';
+import 'external_app_inputs.dart';
 import 'label.dart';
+import 'map_inputs.dart';
 import 'range_input.dart';
 import 'select_widgets.dart';
+import 'special_inputs.dart';
 import 'text_input.dart';
 
 /// A question: label, hint, the input widget for its control type and
@@ -102,7 +105,7 @@ class QuestionWidget extends StatelessWidget {
                   child: XFormLabel(node.label, required: node.isRequired),
                 ),
                 XFormHint(node),
-                if (!node.isNote)
+                if (!_isNote(context, appearance))
                   Padding(
                     padding: const EdgeInsets.only(top: 8),
                     child: _input(context),
@@ -119,6 +122,15 @@ class QuestionWidget extends StatelessWidget {
       },
     );
   }
+
+  /// Whether [node] is a note: read-only text without an appearance
+  /// that shows a widget anyway (`printer` when printing is available,
+  /// `url`).
+  bool _isNote(BuildContext context, Appearance appearance) =>
+      node.isNote &&
+      !(appearance.has('printer') &&
+          XFormScope.of(context).delegates.canPrint) &&
+      !appearance.has('url');
 
   /// A semantics container labelled with the question label, whether it
   /// is required, and whether its answer is invalid.
@@ -155,9 +167,39 @@ class QuestionWidget extends StatelessWidget {
       DataType.dateTime => DateTimeInput(node),
       DataType.geopoint || DataType.geotrace || DataType.geoshape => _Geo(node),
       DataType.barcode => _Barcode(node),
-      _ => TextQuestionInput(node),
+      _ => _textInput(context),
     },
   };
+
+  /// A text or number question: the widget for its appearance, in ODK
+  /// Collect's order (integer: `counter`, `ex:`; decimal: `ex:`,
+  /// `bearing`; text: `printer`, `ex:`, `numbers`, `url`), or a text
+  /// field.
+  Widget _textInput(BuildContext context) {
+    final delegates = XFormScope.of(context).delegates;
+    final appearance = Appearance.parse(node.appearance);
+    final ex = appearance.has('ex:') && delegates.canLaunchExternalApps;
+    switch (node.dataType) {
+      case DataType.integer || DataType.long:
+        if (appearance.has('counter')) return CounterInput(node);
+        if (ex) return ExternalAppInput(node);
+      case DataType.decimal:
+        if (ex) return ExternalAppInput(node);
+        if (appearance.has('bearing') && delegates.canReadBearing) {
+          return BearingInput(node);
+        }
+      case DataType.text:
+        if (appearance.has('printer') && delegates.canPrint) {
+          return PrinterInput(node);
+        }
+        if (ex) return ExternalAppInput(node);
+        if (!appearance.has('numbers') && appearance.has('url')) {
+          return UrlInput(node);
+        }
+      default:
+    }
+    return TextQuestionInput(node);
+  }
 }
 
 /// A validation error, read out by screen readers when it appears.
@@ -309,6 +351,13 @@ class _Geo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final delegates = XFormScope.of(context).delegates;
+    final appearance = Appearance.parse(node.appearance);
+    if (delegates.canShowMaps &&
+        (node.dataType != DataType.geopoint ||
+            appearance.has('maps') ||
+            appearance.has('placement-map'))) {
+      return GeoMapInput(node);
+    }
     return _Captured(
       node: node,
       available: delegates.canLocate && node.dataType == DataType.geopoint,

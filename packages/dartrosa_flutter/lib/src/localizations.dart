@@ -1,3 +1,4 @@
+import 'package:dartrosa/dartrosa.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 
@@ -86,6 +87,64 @@ class XFormLocalizations {
 
   /// Marks a required question for screen readers.
   String get required => 'required';
+
+  /// Shown when an `image-map` select's SVG can't be read.
+  String get svgFileMissing => 'SVG file does not exist!';
+
+  /// The warning of a select whose external data file [path] is missing.
+  String fileMissing(String path) => 'File: $path is missing.';
+
+  /// The warning of a select whose `search()` expression is invalid.
+  String parserException(String message) => 'XPathParser Exception: "$message"';
+
+  /// Launches the external app of an `ex:` question or intent group.
+  String get launchApp => 'Launch';
+
+  /// Shown when no app handles an external app request (without the
+  /// form's `noAppErrorString`).
+  String get noApp =>
+      'The requested application is missing. Please manually enter the '
+      'reading.';
+
+  /// Shown when an intent group's app returns a value for a question that
+  /// can't take one ([ref]).
+  String cannotAssignValue(String ref) => "Cannot assign the value at '$ref'.";
+
+  /// Prints the answer of a `printer` question.
+  String get print => 'Print';
+
+  /// Opens the link of a `url` question.
+  String get openUrl => 'Open Url';
+
+  /// Shown when a `url` question has no link.
+  String get noUrl => 'No URL set';
+
+  /// Reads the compass for a `bearing` question without an answer.
+  String get getBearing => 'Record Bearing';
+
+  /// Reads the compass for a `bearing` question with an answer.
+  String get replaceBearing => 'Replace Bearing';
+
+  /// Increases a `counter` question.
+  String get increment => 'Increase';
+
+  /// Decreases a `counter` question.
+  String get decrement => 'Decrease';
+
+  /// Opens the map of a `map` select.
+  String get selectPlace => 'Select place';
+
+  /// Opens the map of a geo question of [dataType] (geopoint, geotrace or
+  /// geoshape), which [hasValue] or not.
+  String geoMapButton(DataType dataType, {required bool hasValue}) =>
+      switch (dataType) {
+        DataType.geotrace => hasValue ? 'View or change line' : 'Get line',
+        DataType.geoshape => hasValue ? 'View or change shape' : 'Get shape',
+        _ => hasValue ? 'Change point' : 'Get point',
+      };
+
+  /// Precedes the selected choices of an `image-map` select.
+  String get selected => 'Selected:';
 
   /// The name of [month] (1-12).
   String monthName(int month) => const [
