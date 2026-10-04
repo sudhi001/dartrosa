@@ -23,6 +23,12 @@ jobs:
           for tz in UTC America/New_York Asia/Kolkata Europe/London Etc/GMT-2 Etc/GMT-3 Pacific/Chatham Europe/Warsaw Europe/Kiev; do
             echo "TZ=$tz"; TZ=$tz dart test packages/dartrosa
           done
+      - name: Coverage (at least 90% of lines)
+        run: |
+          (cd packages/dartrosa && TZ=UTC dart test --coverage=coverage)
+          dart pub global activate coverage
+          (cd packages/dartrosa && dart pub global run coverage:format_coverage --lcov --in=coverage --out=coverage/lcov.info --package=. --report-on=lib)
+          dart run tool/check_coverage.dart packages/dartrosa/coverage/lcov.info 90
       # Browser tests must run from inside each package (test runner limitation).
       - name: Test (Chrome, dart2js and dart2wasm)
         run: |
