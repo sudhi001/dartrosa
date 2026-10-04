@@ -83,4 +83,7 @@ Recorded so that nothing in JavaRosa disappears silently.
 | `XFormParser.parse` is synchronous | `Future<FormDef>` | External secondary instances are read through an async `ResourceResolver`. |
 | `XPathReference` / `IDataReference` wrappers | plain `TreeReference` | The wrapper added nothing. |
 | `RecordAudioActions` static listener | `FormDef.recordAudioListener` | No global state. |
+| `SubmissionParser` class and `matchesCustomMethod` | inlined into `XFormParser` | JavaRosa's static `submissionParsers` list has no public registration, so only the default parser ever runs. |
+| `QuestionDef.getChildren()` returns `null` | returns an empty list | Null-safe API; `addChild` still throws. |
+| Dart `String.trim()` | `javaTrim` everywhere | Dart also strips Unicode spaces such as U+00A0; Java only characters `<= ' '`. |
 | `XFormParseException` for malformed `jr:itext` refs etc. | same messages, `XFormParseException` type | JavaRosa throws a plain `RuntimeException` in a few places; both fail the parse. |

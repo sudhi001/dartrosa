@@ -60,14 +60,14 @@ void main() {
           input('/data/question', [
             tText(
               'label',
-              'Full name: <output value=" ../first_name "/> '
+              'Full name: <output value=" ../first_name "/>\u00A0'
                   '<output value=" ../last_name "/>',
             ),
           ]),
         ]),
       ).asXml(),
     );
-    expect(form.childAt(0)!.labelInnerText, 'Full name: \${0} \${1}');
+    expect(form.childAt(0)!.labelInnerText, 'Full name: \${0}\u00A0\${1}');
   });
 
   test('parses secondary instance form', () async {
