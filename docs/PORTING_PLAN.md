@@ -253,65 +253,65 @@ Disposition: **PORT** = behaviour ported 1:1 (idiomatic structure) · **REDESIGN
 > Every box must be ticked, tested, and oracle-verified before v1.0. Source = JavaRosa unless noted.
 
 ### 7.1 XForm document structure
-- [ ] `h:html` / `h:head` / `h:title` / `h:body`; namespaces: XForms, XHTML, `jr` (`http://openrosa.org/javarosa`), `odk` (`http://www.opendatakit.org/xforms`), `orx` (`http://openrosa.org/xforms`), `entities`, arbitrary user namespaces preserved in serialization
-- [ ] `<model>` with `odk:xforms-version`, `entities:entities-version`, `jr:version` / `version`, `id`, `uiVersion`
-- [ ] Primary `<instance>` (first instance) — elements **and attributes** as data nodes
-- [ ] Secondary instances: inline `<instance id>`, `src="jr://file/x.xml"`, `jr://file-csv/x.csv`, `jr://file/x.geojson`, `jr://instance/last-saved` (+ custom via `InstanceProvider`)
-- [ ] Repeat templates: `jr:template=""` and implicit templates (first repeat instance)
-- [ ] `<itext>` / `<translation lang default="true()">` / `<text id>` / `<value form="…">`
-- [ ] `<bind>` (all attributes §7.3), multiple binds same nodeset (merge/override rules as JavaRosa)
-- [ ] Top-level `<setvalue>`, `<odk:setgeopoint>`, `<odk:recordaudio>` and nested-in-control actions
-- [ ] `<submission>` (`orx:submission`): `action`, `method`, `base64RsaPublicKey`, `orx:auto-send`, `orx:auto-delete` (SubmissionParser)
-- [ ] `meta` handler (head meta), `title` handler
-- [ ] `XmlTextConsolidator` (merge adjacent text nodes), `ElementChildDeleter`, whitespace rules identical to JavaRosa
-- [ ] Parse warnings (XFormParserReporter): unknown elements/attributes, deprecated constructs, `jr-insert` deprecation
+- [x] `h:html` / `h:head` / `h:title` / `h:body`; namespaces: XForms, XHTML, `jr` (`http://openrosa.org/javarosa`), `odk` (`http://www.opendatakit.org/xforms`), `orx` (`http://openrosa.org/xforms`), `entities`, arbitrary user namespaces preserved in serialization
+- [x] `<model>` with `odk:xforms-version`, `entities:entities-version`, `jr:version` / `version`, `id`, `uiVersion`
+- [x] Primary `<instance>` (first instance) — elements **and attributes** as data nodes
+- [x] Secondary instances: inline `<instance id>`, `src="jr://file/x.xml"`, `jr://file-csv/x.csv`, `jr://file/x.geojson`, `jr://instance/last-saved` (+ custom via `InstanceProvider`)
+- [x] Repeat templates: `jr:template=""` and implicit templates (first repeat instance)
+- [x] `<itext>` / `<translation lang default="true()">` / `<text id>` / `<value form="…">`
+- [x] `<bind>` (all attributes §7.3), multiple binds same nodeset (merge/override rules as JavaRosa)
+- [x] Top-level `<setvalue>`, `<odk:setgeopoint>`, `<odk:recordaudio>` and nested-in-control actions
+- [x] `<submission>` (`orx:submission`): `action`, `method`, `base64RsaPublicKey`, `orx:auto-send`, `orx:auto-delete` (SubmissionParser)
+- [x] `meta` handler (head meta), `title` handler
+- [x] `XmlTextConsolidator` (merge adjacent text nodes), `ElementChildDeleter`, whitespace rules identical to JavaRosa
+- [x] Parse warnings (XFormParserReporter): unknown elements/attributes, deprecated constructs, `jr-insert` deprecation
 
 ### 7.2 Body controls (ControlType)
-- [ ] `input` (incl. passthrough attrs `rows`, `query`) — CONTROL_INPUT
-- [ ] `textarea` — CONTROL_TEXTAREA
-- [ ] `secret` — CONTROL_SECRET
-- [ ] `select1` — CONTROL_SELECT_ONE
-- [ ] `select` — CONTROL_SELECT_MULTI
-- [ ] `odk:rank` — CONTROL_RANK
-- [ ] `range` (`start`, `end`, `step`, extra attrs e.g. `odk:tick-interval`, `odk:tick-labelset`, `odk:placeholder`) — CONTROL_RANGE + RangeParser
-- [ ] `upload` with `mediatype` image/* audio/* video/* application/*, OSM (`osm/*` + `odk:tag`/`label`) → IMAGE_CHOOSE, AUDIO_CAPTURE, VIDEO_CAPTURE, FILE_CAPTURE, OSM_CAPTURE, UPLOAD
-- [ ] `trigger` (acknowledge) — CONTROL_TRIGGER
-- [ ] Standalone `label` element — CONTROL_LABEL
-- [ ] CONTROL_SUBMIT, CONTROL_UNTYPED (parity — represented even if unused by ODK)
-- [ ] `group` (with/without `ref`, `appearance` e.g. `field-list`, `table-list`, `intent`), nested groups
-- [ ] `repeat` (`nodeset`, `jr:count`, `jr:noAddRemove`, `appearance`), nested repeats, repeat inside field-list
-- [ ] Repeat UI captions: `jr:addCaption`, `addEmptyCaption`, `delCaption`, `doneCaption`, `doneEmptyCaption`, `chooseCaption`, `entryHeader`, `delHeader`, `mainHeader` (FormEntryCaption.getRepeatText)
-- [ ] `<label>`, `<hint>`, guidance hint (`form="guidance"`), `<output value="…"/>` inside labels/hints/choices (live re-evaluation)
-- [ ] `<item>` (`label`, `value`), `<itemset nodeset>` with `<label ref>`/`<value ref>`, `jr:itext(...)` labels in itemsets, `randomize="true()"` + `seed`
-- [ ] Choice media (image/audio/video/big-image forms on choice itext)
-- [ ] `appearance` string on every control passed through verbatim (renderer interprets)
-- [ ] Unknown control attributes preserved in `promptAttributes`/`additionalAttributes`
+- [x] `input` (incl. passthrough attrs `rows`, `query`) — CONTROL_INPUT
+- [x] `textarea` — CONTROL_TEXTAREA
+- [x] `secret` — CONTROL_SECRET
+- [x] `select1` — CONTROL_SELECT_ONE
+- [x] `select` — CONTROL_SELECT_MULTI
+- [x] `odk:rank` — CONTROL_RANK
+- [x] `range` (`start`, `end`, `step`, extra attrs e.g. `odk:tick-interval`, `odk:tick-labelset`, `odk:placeholder`) — CONTROL_RANGE + RangeParser
+- [x] `upload` with `mediatype` image/* audio/* video/* application/*, OSM (`osm/*` + `odk:tag`/`label`) → IMAGE_CHOOSE, AUDIO_CAPTURE, VIDEO_CAPTURE, FILE_CAPTURE, OSM_CAPTURE, UPLOAD
+- [x] `trigger` (acknowledge) — CONTROL_TRIGGER
+- [x] Standalone `label` element — CONTROL_LABEL
+- [x] CONTROL_SUBMIT, CONTROL_UNTYPED (parity — represented even if unused by ODK)
+- [x] `group` (with/without `ref`, `appearance` e.g. `field-list`, `table-list`, `intent`), nested groups
+- [x] `repeat` (`nodeset`, `jr:count`, `jr:noAddRemove`, `appearance`), nested repeats, repeat inside field-list
+- [x] Repeat UI captions: `jr:addCaption`, `addEmptyCaption`, `delCaption`, `doneCaption`, `doneEmptyCaption`, `chooseCaption`, `entryHeader`, `delHeader`, `mainHeader` (FormEntryCaption.getRepeatText)
+- [x] `<label>`, `<hint>`, guidance hint (`form="guidance"`), `<output value="…"/>` inside labels/hints/choices (live re-evaluation)
+- [x] `<item>` (`label`, `value`), `<itemset nodeset>` with `<label ref>`/`<value ref>`, `jr:itext(...)` labels in itemsets, `randomize="true()"` + `seed`
+- [x] Choice media (image/audio/video/big-image forms on choice itext)
+- [x] `appearance` string on every control passed through verbatim (renderer interprets)
+- [x] Unknown control attributes preserved in `promptAttributes`/`additionalAttributes`
 
 ### 7.3 Bind attributes (StandardBindAttributesProcessor)
-- [ ] `nodeset`, `type` (§7.4), `readonly`, `required`, `relevant`, `constraint`, `calculate`
-- [ ] `jr:constraintMsg` (literal or `jr:itext('id')`), `jr:requiredMsg`
-- [ ] `jr:preload`, `jr:preloadParams` (§7.8)
+- [x] `nodeset`, `type` (§7.4), `readonly`, `required`, `relevant`, `constraint`, `calculate`
+- [x] `jr:constraintMsg` (literal or `jr:itext('id')`), `jr:requiredMsg`
+- [x] `jr:preload`, `jr:preloadParams` (§7.8)
 - [ ] `saveIncomplete` (ODK spec: triggers save on change — exposed as flag to app)
-- [ ] Unknown/namespaced bind attributes kept (`getBindAttributes`) — e.g. `orx:max-pixels`, `odk:length`, `entities:saveto`, `odk:allow-mock-accuracy`
-- [ ] Attribute-node binds (`/data/item/@id`)
-- [ ] Inheritance: non-relevant and readonly propagate to descendants
+- [x] Unknown/namespaced bind attributes kept (`getBindAttributes`) — e.g. `orx:max-pixels`, `odk:length`, `entities:saveto`, `odk:allow-mock-accuracy`
+- [x] Attribute-node binds (`/data/item/@id`)
+- [x] Inheritance: non-relevant and readonly propagate to descendants
 
 ### 7.4 Data types (TypeMappings → DataType)
-- [ ] string, int/integer, long, decimal/double/float, boolean, date, time, dateTime, gYear/gMonth/gDay/gYearMonth/gMonthDay (map as JavaRosa does), base64Binary/hexBinary/anyURI/binary (→ binary), select1/select (listItem/listItems → choice/choice-list), geopoint, geotrace, geoshape, barcode, unsupported/null
-- [ ] AnswerValue types: `StringValue`, `IntegerValue`, `LongValue`, `DecimalValue`, `BooleanValue`, `DateValue`, `TimeValue`, `DateTimeValue`, `SelectOneValue`, `SelectMultiValue`, `MultipleItemsValue`, `GeoPointValue` (lat, lon, alt, accuracy), `GeoTraceValue`, `GeoShapeValue`, `AttachmentValue` (pointer), `UncastValue`
-- [ ] `AnswerDataFactory` rules (control+type → value class), cast/uncast round-trip exactly as `XFormAnswerDataParser`/`XFormAnswerDataSerializer`
+- [x] string, int/integer, long, decimal/double/float, boolean, date, time, dateTime, gYear/gMonth/gDay/gYearMonth/gMonthDay (map as JavaRosa does), base64Binary/hexBinary/anyURI/binary (→ binary), select1/select (listItem/listItems → choice/choice-list), geopoint, geotrace, geoshape, barcode, unsupported/null
+- [x] AnswerValue types: `StringValue`, `IntegerValue`, `LongValue`, `DecimalValue`, `BooleanValue`, `DateValue`, `TimeValue`, `DateTimeValue`, `SelectOneValue`, `SelectMultiValue`, `MultipleItemsValue`, `GeoPointValue` (lat, lon, alt, accuracy), `GeoTraceValue`, `GeoShapeValue`, `AttachmentValue` (pointer), `UncastValue`
+- [x] `AnswerDataFactory` rules (control+type → value class), cast/uncast round-trip exactly as `XFormAnswerDataParser`/`XFormAnswerDataSerializer`
 - [ ] Invalid-data handling (`InvalidDataException` → `AnswerRejected` result)
 
 ### 7.5 XPath language
-- [ ] Lexer/parser for full XPath 1.0 syntax used by ODK: absolute/relative location paths, `.`/`..`, `*`, `@attr`, predicates (multiple, nested), filter expressions, unions `|`, variables, numeric/string literals, all operators (`or and = != < <= > >= + - * div mod` unary `-`)
-- [ ] Axes as JavaRosa supports (child, attribute, self, parent, descendant-or-self via `//` where supported) — unsupported axes raise `XPathUnsupportedException` identically
-- [ ] `instance('id')/…`, `current()` (+ JavaRosa notes: `current()` in calculate = node itself; in itemset predicate = question node), relative refs with `../` across repeats
-- [ ] Type system & coercion: string(), number(), boolean() conversions incl. NaN, ±Infinity, empty nodeset, date→number (days since epoch, fractional), string→date
-- [ ] Comparison semantics: nodeset vs scalar existential comparisons, date comparisons, `=` on booleans
-- [ ] Node ordering in nodesets (document order), lazy nodesets (`XPathLazyNodeset`), `count`, `sum`
-- [ ] Error model: `XPathArityException`, `XPathTypeMismatchException`, `XPathUnhandledException` (unknown function), `XPathUnsupportedException`, `XPathMissingInstanceException`, `XPathSyntaxException` with position
-- [ ] Reference analysis for DAG: collect referenced paths incl. inside predicates, `current()` paths, function args; `isIdempotent` analysis (predicate caching)
-- [ ] Pivot / range-hint extraction from constraints (CmpPivot, Date/Decimal/Integer/StringLength range hints)
+- [x] Lexer/parser for full XPath 1.0 syntax used by ODK: absolute/relative location paths, `.`/`..`, `*`, `@attr`, predicates (multiple, nested), filter expressions, unions `|`, variables, numeric/string literals, all operators (`or and = != < <= > >= + - * div mod` unary `-`)
+- [x] Axes as JavaRosa supports (child, attribute, self, parent, descendant-or-self via `//` where supported) — unsupported axes raise `XPathUnsupportedException` identically
+- [x] `instance('id')/…`, `current()` (+ JavaRosa notes: `current()` in calculate = node itself; in itemset predicate = question node), relative refs with `../` across repeats
+- [x] Type system & coercion: string(), number(), boolean() conversions incl. NaN, ±Infinity, empty nodeset, date→number (days since epoch, fractional), string→date
+- [x] Comparison semantics: nodeset vs scalar existential comparisons, date comparisons, `=` on booleans
+- [x] Node ordering in nodesets (document order), lazy nodesets (`XPathLazyNodeset`), `count`, `sum`
+- [x] Error model: `XPathArityException`, `XPathTypeMismatchException`, `XPathUnhandledException` (unknown function), `XPathUnsupportedException`, `XPathMissingInstanceException`, `XPathSyntaxException` with position
+- [x] Reference analysis for DAG: collect referenced paths incl. inside predicates, `current()` paths, function args; `isIdempotent` analysis (predicate caching)
+- [x] Pivot / range-hint extraction from constraints (CmpPivot, Date/Decimal/Integer/StringLength range hints)
 
 ### 7.6 XPath function library — all functions implemented by JavaRosa
 **Core / boolean / node:** `true` `false` `boolean` `not` `if` `coalesce` `count` `count-non-empty` `position` `instance` `depend` (non-standard) `boolean-from-string` `checklist` `weighted-checklist` `once`
@@ -334,8 +334,8 @@ Disposition: **PORT** = behaviour ported 1:1 (idiomatic structure) · **REDESIGN
 - [x] Initialize on new form (loaded instances: P6); initialize on loaded instance (respecting `once()` / already-filled calculations)
 - [x] Trigger on value change (cascade), on repeat insert, on repeat delete (incl. `position()`-dependent and `count()`-dependent recompute), on language change (itext-dependent outputs)
 - [x] `QuickTriggerable` dedup; children-of-relevance propagation; readonly calculate behaviour (ReadOnlyCalculateTest runs with Scenario in P4)
-- [ ] Constraint evaluation only on answer + finalize; `required` checked on navigation/finalize as JavaRosa
-- [ ] Revalidate whole form (`xforms-revalidate`) on finalize → list of failures with first-failure index
+- [x] Constraint evaluation only on answer + finalize; `required` checked on navigation/finalize as JavaRosa
+- [x] Revalidate whole form (`xforms-revalidate`) on finalize → list of failures with first-failure index
 - [x] Predicate/filter strategies: Raw, ComparisonExpressionCache, EqualityExpressionIndex, IdempotentExpressionCache — ported faithfully and installed as in JavaRosa. **Correction:** they are *not* always equivalent to Raw (the equality index matches candidates by their unpacked node side, so a missing child equals `''`); results must equal JavaRosa's, checked by the init traces
 - [x] Debug trace stream (EvaluationResult/Event)
 
@@ -345,30 +345,30 @@ Disposition: **PORT** = behaviour ported 1:1 (idiomatic structure) · **REDESIGN
 - [x] `jr:preload="property"` params `deviceid`, `subscriberid`, `simserial`, `phonenumber`, `username`, `email` (from `DeviceProperties`)
 - [x] `jr:preload="uid"` (instanceID — `uuid:` prefix)
 - [x] Custom `PreloadHandler` registration
-- [ ] `meta/instanceID`, `meta/deprecatedID` (set when editing a finalized instance), `meta/instanceName` (calculate)
+- [ ] (instanceID/instanceName done; `deprecatedID` on edit is Collect-layer, open) `meta/instanceID`, `meta/deprecatedID` (set when editing a finalized instance), `meta/instanceName` (calculate)
 
 ### 7.9 Actions & events
-- [ ] Events: `odk-instance-first-load`, `odk-instance-load`, `xforms-ready` (deprecated alias), `odk-new-repeat`, `jr-insert` (deprecated alias), `xforms-value-changed`, `xforms-revalidate`
-- [ ] Top-level vs nested (in-control, in-repeat) event listeners; event ordering relative to DAG initialization exactly as `InstanceLoadEventsTest` / `MultipleEventsTest` / `OdkNewRepeatEventTest`
-- [ ] `setvalue` (ref, value attr or text content, relative refs inside repeats)
-- [ ] `odk:setgeopoint` (stub in core; real location via delegate) incl. `xforms-value-changed` trigger
-- [ ] `odk:recordaudio` (background audio; `odk:quality`) — handler + listener interface, platform via delegate
-- [ ] Custom action registration (`ActionHandler`) — per config, not static
+- [x] Events: `odk-instance-first-load`, `odk-instance-load`, `xforms-ready` (deprecated alias), `odk-new-repeat`, `jr-insert` (deprecated alias), `xforms-value-changed`, `xforms-revalidate`
+- [x] Top-level vs nested (in-control, in-repeat) event listeners; event ordering relative to DAG initialization exactly as `InstanceLoadEventsTest` / `MultipleEventsTest` / `OdkNewRepeatEventTest`
+- [x] `setvalue` (ref, value attr or text content, relative refs inside repeats)
+- [x] `odk:setgeopoint` (stub in core; real location via delegate) incl. `xforms-value-changed` trigger
+- [x] `odk:recordaudio` (background audio; `odk:quality`) — handler + listener interface, platform via delegate
+- [x] Custom action registration (`ActionHandler`) — per config, not static
 
 ### 7.10 Secondary instances
-- [ ] XML external (`XmlExternalInstance`), CSV (`CsvExternalInstance` — header row → element names, quoting, BOM, delimiter), GeoJSON (`FeatureCollection` → item with `geometry` as ODK geo string, properties, `id`), last-saved, internal
-- [ ] Lazy/partial parse for large files where JavaRosa does; missing instance → `XPathMissingInstanceException` only when referenced
-- [ ] Choice filters (itemset predicates) incl. `current()`, cascading selects, dynamic re-evaluation (DynamicSelectUpdateTest, SelectOneChoiceFilterTest, SelectMultipleChoiceFilterTest)
-- [ ] Clearing now-invalid select answers when choices change (as JavaRosa)
-- [ ] Instance provider plugin (`addInstanceProvider` / `addFileInstanceParser`)
+- [x] XML external (`XmlExternalInstance`), CSV (`CsvExternalInstance` — header row → element names, quoting, BOM, delimiter), GeoJSON (`FeatureCollection` → item with `geometry` as ODK geo string, properties, `id`), last-saved, internal
+- [x] Lazy/partial parse for large files where JavaRosa does; missing instance → `XPathMissingInstanceException` only when referenced
+- [x] Choice filters (itemset predicates) incl. `current()`, cascading selects, dynamic re-evaluation (DynamicSelectUpdateTest, SelectOneChoiceFilterTest, SelectMultipleChoiceFilterTest)
+- [x] Clearing now-invalid select answers when choices change (as JavaRosa)
+- [x] Instance provider plugin (`addInstanceProvider` / `addFileInstanceParser`)
 
 ### 7.11 Localization (Localizer)
-- [ ] Languages list (form order), default language (`default="true()"` or first), set language at runtime
-- [ ] Text forms: default/long, `short`, `image`, `big-image`, `audio`, `video`, `guidance`, `markdown`/raw HTML subset passthrough
-- [ ] Fallback rules (missing form → default form; missing lang → default lang) identical
-- [ ] `jr:itext()` in XPath, `<output>` substitution in localized text, choice labels
-- [ ] Constraint/required messages per language
-- [ ] Date-name localization for `format-date` (DateUtilsFormatLocalizationTests)
+- [x] Languages list (form order), default language (`default="true()"` or first), set language at runtime
+- [x] Text forms: default/long, `short`, `image`, `big-image`, `audio`, `video`, `guidance`, `markdown`/raw HTML subset passthrough
+- [x] Fallback rules (missing form → default form; missing lang → default lang) identical
+- [x] `jr:itext()` in XPath, `<output>` substitution in localized text, choice labels
+- [x] Constraint/required messages per language
+- [x] Date-name localization for `format-date` (DateUtilsFormatLocalizationTests)
 
 ### 7.12 Form entry API — 1:1 mapping of JavaRosa public surface
 | JavaRosa | DartRosa |
@@ -400,7 +400,7 @@ Disposition: **PORT** = behaviour ported 1:1 (idiomatic structure) · **REDESIGN
 ### 7.13 Navigation semantics (FormNavigationTestCase, FormIndexTest)
 - [x] Event sequence including group entry, field-list as one screen, repeat juncture, "add another?" prompt suppressed by `jr:count`/`noAddRemove`
 - [x] Skipping non-relevant nodes; relevance changes mid-navigation
-- [ ] `FormIndex` ordering/compare/next/prev over nested repeats; serialization of index for resume (FormIndexSerializationTest → `NodeRef.toPathString()/parse`)
+- [x] `FormIndex` ordering/compare/next/prev over nested repeats; serialization of index for resume (FormIndexSerializationTest → `NodeRef.toPathString()/parse`)
 - [x] Jump to beginning/end, jump into repeat instance, delete current repeat and land on correct index
 
 ### 7.14 Serialization & instance lifecycle
@@ -408,18 +408,18 @@ Disposition: **PORT** = behaviour ported 1:1 (idiomatic structure) · **REDESIGN
 - [x] Draft save (all nodes incl. non-relevant values preserved as JavaRosa), load draft → identical state
 - [ ] Edit finalized submission: new `instanceID`, old moved to `deprecatedID`
 - [x] Attachments list from binary answers (for multipart submission)
-- [ ] Compact & SMS serializers (`dartrosa_compact`, optional)
+- [x] Compact & SMS serializers (ported into the core package: `CompactSerializingVisitor`, `SMSSerializingVisitor`)
 - [x] Form-definition cache (`FormDefCodec`, versioned; invalidated by codec version + form hash; restores by re-parsing)
 
 ### 7.15 Plugin points (PLUGINS.md parity)
-- [ ] Parse processors (element/attribute hooks; attach extras)
-- [ ] Custom parser factory (wrap/chain) → `ParserExtension` list
-- [ ] Finalization processors
-- [ ] Instance providers / file instance parsers
-- [ ] Function handlers + fallback handler
-- [ ] Filter strategies (predicate evaluation)
-- [ ] Action handlers
-- [ ] Preload handlers
+- [x] Parse processors (element/attribute hooks; attach extras)
+- [x] Custom parser factory (wrap/chain) → `ParserExtension` list
+- [x] Finalization processors
+- [x] Instance providers / file instance parsers
+- [x] Function handlers + fallback handler
+- [x] Filter strategies (predicate evaluation)
+- [x] Action handlers
+- [x] Preload handlers
 
 ---
 
@@ -591,11 +591,17 @@ Widget tests per control/appearance, golden tests (light/dark, LTR/RTL, text sca
 
 ## 15. Definition of Done (v1.0)
 
+Status (2026-10-04): §7 items are ticked where the ported JavaRosa test
+classes (`test/`, "Port of JavaRosa v6.0.0 <Class>") and the oracle
+conformance suites (`test/conformance/`: structure, init, dag, walk,
+scenario and fuzz traces over the JavaRosa, DartRosa and ODK Collect
+corpora) cover them; open items are left unticked.
+
 - [ ] Every checklist item in §7 and §8 ticked with linked tests
 - [ ] 100 % of JavaRosa test classes ported (§10.5) and green on VM, Chrome, WASM
 - [ ] Oracle diff = 0 on full conformance corpus (≥ 300 forms + random walks)
 - [ ] `dart analyze` clean with strict config; `dart format` clean; public API 100 % documented; pana score 160/160
-- [ ] No global mutable state; no `dart:io`/Flutter imports in core (enforced by a CI import-lint)
+- [x] No global mutable state; no `dart:io`/Flutter imports in core (enforced by a CI import-lint)
 - [ ] Benchmarks within targets (§1)
 - [ ] Example app fills, saves, resumes, edits, finalizes, encrypts and exports every corpus form
 - [ ] Docs: getting started, API reference, JavaRosa → DartRosa migration guide, compatibility matrix, plugin guide
