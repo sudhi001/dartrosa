@@ -163,7 +163,7 @@ public final class Oracle {
             trace.put("parse", Map.of("ok", true));
             trace.put("structure", Structure.of(def));
         } catch (Throwable t) {
-            trace.put("parse", Map.of("ok", false, "error", error(t)));
+            trace.put("parse", Map.of("ok", false, "error", stableError(t)));
         }
         return trace;
     }
@@ -187,7 +187,9 @@ public final class Oracle {
             def.initialize(true, new org.javarosa.core.model.instance.InstanceInitializationFactory());
             trace.put("initialize", Map.of("ok", true));
         } catch (Throwable t) {
+            // What was evaluated before the failure depends on identity-hash order.
             trace.put("initialize", Map.of("ok", false, "error", stableError(t)));
+            return trace;
         }
         trace.put("instance", Structure.tree(def.getMainInstance().getRoot()));
         return trace;
@@ -227,7 +229,7 @@ public final class Oracle {
             setUpReferences(form.getAbsoluteFile().getParentFile());
             s = Scenario.init(form);
         } catch (Throwable t) {
-            trace.put("parse", Map.of("ok", false, "error", error(t)));
+            trace.put("parse", Map.of("ok", false, "error", stableError(t)));
             return trace;
         }
         FormDef def = s.getFormDef();
@@ -245,7 +247,7 @@ public final class Oracle {
             try {
                 runStep(s, step, result);
             } catch (Throwable t) {
-                result.put("error", error(t));
+                result.put("error", stableError(t));
             }
             steps.add(result);
         }
@@ -254,7 +256,7 @@ public final class Oracle {
         try {
             trace.put("instance", normalize(new String(new XFormSerializingVisitor().serializeInstance(def.getInstance()), StandardCharsets.UTF_8)));
         } catch (Throwable t) {
-            trace.put("instance", Map.of("error", error(t)));
+            trace.put("instance", Map.of("error", stableError(t)));
         }
         return trace;
     }
