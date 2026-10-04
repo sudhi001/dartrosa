@@ -56,6 +56,10 @@ back to the default widget (with one `debugPrint` per appearance).
 - **Strings**: buttons, prompts and default messages come from
   `XFormLocalizations` (English); subclass it and register a
   `LocalizationsDelegate` for other languages.
+- **Accessibility**: each question is a semantics node labelled with its
+  label, "required" and its validation state; errors are live regions,
+  and blocked Next / Finalize announce the error; focus follows form
+  order; choice and button targets are at least 48dp.
 - **RTL**: forms in ar, fa, he, ur, ps, sd, ug, yi or dv (by code or
   name, e.g. `Arabic (ar)`) are laid out right to left.
 

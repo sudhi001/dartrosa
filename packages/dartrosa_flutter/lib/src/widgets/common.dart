@@ -1,4 +1,7 @@
+import 'dart:async';
+
 import 'package:dartrosa/dartrosa.dart';
+import 'package:flutter/semantics.dart';
 import 'package:flutter/widgets.dart';
 
 import '../xform_scope.dart';
@@ -58,3 +61,14 @@ class XFormPagerScope extends InheritedWidget {
   @override
   bool updateShouldNotify(XFormPagerScope oldWidget) => false;
 }
+
+/// Asks screen readers to read out [message] (e.g. a validation error
+/// that blocked moving on).
+void announceError(BuildContext context, String message) => unawaited(
+  SemanticsService.sendAnnouncement(
+    View.of(context),
+    message,
+    Directionality.of(context),
+    assertiveness: Assertiveness.assertive,
+  ),
+);

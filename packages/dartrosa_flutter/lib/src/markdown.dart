@@ -66,6 +66,16 @@ List<InlineSpan> parseOdkMarkdown(
   return spans;
 }
 
+/// [text] without its ODK markdown formatting (e.g. for semantics).
+String odkMarkdownToPlainText(String text) => hasOdkMarkdown(text)
+    ? TextSpan(
+        children: parseOdkMarkdown(
+          text,
+          const OdkMarkdownStyles(headers: [], link: TextStyle()),
+        ),
+      ).toPlainText()
+    : text;
+
 /// Whether [text] has anything [parseOdkMarkdown] would format.
 bool hasOdkMarkdown(String text) => RegExp(r'[*_#\[<\\&]').hasMatch(text);
 

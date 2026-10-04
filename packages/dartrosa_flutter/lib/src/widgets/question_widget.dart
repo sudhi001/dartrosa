@@ -1,8 +1,10 @@
 import 'package:dartrosa/dartrosa.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/semantics.dart';
 
 import '../appearance.dart';
 import '../localizations.dart';
+import '../markdown.dart';
 import '../theme.dart';
 import '../xform_scope.dart';
 import 'date_input.dart';
@@ -66,9 +68,10 @@ class QuestionWidget extends StatelessWidget {
                 appearance.has('label') ||
                 appearance.has('list-nolabel'))) {
           final labelsOnly = !inTableList && appearance.has('label');
-          return Semantics(
-            container: true,
-            child: Padding(
+          return _semantics(
+            context,
+            error,
+            Padding(
               padding: const EdgeInsets.symmetric(vertical: 4),
               child: ChoiceRowInput(
                 node,
@@ -77,23 +80,27 @@ class QuestionWidget extends StatelessWidget {
                 leading: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    XFormLabel(node.label, required: node.isRequired),
-                    if (error != null)
-                      Text(error, style: TextStyle(color: errorColor)),
+                    ExcludeSemantics(
+                      child: XFormLabel(node.label, required: node.isRequired),
+                    ),
+                    if (error != null) _Error(error, color: errorColor),
                   ],
                 ),
               ),
             ),
           );
         }
-        return Semantics(
-          container: true,
-          child: Padding(
+        return _semantics(
+          context,
+          error,
+          Padding(
             padding: EdgeInsets.symmetric(vertical: formTheme.questionSpacing),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                XFormLabel(node.label, required: node.isRequired),
+                ExcludeSemantics(
+                  child: XFormLabel(node.label, required: node.isRequired),
+                ),
                 XFormHint(node),
                 if (!node.isNote)
                   Padding(
@@ -103,13 +110,30 @@ class QuestionWidget extends StatelessWidget {
                 if (error != null)
                   Padding(
                     padding: const EdgeInsets.only(top: 4),
-                    child: Text(error, style: TextStyle(color: errorColor)),
+                    child: _Error(error, color: errorColor),
                   ),
               ],
             ),
           ),
         );
       },
+    );
+  }
+
+  /// A semantics container labelled with the question label, whether it
+  /// is required, and whether its answer is invalid.
+  Widget _semantics(BuildContext context, String? error, Widget child) {
+    final label = odkMarkdownToPlainText(node.label.text ?? '');
+    return Semantics(
+      container: true,
+      explicitChildNodes: true,
+      label: node.isRequired
+          ? '$label, ${XFormLocalizations.of(context).required}'
+          : label,
+      validationResult: error == null
+          ? SemanticsValidationResult.none
+          : SemanticsValidationResult.invalid,
+      child: child,
     );
   }
 
@@ -134,6 +158,20 @@ class QuestionWidget extends StatelessWidget {
       _ => TextQuestionInput(node),
     },
   };
+}
+
+/// A validation error, read out by screen readers when it appears.
+class _Error extends StatelessWidget {
+  const _Error(this.message, {required this.color});
+
+  final String message;
+  final Color color;
+
+  @override
+  Widget build(BuildContext context) => Semantics(
+    liveRegion: true,
+    child: Text(message, style: TextStyle(color: color)),
+  );
 }
 
 void _answer(BuildContext context, QuestionNode node, AnswerValue? value) =>

@@ -83,11 +83,15 @@ class _XFormViewState extends State<XFormView> {
           widget.session.navigator.jumpTo(failure.index);
           setState(() {});
         }
-        ScaffoldMessenger.maybeOf(context)?.showSnackBar(
-          SnackBar(
-            content: Text(XFormLocalizations.of(context).answersNeedAttention),
-          ),
+        final strings = XFormLocalizations.of(context);
+        announceError(
+          context,
+          _controller.errorFor(failure.index, strings) ??
+              strings.answersNeedAttention,
         );
+        ScaffoldMessenger.maybeOf(
+          context,
+        )?.showSnackBar(SnackBar(content: Text(strings.answersNeedAttention)));
     }
   }
 
@@ -106,11 +110,17 @@ class _XFormViewState extends State<XFormView> {
             Directionality.of(context),
         child: child!,
       ),
-      child: Builder(
-        builder: (context) => switch (widget.mode) {
-          XFormMode.scroll => _ScrollForm(onFinalize: () => _finalize(context)),
-          XFormMode.pager => _PagerForm(onFinalize: () => _finalize(context)),
-        },
+      // Focus moves in form order, not by on-screen geometry.
+      child: FocusTraversalGroup(
+        policy: WidgetOrderTraversalPolicy(),
+        child: Builder(
+          builder: (context) => switch (widget.mode) {
+            XFormMode.scroll => _ScrollForm(
+              onFinalize: () => _finalize(context),
+            ),
+            XFormMode.pager => _PagerForm(onFinalize: () => _finalize(context)),
+          },
+        ),
       ),
     ),
   );
@@ -231,12 +241,18 @@ class _PagerFormState extends State<_PagerForm> {
     }
 
     collect(current);
-    var ok = true;
+    String? firstError;
     for (final q in questions) {
       if (q.isReadonly) continue;
-      if (controller.answer(q.index, q.value) is! AnswerAccepted) ok = false;
+      if (controller.answer(q.index, q.value) is! AnswerAccepted) {
+        firstError ??= controller.errorFor(
+          q.index,
+          XFormLocalizations.of(context),
+        );
+      }
     }
-    return ok;
+    if (firstError != null) announceError(context, firstError);
+    return firstError == null;
   }
 
   void _next() {
