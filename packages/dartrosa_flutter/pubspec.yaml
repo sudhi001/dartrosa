@@ -12,6 +12,8 @@ environment:
 dependencies:
   dartrosa:
     path: ../dartrosa
+  dartrosa_calendars:
+    path: ../dartrosa_calendars
   flutter:
     sdk: flutter
 
