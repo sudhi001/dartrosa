@@ -398,18 +398,18 @@ Disposition: **PORT** = behaviour ported 1:1 (idiomatic structure) · **REDESIGN
 | `register/unregister/formElementStateChanged` | `node.changes` stream / `ValueListenable` adapter |
 
 ### 7.13 Navigation semantics (FormNavigationTestCase, FormIndexTest)
-- [ ] Event sequence including group entry, field-list as one screen, repeat juncture, "add another?" prompt suppressed by `jr:count`/`noAddRemove`
-- [ ] Skipping non-relevant nodes; relevance changes mid-navigation
+- [x] Event sequence including group entry, field-list as one screen, repeat juncture, "add another?" prompt suppressed by `jr:count`/`noAddRemove`
+- [x] Skipping non-relevant nodes; relevance changes mid-navigation
 - [ ] `FormIndex` ordering/compare/next/prev over nested repeats; serialization of index for resume (FormIndexSerializationTest → `NodeRef.toPathString()/parse`)
-- [ ] Jump to beginning/end, jump into repeat instance, delete current repeat and land on correct index
+- [x] Jump to beginning/end, jump into repeat instance, delete current repeat and land on correct index
 
 ### 7.14 Serialization & instance lifecycle
-- [ ] Submission XML (XFormSerializingVisitor): only relevant nodes (non-relevant pruned), attributes, namespaces/prefixes, `jr:template` removed, empty elements, encoding UTF-8, answer serialization per type
-- [ ] Draft save (all nodes incl. non-relevant values preserved as JavaRosa), load draft → identical state
+- [x] Submission XML (XFormSerializingVisitor): only relevant nodes (non-relevant pruned), attributes, namespaces/prefixes, `jr:template` removed, empty elements, encoding UTF-8, answer serialization per type
+- [x] Draft save (all nodes incl. non-relevant values preserved as JavaRosa), load draft → identical state
 - [ ] Edit finalized submission: new `instanceID`, old moved to `deprecatedID`
-- [ ] Attachments list from binary answers (for multipart submission)
+- [x] Attachments list from binary answers (for multipart submission)
 - [ ] Compact & SMS serializers (`dartrosa_compact`, optional)
-- [ ] Form-definition cache (`FormDefinitionCodec`, versioned; invalidated by package version + form hash)
+- [x] Form-definition cache (`FormDefCodec`, versioned; invalidated by codec version + form hash; restores by re-parsing)
 
 ### 7.15 Plugin points (PLUGINS.md parity)
 - [ ] Parse processors (element/attribute hooks; attach extras)

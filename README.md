@@ -3,13 +3,13 @@
 A pure-Dart port of [JavaRosa](https://github.com/getodk/javarosa), the ODK
 XForms engine used by ODK Collect, for Flutter and any other Dart platform.
 
-> **Status: Phase 2 (XForm parser) complete.** XPath engine with all
-> functions, instance tree and answer values, `DateUtils`, translations,
-> secondary instances (XML/CSV/GeoJSON), `ReferenceManager` and the XForm
-> parser. The parsed structure of all 66 conformance forms is identical to
-> JavaRosa's, and every JavaRosa test class of phases 1–2 is ported (tests
-> needing the form runner are tracked as skipped for Phase 4). Next:
-> Phase 3 (dependency graph of calculations, relevance and constraints).
+> **Status: Phases 0–4 complete; Phase 6 in progress.** XPath, parser,
+> dependency graph, form entry and navigation, the app-facing session API
+> (`FormDefinition` / `FormSession`), byte-identical submission XML,
+> instance loading and a form codec. Every JavaRosa test class is ported
+> (tests needing serialization are being finished), and the oracle
+> comparison covers parsing, initialization, recalculation scenarios,
+> full form walks and serialized instances for every test form.
 
 ## Packages
 

@@ -126,7 +126,33 @@ void main() {
     expect(failure.result, isA<AnswerRequired>());
     expect(failure.index.reference.toString(), '/data/age[1]');
     session.answer(session.root.children[0].index, const IntegerValue(3));
-    expect(session.finalize(), isA<FinalizeSuccess>());
+    final success = session.finalize();
+    expect(success, isA<FinalizeSuccess>());
+    // Non-relevant /data/name is left out of the submission.
+    expect(
+      (success as FinalizeSuccess).submission.xml,
+      "<?xml version='1.0' encoding='UTF-8' ?><data id=\"session\" "
+      'xmlns:orx="http://openrosa.org/xforms" '
+      'xmlns:odk="http://www.opendatakit.org/xforms" '
+      'xmlns:h="http://www.w3.org/1999/xhtml" '
+      'xmlns:jr="http://openrosa.org/javarosa">'
+      '<age>3</age><adult>no</adult><child><cname /></child></data>',
+    );
+  });
+
+  test('drafts resume with non-relevant values', () {
+    session
+      ..answer(session.root.children[0].index, const IntegerValue(30))
+      ..answer(session.root.children[1].index, const StringValue('Bo'))
+      ..answer(session.root.children[0].index, const IntegerValue(3));
+    final draft = session.saveDraft();
+    expect(draft, contains('<name>Bo</name>'));
+    final resumed = session.definition.createSession(existingInstance: draft);
+    final name = resumed.root.children[1] as QuestionNode;
+    expect(name.isRelevant, isFalse);
+    expect(name.value?.displayText, 'Bo');
+    resumed.answer(resumed.root.children[0].index, const IntegerValue(40));
+    expect(resumed.root.children[1].isRelevant, isTrue);
   });
 
   test('createSession starts from a blank instance', () async {

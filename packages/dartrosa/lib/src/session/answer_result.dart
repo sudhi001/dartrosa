@@ -46,10 +46,29 @@ sealed class FinalizeResult {
   const FinalizeResult();
 }
 
+/// A finalized instance, ready to submit.
+final class Submission {
+  /// Creates a submission.
+  const Submission(this.xml, this.instanceId, this.attachments);
+
+  /// The submission XML (non-relevant nodes left out), UTF-8.
+  final String xml;
+
+  /// The value of `meta/instanceID` (or `orx:meta/orx:instanceID`), if
+  /// the form has one.
+  final String? instanceId;
+
+  /// The attached files' names (for multipart submission).
+  final List<String> attachments;
+}
+
 /// The form is valid and was finalized.
 final class FinalizeSuccess extends FinalizeResult {
   /// Creates the result.
-  const FinalizeSuccess();
+  const FinalizeSuccess(this.submission);
+
+  /// What to submit.
+  final Submission submission;
 }
 
 /// The form is not valid; nothing was finalized.

@@ -103,6 +103,10 @@ Recorded so that nothing in JavaRosa disappears silently.
 | `Scenario.serializeAndDeserializeForm/Instance` | come with serialization (P6) | |
 | `FormEntryModel.getExtras()` (`Extras<Object>`) | `extras` map | |
 | `FormDef.validate()` | `FormDefValidation.validate()` extension in the form-entry library | Keeps the model layer independent of navigation. |
+| `Externalizable` `FormDef` serialization (binary object graph; Collect's `.formdef` cache) | `FormDefCodec`: source XML + draft instance + language, restored by re-parsing | Same observable state after restore; restoring costs a parse. |
+| Static `XFormParser.setAnswerResolver` | `AnswerResolver` passed to `parse(instanceXml:)` / `loadXmlInstance` | No global state. |
+| `XFormSerializingVisitor.createSerializedPayload` (`IDataPayload` / multipart classes) | `dataPointers` on the serializer; `Submission.attachments` in the session API | Payload transport is the app's job. |
+| `org.javarosa.measure.Measure` static counters | zone-scoped `Measure.withMeasure` | No global state. |
 | `SubmissionParser` class and `matchesCustomMethod` | inlined into `XFormParser` | JavaRosa's static `submissionParsers` list has no public registration, so only the default parser ever runs. |
 | `QuestionDef.getChildren()` returns `null` | returns an empty list | Null-safe API; `addChild` still throws. |
 | Dart `String.trim()` | `javaTrim` everywhere | Dart also strips Unicode spaces such as U+00A0; Java only characters `<= ' '`. |

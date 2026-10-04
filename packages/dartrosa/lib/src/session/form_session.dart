@@ -9,7 +9,9 @@ import '../model/instance/data_instance.dart';
 import '../model/instance/tree_reference.dart';
 import '../model/triggerable_dag.dart';
 import '../model/utils/question_preloader.dart';
+import '../xform/instance_loading.dart';
 import '../xform/xform_parser.dart';
+import '../xform/xform_serializing_visitor.dart';
 import 'answer_result.dart';
 import 'config.dart';
 import 'form_node.dart';
@@ -56,10 +58,12 @@ final class FormDefinition {
   /// The form's languages (empty without translations).
   List<String> get languages => formDef.localizer?.availableLocales ?? const [];
 
-  /// Starts filling a new instance (in [language], if given).
-  FormSession createSession({String? language}) {
+  /// Starts filling a new instance, or continues [existingInstance] (a
+  /// saved draft or submission XML), in [language] if given.
+  FormSession createSession({String? existingInstance, String? language}) {
     formDef.mainInstance = _blankInstance.clone();
-    final session = FormSession._(this);
+    if (existingInstance != null) formDef.loadXmlInstance(existingInstance);
+    final session = FormSession._(this, newInstance: existingInstance == null);
     if (language != null) session.language = language;
     return session;
   }
@@ -84,14 +88,14 @@ final class FormChange {
 /// Filling one instance of a form: a tree of nodes to read and answer,
 /// and a cursor ([navigator]) with JavaRosa's navigation semantics.
 final class FormSession {
-  FormSession._(this.definition)
+  FormSession._(this.definition, {required bool newInstance})
     : _controller = FormEntryController(FormEntryModel(definition.formDef)) {
     final form = definition.formDef;
     definition.config.finalizationProcessors.forEach(
       _controller.addPostProcessor,
     );
     form.addEventListener(_onEvaluation);
-    form.initialize(newInstance: true);
+    form.initialize(newInstance: newInstance);
     navigator = FormNavigator._(this);
   }
 
@@ -192,9 +196,14 @@ final class FormSession {
     return removed;
   }
 
+  /// The whole instance as XML (non-relevant values included), to resume
+  /// later with [FormDefinition.createSession].
+  String saveDraft() => XFormSerializingVisitor(
+    respectRelevance: false,
+  ).serializeInstanceToString(_form.mainInstance);
+
   /// Validates the whole form and, when valid, finalizes it (end
-  /// timestamps, finalization processors). Serialization comes with
-  /// Phase 6.
+  /// timestamps, finalization processors) and serializes the submission.
   FinalizeResult finalize() {
     final outcome = _form.validate();
     if (outcome != null) {
@@ -210,7 +219,19 @@ final class FormSession {
       return FinalizeFailure(ValidationFailure(outcome.failedPrompt, result));
     }
     _controller.finalizeFormEntry();
-    return const FinalizeSuccess();
+    final serializer = XFormSerializingVisitor();
+    final xml = serializer.serializeInstanceToString(_form.mainInstance);
+    return FinalizeSuccess(
+      Submission(xml, _instanceId(), [
+        for (final pointer in serializer.dataPointers) pointer.displayText,
+      ]),
+    );
+  }
+
+  String? _instanceId() {
+    final root = _form.mainInstance.root;
+    final meta = root.getChild('meta', 0) ?? root.getChild('orx:meta', 0);
+    return meta?.getChild('instanceID', 0)?.value?.displayText;
   }
 
   /// Stops reporting changes.
