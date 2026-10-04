@@ -2,6 +2,7 @@ import 'package:dartrosa/dartrosa.dart';
 import 'package:flutter/material.dart';
 
 import '../appearance.dart';
+import '../localizations.dart';
 import 'common.dart';
 
 /// Dates and times: pickers. Dates support `no-calendar` (typed date),
@@ -91,22 +92,23 @@ class DateTimeInput extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final appearance = Appearance.parse(node.appearance);
+    final strings = XFormLocalizations.of(context);
     return Row(
       children: [
         Expanded(child: Text(_display(context, appearance))),
         if (!node.isReadonly) ...[
           if (node.value != null)
             IconButton(
-              tooltip: 'Clear',
+              tooltip: strings.clear,
               icon: const Icon(Icons.clear),
               onPressed: () => answerQuestion(context, node, null),
             ),
           FilledButton.tonal(
             onPressed: () => _pick(context, appearance),
             child: Text(switch (node.dataType) {
-              DataType.date => 'Select date',
-              DataType.time => 'Select time',
-              _ => 'Select date and time',
+              DataType.date => strings.selectDate,
+              DataType.time => strings.selectTime,
+              _ => strings.selectDateTime,
             }),
           ),
         ],
@@ -147,7 +149,10 @@ class _MonthYearDialogState extends State<_MonthYearDialog> {
                 value: _month,
                 items: [
                   for (var m = 1; m <= 12; m++)
-                    DropdownMenuItem(value: m, child: Text(_monthName(m))),
+                    DropdownMenuItem(
+                      value: m,
+                      child: Text(XFormLocalizations.of(context).monthName(m)),
+                    ),
                 ],
                 onChanged: (m) => setState(() => _month = m!),
               ),
@@ -184,11 +189,4 @@ class _MonthYearDialogState extends State<_MonthYearDialog> {
       ],
     );
   }
-
-  static const _months = [
-    'January', 'February', 'March', 'April', 'May', 'June', 'July', //
-    'August', 'September', 'October', 'November', 'December',
-  ];
-
-  String _monthName(int month) => _months[month - 1];
 }

@@ -1,6 +1,8 @@
 import 'package:dartrosa/dartrosa.dart';
 import 'package:flutter/material.dart';
 
+import '../localizations.dart';
+import '../theme.dart';
 import '../xform_scope.dart';
 import 'label.dart';
 import 'question_widget.dart';
@@ -43,17 +45,13 @@ class GroupWidget extends StatelessWidget {
         children: children,
       );
     }
-    return Card(
-      margin: const EdgeInsets.symmetric(vertical: 8),
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            XFormLabel(label, style: Theme.of(context).textTheme.titleLarge),
-            ...children,
-          ],
-        ),
+    return XFormCard(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          XFormLabel(label, style: Theme.of(context).textTheme.titleLarge),
+          ...children,
+        ],
       ),
     );
   }
@@ -114,7 +112,9 @@ class RepeatWidget extends StatelessWidget {
             alignment: AlignmentDirectional.centerStart,
             child: OutlinedButton.icon(
               icon: const Icon(Icons.add),
-              label: Text('Add ${node.label.text ?? 'another'}'.trim()),
+              label: Text(
+                XFormLocalizations.of(context).addRepeat(node.label.text),
+              ),
               onPressed: () => controller.addRepeatInstance(node),
             ),
           ),
@@ -135,32 +135,28 @@ class RepeatInstanceWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = XFormScope.of(context).controller;
     final repeat = node.element as GroupDef;
-    return Card(
-      margin: const EdgeInsets.symmetric(vertical: 8),
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Row(
-              children: [
-                Expanded(
-                  child: Text(
-                    node.header ?? '${node.position + 1}',
-                    style: Theme.of(context).textTheme.titleMedium,
-                  ),
+    return XFormCard(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Row(
+            children: [
+              Expanded(
+                child: Text(
+                  node.header ?? '${node.position + 1}',
+                  style: Theme.of(context).textTheme.titleMedium,
                 ),
-                if (!repeat.noAddRemove)
-                  IconButton(
-                    tooltip: 'Remove',
-                    icon: const Icon(Icons.delete_outline),
-                    onPressed: () => controller.removeRepeatInstance(node),
-                  ),
-              ],
-            ),
-            for (final child in node.visibleChildren) nodeWidget(child),
-          ],
-        ),
+              ),
+              if (!repeat.noAddRemove)
+                IconButton(
+                  tooltip: XFormLocalizations.of(context).remove,
+                  icon: const Icon(Icons.delete_outline),
+                  onPressed: () => controller.removeRepeatInstance(node),
+                ),
+            ],
+          ),
+          for (final child in node.visibleChildren) nodeWidget(child),
+        ],
       ),
     );
   }

@@ -2,6 +2,8 @@ import 'package:dartrosa/dartrosa.dart';
 import 'package:flutter/material.dart';
 
 import '../appearance.dart';
+import '../localizations.dart';
+import '../theme.dart';
 import '../xform_scope.dart';
 import 'date_input.dart';
 import 'label.dart';
@@ -50,8 +52,12 @@ class QuestionWidget extends StatelessWidget {
         final override = overrideFor(node, scope.overrides);
         if (override != null) return override(context, node);
         final appearance = Appearance.parse(node.appearance)..warnUnknown();
-        final error = controller.errorFor(node.index);
-        final theme = Theme.of(context);
+        final error = controller.errorFor(
+          node.index,
+          XFormLocalizations.of(context),
+        );
+        final formTheme = XFormTheme.of(context);
+        final errorColor = formTheme.errorColorOf(context);
         final isSelect =
             node.controlType == ControlType.selectOne ||
             node.controlType == ControlType.selectMulti;
@@ -73,10 +79,7 @@ class QuestionWidget extends StatelessWidget {
                   children: [
                     XFormLabel(node.label, required: node.isRequired),
                     if (error != null)
-                      Text(
-                        error,
-                        style: TextStyle(color: theme.colorScheme.error),
-                      ),
+                      Text(error, style: TextStyle(color: errorColor)),
                   ],
                 ),
               ),
@@ -86,7 +89,7 @@ class QuestionWidget extends StatelessWidget {
         return Semantics(
           container: true,
           child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 12),
+            padding: EdgeInsets.symmetric(vertical: formTheme.questionSpacing),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
@@ -100,10 +103,7 @@ class QuestionWidget extends StatelessWidget {
                 if (error != null)
                   Padding(
                     padding: const EdgeInsets.only(top: 4),
-                    child: Text(
-                      error,
-                      style: TextStyle(color: theme.colorScheme.error),
-                    ),
+                    child: Text(error, style: TextStyle(color: errorColor)),
                   ),
               ],
             ),
@@ -191,7 +191,7 @@ class _Trigger extends StatelessWidget {
     value: node.value != null,
     enabled: !node.isReadonly,
     controlAffinity: ListTileControlAffinity.leading,
-    title: const Text('OK'),
+    title: Text(XFormLocalizations.of(context).acknowledge),
     onChanged: (on) =>
         _answer(context, node, on! ? const StringValue('OK') : null),
   );
@@ -257,7 +257,7 @@ class _Media extends StatelessWidget {
         mediaType: mediaType,
         appearance: node.appearance,
       ),
-      buttonLabel: 'Capture',
+      buttonLabel: XFormLocalizations.of(context).capture,
       icon: Icons.attach_file,
     );
   }
@@ -275,7 +275,7 @@ class _Geo extends StatelessWidget {
       node: node,
       available: delegates.canLocate && node.dataType == DataType.geopoint,
       capture: () => delegates.currentLocation(context),
-      buttonLabel: 'Get location',
+      buttonLabel: XFormLocalizations.of(context).getLocation,
       icon: Icons.my_location,
     );
   }
@@ -293,7 +293,7 @@ class _Barcode extends StatelessWidget {
       node: node,
       available: delegates.canScanBarcode,
       capture: () => delegates.scanBarcode(context),
-      buttonLabel: 'Scan',
+      buttonLabel: XFormLocalizations.of(context).scan,
       icon: Icons.qr_code_scanner,
     );
   }

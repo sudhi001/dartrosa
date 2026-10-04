@@ -2,6 +2,8 @@ import 'package:dartrosa/dartrosa.dart';
 import 'package:flutter/material.dart';
 
 import 'delegates.dart';
+import 'localizations.dart';
+import 'theme.dart';
 import 'widgets/common.dart';
 import 'widgets/label.dart';
 import 'widgets/node_widgets.dart';
@@ -82,7 +84,9 @@ class _XFormViewState extends State<XFormView> {
           setState(() {});
         }
         ScaffoldMessenger.maybeOf(context)?.showSnackBar(
-          const SnackBar(content: Text('Some answers need attention.')),
+          SnackBar(
+            content: Text(XFormLocalizations.of(context).answersNeedAttention),
+          ),
         );
     }
   }
@@ -93,11 +97,21 @@ class _XFormViewState extends State<XFormView> {
     delegates: widget.delegates,
     overrides: widget.widgetOverrides,
     guidanceHints: widget.guidanceHints,
-    child: Builder(
-      builder: (context) => switch (widget.mode) {
-        XFormMode.scroll => _ScrollForm(onFinalize: () => _finalize(context)),
-        XFormMode.pager => _PagerForm(onFinalize: () => _finalize(context)),
-      },
+    // Right-to-left form languages (ar, fa, he, ...) flip the layout.
+    child: ListenableBuilder(
+      listenable: _controller,
+      builder: (context, child) => Directionality(
+        textDirection:
+            textDirectionOfLanguage(widget.session.language) ??
+            Directionality.of(context),
+        child: child!,
+      ),
+      child: Builder(
+        builder: (context) => switch (widget.mode) {
+          XFormMode.scroll => _ScrollForm(onFinalize: () => _finalize(context)),
+          XFormMode.pager => _PagerForm(onFinalize: () => _finalize(context)),
+        },
+      ),
     ),
   );
 }
@@ -115,11 +129,14 @@ class _ScrollForm extends StatelessWidget {
       builder: (context, _) {
         final root = scope.controller.session.root;
         return ListView(
-          padding: const EdgeInsets.all(16),
+          padding: XFormTheme.of(context).pagePadding,
           children: [
             for (final child in root.visibleChildren) nodeWidget(child),
             const SizedBox(height: 16),
-            FilledButton(onPressed: onFinalize, child: const Text('Finish')),
+            FilledButton(
+              onPressed: onFinalize,
+              child: Text(XFormLocalizations.of(context).finish),
+            ),
           ],
         );
       },
@@ -244,7 +261,7 @@ class _PagerFormState extends State<_PagerForm> {
             onSkip: () => setState(_forward),
           ),
           _ => SingleChildScrollView(
-            padding: const EdgeInsets.all(16),
+            padding: XFormTheme.of(context).pagePadding,
             // `quick` selects advance only when alone on the screen.
             child: _nav.current is QuestionNode
                 ? XFormPagerScope(
@@ -265,7 +282,7 @@ class _PagerFormState extends State<_PagerForm> {
                   children: [
                     TextButton.icon(
                       icon: const Icon(Icons.chevron_left),
-                      label: const Text('Back'),
+                      label: Text(XFormLocalizations.of(context).back),
                       onPressed: () => setState(_back),
                     ),
                     const Spacer(),
@@ -273,7 +290,7 @@ class _PagerFormState extends State<_PagerForm> {
                         event != FormEntryEvent.promptNewRepeat)
                       FilledButton.icon(
                         icon: const Icon(Icons.chevron_right),
-                        label: const Text('Next'),
+                        label: Text(XFormLocalizations.of(context).next),
                         onPressed: _next,
                       ),
                   ],
@@ -308,7 +325,9 @@ class _NewRepeatPage extends StatelessWidget {
           XFormLabel(node.label),
           const SizedBox(height: 16),
           Text(
-            'Add a new "${node.label.text ?? ''}" group?',
+            XFormLocalizations.of(
+              context,
+            ).addRepeatPrompt(node.label.text ?? ''),
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 24),
@@ -317,9 +336,12 @@ class _NewRepeatPage extends StatelessWidget {
             children: [
               OutlinedButton(
                 onPressed: onSkip,
-                child: const Text('Do not add'),
+                child: Text(XFormLocalizations.of(context).doNotAdd),
               ),
-              FilledButton(onPressed: onAdd, child: const Text('Add group')),
+              FilledButton(
+                onPressed: onAdd,
+                child: Text(XFormLocalizations.of(context).addGroup),
+              ),
             ],
           ),
         ],
@@ -348,9 +370,12 @@ class _EndPage extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 16),
-            const Text("You're at the end of the form."),
+            Text(XFormLocalizations.of(context).endOfForm),
             const SizedBox(height: 24),
-            FilledButton(onPressed: onFinalize, child: const Text('Finalize')),
+            FilledButton(
+              onPressed: onFinalize,
+              child: Text(XFormLocalizations.of(context).finalize),
+            ),
           ],
         ),
       ),

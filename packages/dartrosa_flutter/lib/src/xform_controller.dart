@@ -3,6 +3,8 @@ import 'dart:async';
 import 'package:dartrosa/dartrosa.dart';
 import 'package:flutter/foundation.dart';
 
+import 'localizations.dart';
+
 /// Owns a [FormSession] for widgets: answers questions, remembers the
 /// last answer error per question, and notifies only the widgets whose
 /// nodes changed.
@@ -20,7 +22,7 @@ class XFormController extends ChangeNotifier {
 
   late final StreamSubscription<FormChange> _subscription;
   final Map<String, _RefNotifier> _byRef = {};
-  final Map<String, String?> _errors = {};
+  final Map<String, AnswerResult> _errors = {};
 
   /// Notified on changes of the node at [ref] (or anything structural:
   /// repeats, language). Use with `ListenableBuilder`.
@@ -44,22 +46,38 @@ class XFormController extends ChangeNotifier {
     }
   }
 
+  /// The rejected result of the last answer to the question at
+  /// [index], or of the last finalize, if any.
+  AnswerResult? failureFor(FormIndex index) => _errors['${index.reference}'];
+
   /// The error shown under the question at [index], if its last answer
-  /// was rejected.
-  String? errorFor(FormIndex index) => _errors['${index.reference}'];
+  /// was rejected; default messages come from [strings].
+  String? errorFor(
+    FormIndex index, [
+    XFormLocalizations strings = const XFormLocalizations(),
+  ]) => switch (failureFor(index)) {
+    AnswerRequired(:final message) => message ?? strings.requiredDefault,
+    AnswerConstraintViolated(:final message) =>
+      message ?? strings.constraintDefault,
+    AnswerAccepted() || null => null,
+  };
+
+  void _setResult(FormIndex index, AnswerResult result) {
+    final key = '${index.reference}';
+    final previous = _errors[key];
+    if (result is AnswerAccepted) {
+      _errors.remove(key);
+    } else {
+      _errors[key] = result;
+    }
+    if (previous != _errors[key]) _byRef[key]?.bump();
+  }
 
   /// Answers the question at [index] with [value]; rejected answers are
   /// not saved and leave an error for the question.
   AnswerResult answer(FormIndex index, AnswerValue? value) {
     final result = session.answer(index, value);
-    final key = '${index.reference}';
-    final previous = _errors[key];
-    _errors[key] = switch (result) {
-      AnswerAccepted() => null,
-      AnswerRequired(:final message) => message ?? _requiredDefault,
-      AnswerConstraintViolated(:final message) => message ?? _constraintDefault,
-    };
-    if (previous != _errors[key]) _byRef[key]?.bump();
+    _setResult(index, result);
     return result;
   }
 
@@ -68,13 +86,7 @@ class XFormController extends ChangeNotifier {
   FinalizeResult finalize() {
     final result = session.finalize();
     if (result case FinalizeFailure(:final failure)) {
-      _errors['${failure.index.reference}'] = switch (failure.result) {
-        AnswerRequired(:final message) => message ?? _requiredDefault,
-        AnswerConstraintViolated(:final message) =>
-          message ?? _constraintDefault,
-        AnswerAccepted() => null,
-      };
-      _byRef['${failure.index.reference}']?.bump();
+      _setResult(failure.index, failure.result);
     }
     return result;
   }
@@ -89,9 +101,6 @@ class XFormController extends ChangeNotifier {
 
   /// Changes the form's language.
   set language(String? language) => session.language = language;
-
-  static const _requiredDefault = 'Sorry, this response is required!';
-  static const _constraintDefault = 'Sorry, this response is not valid.';
 
   @override
   void dispose() {

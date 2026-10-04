@@ -1,7 +1,9 @@
 import 'package:dartrosa/dartrosa.dart';
 import 'package:flutter/material.dart';
 
+import '../localizations.dart';
 import '../markdown.dart';
+import '../theme.dart';
 import '../xform_scope.dart';
 
 /// A form label: its text in ODK markdown (with a required marker) and
@@ -34,7 +36,9 @@ class XFormLabel extends StatelessWidget {
             prefix: required
                 ? TextSpan(
                     text: '* ',
-                    style: TextStyle(color: theme.colorScheme.error),
+                    style: TextStyle(
+                      color: XFormTheme.of(context).errorColorOf(context),
+                    ),
                   )
                 : null,
             style: style ?? theme.textTheme.titleMedium,
@@ -80,7 +84,10 @@ class XFormHint extends StatelessWidget {
             ExpansionTile(
               tilePadding: EdgeInsets.zero,
               dense: true,
-              title: Text('Guidance', style: style),
+              title: Text(
+                XFormLocalizations.of(context).guidance,
+                style: style,
+              ),
               expandedAlignment: AlignmentDirectional.centerStart,
               children: [XFormMarkdown(guidance, style: style)],
             )
