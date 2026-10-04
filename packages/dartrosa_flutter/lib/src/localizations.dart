@@ -87,6 +87,12 @@ class XFormLocalizations {
   /// Marks a required question for screen readers.
   String get required => 'required';
 
+  /// Shown when an `image-map` select's SVG can't be read.
+  String get svgFileMissing => 'SVG file does not exist';
+
+  /// Precedes the selected choices of an `image-map` select.
+  String get selected => 'Selected:';
+
   /// The name of [month] (1-12).
   String monthName(int month) => const [
     'January', 'February', 'March', 'April', 'May', 'June', 'July', //

@@ -5,6 +5,7 @@ import '../appearance.dart';
 import '../markdown.dart';
 import '../xform_scope.dart';
 import 'common.dart';
+import 'image_map.dart';
 
 /// A choice's image (through the app's delegates) and label.
 class ChoiceContent extends StatelessWidget {
@@ -421,6 +422,7 @@ class SelectOneInput extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final appearance = Appearance.parse(node.appearance);
+    if (appearance.has('image-map')) return ImageMapInput(node);
     if (appearance.has('autocomplete')) {
       return _Filtered(
         node: node,
@@ -514,6 +516,7 @@ class SelectMultiInput extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final appearance = Appearance.parse(node.appearance);
+    if (appearance.has('image-map')) return ImageMapInput(node);
     if (appearance.has('minimal')) return _minimal(context, appearance);
     if (appearance.has('autocomplete')) {
       return _Filtered(

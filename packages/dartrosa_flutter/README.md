@@ -35,15 +35,18 @@ XFormView(
 | integer / decimal / long | `thousands-sep` (display only; the answer has no separators) |
 | date | `no-calendar` (typed date), `month-year`, `year` (saved as the 1st) |
 | time / dateTime | pickers |
-| select one | radio list, `minimal` (drop-down), `quick` (auto-advance in pager mode), `autocomplete`, `columns`, `columns-N`, `columns-pack`, `no-buttons`, `likert`, `label`, `list-nolabel`, `list`; Collect's old names `compact`, `quickcompact`, `compact-N`, `horizontal`, `horizontal-compact` |
-| select multiple | check boxes, `minimal` (dialog), `autocomplete`, `columns*`, `no-buttons`, `label`, `list-nolabel`, `list` |
+| select one | radio list, `minimal` (drop-down), `quick` (auto-advance in pager mode), `autocomplete`, `columns`, `columns-N`, `columns-pack`, `no-buttons`, `likert`, `label`, `list-nolabel`, `list`; Collect's old names `compact`, `quickcompact`, `compact-N`, `horizontal`, `horizontal-compact`; `image-map` |
+| select multiple | check boxes, `minimal` (dialog), `autocomplete`, `columns*`, `no-buttons`, `label`, `list-nolabel`, `list`, `image-map` |
 | rank, trigger, note | reorderable list, acknowledge, read-only text |
 | range | slider, `vertical`, `picker`, `rating`, `no-ticks` |
 | geopoint, barcode, image / audio / video / file | through `XFormDelegates` (typed value otherwise) |
 | group | card, `field-list` (one pager screen), `table-list` (one grid: choice labels as header, a row of buttons per select) |
 | repeat | add / remove, "add another?" prompt in pager mode, `noAddRemove` |
 
-Choice images use `delegates.image(uri)`. Unsupported appearances fall
+Choice images use `delegates.image(uri)`. `image-map` selects show the
+SVG of the question's image (read with `delegates.mediaBytes(uri)`): the
+`g`, `path`, `rect`, `circle`, `ellipse` and `polygon` elements whose ids
+are choice values are tapped to select them and filled when selected. Unsupported appearances fall
 back to the default widget (with one `debugPrint` per appearance).
 
 - **Labels, hints and choices** render ODK's markdown subset: `*em*`,

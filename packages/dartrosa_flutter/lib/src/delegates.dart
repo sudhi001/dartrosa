@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:flutter/widgets.dart';
 
 /// Captures data the renderer can't get on its own: photos, recordings,
@@ -26,6 +28,10 @@ abstract class XFormDelegates {
 
   /// An image for a `jr://images/...` (or other `jr://`) URI in labels.
   ImageProvider? image(String uri) => null;
+
+  /// The bytes of a `jr://` media file (e.g. the SVG of an `image-map`
+  /// select), or `null` if unavailable.
+  Future<Uint8List?> mediaBytes(String uri) async => null;
 
   /// Opens a link tapped in a label or hint (e.g. with url_launcher).
   Future<void> openLink(BuildContext context, Uri uri) async {}
