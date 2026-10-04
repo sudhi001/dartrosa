@@ -139,8 +139,7 @@ final class ActionController {
 
 /// `<setvalue>`: sets [target] to [value] when its event fires.
 ///
-/// Port of `SetValueAction`; [processAction] needs the engine's value
-/// setting and is completed in Phase 4.
+/// Port of `SetValueAction`; [processAction] is `FormDef.processSetValue`.
 final class SetValueAction extends Action {
   /// Creates the action.
   SetValueAction(this.target, this.value) : super(elementName);
