@@ -10,6 +10,7 @@ import 'package:dartrosa/src/reference/resource_resolver.dart';
 import 'package:dartrosa/src/xform/xform_parser.dart';
 import 'package:test/test.dart';
 
+import '../support/forms.dart' show skipUnlessUtc;
 import 'structure_dump.dart';
 
 /// Resolves `jr://file/x`, `jr://file-csv/x`, … to files next to the form,
@@ -52,7 +53,10 @@ void main() {
   for (final golden in goldens) {
     final trace = jsonDecode(golden.readAsStringSync()) as Map<String, Object?>;
     final formPath = trace['form']! as String;
-    test(formPath, () async {
+    // Time and date-time defaults are converted to the local zone on parse
+    // (as in JavaRosa); the oracle records them in UTC.
+    final zoned = _hasZonedValue(trace['structure']);
+    test(formPath, skip: zoned ? skipUnlessUtc : null, () async {
       final formFile = File('${conformance.path}/$formPath');
       final expectedOk = (trace['parse']! as Map)['ok'] as bool;
       Map<String, Object?>? actual;
@@ -95,3 +99,11 @@ void _diff(String path, Object? expected, Object? actual, List<String> out) {
     out.add('$path: expected <$expected> got <$actual>');
   }
 }
+
+/// Whether [node] holds a time or date-time instance value.
+bool _hasZonedValue(Object? node) => switch (node) {
+  {'type': 'time' || 'dateTime', 'value': final Object _} => true,
+  Map() => node.values.any(_hasZonedValue),
+  List() => node.any(_hasZonedValue),
+  _ => false,
+};
