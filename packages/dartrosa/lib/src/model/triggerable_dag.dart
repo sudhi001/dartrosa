@@ -1,7 +1,9 @@
+import '../util/java_double.dart';
 import '../xpath/exceptions.dart';
 import 'condition/conditions.dart';
 import 'condition/evaluation_context.dart';
 import 'condition/filter_strategies.dart';
+import 'data/answer_value.dart';
 import 'instance/data_instance.dart';
 import 'instance/tree_element.dart';
 import 'instance/tree_reference.dart';
@@ -23,6 +25,20 @@ final class EvaluationEvent {
 
   /// The nodes affected, if any.
   final List<EvaluationResult> results;
+
+  /// `Processing '<message>' for <ref> (<value>), ...`. Port of
+  /// `Event.getDisplayMessage` (with `EvaluationResult.toString`).
+  String get displayMessage =>
+      "Processing '$message' for ${results.map(_resultString).join(', ')}";
+
+  static String _resultString(EvaluationResult result) {
+    final value = switch (result.value) {
+      final AnswerValue v => v.displayText,
+      final double d => javaDoubleToString(d),
+      final v => '$v',
+    };
+    return '${result.ref.toShortString()} ($value)';
+  }
 
   @override
   String toString() => results.isEmpty ? message : '$message: $results';
