@@ -2,6 +2,8 @@
 /// differently: number parsing and `String.split`.
 library;
 
+import 'dart:typed_data';
+
 final _unicodeDigit = RegExp(r'^\p{Nd}$', unicode: true);
 
 /// The value of [codeUnit] as a decimal digit, following Java's
@@ -179,4 +181,36 @@ List<String> javaHashMapOrder(Iterable<String> keys) {
   final indexed = [for (final (i, k) in list.indexed) (bucket(k), i, k)]
     ..sort((a, b) => a.$1 != b.$1 ? a.$1 - b.$1 : a.$2 - b.$2);
   return [for (final e in indexed) e.$3];
+}
+
+/// [s] encoded as Java's `String.getBytes("UTF-16BE")`, or with [bom] as
+/// `getBytes("UTF-16")` (big-endian with a `FE FF` byte order mark).
+/// Unpaired surrogates become `U+FFFD`, as in Java.
+Uint8List javaUtf16Bytes(String s, {bool bom = false}) {
+  final units = s.codeUnits;
+  final out = Uint8List((units.length + (bom ? 1 : 0)) * 2);
+  var i = 0;
+  void write(int unit) {
+    out[i++] = unit >> 8;
+    out[i++] = unit & 0xFF;
+  }
+
+  if (bom) write(0xFEFF);
+  for (var k = 0; k < units.length; k++) {
+    final unit = units[k];
+    final isHigh = unit >= 0xD800 && unit <= 0xDBFF;
+    final isLow = unit >= 0xDC00 && unit <= 0xDFFF;
+    if (isHigh &&
+        k + 1 < units.length &&
+        units[k + 1] >= 0xDC00 &&
+        units[k + 1] <= 0xDFFF) {
+      write(unit);
+      write(units[++k]);
+    } else if (isHigh || isLow) {
+      write(0xFFFD);
+    } else {
+      write(unit);
+    }
+  }
+  return out;
 }
