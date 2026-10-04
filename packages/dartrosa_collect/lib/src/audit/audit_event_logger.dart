@@ -66,10 +66,10 @@ final class SystemAuditClock implements AuditClock {
 /// The parts of Collect's `FormController` that `AuditEventLogger` uses.
 abstract interface class AuditFormState {
   /// The display text of the answer at [index] (a question), or `null`.
-  String? answerDisplayText(FormIndex index);
+  String? answerDisplayText(FormIndex? index);
 
   /// Whether [index] is in (or is) a `field-list` group.
-  bool indexIsInFieldList(FormIndex index);
+  bool indexIsInFieldList(FormIndex? index);
 }
 
 /// Writes audit events (e.g. appends them to `audit.csv`).
@@ -256,7 +256,7 @@ final class AuditEventLogger {
     }
     final formState = _formState;
     if (aev.auditEventType == AuditEventType.question && formState != null) {
-      aev.recordValueChange(formState.answerDisplayText(aev.formIndex!));
+      aev.recordValueChange(formState.answerDisplayText(aev.formIndex));
     }
     if (!aev.isEndTimeSet) aev.setEnd(end);
   }
@@ -271,7 +271,7 @@ final class AuditEventLogger {
   bool _shouldEventBeLogged(AuditEvent aev) {
     final formState = _formState;
     if (aev.auditEventType == AuditEventType.question && formState != null) {
-      return !formState.indexIsInFieldList(aev.formIndex!) ||
+      return !formState.indexIsInFieldList(aev.formIndex) ||
           (aev.hasNewAnswer && auditConfig!.isTrackingChangesEnabled);
     }
     return true;

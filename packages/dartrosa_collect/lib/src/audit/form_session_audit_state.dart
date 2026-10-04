@@ -41,11 +41,13 @@ final class FormSessionAuditState implements AuditFormState {
   FormDef get _form => session.definition.formDef;
 
   @override
-  String? answerDisplayText(FormIndex index) =>
-      _model.questionPrompt(index).answerValue?.displayText;
+  String? answerDisplayText(FormIndex? index) => index == null
+      ? null
+      : _model.questionPrompt(index).answerValue?.displayText;
 
   @override
-  bool indexIsInFieldList(FormIndex index) {
+  bool indexIsInFieldList(FormIndex? index) {
+    if (index == null) return false;
     switch (_model.event(index)) {
       case FormEntryEvent.question:
         final captions = _model.captionHierarchy(index);
