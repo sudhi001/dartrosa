@@ -1,0 +1,19 @@
+name: dartrosa_collect
+description: >-
+  ODK Collect form-filling services for DartRosa: the audit log
+  (meta/audit), fast external itemsets (itemsets.csv), the last-saved
+  instance and edited-submission finalization. Ports of the corresponding
+  ODK Collect classes.
+version: 0.0.1
+publish_to: none
+resolution: workspace
+
+environment:
+  sdk: ^3.10.0
+
+dependencies:
+  crypto: ^3.0.0
+  dartrosa: any
+
+dev_dependencies:
+  test: ^1.25.0
