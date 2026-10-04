@@ -66,9 +66,7 @@ void main() {
   });
 
   FormEntryCaption captionAt(String xPath) =>
-      scenario.formEntryController.model.captionPrompt(
-        scenario.indexOf(xPath),
-      );
+      scenario.formEntryController.model.captionPrompt(scenario.indexOf(xPath));
 
   test('repeat texts use the jr: captions with name, n and outputs', () {
     scenario.next(2);
