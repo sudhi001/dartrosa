@@ -1,0 +1,41 @@
+{
+  "form" : "forms/javarosa/form_with_bind_attributes.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"build_form_with_bind_attributes_1521761701\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><meta><instanceID>uuid:<uuid></instanceID></meta><text>123</text><image>file6.jpg</image></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 22,
+  "steps" : [ {
+    "after" : "123",
+    "answer" : "123",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "text",
+    "readonly" : false,
+    "ref" : "/data/text[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "file6.jpg",
+    "answer" : "file6.jpg",
+    "appearance" : null,
+    "control" : "imageChoose",
+    "dataType" : "binary",
+    "event" : "question",
+    "hint" : null,
+    "label" : "image",
+    "readonly" : false,
+    "ref" : "/data/image[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

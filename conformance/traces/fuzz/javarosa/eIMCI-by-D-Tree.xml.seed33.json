@@ -1,0 +1,1083 @@
+{
+  "form" : "forms/javarosa/eIMCI-by-D-Tree.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><imci id=\"imci\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\" xmlns=\"http://dtree.org/e-imci\"><Meta><formName>eIMCI</formName><formVersion>0.0.1</formVersion><DeviceID /><TimeStart><now></TimeStart><TimeEnd /><username /><chw_id /><uid>uuid:<uuid></uid></Meta><visit_type>first</visit_type><notice>kappa'lambda</notice><preamble><danger_signs>no_drink</danger_signs><look_danger_signs /><main_symptoms>cough diarrhea fever</main_symptoms><ear_doublecheck>no</ear_doublecheck><info><urgent_referral>x y z</urgent_referral><child_in_danger>1</child_in_danger></info></preamble><vitals><temp_type /><age>117</age><age_unit>months</age_unit><info /><too_old_use_anyway /><weight>7</weight></vitals><cough><length /><breath_rate_type>fast</breath_rate_type><indrawing>no</indrawing><stridor>yes</stridor><wheeze /><classify><persistent_cold /><persistent_cold_wheeze /></classify><info /></cough><diarrhea><length>over2</length><blood /><how_drinking>not_eager</how_drinking><sunken_eyes>yes</sunken_eyes><skin_pinch>slow</skin_pinch><fidgety>yes</fidgety><classify><severe_dehydration>disagree</severe_dehydration><severe_persistent_diarrhea>agree</severe_persistent_diarrhea><dysentery>disagree</dysentery><diarrhea_dehydration /><override_dys>kappa'lambda</override_dys></classify><info><offer_fluid /></info></diarrhea><fever><length>short</length><had_measles /><stiff_neck>no</stiff_neck><runny_nose>yes</runny_nose><measles_symptoms>no</measles_symptoms><measles><mouth_ulcers>yes</mouth_ulcers><deep>yes</deep><eye_pus /><clouding_cornea>yes</clouding_cornea></measles><classify><febrile>disagree</febrile><override>febrile</override></classify></fever><other_severe>yes</other_severe><interlude><breastfeeding /><other_feed /><feeding_change /><other_problems /><info><feed_other /><keep_feeding /><treat_problems /></info></interlude><dosing><malaria_quinine><treat><severe_malaria_drug>quinine-tablet</severe_malaria_drug></treat></malaria_quinine><pneumonia_antibiotic><treat><pneumonia_drug>other</pneumonia_drug><info_choose_other>alpha</info_choose_other></treat></pneumonia_antibiotic><cholera_antibiotic><use_second_line><first_line_used /><second_line_available /></use_second_line><treat><cholera_drug>other</cholera_drug><info_choose_other>123</info_choose_other></treat></cholera_antibiotic><dysentery_antibiotic><treat><dysentery_drug>nalid</dysentery_drug><dose>disagree</dose></treat><info_give_correct>alpha</info_give_correct></dysentery_antibiotic><malaria_antibiotic><use_second_line><first_line_used /><second_line_available /></use_second_line><treat><info_antibiotic_already>épsilon</info_antibiotic_already><firstdose /></treat></malaria_antibiotic></dosing><finish><info_followup_in>123</info_followup_in><done>épsilon</done></finish><info_refer>theta&lt;iota&gt;</info_refer><info><requires_urgent_referral>yes</requires_urgent_referral></info><tmp><sentinel><followup_reassess>no</followup_reassess><followup_reassess_full>no</followup_reassess_full><valid_complaint>yes</valid_complaint><vitals /><do_protocol /></sentinel><normalized><has_cough>1</has_cough><has_diarrhea>1</has_diarrhea><has_ear>0</has_ear><has_fever>1</has_fever><has_cholera>1</has_cholera><has_severe>1</has_severe><age>9.75</age><weight>7</weight><fast_breath>1</fast_breath><measles_risk>0</measles_risk><followup><time>2</time><if_no_improvement>0</if_no_improvement></followup><classification><cough>severe-pneumonia</cough><fever>febrile</fever><measles /><ear /><dysentery>no</dysentery><dehydration>severe</dehydration><diarrhea>severe-persistent</diarrhea></classification><diagnosis><cough>severe-pneumonia</cough><fever>febrile</fever><ear /><dysentery>yes</dysentery><dehydration>severe</dehydration><diarrhea>severe-persistent</diarrhea></diagnosis><treatment><malaria_quinine><choice>quinine-tablet</choice><amount>v-quarter-tab</amount><drug>v-quinine</drug><variant>300mg</variant><frequency>v-3-day</frequency><duration>v-7-10-days</duration></malaria_quinine><pneumonia_antibiotic><category>other</category><choice /><amount /><drug /><variant /><frequency /><duration /></pneumonia_antibiotic><cholera_antibiotic><antibiotic_already>0</antibiotic_already><category>other</category><choice /><amount /><drug /><variant /><frequency /><duration /></cholera_antibiotic><dysentery_antibiotic><antibiotic_already>0</antibiotic_already><category>nalid</category><choice>nalid</choice><amount>v-half-tab</amount><drug>v-nalidixic</drug><variant>250mg</variant><frequency>v-4-day</frequency><duration>v-5-days</duration></dysentery_antibiotic><ear_antibiotic><antibiotic_already>1</antibiotic_already><category /><choice /><amount /><drug /><variant /><frequency /><duration /></ear_antibiotic><malaria_antibiotic><antibiotic_already>1</antibiotic_already><category /><choice /><amount /><drug /><variant /><frequency /><duration /></malaria_antibiotic><painkiller><amount /><drug /><variant /><frequency /></painkiller><hydration_plan /><hydration_plan_text /></treatment></normalized><const><high_malaria_risk>1</high_malaria_risk><cholera_risk>1</cholera_risk></const><dosings><diazepam>0.50 ml</diazepam><alu>v-whole-tab</alu><amoxycillin><tablet>v-half-tab</tablet><syrup>v-5ml</syrup></amoxycillin><cotrimoxazole><adult>v-half-tab</adult><ped>v-2-tabs</ped><syrup>v-5ml</syrup></cotrimoxazole><erythromycin>v-half-tab</erythromycin><nalidixic_acid>v-half-tab</nalidixic_acid><paracetamol><ped>v-whole-tab</ped><adult>v-quarter-tab</adult></paracetamol><procaine_penicillin>v-1ml-inj</procaine_penicillin><quinine><injection>v-1.5ml</injection><tablet>v-quarter-tab</tablet></quinine></dosings></tmp></imci>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 33,
+  "steps" : [ {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "trigger",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "eIMCI by D-Tree International is based on the IMCI Chart Booklet from the Tanzanian Ministry of Health.\n\nIT IS FOR DEMONSTRATION PURPOSES ONLY!",
+    "readonly" : false,
+    "ref" : "/imci/notice[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Is the child convulsing now",
+      "value" : "convuls"
+    }, {
+      "label" : "Is the child lethargic or unconscious",
+      "value" : "lethargy"
+    } ],
+    "control" : "selectMulti",
+    "dataType" : "multipleItems",
+    "event" : "question",
+    "hint" : null,
+    "label" : "CHECK FOR GENERAL DANGER SIGNS. LOOK:",
+    "readonly" : false,
+    "ref" : "/imci/preamble[1]/look_danger_signs[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "no_drink",
+    "answer" : "no_drink",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Unable to drink/breastfeed",
+      "value" : "no_drink"
+    }, {
+      "label" : "Vomits everything",
+      "value" : "vomits"
+    }, {
+      "label" : "Had convulsions during current illness",
+      "value" : "convuls"
+    } ],
+    "control" : "selectMulti",
+    "dataType" : "multipleItems",
+    "event" : "question",
+    "hint" : null,
+    "label" : "CHECK FOR GENERAL DANGER SIGNS. ASK:",
+    "readonly" : false,
+    "ref" : "/imci/preamble[1]/danger_signs[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "x y z",
+    "answer" : "x y z",
+    "appearance" : null,
+    "control" : "trigger",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A child with any danger sign requires URGENT attention. Complete the assessment and any pre-referral treatment immediately so that referral is not delayed",
+    "readonly" : false,
+    "ref" : "/imci/preamble[1]/info[1]/urgent_referral[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : null,
+    "ref" : "/imci/tmp[1]/sentinel[1]/vitals[1]"
+  }, {
+    "after" : "117",
+    "answer" : "117",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "ASK: What is the child's age (in years or months)",
+    "readonly" : false,
+    "ref" : "/imci/vitals[1]/age[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "months",
+    "answer" : "months",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Years",
+      "value" : "years"
+    }, {
+      "label" : "Months",
+      "value" : "months"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "117 years old or 117 months old?",
+    "readonly" : false,
+    "ref" : "/imci/vitals[1]/age_unit[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "SORRY: IMCI is meant for children 5-years-old or less. Do you want to continue anyway?",
+    "readonly" : false,
+    "ref" : "/imci/vitals[1]/too_old_use_anyway[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "7",
+    "answer" : "7",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "ASK: What is the child's weight in kg (skip if unknown)",
+    "readonly" : false,
+    "ref" : "/imci/vitals[1]/weight[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : null,
+    "ref" : "/imci/preamble[1]"
+  }, {
+    "after" : "cough diarrhea fever",
+    "answer" : "cough diarrhea fever",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Cough or difficult breathing",
+      "value" : "cough"
+    }, {
+      "label" : "Diarrhea",
+      "value" : "diarrhea"
+    }, {
+      "label" : "Fever",
+      "value" : "fever"
+    }, {
+      "label" : "Ear problem",
+      "value" : "ear"
+    }, {
+      "label" : "Other/None of the above",
+      "value" : "none"
+    } ],
+    "control" : "selectMulti",
+    "dataType" : "multipleItems",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Ask about main symptoms",
+    "readonly" : false,
+    "ref" : "/imci/preamble[1]/main_symptoms[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : null,
+    "ref" : "/imci/tmp[1]/sentinel[1]/valid_complaint[1]"
+  }, {
+    "after" : "no",
+    "answer" : "no",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "ASK: Just to check, does the child have any ear problems?",
+    "readonly" : false,
+    "ref" : "/imci/preamble[1]/ear_doublecheck[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : null,
+    "ref" : "/imci/tmp[1]/sentinel[1]/do_protocol[1]"
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : null,
+    "ref" : "/imci/cough[1]"
+  }, {
+    "after" : "fast",
+    "answer" : "fast",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes, I will count number of breaths per minute",
+      "value" : "measure"
+    }, {
+      "label" : "No, but breathing rate is normal",
+      "value" : "normal"
+    }, {
+      "label" : "No, but breathing rate is fast",
+      "value" : "fast"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Can you measure the breathing rate? (CHILD MUST BE CALM)",
+    "readonly" : false,
+    "ref" : "/imci/cough[1]/breath_rate_type[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "no",
+    "answer" : "no",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "LOOK: Is the chest indrawing? (CHILD MUST BE CALM)",
+    "readonly" : false,
+    "ref" : "/imci/cough[1]/indrawing[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "LOOK AND LISTEN: Is there stridor? (CHILD MUST BE CALM)",
+    "readonly" : false,
+    "ref" : "/imci/cough[1]/stridor[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "LOOK AND LISTEN: Is there wheeze? (CHILD MUST BE CALM)",
+    "readonly" : false,
+    "ref" : "/imci/cough[1]/wheeze[1]",
+    "required" : true,
+    "result" : "required",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : null,
+    "ref" : "/imci/diarrhea[1]"
+  }, {
+    "after" : "over2",
+    "answer" : "over2",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Less than two weeks",
+      "value" : "under2"
+    }, {
+      "label" : "Two weeks or more",
+      "value" : "over2"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "ASK: How long has the child had diarrhea?",
+    "readonly" : false,
+    "ref" : "/imci/diarrhea[1]/length[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "LOOK: Is the child restless and irritable?",
+    "readonly" : false,
+    "ref" : "/imci/diarrhea[1]/fidgety[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "LOOK: Does the child have sunken eyes?",
+    "readonly" : false,
+    "ref" : "/imci/diarrhea[1]/sunken_eyes[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "not_eager",
+    "answer" : "not_eager",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Not able to drink or drinking poorly",
+      "value" : "unable"
+    }, {
+      "label" : "Drinking eagerly; is thirsty",
+      "value" : "eager"
+    }, {
+      "label" : "Drinking normally",
+      "value" : "not_eager"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Offer the child fluid. LOOK: How is the child drinking?",
+    "readonly" : false,
+    "ref" : "/imci/diarrhea[1]/how_drinking[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "slow",
+    "answer" : "slow",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Skin goes back very slowly (more than 2 seconds)",
+      "value" : "very_slow"
+    }, {
+      "label" : "Skin goes back slowly",
+      "value" : "slow"
+    }, {
+      "label" : "Skin goes back normally",
+      "value" : "fast"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "LOOK: Pinch the skin of the abdomen",
+    "readonly" : false,
+    "ref" : "/imci/diarrhea[1]/skin_pinch[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "ASK: Is there blood in the stool?",
+    "readonly" : false,
+    "ref" : "/imci/diarrhea[1]/blood[1]",
+    "required" : true,
+    "result" : "required",
+    "value" : null
+  }, {
+    "after" : "disagree",
+    "answer" : "disagree",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Agree",
+      "value" : "agree"
+    }, {
+      "label" : "Disagree",
+      "value" : "disagree"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "CLASSIFY: severe dehydration",
+    "readonly" : false,
+    "ref" : "/imci/diarrhea[1]/classify[1]/severe_dehydration[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "agree",
+    "answer" : "agree",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Agree",
+      "value" : "agree"
+    }, {
+      "label" : "Disagree",
+      "value" : "disagree"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "CLASSIFY: severe persistent diarrhea",
+    "readonly" : false,
+    "ref" : "/imci/diarrhea[1]/classify[1]/severe_persistent_diarrhea[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "disagree",
+    "answer" : "disagree",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Agree",
+      "value" : "agree"
+    }, {
+      "label" : "Disagree",
+      "value" : "disagree"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "CLASSIFY: NO dysentery",
+    "readonly" : false,
+    "ref" : "/imci/diarrhea[1]/classify[1]/dysentery[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "trigger",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "You have disagreed; new classification is 'Child should be treated for dysentery'",
+    "readonly" : false,
+    "ref" : "/imci/diarrhea[1]/classify[1]/override_dys[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Does child have any other severe classification?",
+    "readonly" : false,
+    "ref" : "/imci/other_severe[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : null,
+    "ref" : "/imci/fever[1]"
+  }, {
+    "after" : "short",
+    "answer" : "short",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Less than a week",
+      "value" : "short"
+    }, {
+      "label" : "A week or more",
+      "value" : "long"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "ASK: How long has the child had fever?",
+    "readonly" : false,
+    "ref" : "/imci/fever[1]/length[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "ASK: Has the child had measles within the last 3 months?",
+    "readonly" : false,
+    "ref" : "/imci/fever[1]/had_measles[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "no",
+    "answer" : "no",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "LOOK: Does the child have a stiff neck?",
+    "readonly" : false,
+    "ref" : "/imci/fever[1]/stiff_neck[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "LOOK: Does the child have a runny nose?",
+    "readonly" : false,
+    "ref" : "/imci/fever[1]/runny_nose[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "no",
+    "answer" : "no",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "LOOK: Does the child have signs of measles? (generalized rash and cough, runny nose, or red eyes)",
+    "readonly" : false,
+    "ref" : "/imci/fever[1]/measles_symptoms[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : null,
+    "ref" : "/imci/fever[1]/measles[1]"
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "LOOK: Does the child have mouth ulcers?",
+    "readonly" : false,
+    "ref" : "/imci/fever[1]/measles[1]/mouth_ulcers[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "LOOK: Are the mouth ulcers deep or extensive?",
+    "readonly" : false,
+    "ref" : "/imci/fever[1]/measles[1]/deep[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "LOOK: Is pus draining from the eye?",
+    "readonly" : false,
+    "ref" : "/imci/fever[1]/measles[1]/eye_pus[1]",
+    "required" : true,
+    "result" : "required",
+    "value" : null
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "LOOK: Does child have clouding of the cornea?",
+    "readonly" : false,
+    "ref" : "/imci/fever[1]/measles[1]/clouding_cornea[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "disagree",
+    "answer" : "disagree",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Agree",
+      "value" : "agree"
+    }, {
+      "label" : "Disagree",
+      "value" : "disagree"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "CLASSIFY: very severe febrile disease or severe malaria",
+    "readonly" : false,
+    "ref" : "/imci/fever[1]/classify[1]/febrile[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "febrile",
+    "answer" : "febrile",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Severe Febrile Disease",
+      "value" : "febrile"
+    }, {
+      "label" : "Malaria",
+      "value" : "malaria"
+    }, {
+      "label" : "Fever; Malaria unlikely",
+      "value" : "fever_only"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "PLEASE: You have disagreed; select the correct classification",
+    "readonly" : false,
+    "ref" : "/imci/fever[1]/classify[1]/override[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "This child requires URGENT referral to hospital. Is referral possible?",
+    "readonly" : false,
+    "ref" : "/imci/info[1]/requires_urgent_referral[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : null,
+    "ref" : "/imci/dosing[1]/malaria_quinine[1]"
+  }, {
+    "after" : "quinine-tablet",
+    "answer" : "quinine-tablet",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Quinine Injection",
+      "value" : "quinine-injection"
+    }, {
+      "label" : "Quinine Tablet",
+      "value" : "quinine-tablet"
+    }, {
+      "label" : "Other Drug",
+      "value" : "other"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Which form of quinine would you like to use for the severe malaria?",
+    "readonly" : false,
+    "ref" : "/imci/dosing[1]/malaria_quinine[1]/treat[1]/severe_malaria_drug[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Agree",
+      "value" : "agree"
+    }, {
+      "label" : "Disagree",
+      "value" : "disagree"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "GIVE FIRST DOSE IMMEDIATELY: quarter tablet of 300mgQUININE (referring URGENTLY to hospital)",
+    "readonly" : false,
+    "ref" : "/imci/dosing[1]/malaria_quinine[1]/treat[1]/firstdose[1]",
+    "required" : true,
+    "result" : "required",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : null,
+    "ref" : "/imci/dosing[1]/pneumonia_antibiotic[1]"
+  }, {
+    "after" : "other",
+    "answer" : "other",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Amoxycillin",
+      "value" : "amoxy"
+    }, {
+      "label" : "Procaine Penicillin",
+      "value" : "procaine"
+    }, {
+      "label" : "Cotrimoxazole",
+      "value" : "cotrim"
+    }, {
+      "label" : "Other Drug",
+      "value" : "other"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Which antibiotic would you like to use for the pneumonia?",
+    "readonly" : false,
+    "ref" : "/imci/dosing[1]/pneumonia_antibiotic[1]/treat[1]/pneumonia_drug[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "alpha",
+    "answer" : "alpha",
+    "appearance" : null,
+    "control" : "trigger",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Choose appropriate drug",
+    "readonly" : false,
+    "ref" : "/imci/dosing[1]/pneumonia_antibiotic[1]/treat[1]/info_choose_other[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : null,
+    "ref" : "/imci/dosing[1]/cholera_antibiotic[1]"
+  }, {
+    "after" : "other",
+    "answer" : "other",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Erythromycin",
+      "value" : "erythro"
+    }, {
+      "label" : "Cotrimoxazole",
+      "value" : "cotrim"
+    }, {
+      "label" : "Other Drug",
+      "value" : "other"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "The system understands that there is potentially cholera in your area. In such an area, children classified as having severe pneumonia should be treated for potential cholera. Which antibiotic would you like to use for potential cholera?",
+    "readonly" : false,
+    "ref" : "/imci/dosing[1]/cholera_antibiotic[1]/treat[1]/cholera_drug[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "123",
+    "answer" : "123",
+    "appearance" : null,
+    "control" : "trigger",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Choose appropriate drug",
+    "readonly" : false,
+    "ref" : "/imci/dosing[1]/cholera_antibiotic[1]/treat[1]/info_choose_other[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : null,
+    "ref" : "/imci/dosing[1]/dysentery_antibiotic[1]"
+  }, {
+    "after" : "nalid",
+    "answer" : "nalid",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Nalidixic Acid",
+      "value" : "nalid"
+    }, {
+      "label" : "Cotrimoxazole",
+      "value" : "cotrim"
+    }, {
+      "label" : "Other Drug",
+      "value" : "other"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Which antibiotic would you like to use for the dysentery?",
+    "readonly" : false,
+    "ref" : "/imci/dosing[1]/dysentery_antibiotic[1]/treat[1]/dysentery_drug[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "disagree",
+    "answer" : "disagree",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Agree",
+      "value" : "agree"
+    }, {
+      "label" : "Disagree",
+      "value" : "disagree"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "GIVE: half tablet of 250mgNALIDIXIC ACID4 times a day for 5 days",
+    "readonly" : false,
+    "ref" : "/imci/dosing[1]/dysentery_antibiotic[1]/treat[1]/dose[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "alpha",
+    "answer" : "alpha",
+    "appearance" : null,
+    "control" : "trigger",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Give correct dose and tell observer",
+    "readonly" : false,
+    "ref" : "/imci/dosing[1]/dysentery_antibiotic[1]/info_give_correct[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : null,
+    "ref" : "/imci/dosing[1]/malaria_antibiotic[1]"
+  }, {
+    "after" : "épsilon",
+    "answer" : "épsilon",
+    "appearance" : null,
+    "control" : "trigger",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "An antibiotic has already been given for dysentery; there is no need to give an additional antibiotic for the malaria",
+    "readonly" : false,
+    "ref" : "/imci/dosing[1]/malaria_antibiotic[1]/treat[1]/info_antibiotic_already[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "123",
+    "answer" : "123",
+    "appearance" : null,
+    "control" : "trigger",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Follow up in 2 days ",
+    "readonly" : false,
+    "ref" : "/imci/finish[1]/info_followup_in[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "épsilon",
+    "answer" : "épsilon",
+    "appearance" : null,
+    "control" : "trigger",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "The protocol is complete. Thank you for using E-IMCI.",
+    "readonly" : false,
+    "ref" : "/imci/finish[1]/done[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "theta<iota>",
+    "answer" : "theta<iota>",
+    "appearance" : null,
+    "control" : "trigger",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Refer URGENTLY to hospital! Tell mother to give frequent sips of ORS on the way.",
+    "readonly" : false,
+    "ref" : "/imci/info_refer[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : "yes"
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "required /imci/vitals[1]/temp_type[1]"
+}

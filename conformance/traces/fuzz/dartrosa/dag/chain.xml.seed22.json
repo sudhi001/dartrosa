@@ -1,0 +1,74 @@
+{
+  "form" : "forms/dartrosa/dag/chain.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"dag-chain\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\"><a>134</a><b>268</b><c>67</c><d>67-keep</d><e>keep</e><flag>beta</flag><ro>computed</ro><req>kappa'lambda</req><g><g1>mu\"nu</g1><g2>mu\"nu!</g2><inner><i1>mu\"nu</i1></inner></g><start><now></start><today><today></today><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 22,
+  "steps" : [ {
+    "after" : "134",
+    "answer" : "134",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A",
+    "readonly" : false,
+    "ref" : "/data/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "3"
+  }, {
+    "after" : "beta",
+    "answer" : "beta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Flag",
+    "readonly" : false,
+    "ref" : "/data/flag[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "yes"
+  }, {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Req",
+    "readonly" : false,
+    "ref" : "/data/req[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : null,
+    "ref" : "/data/g[1]"
+  }, {
+    "after" : "mu\"nu",
+    "answer" : "mu\"nu",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "G1",
+    "readonly" : false,
+    "ref" : "/data/g[1]/g1[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "x"
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

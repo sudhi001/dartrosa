@@ -1,0 +1,12 @@
+{
+  "form" : "forms/javarosa/body-before-model.xml",
+  "parse" : {
+    "error" : {
+      "message" : "Cannot invoke \"org.kxml2.kdom.Element.getName()\" because \"this.mainInstanceNode\" is null",
+      "type" : "NullPointerException"
+    },
+    "ok" : false
+  },
+  "seed" : 33,
+  "traceVersion" : 1
+}

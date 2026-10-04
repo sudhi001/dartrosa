@@ -1,0 +1,12 @@
+{
+  "form" : "forms/javarosa/org/javarosa/core/model/actions/setgeopoint-action-bad-namespace.xml",
+  "parse" : {
+    "error" : {
+      "message" : "setgeopoint action must be in http://www.opendatakit.org/xforms namespace",
+      "type" : "XFormParseException"
+    },
+    "ok" : false
+  },
+  "seed" : 11,
+  "traceVersion" : 1
+}

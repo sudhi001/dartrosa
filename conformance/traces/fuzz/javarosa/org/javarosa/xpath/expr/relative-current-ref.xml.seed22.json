@@ -1,0 +1,95 @@
+{
+  "form" : "forms/javarosa/org/javarosa/xpath/expr/relative-current-ref.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"relative-current-ref\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><my_group><name>123</name><name_relative>123</name_relative><name_note /></my_group><fruit>blueberry</fruit><variety>collins</variety><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 22,
+  "steps" : [ {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "My group",
+    "ref" : "/data/my_group[1]"
+  }, {
+    "after" : "123",
+    "answer" : "123",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Name",
+    "readonly" : false,
+    "ref" : "/data/my_group[1]/name[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Your name is\n                    123",
+    "readonly" : true,
+    "ref" : "/data/my_group[1]/name_note[1]",
+    "required" : false,
+    "value" : null
+  }, {
+    "after" : "blueberry",
+    "answer" : "blueberry",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Apple",
+      "value" : "apple"
+    }, {
+      "label" : "Blueberry",
+      "value" : "blueberry"
+    }, {
+      "label" : "Cherimoya",
+      "value" : "cherimoya"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Fruit",
+    "readonly" : false,
+    "ref" : "/data/fruit[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "collins",
+    "answer" : "collins",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Blueray",
+      "value" : "blueray"
+    }, {
+      "label" : "Collins",
+      "value" : "collins"
+    }, {
+      "label" : "Duke",
+      "value" : "duke"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Variety",
+    "readonly" : false,
+    "ref" : "/data/variety[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : false,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/my_repeat[1]"
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

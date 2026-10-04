@@ -6,14 +6,13 @@ import 'dart:io';
 
 import 'package:dartrosa/src/form_api/form_entry_controller.dart';
 import 'package:dartrosa/src/form_api/form_entry_model.dart';
-import 'package:dartrosa/src/model/control_type.dart';
-import 'package:dartrosa/src/model/data_type.dart';
 import 'package:dartrosa/src/xform/xform_answer_data_parser.dart';
 import 'package:dartrosa/src/xform/xform_serializing_visitor.dart';
 import 'package:dartrosa/testing.dart';
 import 'package:test/test.dart';
 
 import '../support/forms.dart';
+import 'describe.dart';
 import 'init_test.dart' show diff, stableMessage;
 import 'structure_dump.dart';
 
@@ -139,13 +138,13 @@ void _runStep(Scenario s, Map<String, Object?> step, Map<String, Object?> out) {
       FormEntryEvent event;
       do {
         event = controller.stepToNextEvent();
-        events.add(_describe(model, event));
+        events.add(describe(model, event));
       } while (event != FormEntryEvent.endOfForm && events.length < _maxEvents);
       out['events'] = events;
     case 'next':
-      out['event'] = _describe(model, controller.stepToNextEvent());
+      out['event'] = describe(model, controller.stepToNextEvent());
     case 'prev':
-      out['event'] = _describe(model, controller.stepToPreviousEvent());
+      out['event'] = describe(model, controller.stepToPreviousEvent());
     case 'jumpToBeginning':
       s.jumpToBeginningOfForm();
     case 'answer':
@@ -183,47 +182,4 @@ void _runStep(Scenario s, Map<String, Object?> step, Map<String, Object?> out) {
     default:
       throw ArgumentError('unknown op ${step['op']}');
   }
-}
-
-String _dataTypeName(DataType t) => t == DataType.nullType ? 'null' : t.name;
-
-Map<String, Object?> _describe(FormEntryModel model, FormEntryEvent event) {
-  final e = <String, Object?>{'event': event.name};
-  final ref = model.formIndex.reference;
-  if (ref != null) e['ref'] = ref.toString(includePredicates: true);
-  if (event == FormEntryEvent.question) {
-    final p = model.questionPrompt();
-    e
-      ..['control'] = p.controlType.name
-      ..['dataType'] = _dataTypeName(p.dataType)
-      ..['appearance'] = p.appearanceHint
-      ..['label'] = p.longText
-      ..['hint'] = p.helpText
-      ..['required'] = p.isRequired
-      ..['readonly'] = p.isReadOnly;
-    final value = p.answerValue;
-    e['value'] = value == null ? null : normalize(value.uncast().string);
-    final q = p.question;
-    if (q.controlType == ControlType.selectOne ||
-        q.controlType == ControlType.selectMulti ||
-        q.controlType == ControlType.rank) {
-      final choices = [
-        for (final c in p.selectChoices)
-          {'value': c.value, 'label': p.selectChoiceText(c)},
-      ];
-      final itemset = q.dynamicChoices;
-      if (itemset != null &&
-          itemset.randomize &&
-          itemset.randomSeedExpr == null) {
-        choices.sort((a, b) => '${a['value']}'.compareTo('${b['value']}'));
-        e['choicesOrder'] = 'unseededRandom';
-      }
-      e['choices'] = choices;
-    }
-  } else if (event == FormEntryEvent.group || event == FormEntryEvent.repeat) {
-    e
-      ..['label'] = model.captionPrompt().longText
-      ..['appearance'] = model.captionPrompt().appearanceHint;
-  }
-  return e;
 }

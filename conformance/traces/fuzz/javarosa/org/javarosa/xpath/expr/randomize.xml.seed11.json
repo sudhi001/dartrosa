@@ -1,0 +1,255 @@
+{
+  "form" : "forms/javarosa/org/javarosa/xpath/expr/randomize.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"randomize\" xmlns:h=\"http://www.w3.org/1999/xhtml\"><no-seed-random-value>42</no-seed-random-value><no-seed-fruit1>fig</no-seed-fruit1><no-seed-fruit2>cherimoya</no-seed-fruit2><static-seed-random-value>79</static-seed-random-value><static-seed-fruit1>banana</static-seed-fruit1><static-seed-fruit2>cherimoya</static-seed-fruit2><seed>42</seed><nodeset-seed-random-value>12</nodeset-seed-random-value><nodeset-seed-fruit1>cherimoya</nodeset-seed-fruit1><nodeset-seed-fruit2>fig</nodeset-seed-fruit2><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 11,
+  "steps" : [ {
+    "after" : "42",
+    "answer" : "42",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : null,
+    "readonly" : false,
+    "ref" : "/data/no-seed-random-value[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "6"
+  }, {
+    "after" : "fig",
+    "answer" : "fig",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Apple",
+      "value" : "apple"
+    }, {
+      "label" : "Banana",
+      "value" : "banana"
+    }, {
+      "label" : "Cherimoya",
+      "value" : "cherimoya"
+    }, {
+      "label" : "Durian",
+      "value" : "durian"
+    }, {
+      "label" : "Elderberry",
+      "value" : "elderberry"
+    }, {
+      "label" : "Fig",
+      "value" : "fig"
+    } ],
+    "choicesOrder" : "unseededRandom",
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Fruit #1",
+    "readonly" : false,
+    "ref" : "/data/no-seed-fruit1[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "cherimoya",
+    "answer" : "cherimoya",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Apple",
+      "value" : "apple"
+    }, {
+      "label" : "Banana",
+      "value" : "banana"
+    }, {
+      "label" : "Cherimoya",
+      "value" : "cherimoya"
+    }, {
+      "label" : "Durian",
+      "value" : "durian"
+    }, {
+      "label" : "Elderberry",
+      "value" : "elderberry"
+    }, {
+      "label" : "Fig",
+      "value" : "fig"
+    } ],
+    "choicesOrder" : "unseededRandom",
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Fruit #2",
+    "readonly" : false,
+    "ref" : "/data/no-seed-fruit2[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "79",
+    "answer" : "79",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : null,
+    "readonly" : false,
+    "ref" : "/data/static-seed-random-value[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "6"
+  }, {
+    "after" : "banana",
+    "answer" : "banana",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Apple",
+      "value" : "apple"
+    }, {
+      "label" : "Fig",
+      "value" : "fig"
+    }, {
+      "label" : "Cherimoya",
+      "value" : "cherimoya"
+    }, {
+      "label" : "Banana",
+      "value" : "banana"
+    }, {
+      "label" : "Durian",
+      "value" : "durian"
+    }, {
+      "label" : "Elderberry",
+      "value" : "elderberry"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Fruit #1",
+    "readonly" : false,
+    "ref" : "/data/static-seed-fruit1[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "cherimoya",
+    "answer" : "cherimoya",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Apple",
+      "value" : "apple"
+    }, {
+      "label" : "Fig",
+      "value" : "fig"
+    }, {
+      "label" : "Cherimoya",
+      "value" : "cherimoya"
+    }, {
+      "label" : "Banana",
+      "value" : "banana"
+    }, {
+      "label" : "Durian",
+      "value" : "durian"
+    }, {
+      "label" : "Elderberry",
+      "value" : "elderberry"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Fruit #2",
+    "readonly" : false,
+    "ref" : "/data/static-seed-fruit2[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "12",
+    "answer" : "12",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : null,
+    "readonly" : false,
+    "ref" : "/data/nodeset-seed-random-value[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "6"
+  }, {
+    "after" : "cherimoya",
+    "answer" : "cherimoya",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Apple",
+      "value" : "apple"
+    }, {
+      "label" : "Fig",
+      "value" : "fig"
+    }, {
+      "label" : "Cherimoya",
+      "value" : "cherimoya"
+    }, {
+      "label" : "Banana",
+      "value" : "banana"
+    }, {
+      "label" : "Durian",
+      "value" : "durian"
+    }, {
+      "label" : "Elderberry",
+      "value" : "elderberry"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Fruit #1",
+    "readonly" : false,
+    "ref" : "/data/nodeset-seed-fruit1[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "fig",
+    "answer" : "fig",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Apple",
+      "value" : "apple"
+    }, {
+      "label" : "Fig",
+      "value" : "fig"
+    }, {
+      "label" : "Cherimoya",
+      "value" : "cherimoya"
+    }, {
+      "label" : "Banana",
+      "value" : "banana"
+    }, {
+      "label" : "Durian",
+      "value" : "durian"
+    }, {
+      "label" : "Elderberry",
+      "value" : "elderberry"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Fruit #2",
+    "readonly" : false,
+    "ref" : "/data/nodeset-seed-fruit2[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

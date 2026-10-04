@@ -1,0 +1,56 @@
+{
+  "form" : "forms/javarosa/group-with-ref-attr.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"group-with-ref-attr\" xmlns:h=\"http://www.w3.org/1999/xhtml\"><G1><G2><Q1>123</Q1></G2><G3><Q2>beta</Q2></G3></G1></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 22,
+  "steps" : [ {
+    "appearance" : null,
+    "event" : "group",
+    "label" : null,
+    "ref" : "/data/G1[1]"
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : null,
+    "ref" : "/data/G1[1]"
+  }, {
+    "after" : "123",
+    "answer" : "123",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : null,
+    "readonly" : false,
+    "ref" : "/data/G1[1]/G2[1]/Q1[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : null,
+    "ref" : "/data/G1[1]/G3[1]"
+  }, {
+    "after" : "beta",
+    "answer" : "beta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : null,
+    "readonly" : false,
+    "ref" : "/data/G1[1]/G3[1]/Q2[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

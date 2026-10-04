@@ -1,0 +1,31 @@
+{
+  "form" : "forms/dartrosa/basics.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"basics\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\"><age /><adult>no</adult><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 33,
+  "steps" : [ {
+    "after" : null,
+    "answer" : "-21",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Age",
+    "readonly" : false,
+    "ref" : "/data/age[1]",
+    "required" : true,
+    "result" : "constraintViolated",
+    "value" : null
+  }, {
+    "add" : false,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/child[1]"
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "required /data/age[1]"
+}

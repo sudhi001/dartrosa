@@ -39,6 +39,7 @@ import org.javarosa.xform.util.XFormAnswerDataParser;
 public final class Oracle {
     static final int TRACE_VERSION = 1;
     static final int MAX_EVENTS = 20_000;
+    static final int[] FUZZ_SEEDS = {11, 22, 33};
     static final String[] MEDIA_SCHEMES = {"file", "file-csv", "images", "audio", "video"};
 
     static final ObjectMapper JSON = new ObjectMapper()
@@ -109,6 +110,9 @@ public final class Oracle {
             write(traces.resolve("walk").resolve(rel + ".json"), trace);
             write(traces.resolve("structure").resolve(rel + ".json"), structureTrace(form.toFile(), "forms/" + rel));
             write(traces.resolve("init").resolve(rel + ".json"), initTrace(form.toFile(), "forms/" + rel));
+            for (int seed : FUZZ_SEEDS) {
+                write(traces.resolve("fuzz").resolve(rel + ".seed" + seed + ".json"), FuzzWalk.run(form.toFile(), "forms/" + rel, seed));
+            }
         }
         for (Path dag : list(scenarios, ".dag.json")) {
             String rel = scenarios.relativize(dag).toString();
@@ -408,6 +412,15 @@ public final class Oracle {
         } catch (RuntimeException e) {
             return false;
         }
+    }
+
+    static String answerResult(int code) {
+        return switch (code) {
+            case FormEntryController.ANSWER_OK -> "accepted";
+            case FormEntryController.ANSWER_REQUIRED_BUT_EMPTY -> "required";
+            case FormEntryController.ANSWER_CONSTRAINT_VIOLATED -> "constraintViolated";
+            default -> "unknown";
+        };
     }
 
     static String ref(TreeReference reference) {

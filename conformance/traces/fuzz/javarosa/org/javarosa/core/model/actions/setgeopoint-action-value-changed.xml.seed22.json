@@ -1,0 +1,27 @@
+{
+  "form" : "forms/javarosa/org/javarosa/core/model/actions/setgeopoint-action-value-changed.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"setgeopoint-action-value-changed\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\"><text>123</text><location>no client implementation</location></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 22,
+  "steps" : [ {
+    "after" : "123",
+    "answer" : "123",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : null,
+    "readonly" : false,
+    "ref" : "/data/text[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

@@ -1,0 +1,4239 @@
+{
+  "form" : "forms/javarosa/smoketests/whova_form.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"va_who_v1_5_2\" version=\"2019101701\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\"><presets><Id10002>low</Id10002><Id10003>veryl</Id10003><Id10004>wet</Id10004></presets><respondent_backgr><Id10007>zeta &amp; eta</Id10007><Id10007a>male</Id10007a><Id10008>child</Id10008><Id10009>ref</Id10009><Id10010 /><Id10010a>-31</Id10010a><Id10010b>undetermined</Id10010b><Id10010c>zeta &amp; eta</Id10010c><Id10012><today></Id10012><Id10013>yes</Id10013><Id10011><now></Id10011></respondent_backgr><consented><deceased_CRVS><info_on_deceased><Id10017 /><Id10018>zeta &amp; eta</Id10018><Id10019>male</Id10019><Id10020>yes</Id10020><Id10021 /><Id10022>no</Id10022><Id10023 /><Id10024>2013-01-13</Id10024><ageInDays /><ageInDays2 /><ageInYears /><ageInYearsRemain /><ageInMonths /><ageInMonthsRemain /><isNeonatal1>0</isNeonatal1><isChild1>0</isChild1><isAdult1>0</isAdult1><age_group>child</age_group><age_child_unit>DK</age_child_unit><ageInMonthsByYear /><ageInYears2 /><isNeonatal2>0</isNeonatal2><isChild2>1</isChild2><isAdult2>0</isAdult2><isNeonatal>0</isNeonatal><isChild>1</isChild><isAdult>0</isAdult><ageInDaysNeonate /><Id10008_check /><Id10058>DK</Id10058><Id10051 /></info_on_deceased><vital_reg_certif><Id10069>yes</Id10069><Id10069_a>no</Id10069_a></vital_reg_certif></deceased_CRVS><injuries_accidents><Id10077>yes</Id10077><injuries_accidents_yes><Id10079>no</Id10079><Id10082>dk</Id10082><Id10083>yes</Id10083><Id10084>dk</Id10084><Id10085>no</Id10085><Id10086>no</Id10086><Id10087>ref</Id10087><Id10089>yes</Id10089><Id10090>dk</Id10090><Id10091>dk</Id10091><Id10092>yes</Id10092><Id10093>yes</Id10093><Id10094>ref</Id10094><Id10095>yes</Id10095><Id10096>dk</Id10096><Id10097>yes</Id10097><Id10098>yes</Id10098></injuries_accidents_yes></injuries_accidents><illhistory><Id10408>ref</Id10408><illdur><id10120_unit>years</id10120_unit><Id10122 /><Id10120 /></illdur><Id10123>dk</Id10123><med_hist_final_illness><Id10125>dk</Id10125><Id10126>dk</Id10126><Id10127>dk</Id10127><Id10128>dk</Id10128><Id10129>yes</Id10129><Id10130>yes</Id10130><Id10131>no</Id10131><Id10133>no</Id10133><Id10134>yes</Id10134><Id10135>yes</Id10135><Id10136>yes</Id10136><Id10137>no</Id10137><Id10142>ref</Id10142><Id10143 /><Id10144>yes</Id10144></med_hist_final_illness><signs_symptoms_final_illness><Id10147>dk</Id10147><Id10152>no</Id10152><Id10153>ref</Id10153><Id10159>yes</Id10159><breathdur><id10161_unit>ref</id10161_unit><Id10161 /></breathdur><Id10165 /><Id10166>yes</Id10166><Id10167_units>DK</Id10167_units><Id10167 /><Id10168>dk</Id10168><Id10172 /><Id10173_nc>dk</Id10173_nc><Id10173>dk</Id10173><Id10174>ref</Id10174><Id10181>no</Id10181><Id10186>dk</Id10186><Id10188>no</Id10188><Id10189 /><Id10193>yes</Id10193><Id10194>dk</Id10194><Id10200>yes</Id10200><Id10201_unit>days</Id10201_unit><Id10201_a /><Id10201 /><Id10203>slowly</Id10203><Id10204>yes</Id10204><Id10205_unit>months</Id10205_unit><Id10206>52</Id10206><Id10205>1560</Id10205><Id10207>ref</Id10207><Id10208>yes</Id10208><Id10209_units>ref</Id10209_units><Id10209 /><Id10210>no</Id10210><Id10214>dk</Id10214><Id10219>no</Id10219><Id10223>no</Id10223><Id10227>no</Id10227><Id10230>yes</Id10230><Id10231>yes</Id10231><Id10232_units>days</Id10232_units><Id10232_a /><Id10232 /><Id10233>ref</Id10233><Id10238>dk</Id10238><Id10239>dk</Id10239><Id10240>yes</Id10240><Id10241>ref</Id10241><Id10243>ref</Id10243><Id10244>dk</Id10244><Id10245>ref</Id10245><Id10246>yes</Id10246><Id10247>no</Id10247><Id10249 /><Id10252>dk</Id10252><Id10253>no</Id10253><Id10258>ref</Id10258><Id10261>no</Id10261><Id10264>yes</Id10264><Id10265>no</Id10265><Id10267>yes</Id10267><Id10268>ref</Id10268><Id10269>no</Id10269><Id10270>ref</Id10270><Id10271 /><Id10272>dk</Id10272><Id10273>no</Id10273><Id10275>yes</Id10275><Id10277>ref</Id10277><Id10278>yes</Id10278><Id10281 /></signs_symptoms_final_illness><neonatal_child><Id10352_units>DK</Id10352_units><Id10352 /><neonatal_childA><Id10354>yes</Id10354><Id10355>DK</Id10355><Id10356>dk</Id10356><Id10360 /><Id10361>yes</Id10361><Id10362 /><Id10363>yes</Id10363><Id10364>no</Id10364><Id10366 /><Id10367 /><Id10368>dk</Id10368><Id10369>ref</Id10369><Id10370>ref</Id10370><Id10371>dk</Id10371><Id10372>ref</Id10372><Id10373>no</Id10373></neonatal_childA></neonatal_child><health_service_utilization><Id10418>dk</Id10418><Id10428>dk</Id10428><Id10432>no</Id10432><Id10435>yes</Id10435><Id10436 /></health_service_utilization></illhistory><back_context><Id10450>dk</Id10450><Id10455>dk</Id10455><Id10456>dk</Id10456><Id10457>dk</Id10457><Id10458 /><Id10459>dk</Id10459></back_context><deathcert><Id10462>yes</Id10462><Id10463>no</Id10463></deathcert><narrat><Id10476>theta&lt;iota&gt;</Id10476><Id10478>cancer dehydration jaundice</Id10478></narrat><Id10481 /><comment>theta&lt;iota&gt;</comment></consented><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 11,
+  "steps" : [ {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Preset HIV-Malaria mortality and season.",
+    "ref" : "/data/presets[1]"
+  }, {
+    "after" : "low",
+    "answer" : "low",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "High",
+      "value" : "high"
+    }, {
+      "label" : "Low",
+      "value" : "low"
+    }, {
+      "label" : "Very low",
+      "value" : "veryl"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "Should be completed by the central office.HIGH corresponds to more than 1% of deaths due to HIV/AIDS, LOW around 0.1%, VERY LOW less than 0.01%. Filling in during the interview is not mandatory. Usually the value is predetermined for the region.",
+    "label" : "(Id10002) [Is this a region of high HIV/AIDS mortality?]",
+    "readonly" : false,
+    "ref" : "/data/presets[1]/Id10002[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "veryl",
+    "answer" : "veryl",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "High",
+      "value" : "high"
+    }, {
+      "label" : "Low",
+      "value" : "low"
+    }, {
+      "label" : "Very low",
+      "value" : "veryl"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "Should be completed by the central office.HIGH corresponds to more than 1% of deaths due to malaria, LOW around 0.1%, VERY LOW less than 0.01%. Filling in during the interview is not mandatory. Usually the value is predetermined for the region.",
+    "label" : "(Id10003) [Is this a region of high malaria mortality?]",
+    "readonly" : false,
+    "ref" : "/data/presets[1]/Id10003[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "wet",
+    "answer" : "wet",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Wet",
+      "value" : "wet"
+    }, {
+      "label" : "Dry",
+      "value" : "dry"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "DK"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10004) [During which season did (s)he die?]",
+    "readonly" : false,
+    "ref" : "/data/presets[1]/Id10004[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Information on the respondent and background about interview",
+    "ref" : "/data/respondent_backgr[1]"
+  }, {
+    "after" : "zeta & eta",
+    "answer" : "zeta & eta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10007) [What is the name of VA respondent?]",
+    "readonly" : false,
+    "ref" : "/data/respondent_backgr[1]/Id10007[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "male",
+    "answer" : "male",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Female",
+      "value" : "female"
+    }, {
+      "label" : "Male",
+      "value" : "male"
+    }, {
+      "label" : "Ambiguous/Intersex",
+      "value" : "undetermined"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10007a) [What is the sex of VA respondent?]",
+    "readonly" : false,
+    "ref" : "/data/respondent_backgr[1]/Id10007a[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "child",
+    "answer" : "child",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Parent",
+      "value" : "parent"
+    }, {
+      "label" : "Child",
+      "value" : "child"
+    }, {
+      "label" : "Other family member",
+      "value" : "family_member"
+    }, {
+      "label" : "Friend",
+      "value" : "friend"
+    }, {
+      "label" : "Spouse",
+      "value" : "spouse"
+    }, {
+      "label" : "Health worker",
+      "value" : "health_worker"
+    }, {
+      "label" : "Public official",
+      "value" : "public_official"
+    }, {
+      "label" : "Another relationship",
+      "value" : "another_relationship"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "Ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "First verify if the respondent is a family member, and only if it is not a family member choose the other categories like health worker or public official.",
+    "label" : "(Id10008) What is your/the respondent's relationship to the deceased?",
+    "readonly" : false,
+    "ref" : "/data/respondent_backgr[1]/Id10008[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "ref",
+    "answer" : "ref",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10009) Did you/the respondent live with the deceased in the period leading to her/his death?",
+    "readonly" : false,
+    "ref" : "/data/respondent_backgr[1]/Id10009[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10010) [Name of VA interviewer]",
+    "readonly" : false,
+    "ref" : "/data/respondent_backgr[1]/Id10010[1]",
+    "required" : true,
+    "result" : "required",
+    "value" : null
+  }, {
+    "after" : "-31",
+    "answer" : "-31",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10010a) [Age of VA interviewer]",
+    "readonly" : false,
+    "ref" : "/data/respondent_backgr[1]/Id10010a[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "undetermined",
+    "answer" : "undetermined",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Female",
+      "value" : "female"
+    }, {
+      "label" : "Male",
+      "value" : "male"
+    }, {
+      "label" : "Ambiguous/Intersex",
+      "value" : "undetermined"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10010b) [Sex of VA interviewer]",
+    "readonly" : false,
+    "ref" : "/data/respondent_backgr[1]/Id10010b[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "zeta & eta",
+    "answer" : "zeta & eta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10010c) [ID of VA interviewer]",
+    "readonly" : false,
+    "ref" : "/data/respondent_backgr[1]/Id10010c[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10013) [Did the respondent give consent?]",
+    "readonly" : false,
+    "ref" : "/data/respondent_backgr[1]/Id10013[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Skip to end if not consented",
+    "ref" : "/data/consented[1]"
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Information about the deceased and vital registration",
+    "ref" : "/data/consented[1]/deceased_CRVS[1]"
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Information on the Deceased",
+    "ref" : "/data/consented[1]/deceased_CRVS[1]/info_on_deceased[1]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10017) What was the first or given name(s) of the deceased?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/deceased_CRVS[1]/info_on_deceased[1]/Id10017[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "zeta & eta",
+    "answer" : "zeta & eta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10018) What was the surname (or family name) of the deceased?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/deceased_CRVS[1]/info_on_deceased[1]/Id10018[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "male",
+    "answer" : "male",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Female",
+      "value" : "female"
+    }, {
+      "label" : "Male",
+      "value" : "male"
+    }, {
+      "label" : "Ambiguous/Intersex",
+      "value" : "undetermined"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10019) What was the sex of the deceased?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/deceased_CRVS[1]/info_on_deceased[1]/Id10019[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10020) Is the date of birth known?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/deceased_CRVS[1]/info_on_deceased[1]/Id10020[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "2027-09-16",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "date",
+    "event" : "question",
+    "hint" : "To select previous years, click or tap the month name, then click or tap the year.",
+    "label" : "(Id10021) When was the deceased born?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/deceased_CRVS[1]/info_on_deceased[1]/Id10021[1]",
+    "required" : true,
+    "result" : "constraintViolated",
+    "value" : null
+  }, {
+    "after" : "no",
+    "answer" : "no",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10022) Is the date of death known?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/deceased_CRVS[1]/info_on_deceased[1]/Id10022[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "2013-01-13",
+    "answer" : "2013-01-13",
+    "appearance" : "year",
+    "control" : "input",
+    "dataType" : "date",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10024) Please indicate the year of death.",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/deceased_CRVS[1]/info_on_deceased[1]/Id10024[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "child",
+    "answer" : "child",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Neonate",
+      "value" : "neonate"
+    }, {
+      "label" : "Child",
+      "value" : "child"
+    }, {
+      "label" : "Adult",
+      "value" : "adult"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "(1) Neonatal 0-27 completed days; (2) Child 28 days - through 11 years; (3) Adult - above 12 years",
+    "label" : "[What age group corresponds to the deceased?]",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/deceased_CRVS[1]/info_on_deceased[1]/age_group[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "DK",
+    "answer" : "DK",
+    "appearance" : "horizontal-compact",
+    "choices" : [ {
+      "label" : "Days",
+      "value" : "days"
+    }, {
+      "label" : "Months",
+      "value" : "months"
+    }, {
+      "label" : "Years",
+      "value" : "years"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "DK"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "Child age is between 28 days through 11 years. A response is required for this question. If the exact age is unknown, enter the best estimate.",
+    "label" : "How old was the child? [Enter child's age in:]",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/deceased_CRVS[1]/info_on_deceased[1]/age_child_unit[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10008_check) It is not possible to select that the respondent is the child of the deceased and enter that the deceased is a neonate or child. Please go back and correct the selection.",
+    "readonly" : true,
+    "ref" : "/data/consented[1]/deceased_CRVS[1]/info_on_deceased[1]/Id10008_check[1]",
+    "required" : true,
+    "value" : null
+  }, {
+    "after" : "DK",
+    "answer" : "DK",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Hospital",
+      "value" : "hospital"
+    }, {
+      "label" : "Other health facility",
+      "value" : "other_health_facility"
+    }, {
+      "label" : "Home",
+      "value" : "home"
+    }, {
+      "label" : "On route to hospital or facility",
+      "value" : "on_route_to_hospital_or_facility"
+    }, {
+      "label" : "Other",
+      "value" : "other"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "DK"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "Ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10058) Where did the deceased die?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/deceased_CRVS[1]/info_on_deceased[1]/Id10058[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "If you choose 'No', this question allows to skip asking details about place of residence, education, and family. The question on marriage status will always be asked for adults.",
+    "label" : "(Id10051) [Is there a need to collect additional demographic data on the deceased?]",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/deceased_CRVS[1]/info_on_deceased[1]/Id10051[1]",
+    "required" : true,
+    "result" : "required",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Civil registration numbers",
+    "ref" : "/data/consented[1]/deceased_CRVS[1]/vital_reg_certif[1]"
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10069) [Is there a need to collect civil registration numbers on the deceased?]",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/deceased_CRVS[1]/vital_reg_certif[1]/Id10069[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "no",
+    "answer" : "no",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10069_a) Do you have a Death Certificate from the Civil Registry?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/deceased_CRVS[1]/vital_reg_certif[1]/Id10069_a[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "History of injuries/accidents",
+    "ref" : "/data/consented[1]/injuries_accidents[1]"
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10077) Did (s)he suffer from any injury or accident that led to her/his death?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/injuries_accidents[1]/Id10077[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Injuries and accidents detail",
+    "ref" : "/data/consented[1]/injuries_accidents[1]/injuries_accidents_yes[1]"
+  }, {
+    "after" : "no",
+    "answer" : "no",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10079) Was it a road traffic accident?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/injuries_accidents[1]/injuries_accidents_yes[1]/Id10079[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "dk",
+    "answer" : "dk",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10082) Was (s)he injured in a non-road transport accident?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/injuries_accidents[1]/injuries_accidents_yes[1]/Id10082[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "This includes accidents and cases where it is unknown if it was an accident or whether there was intentional violence.",
+    "label" : "(Id10083) Was (s)he injured in a fall?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/injuries_accidents[1]/injuries_accidents_yes[1]/Id10083[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "dk",
+    "answer" : "dk",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "This includes accidents and cases where it is unknown if it was an accident or whether there was intentional violence.",
+    "label" : "(Id10084) Was there any poisoning?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/injuries_accidents[1]/injuries_accidents_yes[1]/Id10084[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "no",
+    "answer" : "no",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "This includes accidents and cases where it is unknown if it was an accident or whether there was intentional violence.",
+    "label" : "(Id10085) Did (s)he die of drowning?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/injuries_accidents[1]/injuries_accidents_yes[1]/Id10085[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "no",
+    "answer" : "no",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "This includes accidents and cases where it is unknown if it was an accident or whether there was intentional violence.",
+    "label" : "(Id10086) Was (s)he injured by a bite or sting by venomous animal?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/injuries_accidents[1]/injuries_accidents_yes[1]/Id10086[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "ref",
+    "answer" : "ref",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10087) Was (s)he injured by an animal or insect (non-venomous)?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/injuries_accidents[1]/injuries_accidents_yes[1]/Id10087[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10089) Was (s)he injured by burns/fire?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/injuries_accidents[1]/injuries_accidents_yes[1]/Id10089[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "dk",
+    "answer" : "dk",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "(don't say suicide for under-12-year olds)",
+    "label" : "(Id10090) Was (s)he subject to violence (suicide, homicide, abuse)?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/injuries_accidents[1]/injuries_accidents_yes[1]/Id10090[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "dk",
+    "answer" : "dk",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10091) Was (s)he injured by a firearm?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/injuries_accidents[1]/injuries_accidents_yes[1]/Id10091[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10092) Was (s)he stabbed, cut or pierced?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/injuries_accidents[1]/injuries_accidents_yes[1]/Id10092[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10093) Was (s)he strangled?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/injuries_accidents[1]/injuries_accidents_yes[1]/Id10093[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "ref",
+    "answer" : "ref",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10094) Was (s)he injured by a blunt force?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/injuries_accidents[1]/injuries_accidents_yes[1]/Id10094[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10095) Was (s)he injured by a force of nature?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/injuries_accidents[1]/injuries_accidents_yes[1]/Id10095[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "dk",
+    "answer" : "dk",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "This includes accidents and cases where it is unknown if it was an accident or whether there was intentional violence.",
+    "label" : "(Id10096) Was it electrocution?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/injuries_accidents[1]/injuries_accidents_yes[1]/Id10096[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10097) Did (s)he encounter any other injury?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/injuries_accidents[1]/injuries_accidents_yes[1]/Id10097[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10098) Was the injury accidental?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/injuries_accidents[1]/injuries_accidents_yes[1]/Id10098[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Health history",
+    "ref" : "/data/consented[1]/illhistory[1]"
+  }, {
+    "after" : "ref",
+    "answer" : "ref",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10408) Before the illness that led to death, was the baby/the child growing normally?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/Id10408[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Duration of illness",
+    "ref" : "/data/consented[1]/illhistory[1]/illdur[1]"
+  }, {
+    "after" : "years",
+    "answer" : "years",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Days",
+      "value" : "days"
+    }, {
+      "label" : "Months",
+      "value" : "months"
+    }, {
+      "label" : "Years",
+      "value" : "years"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "DK"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(id10120_unit) For how long was (s)he ill before death?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/illdur[1]/id10120_unit[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "140",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10122) Years",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/illdur[1]/Id10122[1]",
+    "required" : true,
+    "result" : "constraintViolated",
+    "value" : null
+  }, {
+    "after" : "dk",
+    "answer" : "dk",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "Suddenly means died unexpectedly within 24 hours of being in regular health.",
+    "label" : "(Id10123) Did (s)he die suddenly?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/Id10123[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Medical history associated with final illness",
+    "ref" : "/data/consented[1]/illhistory[1]/med_hist_final_illness[1]"
+  }, {
+    "after" : "dk",
+    "answer" : "dk",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "Remind the respondent that we are asking for the diagnosis assessed by a doctor, health worker, or other health professional during the final illness.",
+    "label" : "(Id10125) Was there any diagnosis by a health professional of tuberculosis?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/med_hist_final_illness[1]/Id10125[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "dk",
+    "answer" : "dk",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10126) Was an HIV test ever positive?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/med_hist_final_illness[1]/Id10126[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "dk",
+    "answer" : "dk",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "Remind the respondent that we are asking for the diagnosis assessed by a doctor, health worker, or other health professional during the final illness.",
+    "label" : "(Id10127) Was there any diagnosis by a health professional of AIDS?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/med_hist_final_illness[1]/Id10127[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "dk",
+    "answer" : "dk",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "Remind the respondent that we are asking for the diagnosis assessed by a doctor, health worker, or other health professional during the final illness.",
+    "label" : "(Id10128) Did (s)he have a recent positive test by a health professional for malaria?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/med_hist_final_illness[1]/Id10128[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "Remind the respondent that we are asking for the diagnosis assessed by a doctor, health worker, or other health professional during the final illness.",
+    "label" : "(Id10129) Did (s)he have a recent negative test by a health professional for malaria?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/med_hist_final_illness[1]/Id10129[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "Remind the respondent that we are asking for the diagnosis assessed by a doctor, health worker, or other health professional during the final illness.",
+    "label" : "(Id10130) Was there any diagnosis by a health professional of dengue fever?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/med_hist_final_illness[1]/Id10130[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "no",
+    "answer" : "no",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "Remind the respondent that we are asking for the diagnosis assessed by a doctor, health worker, or other health professional during the final illness.",
+    "label" : "(Id10131) Was there any diagnosis by a health professional of measles?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/med_hist_final_illness[1]/Id10131[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "no",
+    "answer" : "no",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "Remind the respondent that we are asking for the diagnosis assessed by a doctor, health worker, or other health professional during the final illness.",
+    "label" : "(Id10133) Was there any diagnosis by a health professional of heart disease?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/med_hist_final_illness[1]/Id10133[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "Remind the respondent that we are asking for the diagnosis assessed by a doctor, health worker, or other health professional during the final illness.",
+    "label" : "(Id10134) Was there any diagnosis by a health professional of diabetes?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/med_hist_final_illness[1]/Id10134[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "Remind the respondent that we are asking for the diagnosis assessed by a doctor, health worker, or other health professional during the final illness.",
+    "label" : "(Id10135) Was there any diagnosis by a health professional of asthma?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/med_hist_final_illness[1]/Id10135[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "Remind the respondent that we are asking for the diagnosis assessed by a doctor, health worker, or other health professional during the final illness.",
+    "label" : "(Id10136) Was there any diagnosis by a health professional of epilepsy?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/med_hist_final_illness[1]/Id10136[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "no",
+    "answer" : "no",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "Remind the respondent that we are asking for the diagnosis assessed by a doctor, health worker, or other health professional during the final illness.",
+    "label" : "(Id10137) Was there any diagnosis by a health professional of cancer?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/med_hist_final_illness[1]/Id10137[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "ref",
+    "answer" : "ref",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "Remind the respondent that we are asking for the diagnosis assessed by a doctor, health worker, or other health professional during the final illness.",
+    "label" : "(Id10142) Was there any diagnosis by a health professional of sickle cell disease?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/med_hist_final_illness[1]/Id10142[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "Remind the respondent that we are asking for the diagnosis assessed by a doctor, health worker, or other health professional during the final illness.",
+    "label" : "(Id10143) Was there any diagnosis by a health professional of kidney disease?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/med_hist_final_illness[1]/Id10143[1]",
+    "required" : true,
+    "result" : "required",
+    "value" : null
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "Remind the respondent that we are asking for the diagnosis assessed by a doctor, health worker, or other health professional during the final illness.",
+    "label" : "(Id10144) Was there any diagnosis by a health professional of liver disease?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/med_hist_final_illness[1]/Id10144[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "General signs and symptoms associated with final illness",
+    "ref" : "/data/consented[1]/illhistory[1]/signs_symptoms_final_illness[1]"
+  }, {
+    "after" : "dk",
+    "answer" : "dk",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10147) Did (s)he have a fever?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/signs_symptoms_final_illness[1]/Id10147[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "no",
+    "answer" : "no",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10152) Did (s)he have night sweats?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/signs_symptoms_final_illness[1]/Id10152[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "ref",
+    "answer" : "ref",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10153) Did (s)he have a cough?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/signs_symptoms_final_illness[1]/Id10153[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10159) Did (s)he have any difficulty breathing?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/signs_symptoms_final_illness[1]/Id10159[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Duration of breathing difficulty",
+    "ref" : "/data/consented[1]/illhistory[1]/signs_symptoms_final_illness[1]/breathdur[1]"
+  }, {
+    "after" : "ref",
+    "answer" : "ref",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Days",
+      "value" : "days"
+    }, {
+      "label" : "Months",
+      "value" : "months"
+    }, {
+      "label" : "Years",
+      "value" : "years"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "DK"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "Enter 1 unit only: 0-30 days, 1-11 months, or 1 or more years. Less than 1 day or 24 hours = 0 days; 1 week = 7 days.",
+    "label" : "(id10161_unit) For how long did the difficult breathing last?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/signs_symptoms_final_illness[1]/breathdur[1]/id10161_unit[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Continuous",
+      "value" : "continuous"
+    }, {
+      "label" : "On and off",
+      "value" : "on_and_off"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "DK"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "Ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10165) Was the difficulty continuous or on and off?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/signs_symptoms_final_illness[1]/Id10165[1]",
+    "required" : true,
+    "result" : "required",
+    "value" : null
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10166) During the illness that led to death, did (s)he have fast breathing?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/signs_symptoms_final_illness[1]/Id10166[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "DK",
+    "answer" : "DK",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Days",
+      "value" : "days"
+    }, {
+      "label" : "Months",
+      "value" : "months"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "DK"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "Enter 1 unit only: 0-30 days or 1-60 months. Less than 1 day or 24 hours = 0 days; 1 week = 7 days.",
+    "label" : "(Id10167_units) How long did the fast breathing last?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/signs_symptoms_final_illness[1]/Id10167_units[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "dk",
+    "answer" : "dk",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10168) Did (s)he have breathlessness?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/signs_symptoms_final_illness[1]/Id10168[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "Ask only for children under the age of 12 years. Show photos if available.",
+    "label" : "(Id10172) Did you see the lower chest wall/ribs being pulled in as the child breathed in?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/signs_symptoms_final_illness[1]/Id10172[1]",
+    "required" : true,
+    "result" : "required",
+    "value" : null
+  }, {
+    "after" : "dk",
+    "answer" : "dk",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Stridor",
+      "value" : "stridor"
+    }, {
+      "label" : "Grunting",
+      "value" : "grunting"
+    }, {
+      "label" : "Wheezing",
+      "value" : "wheezing"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectMulti",
+    "dataType" : "multipleItems",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10173_nc) During the illness that led to death did his/her breathing sound like any of the following:",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/signs_symptoms_final_illness[1]/Id10173_nc[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "ref",
+    "answer" : "ref",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10174) Did (s)he have chest pain?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/signs_symptoms_final_illness[1]/Id10174[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "no",
+    "answer" : "no",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "Ask the respondent about his/her understanding of what is diarrhoea (having more frequent loose or liquid stools than usual); if unclear, explain to the respondent what is diarrhoea .",
+    "label" : "(Id10181) Did (s)he have more frequent loose or liquid stools than usual?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/signs_symptoms_final_illness[1]/Id10181[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "dk",
+    "answer" : "dk",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10186) At any time during the final illness was there blood in the stools?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/signs_symptoms_final_illness[1]/Id10186[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "no",
+    "answer" : "no",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10188) Did (s)he vomit?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/signs_symptoms_final_illness[1]/Id10188[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10189) To clarify: Did (s)he vomit in the week preceding the death?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/signs_symptoms_final_illness[1]/Id10189[1]",
+    "required" : true,
+    "result" : "required",
+    "value" : null
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "Explain to the respondent that problems could be pain, protruding abdomen or a mass.",
+    "label" : "(Id10193) Did (s)he have any belly (abdominal) problem?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/signs_symptoms_final_illness[1]/Id10193[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "dk",
+    "answer" : "dk",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10194) Did (s)he have belly (abdominal) pain?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/signs_symptoms_final_illness[1]/Id10194[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10200) Did (s)he have a more than usually protruding belly (abdomen)?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/signs_symptoms_final_illness[1]/Id10200[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "days",
+    "answer" : "days",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Days",
+      "value" : "days"
+    }, {
+      "label" : "Months",
+      "value" : "months"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "DK"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "Enter 1 unit only: 0-30 days or 1-60 months. Less than 1 day or 24 hours = 0 days; 1 week = 7 days.",
+    "label" : "(Id10201_unit) For how long before death did (s)he have a more than usually protruding belly (abdomen)?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/signs_symptoms_final_illness[1]/Id10201_unit[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "36",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : "Enter 0-30 days. Less than 1 day or 24 hours = 0 days; 1 week = 7 days.",
+    "label" : "(Id10201_a) [Enter how long before death (s)he had a more than usually protruding belly (abdomen) in days]:",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/signs_symptoms_final_illness[1]/Id10201_a[1]",
+    "required" : true,
+    "result" : "constraintViolated",
+    "value" : null
+  }, {
+    "after" : "slowly",
+    "answer" : "slowly",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Rapidly",
+      "value" : "rapidly"
+    }, {
+      "label" : "Slowly",
+      "value" : "slowly"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "DK"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "Ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10203) How rapidly did (s)he develop the protruding belly (abdomen)?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/signs_symptoms_final_illness[1]/Id10203[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10204) Did (s)he have any mass in the belly (abdomen)?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/signs_symptoms_final_illness[1]/Id10204[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "months",
+    "answer" : "months",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Days",
+      "value" : "days"
+    }, {
+      "label" : "Months",
+      "value" : "months"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "DK"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "Enter 1 unit only: 0-30 days or 1-60 months. Less than 1 day or 24 hours = 0 days; 1 week = 7 days.",
+    "label" : "(Id10205_unit) For how long did (s)he have a mass in the belly (abdomen)?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/signs_symptoms_final_illness[1]/Id10205_unit[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "52",
+    "answer" : "52",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : "Enter 1-60 months.",
+    "label" : "(Id10206) [Enter how long (s)he had a mass in the belly (abdomen) in months]:",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/signs_symptoms_final_illness[1]/Id10206[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "ref",
+    "answer" : "ref",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10207) Did (s)he have a severe headache?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/signs_symptoms_final_illness[1]/Id10207[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10208) Did (s)he have a stiff neck during illness that led to death?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/signs_symptoms_final_illness[1]/Id10208[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "ref",
+    "answer" : "ref",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Days",
+      "value" : "days"
+    }, {
+      "label" : "Months",
+      "value" : "months"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "DK"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "Enter 1 unit only: 0-30 days or 1-60 months. Less than 1 day or 24 hours = 0 days; 1 week = 7 days.",
+    "label" : "(Id10209_units) How long before death did (s)he have stiff neck?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/signs_symptoms_final_illness[1]/Id10209_units[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "no",
+    "answer" : "no",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10210) Did (s)he have a painful neck during the illness that led to death?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/signs_symptoms_final_illness[1]/Id10210[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "dk",
+    "answer" : "dk",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10214) Was (s)he unconscious during the illness that led to death?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/signs_symptoms_final_illness[1]/Id10214[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "no",
+    "answer" : "no",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10219) Did (s)he have convulsions?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/signs_symptoms_final_illness[1]/Id10219[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "no",
+    "answer" : "no",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "Explain to the respondent that urine problems refer to urinating a lot or not at all, and blood in the urine.",
+    "label" : "(Id10223) Did (s)he have any urine problems?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/signs_symptoms_final_illness[1]/Id10223[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "no",
+    "answer" : "no",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10227) Did (s)he have sores or ulcers anywhere on the body?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/signs_symptoms_final_illness[1]/Id10227[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10230) Did (s)he have an ulcer (pit) on the foot?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/signs_symptoms_final_illness[1]/Id10230[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10231) Did the ulcer on the foot ooze pus?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/signs_symptoms_final_illness[1]/Id10231[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "days",
+    "answer" : "days",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Days",
+      "value" : "days"
+    }, {
+      "label" : "Months",
+      "value" : "months"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "DK"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "Enter 1 unit only: 0-30 days or 1-60 months. Less than 1 day or 24 hours = 0 days; 1 week = 7 days.",
+    "label" : "(Id10232_units) How long did the ulcer on the foot ooze pus?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/signs_symptoms_final_illness[1]/Id10232_units[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "66",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : "Enter 0-30 days. Less than 1 day or 24 hours = 0 days; 1 week = 7 days.",
+    "label" : "(Id10232_a) [Enter how long the ulcer on the foot oozed pus in days]:",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/signs_symptoms_final_illness[1]/Id10232_a[1]",
+    "required" : true,
+    "result" : "constraintViolated",
+    "value" : null
+  }, {
+    "after" : "ref",
+    "answer" : "ref",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10233) During the illness that led to death, did (s)he have any skin rash?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/signs_symptoms_final_illness[1]/Id10233[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "dk",
+    "answer" : "dk",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10238) During the illness that led to death, did her/his skin flake off in patches?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/signs_symptoms_final_illness[1]/Id10238[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "dk",
+    "answer" : "dk",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10239) During the illness that led to death, did he/she have areas of the skin that turned black?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/signs_symptoms_final_illness[1]/Id10239[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10240) During the illness that led to death, did he/she have areas of the skin with redness and swelling?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/signs_symptoms_final_illness[1]/Id10240[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "ref",
+    "answer" : "ref",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10241) During the illness that led to death, did (s)he bleed from anywhere?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/signs_symptoms_final_illness[1]/Id10241[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "ref",
+    "answer" : "ref",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10243) Did (s)he have noticeable weight loss?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/signs_symptoms_final_illness[1]/Id10243[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "dk",
+    "answer" : "dk",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10244) Was (s)he severely thin or wasted?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/signs_symptoms_final_illness[1]/Id10244[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "ref",
+    "answer" : "ref",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10245) During the illness that led to death, did s/he have a whitish rash inside the mouth or on the tongue?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/signs_symptoms_final_illness[1]/Id10245[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10246) Did (s)he have stiffness of the whole body or was unable to open the mouth?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/signs_symptoms_final_illness[1]/Id10246[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "no",
+    "answer" : "no",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10247) Did (s)he have puffiness of the face?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/signs_symptoms_final_illness[1]/Id10247[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10249) During the illness that led to death, did (s)he have swollen legs or feet?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/signs_symptoms_final_illness[1]/Id10249[1]",
+    "required" : true,
+    "result" : "required",
+    "value" : null
+  }, {
+    "after" : "dk",
+    "answer" : "dk",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10252) Did (s)he have general puffiness all over his/her body?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/signs_symptoms_final_illness[1]/Id10252[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "no",
+    "answer" : "no",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10253) Did (s)he have any lumps?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/signs_symptoms_final_illness[1]/Id10253[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "ref",
+    "answer" : "ref",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10258) Was (s)he in any way paralysed?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/signs_symptoms_final_illness[1]/Id10258[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "no",
+    "answer" : "no",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10261) Did (s)he have difficulty swallowing?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/signs_symptoms_final_illness[1]/Id10261[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10264) Did (s)he have pain upon swallowing?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/signs_symptoms_final_illness[1]/Id10264[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "no",
+    "answer" : "no",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10265) Did (s)he have yellow discoloration of the eyes?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/signs_symptoms_final_illness[1]/Id10265[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10267) Did her/his hair change in color to a reddish or yellowish color?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/signs_symptoms_final_illness[1]/Id10267[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "ref",
+    "answer" : "ref",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "Long term deficiency of the blood results in a pale, whitish appearance of the lips, tongue, and eye sac. Sometime it is referred to as thinning or lack of blood, or pallor.",
+    "label" : "(Id10268) Did (s)he look pale (thinning/lack of blood) or have pale palms, eyes or nail beds?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/signs_symptoms_final_illness[1]/Id10268[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "no",
+    "answer" : "no",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10269) Did (s)he have sunken eyes?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/signs_symptoms_final_illness[1]/Id10269[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "ref",
+    "answer" : "ref",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10270) Did (s)he drink a lot more water than usual?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/signs_symptoms_final_illness[1]/Id10270[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "This question should be asked only if the child was less than 1 year old when it died.",
+    "label" : "(Id10271) Was the baby able to suckle or bottle-feed within the first 24 hours after birth?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/signs_symptoms_final_illness[1]/Id10271[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "dk",
+    "answer" : "dk",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "This question should be asked only if the child was less than 1 year old when it died.",
+    "label" : "(Id10272) Did the baby ever suckle in a normal way?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/signs_symptoms_final_illness[1]/Id10272[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "no",
+    "answer" : "no",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "This question should be asked only if the child was less than 1 year old when it died.",
+    "label" : "(Id10273) Did the baby stop suckling?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/signs_symptoms_final_illness[1]/Id10273[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "This question should be asked only if the child was less than 1 year old when it died.",
+    "label" : "(Id10275) Did the baby have convulsions starting within the first 24 hours of life?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/signs_symptoms_final_illness[1]/Id10275[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "ref",
+    "answer" : "ref",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "This question should be asked only if the child was less than 1 year old when it died.",
+    "label" : "(Id10277) Did the baby's body become stiff, with the back arched backwards?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/signs_symptoms_final_illness[1]/Id10277[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "Show photo if available. This question should be asked only if the child was less than 18 months old when it died.",
+    "label" : "(Id10278) During the illness that led to death, did the baby have a bulging or raised fontanelle?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/signs_symptoms_final_illness[1]/Id10278[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "This question should be asked only if the child was less than 1 year old when it died.",
+    "label" : "(Id10281) During the illness that led to death, did the baby become unresponsive or unconscious?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/signs_symptoms_final_illness[1]/Id10281[1]",
+    "required" : true,
+    "result" : "required",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Neonatal and child history, signs and symptoms",
+    "ref" : "/data/consented[1]/illhistory[1]/neonatal_child[1]"
+  }, {
+    "after" : "DK",
+    "answer" : "DK",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Months",
+      "value" : "months"
+    }, {
+      "label" : "Years",
+      "value" : "years"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "DK"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "Enter 1 unit only: 1-11 months or 1-11 years.",
+    "label" : "(Id10352_units) How old was the child when the fatal illness started?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/neonatal_child[1]/Id10352_units[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Neonatal child questions part A",
+    "ref" : "/data/consented[1]/illhistory[1]/neonatal_child[1]/neonatal_childA[1]"
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "This question should be asked only if the child was less than 1 year old when it died. If two or more children are born at the same time, it is counted as a multiple birth, even if one or more of the babies are born dead.",
+    "label" : "(Id10354) Was the child part of a multiple birth?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/neonatal_child[1]/neonatal_childA[1]/Id10354[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "DK",
+    "answer" : "DK",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "First",
+      "value" : "first"
+    }, {
+      "label" : "Second or later",
+      "value" : "second_or_later"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "DK"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "This question should be asked only if the child was less than 1 year old when it died.",
+    "label" : "(Id10355) Was the child the first, second, or later in the birth order?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/neonatal_child[1]/neonatal_childA[1]/Id10355[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "dk",
+    "answer" : "dk",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "This question should be asked only if the child was less than 1 year old when it died. If mother is present at the interview, select 'yes' without asking the question aloud.",
+    "label" : "(Id10356) Is the mother still alive?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/neonatal_child[1]/neonatal_childA[1]/Id10356[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Hospital",
+      "value" : "hospital"
+    }, {
+      "label" : "Other health facility",
+      "value" : "other_health_facility"
+    }, {
+      "label" : "Home",
+      "value" : "home"
+    }, {
+      "label" : "On route to hospital or facility",
+      "value" : "on_route_to_hospital_or_facility"
+    }, {
+      "label" : "Other",
+      "value" : "other"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "DK"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "Ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "This question should be asked only if the child was less than 1 year old when it died. Read the question and slowly read the first 5 choices. Respondent should hear all 5 choices and then respond.",
+    "label" : "(Id10360) Where was the deceased born?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/neonatal_child[1]/neonatal_childA[1]/Id10360[1]",
+    "required" : true,
+    "result" : "required",
+    "value" : null
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "This question should be asked only if the child was less than 1 year old when it died. Explain to the respondent what is meant by a professional assistance: delivery attended by a medical professional (doctor, midwife, or nurse).",
+    "label" : "(Id10361) Did you/the mother receive professional assistance during the delivery?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/neonatal_child[1]/neonatal_childA[1]/Id10361[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "Show photos if available, explain to the respondent that even if the answer is \"no\" some more questions will be asked, just to make sure no important detail has been missed.",
+    "label" : "(Id10362) At birth, was the baby of usual size?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/neonatal_child[1]/neonatal_childA[1]/Id10362[1]",
+    "required" : true,
+    "result" : "required",
+    "value" : null
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "Show photos if available. This question should be asked only if the child was less than 1 year old when it died.",
+    "label" : "(Id10363) At birth, was the baby smaller than usual, (weighing under 2.5 kg)?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/neonatal_child[1]/neonatal_childA[1]/Id10363[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "no",
+    "answer" : "no",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "Show photos if available. This question should be asked only if the child was less than 1 year old when it died.",
+    "label" : "(Id10364) At birth, was the baby very much smaller than usual, (weighing under 1 kg)?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/neonatal_child[1]/neonatal_childA[1]/Id10364[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "-38",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : "Ask if the child health card is available. If the card is available and the birth weight is recorded, enter the birth weight from the card. If the card is not available, record the weight based on the respondent's report if known. Record the weight in grammes in 4 digits. Respondents may give the answer in kilograms. For the data entry, convert to grammes. 1 kilogram=1,000 grammes. Enter \"9999\" for \"don't know.\" Enter \"8888\" for \"refuse.\"",
+    "label" : "(Id10366) What was the weight (in grammes) of the deceased at birth?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/neonatal_child[1]/neonatal_childA[1]/Id10366[1]",
+    "required" : true,
+    "result" : "constraintViolated",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "25",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : "For don't know, enter \"99.\" For refused, enter \"88.\"",
+    "label" : "(Id10367) How many months long was the pregnancy before the child was born?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/neonatal_child[1]/neonatal_childA[1]/Id10367[1]",
+    "required" : true,
+    "result" : "constraintViolated",
+    "value" : null
+  }, {
+    "after" : "dk",
+    "answer" : "dk",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10368) Were there any complications in the late part of the pregnancy (defined as the last 3 months, before labour)?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/neonatal_child[1]/neonatal_childA[1]/Id10368[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "ref",
+    "answer" : "ref",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10369) Were there any complications during labour or delivery?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/neonatal_child[1]/neonatal_childA[1]/Id10369[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "ref",
+    "answer" : "ref",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "This question should be asked only if the child was less than 1 year old when it died.",
+    "label" : "(Id10370) Was any part of the baby physically abnormal at time of delivery? (for example: body part too large or too small, additional growth on body)?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/neonatal_child[1]/neonatal_childA[1]/Id10370[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "dk",
+    "answer" : "dk",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "This question should be asked only if the child was less than 1 year old when it died.",
+    "label" : "(Id10371) Did the baby/ child have a swelling or defect on the back at time of birth?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/neonatal_child[1]/neonatal_childA[1]/Id10371[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "ref",
+    "answer" : "ref",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "This question should be asked only if the child was less than 1 year old when it died.",
+    "label" : "(Id10372) Did the baby/ child have a very large head at time of birth?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/neonatal_child[1]/neonatal_childA[1]/Id10372[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "no",
+    "answer" : "no",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "This question should be asked only if the child was less than 1 year old when it died.",
+    "label" : "(Id10373) Did the baby/ child have a very small head at time of birth?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/neonatal_child[1]/neonatal_childA[1]/Id10373[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Health service utilisation",
+    "ref" : "/data/consented[1]/illhistory[1]/health_service_utilization[1]"
+  }, {
+    "after" : "dk",
+    "answer" : "dk",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10418) Did (s)he receive any treatment for the illness that led to death?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/health_service_utilization[1]/Id10418[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "dk",
+    "answer" : "dk",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10428) Did (s)he receive any immunizations?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/health_service_utilization[1]/Id10428[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "no",
+    "answer" : "no",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10432) Was care sought outside the home while (s)he had this illness?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/health_service_utilization[1]/Id10432[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10435) Did a health care worker tell you the cause of death?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/health_service_utilization[1]/Id10435[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10436) What did the health care worker say?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/illhistory[1]/health_service_utilization[1]/Id10436[1]",
+    "required" : true,
+    "result" : "required",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Background and context",
+    "ref" : "/data/consented[1]/back_context[1]"
+  }, {
+    "after" : "dk",
+    "answer" : "dk",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "Enter \"yes\" if the deceased was a stillbirth delivered in a health facility or a live birth delivered in a health facility that died before leaving the facility.",
+    "label" : "(Id10450) In the final days before death, did s/he travel to a hospital or health facility?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/back_context[1]/Id10450[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "dk",
+    "answer" : "dk",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "For stillbirths and live births delivered in a health facility that died before leaving the facility, answer based on mother's experience.",
+    "label" : "(Id10455) Does it take more than 2 hours to get to the nearest hospital or health facility from the deceased's household?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/back_context[1]/Id10455[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "dk",
+    "answer" : "dk",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "For stillbirths answer based on mother's experience.",
+    "label" : "(Id10456) In the final days before death, were there any doubts about whether medical care was needed?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/back_context[1]/Id10456[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "dk",
+    "answer" : "dk",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "For stillbirths answer based on mother's experience.",
+    "label" : "(Id10457) In the final days before death, was traditional medicine used?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/back_context[1]/Id10457[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10458) In the final days before death, did anyone use a telephone or cell phone to call for help?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/back_context[1]/Id10458[1]",
+    "required" : true,
+    "result" : "required",
+    "value" : null
+  }, {
+    "after" : "dk",
+    "answer" : "dk",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10459) Over the course of illness, did the total costs of care and treatment prohibit other household payments?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/back_context[1]/Id10459[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Death certificate with cause of death",
+    "ref" : "/data/consented[1]/deathcert[1]"
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "The following information serves only to complete cause of death information in some environments. In routine CRVS this information could be skipped in the interview, and information be collected from other sources, if available.",
+    "label" : "(Id10462) Was a medical certificate of cause of death issued?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/deathcert[1]/Id10462[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "no",
+    "answer" : "no",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "This section aims to collect information from the international standard medical certificate of cause of death. This level of detail may or may not be present in the death certificate issued to the family. Record \"no\" if medical information about the cause of death is not available. The medical certificate of cause of death is commonly obtained from a physician at a hospital and should be distinguished from the Death Certificate which is issued by the civil registration organisation.",
+    "label" : "(Id10463) Can I see the medical certificate of cause of death?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/deathcert[1]/Id10463[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : "field-list",
+    "event" : "group",
+    "label" : "Open narrative",
+    "ref" : "/data/consented[1]/narrat[1]"
+  }, {
+    "after" : "theta<iota>",
+    "answer" : "theta<iota>",
+    "appearance" : "multiline",
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : "Record detailed notes of response; use additional paper as needed. If needed, probe for additional details on when respondent recognized symptoms, care sought, barriers to care, issues with transport, abnormalities, etc.",
+    "label" : "(Id10476) Thank you for your information. Now can you please tell me in your own words about the events that led to the death?",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/narrat[1]/Id10476[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "cancer dehydration jaundice",
+    "answer" : "cancer dehydration jaundice",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Abdomen",
+      "value" : "abdomen"
+    }, {
+      "label" : "Cancer",
+      "value" : "cancer"
+    }, {
+      "label" : "Dehydration",
+      "value" : "dehydration"
+    }, {
+      "label" : "Dengue fever",
+      "value" : "dengue"
+    }, {
+      "label" : "Diarrhoea",
+      "value" : "diarrhea"
+    }, {
+      "label" : "Fever",
+      "value" : "fever"
+    }, {
+      "label" : "Heart problems",
+      "value" : "heart_problem"
+    }, {
+      "label" : "Jaundice (yellow skin or eyes)",
+      "value" : "jaundice"
+    }, {
+      "label" : "Pneumonia",
+      "value" : "pneumonia"
+    }, {
+      "label" : "Rash",
+      "value" : "rash"
+    }, {
+      "label" : "None of the above words were mentioned",
+      "value" : "None"
+    }, {
+      "label" : "Don't know",
+      "value" : "dk"
+    } ],
+    "control" : "selectMulti",
+    "dataType" : "multipleItems",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10478) [Select any of the following words that were mentioned as present in the narrative.]",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/narrat[1]/Id10478[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "theta<iota>",
+    "answer" : "theta<iota>",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(comment) Comment",
+    "readonly" : false,
+    "ref" : "/data/consented[1]/comment[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "required /data/respondent_backgr[1]/Id10010[1]"
+}

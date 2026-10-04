@@ -1,0 +1,55 @@
+{
+  "form" : "forms/dartrosa/dag/constraints.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"dag-constraints\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\"><min>10</min><age>42</age><name /><free>123</free></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 11,
+  "steps" : [ {
+    "after" : "42",
+    "answer" : "42",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Age",
+    "readonly" : false,
+    "ref" : "/data/age[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Name",
+    "readonly" : false,
+    "ref" : "/data/name[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "123",
+    "answer" : "123",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Free",
+    "readonly" : false,
+    "ref" : "/data/free[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

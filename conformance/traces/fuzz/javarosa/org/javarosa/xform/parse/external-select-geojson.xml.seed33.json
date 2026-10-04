@@ -1,0 +1,34 @@
+{
+  "form" : "forms/javarosa/org/javarosa/xform/parse/external-select-geojson.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"external-select-xml\" xmlns:h=\"http://www.w3.org/1999/xhtml\"><q>fs87b</q></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 33,
+  "steps" : [ {
+    "after" : "fs87b",
+    "answer" : "fs87b",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "My cool point",
+      "value" : "fs87b"
+    }, {
+      "label" : "Your cool point",
+      "value" : "67"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Question",
+    "readonly" : false,
+    "ref" : "/data/q[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

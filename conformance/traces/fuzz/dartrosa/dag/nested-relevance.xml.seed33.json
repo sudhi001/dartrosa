@@ -1,0 +1,27 @@
+{
+  "form" : "forms/dartrosa/dag/nested-relevance.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"dag-nested-relevance\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\"><show>kappa'lambda</show><uses /></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 33,
+  "steps" : [ {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Show",
+    "readonly" : false,
+    "ref" : "/data/show[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "no"
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

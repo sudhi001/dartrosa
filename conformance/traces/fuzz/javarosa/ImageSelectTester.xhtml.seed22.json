@@ -1,0 +1,99 @@
+{
+  "form" : "forms/javarosa/ImageSelectTester.xhtml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><icons xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><id>123</id><name>beta</name><find-mirc>mirc</find-mirc><non-local>mu\"nu</non-local><consTest /></icons>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 22,
+  "steps" : [ {
+    "after" : "123",
+    "answer" : "123",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Patient ID",
+    "readonly" : false,
+    "ref" : "/icons/id[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "beta",
+    "answer" : "beta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Full Name",
+    "readonly" : false,
+    "ref" : "/icons/name[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "mirc",
+    "answer" : "mirc",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Icon 4",
+      "value" : "pand"
+    }, {
+      "label" : "Icon 3",
+      "value" : "mirc"
+    }, {
+      "label" : "Icon 1",
+      "value" : "powerp"
+    }, {
+      "label" : "Icon 2",
+      "value" : "gmail"
+    }, {
+      "label" : "Non-localized select text item label",
+      "value" : "other"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Please find the mirc icon",
+    "readonly" : false,
+    "ref" : "/icons/find-mirc[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "mu\"nu",
+    "answer" : "mu\"nu",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Non-Localized label inner text!",
+    "readonly" : false,
+    "ref" : "/icons/non-local[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "8",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Should Be Less than 10",
+    "readonly" : false,
+    "ref" : "/icons/consTest[1]",
+    "required" : false,
+    "result" : "constraintViolated",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

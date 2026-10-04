@@ -1,0 +1,65 @@
+{
+  "form" : "forms/dartrosa/dag/repeat.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"dag-repeat\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\"><n>-21</n><limit>2</limit><r><pos>1</pos><v>-41</v><label>1/1</label></r><r><pos>2</pos><v>-3</v><label>2/1</label></r><total>-44</total><count>2</count><firstBig /></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 33,
+  "steps" : [ {
+    "after" : "-21",
+    "answer" : "-21",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "N",
+    "readonly" : false,
+    "ref" : "/data/n[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "3"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/r[1]"
+  }, {
+    "after" : "-41",
+    "answer" : "-41",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "V",
+    "readonly" : false,
+    "ref" : "/data/r[1]/v[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "5"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/r[2]"
+  }, {
+    "after" : "-3",
+    "answer" : "-3",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "V",
+    "readonly" : false,
+    "ref" : "/data/r[2]/v[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "1"
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

@@ -1,0 +1,24 @@
+{
+  "form" : "forms/javarosa/org/javarosa/core/model/condition/calculate-now.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"data\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><now>2018-01-01T10:20:30.400Z</now><now_format>2018-01-01T10:20:30.400</now_format><now_note /><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 22,
+  "steps" : [ {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "2018-01-01T10:20:30.400",
+    "readonly" : true,
+    "ref" : "/data/now_note[1]",
+    "required" : false,
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

@@ -1,0 +1,74 @@
+{
+  "form" : "forms/dartrosa/dag/chain.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"dag-chain\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\"><a>42</a><b>84</b><c>21</c><d>21-keep</d><e>keep</e><flag /><ro>computed</ro><req>123</req><g><g1>zeta &amp; eta</g1><g2>zeta &amp; eta!</g2><inner><i1>zeta &amp; eta</i1></inner></g><start><now></start><today><today></today><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 11,
+  "steps" : [ {
+    "after" : "42",
+    "answer" : "42",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A",
+    "readonly" : false,
+    "ref" : "/data/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "3"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Flag",
+    "readonly" : false,
+    "ref" : "/data/flag[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "yes"
+  }, {
+    "after" : "123",
+    "answer" : "123",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Req",
+    "readonly" : false,
+    "ref" : "/data/req[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : null,
+    "ref" : "/data/g[1]"
+  }, {
+    "after" : "zeta & eta",
+    "answer" : "zeta & eta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "G1",
+    "readonly" : false,
+    "ref" : "/data/g[1]/g1[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "x"
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

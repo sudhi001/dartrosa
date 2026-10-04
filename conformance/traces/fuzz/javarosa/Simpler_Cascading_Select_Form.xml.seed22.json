@@ -1,0 +1,34 @@
+{
+  "form" : "forms/javarosa/Simpler_Cascading_Select_Form.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><form id=\"SimplerCascadingSelect\" version=\"1\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><county>king</county></form>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 22,
+  "steps" : [ {
+    "after" : "king",
+    "answer" : "king",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "King County",
+      "value" : "king"
+    }, {
+      "label" : "Pierce County",
+      "value" : "pierce"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : null,
+    "readonly" : false,
+    "ref" : "/form/county[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

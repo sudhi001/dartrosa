@@ -1,0 +1,12 @@
+{
+  "form" : "forms/javarosa/org/javarosa/core/model/actions/event-odk-new-repeat-model.xml",
+  "parse" : {
+    "error" : {
+      "message" : "Actions triggered by odk-new-repeat must be nested in the repeat form control.\n    Problem found at nodeset: /html/head/model/setvalue\n    With element <setvalue event=\"odk-new-repeat\" ref=\"/data/my-repeat/my-value\" value=\"now()\"/>\n",
+      "type" : "XFormParseException"
+    },
+    "ok" : false
+  },
+  "seed" : 11,
+  "traceVersion" : 1
+}

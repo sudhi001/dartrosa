@@ -1,0 +1,24 @@
+{
+  "form" : "forms/javarosa/form2.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"mysurvey\" orx:version=\"2014083101\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><firstname>John</firstname></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 11,
+  "steps" : [ {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "What is your first name?",
+    "readonly" : true,
+    "ref" : "/data/firstname[1]",
+    "required" : true,
+    "value" : "John"
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

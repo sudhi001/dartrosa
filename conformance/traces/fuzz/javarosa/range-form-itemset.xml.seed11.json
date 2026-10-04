@@ -1,0 +1,27 @@
+{
+  "form" : "forms/javarosa/range-form-itemset.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><stats id=\"a\" xmlns:h=\"http://www.w3.org/1999/xhtml\"><balance>-408.27</balance></stats>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 11,
+  "steps" : [ {
+    "after" : "-408.27",
+    "answer" : "-408.27",
+    "appearance" : null,
+    "control" : "range",
+    "dataType" : "decimal",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Balance",
+    "readonly" : false,
+    "ref" : "/stats/balance[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

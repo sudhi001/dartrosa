@@ -1,0 +1,85 @@
+{
+  "form" : "forms/dartrosa/basics.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"basics\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\"><age /><adult>no</adult><child><name>alpha</name><order>1</order></child><child><name>mu\"nu</name><order>2</order></child><child><name>épsilon</name><order>3</order></child><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 22,
+  "steps" : [ {
+    "after" : null,
+    "answer" : "134",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Age",
+    "readonly" : false,
+    "ref" : "/data/age[1]",
+    "required" : true,
+    "result" : "constraintViolated",
+    "value" : null
+  }, {
+    "add" : true,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/child[1]"
+  }, {
+    "after" : "alpha",
+    "answer" : "alpha",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Child name",
+    "readonly" : false,
+    "ref" : "/data/child[1]/name[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : true,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/child[2]"
+  }, {
+    "after" : "mu\"nu",
+    "answer" : "mu\"nu",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Child name",
+    "readonly" : false,
+    "ref" : "/data/child[2]/name[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : true,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/child[3]"
+  }, {
+    "after" : "épsilon",
+    "answer" : "épsilon",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Child name",
+    "readonly" : false,
+    "ref" : "/data/child[3]/name[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : false,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/child[4]"
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "required /data/age[1]"
+}

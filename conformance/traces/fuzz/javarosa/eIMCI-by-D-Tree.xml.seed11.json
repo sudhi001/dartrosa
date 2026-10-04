@@ -1,0 +1,772 @@
+{
+  "form" : "forms/javarosa/eIMCI-by-D-Tree.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><imci id=\"imci\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\" xmlns=\"http://dtree.org/e-imci\"><Meta><formName>eIMCI</formName><formVersion>0.0.1</formVersion><DeviceID /><TimeStart><now></TimeStart><TimeEnd /><username /><chw_id /><uid>uuid:<uuid></uid></Meta><visit_type>first</visit_type><notice>x y z</notice><preamble><danger_signs>convuls vomits</danger_signs><look_danger_signs /><main_symptoms>cough ear</main_symptoms><diarrhea_doublecheck>no</diarrhea_doublecheck><info><urgent_referral>kappa'lambda</urgent_referral><child_in_danger>1</child_in_danger></info></preamble><vitals><temp_type /><age /><age_unit /><info /><weight>48</weight><too_heavy_use_anyway>yes</too_heavy_use_anyway></vitals><cough><length /><breath_rate_type>normal</breath_rate_type><indrawing>no</indrawing><stridor>no</stridor><wheeze>yes</wheeze><wheeze_responds_to_broncodilator>no</wheeze_responds_to_broncodilator><classify><persistent_cold /><severe_pneumonia_wheeze>disagree</severe_pneumonia_wheeze><persistent_cold_wheeze /></classify><info><refer_persistent_cough_for_assessment>123</refer_persistent_cough_for_assessment><refer_recurrent_wheezing_for_assessment>beta</refer_recurrent_wheezing_for_assessment></info></cough><ear><pain>yes</pain><discharge>no</discharge><pus>no</pus><tender_swollen>yes</tender_swollen><classify><mastoiditis>agree</mastoiditis></classify></ear><interlude><breastfeeding /><other_feed /><feeding_change /><other_problems /><info><feed_other /><keep_feeding /><treat_problems /></info></interlude><dosing><bronchodilator>beta</bronchodilator><pneumonia_antibiotic><treat><pneumonia_drug>procaine</pneumonia_drug><dose>agree</dose></treat></pneumonia_antibiotic><ear_antibiotic><use_second_line><first_line_used /><second_line_available /></use_second_line><treat><info_antibiotic_already>mu\"nu</info_antibiotic_already></treat></ear_antibiotic><painkiller><choice>paracet-adult</choice><dose>agree</dose></painkiller></dosing><other_treatment><cough /><measles /><diarrhea /><ear /><oral_advice>yes</oral_advice><info_soothe_throat /></other_treatment><finish><info_return_if /><info_followup_in>mu\"nu</info_followup_in><done /></finish><info_refer>beta</info_refer><info><requires_urgent_referral /></info><tmp><sentinel><followup_reassess>no</followup_reassess><followup_reassess_full>no</followup_reassess_full><valid_complaint>yes</valid_complaint><vitals /><do_protocol /></sentinel><normalized><has_cough>1</has_cough><has_diarrhea>0</has_diarrhea><has_ear>1</has_ear><has_fever>0</has_fever><has_cholera>0</has_cholera><has_severe>1</has_severe><age /><weight>48</weight><fast_breath>0</fast_breath><measles_risk>0</measles_risk><followup><time>2</time><if_no_improvement>0</if_no_improvement></followup><classification><cough>severe-pneumonia</cough><fever /><measles /><ear>mastoiditis</ear><dysentery /><dehydration /><diarrhea /></classification><diagnosis><cough>severe-pneumonia</cough><fever /><ear>mastoiditis</ear><dysentery /><dehydration /><diarrhea /></diagnosis><treatment><malaria_quinine><choice /><amount /><drug /><variant /><frequency /><duration /></malaria_quinine><pneumonia_antibiotic><category>procaine</category><choice>procaine</choice><amount>[amount unavailable for age/weight]</amount><drug>v-penicillin</drug><variant>400,000u/mL</variant><frequency>v-once-day</frequency><duration>v-5-days</duration></pneumonia_antibiotic><cholera_antibiotic><antibiotic_already>1</antibiotic_already><category /><choice /><amount /><drug /><variant /><frequency /><duration /></cholera_antibiotic><dysentery_antibiotic><antibiotic_already>1</antibiotic_already><category /><choice /><amount /><drug /><variant /><frequency /><duration /></dysentery_antibiotic><ear_antibiotic><antibiotic_already>1</antibiotic_already><category /><choice /><amount /><drug /><variant /><frequency /><duration /></ear_antibiotic><malaria_antibiotic><antibiotic_already>1</antibiotic_already><category /><choice /><amount /><drug /><variant /><frequency /><duration /></malaria_antibiotic><painkiller><amount>[amount unavailable for age/weight]</amount><drug>v-paracetamol</drug><variant>500mg</variant><frequency>v-6-hrs</frequency></painkiller><hydration_plan /><hydration_plan_text /></treatment></normalized><const><high_malaria_risk>1</high_malaria_risk><cholera_risk>1</cholera_risk></const><dosings><diazepam>[amount unavailable for age/weight]</diazepam><alu>[amount unavailable for age/weight]</alu><amoxycillin><tablet>[amount unavailable for age/weight]</tablet><syrup>[amount unavailable for age/weight]</syrup></amoxycillin><cotrimoxazole><adult>[amount unavailable for age/weight]</adult><ped>[amount unavailable for age/weight]</ped><syrup>[amount unavailable for age/weight]</syrup></cotrimoxazole><erythromycin>[amount unavailable for age/weight]</erythromycin><nalidixic_acid>[amount unavailable for age/weight]</nalidixic_acid><paracetamol><ped>[amount unavailable for age/weight]</ped><adult>[amount unavailable for age/weight]</adult></paracetamol><procaine_penicillin>[amount unavailable for age/weight]</procaine_penicillin><quinine><injection>[amount unavailable for age/weight]</injection><tablet>[amount unavailable for age/weight]</tablet></quinine></dosings></tmp></imci>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 11,
+  "steps" : [ {
+    "after" : "x y z",
+    "answer" : "x y z",
+    "appearance" : null,
+    "control" : "trigger",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "eIMCI by D-Tree International is based on the IMCI Chart Booklet from the Tanzanian Ministry of Health.\n\nIT IS FOR DEMONSTRATION PURPOSES ONLY!",
+    "readonly" : false,
+    "ref" : "/imci/notice[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Is the child convulsing now",
+      "value" : "convuls"
+    }, {
+      "label" : "Is the child lethargic or unconscious",
+      "value" : "lethargy"
+    } ],
+    "control" : "selectMulti",
+    "dataType" : "multipleItems",
+    "event" : "question",
+    "hint" : null,
+    "label" : "CHECK FOR GENERAL DANGER SIGNS. LOOK:",
+    "readonly" : false,
+    "ref" : "/imci/preamble[1]/look_danger_signs[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "convuls vomits",
+    "answer" : "convuls vomits",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Unable to drink/breastfeed",
+      "value" : "no_drink"
+    }, {
+      "label" : "Vomits everything",
+      "value" : "vomits"
+    }, {
+      "label" : "Had convulsions during current illness",
+      "value" : "convuls"
+    } ],
+    "control" : "selectMulti",
+    "dataType" : "multipleItems",
+    "event" : "question",
+    "hint" : null,
+    "label" : "CHECK FOR GENERAL DANGER SIGNS. ASK:",
+    "readonly" : false,
+    "ref" : "/imci/preamble[1]/danger_signs[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "trigger",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A child with any danger sign requires URGENT attention. Complete the assessment and any pre-referral treatment immediately so that referral is not delayed",
+    "readonly" : false,
+    "ref" : "/imci/preamble[1]/info[1]/urgent_referral[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : null,
+    "ref" : "/imci/tmp[1]/sentinel[1]/vitals[1]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "ASK: What is the child's age (in years or months)",
+    "readonly" : false,
+    "ref" : "/imci/vitals[1]/age[1]",
+    "required" : true,
+    "result" : "required",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "months",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Years",
+      "value" : "years"
+    }, {
+      "label" : "Months",
+      "value" : "months"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : " years old or  months old?",
+    "readonly" : false,
+    "ref" : "/imci/vitals[1]/age_unit[1]",
+    "required" : true,
+    "result" : "constraintViolated",
+    "value" : null
+  }, {
+    "after" : "48",
+    "answer" : "48",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "ASK: What is the child's weight in kg (skip if unknown)",
+    "readonly" : false,
+    "ref" : "/imci/vitals[1]/weight[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "SORRY: IMCI is meant for children under 19 kgs. Correct dosings may not be available. Do you want to continue anyway?",
+    "readonly" : false,
+    "ref" : "/imci/vitals[1]/too_heavy_use_anyway[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : null,
+    "ref" : "/imci/preamble[1]"
+  }, {
+    "after" : "cough ear",
+    "answer" : "cough ear",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Cough or difficult breathing",
+      "value" : "cough"
+    }, {
+      "label" : "Diarrhea",
+      "value" : "diarrhea"
+    }, {
+      "label" : "Fever",
+      "value" : "fever"
+    }, {
+      "label" : "Ear problem",
+      "value" : "ear"
+    }, {
+      "label" : "Other/None of the above",
+      "value" : "none"
+    } ],
+    "control" : "selectMulti",
+    "dataType" : "multipleItems",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Ask about main symptoms",
+    "readonly" : false,
+    "ref" : "/imci/preamble[1]/main_symptoms[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : null,
+    "ref" : "/imci/tmp[1]/sentinel[1]/valid_complaint[1]"
+  }, {
+    "after" : "no",
+    "answer" : "no",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "ASK: Just to check, does the child have any diarrhea?",
+    "readonly" : false,
+    "ref" : "/imci/preamble[1]/diarrhea_doublecheck[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : null,
+    "ref" : "/imci/tmp[1]/sentinel[1]/do_protocol[1]"
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : null,
+    "ref" : "/imci/cough[1]"
+  }, {
+    "after" : "normal",
+    "answer" : "normal",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes, I will count number of breaths per minute",
+      "value" : "measure"
+    }, {
+      "label" : "No, but breathing rate is normal",
+      "value" : "normal"
+    }, {
+      "label" : "No, but breathing rate is fast",
+      "value" : "fast"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Can you measure the breathing rate? (CHILD MUST BE CALM)",
+    "readonly" : false,
+    "ref" : "/imci/cough[1]/breath_rate_type[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "no",
+    "answer" : "no",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "LOOK: Is the chest indrawing? (CHILD MUST BE CALM)",
+    "readonly" : false,
+    "ref" : "/imci/cough[1]/indrawing[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "no",
+    "answer" : "no",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "LOOK AND LISTEN: Is there stridor? (CHILD MUST BE CALM)",
+    "readonly" : false,
+    "ref" : "/imci/cough[1]/stridor[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "LOOK AND LISTEN: Is there wheeze? (CHILD MUST BE CALM)",
+    "readonly" : false,
+    "ref" : "/imci/cough[1]/wheeze[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "no",
+    "answer" : "no",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Assess response of wheeze to broncodilator after 3 cycles",
+    "readonly" : false,
+    "ref" : "/imci/cough[1]/wheeze_responds_to_broncodilator[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "disagree",
+    "answer" : "disagree",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Agree",
+      "value" : "agree"
+    }, {
+      "label" : "Disagree",
+      "value" : "disagree"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "CLASSIFY: severe pneumonia with wheezing or very severe disease",
+    "readonly" : false,
+    "ref" : "/imci/cough[1]/classify[1]/severe_pneumonia_wheeze[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : null,
+    "ref" : "/imci/ear[1]"
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "ASK: Is there ear pain?",
+    "readonly" : false,
+    "ref" : "/imci/ear[1]/pain[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "no",
+    "answer" : "no",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "ASK: Is there ear discharge?",
+    "readonly" : false,
+    "ref" : "/imci/ear[1]/discharge[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "no",
+    "answer" : "no",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "LOOK: Is pus draining from the ear?",
+    "readonly" : false,
+    "ref" : "/imci/ear[1]/pus[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "FEEL: Is there tenderness or swelling behind the ear?",
+    "readonly" : false,
+    "ref" : "/imci/ear[1]/tender_swollen[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "agree",
+    "answer" : "agree",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Agree",
+      "value" : "agree"
+    }, {
+      "label" : "Disagree",
+      "value" : "disagree"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "CLASSIFY: mastoiditis",
+    "readonly" : false,
+    "ref" : "/imci/ear[1]/classify[1]/mastoiditis[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "This child requires URGENT referral to hospital. Is referral possible?",
+    "readonly" : false,
+    "ref" : "/imci/info[1]/requires_urgent_referral[1]",
+    "required" : true,
+    "result" : "required",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : null,
+    "ref" : "/imci/dosing[1]/pneumonia_antibiotic[1]"
+  }, {
+    "after" : "procaine",
+    "answer" : "procaine",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Amoxycillin",
+      "value" : "amoxy"
+    }, {
+      "label" : "Procaine Penicillin",
+      "value" : "procaine"
+    }, {
+      "label" : "Cotrimoxazole",
+      "value" : "cotrim"
+    }, {
+      "label" : "Other Drug",
+      "value" : "other"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Which antibiotic would you like to use for the pneumonia?",
+    "readonly" : false,
+    "ref" : "/imci/dosing[1]/pneumonia_antibiotic[1]/treat[1]/pneumonia_drug[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "agree",
+    "answer" : "agree",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Agree",
+      "value" : "agree"
+    }, {
+      "label" : "Disagree",
+      "value" : "disagree"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "GIVE: [itext:[amount unavailable for age/weight]] of 400,000u/mLPROCAINE PENICILLINonce a day for 5 days",
+    "readonly" : false,
+    "ref" : "/imci/dosing[1]/pneumonia_antibiotic[1]/treat[1]/dose[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : null,
+    "ref" : "/imci/dosing[1]/ear_antibiotic[1]"
+  }, {
+    "after" : "mu\"nu",
+    "answer" : "mu\"nu",
+    "appearance" : null,
+    "control" : "trigger",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "An antibiotic has already been given for pneumonia; there is no need to give an additional antibiotic for the ear problem",
+    "readonly" : false,
+    "ref" : "/imci/dosing[1]/ear_antibiotic[1]/treat[1]/info_antibiotic_already[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : null,
+    "ref" : "/imci/dosing[1]/painkiller[1]"
+  }, {
+    "after" : "paracet-adult",
+    "answer" : "paracet-adult",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "500mg adult tablet",
+      "value" : "paracet-adult"
+    }, {
+      "label" : "100mg pediatric tablet",
+      "value" : "paracet-ped"
+    }, {
+      "label" : "Other Painkiller",
+      "value" : "other"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Which paracetamol form would you like to use?",
+    "readonly" : false,
+    "ref" : "/imci/dosing[1]/painkiller[1]/choice[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "agree",
+    "answer" : "agree",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Agree",
+      "value" : "agree"
+    }, {
+      "label" : "Disagree",
+      "value" : "disagree"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "GIVE: [itext:[amount unavailable for age/weight]] of 500mgPARACETAMOLevery 6 hrs as needed",
+    "readonly" : false,
+    "ref" : "/imci/dosing[1]/painkiller[1]/dose[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : null,
+    "ref" : "/imci/other_treatment[1]"
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Explain how to give the treatment. Give the first treatment. Does the mother understand?",
+    "readonly" : false,
+    "ref" : "/imci/other_treatment[1]/oral_advice[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : null,
+    "ref" : "/imci/other_treatment[1]/measles[1]"
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : null,
+    "ref" : "/imci/other_treatment[1]/cough[1]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "trigger",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Soothe the throat and relieve the cough with a safe remedy",
+    "readonly" : false,
+    "ref" : "/imci/other_treatment[1]/info_soothe_throat[1]",
+    "required" : true,
+    "result" : "required",
+    "value" : null
+  }, {
+    "after" : "beta",
+    "answer" : "beta",
+    "appearance" : null,
+    "control" : "trigger",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Give an inhaled or oral bronchodilator for 5 days",
+    "readonly" : false,
+    "ref" : "/imci/dosing[1]/bronchodilator[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "123",
+    "answer" : "123",
+    "appearance" : null,
+    "control" : "trigger",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "If coughing more than 14 days, refer for assessment",
+    "readonly" : false,
+    "ref" : "/imci/cough[1]/info[1]/refer_persistent_cough_for_assessment[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "beta",
+    "answer" : "beta",
+    "appearance" : null,
+    "control" : "trigger",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "If recurrent wheezing, refer for assessment",
+    "readonly" : false,
+    "ref" : "/imci/cough[1]/info[1]/refer_recurrent_wheezing_for_assessment[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : null,
+    "ref" : "/imci/other_treatment[1]/diarrhea[1]"
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : null,
+    "ref" : "/imci/other_treatment[1]/ear[1]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "trigger",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Tell mother to return immediately if child is not able to drink/breastfeed, becomes sicker, or develops a fever",
+    "readonly" : false,
+    "ref" : "/imci/finish[1]/info_return_if[1]",
+    "required" : true,
+    "result" : "required",
+    "value" : null
+  }, {
+    "after" : "mu\"nu",
+    "answer" : "mu\"nu",
+    "appearance" : null,
+    "control" : "trigger",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Follow up in 2 days ",
+    "readonly" : false,
+    "ref" : "/imci/finish[1]/info_followup_in[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "trigger",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "The protocol is complete. Thank you for using E-IMCI.",
+    "readonly" : false,
+    "ref" : "/imci/finish[1]/done[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "beta",
+    "answer" : "beta",
+    "appearance" : null,
+    "control" : "trigger",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Refer URGENTLY to hospital! ",
+    "readonly" : false,
+    "ref" : "/imci/info_refer[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : "yes"
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "required /imci/vitals[1]/temp_type[1]"
+}

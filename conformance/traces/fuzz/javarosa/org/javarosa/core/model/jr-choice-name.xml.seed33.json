@@ -1,0 +1,171 @@
+{
+  "form" : "forms/javarosa/org/javarosa/core/model/jr-choice-name.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><jr-choice-name id=\"jr-choice-name\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\"><literal_choice_name>Choice 2</literal_choice_name><select_one_outside>choice5</select_one_outside><select_one_name_outside>Choice 5</select_one_name_outside><cocotero_a>kappa'lambda</cocotero_a><cocotero_b>zeta &amp; eta</cocotero_b><cocotero>a-a</cocotero><cocotero_name /><my-repeat><select_one>choice3</select_one><select_one_name>Choice 3</select_one_name></my-repeat><my-repeat><select_one>choice3</select_one><select_one_name>Choice 3</select_one_name></my-repeat><meta><instanceID>uuid:<uuid></instanceID></meta></jr-choice-name>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 33,
+  "steps" : [ {
+    "after" : "choice5",
+    "answer" : "choice5",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Choice 1",
+      "value" : "choice1"
+    }, {
+      "label" : "Choice 2",
+      "value" : "choice2"
+    }, {
+      "label" : "Choice 3",
+      "value" : "choice3"
+    }, {
+      "label" : "Choice 4",
+      "value" : "choice4"
+    }, {
+      "label" : "Choice 5",
+      "value" : "choice5"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Select one",
+    "readonly" : false,
+    "ref" : "/jr-choice-name/select_one_outside[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Cocotero A",
+    "readonly" : false,
+    "ref" : "/jr-choice-name/cocotero_a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "zeta & eta",
+    "answer" : "zeta & eta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Cocotero B",
+    "readonly" : false,
+    "ref" : "/jr-choice-name/cocotero_b[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "a-a",
+    "answer" : "a-a",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Cocotero a-a",
+      "value" : "a-a"
+    }, {
+      "label" : "Cocotero a-b",
+      "value" : "a-b"
+    }, {
+      "label" : "Cocotero b-a",
+      "value" : "b-a"
+    }, {
+      "label" : "Cocotero b-b",
+      "value" : "b-b"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Select one",
+    "readonly" : false,
+    "ref" : "/jr-choice-name/cocotero[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/jr-choice-name/my-repeat[1]"
+  }, {
+    "after" : "choice3",
+    "answer" : "choice3",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Choice 1",
+      "value" : "choice1"
+    }, {
+      "label" : "Choice 2",
+      "value" : "choice2"
+    }, {
+      "label" : "Choice 3",
+      "value" : "choice3"
+    }, {
+      "label" : "Choice 4",
+      "value" : "choice4"
+    }, {
+      "label" : "Choice 5",
+      "value" : "choice5"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Select one",
+    "readonly" : false,
+    "ref" : "/jr-choice-name/my-repeat[1]/select_one[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : true,
+    "event" : "promptNewRepeat",
+    "ref" : "/jr-choice-name/my-repeat[2]"
+  }, {
+    "after" : "choice3",
+    "answer" : "choice3",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Choice 1",
+      "value" : "choice1"
+    }, {
+      "label" : "Choice 2",
+      "value" : "choice2"
+    }, {
+      "label" : "Choice 3",
+      "value" : "choice3"
+    }, {
+      "label" : "Choice 4",
+      "value" : "choice4"
+    }, {
+      "label" : "Choice 5",
+      "value" : "choice5"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Select one",
+    "readonly" : false,
+    "ref" : "/jr-choice-name/my-repeat[2]/select_one[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : false,
+    "event" : "promptNewRepeat",
+    "ref" : "/jr-choice-name/my-repeat[3]"
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

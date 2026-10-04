@@ -1,0 +1,12 @@
+{
+  "form" : "forms/javarosa/org/javarosa/xform/parse/internal_empty_select.xml",
+  "parse" : {
+    "error" : {
+      "message" : "Select question 'First' has no choices",
+      "type" : "XFormParseException"
+    },
+    "ok" : false
+  },
+  "seed" : 22,
+  "traceVersion" : 1
+}

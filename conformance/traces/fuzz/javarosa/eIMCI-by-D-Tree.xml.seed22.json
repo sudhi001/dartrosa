@@ -1,0 +1,615 @@
+{
+  "form" : "forms/javarosa/eIMCI-by-D-Tree.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><imci id=\"imci\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\" xmlns=\"http://dtree.org/e-imci\"><Meta><formName>eIMCI</formName><formVersion>0.0.1</formVersion><DeviceID /><TimeStart><now></TimeStart><TimeEnd /><username /><chw_id /><uid>uuid:<uuid></uid></Meta><visit_type>first</visit_type><notice>123</notice><preamble><danger_signs>no_drink vomits</danger_signs><look_danger_signs>convuls</look_danger_signs><main_symptoms /><other_complaint /><cough_doublecheck>no</cough_doublecheck><diarrhea_doublecheck>yes</diarrhea_doublecheck><ear_doublecheck>no</ear_doublecheck><info><urgent_referral>épsilon</urgent_referral><child_in_danger>1</child_in_danger></info></preamble><vitals><age>128</age><age_unit /><info /><weight /></vitals><diarrhea><length /><blood>yes</blood><how_drinking>eager</how_drinking><sunken_eyes>yes</sunken_eyes><skin_pinch>slow</skin_pinch><fidgety>yes</fidgety><classify><severe_dehydration>agree</severe_dehydration><dysentery>disagree</dysentery><diarrhea_dehydration /><override_dys>épsilon</override_dys></classify><info><offer_fluid /></info></diarrhea><other_severe>yes</other_severe><interlude><breastfeeding /><other_feed /><feeding_change /><other_problems /><info><feed_other /><keep_feeding /><treat_problems /></info></interlude><dosing /><other_treatment><cough /><measles /><diarrhea /><ear /><diazepam><info>agree</info></diazepam><oral_advice>yes</oral_advice><info_rehydrate>zeta &amp; eta</info_rehydrate></other_treatment><finish><info_return_if>beta</info_return_if><info_followup_in>gamma delta</info_followup_in><done>épsilon</done></finish><info_refer>alpha</info_refer><info><requires_urgent_referral /></info><tmp><sentinel><followup_reassess>no</followup_reassess><followup_reassess_full>no</followup_reassess_full><vitals /></sentinel><normalized><has_cough>0</has_cough><has_diarrhea>1</has_diarrhea><has_ear>0</has_ear><has_fever>0</has_fever><has_cholera>0</has_cholera><has_severe>1</has_severe><age /><weight /><fast_breath>0</fast_breath><measles_risk>0</measles_risk><followup><time>2</time><if_no_improvement>0</if_no_improvement></followup><classification><cough /><fever /><measles /><ear /><dysentery>yes</dysentery><dehydration>severe</dehydration><diarrhea>brief</diarrhea></classification><diagnosis><cough /><fever /><ear /><dysentery>no</dysentery><dehydration>severe</dehydration><diarrhea>brief</diarrhea></diagnosis><treatment><malaria_quinine><choice /><amount /><drug /><variant /><frequency /><duration /></malaria_quinine><pneumonia_antibiotic><category /><choice /><amount /><drug /><variant /><frequency /><duration /></pneumonia_antibiotic><cholera_antibiotic><antibiotic_already>0</antibiotic_already><category /><choice /><amount /><drug /><variant /><frequency /><duration /></cholera_antibiotic><dysentery_antibiotic><antibiotic_already>0</antibiotic_already><category /><choice /><amount /><drug /><variant /><frequency /><duration /></dysentery_antibiotic><ear_antibiotic><antibiotic_already>0</antibiotic_already><category /><choice /><amount /><drug /><variant /><frequency /><duration /></ear_antibiotic><malaria_antibiotic><antibiotic_already>0</antibiotic_already><category /><choice /><amount /><drug /><variant /><frequency /><duration /></malaria_antibiotic><painkiller><amount /><drug /><variant /><frequency /></painkiller><hydration_plan>C</hydration_plan><hydration_plan_text /></treatment></normalized><const><high_malaria_risk>1</high_malaria_risk><cholera_risk>1</cholera_risk></const><dosings><diazepam>[amount unavailable for age/weight]</diazepam><alu>[amount unavailable for age/weight]</alu><amoxycillin><tablet>[amount unavailable for age/weight]</tablet><syrup>[amount unavailable for age/weight]</syrup></amoxycillin><cotrimoxazole><adult>[amount unavailable for age/weight]</adult><ped>[amount unavailable for age/weight]</ped><syrup>[amount unavailable for age/weight]</syrup></cotrimoxazole><erythromycin>[amount unavailable for age/weight]</erythromycin><nalidixic_acid>[amount unavailable for age/weight]</nalidixic_acid><paracetamol><ped>[amount unavailable for age/weight]</ped><adult>[amount unavailable for age/weight]</adult></paracetamol><procaine_penicillin>[amount unavailable for age/weight]</procaine_penicillin><quinine><injection>[amount unavailable for age/weight]</injection><tablet>[amount unavailable for age/weight]</tablet></quinine></dosings></tmp></imci>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 22,
+  "steps" : [ {
+    "after" : "123",
+    "answer" : "123",
+    "appearance" : null,
+    "control" : "trigger",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "eIMCI by D-Tree International is based on the IMCI Chart Booklet from the Tanzanian Ministry of Health.\n\nIT IS FOR DEMONSTRATION PURPOSES ONLY!",
+    "readonly" : false,
+    "ref" : "/imci/notice[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "convuls",
+    "answer" : "convuls",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Is the child convulsing now",
+      "value" : "convuls"
+    }, {
+      "label" : "Is the child lethargic or unconscious",
+      "value" : "lethargy"
+    } ],
+    "control" : "selectMulti",
+    "dataType" : "multipleItems",
+    "event" : "question",
+    "hint" : null,
+    "label" : "CHECK FOR GENERAL DANGER SIGNS. LOOK:",
+    "readonly" : false,
+    "ref" : "/imci/preamble[1]/look_danger_signs[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "no_drink vomits",
+    "answer" : "no_drink vomits",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Unable to drink/breastfeed",
+      "value" : "no_drink"
+    }, {
+      "label" : "Vomits everything",
+      "value" : "vomits"
+    }, {
+      "label" : "Had convulsions during current illness",
+      "value" : "convuls"
+    } ],
+    "control" : "selectMulti",
+    "dataType" : "multipleItems",
+    "event" : "question",
+    "hint" : null,
+    "label" : "CHECK FOR GENERAL DANGER SIGNS. ASK:",
+    "readonly" : false,
+    "ref" : "/imci/preamble[1]/danger_signs[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "épsilon",
+    "answer" : "épsilon",
+    "appearance" : null,
+    "control" : "trigger",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A child with any danger sign requires URGENT attention. Complete the assessment and any pre-referral treatment immediately so that referral is not delayed",
+    "readonly" : false,
+    "ref" : "/imci/preamble[1]/info[1]/urgent_referral[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : null,
+    "ref" : "/imci/tmp[1]/sentinel[1]/vitals[1]"
+  }, {
+    "after" : "128",
+    "answer" : "128",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "ASK: What is the child's age (in years or months)",
+    "readonly" : false,
+    "ref" : "/imci/vitals[1]/age[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "years",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Years",
+      "value" : "years"
+    }, {
+      "label" : "Months",
+      "value" : "months"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "128 years old or 128 months old?",
+    "readonly" : false,
+    "ref" : "/imci/vitals[1]/age_unit[1]",
+    "required" : true,
+    "result" : "constraintViolated",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "86",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "ASK: What is the child's weight in kg (skip if unknown)",
+    "readonly" : false,
+    "ref" : "/imci/vitals[1]/weight[1]",
+    "required" : false,
+    "result" : "constraintViolated",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : null,
+    "ref" : "/imci/other_treatment[1]/diazepam[1]"
+  }, {
+    "after" : "agree",
+    "answer" : "agree",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Agree",
+      "value" : "agree"
+    }, {
+      "label" : "Disagree",
+      "value" : "disagree"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Treat current convulsions with diazepam, then rapidly assess, classify and provide other treatment before referring to hospital. GIVE DIAZEPAM RECTALLY: [amount unavailable for age/weight] of 10 mg/ml solution",
+    "readonly" : false,
+    "ref" : "/imci/other_treatment[1]/diazepam[1]/info[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : null,
+    "ref" : "/imci/preamble[1]"
+  }, {
+    "after" : null,
+    "answer" : "ear fever none",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Cough or difficult breathing",
+      "value" : "cough"
+    }, {
+      "label" : "Diarrhea",
+      "value" : "diarrhea"
+    }, {
+      "label" : "Fever",
+      "value" : "fever"
+    }, {
+      "label" : "Ear problem",
+      "value" : "ear"
+    }, {
+      "label" : "Other/None of the above",
+      "value" : "none"
+    } ],
+    "control" : "selectMulti",
+    "dataType" : "multipleItems",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Ask about main symptoms",
+    "readonly" : false,
+    "ref" : "/imci/preamble[1]/main_symptoms[1]",
+    "required" : false,
+    "result" : "constraintViolated",
+    "value" : null
+  }, {
+    "after" : "no",
+    "answer" : "no",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "ASK: Just to check, does the child have a cough?",
+    "readonly" : false,
+    "ref" : "/imci/preamble[1]/cough_doublecheck[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "ASK: Just to check, does the child have any diarrhea?",
+    "readonly" : false,
+    "ref" : "/imci/preamble[1]/diarrhea_doublecheck[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "no",
+    "answer" : "no",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "ASK: Just to check, does the child have any ear problems?",
+    "readonly" : false,
+    "ref" : "/imci/preamble[1]/ear_doublecheck[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : null,
+    "ref" : "/imci/diarrhea[1]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Less than two weeks",
+      "value" : "under2"
+    }, {
+      "label" : "Two weeks or more",
+      "value" : "over2"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "ASK: How long has the child had diarrhea?",
+    "readonly" : false,
+    "ref" : "/imci/diarrhea[1]/length[1]",
+    "required" : true,
+    "result" : "required",
+    "value" : null
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "LOOK: Is the child restless and irritable?",
+    "readonly" : false,
+    "ref" : "/imci/diarrhea[1]/fidgety[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "LOOK: Does the child have sunken eyes?",
+    "readonly" : false,
+    "ref" : "/imci/diarrhea[1]/sunken_eyes[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "eager",
+    "answer" : "eager",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Not able to drink or drinking poorly",
+      "value" : "unable"
+    }, {
+      "label" : "Drinking eagerly; is thirsty",
+      "value" : "eager"
+    }, {
+      "label" : "Drinking normally",
+      "value" : "not_eager"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Offer the child fluid. LOOK: How is the child drinking?",
+    "readonly" : false,
+    "ref" : "/imci/diarrhea[1]/how_drinking[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "slow",
+    "answer" : "slow",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Skin goes back very slowly (more than 2 seconds)",
+      "value" : "very_slow"
+    }, {
+      "label" : "Skin goes back slowly",
+      "value" : "slow"
+    }, {
+      "label" : "Skin goes back normally",
+      "value" : "fast"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "LOOK: Pinch the skin of the abdomen",
+    "readonly" : false,
+    "ref" : "/imci/diarrhea[1]/skin_pinch[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "ASK: Is there blood in the stool?",
+    "readonly" : false,
+    "ref" : "/imci/diarrhea[1]/blood[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "agree",
+    "answer" : "agree",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Agree",
+      "value" : "agree"
+    }, {
+      "label" : "Disagree",
+      "value" : "disagree"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "CLASSIFY: severe dehydration",
+    "readonly" : false,
+    "ref" : "/imci/diarrhea[1]/classify[1]/severe_dehydration[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "disagree",
+    "answer" : "disagree",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Agree",
+      "value" : "agree"
+    }, {
+      "label" : "Disagree",
+      "value" : "disagree"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "CLASSIFY: dysentery",
+    "readonly" : false,
+    "ref" : "/imci/diarrhea[1]/classify[1]/dysentery[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "épsilon",
+    "answer" : "épsilon",
+    "appearance" : null,
+    "control" : "trigger",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "You have disagreed; new classification is 'Child should NOT be treated for dysentery'",
+    "readonly" : false,
+    "ref" : "/imci/diarrhea[1]/classify[1]/override_dys[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Does child have any other severe classification?",
+    "readonly" : false,
+    "ref" : "/imci/other_severe[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "This child requires URGENT referral to hospital. Is referral possible?",
+    "readonly" : false,
+    "ref" : "/imci/info[1]/requires_urgent_referral[1]",
+    "required" : true,
+    "result" : "required",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : null,
+    "ref" : "/imci/other_treatment[1]"
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Explain how to give the treatment. Give the first treatment. Does the mother understand?",
+    "readonly" : false,
+    "ref" : "/imci/other_treatment[1]/oral_advice[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : null,
+    "ref" : "/imci/other_treatment[1]/measles[1]"
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : null,
+    "ref" : "/imci/other_treatment[1]/cough[1]"
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : null,
+    "ref" : "/imci/other_treatment[1]/diarrhea[1]"
+  }, {
+    "after" : "zeta & eta",
+    "answer" : "zeta & eta",
+    "appearance" : null,
+    "control" : "trigger",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Give fluid for severe dehydration (Plan C)",
+    "readonly" : false,
+    "ref" : "/imci/other_treatment[1]/info_rehydrate[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : null,
+    "ref" : "/imci/other_treatment[1]/ear[1]"
+  }, {
+    "after" : "beta",
+    "answer" : "beta",
+    "appearance" : null,
+    "control" : "trigger",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Tell mother to return immediately if child is not able to drink/breastfeed, becomes sicker, or develops a fever",
+    "readonly" : false,
+    "ref" : "/imci/finish[1]/info_return_if[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "gamma delta",
+    "answer" : "gamma delta",
+    "appearance" : null,
+    "control" : "trigger",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Follow up in 2 days ",
+    "readonly" : false,
+    "ref" : "/imci/finish[1]/info_followup_in[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "épsilon",
+    "answer" : "épsilon",
+    "appearance" : null,
+    "control" : "trigger",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "The protocol is complete. Thank you for using E-IMCI.",
+    "readonly" : false,
+    "ref" : "/imci/finish[1]/done[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "alpha",
+    "answer" : "alpha",
+    "appearance" : null,
+    "control" : "trigger",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Refer URGENTLY to hospital! Tell mother to give frequent sips of ORS on the way.",
+    "readonly" : false,
+    "ref" : "/imci/info_refer[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : "yes"
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "required /imci/vitals[1]/age_unit[1]"
+}

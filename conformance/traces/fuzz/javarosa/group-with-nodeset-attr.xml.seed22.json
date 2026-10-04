@@ -1,0 +1,110 @@
+{
+  "form" : "forms/javarosa/group-with-nodeset-attr.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"group-with-nodeset-attr\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><R1><G2><Q3>123</Q3></G2></R1><R1><G2><Q3>alpha</Q3></G2></R1><R1><G2><Q3>mu\"nu</Q3></G2></R1><R1><G2><Q3>épsilon</Q3></G2></R1></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 22,
+  "steps" : [ {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/R1[1]"
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : null,
+    "ref" : "/data/R1[1]/G2[1]"
+  }, {
+    "after" : "123",
+    "answer" : "123",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : null,
+    "readonly" : false,
+    "ref" : "/data/R1[1]/G2[1]/Q3[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : true,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/R1[2]"
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : null,
+    "ref" : "/data/R1[2]/G2[1]"
+  }, {
+    "after" : "alpha",
+    "answer" : "alpha",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : null,
+    "readonly" : false,
+    "ref" : "/data/R1[2]/G2[1]/Q3[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : true,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/R1[3]"
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : null,
+    "ref" : "/data/R1[3]/G2[1]"
+  }, {
+    "after" : "mu\"nu",
+    "answer" : "mu\"nu",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : null,
+    "readonly" : false,
+    "ref" : "/data/R1[3]/G2[1]/Q3[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : true,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/R1[4]"
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : null,
+    "ref" : "/data/R1[4]/G2[1]"
+  }, {
+    "after" : "épsilon",
+    "answer" : "épsilon",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : null,
+    "readonly" : false,
+    "ref" : "/data/R1[4]/G2[1]/Q3[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : false,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/R1[5]"
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

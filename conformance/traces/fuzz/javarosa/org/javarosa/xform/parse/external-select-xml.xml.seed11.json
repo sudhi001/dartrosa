@@ -1,0 +1,61 @@
+{
+  "form" : "forms/javarosa/org/javarosa/xform/parse/external-select-xml.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"external-select-xml\" xmlns:h=\"http://www.w3.org/1999/xhtml\"><first>b</first><second>bc</second><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 11,
+  "steps" : [ {
+    "after" : "b",
+    "answer" : "b",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "A",
+      "value" : "a"
+    }, {
+      "label" : "B",
+      "value" : "b"
+    }, {
+      "label" : "C",
+      "value" : "c"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "First",
+    "readonly" : false,
+    "ref" : "/data/first[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "bc",
+    "answer" : "bc",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "BA",
+      "value" : "ba"
+    }, {
+      "label" : "BB",
+      "value" : "bb"
+    }, {
+      "label" : "BC",
+      "value" : "bc"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Second",
+    "readonly" : false,
+    "ref" : "/data/second[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

@@ -1,0 +1,72 @@
+{
+  "form" : "forms/javarosa/smoketests/child_vaccination_VOL_tool_v12.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"VOL_CVT_0627\" version=\"1\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\"><today><today></today><start><now></start><end /><deviceid /><phonenumber /><building_type>not_dwelling</building_type><home_type /><home_type2 /><home_type3 /><not_single><gps>53.995 158.984 129.0 4.0</gps><accuracy>4.0</accuracy><rounded_accuracy>4</rounded_accuracy></not_single><household_count /><not_a_dwelling><endnote2 /></not_a_dwelling><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 11,
+  "steps" : [ {
+    "after" : "not_dwelling",
+    "answer" : "not_dwelling",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Not a dwelling (examples: store, abandoned building, factory, etc.)",
+      "value" : "not_dwelling"
+    }, {
+      "label" : "Single family dwelling (house)",
+      "value" : "single"
+    }, {
+      "label" : "Multi-family dwelling (flat, apartment)",
+      "value" : "multi"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "What type of building is this?",
+    "readonly" : false,
+    "ref" : "/data/building_type[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : null,
+    "ref" : "/data/not_single[1]"
+  }, {
+    "after" : "53.995 158.984 129.0 4.0",
+    "answer" : "53.995 158.984 129 4",
+    "appearance" : "placement-map",
+    "control" : "input",
+    "dataType" : "geopoint",
+    "event" : "question",
+    "hint" : "Ensure clear sky for better accuracies",
+    "label" : "Record GPS coordinates of this building",
+    "readonly" : false,
+    "ref" : "/data/not_single[1]/gps[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : null,
+    "ref" : "/data/not_a_dwelling[1]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "You have finished the questionnaire for this non dwelling. Go to the next building.",
+    "readonly" : true,
+    "ref" : "/data/not_a_dwelling[1]/endnote2[1]",
+    "required" : false,
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

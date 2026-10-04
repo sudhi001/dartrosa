@@ -1,0 +1,289 @@
+{
+  "form" : "forms/javarosa/smoketests/whova_form.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"va_who_v1_5_2\" version=\"2019101701\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\"><presets><Id10002>veryl</Id10002><Id10003>low</Id10003><Id10004>dry</Id10004></presets><respondent_backgr><Id10007>mu\"nu</Id10007><Id10007a>undetermined</Id10007a><Id10008>family_member</Id10008><Id10009>dk</Id10009><Id10010>alpha</Id10010><Id10010a>-12</Id10010a><Id10010b>female</Id10010b><Id10010c>kappa'lambda</Id10010c><Id10012><today></Id10012><Id10013>no</Id10013><Id10011><now></Id10011></respondent_backgr><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 22,
+  "steps" : [ {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Preset HIV-Malaria mortality and season.",
+    "ref" : "/data/presets[1]"
+  }, {
+    "after" : "veryl",
+    "answer" : "veryl",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "High",
+      "value" : "high"
+    }, {
+      "label" : "Low",
+      "value" : "low"
+    }, {
+      "label" : "Very low",
+      "value" : "veryl"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "Should be completed by the central office.HIGH corresponds to more than 1% of deaths due to HIV/AIDS, LOW around 0.1%, VERY LOW less than 0.01%. Filling in during the interview is not mandatory. Usually the value is predetermined for the region.",
+    "label" : "(Id10002) [Is this a region of high HIV/AIDS mortality?]",
+    "readonly" : false,
+    "ref" : "/data/presets[1]/Id10002[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "low",
+    "answer" : "low",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "High",
+      "value" : "high"
+    }, {
+      "label" : "Low",
+      "value" : "low"
+    }, {
+      "label" : "Very low",
+      "value" : "veryl"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "Should be completed by the central office.HIGH corresponds to more than 1% of deaths due to malaria, LOW around 0.1%, VERY LOW less than 0.01%. Filling in during the interview is not mandatory. Usually the value is predetermined for the region.",
+    "label" : "(Id10003) [Is this a region of high malaria mortality?]",
+    "readonly" : false,
+    "ref" : "/data/presets[1]/Id10003[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "dry",
+    "answer" : "dry",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Wet",
+      "value" : "wet"
+    }, {
+      "label" : "Dry",
+      "value" : "dry"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "DK"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10004) [During which season did (s)he die?]",
+    "readonly" : false,
+    "ref" : "/data/presets[1]/Id10004[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Information on the respondent and background about interview",
+    "ref" : "/data/respondent_backgr[1]"
+  }, {
+    "after" : "mu\"nu",
+    "answer" : "mu\"nu",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10007) [What is the name of VA respondent?]",
+    "readonly" : false,
+    "ref" : "/data/respondent_backgr[1]/Id10007[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "undetermined",
+    "answer" : "undetermined",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Female",
+      "value" : "female"
+    }, {
+      "label" : "Male",
+      "value" : "male"
+    }, {
+      "label" : "Ambiguous/Intersex",
+      "value" : "undetermined"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10007a) [What is the sex of VA respondent?]",
+    "readonly" : false,
+    "ref" : "/data/respondent_backgr[1]/Id10007a[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "family_member",
+    "answer" : "family_member",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Parent",
+      "value" : "parent"
+    }, {
+      "label" : "Child",
+      "value" : "child"
+    }, {
+      "label" : "Other family member",
+      "value" : "family_member"
+    }, {
+      "label" : "Friend",
+      "value" : "friend"
+    }, {
+      "label" : "Spouse",
+      "value" : "spouse"
+    }, {
+      "label" : "Health worker",
+      "value" : "health_worker"
+    }, {
+      "label" : "Public official",
+      "value" : "public_official"
+    }, {
+      "label" : "Another relationship",
+      "value" : "another_relationship"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "Ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "First verify if the respondent is a family member, and only if it is not a family member choose the other categories like health worker or public official.",
+    "label" : "(Id10008) What is your/the respondent's relationship to the deceased?",
+    "readonly" : false,
+    "ref" : "/data/respondent_backgr[1]/Id10008[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "dk",
+    "answer" : "dk",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Doesn't know",
+      "value" : "dk"
+    }, {
+      "label" : "Refused to answer",
+      "value" : "ref"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10009) Did you/the respondent live with the deceased in the period leading to her/his death?",
+    "readonly" : false,
+    "ref" : "/data/respondent_backgr[1]/Id10009[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "alpha",
+    "answer" : "alpha",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10010) [Name of VA interviewer]",
+    "readonly" : false,
+    "ref" : "/data/respondent_backgr[1]/Id10010[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "-12",
+    "answer" : "-12",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10010a) [Age of VA interviewer]",
+    "readonly" : false,
+    "ref" : "/data/respondent_backgr[1]/Id10010a[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "female",
+    "answer" : "female",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Female",
+      "value" : "female"
+    }, {
+      "label" : "Male",
+      "value" : "male"
+    }, {
+      "label" : "Ambiguous/Intersex",
+      "value" : "undetermined"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10010b) [Sex of VA interviewer]",
+    "readonly" : false,
+    "ref" : "/data/respondent_backgr[1]/Id10010b[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10010c) [ID of VA interviewer]",
+    "readonly" : false,
+    "ref" : "/data/respondent_backgr[1]/Id10010c[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "no",
+    "answer" : "no",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(Id10013) [Did the respondent give consent?]",
+    "readonly" : false,
+    "ref" : "/data/respondent_backgr[1]/Id10013[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

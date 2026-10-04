@@ -1,0 +1,32 @@
+{
+  "form" : "forms/javarosa/formindex-serialization.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"formindex-serialization\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\"><section_1><question_1>kappa'lambda</question_1></section_1></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 33,
+  "steps" : [ {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Section 1",
+    "ref" : "/data/section_1[1]"
+  }, {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Question 1",
+    "readonly" : false,
+    "ref" : "/data/section_1[1]/question_1[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

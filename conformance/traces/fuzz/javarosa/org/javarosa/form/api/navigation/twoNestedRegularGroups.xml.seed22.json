@@ -1,0 +1,51 @@
+{
+  "form" : "forms/javarosa/org/javarosa/form/api/navigation/twoNestedRegularGroups.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"build_twoNestedRegularGroups_1521540575\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><meta><instanceID>uuid:<uuid></instanceID></meta><g1><g2><numeric>134</numeric><text>beta</text></g2></g1></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 22,
+  "steps" : [ {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "g1",
+    "ref" : "/data"
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "g2",
+    "ref" : "/data"
+  }, {
+    "after" : "134",
+    "answer" : "134",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "numeric",
+    "readonly" : false,
+    "ref" : "/data/g1[1]/g2[1]/numeric[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "beta",
+    "answer" : "beta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "text",
+    "readonly" : false,
+    "ref" : "/data/g1[1]/g2[1]/text[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

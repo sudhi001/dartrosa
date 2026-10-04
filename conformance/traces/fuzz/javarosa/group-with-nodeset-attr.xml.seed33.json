@@ -1,0 +1,41 @@
+{
+  "form" : "forms/javarosa/group-with-nodeset-attr.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"group-with-nodeset-attr\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><R1><G2><Q3>kappa'lambda</Q3></G2></R1></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 33,
+  "steps" : [ {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/R1[1]"
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : null,
+    "ref" : "/data/R1[1]/G2[1]"
+  }, {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : null,
+    "readonly" : false,
+    "ref" : "/data/R1[1]/G2[1]/Q3[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : false,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/R1[2]"
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

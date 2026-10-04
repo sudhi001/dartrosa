@@ -117,6 +117,18 @@ deletion replay `FormDef.createNewRepeat` / `deleteRepeat` after their
 Init and DAG traces contain local date-times, so the Dart comparisons run
 only when the process time zone is UTC (as the oracle's is).
 
+## Fuzz traces (`traces/fuzz/`)
+
+For every form and each seed in `FUZZ_SEEDS` (11, 22, 33): a seeded random
+walk (`FuzzWalk.java`, mirrored by `test/conformance/fuzz_test.dart`). A
+Park–Miller generator picks, for each writable question, an empty answer
+(1 in 10) or type-valid random text (choices sorted by value, so unseeded
+`randomize()` doesn't matter), which each engine parses with its answer
+parser and submits through `answerQuestion`; at "add another?" prompts it
+adds up to three repeat instances. Each step records the event (as in walk
+traces), the answer text, the result and the value afterwards; then the
+validation outcome and the serialized instance. At most 400 steps.
+
 ## Normalization (both sides must apply it)
 
 So that traces are byte-identical across runs and machines:

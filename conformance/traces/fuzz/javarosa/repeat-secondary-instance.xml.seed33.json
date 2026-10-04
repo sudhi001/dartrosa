@@ -1,0 +1,43 @@
+{
+  "form" : "forms/javarosa/repeat-secondary-instance.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"repeat-secondary-instances\" version=\"1\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><repeat><choice>b</choice><calculate>B</calculate></repeat></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 33,
+  "steps" : [ {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "",
+    "ref" : "/data/repeat[1]"
+  }, {
+    "after" : "b",
+    "answer" : "b",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "A",
+      "value" : "a"
+    }, {
+      "label" : "B",
+      "value" : "b"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Choice",
+    "readonly" : false,
+    "ref" : "/data/repeat[1]/choice[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : false,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/repeat[2]"
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

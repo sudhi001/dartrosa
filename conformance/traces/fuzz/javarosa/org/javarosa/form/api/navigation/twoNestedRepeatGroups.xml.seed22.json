@@ -1,0 +1,65 @@
+{
+  "form" : "forms/javarosa/org/javarosa/form/api/navigation/twoNestedRepeatGroups.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"build_twoNestedRepeatGroups_1521541317\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><meta><instanceID>uuid:<uuid></instanceID></meta><g1><g2><numeric>-44</numeric><text>kappa'lambda</text></g2></g1><g1 /></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 22,
+  "steps" : [ {
+    "add" : true,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/g1[1]"
+  }, {
+    "add" : true,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/g1[1]/g2[1]"
+  }, {
+    "after" : "-44",
+    "answer" : "-44",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "numeric",
+    "readonly" : false,
+    "ref" : "/data/g1[1]/g2[1]/numeric[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "text",
+    "readonly" : false,
+    "ref" : "/data/g1[1]/g2[1]/text[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : false,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/g1[1]/g2[2]"
+  }, {
+    "add" : true,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/g1[2]"
+  }, {
+    "add" : false,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/g1[2]/g2[1]"
+  }, {
+    "add" : false,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/g1[3]"
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

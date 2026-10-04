@@ -1,0 +1,90 @@
+{
+  "form" : "forms/javarosa/org/javarosa/xpath/expr/relative-current-ref-field-ref.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"relative-current-ref-form-field-bind\" xmlns:h=\"http://www.w3.org/1999/xhtml\"><my_group><name>123</name></my_group><my_group><name>alpha</name></my_group><my_group><name>mu\"nu</name></my_group><my_group><name>épsilon</name></my_group><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 22,
+  "steps" : [ {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Some label",
+    "ref" : "/data/my_group[1]"
+  }, {
+    "after" : "123",
+    "answer" : "123",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Name",
+    "readonly" : false,
+    "ref" : "/data/my_group[1]/name[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : true,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/my_group[2]"
+  }, {
+    "after" : "alpha",
+    "answer" : "alpha",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Name",
+    "readonly" : false,
+    "ref" : "/data/my_group[2]/name[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : true,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/my_group[3]"
+  }, {
+    "after" : "mu\"nu",
+    "answer" : "mu\"nu",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Name",
+    "readonly" : false,
+    "ref" : "/data/my_group[3]/name[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : true,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/my_group[4]"
+  }, {
+    "after" : "épsilon",
+    "answer" : "épsilon",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Name",
+    "readonly" : false,
+    "ref" : "/data/my_group[4]/name[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : false,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/my_group[5]"
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

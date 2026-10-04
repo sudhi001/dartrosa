@@ -1,0 +1,145 @@
+{
+  "form" : "forms/javarosa/org/javarosa/core/model/three-level-cascading-select.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"three-level-cascading-select\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><level1>b</level1><level2>bc</level2><level3 /><level1_contains>a</level1_contains><level2_contains>ca</level2_contains><level3_contains /><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 11,
+  "steps" : [ {
+    "after" : "b",
+    "answer" : "b",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "A",
+      "value" : "a"
+    }, {
+      "label" : "B",
+      "value" : "b"
+    }, {
+      "label" : "C",
+      "value" : "c"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Level1",
+    "readonly" : false,
+    "ref" : "/data/level1[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "bc",
+    "answer" : "bc",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "BA",
+      "value" : "ba"
+    }, {
+      "label" : "BB",
+      "value" : "bb"
+    }, {
+      "label" : "BC",
+      "value" : "bc"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Level2",
+    "readonly" : false,
+    "ref" : "/data/level2[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "choices" : [ ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Level3",
+    "readonly" : false,
+    "ref" : "/data/level3[1]",
+    "required" : true,
+    "result" : "required",
+    "value" : null
+  }, {
+    "after" : "a",
+    "answer" : "a",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "A",
+      "value" : "a"
+    }, {
+      "label" : "B",
+      "value" : "b"
+    }, {
+      "label" : "C",
+      "value" : "c"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Level1 contains",
+    "readonly" : false,
+    "ref" : "/data/level1_contains[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "ca",
+    "answer" : "ca",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "AA",
+      "value" : "aa"
+    }, {
+      "label" : "AB",
+      "value" : "ab"
+    }, {
+      "label" : "AC",
+      "value" : "ac"
+    }, {
+      "label" : "BA",
+      "value" : "ba"
+    }, {
+      "label" : "CA",
+      "value" : "ca"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Level2 contains",
+    "readonly" : false,
+    "ref" : "/data/level2_contains[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "choices" : [ ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Level3 contains",
+    "readonly" : false,
+    "ref" : "/data/level3_contains[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "required /data/level3[1]"
+}

@@ -1,0 +1,13 @@
+{
+  "form" : "forms/javarosa/org/javarosa/xform/parse/last-saved-blank.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data xmlns:h=\"http://www.w3.org/1999/xhtml\"><item /></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 33,
+  "steps" : [ {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

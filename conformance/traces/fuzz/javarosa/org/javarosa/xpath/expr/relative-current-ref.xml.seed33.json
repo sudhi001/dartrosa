@@ -1,0 +1,92 @@
+{
+  "form" : "forms/javarosa/org/javarosa/xpath/expr/relative-current-ref.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"relative-current-ref\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><my_group><name>kappa'lambda</name><name_relative>kappa'lambda</name_relative><name_note /></my_group><fruit>apple</fruit><variety>granny_smith</variety><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 33,
+  "steps" : [ {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "My group",
+    "ref" : "/data/my_group[1]"
+  }, {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Name",
+    "readonly" : false,
+    "ref" : "/data/my_group[1]/name[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Your name is\n                    kappa'lambda",
+    "readonly" : true,
+    "ref" : "/data/my_group[1]/name_note[1]",
+    "required" : false,
+    "value" : null
+  }, {
+    "after" : "apple",
+    "answer" : "apple",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Apple",
+      "value" : "apple"
+    }, {
+      "label" : "Blueberry",
+      "value" : "blueberry"
+    }, {
+      "label" : "Cherimoya",
+      "value" : "cherimoya"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Fruit",
+    "readonly" : false,
+    "ref" : "/data/fruit[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "granny_smith",
+    "answer" : "granny_smith",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Granny Smith",
+      "value" : "granny_smith"
+    }, {
+      "label" : "Gala",
+      "value" : "gala"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Variety",
+    "readonly" : false,
+    "ref" : "/data/variety[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : false,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/my_repeat[1]"
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

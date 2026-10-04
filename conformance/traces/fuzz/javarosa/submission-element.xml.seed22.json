@@ -1,0 +1,13 @@
+{
+  "form" : "forms/javarosa/submission-element.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"single-submission-test\" xmlns:h=\"http://www.w3.org/1999/xhtml\"><text /></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 22,
+  "steps" : [ {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

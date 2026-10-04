@@ -1,0 +1,187 @@
+{
+  "form" : "forms/javarosa/sms_form.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"build_SMS-Tester-Form_1524097605\" odk:delimiter=\";\" odk:prefix=\"FORM232\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><meta><instanceID>uuid:<uuid></instanceID></meta><first_name odk:tag=\"FN\">kappa'lambda</first_name><last_name odk:tag=\"LN\">kappa'lambda</last_name><address>zeta &amp; eta</address><country odk:tag=\"CTY\">alpha</country><dob odk:tag=\"DOB\">2017-07-14</dob><gender>male</gender><children><child_full_name odk:tag=\"CN\">theta&lt;iota&gt;</child_full_name><child_full_name odk:tag=\"CN\">Sara Doe</child_full_name><child_full_name odk:tag=\"CN\">Jim Doe</child_full_name><child_country>alpha</child_country><child_country>Jamaica</child_country><child_country>America</child_country></children><children><child_full_name odk:tag=\"CN\">123</child_full_name><child_full_name odk:tag=\"CN\" /><child_full_name odk:tag=\"CN\" /><child_country>épsilon</child_country><child_country /><child_country /></children><picture odk:tag=\"PIC\">file90.jpg</picture></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 33,
+  "steps" : [ {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : "What's your first name?",
+    "label" : "First Name",
+    "readonly" : false,
+    "ref" : "/data/first_name[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "John"
+  }, {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "What's your last name?",
+    "readonly" : false,
+    "ref" : "/data/last_name[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "Doe"
+  }, {
+    "after" : "zeta & eta",
+    "answer" : "zeta & eta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : "Which street do you live on?",
+    "label" : "Street Address",
+    "readonly" : false,
+    "ref" : "/data/address[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "39 Reed Street"
+  }, {
+    "after" : "alpha",
+    "answer" : "alpha",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Which country do you currently reside in?",
+    "readonly" : false,
+    "ref" : "/data/country[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "2017-07-14",
+    "answer" : "2017-07-14",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "date",
+    "event" : "question",
+    "hint" : null,
+    "label" : "When were you born?",
+    "readonly" : false,
+    "ref" : "/data/dob[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "2015-08-05"
+  }, {
+    "after" : "male",
+    "answer" : "male",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Male",
+      "value" : "male"
+    }, {
+      "label" : "Female",
+      "value" : "female"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "What's your gender?",
+    "readonly" : false,
+    "ref" : "/data/gender[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "male"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "State the name of your children",
+    "ref" : "/data/children[1]"
+  }, {
+    "after" : "theta<iota>",
+    "answer" : "theta<iota>",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : "Put the full name of the child. Exclude the middle name.",
+    "label" : "Full Name",
+    "readonly" : false,
+    "ref" : "/data/children[1]/child_full_name[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "Mary Doe"
+  }, {
+    "after" : "alpha",
+    "answer" : "alpha",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Which country do they live in?",
+    "readonly" : false,
+    "ref" : "/data/children[1]/child_country[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "Jamaica"
+  }, {
+    "add" : true,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/children[2]"
+  }, {
+    "after" : "123",
+    "answer" : "123",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : "Put the full name of the child. Exclude the middle name.",
+    "label" : "Full Name",
+    "readonly" : false,
+    "ref" : "/data/children[2]/child_full_name[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "épsilon",
+    "answer" : "épsilon",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Which country do they live in?",
+    "readonly" : false,
+    "ref" : "/data/children[2]/child_country[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : false,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/children[3]"
+  }, {
+    "after" : "file90.jpg",
+    "answer" : "file90.jpg",
+    "appearance" : null,
+    "control" : "imageChoose",
+    "dataType" : "binary",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Take a picture of yourself.",
+    "readonly" : false,
+    "ref" : "/data/picture[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "test_image.jpg"
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

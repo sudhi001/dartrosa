@@ -1,0 +1,182 @@
+{
+  "form" : "forms/javarosa/smoketests/child_vaccination_VOL_tool_v12.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"VOL_CVT_0627\" version=\"1\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\"><today><today></today><start><now></start><end /><deviceid /><phonenumber /><building_type>single</building_type><home_type>house</home_type><home_type2>home</home_type2><home_type3>House</home_type3><household_count>1</household_count><household><houseCount>1</houseCount><nextHse>2</nextHse><inHome>yes</inHome><adultPresence>yes</adultPresence><childPresent>no</childPresent><familyName>épsilon</familyName><NameA>the caregiver</NameA><child_repeat_count /><no_cards>0</no_cards><missVaccine>0</missVaccine><thankyou>Thank the person for their time and explain we are only looking for houses where children under 2 years of age permanently live.</thankyou><single><full_address_single>theta&lt;iota&gt;</full_address_single><single_consent_not_withheld><gps_single1>29.924 -140.557 57.0 16.0</gps_single1><accuracy_single1>16.0</accuracy_single1><rounded_accuracy_single1>16</rounded_accuracy_single1><gps_single2>-22.343 44.771 11.0 10.0</gps_single2></single_consent_not_withheld><finished1 /></single><finishednote>You have finished the questionnaire for this multi-family dwelling. Go to the next building.</finishednote></household><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 33,
+  "steps" : [ {
+    "after" : "single",
+    "answer" : "single",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Not a dwelling (examples: store, abandoned building, factory, etc.)",
+      "value" : "not_dwelling"
+    }, {
+      "label" : "Single family dwelling (house)",
+      "value" : "single"
+    }, {
+      "label" : "Multi-family dwelling (flat, apartment)",
+      "value" : "multi"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "What type of building is this?",
+    "readonly" : false,
+    "ref" : "/data/building_type[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "House",
+    "ref" : "/data/household[1]"
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Knock on the door. Is there a response?",
+    "readonly" : false,
+    "ref" : "/data/household[1]/inHome[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "Greetings. I am [Name] from Red Cross. We are working to improve health services in this area.\n                        (If a child answers the door, ask to speak to an adult. If there is no adult in thehouse, it will need to be revisited.)",
+    "label" : "Is there an adult in thehome?",
+    "readonly" : false,
+    "ref" : "/data/household[1]/adultPresence[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "no",
+    "answer" : "no",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "We are helping to improve health care in this area, and vaccinations of children in particular. Are there any children under the age of 2 years who permanently live in thishouse?",
+    "readonly" : false,
+    "ref" : "/data/household[1]/childPresent[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "épsilon",
+    "answer" : "épsilon",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : "There are no children under the age of 2 years who permanently live in thishouse.",
+    "label" : "Can you please tell me what is the name of the family who lives at thishouse?",
+    "readonly" : false,
+    "ref" : "/data/household[1]/familyName[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : null,
+    "ref" : "/data/household[1]/single[1]"
+  }, {
+    "after" : "theta<iota>",
+    "answer" : "theta<iota>",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Record the full address of the house",
+    "readonly" : false,
+    "ref" : "/data/household[1]/single[1]/full_address_single[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : null,
+    "ref" : "/data/household[1]/single[1]/single_consent_not_withheld[1]"
+  }, {
+    "after" : "29.924 -140.557 57.0 16.0",
+    "answer" : "29.924 -140.557 57 16",
+    "appearance" : "placement-map",
+    "control" : "input",
+    "dataType" : "geopoint",
+    "event" : "question",
+    "hint" : "Ensure clear sky for better accuracies",
+    "label" : "Record GPS coordinates of this building",
+    "readonly" : false,
+    "ref" : "/data/household[1]/single[1]/single_consent_not_withheld[1]/gps_single1[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "-22.343 44.771 11.0 10.0",
+    "answer" : "-22.343 44.771 11 10",
+    "appearance" : "placement-map",
+    "control" : "input",
+    "dataType" : "geopoint",
+    "event" : "question",
+    "hint" : "Ensure clear sky for better accuracies",
+    "label" : "GPS recording is16m. Accuracy should be greater than 0m and less than 5m - Please recapture the GPS coordinates.",
+    "readonly" : false,
+    "ref" : "/data/household[1]/single[1]/single_consent_not_withheld[1]/gps_single2[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : "Thank the person for their time and explain we are only looking for houses where children under 2 years of age permanently live.",
+    "label" : "You have finished the questionnaire for this single family dwelling. Go to the next building.",
+    "readonly" : true,
+    "ref" : "/data/household[1]/single[1]/finished1[1]",
+    "required" : false,
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

@@ -1,0 +1,49 @@
+{
+  "form" : "forms/javarosa/rank-form.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"build_rankWidget_1522956588\" xmlns:odk=\"http://www.opendatakit.org/xforms/\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><meta><instanceID>uuid:<uuid></instanceID></meta><rankWidget>A E F</rankWidget></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 11,
+  "steps" : [ {
+    "after" : "A E F",
+    "answer" : "A E F",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "a",
+      "value" : "A"
+    }, {
+      "label" : "b",
+      "value" : "B"
+    }, {
+      "label" : "c",
+      "value" : "C"
+    }, {
+      "label" : "d",
+      "value" : "D"
+    }, {
+      "label" : "e",
+      "value" : "E"
+    }, {
+      "label" : "f",
+      "value" : "F"
+    }, {
+      "label" : "g",
+      "value" : "G"
+    } ],
+    "control" : "rank",
+    "dataType" : "multipleItems",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Rank",
+    "readonly" : false,
+    "ref" : "/data/rankWidget[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

@@ -1,0 +1,126 @@
+{
+  "form" : "forms/javarosa/smoketests/child_vaccination_VOL_tool_v12.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"VOL_CVT_0627\" version=\"1\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\"><today><today></today><start><now></start><end /><deviceid /><phonenumber /><building_type>single</building_type><home_type>house</home_type><home_type2>home</home_type2><home_type3>House</home_type3><household_count>1</household_count><household><houseCount>1</houseCount><nextHse>2</nextHse><inHome>no</inHome><NameA>the caregiver</NameA><child_repeat_count /><no_cards>0</no_cards><missVaccine>0</missVaccine><thankyou /><single><full_address_single>kappa'lambda</full_address_single><single_consent_not_withheld><gps_single1>-72.248 38.504 13.0 18.0</gps_single1><accuracy_single1>18.0</accuracy_single1><rounded_accuracy_single1>18</rounded_accuracy_single1><gps_single2>17.949 -4.38 304.0 17.0</gps_single2></single_consent_not_withheld><finished1 /></single><finishednote>You have finished the questionnaire for this multi-family dwelling. Go to the next building.</finishednote></household><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 22,
+  "steps" : [ {
+    "after" : "single",
+    "answer" : "single",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Not a dwelling (examples: store, abandoned building, factory, etc.)",
+      "value" : "not_dwelling"
+    }, {
+      "label" : "Single family dwelling (house)",
+      "value" : "single"
+    }, {
+      "label" : "Multi-family dwelling (flat, apartment)",
+      "value" : "multi"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "What type of building is this?",
+    "readonly" : false,
+    "ref" : "/data/building_type[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "House",
+    "ref" : "/data/household[1]"
+  }, {
+    "after" : "no",
+    "answer" : "no",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Knock on the door. Is there a response?",
+    "readonly" : false,
+    "ref" : "/data/household[1]/inHome[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : null,
+    "ref" : "/data/household[1]/single[1]"
+  }, {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Record the full address of the house",
+    "readonly" : false,
+    "ref" : "/data/household[1]/single[1]/full_address_single[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : null,
+    "ref" : "/data/household[1]/single[1]/single_consent_not_withheld[1]"
+  }, {
+    "after" : "-72.248 38.504 13.0 18.0",
+    "answer" : "-72.248 38.504 13 18",
+    "appearance" : "placement-map",
+    "control" : "input",
+    "dataType" : "geopoint",
+    "event" : "question",
+    "hint" : "Ensure clear sky for better accuracies",
+    "label" : "Record GPS coordinates of this building",
+    "readonly" : false,
+    "ref" : "/data/household[1]/single[1]/single_consent_not_withheld[1]/gps_single1[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "17.949 -4.38 304.0 17.0",
+    "answer" : "17.949 -4.38 304 17",
+    "appearance" : "placement-map",
+    "control" : "input",
+    "dataType" : "geopoint",
+    "event" : "question",
+    "hint" : "Ensure clear sky for better accuracies",
+    "label" : "GPS recording is18m. Accuracy should be greater than 0m and less than 5m - Please recapture the GPS coordinates.",
+    "readonly" : false,
+    "ref" : "/data/household[1]/single[1]/single_consent_not_withheld[1]/gps_single2[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : "",
+    "label" : "You have finished the questionnaire for this single family dwelling. Go to the next building.",
+    "readonly" : true,
+    "ref" : "/data/household[1]/single[1]/finished1[1]",
+    "required" : false,
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

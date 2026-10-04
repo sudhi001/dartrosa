@@ -1,0 +1,46 @@
+{
+  "form" : "forms/javarosa/populate-nodes-attributes.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"populate-nodes-attributes\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\"><free_text_1>kappa'lambda</free_text_1><regular_group><free_text_2>kappa'lambda</free_text_2></regular_group></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 33,
+  "steps" : [ {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "free text 1",
+    "readonly" : false,
+    "ref" : "/data/free_text_1[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "regular group",
+    "ref" : "/data/regular_group[1]"
+  }, {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "free text 2",
+    "readonly" : false,
+    "ref" : "/data/regular_group[1]/free_text_2[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

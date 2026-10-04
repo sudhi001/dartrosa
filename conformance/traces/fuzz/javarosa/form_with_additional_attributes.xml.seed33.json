@@ -1,0 +1,60 @@
+{
+  "form" : "forms/javarosa/form_with_additional_attributes.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"build_form_with_additional_attributes_1521761701\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><meta><instanceID>uuid:<uuid></instanceID></meta><group><text>kappa'lambda</text><geopoint>-21.691 -13.305 240.0 5.0</geopoint><itemset>x y z</itemset></group></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 33,
+  "steps" : [ {
+    "appearance" : "field-list",
+    "event" : "group",
+    "label" : "group",
+    "ref" : "/data"
+  }, {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "text",
+    "readonly" : false,
+    "ref" : "/data/group[1]/text[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "-21.691 -13.305 240.0 5.0",
+    "answer" : "-21.691 -13.305 240 5",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "geopoint",
+    "event" : "question",
+    "hint" : null,
+    "label" : "geopoint",
+    "readonly" : false,
+    "ref" : "/data/group[1]/geopoint[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "x y z",
+    "answer" : "x y z",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "itemset",
+    "readonly" : false,
+    "ref" : "/data/group[1]/itemset[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

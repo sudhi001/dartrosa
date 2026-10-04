@@ -1,0 +1,27 @@
+{
+  "form" : "forms/javarosa/org/javarosa/xform/parse/unused-secondary-instance.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"unused-secondary-instance\" xmlns:h=\"http://www.w3.org/1999/xhtml\"><fruit>123</fruit><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 22,
+  "steps" : [ {
+    "after" : "123",
+    "answer" : "123",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Fruit",
+    "readonly" : false,
+    "ref" : "/data/fruit[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

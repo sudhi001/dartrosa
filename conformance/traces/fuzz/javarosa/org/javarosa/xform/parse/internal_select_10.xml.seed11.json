@@ -1,0 +1,61 @@
+{
+  "form" : "forms/javarosa/org/javarosa/xform/parse/internal_select_10.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><internal_select_10 id=\"internal_select_10\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><first>b</first><second>bc</second><meta><instanceID>uuid:<uuid></instanceID></meta></internal_select_10>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 11,
+  "steps" : [ {
+    "after" : "b",
+    "answer" : "b",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "a",
+      "value" : "a"
+    }, {
+      "label" : "b",
+      "value" : "b"
+    }, {
+      "label" : "c",
+      "value" : "c"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "First",
+    "readonly" : false,
+    "ref" : "/internal_select_10/first[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "bc",
+    "answer" : "bc",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "ba",
+      "value" : "ba"
+    }, {
+      "label" : "bb",
+      "value" : "bb"
+    }, {
+      "label" : "bc",
+      "value" : "bc"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Second",
+    "readonly" : false,
+    "ref" : "/internal_select_10/second[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

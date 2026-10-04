@@ -1,0 +1,52 @@
+{
+  "form" : "forms/dartrosa/basics.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"basics\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\"><age>42</age><adult>yes</adult><licence>y</licence><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 11,
+  "steps" : [ {
+    "after" : "42",
+    "answer" : "42",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Age",
+    "readonly" : false,
+    "ref" : "/data/age[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "y",
+    "answer" : "y",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "y"
+    }, {
+      "label" : "No",
+      "value" : "n"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Driving licence?",
+    "readonly" : false,
+    "ref" : "/data/licence[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : false,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/child[1]"
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

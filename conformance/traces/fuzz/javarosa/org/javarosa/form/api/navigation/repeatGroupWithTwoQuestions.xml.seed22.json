@@ -1,0 +1,113 @@
+{
+  "form" : "forms/javarosa/org/javarosa/form/api/navigation/repeatGroupWithTwoQuestions.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"build_repeatGroupWithTwoQuestions_1521461062\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><meta><instanceID>uuid:<uuid></instanceID></meta><g1><text /><numeric>93</numeric></g1><g1><text>mu\"nu</text><numeric>8</numeric></g1><g1><text>zeta &amp; eta</text><numeric>17</numeric></g1></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 22,
+  "steps" : [ {
+    "add" : true,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/g1[1]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "text",
+    "readonly" : false,
+    "ref" : "/data/g1[1]/text[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "93",
+    "answer" : "93",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "numeric",
+    "readonly" : false,
+    "ref" : "/data/g1[1]/numeric[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : true,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/g1[2]"
+  }, {
+    "after" : "mu\"nu",
+    "answer" : "mu\"nu",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "text",
+    "readonly" : false,
+    "ref" : "/data/g1[2]/text[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "8",
+    "answer" : "8",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "numeric",
+    "readonly" : false,
+    "ref" : "/data/g1[2]/numeric[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : true,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/g1[3]"
+  }, {
+    "after" : "zeta & eta",
+    "answer" : "zeta & eta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "text",
+    "readonly" : false,
+    "ref" : "/data/g1[3]/text[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "17",
+    "answer" : "17",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "numeric",
+    "readonly" : false,
+    "ref" : "/data/g1[3]/numeric[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : false,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/g1[4]"
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

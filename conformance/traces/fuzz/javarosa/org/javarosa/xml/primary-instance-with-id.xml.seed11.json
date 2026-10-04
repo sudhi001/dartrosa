@@ -1,0 +1,24 @@
+{
+  "form" : "forms/javarosa/org/javarosa/xml/primary-instance-with-id.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"mysurvey\" xmlns:h=\"http://www.w3.org/1999/xhtml\"><firstname>John</firstname><data_set_used>us_east</data_set_used></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 11,
+  "steps" : [ {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "What is your first name?",
+    "readonly" : true,
+    "ref" : "/data/firstname[1]",
+    "required" : true,
+    "value" : "John"
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

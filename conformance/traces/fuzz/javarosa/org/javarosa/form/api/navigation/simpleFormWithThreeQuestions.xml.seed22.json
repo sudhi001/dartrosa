@@ -1,0 +1,55 @@
+{
+  "form" : "forms/javarosa/org/javarosa/form/api/navigation/simpleFormWithThreeQuestions.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"build_simpleFormWithThreeQuestions_1521541979\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><meta><instanceID>uuid:<uuid></instanceID></meta><text>123</text><numeric>-44</numeric><barcode>kappa'lambda</barcode></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 22,
+  "steps" : [ {
+    "after" : "123",
+    "answer" : "123",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "text",
+    "readonly" : false,
+    "ref" : "/data/text[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "-44",
+    "answer" : "-44",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "numeric",
+    "readonly" : false,
+    "ref" : "/data/numeric[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "barcode",
+    "event" : "question",
+    "hint" : null,
+    "label" : "barcode",
+    "readonly" : false,
+    "ref" : "/data/barcode[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}
