@@ -1,5 +1,6 @@
 import 'package:dartrosa/dartrosa.dart';
 import 'package:dartrosa/javarosa.dart';
+import 'package:logging/logging.dart';
 
 import 'external_data_exception.dart';
 import 'external_data_handler.dart';
@@ -7,6 +8,8 @@ import 'external_data_search_type.dart';
 import 'external_data_set.dart';
 import 'external_data_util.dart';
 import 'external_select_choice.dart';
+
+final _log = Logger('dartrosa_external_data');
 
 /// `search('csv-name' [, 'type', 'columns', value [, 'filter-column',
 /// filter-value]])` in a select's appearance: the select's choices, one per
@@ -123,8 +126,18 @@ final class ExternalDataHandlerSearch extends ExternalDataHandler {
         'SQLITE_ERROR): , while compiling: ${query.sql}',
       );
     }
+    List<List<String?>> rows;
+    try {
+      rows = db.query(query);
+    } on ExternalDataQueryException {
+      _log.severe(
+        'External data for $dataSetName has not been imported. Perhaps you '
+        'forgot to include the $dataSetName.csv file with your form?',
+      );
+      rows = db.query(ExternalDataQuery(columnsToFetch, where: where));
+    }
     return createDynamicSelectChoices(
-      db.query(query),
+      rows,
       columnsToFetch,
       selectColumnMap,
       safeImageColumn,
