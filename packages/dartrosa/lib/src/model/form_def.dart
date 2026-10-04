@@ -63,6 +63,12 @@ final class FormDef extends FormElement {
   /// Where the form XML came from, if known.
   String? formXmlPath;
 
+  /// The XForm XML this form was parsed from (kept for the codec).
+  String? sourceXml;
+
+  /// The `jr://instance/last-saved` source it was parsed with, if any.
+  String? lastSavedSrc;
+
   FormInstance? _mainInstance;
   EvaluationContext? _evaluationContext;
   Localizer? _localizer;

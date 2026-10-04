@@ -23,6 +23,7 @@ import '../xpath/expression.dart';
 import '../xpath/parser.dart';
 import 'bind_attributes.dart';
 import 'form_instance_parser.dart';
+import 'instance_loading.dart';
 import 'instance_structure.dart';
 import 'kdom.dart';
 import 'xform_parse_exception.dart';
@@ -172,11 +173,14 @@ final class XFormParser {
       _errorCallbacks.add(callback);
 
   /// Parses [formXml]. [lastSavedSrc] is the `src` to use for
-  /// `jr://instance/last-saved`.
+  /// `jr://instance/last-saved`. With [instanceXml] (a saved instance),
+  /// its answers replace the blank instance (typed by [answerResolver]).
   Future<FormDef> parse(
     String formXml, {
     String? formXmlSrc,
     String? lastSavedSrc,
+    String? instanceXml,
+    AnswerResolver answerResolver = defaultAnswerResolver,
   }) async {
     final KElement root;
     try {
@@ -190,6 +194,12 @@ final class XFormParser {
     }
     consolidateText(root);
     await _parseDoc(root, formXmlSrc, lastSavedSrc);
+    _f
+      ..sourceXml = formXml
+      ..lastSavedSrc = lastSavedSrc;
+    if (instanceXml != null) {
+      _f.loadXmlInstance(instanceXml, resolver: answerResolver);
+    }
     for (final processor in _formDefProcessors) {
       processor.processFormDef(_f);
     }

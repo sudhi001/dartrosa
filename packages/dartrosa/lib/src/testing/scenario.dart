@@ -1,5 +1,6 @@
 import 'package:logging/logging.dart';
 
+import '../codec/form_def_codec.dart';
 import '../form_api/form_entry_caption.dart';
 import '../form_api/form_entry_controller.dart';
 import '../form_api/form_entry_model.dart';
@@ -16,6 +17,7 @@ import '../model/select_choice.dart';
 import '../model/triggerable_dag.dart';
 import '../reference/resource_resolver.dart';
 import '../xform/xform_parser.dart';
+import '../xform/xform_serializing_visitor.dart';
 import 'references.dart';
 import 'xforms_element.dart';
 
@@ -70,6 +72,33 @@ final class Scenario {
     controllerFactory ?? (f) => FormEntryController(FormEntryModel(f)),
     form.mainInstance.clone(),
   ).._init(newInstance: newInstance);
+
+  /// The form, with its current instance, encoded and restored (as after
+  /// an app restart), continuing that instance. Port of
+  /// `serializeAndDeserializeForm` (JavaRosa's `Externalizable` becomes
+  /// [FormDefCodec]).
+  Future<Scenario> serializeAndDeserializeForm({
+    ResourceResolver? resolver,
+  }) async => fromFormDef(
+    await FormDefCodec.decode(FormDefCodec.encode(formDef), resolver: resolver),
+    newInstance: false,
+  );
+
+  /// The instance serialized and loaded into a fresh parse of [form] (the
+  /// same form), as a new scenario continuing that instance. Port of
+  /// `serializeAndDeserializeInstance`.
+  Future<Scenario> serializeAndDeserializeInstance(
+    XFormsElement form, {
+    ResourceResolver? resolver,
+  }) async {
+    final instanceXml = XFormSerializingVisitor().serializeInstanceToString(
+      formDef.mainInstance,
+    );
+    final restored = await XFormParser(
+      resolver: resolver,
+    ).parse(form.asXml(), instanceXml: instanceXml);
+    return fromFormDef(restored, newInstance: false);
+  }
 
   /// The beginning-of-form index.
   static final FormIndex beginningOfForm = FormIndex.beginningOfForm();

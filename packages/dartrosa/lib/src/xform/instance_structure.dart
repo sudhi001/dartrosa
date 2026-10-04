@@ -144,7 +144,7 @@ void loadInstanceData(KElement node, TreeElement current, FormDef? form) {
       current.value = parseAnswerData(
         text,
         current.dataType,
-        _questionFor(current.dataType, form, current.ref),
+        questionForData(current.dataType, form, current.ref),
       );
     }
   }
@@ -153,7 +153,7 @@ void loadInstanceData(KElement node, TreeElement current, FormDef? form) {
 /// The select question bound to [ref], needed to attach choices.
 ///
 /// Port of `XFormParser.ghettoGetQuestionDef`.
-QuestionDef? _questionFor(
+QuestionDef? questionForData(
   DataType dataType,
   FormDef? form,
   TreeReference ref,
