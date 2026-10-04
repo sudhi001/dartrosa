@@ -16,6 +16,7 @@ import 'support/answers.dart';
 
 const _strings = XFormLocalizations();
 const _maxScreens = 300;
+const _debugDrafts = bool.fromEnvironment('DEBUG_DRAFTS');
 
 /// Forms whose walk fails because of an engine or renderer bug, with the
 /// reason (each reproduced in test/known_issues/).
@@ -23,9 +24,6 @@ const _knownIssues = <String, String>{};
 
 /// Forms ODK Collect can't load either, though plain JavaRosa parses them.
 const _collectRejects = {
-  'collect/external-csv-search-broken.xml':
-      'external_data_broken.csv is malformed (Collect: "Could not import '
-      'data")',
   'collect/one-question-entity-registration-broken.xml':
       'unknown entities version 2452.2.0',
   'collect/one-question-entity-registration-v2020.1.xml':
@@ -49,7 +47,7 @@ void main() {
   tearDownAll(() {
     final counts = <String, int>{};
     for (final outcome in outcomes.values) {
-      final kind = outcome.split(':').first.split(' (').first;
+      final kind = outcome.split(RegExp(r'[:(\[]')).first.trim();
       counts[kind] = (counts[kind] ?? 0) + 1;
     }
     stdout
@@ -264,7 +262,16 @@ Future<String> _fill(
     return _outcome(blocked, invalid, notes);
   }
   final resumed = workspace.open(reloaded, resumedRecord);
-  if (resumed.saveDraft() != draft) notes.add('resumed draft differs');
+  // Calculations run again on load, as in JavaRosa: uuid() instance IDs
+  // and entity IDs change, calculated answers are restored.
+  String withoutIds(String xml) =>
+      xml.replaceAll(RegExp('<instanceID>[^<]*</instanceID>'), '');
+  if (withoutIds(resumed.saveDraft()) != withoutIds(draft)) {
+    notes.add('recalculated on resume');
+    if (_debugDrafts) {
+      stdout.writeln('${form.path}\n$draft\n${resumed.saveDraft()}');
+    }
+  }
   await _show(tester, workspace, resumed, form);
   if ((resumed.finalize() is FinalizeSuccess) != (invalid == null)) {
     notes.add('resumed draft validates differently');

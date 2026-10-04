@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:dartrosa/javarosa.dart' show TreeElement;
+import 'package:dartrosa/javarosa.dart' show FormDef, TreeElement;
 import 'package:dartrosa_collect/dartrosa_collect.dart';
 import 'package:dartrosa_encryption/dartrosa_encryption.dart';
 import 'package:dartrosa_entities/dartrosa_entities.dart'
@@ -192,12 +192,15 @@ class Workspace extends ChangeNotifier {
     final entityCount = formEntities(session)?.entities.length ?? 0;
     saveFormEntities(session, entities);
     final xml = utf8.encode(submission.xml);
-    final encrypted = encryptSubmission(
-      xml,
-      const {},
-      session.definition.formDef,
-      instanceId: submission.instanceId,
-    );
+    final form = session.definition.formDef;
+    final encrypted = isEncrypted(form)
+        ? encryptSubmission(
+            xml,
+            const {},
+            form,
+            instanceId: submission.instanceId,
+          )
+        : null;
     final lastSavedInstance = LastSaved(lastSaved, instance.form.path);
     if (encrypted == null) {
       await lastSavedInstance.instanceSaved(session);
@@ -226,6 +229,13 @@ class Workspace extends ChangeNotifier {
       ..insert(0, instance);
   }
 }
+
+/// Whether [form]'s submissions are encrypted (it has a public key).
+bool isEncrypted(FormDef form) =>
+    form.defaultSubmission
+        ?.attribute(base64RsaPublicKeyAttribute)
+        ?.isNotEmpty ??
+    false;
 
 /// Local entity lists for external data's `pulldata()`.
 class _EntityLists implements PullDataInstanceAdapter {
