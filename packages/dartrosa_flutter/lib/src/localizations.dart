@@ -91,6 +91,12 @@ class XFormLocalizations {
   /// Shown when an `image-map` select's SVG can't be read.
   String get svgFileMissing => 'SVG file does not exist!';
 
+  /// The warning of a select whose external data file [path] is missing.
+  String fileMissing(String path) => 'File: $path is missing.';
+
+  /// The warning of a select whose `search()` expression is invalid.
+  String parserException(String message) => 'XPathParser Exception: "$message"';
+
   /// Opens the map of a `map` select.
   String get selectPlace => 'Select place';
 

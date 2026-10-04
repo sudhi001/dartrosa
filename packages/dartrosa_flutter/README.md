@@ -44,7 +44,12 @@ XFormView(
 | group | card, `field-list` (one pager screen), `table-list` (one grid: choice labels as header, a row of buttons per select) |
 | repeat | add / remove, "add another?" prompt in pager mode, `noAddRemove` |
 
-Choice images use `delegates.image(uri)`. `image-map` selects show the
+Choice images use `delegates.image(uri)`. Selects with a `search(...)`
+appearance get their choices from CSV form media through
+[dartrosa_external_data](../dartrosa_external_data) (parse the form with
+its `ExternalDataPlugin`); combine it with `autocomplete`, `minimal`, ...
+as in Collect (bare `search` is the old name of `autocomplete`). A
+missing CSV shows Collect's warning instead of choices. `image-map` selects show the
 SVG of the question's image (read with `delegates.mediaBytes(uri)`): the
 `g`, `path`, `rect`, `circle`, `ellipse` and `polygon` elements whose ids
 are choice values are tapped to select them and filled when selected. Unsupported appearances fall

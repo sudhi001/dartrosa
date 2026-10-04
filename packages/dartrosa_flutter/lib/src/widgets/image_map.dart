@@ -302,7 +302,7 @@ class _ImageMapInputState extends State<ImageMapInput> {
     if (_map != null && uri == _uri) return;
     _uri = uri;
     final delegates = XFormScope.of(context).delegates;
-    final values = [for (final c in widget.node.choices) c.value];
+    final values = [for (final c in choicesOf(context, widget.node)) c.value];
     _map = uri == null
         ? Future.value()
         : delegates
@@ -317,7 +317,10 @@ class _ImageMapInputState extends State<ImageMapInput> {
   void _tap(String id) {
     final node = widget.node;
     if (node.isReadonly) return;
-    final choice = node.choices.where((c) => c.value == id).firstOrNull;
+    final choice = choicesOf(
+      context,
+      node,
+    ).where((c) => c.value == id).firstOrNull;
     if (choice == null) return;
     if (node.controlType == ControlType.selectMulti) {
       final selected = selectedValues(node);
@@ -353,7 +356,7 @@ class _ImageMapInputState extends State<ImageMapInput> {
         if (map == null) return Text(strings.svgFileMissing);
         final selected = selectedValues(node);
         final labels = [
-          for (final c in node.choices)
+          for (final c in choicesOf(context, node))
             if (selected.contains(c.value)) node.choiceLabel(c) ?? c.value,
         ];
         final box = map.viewBox;

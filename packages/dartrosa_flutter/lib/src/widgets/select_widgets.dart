@@ -34,7 +34,7 @@ class ChoiceContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final label = node.choiceLabel(choice) ?? choice.value;
-    final uri = node.choiceMedia(choice, 'image');
+    final uri = choiceImage(node, choice);
     final image = uri == null
         ? null
         : XFormScope.of(context).delegates.image(uri);
@@ -182,7 +182,7 @@ class _ButtonlessTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
-    final uri = node.choiceMedia(choice, 'image');
+    final uri = choiceImage(node, choice);
     final hasImage =
         uri != null && XFormScope.of(context).delegates.image(uri) != null;
     return Semantics(
@@ -286,7 +286,7 @@ class _FilteredState extends State<_Filtered> {
     final node = widget.node;
     final query = _query.trim().toLowerCase();
     final choices = [
-      for (final c in node.choices)
+      for (final c in choicesOf(context, node))
         if (query.isEmpty ||
             (node.choiceLabel(c) ?? c.value).toLowerCase().contains(query))
           c,
@@ -350,7 +350,7 @@ class ChoiceRowInput extends StatelessWidget {
     final row = Row(
       children: [
         if (leading != null) Expanded(flex: 2, child: leading!),
-        for (final c in node.choices)
+        for (final c in choicesOf(context, node))
           Expanded(
             child: MergeSemantics(
               child: InkWell(
@@ -389,9 +389,34 @@ class ChoiceRowInput extends StatelessWidget {
       onChanged: (value) => _selectOne(
         context,
         node,
-        node.choices.where((c) => c.value == value).firstOrNull,
+        choicesOf(context, node).where((c) => c.value == value).firstOrNull,
       ),
       child: row,
+    );
+  }
+}
+
+/// [child] after the warning of [node]'s choices failing to load, if
+/// any.
+class _WithWarning extends StatelessWidget {
+  const _WithWarning({required this.node, required this.child});
+
+  final QuestionNode node;
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    final warning = loadChoices(context, node).warning;
+    if (warning == null) return child;
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Text(
+          warning,
+          style: TextStyle(color: Theme.of(context).colorScheme.error),
+        ),
+        child,
+      ],
     );
   }
 }
@@ -421,7 +446,10 @@ class SelectOneInput extends StatelessWidget {
   final QuestionNode node;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) =>
+      _WithWarning(node: node, child: _input(context));
+
+  Widget _input(BuildContext context) {
     final appearance = Appearance.parse(node.appearance);
     if (appearance.has('image-map')) return ImageMapInput(node);
     if (appearance.has('map') && XFormScope.of(context).delegates.canShowMaps) {
@@ -437,19 +465,42 @@ class SelectOneInput extends StatelessWidget {
     if (appearance.has('list')) {
       return ChoiceRowInput(node, showLabels: true, showButtons: true);
     }
-    return _body(context, appearance, node.choices);
+    return _body(context, appearance, choicesOf(context, node));
   }
 
   Widget _dropdown(BuildContext context) {
     final selected = selectedValues(node).firstOrNull;
-    final choices = node.choices;
+    final choices = choicesOf(context, node);
+    final scope = XFormScope.of(context);
     return DropdownButtonFormField<String>(
       key: ValueKey(selected),
       initialValue: selected,
       isExpanded: true,
+      // Items with images are taller than the default height; the field
+      // shows the selected label only.
+      itemHeight: null,
+      selectedItemBuilder: (context) => [
+        for (final c in choices)
+          Align(
+            alignment: AlignmentDirectional.centerStart,
+            child: Text(
+              odkMarkdownToPlainText(node.choiceLabel(c) ?? c.value),
+              overflow: TextOverflow.ellipsis,
+            ),
+          ),
+      ],
       items: [
         for (final c in choices)
-          DropdownMenuItem(value: c.value, child: ChoiceContent(node, c)),
+          DropdownMenuItem(
+            value: c.value,
+            // The menu is a route outside the form's scope.
+            child: XFormScope(
+              controller: scope.controller,
+              delegates: scope.delegates,
+              overrides: scope.overrides,
+              child: ChoiceContent(node, c),
+            ),
+          ),
       ],
       onChanged: node.isReadonly
           ? null
@@ -501,7 +552,7 @@ class SelectOneInput extends StatelessWidget {
       onChanged: (value) => _selectOne(
         context,
         node,
-        node.choices.where((c) => c.value == value).firstOrNull,
+        choicesOf(context, node).where((c) => c.value == value).firstOrNull,
       ),
       child: body,
     );
@@ -518,7 +569,10 @@ class SelectMultiInput extends StatelessWidget {
   final QuestionNode node;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) =>
+      _WithWarning(node: node, child: _input(context));
+
+  Widget _input(BuildContext context) {
     final appearance = Appearance.parse(node.appearance);
     if (appearance.has('image-map')) return ImageMapInput(node);
     if (appearance.has('minimal')) return _minimal(context, appearance);
@@ -531,7 +585,7 @@ class SelectMultiInput extends StatelessWidget {
     if (appearance.has('list')) {
       return ChoiceRowInput(node, showLabels: true, showButtons: true);
     }
-    return _body(context, appearance, node.choices);
+    return _body(context, appearance, choicesOf(context, node));
   }
 
   Widget _body(
@@ -577,7 +631,7 @@ class SelectMultiInput extends StatelessWidget {
     final scope = XFormScope.of(context);
     final selected = selectedValues(node);
     final text = [
-      for (final c in node.choices)
+      for (final c in choicesOf(context, node))
         if (selected.contains(c.value)) node.choiceLabel(c) ?? c.value,
     ].join(', ');
     return InkWell(
@@ -593,8 +647,11 @@ class SelectMultiInput extends StatelessWidget {
                   content: SingleChildScrollView(
                     child: ListenableBuilder(
                       listenable: scope.controller.listenableFor(node.ref),
-                      builder: (context, _) =>
-                          _body(context, Appearance.parse(null), node.choices),
+                      builder: (context, _) => _body(
+                        context,
+                        Appearance.parse(null),
+                        choicesOf(context, node),
+                      ),
                     ),
                   ),
                   actions: [

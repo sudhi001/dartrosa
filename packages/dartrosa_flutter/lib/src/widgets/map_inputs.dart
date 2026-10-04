@@ -126,10 +126,10 @@ const _styleColumns = {
   'fill', '__version', '__trunkVersion', '__branchId',
 };
 
-/// The choices of [node] that have a valid `geometry` within the map's
+/// The [choices] of [node] that have a valid `geometry` within the map's
 /// bounds, as map features. Port of ODK Collect's `MappableItemsParser`.
-List<MapFeature> mapFeatures(QuestionNode node) => [
-  for (final choice in node.choices)
+List<MapFeature> mapFeatures(QuestionNode node, List<SelectChoice> choices) => [
+  for (final choice in choices)
     ?() {
       final points = parseGeometry(choice.child('geometry'));
       if (points.isEmpty ||
@@ -180,7 +180,8 @@ class SelectFromMapInput extends StatelessWidget {
   Widget build(BuildContext context) {
     final delegates = XFormScope.of(context).delegates;
     final selected = selectedValues(node).firstOrNull;
-    final choice = node.choices.where((c) => c.value == selected).firstOrNull;
+    final choices = choicesOf(context, node);
+    final choice = choices.where((c) => c.value == selected).firstOrNull;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -191,7 +192,7 @@ class SelectFromMapInput extends StatelessWidget {
             final picked = await delegates.selectFromMap(
               context,
               node: node,
-              features: mapFeatures(node),
+              features: mapFeatures(node, choices),
               selected: choice,
             );
             if (picked == null || !context.mounted || node.isReadonly) return;

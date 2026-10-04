@@ -25,6 +25,9 @@ class Appearance {
           tokens.add('columns');
         case 'horizontal-compact':
           tokens.add('columns-pack');
+        case 'search':
+          // Collect's deprecated name of `autocomplete`.
+          tokens.add('autocomplete');
       }
       final compactN = RegExp(r'^(?:quick)?compact-(\d+)$').firstMatch(token);
       if (compactN != null) {
@@ -66,7 +69,7 @@ class Appearance {
     'year', 'vertical', 'picker', 'rating', 'no-ticks', 'field-list',
     'table-list', 'quickcompact', 'compact', 'horizontal',
     'horizontal-compact', 'image-map', 'map', 'maps', 'placement-map',
-    'hidden-answer',
+    'hidden-answer', 'search',
   };
 
   static final RegExp _knownPattern = RegExp(
