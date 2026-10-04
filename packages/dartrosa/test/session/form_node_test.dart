@@ -5,7 +5,6 @@
 // FormEntryModel and follow JavaRosa (label forms, repeat headers,
 // read-only, relevance, constraint and bind attributes).
 import 'package:dartrosa/dartrosa.dart';
-import 'package:dartrosa/src/model/form_element.dart';
 import 'package:test/test.dart';
 
 const formXml = '''
