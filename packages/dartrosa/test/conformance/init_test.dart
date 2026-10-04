@@ -80,10 +80,15 @@ void main() {
 
 Object? _json(Object? o) => jsonDecode(jsonEncode(o));
 
-/// [e]'s message as Java's `getMessage()` gives it (Dart's
-/// `FormatException.toString()` adds its type), with cycle lines sorted.
-String exceptionMessage(Object e) =>
-    stableMessage(e is FormatException ? e.message : '$e');
+/// [e]'s message as Java's `getMessage()` gives it (Dart's `toString()` of
+/// `FormatException`, `StateError` and `ArgumentError` adds a type prefix),
+/// with cycle lines sorted.
+String exceptionMessage(Object e) => stableMessage(switch (e) {
+  FormatException() => e.message,
+  StateError() => e.message,
+  ArgumentError(message: final Object message) => '$message',
+  _ => '$e',
+});
 
 /// The oracle's `stableError`: cycle node lines sorted.
 String stableMessage(String message) {
