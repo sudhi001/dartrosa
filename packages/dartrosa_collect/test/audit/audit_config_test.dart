@@ -2,14 +2,17 @@
 import 'package:dartrosa_collect/dartrosa_collect.dart';
 import 'package:test/test.dart';
 
-AuditConfig _config(String? mode, String? minInterval, String? maxAge,
-        {bool trackChanges = false}) =>
-    AuditConfig(
-      mode: mode,
-      locationMinInterval: minInterval,
-      locationMaxAge: maxAge,
-      isTrackingChangesEnabled: trackChanges,
-    );
+AuditConfig _config(
+  String? mode,
+  String? minInterval,
+  String? maxAge, {
+  bool trackChanges = false,
+}) => AuditConfig(
+  mode: mode,
+  locationMinInterval: minInterval,
+  locationMaxAge: maxAge,
+  isTrackingChangesEnabled: trackChanges,
+);
 
 void main() {
   test('testParameters', () {
@@ -56,8 +59,11 @@ void main() {
       '': LocationPriority.highAccuracy,
     };
     expectations.forEach((mode, priority) {
-      expect(_config(mode, null, null).locationPriority, priority,
-          reason: mode);
+      expect(
+        _config(mode, null, null).locationPriority,
+        priority,
+        reason: mode,
+      );
     });
     expect(_config(null, null, null).locationPriority, isNull);
   });

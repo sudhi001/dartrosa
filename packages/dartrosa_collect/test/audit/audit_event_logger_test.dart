@@ -219,10 +219,9 @@ void main() {
     log(auditEventLogger, AuditEventType.locationTrackingEnabled);
     log(auditEventLogger, AuditEventType.formStart);
     auditEventLogger.flush();
-    expect(
-      testWriter.auditEvents.map((e) => e.auditEventType),
-      [AuditEventType.formStart],
-    );
+    expect(testWriter.auditEvents.map((e) => e.auditEventType), [
+      AuditEventType.formStart,
+    ]);
   });
 
   test('interval events end with the new answer at flush', () {
