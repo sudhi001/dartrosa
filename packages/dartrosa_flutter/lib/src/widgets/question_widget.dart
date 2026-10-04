@@ -8,6 +8,7 @@ import '../markdown.dart';
 import '../theme.dart';
 import '../xform_scope.dart';
 import 'date_input.dart';
+import 'external_app_inputs.dart';
 import 'label.dart';
 import 'map_inputs.dart';
 import 'range_input.dart';
@@ -103,7 +104,7 @@ class QuestionWidget extends StatelessWidget {
                   child: XFormLabel(node.label, required: node.isRequired),
                 ),
                 XFormHint(node),
-                if (!node.isNote)
+                if (!_isNote(context, appearance))
                   Padding(
                     padding: const EdgeInsets.only(top: 8),
                     child: _input(context),
@@ -120,6 +121,15 @@ class QuestionWidget extends StatelessWidget {
       },
     );
   }
+
+  /// Whether [node] is a note: read-only text without an appearance
+  /// that shows a widget anyway (`printer` when printing is available,
+  /// `url`).
+  bool _isNote(BuildContext context, Appearance appearance) =>
+      node.isNote &&
+      !(appearance.has('printer') &&
+          XFormScope.of(context).delegates.canPrint) &&
+      !appearance.has('url');
 
   /// A semantics container labelled with the question label, whether it
   /// is required, and whether its answer is invalid.
@@ -156,9 +166,32 @@ class QuestionWidget extends StatelessWidget {
       DataType.dateTime => DateTimeInput(node),
       DataType.geopoint || DataType.geotrace || DataType.geoshape => _Geo(node),
       DataType.barcode => _Barcode(node),
-      _ => TextQuestionInput(node),
+      _ => _textInput(context),
     },
   };
+
+  /// A text or number question: the widget for its appearance
+  /// (`printer`, `ex:`), or a text field.
+  Widget _textInput(BuildContext context) {
+    final delegates = XFormScope.of(context).delegates;
+    final appearance = Appearance.parse(node.appearance);
+    final type = node.dataType;
+    final number =
+        type == DataType.integer ||
+        type == DataType.long ||
+        type == DataType.decimal;
+    if (type == DataType.text &&
+        appearance.has('printer') &&
+        delegates.canPrint) {
+      return PrinterInput(node);
+    }
+    if ((number || type == DataType.text) &&
+        appearance.has('ex:') &&
+        delegates.canLaunchExternalApps) {
+      return ExternalAppInput(node);
+    }
+    return TextQuestionInput(node);
+  }
 }
 
 /// A validation error, read out by screen readers when it appears.

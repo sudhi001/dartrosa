@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../localizations.dart';
 import '../theme.dart';
 import '../xform_scope.dart';
+import 'external_app_inputs.dart';
 import 'label.dart';
 import 'question_widget.dart';
 import 'select_widgets.dart';
@@ -35,10 +36,22 @@ class GroupWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final label = node.label;
-    final children =
+    var children =
         (node.appearance?.toLowerCase().contains('table-list') ?? false)
         ? _tableList(context)
         : [for (final child in node.visibleChildren) nodeWidget(child)];
+    if (intentOf(node) != null &&
+        XFormScope.of(context).delegates.canLaunchExternalApps) {
+      children = [
+        IntentGroup.of(
+          node,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: children,
+          ),
+        ),
+      ];
+    }
     if (label.text == null || label.text!.isEmpty) {
       return Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,

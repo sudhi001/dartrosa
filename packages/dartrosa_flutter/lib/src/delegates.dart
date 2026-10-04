@@ -3,6 +3,7 @@ import 'dart:typed_data';
 import 'package:dartrosa/dartrosa.dart';
 import 'package:flutter/widgets.dart';
 
+import 'external_apps.dart';
 import 'widgets/map_inputs.dart';
 
 /// Captures data the renderer can't get on its own: photos, recordings,
@@ -60,6 +61,30 @@ abstract class XFormDelegates {
     required QuestionNode node,
   }) async => null;
 
+  /// Launches the external app [intent] (an Android intent action or
+  /// package name, from an `ex:` appearance or a group's `intent`
+  /// attribute) with the evaluated [params] (Android intent extras; for
+  /// `ex:` questions `value` is the current answer) and, from the
+  /// `uri_data` parameter, [data]. Returns the app's results (`value` for
+  /// `ex:` questions, question names for intent groups), or `null` if
+  /// cancelled. Throws `ExternalAppNotFoundException` when no app handles
+  /// it. Used when [canLaunchExternalApps].
+  Future<Map<String, Object?>?> launchExternalApp(
+    BuildContext context, {
+    required String intent,
+    required Map<String, Object?> params,
+    String? data,
+  }) async => throw const ExternalAppNotFoundException();
+
+  /// The saved instance's id for the `instanceProviderID()` parameter of
+  /// external apps (`null`: not saved yet, sent as `-1`).
+  String? get instanceProviderId => null;
+
+  /// Prints [content], the answer of a question with the `printer`
+  /// appearance (ODK Collect parses it as HTML with `<qrcode>` and
+  /// `<barcode>` elements). Used when [canPrint].
+  Future<void> print(BuildContext context, String content) async {}
+
   /// Whether [captureMedia] is implemented.
   bool get canCaptureMedia => false;
 
@@ -68,6 +93,14 @@ abstract class XFormDelegates {
 
   /// Whether [scanBarcode] is implemented.
   bool get canScanBarcode => false;
+
+  /// Whether [launchExternalApp] is implemented; otherwise `ex:`
+  /// questions and intent groups get their default widgets.
+  bool get canLaunchExternalApps => false;
+
+  /// Whether [print] is implemented; otherwise `printer` questions get
+  /// their default widget.
+  bool get canPrint => false;
 
   /// Whether [selectFromMap] and [geoFromMap] are implemented; otherwise
   /// `map` selects and geo questions get their default widgets.

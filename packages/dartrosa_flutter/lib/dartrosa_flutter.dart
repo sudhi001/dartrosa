@@ -8,11 +8,13 @@ export 'package:dartrosa/dartrosa.dart';
 
 export 'src/appearance.dart';
 export 'src/delegates.dart';
+export 'src/external_apps.dart';
 export 'src/localizations.dart';
 export 'src/markdown.dart';
 export 'src/theme.dart';
 export 'src/widgets/common.dart' show XFormPagerScope;
 export 'src/widgets/date_input.dart';
+export 'src/widgets/external_app_inputs.dart';
 export 'src/widgets/image_map.dart';
 export 'src/widgets/label.dart';
 export 'src/widgets/map_inputs.dart';

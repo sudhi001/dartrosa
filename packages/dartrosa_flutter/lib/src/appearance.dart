@@ -9,10 +9,13 @@ class Appearance {
   factory Appearance.parse(String? raw) {
     final tokens = <String>{};
     // `search(...)` (external data) may contain spaces.
-    final text = (raw ?? '').toLowerCase().replaceAll(
-      RegExp(r'search\([^)]*\)?'),
-      ' search() ',
-    );
+    // `search(...)` (external data) and `ex:app(...)` (external apps)
+    // may contain spaces.
+    final text = (raw ?? '')
+        .toLowerCase()
+        .replaceAll(RegExp(r'search\([^)]*\)?'), ' search() ')
+        .replaceAll(RegExp(r'ex:[^\s(]*(?:\(.*\)|\(.*)?'), ' ex: ')
+        .replaceAll(RegExp(r'printer:\S*'), ' printer ');
     for (final token in text.split(RegExp(r'\s+'))) {
       if (token.isEmpty) continue;
       tokens.add(token);
@@ -69,7 +72,7 @@ class Appearance {
     'year', 'vertical', 'picker', 'rating', 'no-ticks', 'field-list',
     'table-list', 'quickcompact', 'compact', 'horizontal',
     'horizontal-compact', 'image-map', 'map', 'maps', 'placement-map',
-    'hidden-answer', 'search',
+    'hidden-answer', 'search', 'ex:', 'printer',
   };
 
   static final RegExp _knownPattern = RegExp(

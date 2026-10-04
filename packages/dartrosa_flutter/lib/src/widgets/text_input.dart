@@ -108,6 +108,20 @@ class _TextQuestionInputState extends State<TextQuestionInput> {
   }
 }
 
+/// The answer of [node] as displayed by read-only number widgets: grouped
+/// for `thousands-sep`.
+String? numberDisplay(BuildContext context, QuestionNode node) {
+  final text = node.value?.displayText;
+  if (text == null) return null;
+  final number = switch (node.dataType) {
+    DataType.integer || DataType.long || DataType.decimal => true,
+    _ => false,
+  };
+  return number && Appearance.parse(node.appearance).has('thousands-sep')
+      ? groupThousands(text)
+      : text;
+}
+
 /// The grouping separator of `thousands-sep`.
 const thousandsSeparator = ',';
 

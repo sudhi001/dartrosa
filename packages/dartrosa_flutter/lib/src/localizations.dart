@@ -97,6 +97,22 @@ class XFormLocalizations {
   /// The warning of a select whose `search()` expression is invalid.
   String parserException(String message) => 'XPathParser Exception: "$message"';
 
+  /// Launches the external app of an `ex:` question or intent group.
+  String get launchApp => 'Launch';
+
+  /// Shown when no app handles an external app request (without the
+  /// form's `noAppErrorString`).
+  String get noApp =>
+      'The requested application is missing. Please manually enter the '
+      'reading.';
+
+  /// Shown when an intent group's app returns a value for a question that
+  /// can't take one ([ref]).
+  String cannotAssignValue(String ref) => "Cannot assign the value at '$ref'.";
+
+  /// Prints the answer of a `printer` question.
+  String get print => 'Print';
+
   /// Opens the map of a `map` select.
   String get selectPlace => 'Select place';
 

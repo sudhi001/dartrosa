@@ -31,8 +31,8 @@ XFormView(
 
 | Control | Appearances |
 |---|---|
-| text | `multiline`, `numbers`, `masked` (also `secret`) |
-| integer / decimal / long | `thousands-sep` (display only; the answer has no separators) |
+| text | `multiline`, `numbers`, `masked` (also `secret`), `ex:` (external app), `printer` (also `printer:...`) |
+| integer / decimal / long | `thousands-sep` (display only; the answer has no separators), `ex:` |
 | date | `no-calendar` (typed date), `month-year`, `year` (saved as the 1st) |
 | time / dateTime | pickers |
 | select one | radio list, `minimal` (drop-down), `quick` (auto-advance in pager mode), `autocomplete`, `columns`, `columns-N`, `columns-pack`, `no-buttons`, `likert`, `label`, `list-nolabel`, `list`; Collect's old names `compact`, `quickcompact`, `compact-N`, `horizontal`, `horizontal-compact`; `image-map`; `map` (through `XFormDelegates.selectFromMap`) |
@@ -41,7 +41,7 @@ XFormView(
 | range | slider, `vertical`, `picker`, `rating`, `no-ticks` |
 | geopoint, barcode, image / audio / video / file | through `XFormDelegates` (typed value otherwise) |
 | geopoint `maps` / `placement-map`, geotrace, geoshape | on the app's map through `XFormDelegates.geoFromMap` when `canShowMaps` (default widget otherwise); `hidden-answer` |
-| group | card, `field-list` (one pager screen), `table-list` (one grid: choice labels as header, a row of buttons per select) |
+| group | card, `field-list` (one pager screen), `table-list` (one grid: choice labels as header, a row of buttons per select), `intent` attribute (external app filling the group's questions) |
 | repeat | add / remove, "add another?" prompt in pager mode, `noAddRemove` |
 
 Choice images use `delegates.image(uri)`. Selects with a `search(...)`
@@ -55,6 +55,15 @@ SVG of the question's image (read with `delegates.mediaBytes(uri)`): the
 are choice values are tapped to select them and filled when selected. Unsupported appearances fall
 back to the default widget (with one `debugPrint` per appearance).
 
+- **External apps** (`ex:` appearances, group `intent` attributes) go
+  through `XFormDelegates.launchExternalApp` with the parameters
+  evaluated as ODK Collect does (`ExternalAppsUtils`: `'constants'`,
+  XPath expressions, `instanceProviderID()`, `uri_data`); `ex:`
+  questions send their answer as `value` and read the result's `value`,
+  intent groups exchange their text/number/binary answers by question
+  name. When no app is found (`ExternalAppNotFoundException`) the form's
+  `noAppErrorString` is shown and the answer can be typed. `printer`
+  questions print their answer with `XFormDelegates.print`.
 - **Labels, hints and choices** render ODK's markdown subset: `*em*`,
   `**strong**`, `#` headers, `[links](url)` (opened through
   `XFormDelegates.openLink`), `<span style="color: ...; font-family:
