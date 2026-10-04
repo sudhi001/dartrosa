@@ -36,18 +36,29 @@ typedef AnswerResult = AnswerStatus;
 /// (a date), [SelectChoice] or [AnswerValue]); answering the current
 /// question is [answerCurrent].
 final class Scenario {
-  Scenario._(this.formDef, this._controllerFactory, this._blankInstance)
-    : _evaluationContext = formDef.evaluationContext;
+  Scenario._(
+    this.formDef,
+    this._controllerFactory,
+    this._blankInstance, [
+    this._parserFactory,
+  ]) : _evaluationContext = formDef.evaluationContext;
 
   /// Parses [xml] (resolving `jr://` resources through [resolver]) and
   /// starts a new instance.
+  ///
+  /// [parserFactory] creates the parser instead (e.g. with plugin
+  /// processors added, as JavaRosa's `XFormUtils.setXFormParserFactory`);
+  /// it is also used to restore the form in [serializeAndDeserializeForm]
+  /// and [serializeAndDeserializeInstance].
   static Future<Scenario> fromXml(
     String xml, {
     ResourceResolver? resolver,
     FormEntryController Function(FormDef form)? controllerFactory,
+    XFormParser Function(ResourceResolver? resolver)? parserFactory,
   }) async => fromFormDef(
-    await XFormParser(resolver: resolver).parse(xml),
+    await _parser(parserFactory, resolver).parse(xml),
     controllerFactory: controllerFactory,
+    parserFactory: parserFactory,
   );
 
   /// Builds the form [form] (see `test/xforms_element`) and starts a new
@@ -56,10 +67,12 @@ final class Scenario {
     XFormsElement form, {
     ResourceResolver? resolver,
     FormEntryController Function(FormDef form)? controllerFactory,
+    XFormParser Function(ResourceResolver? resolver)? parserFactory,
   }) => fromXml(
     form.asXml(),
     resolver: resolver,
     controllerFactory: controllerFactory,
+    parserFactory: parserFactory,
   );
 
   /// Starts filling [form] (a new instance unless not [newInstance]).
@@ -67,11 +80,18 @@ final class Scenario {
     FormDef form, {
     bool newInstance = true,
     FormEntryController Function(FormDef form)? controllerFactory,
+    XFormParser Function(ResourceResolver? resolver)? parserFactory,
   }) => Scenario._(
     form,
     controllerFactory ?? (f) => FormEntryController(FormEntryModel(f)),
     form.mainInstance.clone(),
+    parserFactory,
   ).._init(newInstance: newInstance);
+
+  static XFormParser _parser(
+    XFormParser Function(ResourceResolver? resolver)? factory,
+    ResourceResolver? resolver,
+  ) => factory != null ? factory(resolver) : XFormParser(resolver: resolver);
 
   /// The form, with its current instance, encoded and restored (as after
   /// an app restart), continuing that instance. Port of
@@ -80,8 +100,13 @@ final class Scenario {
   Future<Scenario> serializeAndDeserializeForm({
     ResourceResolver? resolver,
   }) async => fromFormDef(
-    await FormDefCodec.decode(FormDefCodec.encode(formDef), resolver: resolver),
+    await FormDefCodec.decode(
+      FormDefCodec.encode(formDef),
+      resolver: resolver,
+      parser: _parserFactory == null ? null : _parser(_parserFactory, resolver),
+    ),
     newInstance: false,
+    parserFactory: _parserFactory,
   );
 
   /// The instance serialized and loaded into a fresh parse of [form] (the
@@ -94,10 +119,15 @@ final class Scenario {
     final instanceXml = XFormSerializingVisitor().serializeInstanceToString(
       formDef.mainInstance,
     );
-    final restored = await XFormParser(
-      resolver: resolver,
+    final restored = await _parser(
+      _parserFactory,
+      resolver,
     ).parse(form.asXml(), instanceXml: instanceXml);
-    return fromFormDef(restored, newInstance: false);
+    return fromFormDef(
+      restored,
+      newInstance: false,
+      parserFactory: _parserFactory,
+    );
   }
 
   /// The beginning-of-form index.
@@ -107,6 +137,7 @@ final class Scenario {
   final FormDef formDef;
 
   final FormEntryController Function(FormDef form) _controllerFactory;
+  final XFormParser Function(ResourceResolver? resolver)? _parserFactory;
   final FormInstance _blankInstance;
   late FormEntryController _controller;
   late FormEntryModel _model;
