@@ -1,0 +1,22 @@
+{
+  "form" : "forms/pyxform/tests/test_notes/test_instance_expression__permutations.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><test_name id=\"data\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><q1 /><q2 /><text /><note /><meta><instanceID>uuid:<uuid></instanceID></meta></test_name>",
+  "parse" : {
+    "language" : null,
+    "languages" : [ ],
+    "ok" : true,
+    "title" : "data"
+  },
+  "steps" : [ {
+    "error" : {
+      "message" : "XPath evaluation: type mismatch \nThis field is repeated: \n\ninstance(c2)/root/item[1]/label[1];instance(c2)/root/item[2]/label[1]\n\nYou may need to use the indexed-repeat() function to specify which value you want.",
+      "type" : "XPathTypeMismatchException"
+    },
+    "op" : "walk"
+  }, {
+    "op" : "validate",
+    "outcome" : "ok",
+    "ref" : null
+  } ],
+  "traceVersion" : 1
+}

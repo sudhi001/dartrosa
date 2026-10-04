@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:odk="http://www.opendatakit.org/xforms">
+  <h:head>
+    <h:title>data</h:title>
+    <model odk:xforms-version="1.0.0">
+      <instance>
+        <test_name id="data">
+          <aa/>
+          <section jr:template="">
+            <a/>
+            <b/>
+            <c/>
+            <d/>
+          </section>
+          <section>
+            <a/>
+            <b/>
+            <c/>
+            <d/>
+          </section>
+          <group_a>
+            <repeat_a jr:template="">
+              <repeat_b jr:template="">
+                <e/>
+                <group_b>
+                  <f/>
+                  <g/>
+                  <h/>
+                </group_b>
+                <i/>
+              </repeat_b>
+            </repeat_a>
+            <repeat_a>
+              <repeat_b>
+                <e/>
+                <group_b>
+                  <f/>
+                  <g/>
+                  <h/>
+                </group_b>
+                <i/>
+              </repeat_b>
+            </repeat_a>
+          </group_a>
+          <meta>
+            <instanceID/>
+          </meta>
+        </test_name>
+      </instance>
+      <bind nodeset="/test_name/aa" type="string"/>
+      <bind nodeset="/test_name/section/a" type="string"/>
+      <bind nodeset="/test_name/section/b" type="string"/>
+      <bind nodeset="/test_name/section/c" type="string"/>
+      <bind nodeset="/test_name/section/d" readonly="true()" type="string"/>
+      <bind nodeset="/test_name/group_a/repeat_a/repeat_b/e" type="string"/>
+      <bind nodeset="/test_name/group_a/repeat_a/repeat_b/group_b/f" type="string"/>
+      <bind nodeset="/test_name/group_a/repeat_a/repeat_b/group_b/g" type="string"/>
+      <bind nodeset="/test_name/group_a/repeat_a/repeat_b/group_b/h" readonly="true()" type="string"/>
+      <bind nodeset="/test_name/group_a/repeat_a/repeat_b/i" readonly="true()" type="string"/>
+      <bind nodeset="/test_name/meta/instanceID" type="string" readonly="true()" jr:preload="uid"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input ref="/test_name/aa">
+      <label>Text AA</label>
+    </input>
+    <group ref="/test_name/section">
+      <label>Section</label>
+      <repeat nodeset="/test_name/section">
+        <input ref="/test_name/section/a">
+          <label>Text A</label>
+        </input>
+        <input ref="/test_name/section/b">
+          <label>Text B</label>
+        </input>
+        <input ref="/test_name/section/c">
+          <label>Text C</label>
+        </input>
+        <input ref="/test_name/section/d">
+          <label>Note D</label>
+        </input>
+      </repeat>
+    </group>
+    <group ref="/test_name/group_a">
+      <label>Group A</label>
+      <group ref="/test_name/group_a/repeat_a">
+        <label>Section A</label>
+        <repeat nodeset="/test_name/group_a/repeat_a">
+          <group ref="/test_name/group_a/repeat_a/repeat_b">
+            <label>Section B</label>
+            <repeat nodeset="/test_name/group_a/repeat_a/repeat_b">
+              <input ref="/test_name/group_a/repeat_a/repeat_b/e">
+                <label>Text E</label>
+              </input>
+              <group ref="/test_name/group_a/repeat_a/repeat_b/group_b">
+                <label>Group B</label>
+                <input ref="/test_name/group_a/repeat_a/repeat_b/group_b/f">
+                  <label>Text F</label>
+                </input>
+                <input ref="/test_name/group_a/repeat_a/repeat_b/group_b/g">
+                  <label>Text G</label>
+                </input>
+                <input ref="/test_name/group_a/repeat_a/repeat_b/group_b/h">
+                  <label>Note H</label>
+                </input>
+              </group>
+              <input ref="/test_name/group_a/repeat_a/repeat_b/i">
+                <label>Note I</label>
+              </input>
+            </repeat>
+          </group>
+        </repeat>
+      </group>
+    </group>
+  </h:body>
+</h:html>

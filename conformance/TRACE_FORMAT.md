@@ -7,7 +7,9 @@ is a DartRosa bug (or a documented, intentional deviation).
 ## Inputs
 
 **Forms** live in `forms/` (`forms/javarosa/` is imported from JavaRosa's
-test resources by `tool/import_javarosa_forms.sh`; `forms/dartrosa/` is ours).
+test resources by `tool/import_javarosa_forms.sh`; `forms/dartrosa/` is ours;
+`forms/collect/`, `forms/webforms/` and `forms/pyxform/` come from ODK
+Collect, ODK Web Forms and pyxform, see `NOTICE.md`).
 `jr://file/…`, `jr://file-csv/…`, `jr://images/…`, `jr://audio/…` and
 `jr://video/…` resolve to the form's own directory.
 
@@ -115,7 +117,9 @@ deletion replay `FormDef.createNewRepeat` / `deleteRepeat` after their
 `test/conformance/dag_scenario_test.dart`.
 
 Init and DAG traces contain local date-times, so the Dart comparisons run
-only when the process time zone is UTC (as the oracle's is).
+only when the process time zone is UTC (as the oracle's is). The same holds
+for structure traces of forms whose instance has a time or date-time
+default (parsing converts it to the local zone).
 
 ## Fuzz traces (`traces/fuzz/`)
 
@@ -139,6 +143,9 @@ So that traces are byte-identical across runs and machines:
 4. Today's date (`yyyy-MM-dd`) → `<today>`.
 5. Unseeded random choice lists are sorted (see `choicesOrder`).
 6. JSON objects have their keys sorted; output is pretty-printed.
+
+Rules 2–4 apply to answer values, labels, hints, choice labels and the
+serialized instance.
 
 ## Comparing
 

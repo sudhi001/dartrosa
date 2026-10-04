@@ -1,0 +1,31 @@
+{
+  "form" : "forms/pyxform/tests/test_choices_sheet/test_label_from_reference.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><test_name id=\"data\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><q1>n1</q1><meta><instanceID>uuid:<uuid></instanceID></meta></test_name>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 33,
+  "steps" : [ {
+    "after" : "n1",
+    "answer" : "n1",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "",
+      "value" : "n1"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Q1",
+    "readonly" : false,
+    "ref" : "/test_name/q1[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:odk="http://www.opendatakit.org/xforms">
+  <h:head>
+    <h:title>data</h:title>
+    <model odk:xforms-version="1.0.0">
+      <itext>
+        <translation lang="default" default="true()">
+          <text id="list-0">
+            <value>A</value>
+            <value form="image">jr://images/a.jpg</value>
+          </text>
+          <text id="list-1">
+            <value>B</value>
+            <value form="image">jr://images/b.jpg</value>
+          </text>
+          <text id="list-2">
+            <value>C</value>
+            <value form="image">jr://images/c.jpg</value>
+          </text>
+        </translation>
+        <translation lang="French">
+          <text id="list-0">
+            <value>Ah</value>
+          </text>
+          <text id="list-1">
+            <value>Bé</value>
+          </text>
+          <text id="list-2">
+            <value>Cé</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <test_name id="data">
+          <foo/>
+          <meta>
+            <instanceID/>
+          </meta>
+        </test_name>
+      </instance>
+      <instance id="list">
+        <root>
+          <item>
+            <itextId>list-0</itextId>
+            <name>a</name>
+          </item>
+          <item>
+            <itextId>list-1</itextId>
+            <name>b</name>
+          </item>
+          <item>
+            <itextId>list-2</itextId>
+            <name>c</name>
+          </item>
+        </root>
+      </instance>
+      <bind nodeset="/test_name/foo" type="string"/>
+      <bind nodeset="/test_name/meta/instanceID" type="string" readonly="true()" jr:preload="uid"/>
+    </model>
+  </h:head>
+  <h:body>
+    <select1 ref="/test_name/foo">
+      <label>Foo</label>
+      <itemset nodeset="instance('list')/root/item[name != '']">
+        <value ref="name"/>
+        <label ref="jr:itext(itextId)"/>
+      </itemset>
+    </select1>
+  </h:body>
+</h:html>

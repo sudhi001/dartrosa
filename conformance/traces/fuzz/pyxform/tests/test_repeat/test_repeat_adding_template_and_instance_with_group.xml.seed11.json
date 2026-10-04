@@ -1,0 +1,384 @@
+{
+  "form" : "forms/pyxform/tests/test_repeat/test_repeat_adding_template_and_instance_with_group.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><test_name id=\"data\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><aa>x y z</aa><section><a /><b>123</b><c>zeta &amp; eta</c><d /></section><section><a>kappa'lambda</a><b /><c>alpha</c><d /></section><group_a><repeat_a><repeat_b><e>zeta &amp; eta</e><group_b><f>kappa'lambda</f><g>kappa'lambda</g><h /></group_b><i /></repeat_b><repeat_b><e>beta</e><group_b><f /><g>zeta &amp; eta</g><h /></group_b><i /></repeat_b><repeat_b><e>beta</e><group_b><f /><g>alpha</g><h /></group_b><i /></repeat_b></repeat_a></group_a><meta><instanceID>uuid:<uuid></instanceID></meta></test_name>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 11,
+  "steps" : [ {
+    "after" : "x y z",
+    "answer" : "x y z",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Text AA",
+    "readonly" : false,
+    "ref" : "/test_name/aa[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Section",
+    "ref" : "/test_name/section[1]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Text A",
+    "readonly" : false,
+    "ref" : "/test_name/section[1]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "123",
+    "answer" : "123",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Text B",
+    "readonly" : false,
+    "ref" : "/test_name/section[1]/b[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "zeta & eta",
+    "answer" : "zeta & eta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Text C",
+    "readonly" : false,
+    "ref" : "/test_name/section[1]/c[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Note D",
+    "readonly" : true,
+    "ref" : "/test_name/section[1]/d[1]",
+    "required" : false,
+    "value" : null
+  }, {
+    "add" : true,
+    "event" : "promptNewRepeat",
+    "ref" : "/test_name/section[2]"
+  }, {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Text A",
+    "readonly" : false,
+    "ref" : "/test_name/section[2]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Text B",
+    "readonly" : false,
+    "ref" : "/test_name/section[2]/b[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "alpha",
+    "answer" : "alpha",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Text C",
+    "readonly" : false,
+    "ref" : "/test_name/section[2]/c[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Note D",
+    "readonly" : true,
+    "ref" : "/test_name/section[2]/d[1]",
+    "required" : false,
+    "value" : null
+  }, {
+    "add" : false,
+    "event" : "promptNewRepeat",
+    "ref" : "/test_name/section[3]"
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Group A",
+    "ref" : "/test_name/group_a[1]"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Section A",
+    "ref" : "/test_name/group_a[1]/repeat_a[1]"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Section B",
+    "ref" : "/test_name/group_a[1]/repeat_a[1]/repeat_b[1]"
+  }, {
+    "after" : "zeta & eta",
+    "answer" : "zeta & eta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Text E",
+    "readonly" : false,
+    "ref" : "/test_name/group_a[1]/repeat_a[1]/repeat_b[1]/e[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Group B",
+    "ref" : "/test_name/group_a[1]/repeat_a[1]/repeat_b[1]/group_b[1]"
+  }, {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Text F",
+    "readonly" : false,
+    "ref" : "/test_name/group_a[1]/repeat_a[1]/repeat_b[1]/group_b[1]/f[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Text G",
+    "readonly" : false,
+    "ref" : "/test_name/group_a[1]/repeat_a[1]/repeat_b[1]/group_b[1]/g[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Note H",
+    "readonly" : true,
+    "ref" : "/test_name/group_a[1]/repeat_a[1]/repeat_b[1]/group_b[1]/h[1]",
+    "required" : false,
+    "value" : null
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Note I",
+    "readonly" : true,
+    "ref" : "/test_name/group_a[1]/repeat_a[1]/repeat_b[1]/i[1]",
+    "required" : false,
+    "value" : null
+  }, {
+    "add" : true,
+    "event" : "promptNewRepeat",
+    "ref" : "/test_name/group_a[1]/repeat_a[1]/repeat_b[2]"
+  }, {
+    "after" : "beta",
+    "answer" : "beta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Text E",
+    "readonly" : false,
+    "ref" : "/test_name/group_a[1]/repeat_a[1]/repeat_b[2]/e[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Group B",
+    "ref" : "/test_name/group_a[1]/repeat_a[1]/repeat_b[2]/group_b[1]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Text F",
+    "readonly" : false,
+    "ref" : "/test_name/group_a[1]/repeat_a[1]/repeat_b[2]/group_b[1]/f[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "zeta & eta",
+    "answer" : "zeta & eta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Text G",
+    "readonly" : false,
+    "ref" : "/test_name/group_a[1]/repeat_a[1]/repeat_b[2]/group_b[1]/g[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Note H",
+    "readonly" : true,
+    "ref" : "/test_name/group_a[1]/repeat_a[1]/repeat_b[2]/group_b[1]/h[1]",
+    "required" : false,
+    "value" : null
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Note I",
+    "readonly" : true,
+    "ref" : "/test_name/group_a[1]/repeat_a[1]/repeat_b[2]/i[1]",
+    "required" : false,
+    "value" : null
+  }, {
+    "add" : true,
+    "event" : "promptNewRepeat",
+    "ref" : "/test_name/group_a[1]/repeat_a[1]/repeat_b[3]"
+  }, {
+    "after" : "beta",
+    "answer" : "beta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Text E",
+    "readonly" : false,
+    "ref" : "/test_name/group_a[1]/repeat_a[1]/repeat_b[3]/e[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Group B",
+    "ref" : "/test_name/group_a[1]/repeat_a[1]/repeat_b[3]/group_b[1]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Text F",
+    "readonly" : false,
+    "ref" : "/test_name/group_a[1]/repeat_a[1]/repeat_b[3]/group_b[1]/f[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "alpha",
+    "answer" : "alpha",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Text G",
+    "readonly" : false,
+    "ref" : "/test_name/group_a[1]/repeat_a[1]/repeat_b[3]/group_b[1]/g[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Note H",
+    "readonly" : true,
+    "ref" : "/test_name/group_a[1]/repeat_a[1]/repeat_b[3]/group_b[1]/h[1]",
+    "required" : false,
+    "value" : null
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Note I",
+    "readonly" : true,
+    "ref" : "/test_name/group_a[1]/repeat_a[1]/repeat_b[3]/i[1]",
+    "required" : false,
+    "value" : null
+  }, {
+    "add" : false,
+    "event" : "promptNewRepeat",
+    "ref" : "/test_name/group_a[1]/repeat_a[1]/repeat_b[4]"
+  }, {
+    "add" : false,
+    "event" : "promptNewRepeat",
+    "ref" : "/test_name/group_a[1]/repeat_a[2]"
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

@@ -1,0 +1,65 @@
+{
+  "form" : "forms/webforms/computations/8-outputs.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><root id=\"outputs\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms/\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><a /><b><now></b><d>10</d><e>20</e><c>default value of c</c><meta><instanceID /></meta></root>",
+  "parse" : {
+    "language" : null,
+    "languages" : [ ],
+    "ok" : true,
+    "title" : "Outputs"
+  },
+  "steps" : [ {
+    "events" : [ {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "null",
+      "event" : "question",
+      "hint" : null,
+      "label" : "1. Whoops, accidentally built part of output functionality!\n        now() calculated by /root/b: <today>",
+      "readonly" : false,
+      "ref" : "/root/a[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "null",
+      "event" : "question",
+      "hint" : null,
+      "label" : "/root/d",
+      "readonly" : false,
+      "ref" : "/root/d[1]",
+      "required" : false,
+      "value" : "10"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "null",
+      "event" : "question",
+      "hint" : null,
+      "label" : "/root/e",
+      "readonly" : false,
+      "ref" : "/root/e[1]",
+      "required" : false,
+      "value" : "20"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "null",
+      "event" : "question",
+      "hint" : null,
+      "label" : "2. Wonder if calculate also works...\n        d: 10, e (d * 2): 20",
+      "readonly" : false,
+      "ref" : "/root/c[1]",
+      "required" : false,
+      "value" : "default value of c"
+    }, {
+      "event" : "endOfForm"
+    } ],
+    "op" : "walk"
+  }, {
+    "op" : "validate",
+    "outcome" : "ok",
+    "ref" : null
+  } ],
+  "traceVersion" : 1
+}

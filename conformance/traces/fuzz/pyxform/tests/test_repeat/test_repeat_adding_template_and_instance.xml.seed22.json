@@ -1,0 +1,298 @@
+{
+  "form" : "forms/pyxform/tests/test_repeat/test_repeat_adding_template_and_instance.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><test_name id=\"data\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><aa>123</aa><section><a>beta</a><b>kappa'lambda</b><c>mu\"nu</c><d /></section><section><a>épsilon</a><b>zeta &amp; eta</b><c>x y z</c><d /></section><repeat_a><repeat_b><e>alpha</e><repeat_c><f>x y z</f></repeat_c></repeat_b><g>gamma delta</g><repeat_d><h /></repeat_d><repeat_d><h /></repeat_d><i /></repeat_a><repeat_a><g>gamma delta</g><i /></repeat_a><meta><instanceID>uuid:<uuid></instanceID></meta></test_name>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 22,
+  "steps" : [ {
+    "after" : "123",
+    "answer" : "123",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Text AA",
+    "readonly" : false,
+    "ref" : "/test_name/aa[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Section",
+    "ref" : "/test_name/section[1]"
+  }, {
+    "after" : "beta",
+    "answer" : "beta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Text A",
+    "readonly" : false,
+    "ref" : "/test_name/section[1]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Text B",
+    "readonly" : false,
+    "ref" : "/test_name/section[1]/b[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "mu\"nu",
+    "answer" : "mu\"nu",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Text C",
+    "readonly" : false,
+    "ref" : "/test_name/section[1]/c[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Note D",
+    "readonly" : true,
+    "ref" : "/test_name/section[1]/d[1]",
+    "required" : false,
+    "value" : null
+  }, {
+    "add" : true,
+    "event" : "promptNewRepeat",
+    "ref" : "/test_name/section[2]"
+  }, {
+    "after" : "épsilon",
+    "answer" : "épsilon",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Text A",
+    "readonly" : false,
+    "ref" : "/test_name/section[2]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "zeta & eta",
+    "answer" : "zeta & eta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Text B",
+    "readonly" : false,
+    "ref" : "/test_name/section[2]/b[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "x y z",
+    "answer" : "x y z",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Text C",
+    "readonly" : false,
+    "ref" : "/test_name/section[2]/c[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Note D",
+    "readonly" : true,
+    "ref" : "/test_name/section[2]/d[1]",
+    "required" : false,
+    "value" : null
+  }, {
+    "add" : false,
+    "event" : "promptNewRepeat",
+    "ref" : "/test_name/section[3]"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Section A",
+    "ref" : "/test_name/repeat_a[1]"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Section B",
+    "ref" : "/test_name/repeat_a[1]/repeat_b[1]"
+  }, {
+    "after" : "alpha",
+    "answer" : "alpha",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Text E",
+    "readonly" : false,
+    "ref" : "/test_name/repeat_a[1]/repeat_b[1]/e[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Section C",
+    "ref" : "/test_name/repeat_a[1]/repeat_b[1]/repeat_c[1]"
+  }, {
+    "after" : "x y z",
+    "answer" : "x y z",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Text F",
+    "readonly" : false,
+    "ref" : "/test_name/repeat_a[1]/repeat_b[1]/repeat_c[1]/f[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : false,
+    "event" : "promptNewRepeat",
+    "ref" : "/test_name/repeat_a[1]/repeat_b[1]/repeat_c[2]"
+  }, {
+    "add" : false,
+    "event" : "promptNewRepeat",
+    "ref" : "/test_name/repeat_a[1]/repeat_b[2]"
+  }, {
+    "after" : "gamma delta",
+    "answer" : "gamma delta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Text G",
+    "readonly" : false,
+    "ref" : "/test_name/repeat_a[1]/g[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Section D",
+    "ref" : "/test_name/repeat_a[1]/repeat_d[1]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Note H",
+    "readonly" : true,
+    "ref" : "/test_name/repeat_a[1]/repeat_d[1]/h[1]",
+    "required" : false,
+    "value" : null
+  }, {
+    "add" : true,
+    "event" : "promptNewRepeat",
+    "ref" : "/test_name/repeat_a[1]/repeat_d[2]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Note H",
+    "readonly" : true,
+    "ref" : "/test_name/repeat_a[1]/repeat_d[2]/h[1]",
+    "required" : false,
+    "value" : null
+  }, {
+    "add" : false,
+    "event" : "promptNewRepeat",
+    "ref" : "/test_name/repeat_a[1]/repeat_d[3]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Note I",
+    "readonly" : true,
+    "ref" : "/test_name/repeat_a[1]/i[1]",
+    "required" : false,
+    "value" : null
+  }, {
+    "add" : true,
+    "event" : "promptNewRepeat",
+    "ref" : "/test_name/repeat_a[2]"
+  }, {
+    "add" : false,
+    "event" : "promptNewRepeat",
+    "ref" : "/test_name/repeat_a[2]/repeat_b[1]"
+  }, {
+    "after" : "gamma delta",
+    "answer" : "gamma delta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Text G",
+    "readonly" : false,
+    "ref" : "/test_name/repeat_a[2]/g[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : false,
+    "event" : "promptNewRepeat",
+    "ref" : "/test_name/repeat_a[2]/repeat_d[1]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Note I",
+    "readonly" : true,
+    "ref" : "/test_name/repeat_a[2]/i[1]",
+    "required" : false,
+    "value" : null
+  }, {
+    "add" : false,
+    "event" : "promptNewRepeat",
+    "ref" : "/test_name/repeat_a[3]"
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

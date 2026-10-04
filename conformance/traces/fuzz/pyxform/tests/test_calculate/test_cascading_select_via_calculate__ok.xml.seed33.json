@@ -1,0 +1,76 @@
+{
+  "form" : "forms/pyxform/tests/test_calculate/test_cascading_select_via_calculate__ok.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><test_name id=\"data\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><q1>n2</q1><q3>n6</q3><q4>n6</q4><q8>n14</q8><q9>n14</q9><meta><instanceID>uuid:<uuid></instanceID></meta></test_name>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 33,
+  "steps" : [ {
+    "after" : "n2",
+    "answer" : "n2",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "N1",
+      "value" : "n1"
+    }, {
+      "label" : "N2",
+      "value" : "n2"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Q1",
+    "readonly" : false,
+    "ref" : "/test_name/q1[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "n6",
+    "answer" : "n6",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "N5",
+      "value" : "n5"
+    }, {
+      "label" : "N6",
+      "value" : "n6"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Q3",
+    "readonly" : false,
+    "ref" : "/test_name/q3[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "n14",
+    "answer" : "n14",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "N13",
+      "value" : "n13"
+    }, {
+      "label" : "N14",
+      "value" : "n14"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Q8",
+    "readonly" : false,
+    "ref" : "/test_name/q8[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

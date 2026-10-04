@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:odk="http://www.opendatakit.org/xforms">
+  <h:head>
+    <h:title>SMS</h:title>
+    <model odk:xforms-version="1.0.0">
+      <instance>
+        <test_name id="sms_info">
+          <section1>
+            <age/>
+            <has_children/>
+          </section1>
+          <medias>
+            <picture/>
+            <gps/>
+          </medias>
+          <browsers>
+            <web_browsers/>
+          </browsers>
+          <meta>
+            <instanceID/>
+          </meta>
+        </test_name>
+      </instance>
+      <instance id="yes_no">
+        <root>
+          <item>
+            <name>n</name>
+            <label>no</label>
+            <sms_option>n</sms_option>
+          </item>
+          <item>
+            <name>y</name>
+            <label>yes</label>
+            <sms_option>y</sms_option>
+          </item>
+        </root>
+      </instance>
+      <instance id="browsers">
+        <root>
+          <item>
+            <name>firefox</name>
+            <label>Mozilla Firefox</label>
+            <sms_option>ff</sms_option>
+          </item>
+          <item>
+            <name>chrome</name>
+            <label>Google Chrome</label>
+            <sms_option>gc</sms_option>
+          </item>
+        </root>
+      </instance>
+      <bind nodeset="/test_name/section1/age" type="int"/>
+      <bind nodeset="/test_name/section1/has_children" type="string"/>
+      <bind nodeset="/test_name/medias/picture" type="binary"/>
+      <bind nodeset="/test_name/medias/gps" type="geopoint"/>
+      <bind nodeset="/test_name/browsers/web_browsers" type="string"/>
+      <bind nodeset="/test_name/meta/instanceID" type="string" readonly="true()" jr:preload="uid"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="/test_name/section1">
+      <input ref="/test_name/section1/age">
+        <label>How old are you?</label>
+      </input>
+      <select1 ref="/test_name/section1/has_children">
+        <label>Do you have any children?</label>
+        <itemset nodeset="instance('yes_no')/root/item">
+          <value ref="name"/>
+          <label ref="label"/>
+        </itemset>
+      </select1>
+    </group>
+    <group ref="/test_name/medias">
+      <upload ref="/test_name/medias/picture" mediatype="image/*">
+        <label>May I take your picture?</label>
+      </upload>
+      <input ref="/test_name/medias/gps">
+        <label>Record your GPS coordinates.</label>
+      </input>
+    </group>
+    <group ref="/test_name/browsers">
+      <select ref="/test_name/browsers/web_browsers">
+        <label>What web browsers do you use?</label>
+        <itemset nodeset="instance('browsers')/root/item">
+          <value ref="name"/>
+          <label ref="label"/>
+        </itemset>
+      </select>
+    </group>
+  </h:body>
+</h:html>

@@ -1,0 +1,70 @@
+{
+  "form" : "forms/webforms/repeats/12-NestedRepeat.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"NestedRepeat\" version=\"20240415142016\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><person_repeat><person_name /><language_repeat><language /></language_repeat><country /></person_repeat><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "language" : null,
+    "languages" : [ ],
+    "ok" : true,
+    "title" : "NestedRepeat"
+  },
+  "steps" : [ {
+    "events" : [ {
+      "appearance" : null,
+      "event" : "repeat",
+      "label" : "Persons",
+      "ref" : "/data/person_repeat[1]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Person Name",
+      "readonly" : false,
+      "ref" : "/data/person_repeat[1]/person_name[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "event" : "repeat",
+      "label" : "Languages",
+      "ref" : "/data/person_repeat[1]/language_repeat[1]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Language",
+      "readonly" : false,
+      "ref" : "/data/person_repeat[1]/language_repeat[1]/language[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "event" : "promptNewRepeat",
+      "ref" : "/data/person_repeat[1]/language_repeat[2]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Country",
+      "readonly" : false,
+      "ref" : "/data/person_repeat[1]/country[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "event" : "promptNewRepeat",
+      "ref" : "/data/person_repeat[2]"
+    }, {
+      "event" : "endOfForm"
+    } ],
+    "op" : "walk"
+  }, {
+    "op" : "validate",
+    "outcome" : "ok",
+    "ref" : null
+  } ],
+  "traceVersion" : 1
+}

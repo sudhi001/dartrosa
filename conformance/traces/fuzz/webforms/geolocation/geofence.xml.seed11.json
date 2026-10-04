@@ -1,0 +1,27 @@
+{
+  "form" : "forms/webforms/geolocation/geofence.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"geofence_test\" version=\"202510311\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><kenya>4.422999031048619 34.232889315986995;3.932561564992426 41.457767618067;-1.7002591367439237 41.53342079400501;-4.562120072949384 39.43137845871903;-0.9439342743115873 33.85462343629687;4.422999031048619 34.232889315986995</kenya><geo /><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 11,
+  "steps" : [ {
+    "after" : null,
+    "answer" : "22.627 143.995 198 4",
+    "appearance" : "placement-map",
+    "control" : "input",
+    "dataType" : "geopoint",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Pick somewhere in Kenya",
+    "readonly" : false,
+    "ref" : "/data/geo[1]",
+    "required" : true,
+    "result" : "constraintViolated",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "required /data/geo[1]"
+}

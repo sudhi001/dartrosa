@@ -1,0 +1,63 @@
+{
+  "form" : "forms/pyxform/tests/test_settings/test_clean_text_values__no.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><test_name id=\"data\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><q1>-21</q1><q2>a  b</q2><q3 /><meta><instanceID>uuid:<uuid></instanceID></meta></test_name>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 33,
+  "steps" : [ {
+    "after" : "-21",
+    "answer" : "-21",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Q1",
+    "readonly" : false,
+    "ref" : "/test_name/q1[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "8"
+  }, {
+    "after" : "a  b",
+    "answer" : "a  b",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "c  1",
+      "value" : "a  b"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Q2",
+    "readonly" : false,
+    "ref" : "/test_name/q2[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "c  2",
+      "value" : "b"
+    } ],
+    "control" : "selectMulti",
+    "dataType" : "multipleItems",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Q3",
+    "readonly" : false,
+    "ref" : "/test_name/q3[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

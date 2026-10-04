@@ -1,0 +1,36 @@
+{
+  "form" : "forms/pyxform/tests/test_last_saved/test_last_saved_in_repeat.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><last-saved id=\"data\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><my-repeat><foo>42</foo><bar /></my-repeat><baz /><meta><instanceID>uuid:<uuid></instanceID></meta></last-saved>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 11,
+  "steps" : [ {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/last-saved/my-repeat[1]"
+  }, {
+    "after" : "42",
+    "answer" : "42",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Foo",
+    "readonly" : false,
+    "ref" : "/last-saved/my-repeat[1]/foo[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : false,
+    "event" : "promptNewRepeat",
+    "ref" : "/last-saved/my-repeat[2]"
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

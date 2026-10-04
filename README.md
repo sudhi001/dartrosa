@@ -37,7 +37,8 @@ dart run tool/check_core_purity.dart
 DartRosa's goal is identical behaviour to JavaRosa 6.0.0. `conformance/`
 holds the evidence:
 
-- `forms/` — JavaRosa's own test forms (`tool/import_javarosa_forms.sh`) plus ours
+- `forms/` — about 400 XForms: JavaRosa's own test forms (`tool/import_javarosa_forms.sh`),
+  ODK Collect and ODK Web Forms test forms, pyxform-generated forms, plus ours
 - `scenarios/` — form + sequence of user actions
 - `traces/` — JSON traces produced by real JavaRosa (committed goldens)
 - `jvm_oracle/` — the harness that produces them (needs Java 17+, no Gradle)

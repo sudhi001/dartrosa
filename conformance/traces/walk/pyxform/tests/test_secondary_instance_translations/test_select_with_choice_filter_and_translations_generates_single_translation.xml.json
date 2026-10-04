@@ -1,0 +1,42 @@
+{
+  "form" : "forms/pyxform/tests/test_secondary_instance_translations/test_select_with_choice_filter_and_translations_generates_single_translation.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><test_name id=\"data\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><foo /><meta><instanceID>uuid:<uuid></instanceID></meta></test_name>",
+  "parse" : {
+    "language" : "default",
+    "languages" : [ "default", "French" ],
+    "ok" : true,
+    "title" : "data"
+  },
+  "steps" : [ {
+    "events" : [ {
+      "appearance" : null,
+      "choices" : [ {
+        "label" : "A",
+        "value" : "a"
+      }, {
+        "label" : "B",
+        "value" : "b"
+      }, {
+        "label" : "C",
+        "value" : "c"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Foo",
+      "readonly" : false,
+      "ref" : "/test_name/foo[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "event" : "endOfForm"
+    } ],
+    "op" : "walk"
+  }, {
+    "op" : "validate",
+    "outcome" : "ok",
+    "ref" : null
+  } ],
+  "traceVersion" : 1
+}

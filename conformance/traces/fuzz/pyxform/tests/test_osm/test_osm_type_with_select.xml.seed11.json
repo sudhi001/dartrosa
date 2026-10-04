@@ -1,0 +1,62 @@
+{
+  "form" : "forms/pyxform/tests/test_osm/test_osm_type_with_select.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><test_name id=\"data\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><osm_road>file92.jpg</osm_road><osm_build>file3.jpg</osm_build><q1>n1</q1><meta><instanceID>uuid:<uuid></instanceID></meta></test_name>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 11,
+  "steps" : [ {
+    "after" : "file92.jpg",
+    "answer" : "file92.jpg",
+    "appearance" : null,
+    "control" : "osmCapture",
+    "dataType" : "binary",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Road",
+    "readonly" : false,
+    "ref" : "/test_name/osm_road[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "file3.jpg",
+    "answer" : "file3.jpg",
+    "appearance" : null,
+    "control" : "osmCapture",
+    "dataType" : "binary",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Building",
+    "readonly" : false,
+    "ref" : "/test_name/osm_build[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "n1",
+    "answer" : "n1",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "l1",
+      "value" : "n1"
+    }, {
+      "label" : "l2",
+      "value" : "n2"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Q1",
+    "readonly" : false,
+    "ref" : "/test_name/q1[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

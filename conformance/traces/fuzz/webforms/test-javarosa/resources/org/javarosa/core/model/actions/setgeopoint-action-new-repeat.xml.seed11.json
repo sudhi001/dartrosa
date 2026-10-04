@@ -1,0 +1,17 @@
+{
+  "form" : "forms/webforms/test-javarosa/resources/org/javarosa/core/model/actions/setgeopoint-action-new-repeat.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"setgeopoint-action-new-repeat\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\" />",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 11,
+  "steps" : [ {
+    "add" : false,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/person[1]"
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

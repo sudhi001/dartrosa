@@ -1,0 +1,60 @@
+{
+  "form" : "forms/pyxform/tests/test_entities/test_save_to__multiple_entities__repeat_group.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><test_name id=\"data\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:entities=\"http://www.opendatakit.org/xforms/entities\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><r1><g1><q1>kappa'lambda</q1><g2><q2>kappa'lambda</q2><meta><entity dataset=\"e2\" create=\"1\" id=\"<uuid>\"><label /></entity></meta></g2><meta><entity dataset=\"e1\" create=\"1\" id=\"<uuid>\"><label /></entity></meta></g1></r1><meta><instanceID>uuid:<uuid></instanceID></meta></test_name>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 33,
+  "steps" : [ {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "R1",
+    "ref" : "/test_name/r1[1]"
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "G1",
+    "ref" : "/test_name/r1[1]/g1[1]"
+  }, {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Q1",
+    "readonly" : false,
+    "ref" : "/test_name/r1[1]/g1[1]/q1[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "G1",
+    "ref" : "/test_name/r1[1]/g1[1]/g2[1]"
+  }, {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Q2",
+    "readonly" : false,
+    "ref" : "/test_name/r1[1]/g1[1]/g2[1]/q2[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : false,
+    "event" : "promptNewRepeat",
+    "ref" : "/test_name/r1[2]"
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

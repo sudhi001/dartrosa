@@ -1,0 +1,93 @@
+{
+  "form" : "forms/pyxform/bug_example_forms/xl_date_ambiguous_v1.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"XLDateAmbiguous-v1\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><name1>kappa'lambda</name1><name2>kappa'lambda</name2><name3>zeta &amp; eta</name3><names>name3</names><current_date>2017-07-14</current_date><meta><instanceID>uuid:<uuid></instanceID><instanceName /></meta></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 33,
+  "steps" : [ {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "name1",
+    "readonly" : false,
+    "ref" : "/data/name1[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "name2",
+    "readonly" : false,
+    "ref" : "/data/name2[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "zeta & eta",
+    "answer" : "zeta & eta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "name3",
+    "readonly" : false,
+    "ref" : "/data/name3[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "name3",
+    "answer" : "name3",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "kappa'lambda",
+      "value" : "name1"
+    }, {
+      "label" : "kappa'lambda",
+      "value" : "name2"
+    }, {
+      "label" : "zeta & eta",
+      "value" : "name3"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "names",
+    "readonly" : false,
+    "ref" : "/data/names[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "2017-07-14",
+    "answer" : "2017-07-14",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "date",
+    "event" : "question",
+    "hint" : null,
+    "label" : "date_now",
+    "readonly" : false,
+    "ref" : "/data/current_date[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

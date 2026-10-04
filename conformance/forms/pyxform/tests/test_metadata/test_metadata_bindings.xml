@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:odk="http://www.opendatakit.org/xforms">
+  <h:head>
+    <h:title>data</h:title>
+    <model odk:xforms-version="1.0.0">
+      <instance>
+        <metadata id="data">
+          <deviceid/>
+          <phonenumber/>
+          <start/>
+          <end/>
+          <today/>
+          <username/>
+          <email/>
+          <meta>
+            <instanceID/>
+          </meta>
+        </metadata>
+      </instance>
+      <bind nodeset="/metadata/deviceid" jr:preload="property" type="string" jr:preloadParams="deviceid"/>
+      <bind nodeset="/metadata/phonenumber" jr:preload="property" type="string" jr:preloadParams="phonenumber"/>
+      <bind nodeset="/metadata/start" jr:preload="timestamp" type="dateTime" jr:preloadParams="start"/>
+      <bind nodeset="/metadata/end" jr:preload="timestamp" type="dateTime" jr:preloadParams="end"/>
+      <bind nodeset="/metadata/today" jr:preload="date" type="date" jr:preloadParams="today"/>
+      <bind nodeset="/metadata/username" jr:preload="property" type="string" jr:preloadParams="username"/>
+      <bind nodeset="/metadata/email" jr:preload="property" type="string" jr:preloadParams="email"/>
+      <bind nodeset="/metadata/meta/instanceID" type="string" readonly="true()" jr:preload="uid"/>
+    </model>
+  </h:head>
+  <h:body/>
+</h:html>

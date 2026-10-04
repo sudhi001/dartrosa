@@ -1,0 +1,112 @@
+{
+  "form" : "forms/pyxform/tests/test_sms/test_sms_info.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><test_name id=\"sms_info\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><section1><age>-21</age><has_children>y</has_children></section1><medias><picture>file47.jpg</picture><gps>-10.225 -33.756 446.0 7.0</gps></medias><browsers><web_browsers>chrome firefox</web_browsers></browsers><meta><instanceID>uuid:<uuid></instanceID></meta></test_name>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 33,
+  "steps" : [ {
+    "appearance" : null,
+    "event" : "group",
+    "label" : null,
+    "ref" : "/test_name/section1[1]"
+  }, {
+    "after" : "-21",
+    "answer" : "-21",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "How old are you?",
+    "readonly" : false,
+    "ref" : "/test_name/section1[1]/age[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "y",
+    "answer" : "y",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "no",
+      "value" : "n"
+    }, {
+      "label" : "yes",
+      "value" : "y"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Do you have any children?",
+    "readonly" : false,
+    "ref" : "/test_name/section1[1]/has_children[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : null,
+    "ref" : "/test_name/medias[1]"
+  }, {
+    "after" : "file47.jpg",
+    "answer" : "file47.jpg",
+    "appearance" : null,
+    "control" : "imageChoose",
+    "dataType" : "binary",
+    "event" : "question",
+    "hint" : null,
+    "label" : "May I take your picture?",
+    "readonly" : false,
+    "ref" : "/test_name/medias[1]/picture[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "-10.225 -33.756 446.0 7.0",
+    "answer" : "-10.225 -33.756 446 7",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "geopoint",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Record your GPS coordinates.",
+    "readonly" : false,
+    "ref" : "/test_name/medias[1]/gps[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : null,
+    "ref" : "/test_name/browsers[1]"
+  }, {
+    "after" : "chrome firefox",
+    "answer" : "chrome firefox",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Mozilla Firefox",
+      "value" : "firefox"
+    }, {
+      "label" : "Google Chrome",
+      "value" : "chrome"
+    } ],
+    "control" : "selectMulti",
+    "dataType" : "multipleItems",
+    "event" : "question",
+    "hint" : null,
+    "label" : "What web browsers do you use?",
+    "readonly" : false,
+    "ref" : "/test_name/browsers[1]/web_browsers[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

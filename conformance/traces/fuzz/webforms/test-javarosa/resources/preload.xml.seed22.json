@@ -1,0 +1,101 @@
+{
+  "form" : "forms/webforms/test-javarosa/resources/preload.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"preload\" version=\"1\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\"><today><today></today><start><now></start><end /><deviceid /><phonenumber /><email /><username /><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 22,
+  "steps" : [ {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "date",
+    "event" : "question",
+    "hint" : null,
+    "label" : "today",
+    "readonly" : true,
+    "ref" : "/data/today[1]",
+    "required" : false,
+    "value" : "<today>"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "dateTime",
+    "event" : "question",
+    "hint" : null,
+    "label" : "start",
+    "readonly" : true,
+    "ref" : "/data/start[1]",
+    "required" : false,
+    "value" : "<now>"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "dateTime",
+    "event" : "question",
+    "hint" : null,
+    "label" : "end",
+    "readonly" : true,
+    "ref" : "/data/end[1]",
+    "required" : false,
+    "value" : null
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "deviceid",
+    "readonly" : true,
+    "ref" : "/data/deviceid[1]",
+    "required" : false,
+    "value" : null
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "phonenumber",
+    "readonly" : true,
+    "ref" : "/data/phonenumber[1]",
+    "required" : false,
+    "value" : null
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "email",
+    "readonly" : true,
+    "ref" : "/data/email[1]",
+    "required" : false,
+    "value" : null
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "username",
+    "readonly" : true,
+    "ref" : "/data/username[1]",
+    "required" : false,
+    "value" : null
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "instanceID",
+    "readonly" : true,
+    "ref" : "/data/meta[1]/instanceID[1]",
+    "required" : false,
+    "value" : "uuid:<uuid>"
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

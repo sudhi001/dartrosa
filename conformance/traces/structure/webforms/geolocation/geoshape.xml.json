@@ -1,0 +1,11 @@
+{
+  "form" : "forms/webforms/geolocation/geoshape.xml",
+  "parse" : {
+    "error" : {
+      "message" : "Cycle detected in form's relevant and calculation logic!\nThe following nodes are likely involved in the loop:\n/data/geo",
+      "type" : "XFormParseException"
+    },
+    "ok" : false
+  },
+  "traceVersion" : 1
+}

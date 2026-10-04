@@ -1,0 +1,169 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:odk="http://www.opendatakit.org/xforms">
+  <h:head>
+    <h:title>data</h:title>
+    <model odk:xforms-version="1.0.0">
+      <instance>
+        <test_name id="data">
+          <q1/>
+          <q2/>
+          <q3/>
+          <q4/>
+          <q5/>
+          <q6/>
+          <q7/>
+          <q8/>
+          <q9/>
+          <meta>
+            <instanceID/>
+          </meta>
+        </test_name>
+      </instance>
+      <instance id="c1">
+        <root>
+          <item>
+            <name>n1</name>
+            <label>N1</label>
+          </item>
+          <item>
+            <name>n2</name>
+            <label>N2</label>
+          </item>
+        </root>
+      </instance>
+      <instance id="c2">
+        <root>
+          <item>
+            <name>n3</name>
+            <label>N3</label>
+          </item>
+          <item>
+            <name>n4</name>
+            <label>N4</label>
+          </item>
+        </root>
+      </instance>
+      <instance id="c3">
+        <root>
+          <item>
+            <name>n5</name>
+            <label>N5</label>
+          </item>
+          <item>
+            <name>n6</name>
+            <label>N6</label>
+          </item>
+        </root>
+      </instance>
+      <instance id="c4">
+        <root>
+          <item>
+            <name>n7</name>
+            <label>N7</label>
+          </item>
+          <item>
+            <name>n8</name>
+            <label>N8</label>
+          </item>
+        </root>
+      </instance>
+      <instance id="c5">
+        <root>
+          <item>
+            <name>n9</name>
+            <label>N9</label>
+          </item>
+          <item>
+            <name>n10</name>
+            <label>N10</label>
+          </item>
+        </root>
+      </instance>
+      <instance id="c6">
+        <root>
+          <item>
+            <name>n11</name>
+            <label>N11</label>
+          </item>
+          <item>
+            <name>n12</name>
+            <label>N12</label>
+          </item>
+        </root>
+      </instance>
+      <instance id="c7">
+        <root>
+          <item>
+            <name>n13</name>
+            <label>N13</label>
+          </item>
+          <item>
+            <name>n14</name>
+            <label>N14</label>
+          </item>
+        </root>
+      </instance>
+      <bind nodeset="/test_name/q1" type="string"/>
+      <bind nodeset="/test_name/q2" type="string" relevant=" /test_name/q1 ='n1'"/>
+      <bind nodeset="/test_name/q3" type="string" relevant=" /test_name/q1 ='n2'"/>
+      <bind nodeset="/test_name/q4" type="string" calculate="if( /test_name/q1 ='n1',  /test_name/q2 , if( /test_name/q1 ='n2',  /test_name/q3 , 'Error'))"/>
+      <bind nodeset="/test_name/q5" type="string" relevant=" /test_name/q4 ='n3'"/>
+      <bind nodeset="/test_name/q6" type="string" relevant=" /test_name/q4 ='n4'"/>
+      <bind nodeset="/test_name/q7" type="string" relevant=" /test_name/q4 ='n5'"/>
+      <bind nodeset="/test_name/q8" type="string" relevant=" /test_name/q4 ='n6'"/>
+      <bind nodeset="/test_name/q9" type="string" calculate="if( /test_name/q4 ='n3',  /test_name/q5 , if( /test_name/q4 ='n4',  /test_name/q6 , if( /test_name/q4 ='n5',  /test_name/q7 , if( /test_name/q4 ='n6',  /test_name/q8 , 'Error'))))"/>
+      <bind nodeset="/test_name/meta/instanceID" type="string" readonly="true()" jr:preload="uid"/>
+    </model>
+  </h:head>
+  <h:body>
+    <select1 ref="/test_name/q1">
+      <label>Q1</label>
+      <itemset nodeset="instance('c1')/root/item">
+        <value ref="name"/>
+        <label ref="label"/>
+      </itemset>
+    </select1>
+    <select1 ref="/test_name/q2">
+      <label>Q2</label>
+      <itemset nodeset="instance('c2')/root/item">
+        <value ref="name"/>
+        <label ref="label"/>
+      </itemset>
+    </select1>
+    <select1 ref="/test_name/q3">
+      <label>Q3</label>
+      <itemset nodeset="instance('c3')/root/item">
+        <value ref="name"/>
+        <label ref="label"/>
+      </itemset>
+    </select1>
+    <select1 ref="/test_name/q5">
+      <label>Q5</label>
+      <itemset nodeset="instance('c4')/root/item">
+        <value ref="name"/>
+        <label ref="label"/>
+      </itemset>
+    </select1>
+    <select1 ref="/test_name/q6">
+      <label>Q6</label>
+      <itemset nodeset="instance('c5')/root/item">
+        <value ref="name"/>
+        <label ref="label"/>
+      </itemset>
+    </select1>
+    <select1 ref="/test_name/q7">
+      <label>Q7</label>
+      <itemset nodeset="instance('c6')/root/item">
+        <value ref="name"/>
+        <label ref="label"/>
+      </itemset>
+    </select1>
+    <select1 ref="/test_name/q8">
+      <label>Q8</label>
+      <itemset nodeset="instance('c7')/root/item">
+        <value ref="name"/>
+        <label ref="label"/>
+      </itemset>
+    </select1>
+  </h:body>
+</h:html>

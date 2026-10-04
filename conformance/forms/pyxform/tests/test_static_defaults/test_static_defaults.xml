@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:odk="http://www.opendatakit.org/xforms">
+  <h:head>
+    <h:title>data</h:title>
+    <model odk:xforms-version="1.0.0">
+      <instance>
+        <test_name id="data">
+          <numba>foo</numba>
+          <repeat jr:template="">
+            <bar>12</bar>
+          </repeat>
+          <repeat>
+            <bar>12</bar>
+          </repeat>
+          <meta>
+            <instanceID/>
+          </meta>
+        </test_name>
+      </instance>
+      <bind nodeset="/test_name/numba" type="int"/>
+      <bind nodeset="/test_name/repeat/bar" type="int"/>
+      <bind nodeset="/test_name/meta/instanceID" type="string" readonly="true()" jr:preload="uid"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input ref="/test_name/numba">
+      <label>Foo</label>
+    </input>
+    <group ref="/test_name/repeat">
+      <label/>
+      <repeat nodeset="/test_name/repeat">
+        <input ref="/test_name/repeat/bar">
+          <label>Bar</label>
+        </input>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

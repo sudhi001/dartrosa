@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:odk="http://www.opendatakit.org/xforms">
+  <h:head>
+    <h:title>data</h:title>
+    <model odk:xforms-version="1.0.0">
+      <instance>
+        <test_name id="data">
+          <state/>
+          <city/>
+          <suburb/>
+          <meta>
+            <instanceID/>
+          </meta>
+        </test_name>
+      </instance>
+      <instance id="state">
+        <root>
+          <item>
+            <name>nsw</name>
+            <label>NSW</label>
+          </item>
+          <item>
+            <name>vic</name>
+            <label>VIC</label>
+          </item>
+        </root>
+      </instance>
+      <bind nodeset="/test_name/state" type="string"/>
+      <bind nodeset="/test_name/city" type="string"/>
+      <bind nodeset="/test_name/suburb" type="string"/>
+      <bind nodeset="/test_name/meta/instanceID" type="string" readonly="true()" jr:preload="uid"/>
+    </model>
+  </h:head>
+  <h:body>
+    <select1 ref="/test_name/state">
+      <label>State</label>
+      <itemset nodeset="instance('state')/root/item">
+        <value ref="name"/>
+        <label ref="label"/>
+      </itemset>
+    </select1>
+    <input ref="/test_name/city" query="instance('city')/root/item[state= /test_name/state ]">
+      <label>City</label>
+    </input>
+    <input ref="/test_name/suburb" query="instance('suburb')/root/item[state= /test_name/state  and city= /test_name/city ]">
+      <label>Suburb</label>
+    </input>
+  </h:body>
+</h:html>

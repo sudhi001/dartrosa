@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:odk="http://www.opendatakit.org/xforms">
+  <h:head>
+    <h:title>data</h:title>
+    <model odk:xforms-version="1.0.0">
+      <instance>
+        <data id="data">
+          <watermark_phrase/>
+          <text1/>
+          <image1/>
+          <meta>
+            <instanceID/>
+          </meta>
+        </data>
+      </instance>
+      <bind nodeset="/data/watermark_phrase" type="string"/>
+      <bind nodeset="/data/text1" type="string"/>
+      <bind nodeset="/data/image1" type="binary"/>
+      <bind nodeset="/data/meta/instanceID" type="string" readonly="true()" jr:preload="uid"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input ref="/data/watermark_phrase">
+      <label>Watermark Text:</label>
+    </input>
+    <input ref="/data/text1">
+      <label>Text</label>
+    </input>
+    <upload ref="/data/image1" mediatype="image/*" esri="{'style': 'watermark= /data/watermark_phrase '}">
+      <label>Take a Photo:</label>
+    </upload>
+  </h:body>
+</h:html>

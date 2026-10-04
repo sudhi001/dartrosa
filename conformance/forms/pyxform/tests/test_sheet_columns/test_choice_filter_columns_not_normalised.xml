@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:odk="http://www.opendatakit.org/xforms">
+  <h:head>
+    <h:title>data</h:title>
+    <model odk:xforms-version="1.0.0">
+      <instance>
+        <test_name id="data">
+          <q0/>
+          <q1/>
+          <meta>
+            <instanceID/>
+          </meta>
+        </test_name>
+      </instance>
+      <instance id="c1">
+        <root>
+          <item>
+            <name>na</name>
+            <label>la</label>
+            <CF>a1</CF>
+            <A_B>a2</A_B>
+            <Cd>a3</Cd>
+            <h-I>a5</h-I>
+            <J.k>a6</J.k>
+          </item>
+          <item>
+            <name>nb</name>
+            <label>lb</label>
+            <CF>b1</CF>
+            <A_B>b2</A_B>
+            <Cd>b3</Cd>
+            <h-I>b5</h-I>
+            <J.k>b6</J.k>
+          </item>
+        </root>
+      </instance>
+      <bind nodeset="/test_name/q0" type="string"/>
+      <bind nodeset="/test_name/q1" type="string"/>
+      <bind nodeset="/test_name/meta/instanceID" type="string" readonly="true()" jr:preload="uid"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input ref="/test_name/q0">
+      <label>Q0</label>
+    </input>
+    <select1 ref="/test_name/q1">
+      <label>Q1</label>
+      <itemset nodeset="instance('c1')/root/item[ /test_name/q0  = CF or  /test_name/q0  = A_B or  /test_name/q0  = Cd or  /test_name/q0  = h-I or  /test_name/q0  = J.k]">
+        <value ref="name"/>
+        <label ref="label"/>
+      </itemset>
+    </select1>
+  </h:body>
+</h:html>

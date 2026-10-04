@@ -1,0 +1,1654 @@
+{
+  "form" : "forms/webforms/preview-service/xforms/ifrc-distribution-site-assessment-v1.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"distributionsite_assessment_v1_0\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><start><now></start><end /><report_date><today></report_date><deviceid /><imei /><simserial /><phonenumber /><intro1>kappa'lambda</intro1><intro2>kappa'lambda</intro2><location_details><district>District7</district><township>Township 31</township><neighbourhood>Neighbourhood 62</neighbourhood><subneighbourhood>theta&lt;iota&gt;</subneighbourhood><site_name>x y z</site_name><address>theta&lt;iota&gt;</address><site_gps>87.956 -158.588 343.0 4.0</site_gps></location_details><assessment_date>2021-02-16</assessment_date><reporter_name>123</reporter_name><site_ownership><permission><permission>yes</permission><permission_comment>épsilon</permission_comment></permission><used><used>no</used><used_comment>gamma delta</used_comment></used><link><link>yes</link><link_comment>épsilon</link_comment></link></site_ownership><site_perception><authorities><authorities>no</authorities><authorities_comment /></authorities><RCRC><RCRC>good</RCRC><RCRC_comment>zeta &amp; eta</RCRC_comment></RCRC><community_leaders><community_leaders>yes</community_leaders><community_leaders_comment>kappa'lambda</community_leaders_comment></community_leaders></site_perception><site_size><space_safety><space_safety>yes</space_safety><space_safety_comment /></space_safety><waiting_area><waiting_area /><waiting_area_comment>épsilon</waiting_area_comment></waiting_area><space><space>yes</space><space_comment>theta&lt;iota&gt;</space_comment></space></site_size><site_layout><entrance_exit><entrance_exit>yes</entrance_exit><entrance_exit_comment>épsilon</entrance_exit_comment></entrance_exit><ground><ground /><ground_comment>123</ground_comment></ground><disabled><disabled>yes</disabled><disabled_comment>épsilon</disabled_comment></disabled><obstacle><obstacle>yes</obstacle><obstacle_comment>x y z</obstacle_comment></obstacle><weather><weather /><weather_comment /></weather><communication><communication>yes</communication><communication_comment>theta&lt;iota&gt;</communication_comment></communication></site_layout><site_logistics><intro_logistics>123</intro_logistics><roads><roads>gravel</roads><roads_comment>zeta &amp; eta</roads_comment></roads><route_security><route_security>no</route_security><route_security_comment>épsilon</route_security_comment></route_security><ground_space>123</ground_space><security_safety><security_safety>no</security_safety><security_safety_comment>theta&lt;iota&gt;</security_safety_comment></security_safety><special><special>no</special><special_comment /></special><picture>file19.jpg</picture></site_logistics><beneficiaries><community><community>yes</community><community_comment /></community><accessible><accessible /><accessible_comment>zeta &amp; eta</accessible_comment></accessible><time><time>-35</time><time_comment /></time><carry><carry>yes</carry><carry_comment>mu\"nu</carry_comment></carry><encashment><encashment>no</encashment><encashment_comment>alpha</encashment_comment></encashment></beneficiaries><security><fences_group><fences>yes</fences><fences_comment /></fences_group><community_security><community_security>yes</community_security><community_security_comment>kappa'lambda</community_security_comment></community_security><surroundings>x y z</surroundings><leave><leave>yes</leave><leave_comment>épsilon</leave_comment></leave><evacuations><evacuations>yes</evacuations><evacuations_comment>zeta &amp; eta</evacuations_comment></evacuations></security><plan_picture>file24.jpg</plan_picture><plan_drawing>file32.jpg</plan_drawing><illustrate>yes</illustrate><waiting>file71.jpg</waiting><entry>file47.jpg</entry><verification>file12.jpg</verification><encashment_point>file49.jpg</encashment_point><nfi>file25.jpg</nfi><exit>file83.jpg</exit><feed_back>file65.jpg</feed_back><parking>file54.jpg</parking><other>file2.jpg</other><thanks /><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 33,
+  "steps" : [ {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "trigger",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Purpose:\n\nAssessing the distribution site is crucial in making sure the in-kind/cash distribution will go smoothly and in a secure way, and will ensure beneficiary dignity.",
+    "readonly" : false,
+    "ref" : "/data/intro1[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "trigger",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "How to complete the tool:\n\nVisit potential sites as soon as you can and, if possible, make several visits to the final identified site, to gain as much information as you can. Walk around the site and discuss with local authorities, the Red Cross Red Crescent local branch, neighbours and community leaders in order to gain the information. Be extra careful about any information that could compromise distribution security. Take pictures of the site's key features and draw a site map, for future distribution set-up and training of staff/volunteers. Indicate clearly which part of the site is usable.",
+    "readonly" : false,
+    "ref" : "/data/intro2[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Location details",
+    "ref" : "/data/location_details[1]"
+  }, {
+    "after" : "District7",
+    "answer" : "District7",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "District1",
+      "value" : "District1"
+    }, {
+      "label" : "District2",
+      "value" : "District2"
+    }, {
+      "label" : "District3",
+      "value" : "District3"
+    }, {
+      "label" : "District4",
+      "value" : "District4"
+    }, {
+      "label" : "District5",
+      "value" : "District5"
+    }, {
+      "label" : "District6",
+      "value" : "District6"
+    }, {
+      "label" : "District7",
+      "value" : "District7"
+    }, {
+      "label" : "District8",
+      "value" : "District8"
+    }, {
+      "label" : "District9",
+      "value" : "District9"
+    }, {
+      "label" : "District10",
+      "value" : "District10"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "District",
+    "readonly" : false,
+    "ref" : "/data/location_details[1]/district[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "Township 31",
+    "answer" : "Township 31",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Township 31",
+      "value" : "Township 31"
+    }, {
+      "label" : "Township 32",
+      "value" : "Township 32"
+    }, {
+      "label" : "Township 33",
+      "value" : "Township 33"
+    }, {
+      "label" : "Township 34",
+      "value" : "Township 34"
+    }, {
+      "label" : "Township 35",
+      "value" : "Township 35"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Township/City",
+    "readonly" : false,
+    "ref" : "/data/location_details[1]/township[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "Neighbourhood 62",
+    "answer" : "Neighbourhood 62",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Neighbourhood 61",
+      "value" : "Neighbourhood 61"
+    }, {
+      "label" : "Neighbourhood 62",
+      "value" : "Neighbourhood 62"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Village/Neighbourhood",
+    "readonly" : false,
+    "ref" : "/data/location_details[1]/neighbourhood[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "theta<iota>",
+    "answer" : "theta<iota>",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Sub-Village/Sub-Neighbourhood",
+    "readonly" : false,
+    "ref" : "/data/location_details[1]/subneighbourhood[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "x y z",
+    "answer" : "x y z",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Name of the site",
+    "readonly" : false,
+    "ref" : "/data/location_details[1]/site_name[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "theta<iota>",
+    "answer" : "theta<iota>",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Address",
+    "readonly" : false,
+    "ref" : "/data/location_details[1]/address[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "87.956 -158.588 343.0 4.0",
+    "answer" : "87.956 -158.588 343 4",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "geopoint",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Collect the GPS coordinates of the distribution site",
+    "readonly" : false,
+    "ref" : "/data/location_details[1]/site_gps[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "2021-02-16",
+    "answer" : "2021-02-16",
+    "appearance" : "no-calendar",
+    "control" : "input",
+    "dataType" : "date",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Assessment date",
+    "readonly" : false,
+    "ref" : "/data/assessment_date[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "123",
+    "answer" : "123",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Name of delegate/ staff completing the assessment (Last name/ First name)",
+    "readonly" : false,
+    "ref" : "/data/reporter_name[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Site ownership",
+    "ref" : "/data/site_ownership[1]"
+  }, {
+    "appearance" : "field-list",
+    "event" : "group",
+    "label" : "Permission",
+    "ref" : "/data/site_ownership[1]/permission[1]"
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "1. Do you have appropriate permission to use the site?",
+    "readonly" : false,
+    "ref" : "/data/site_ownership[1]/permission[1]/permission[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "épsilon",
+    "answer" : "épsilon",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Comments, suggestions to improve:",
+    "readonly" : false,
+    "ref" : "/data/site_ownership[1]/permission[1]/permission_comment[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : "field-list",
+    "event" : "group",
+    "label" : "Used",
+    "ref" : "/data/site_ownership[1]/used[1]"
+  }, {
+    "after" : "no",
+    "answer" : "no",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "2. Has the site been used previously by Red Cross Red Crescent/other organisations?",
+    "readonly" : false,
+    "ref" : "/data/site_ownership[1]/used[1]/used[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "gamma delta",
+    "answer" : "gamma delta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Comments, suggestions to improve:",
+    "readonly" : false,
+    "ref" : "/data/site_ownership[1]/used[1]/used_comment[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : "field-list",
+    "event" : "group",
+    "label" : "Link",
+    "ref" : "/data/site_ownership[1]/link[1]"
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "3. Does the site belong/is linked to a religious/political group?",
+    "readonly" : false,
+    "ref" : "/data/site_ownership[1]/link[1]/link[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "épsilon",
+    "answer" : "épsilon",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Comments, suggestions to improve:",
+    "readonly" : false,
+    "ref" : "/data/site_ownership[1]/link[1]/link_comment[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Perception of the site",
+    "ref" : "/data/site_perception[1]"
+  }, {
+    "appearance" : "field-list",
+    "event" : "group",
+    "label" : "Authorities",
+    "ref" : "/data/site_perception[1]/authorities[1]"
+  }, {
+    "after" : "no",
+    "answer" : "no",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "4. Do the authorities approve the use of the site for a distribution?",
+    "readonly" : false,
+    "ref" : "/data/site_perception[1]/authorities[1]/authorities[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Comments, suggestions to improve:",
+    "readonly" : false,
+    "ref" : "/data/site_perception[1]/authorities[1]/authorities_comment[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : "field-list",
+    "event" : "group",
+    "label" : "RCRC",
+    "ref" : "/data/site_perception[1]/RCRC[1]"
+  }, {
+    "after" : "good",
+    "answer" : "good",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Excellent",
+      "value" : "excellent"
+    }, {
+      "label" : "Very good",
+      "value" : "very_good"
+    }, {
+      "label" : "Good",
+      "value" : "good"
+    }, {
+      "label" : "Average",
+      "value" : "average"
+    }, {
+      "label" : "Rather poor",
+      "value" : "rather_poor"
+    }, {
+      "label" : "Poor",
+      "value" : "poor"
+    }, {
+      "label" : "Very poor",
+      "value" : "very_poor"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "5. What does the HQ/local branch think of the site?",
+    "readonly" : false,
+    "ref" : "/data/site_perception[1]/RCRC[1]/RCRC[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "zeta & eta",
+    "answer" : "zeta & eta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Comments, suggestions to improve:",
+    "readonly" : false,
+    "ref" : "/data/site_perception[1]/RCRC[1]/RCRC_comment[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : "field-list",
+    "event" : "group",
+    "label" : "Community leaders",
+    "ref" : "/data/site_perception[1]/community_leaders[1]"
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "6. Do the community leaders agree with the choice of the site?",
+    "readonly" : false,
+    "ref" : "/data/site_perception[1]/community_leaders[1]/community_leaders[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Comments, suggestions to improve:",
+    "readonly" : false,
+    "ref" : "/data/site_perception[1]/community_leaders[1]/community_leaders_comment[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Size of the site",
+    "ref" : "/data/site_size[1]"
+  }, {
+    "appearance" : "field-list",
+    "event" : "group",
+    "label" : "Space safety",
+    "ref" : "/data/site_size[1]/space_safety[1]"
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "7. Is there enough space to carry out the distribution safely for the estimated number of beneficiaries?",
+    "readonly" : false,
+    "ref" : "/data/site_size[1]/space_safety[1]/space_safety[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Comments, suggestions to improve:",
+    "readonly" : false,
+    "ref" : "/data/site_size[1]/space_safety[1]/space_safety_comment[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : "field-list",
+    "event" : "group",
+    "label" : "Waiting area",
+    "ref" : "/data/site_size[1]/waiting_area[1]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "8. How many beneficiaries could stand in the waiting area?",
+    "readonly" : false,
+    "ref" : "/data/site_size[1]/waiting_area[1]/waiting_area[1]",
+    "required" : true,
+    "result" : "required",
+    "value" : null
+  }, {
+    "after" : "épsilon",
+    "answer" : "épsilon",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Comments, suggestions to improve:",
+    "readonly" : false,
+    "ref" : "/data/site_size[1]/waiting_area[1]/waiting_area_comment[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : "field-list",
+    "event" : "group",
+    "label" : "Space",
+    "ref" : "/data/site_size[1]/space[1]"
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "9. Is there enough space for trucks/vehicles and staff and volunteers to organize a distribution?",
+    "readonly" : false,
+    "ref" : "/data/site_size[1]/space[1]/space[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "theta<iota>",
+    "answer" : "theta<iota>",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Comments, suggestions to improve:",
+    "readonly" : false,
+    "ref" : "/data/site_size[1]/space[1]/space_comment[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Site layout",
+    "ref" : "/data/site_layout[1]"
+  }, {
+    "appearance" : "field-list",
+    "event" : "group",
+    "label" : "Entrance exit",
+    "ref" : "/data/site_layout[1]/entrance_exit[1]"
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "10. Is there one entrance/one exit?",
+    "readonly" : false,
+    "ref" : "/data/site_layout[1]/entrance_exit[1]/entrance_exit[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "épsilon",
+    "answer" : "épsilon",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Comments, suggestions to improve:",
+    "readonly" : false,
+    "ref" : "/data/site_layout[1]/entrance_exit[1]/entrance_exit_comment[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : "field-list",
+    "event" : "group",
+    "label" : null,
+    "ref" : "/data/site_layout[1]/ground[1]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Dry",
+      "value" : "dry"
+    }, {
+      "label" : "Humid",
+      "value" : "humid"
+    }, {
+      "label" : "Wet",
+      "value" : "wet"
+    }, {
+      "label" : "Concrete",
+      "value" : "concrete"
+    }, {
+      "label" : "Muddy",
+      "value" : "muddy"
+    }, {
+      "label" : "Sandy",
+      "value" : "sandy"
+    }, {
+      "label" : "Dusty",
+      "value" : "dusty"
+    }, {
+      "label" : "Grass",
+      "value" : "grass"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "11. Identify the ground condition for distribution:",
+    "readonly" : false,
+    "ref" : "/data/site_layout[1]/ground[1]/ground[1]",
+    "required" : true,
+    "result" : "required",
+    "value" : null
+  }, {
+    "after" : "123",
+    "answer" : "123",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Comments, suggestions to improve:",
+    "readonly" : false,
+    "ref" : "/data/site_layout[1]/ground[1]/ground_comment[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : "field-list",
+    "event" : "group",
+    "label" : "Disabled",
+    "ref" : "/data/site_layout[1]/disabled[1]"
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "12. Is the site accessible for disabled people?",
+    "readonly" : false,
+    "ref" : "/data/site_layout[1]/disabled[1]/disabled[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "épsilon",
+    "answer" : "épsilon",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Comments, suggestions to improve:",
+    "readonly" : false,
+    "ref" : "/data/site_layout[1]/disabled[1]/disabled_comment[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : "field-list",
+    "event" : "group",
+    "label" : "Obstacle",
+    "ref" : "/data/site_layout[1]/obstacle[1]"
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "13. Are there any physical obstacles that could compromise the distribution?",
+    "readonly" : false,
+    "ref" : "/data/site_layout[1]/obstacle[1]/obstacle[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "x y z",
+    "answer" : "x y z",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Comments, suggestions to improve:",
+    "readonly" : false,
+    "ref" : "/data/site_layout[1]/obstacle[1]/obstacle_comment[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : "field-list",
+    "event" : "group",
+    "label" : "Weather",
+    "ref" : "/data/site_layout[1]/weather[1]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "14. Can the site cope with local weather conditions (shade for heat, protection from rain and wind, etc.)?",
+    "readonly" : false,
+    "ref" : "/data/site_layout[1]/weather[1]/weather[1]",
+    "required" : true,
+    "result" : "required",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Comments, suggestions to improve:",
+    "readonly" : false,
+    "ref" : "/data/site_layout[1]/weather[1]/weather_comment[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : "field-list",
+    "event" : "group",
+    "label" : "Communication",
+    "ref" : "/data/site_layout[1]/communication[1]"
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "15. Does the site layout allow for easy communication with the beneficiaries (space for information kiosk, complaint desk and billboards etc.)?",
+    "readonly" : false,
+    "ref" : "/data/site_layout[1]/communication[1]/communication[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "theta<iota>",
+    "answer" : "theta<iota>",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Comments, suggestions to improve:",
+    "readonly" : false,
+    "ref" : "/data/site_layout[1]/communication[1]/communication_comment[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Logistics access site assessment",
+    "ref" : "/data/site_logistics[1]"
+  }, {
+    "after" : "123",
+    "answer" : "123",
+    "appearance" : null,
+    "control" : "trigger",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "The following part of the assessment should be carried out by a person with technical logistics experience and the results confirmed with the logistics team. If in doubt, request direct support from the logistics team. Also, you could take pictures and bring them back to the logistics team.",
+    "readonly" : false,
+    "ref" : "/data/site_logistics[1]/intro_logistics[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : "field-list",
+    "event" : "group",
+    "label" : "Roads",
+    "ref" : "/data/site_logistics[1]/roads[1]"
+  }, {
+    "after" : "gravel",
+    "answer" : "gravel",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Highway",
+      "value" : "highway"
+    }, {
+      "label" : "High quality asphalt road",
+      "value" : "high_asphalt"
+    }, {
+      "label" : "Low quality asphalt road",
+      "value" : "low_asphalt"
+    }, {
+      "label" : "Gravel road",
+      "value" : "gravel"
+    }, {
+      "label" : "Dirt track",
+      "value" : "dirt_track"
+    }, {
+      "label" : "Mud track",
+      "value" : "mud"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "16. How are the roads leading to the distribution site (including any staging area), which will be used by light and heavy vehicles involved in the distribution?",
+    "readonly" : false,
+    "ref" : "/data/site_logistics[1]/roads[1]/roads[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "zeta & eta",
+    "answer" : "zeta & eta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Comments, suggestions to improve:",
+    "readonly" : false,
+    "ref" : "/data/site_logistics[1]/roads[1]/roads_comment[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : "field-list",
+    "event" : "group",
+    "label" : "Route security",
+    "ref" : "/data/site_logistics[1]/route_security[1]"
+  }, {
+    "after" : "no",
+    "answer" : "no",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "17. Is there any security concern on the route leading to the site?",
+    "readonly" : false,
+    "ref" : "/data/site_logistics[1]/route_security[1]/route_security[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "épsilon",
+    "answer" : "épsilon",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Comments, suggestions to improve:",
+    "readonly" : false,
+    "ref" : "/data/site_logistics[1]/route_security[1]/route_security_comment[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "123",
+    "answer" : "123",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "18. What are the main features of the ground type and space, which need to be taken into account for light and heavy vehicles operating in the distribution point?",
+    "readonly" : false,
+    "ref" : "/data/site_logistics[1]/ground_space[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : "field-list",
+    "event" : "group",
+    "label" : "Security safety",
+    "ref" : "/data/site_logistics[1]/security_safety[1]"
+  }, {
+    "after" : "no",
+    "answer" : "no",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "19. Are there any security and safety considerations involving cars and trucks?",
+    "readonly" : false,
+    "ref" : "/data/site_logistics[1]/security_safety[1]/security_safety[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "theta<iota>",
+    "answer" : "theta<iota>",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Comments, suggestions to improve:",
+    "readonly" : false,
+    "ref" : "/data/site_logistics[1]/security_safety[1]/security_safety_comment[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : "field-list",
+    "event" : "group",
+    "label" : "Special",
+    "ref" : "/data/site_logistics[1]/special[1]"
+  }, {
+    "after" : "no",
+    "answer" : "no",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "20. Are there special considerations for light and heavy vehicles involved in the distribution (i.e distribution direct from trucks)?",
+    "readonly" : false,
+    "ref" : "/data/site_logistics[1]/special[1]/special[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Comments, suggestions to improve:",
+    "readonly" : false,
+    "ref" : "/data/site_logistics[1]/special[1]/special_comment[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "file19.jpg",
+    "answer" : "file19.jpg",
+    "appearance" : null,
+    "control" : "imageChoose",
+    "dataType" : "binary",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Take a picture to illustrate if needed",
+    "readonly" : false,
+    "ref" : "/data/site_logistics[1]/picture[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Access for beneficiaries",
+    "ref" : "/data/beneficiaries[1]"
+  }, {
+    "appearance" : "field-list",
+    "event" : "group",
+    "label" : "Community",
+    "ref" : "/data/beneficiaries[1]/community[1]"
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "21. Does the community know the site (prior to beneficiary communication campaign)?",
+    "readonly" : false,
+    "ref" : "/data/beneficiaries[1]/community[1]/community[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Comments, suggestions to improve:",
+    "readonly" : false,
+    "ref" : "/data/beneficiaries[1]/community[1]/community_comment[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : "field-list",
+    "event" : "group",
+    "label" : "Accessible",
+    "ref" : "/data/beneficiaries[1]/accessible[1]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "22. Is the site accessible by public transport/walking?",
+    "readonly" : false,
+    "ref" : "/data/beneficiaries[1]/accessible[1]/accessible[1]",
+    "required" : true,
+    "result" : "required",
+    "value" : null
+  }, {
+    "after" : "zeta & eta",
+    "answer" : "zeta & eta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Comments, suggestions to improve:",
+    "readonly" : false,
+    "ref" : "/data/beneficiaries[1]/accessible[1]/accessible_comment[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : "field-list",
+    "event" : "group",
+    "label" : "Time",
+    "ref" : "/data/beneficiaries[1]/time[1]"
+  }, {
+    "after" : "-35",
+    "answer" : "-35",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : "For ex. write \"20\" for 20 mintues, \"120\" for 2 hours, etc.",
+    "label" : "23. How much (average) time does it take for beneficiaries to reach the site (in minutes)?",
+    "readonly" : false,
+    "ref" : "/data/beneficiaries[1]/time[1]/time[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Comments, suggestions to improve:",
+    "readonly" : false,
+    "ref" : "/data/beneficiaries[1]/time[1]/time_comment[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : "field-list",
+    "event" : "group",
+    "label" : "Carry",
+    "ref" : "/data/beneficiaries[1]/carry[1]"
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "24. In the case of in-kind distribution, can the beneficiaries carry their items or use transport to go back home?",
+    "readonly" : false,
+    "ref" : "/data/beneficiaries[1]/carry[1]/carry[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "mu\"nu",
+    "answer" : "mu\"nu",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Comments, suggestions to improve:",
+    "readonly" : false,
+    "ref" : "/data/beneficiaries[1]/carry[1]/carry_comment[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : "field-list",
+    "event" : "group",
+    "label" : "Encashment",
+    "ref" : "/data/beneficiaries[1]/encashment[1]"
+  }, {
+    "after" : "no",
+    "answer" : "no",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "25. In the case of cash distribution, can the beneficiaries easily access the encashment/trader provider?",
+    "readonly" : false,
+    "ref" : "/data/beneficiaries[1]/encashment[1]/encashment[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "alpha",
+    "answer" : "alpha",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Comments, suggestions to improve:",
+    "readonly" : false,
+    "ref" : "/data/beneficiaries[1]/encashment[1]/encashment_comment[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Security",
+    "ref" : "/data/security[1]"
+  }, {
+    "appearance" : "field-list",
+    "event" : "group",
+    "label" : "Fences",
+    "ref" : "/data/security[1]/fences_group[1]"
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "26. Is it fenced/closed off?",
+    "readonly" : false,
+    "ref" : "/data/security[1]/fences_group[1]/fences[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Comments, suggestions to improve:",
+    "readonly" : false,
+    "ref" : "/data/security[1]/fences_group[1]/fences_comment[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : "field-list",
+    "event" : "group",
+    "label" : "Community security",
+    "ref" : "/data/security[1]/community_security[1]"
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "29. Have community leaders agreed to provide security for the site?",
+    "readonly" : false,
+    "ref" : "/data/security[1]/community_security[1]/community_security[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Comments, suggestions to improve:",
+    "readonly" : false,
+    "ref" : "/data/security[1]/community_security[1]/community_security_comment[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "x y z",
+    "answer" : "x y z",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "30. How are the surroundings with regard to security considerations?",
+    "readonly" : false,
+    "ref" : "/data/security[1]/surroundings[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : "field-list",
+    "event" : "group",
+    "label" : "Leave",
+    "ref" : "/data/security[1]/leave[1]"
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "31. Can the beneficiary leave the area safely and discretely?",
+    "readonly" : false,
+    "ref" : "/data/security[1]/leave[1]/leave[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "épsilon",
+    "answer" : "épsilon",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Comments, suggestions to improve:",
+    "readonly" : false,
+    "ref" : "/data/security[1]/leave[1]/leave_comment[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : "field-list",
+    "event" : "group",
+    "label" : "Evacuations",
+    "ref" : "/data/security[1]/evacuations[1]"
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "32. Are there evacuations routes for staff/volunteers?",
+    "readonly" : false,
+    "ref" : "/data/security[1]/evacuations[1]/evacuations[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "zeta & eta",
+    "answer" : "zeta & eta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Comments, suggestions to improve:",
+    "readonly" : false,
+    "ref" : "/data/security[1]/evacuations[1]/evacuations_comment[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "file24.jpg",
+    "answer" : "file24.jpg",
+    "appearance" : null,
+    "control" : "imageChoose",
+    "dataType" : "binary",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Draw a map of the site. Include possible entrance and exit locations, site layout showing usable parts of the site and vehicles/trucks parking locations. Take picture of your paper drawing or draw with your finger on the mobile device screen (next page)",
+    "readonly" : false,
+    "ref" : "/data/plan_picture[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "file32.jpg",
+    "answer" : "file32.jpg",
+    "appearance" : "draw",
+    "control" : "imageChoose",
+    "dataType" : "binary",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Draw with your finger directly on the screen:",
+    "readonly" : false,
+    "ref" : "/data/plan_drawing[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : "quick",
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "To illustrate the distribution site layout, do you want to take some pictures of the key locations?",
+    "readonly" : false,
+    "ref" : "/data/illustrate[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "file71.jpg",
+    "answer" : "file71.jpg",
+    "appearance" : null,
+    "control" : "imageChoose",
+    "dataType" : "binary",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Waiting area",
+    "readonly" : false,
+    "ref" : "/data/waiting[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "file47.jpg",
+    "answer" : "file47.jpg",
+    "appearance" : null,
+    "control" : "imageChoose",
+    "dataType" : "binary",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Entry point",
+    "readonly" : false,
+    "ref" : "/data/entry[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "file12.jpg",
+    "answer" : "file12.jpg",
+    "appearance" : null,
+    "control" : "imageChoose",
+    "dataType" : "binary",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Verification",
+    "readonly" : false,
+    "ref" : "/data/verification[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "file49.jpg",
+    "answer" : "file49.jpg",
+    "appearance" : null,
+    "control" : "imageChoose",
+    "dataType" : "binary",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Encashment",
+    "readonly" : false,
+    "ref" : "/data/encashment_point[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "file25.jpg",
+    "answer" : "file25.jpg",
+    "appearance" : null,
+    "control" : "imageChoose",
+    "dataType" : "binary",
+    "event" : "question",
+    "hint" : null,
+    "label" : "NFI point",
+    "readonly" : false,
+    "ref" : "/data/nfi[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "file83.jpg",
+    "answer" : "file83.jpg",
+    "appearance" : null,
+    "control" : "imageChoose",
+    "dataType" : "binary",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Exit point",
+    "readonly" : false,
+    "ref" : "/data/exit[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "file65.jpg",
+    "answer" : "file65.jpg",
+    "appearance" : null,
+    "control" : "imageChoose",
+    "dataType" : "binary",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Feed-back info",
+    "readonly" : false,
+    "ref" : "/data/feed_back[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "file54.jpg",
+    "answer" : "file54.jpg",
+    "appearance" : null,
+    "control" : "imageChoose",
+    "dataType" : "binary",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Vehicles/trucks parking",
+    "readonly" : false,
+    "ref" : "/data/parking[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "file2.jpg",
+    "answer" : "file2.jpg",
+    "appearance" : null,
+    "control" : "imageChoose",
+    "dataType" : "binary",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Other",
+    "readonly" : false,
+    "ref" : "/data/other[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Thank you for your time and cooperation.\nPlease review with your team leader to take the necessary corrective actions.",
+    "readonly" : true,
+    "ref" : "/data/thanks[1]",
+    "required" : false,
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "required /data/site_size[1]/waiting_area[1]/waiting_area[1]"
+}

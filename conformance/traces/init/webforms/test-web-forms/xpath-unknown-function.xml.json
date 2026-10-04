@@ -1,0 +1,18 @@
+{
+  "cascades" : [ {
+    "cascades" : [ ],
+    "triggerable" : "recalculate|{func-expr:nope,{{num:1.0}}}|/root/first-question|[/root/first-question]"
+  } ],
+  "form" : "forms/webforms/test-web-forms/xpath-unknown-function.xml",
+  "initialize" : {
+    "error" : {
+      "message" : "Error evaluating field 'first-question' (/root/first-question[1]): The problem was located in Calculate expression for /root/first-question\nXPath evaluation: cannot handle function 'nope'",
+      "type" : "RuntimeException"
+    },
+    "ok" : false
+  },
+  "parse" : {
+    "ok" : true
+  },
+  "traceVersion" : 1
+}

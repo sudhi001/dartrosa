@@ -1,0 +1,96 @@
+{
+  "form" : "forms/pyxform/tests/test_geo/test_pyxform_reference__choice_filter__ok.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><test_name id=\"data\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><_c1A><geometry>-46.254 106.343 396.0 1.0</geometry><q2>mu\"nu</q2></_c1A><_c1A><geometry>3.178 104.67 449.0 16.0</geometry><q2>épsilon</q2></_c1A><q3>3.0 4.0 0.0 0.0;4.0 14.0 0.0 0.0;19.0 4.0 0.0 0.0;3.0 4.0 0.0 0.0</q3><meta><instanceID>uuid:<uuid></instanceID></meta></test_name>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 22,
+  "steps" : [ {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "R1",
+    "ref" : "/test_name/_c1A[1]"
+  }, {
+    "after" : "-46.254 106.343 396.0 1.0",
+    "answer" : "-46.254 106.343 396 1",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "geopoint",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Q1",
+    "readonly" : false,
+    "ref" : "/test_name/_c1A[1]/geometry[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "mu\"nu",
+    "answer" : "mu\"nu",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Q2",
+    "readonly" : false,
+    "ref" : "/test_name/_c1A[1]/q2[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : true,
+    "event" : "promptNewRepeat",
+    "ref" : "/test_name/_c1A[2]"
+  }, {
+    "after" : "3.178 104.67 449.0 16.0",
+    "answer" : "3.178 104.67 449 16",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "geopoint",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Q1",
+    "readonly" : false,
+    "ref" : "/test_name/_c1A[2]/geometry[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "épsilon",
+    "answer" : "épsilon",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Q2",
+    "readonly" : false,
+    "ref" : "/test_name/_c1A[2]/q2[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : false,
+    "event" : "promptNewRepeat",
+    "ref" : "/test_name/_c1A[3]"
+  }, {
+    "after" : "3.0 4.0 0.0 0.0;4.0 14.0 0.0 0.0;19.0 4.0 0.0 0.0;3.0 4.0 0.0 0.0",
+    "answer" : "3 4 0 0;4 14 0 0;19 4 0 0;3 4 0 0",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "geotrace",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Q3",
+    "readonly" : false,
+    "ref" : "/test_name/q3[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

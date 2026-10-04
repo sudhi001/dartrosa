@@ -1,0 +1,63 @@
+{
+  "form" : "forms/webforms/rank/2-rank-with-choice-filter.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"1_rank_with_choice_filter\" version=\"2025011401\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><decision_making /><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "language" : "English (en)",
+    "languages" : [ "English (en)", "French (fr)" ],
+    "ok" : true,
+    "title" : "Rank with choice filter"
+  },
+  "steps" : [ {
+    "events" : [ {
+      "appearance" : null,
+      "choices" : [ {
+        "label" : "Health",
+        "value" : "health"
+      }, {
+        "label" : "Family and Friends",
+        "value" : "family_and_friends"
+      }, {
+        "label" : "Career Growth and Learning Opportunities",
+        "value" : "career_growth_and_learning_opportunities"
+      }, {
+        "label" : "Financial Stability",
+        "value" : "financial_stability"
+      }, {
+        "label" : "Pursuit of Hobbies and Passions",
+        "value" : "pursuit_of_hobbies_and_passions"
+      }, {
+        "label" : "Environmental Sustainability",
+        "value" : "environmental_sustainability"
+      }, {
+        "label" : "Time Management and Work-Life Balance",
+        "value" : "time_management_and_work_life_balance"
+      }, {
+        "label" : "Building a Supportive Community",
+        "value" : "building_a_supportive_community"
+      }, {
+        "label" : "Personal Development and Mindfulness",
+        "value" : "personal_development_and_mindfulness"
+      }, {
+        "label" : "Creativity and Innovation",
+        "value" : "creativity_and_innovation"
+      } ],
+      "control" : "selectMulti",
+      "dataType" : "multipleItems",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Choose the values that guide your decision-making",
+      "readonly" : false,
+      "ref" : "/data/decision_making[1]",
+      "required" : true,
+      "value" : null
+    }, {
+      "event" : "endOfForm"
+    } ],
+    "op" : "walk"
+  }, {
+    "op" : "validate",
+    "outcome" : "required",
+    "ref" : "/data/decision_making[1]"
+  } ],
+  "traceVersion" : 1
+}

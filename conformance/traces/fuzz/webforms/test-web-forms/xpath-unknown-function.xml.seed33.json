@@ -1,0 +1,12 @@
+{
+  "form" : "forms/webforms/test-web-forms/xpath-unknown-function.xml",
+  "parse" : {
+    "error" : {
+      "message" : "Error evaluating field 'first-question' (/root/first-question[1]): The problem was located in Calculate expression for /root/first-question\nXPath evaluation: cannot handle function 'nope'",
+      "type" : "RuntimeException"
+    },
+    "ok" : false
+  },
+  "seed" : 33,
+  "traceVersion" : 1
+}

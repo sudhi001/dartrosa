@@ -1,0 +1,80 @@
+{
+  "cascades" : [ ],
+  "form" : "forms/pyxform/tests/test_range/test_tick_labelset_no_ticks_too_many_choices__allow_duplicates__ok.xml",
+  "initialize" : {
+    "ok" : true
+  },
+  "instance" : {
+    "attributes" : [ [ "", "id", "data" ] ],
+    "bindAttributes" : [ ],
+    "children" : [ {
+      "attributes" : [ ],
+      "bindAttributes" : [ ],
+      "children" : [ ],
+      "constraint" : null,
+      "enabled" : true,
+      "mult" : 0,
+      "name" : "q1",
+      "namespace" : null,
+      "prefix" : null,
+      "preload" : null,
+      "preloadParams" : null,
+      "relevant" : true,
+      "repeatable" : false,
+      "required" : false,
+      "type" : "integer",
+      "value" : null
+    }, {
+      "attributes" : [ ],
+      "bindAttributes" : [ ],
+      "children" : [ {
+        "attributes" : [ ],
+        "bindAttributes" : [ ],
+        "children" : [ ],
+        "constraint" : null,
+        "enabled" : false,
+        "mult" : 0,
+        "name" : "instanceID",
+        "namespace" : null,
+        "prefix" : null,
+        "preload" : "uid",
+        "preloadParams" : null,
+        "relevant" : true,
+        "repeatable" : false,
+        "required" : false,
+        "type" : "text",
+        "value" : "uuid:<uuid>"
+      } ],
+      "constraint" : null,
+      "enabled" : true,
+      "mult" : 0,
+      "name" : "meta",
+      "namespace" : null,
+      "prefix" : null,
+      "preload" : null,
+      "preloadParams" : null,
+      "relevant" : true,
+      "repeatable" : false,
+      "required" : false,
+      "type" : "null",
+      "value" : null
+    } ],
+    "constraint" : null,
+    "enabled" : true,
+    "mult" : 0,
+    "name" : "test_name",
+    "namespace" : null,
+    "prefix" : null,
+    "preload" : null,
+    "preloadParams" : null,
+    "relevant" : true,
+    "repeatable" : false,
+    "required" : false,
+    "type" : "null",
+    "value" : null
+  },
+  "parse" : {
+    "ok" : true
+  },
+  "traceVersion" : 1
+}

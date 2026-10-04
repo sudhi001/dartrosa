@@ -1,0 +1,75 @@
+{
+  "form" : "forms/webforms/test-javarosa/resources/org/javarosa/core/model/actions/setgeopoint-action-new-repeat.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"setgeopoint-action-new-repeat\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><person><age>4</age><location>no client implementation</location></person><person><age>146</age><location>no client implementation</location></person></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 22,
+  "steps" : [ {
+    "add" : true,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/person[1]"
+  }, {
+    "after" : "4",
+    "answer" : "4",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Age",
+    "readonly" : false,
+    "ref" : "/data/person[1]/age[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Location (auto-captured and prefilled on new repeat instance)",
+    "readonly" : true,
+    "ref" : "/data/person[1]/location[1]",
+    "required" : false,
+    "value" : "no client implementation"
+  }, {
+    "add" : true,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/person[2]"
+  }, {
+    "after" : "146",
+    "answer" : "146",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Age",
+    "readonly" : false,
+    "ref" : "/data/person[2]/age[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Location (auto-captured and prefilled on new repeat instance)",
+    "readonly" : true,
+    "ref" : "/data/person[2]/location[1]",
+    "required" : false,
+    "value" : "no client implementation"
+  }, {
+    "add" : false,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/person[3]"
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

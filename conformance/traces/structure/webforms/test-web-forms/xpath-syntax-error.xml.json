@@ -1,0 +1,11 @@
+{
+  "form" : "forms/webforms/test-web-forms/xpath-syntax-error.xml",
+  "parse" : {
+    "error" : {
+      "message" : "Invalid calculate for the bind attached to \"/root/second-question\" : Couldn't understand the expression starting at this point: ...first-question͎?2 in expression /root/first-question ? 2",
+      "type" : "XFormParseException"
+    },
+    "ok" : false
+  },
+  "traceVersion" : 1
+}

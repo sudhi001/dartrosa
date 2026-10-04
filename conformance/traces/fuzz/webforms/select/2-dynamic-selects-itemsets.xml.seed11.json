@@ -1,0 +1,228 @@
+{
+  "form" : "forms/webforms/select/2-dynamic-selects-itemsets.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"dynamic-selects-itemsets\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><g1><state-prefix>x y z</state-prefix><state /></g1><g2><states-prefix /><states>AK AR CA CO DC FL GA IA ID IN MD ME MN MO MT NC NE NH OK OR PA SC TN TX UT WA WI</states></g2><meta><instanceID /></meta></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 11,
+  "steps" : [ {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Select one",
+    "ref" : "/data/g1[1]"
+  }, {
+    "after" : "x y z",
+    "answer" : "x y z",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "1. Filter question #2 (prefix, case-sensitive)",
+    "readonly" : false,
+    "ref" : "/data/g1[1]/state-prefix[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "choices" : [ ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "2. Select a state",
+    "readonly" : false,
+    "ref" : "/data/g1[1]/state[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Select multiple",
+    "ref" : "/data/g2[1]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "3. Filter question #4 (prefix, case-sensitive)",
+    "readonly" : false,
+    "ref" : "/data/g2[1]/states-prefix[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "AK AR CA CO DC FL GA IA ID IN MD ME MN MO MT NC NE NH OK OR PA SC TN TX UT WA WI",
+    "answer" : "AK AR CA CO DC FL GA IA ID IN MD ME MN MO MT NC NE NH OK OR PA SC TN TX UT WA WI",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Alaska",
+      "value" : "AK"
+    }, {
+      "label" : "Hawaii",
+      "value" : "HI"
+    }, {
+      "label" : "Alabama",
+      "value" : "AL"
+    }, {
+      "label" : "Arkansas",
+      "value" : "AR"
+    }, {
+      "label" : "Arizona",
+      "value" : "AZ"
+    }, {
+      "label" : "California",
+      "value" : "CA"
+    }, {
+      "label" : "Colorado",
+      "value" : "CO"
+    }, {
+      "label" : "Connecticut",
+      "value" : "CT"
+    }, {
+      "label" : "Delaware",
+      "value" : "DE"
+    }, {
+      "label" : "Florida",
+      "value" : "FL"
+    }, {
+      "label" : "Georgia",
+      "value" : "GA"
+    }, {
+      "label" : "Iowa",
+      "value" : "IA"
+    }, {
+      "label" : "Idaho",
+      "value" : "ID"
+    }, {
+      "label" : "Ilinois",
+      "value" : "IL"
+    }, {
+      "label" : "Indiana",
+      "value" : "IN"
+    }, {
+      "label" : "Kansas",
+      "value" : "KS"
+    }, {
+      "label" : "Louisiana",
+      "value" : "LA"
+    }, {
+      "label" : "Massachusetts",
+      "value" : "MA"
+    }, {
+      "label" : "Maryland",
+      "value" : "MD"
+    }, {
+      "label" : "Maine",
+      "value" : "ME"
+    }, {
+      "label" : "Michigan",
+      "value" : "MI"
+    }, {
+      "label" : "Minnesota",
+      "value" : "MN"
+    }, {
+      "label" : "Missouri",
+      "value" : "MO"
+    }, {
+      "label" : "Mississippi",
+      "value" : "MS"
+    }, {
+      "label" : "Montana",
+      "value" : "MT"
+    }, {
+      "label" : "North Carolina",
+      "value" : "NC"
+    }, {
+      "label" : "North Dakota",
+      "value" : "ND"
+    }, {
+      "label" : "Nebraska",
+      "value" : "NE"
+    }, {
+      "label" : "New Hampshire",
+      "value" : "NH"
+    }, {
+      "label" : "New Jersey",
+      "value" : "NJ"
+    }, {
+      "label" : "New Mexico",
+      "value" : "NM"
+    }, {
+      "label" : "Nevada",
+      "value" : "NV"
+    }, {
+      "label" : "New York",
+      "value" : "NY"
+    }, {
+      "label" : "Ohio",
+      "value" : "OH"
+    }, {
+      "label" : "Oklahoma",
+      "value" : "OK"
+    }, {
+      "label" : "Oregon",
+      "value" : "OR"
+    }, {
+      "label" : "Pennsylvania",
+      "value" : "PA"
+    }, {
+      "label" : "South Carolina",
+      "value" : "SC"
+    }, {
+      "label" : "South Dakota",
+      "value" : "SD"
+    }, {
+      "label" : "Tenessee",
+      "value" : "TN"
+    }, {
+      "label" : "Texas",
+      "value" : "TX"
+    }, {
+      "label" : "Utah",
+      "value" : "UT"
+    }, {
+      "label" : "Virginia",
+      "value" : "VA"
+    }, {
+      "label" : "Vermont",
+      "value" : "VT"
+    }, {
+      "label" : "Washington",
+      "value" : "WA"
+    }, {
+      "label" : "Wisconsin",
+      "value" : "WI"
+    }, {
+      "label" : "West Virgina",
+      "value" : "WV"
+    }, {
+      "label" : "Wyoming",
+      "value" : "WY"
+    }, {
+      "label" : "District Capital",
+      "value" : "DC"
+    } ],
+    "control" : "selectMulti",
+    "dataType" : "multipleItems",
+    "event" : "question",
+    "hint" : null,
+    "label" : "4. Select a state",
+    "readonly" : false,
+    "ref" : "/data/g2[1]/states[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

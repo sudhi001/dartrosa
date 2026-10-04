@@ -1,0 +1,120 @@
+{
+  "cascades" : [ {
+    "cascades" : [ ],
+    "triggerable" : "condition|{func-expr:selected,{{path-expr:abs,{{step:child,root},{step:child,second-question}}},{str:'yes'}}}|/root/third-question|[/root/third-question]"
+  }, {
+    "cascades" : [ ],
+    "triggerable" : "recalculate|{binop-expr:*,{path-expr:abs,{{step:child,root},{step:child,first-question}}},{num:3.0}}|/root/third-question|[/root/third-question]"
+  } ],
+  "form" : "forms/webforms/computations/3-relevant-calculate.xml",
+  "initialize" : {
+    "ok" : true
+  },
+  "instance" : {
+    "attributes" : [ [ "", "id", "relevant-calculate" ] ],
+    "bindAttributes" : [ ],
+    "children" : [ {
+      "attributes" : [ ],
+      "bindAttributes" : [ ],
+      "children" : [ ],
+      "constraint" : null,
+      "enabled" : true,
+      "mult" : 0,
+      "name" : "first-question",
+      "namespace" : null,
+      "prefix" : null,
+      "preload" : null,
+      "preloadParams" : null,
+      "relevant" : true,
+      "repeatable" : false,
+      "required" : false,
+      "type" : "null",
+      "value" : "0"
+    }, {
+      "attributes" : [ ],
+      "bindAttributes" : [ ],
+      "children" : [ ],
+      "constraint" : null,
+      "enabled" : true,
+      "mult" : 0,
+      "name" : "second-question",
+      "namespace" : null,
+      "prefix" : null,
+      "preload" : null,
+      "preloadParams" : null,
+      "relevant" : true,
+      "repeatable" : false,
+      "required" : false,
+      "type" : "null",
+      "value" : "no"
+    }, {
+      "attributes" : [ ],
+      "bindAttributes" : [ ],
+      "children" : [ ],
+      "constraint" : null,
+      "enabled" : true,
+      "mult" : 0,
+      "name" : "third-question",
+      "namespace" : null,
+      "prefix" : null,
+      "preload" : null,
+      "preloadParams" : null,
+      "relevant" : false,
+      "repeatable" : false,
+      "required" : false,
+      "type" : "null",
+      "value" : "0"
+    }, {
+      "attributes" : [ ],
+      "bindAttributes" : [ ],
+      "children" : [ {
+        "attributes" : [ ],
+        "bindAttributes" : [ ],
+        "children" : [ ],
+        "constraint" : null,
+        "enabled" : true,
+        "mult" : 0,
+        "name" : "instanceID",
+        "namespace" : null,
+        "prefix" : null,
+        "preload" : null,
+        "preloadParams" : null,
+        "relevant" : true,
+        "repeatable" : false,
+        "required" : false,
+        "type" : "text",
+        "value" : null
+      } ],
+      "constraint" : null,
+      "enabled" : true,
+      "mult" : 0,
+      "name" : "meta",
+      "namespace" : null,
+      "prefix" : null,
+      "preload" : null,
+      "preloadParams" : null,
+      "relevant" : true,
+      "repeatable" : false,
+      "required" : false,
+      "type" : "null",
+      "value" : null
+    } ],
+    "constraint" : null,
+    "enabled" : true,
+    "mult" : 0,
+    "name" : "root",
+    "namespace" : null,
+    "prefix" : null,
+    "preload" : null,
+    "preloadParams" : null,
+    "relevant" : true,
+    "repeatable" : false,
+    "required" : false,
+    "type" : "null",
+    "value" : null
+  },
+  "parse" : {
+    "ok" : true
+  },
+  "traceVersion" : 1
+}

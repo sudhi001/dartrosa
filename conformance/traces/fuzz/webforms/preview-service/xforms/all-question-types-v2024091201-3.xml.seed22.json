@@ -1,0 +1,1629 @@
+{
+  "form" : "forms/webforms/preview-service/xforms/all-question-types-v2024091201-3.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"all-question-types\" version=\"2024091201-3\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><intro /><text_question_types><string>123</string><string_number>beta</string_number><string_number_thousands_sep>kappa'lambda</string_number_thousands_sep><url>mu\"nu</url><ex_string>gamma delta</ex_string><string_masked>alpha</string_masked><printer>alpha</printer></text_question_types><numerical_question_types><integer>99</integer><integer_thousands_sep>-12</integer_thousands_sep><ex_integer>-33</ex_integer><counter>-37</counter><decimal>14.74</decimal><ex_decimal>384.58</ex_decimal><bearing>165.94</bearing></numerical_question_types><range_question_types><range_integer /><range_decimal>-273.68</range_decimal><range_integer_no_ticks>77</range_integer_no_ticks><range_integer_vertical>101</range_integer_vertical><range_integer_picker>-11</range_integer_picker><range_integer_rating>91</range_integer_rating></range_question_types><image_question_types><image /><image_no_choose>file43.jpg</image_no_choose><selfie_image>file9.jpg</selfie_image><ex_image>file31.jpg</ex_image><image_custom_app /><draw_image>file41.jpg</draw_image><annotate_image>file67.jpg</annotate_image><signature>file58.jpg</signature></image_question_types><media_question_types><barcode>gamma delta</barcode><barcode_hidden_answer>épsilon</barcode_hidden_answer><audio>file61.jpg</audio><ex_audio>file35.jpg</ex_audio><video>file59.jpg</video><ex_video>file76.jpg</ex_video><file>file39.jpg</file><ex_file>file88.jpg</ex_file></media_question_types><date_time_question_types><date>2023-07-10</date><date_nocalendar>2028-02-16</date_nocalendar><date_month_year>2028-02-17</date_month_year><date_year>2028-09-16</date_year><time>11:34:00.000Z</time><date_time>2021-09-12T16:29:00.000Z</date_time><date_time_nocalendar>2021-04-10T15:24:00.000Z</date_time_nocalendar><ethiopian_date /><coptic_date>2023-03-15</coptic_date><islamic_date>2021-03-18</islamic_date><bikram_sambat_date /><myanmar_date>2027-09-12</myanmar_date><persian_date>2020-09-13</persian_date><buddhist_date>2022-07-14</buddhist_date></date_time_question_types><geo_question_types><geopoint /><geopoint_placementmap>36.425 91.282 431.0 12.0</geopoint_placementmap><geopoint_maps>-64.698 -134.82 223.0 18.0</geopoint_maps><geotrace>6.0 5.0 0.0 0.0;2.0 13.0 0.0 0.0;15.0 4.0 0.0 0.0;6.0 5.0 0.0 0.0</geotrace><geoshape>4.0 5.0 0.0 0.0;2.0 14.0 0.0 0.0;19.0 6.0 0.0 0.0;4.0 5.0 0.0 0.0</geoshape></geo_question_types><select_one_question_types><select_one /><select_one_minimal>d</select_one_minimal><select_one_autoadvance>c</select_one_autoadvance><select_one_autocomplete>b</select_one_autocomplete><grid_columns_pack>c</grid_columns_pack><grid_columns /><grid_columns2>a</grid_columns2><grid_columns_no_buttons>b</grid_columns_no_buttons><select_one_image_map>left_distal_leg</select_one_image_map><likert>strongly_agree</likert><map>3</map><select_one_final_note /></select_one_question_types><select_multi_question_types><select_multi>b d</select_multi><select_multi_autocomplete>a</select_multi_autocomplete><grid_multi_columns_pack>a b c</grid_multi_columns_pack><grid_multi_columns>a b</grid_multi_columns><grid_multi_columns2>a b c</grid_multi_columns2><grid_multi_columns_no_buttons>a</grid_multi_columns_no_buttons><select_multi_minimal>a b</select_multi_minimal><select_multi_image_map>left_distal_arm left_proximal_leg right_proximal_arm right_proximal_leg</select_multi_image_map><select_multiple_final_note /></select_multi_question_types><table_list><table_list_label>yes</table_list_label><table_list_label_2 /><table_list_1>na</table_list_1><table_list_2>dk no yes</table_list_2><list>yes</list><list_multi>yes</list_multi></table_list><other_question_types><rank>a</rank><my_trigger /></other_question_types><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 22,
+  "steps" : [ {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : "This is a sample for introductory and debugging purposes. It is updated periodically so check \"Get Blank Form\" to get the latest!\n\nVersion 2024091201 adds:\n- Appearance buddhist for date question type\n\nVersion 2024082801 adds:\n- Appearance counter for integer question type\n\nVersion 2024080901 adds:\n- Appearance no-ticks for range question type\n\nVersion 2024031801 adds:\n- Appearance masked for text type\n\nVersion 2024022901 adds:\n- Appearance hidden-answer for barcode type\n- Appearance printer for text type\n- Specify alternate camera app for image type\n- \"Question type\" wording to replace \"widget\"\n\nVersion 2024022901 removes:\n- OSM question type\n- Version history prior to 2022\n\nVersion 2023030101 removes:\n- Appearance new-front (selfie) for video type\n\nVersion 2022053001 adds:\n- Select one from map question type",
+    "label" : "Welcome to ODK! This form showcases the different available question types, sometimes called widgets.\n\nYou can learn more about each question type [in the ODK docs](https://docs.getodk.org/form-question-types/) and see the XLSForm source for this form [here](https://docs.google.com/spreadsheets/d/1af_Sl8A_L8_EULbhRLHVl8OclCfco09Hq2tqb9CslwQ/).",
+    "readonly" : true,
+    "ref" : "/data/intro[1]",
+    "required" : false,
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Text question types",
+    "ref" : "/data/text_question_types[1]"
+  }, {
+    "after" : "123",
+    "answer" : "123",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : "text type",
+    "label" : "String",
+    "readonly" : false,
+    "ref" : "/data/text_question_types[1]/string[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "beta",
+    "answer" : "beta",
+    "appearance" : "numbers",
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : "text type with numbers appearance",
+    "label" : "String number",
+    "readonly" : false,
+    "ref" : "/data/text_question_types[1]/string_number[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : "numbers thousands-sep",
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : "text type with numbers and thousands-sep appearances",
+    "label" : "String number with thousands separator",
+    "readonly" : false,
+    "ref" : "/data/text_question_types[1]/string_number_thousands_sep[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "mu\"nu",
+    "answer" : "mu\"nu",
+    "appearance" : "url",
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : "text type with url appearance and default value of http://getodk.org/",
+    "label" : "URL",
+    "readonly" : false,
+    "ref" : "/data/text_question_types[1]/url[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "http://getodk.org/"
+  }, {
+    "after" : "gamma delta",
+    "answer" : "gamma delta",
+    "appearance" : "ex:change.uw.android.BREATHCOUNT",
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : "text type with ex:change.uw.android.BREATHCOUNT appearance (can use other external apps)",
+    "label" : "String from external application",
+    "readonly" : false,
+    "ref" : "/data/text_question_types[1]/ex_string[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "alpha",
+    "answer" : "alpha",
+    "appearance" : "masked",
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : "text type with masked appearance",
+    "label" : "String masked",
+    "readonly" : false,
+    "ref" : "/data/text_question_types[1]/string_masked[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "alpha",
+    "answer" : "alpha",
+    "appearance" : "printer",
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : "text type with printer appearance and default of <p>123456789</p><qrcode>some text</qrcode>",
+    "label" : "Print",
+    "readonly" : false,
+    "ref" : "/data/text_question_types[1]/printer[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "<p>123456789</p><qrcode>some text</qrcode>"
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Numerical question types",
+    "ref" : "/data/numerical_question_types[1]"
+  }, {
+    "after" : "99",
+    "answer" : "99",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : "integer type with no appearance",
+    "label" : "Integer",
+    "readonly" : false,
+    "ref" : "/data/numerical_question_types[1]/integer[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "-12",
+    "answer" : "-12",
+    "appearance" : "thousands-sep",
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : "integer type with thousands-sep appearance. This appearance can also be applied to decimal and string numbers question types",
+    "label" : "Integer with thousands separators",
+    "readonly" : false,
+    "ref" : "/data/numerical_question_types[1]/integer_thousands_sep[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "-33",
+    "answer" : "-33",
+    "appearance" : "ex:change.uw.android.BREATHCOUNT",
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : "integer type with ex:change.uw.android.BREATHCOUNT appearance (can use other external apps)",
+    "label" : "Integer from external application",
+    "readonly" : false,
+    "ref" : "/data/numerical_question_types[1]/ex_integer[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "-37",
+    "answer" : "-37",
+    "appearance" : "counter",
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : "integer type with counter appearance",
+    "label" : "Counter",
+    "readonly" : false,
+    "ref" : "/data/numerical_question_types[1]/counter[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "14.74",
+    "answer" : "14.74",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "decimal",
+    "event" : "question",
+    "hint" : "decimal type with no appearance",
+    "label" : "Decimal",
+    "readonly" : false,
+    "ref" : "/data/numerical_question_types[1]/decimal[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "384.58",
+    "answer" : "384.58",
+    "appearance" : "ex:change.uw.android.BREATHCOUNT",
+    "control" : "input",
+    "dataType" : "decimal",
+    "event" : "question",
+    "hint" : "decimal type with ex:change.uw.android.BREATHCOUNT appearance (can use other external apps)",
+    "label" : "Decimal from external application",
+    "readonly" : false,
+    "ref" : "/data/numerical_question_types[1]/ex_decimal[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "165.94",
+    "answer" : "165.94",
+    "appearance" : "bearing",
+    "control" : "input",
+    "dataType" : "decimal",
+    "event" : "question",
+    "hint" : "decimal type with bearing appearance",
+    "label" : "Bearing",
+    "readonly" : false,
+    "ref" : "/data/numerical_question_types[1]/bearing[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Range question types",
+    "ref" : "/data/range_question_types[1]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "range",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : "range integer with no appearance",
+    "label" : "Range integer",
+    "readonly" : false,
+    "ref" : "/data/range_question_types[1]/range_integer[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "-273.68",
+    "answer" : "-273.68",
+    "appearance" : null,
+    "control" : "range",
+    "dataType" : "decimal",
+    "event" : "question",
+    "hint" : "range decimal with no appearance",
+    "label" : "Range decimal",
+    "readonly" : false,
+    "ref" : "/data/range_question_types[1]/range_decimal[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "77",
+    "answer" : "77",
+    "appearance" : "no-ticks",
+    "control" : "range",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : "range integer with no-ticks appearance. This appearance can also be applied to a decimal range.",
+    "label" : "Range no-ticks integer",
+    "readonly" : false,
+    "ref" : "/data/range_question_types[1]/range_integer_no_ticks[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "101",
+    "answer" : "101",
+    "appearance" : "vertical",
+    "control" : "range",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : "range integer with vertical appearance. This appearance can also be applied to a decimal range.",
+    "label" : "Range vertical integer",
+    "readonly" : false,
+    "ref" : "/data/range_question_types[1]/range_integer_vertical[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "-11",
+    "answer" : "-11",
+    "appearance" : "picker",
+    "control" : "range",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : "range integer with picker appearance. This appearance can also be applied to a decimal range.",
+    "label" : "Range picker integer",
+    "readonly" : false,
+    "ref" : "/data/range_question_types[1]/range_integer_picker[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "91",
+    "answer" : "91",
+    "appearance" : "rating",
+    "control" : "range",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : "range integer with rating appearance. This appearance can also be applied to a decimal range.",
+    "label" : "Range rating integer",
+    "readonly" : false,
+    "ref" : "/data/range_question_types[1]/range_integer_rating[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Image question types",
+    "ref" : "/data/image_question_types[1]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "imageChoose",
+    "dataType" : "binary",
+    "event" : "question",
+    "hint" : "image type with no appearance",
+    "label" : "Image",
+    "readonly" : false,
+    "ref" : "/data/image_question_types[1]/image[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "file43.jpg",
+    "answer" : "file43.jpg",
+    "appearance" : "new",
+    "control" : "imageChoose",
+    "dataType" : "binary",
+    "event" : "question",
+    "hint" : "image type with new appearance (can also be added with annotate appearance and on audio and video types)",
+    "label" : "Image without Choose button",
+    "readonly" : false,
+    "ref" : "/data/image_question_types[1]/image_no_choose[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "file9.jpg",
+    "answer" : "file9.jpg",
+    "appearance" : "selfie",
+    "control" : "imageChoose",
+    "dataType" : "binary",
+    "event" : "question",
+    "hint" : "image type with selfie appearance",
+    "label" : "Selfie",
+    "readonly" : false,
+    "ref" : "/data/image_question_types[1]/selfie_image[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "file31.jpg",
+    "answer" : "file31.jpg",
+    "appearance" : "ex:com.example.collectanswersprovider(questionImage='')",
+    "control" : "imageChoose",
+    "dataType" : "binary",
+    "event" : "question",
+    "hint" : "image type with ex:com.example.collectanswersprovider(questionImage='') appearance (can use other external apps)",
+    "label" : "Image from external application",
+    "readonly" : false,
+    "ref" : "/data/image_question_types[1]/ex_image[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "imageChoose",
+    "dataType" : "binary",
+    "event" : "question",
+    "hint" : "image type with parameter app=com.jeyluta.timestampcamerafree",
+    "label" : "Image from alternate camera app",
+    "readonly" : false,
+    "ref" : "/data/image_question_types[1]/image_custom_app[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "file41.jpg",
+    "answer" : "file41.jpg",
+    "appearance" : "draw",
+    "control" : "imageChoose",
+    "dataType" : "binary",
+    "event" : "question",
+    "hint" : "image type with draw appearance",
+    "label" : "Draw",
+    "readonly" : false,
+    "ref" : "/data/image_question_types[1]/draw_image[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "file67.jpg",
+    "answer" : "file67.jpg",
+    "appearance" : "annotate",
+    "control" : "imageChoose",
+    "dataType" : "binary",
+    "event" : "question",
+    "hint" : "image type with annotate appearance",
+    "label" : "Annotate",
+    "readonly" : false,
+    "ref" : "/data/image_question_types[1]/annotate_image[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "file58.jpg",
+    "answer" : "file58.jpg",
+    "appearance" : "signature",
+    "control" : "imageChoose",
+    "dataType" : "binary",
+    "event" : "question",
+    "hint" : "image type with signature appearance",
+    "label" : "Signature",
+    "readonly" : false,
+    "ref" : "/data/image_question_types[1]/signature[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Media question types",
+    "ref" : "/data/media_question_types[1]"
+  }, {
+    "after" : "gamma delta",
+    "answer" : "gamma delta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "barcode",
+    "event" : "question",
+    "hint" : "barcode type with no appearance",
+    "label" : "Barcode",
+    "readonly" : false,
+    "ref" : "/data/media_question_types[1]/barcode[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "épsilon",
+    "answer" : "épsilon",
+    "appearance" : "hidden-answer",
+    "control" : "input",
+    "dataType" : "barcode",
+    "event" : "question",
+    "hint" : "barcode type with hidden-answer appearance",
+    "label" : "Barcode with hidden answer",
+    "readonly" : false,
+    "ref" : "/data/media_question_types[1]/barcode_hidden_answer[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "file61.jpg",
+    "answer" : "file61.jpg",
+    "appearance" : null,
+    "control" : "audioCapture",
+    "dataType" : "binary",
+    "event" : "question",
+    "hint" : "audio type with no appearance",
+    "label" : "Audio",
+    "readonly" : false,
+    "ref" : "/data/media_question_types[1]/audio[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "file35.jpg",
+    "answer" : "file35.jpg",
+    "appearance" : "ex:com.example.collectanswersprovider(questionAudio='')",
+    "control" : "audioCapture",
+    "dataType" : "binary",
+    "event" : "question",
+    "hint" : "audio type with ex:com.example.collectanswersprovider(questionAudio='') appearance (can use other external apps)",
+    "label" : "External audio",
+    "readonly" : false,
+    "ref" : "/data/media_question_types[1]/ex_audio[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "file59.jpg",
+    "answer" : "file59.jpg",
+    "appearance" : null,
+    "control" : "videoCapture",
+    "dataType" : "binary",
+    "event" : "question",
+    "hint" : "video type with no appearance",
+    "label" : "Video",
+    "readonly" : false,
+    "ref" : "/data/media_question_types[1]/video[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "file76.jpg",
+    "answer" : "file76.jpg",
+    "appearance" : "ex:com.example.collectanswersprovider(questionVideo='')",
+    "control" : "videoCapture",
+    "dataType" : "binary",
+    "event" : "question",
+    "hint" : "video type with ex:com.example.collectanswersprovider(questionVideo='') appearance (can use other external apps)",
+    "label" : "External video",
+    "readonly" : false,
+    "ref" : "/data/media_question_types[1]/ex_video[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "file39.jpg",
+    "answer" : "file39.jpg",
+    "appearance" : null,
+    "control" : "fileCapture",
+    "dataType" : "binary",
+    "event" : "question",
+    "hint" : "file type with no appearance <br/> WARNING: any kind of file could be uploaded including files that contain viruses or other malware. Be sure to take proper precautions when downloading files from server.",
+    "label" : "File",
+    "readonly" : false,
+    "ref" : "/data/media_question_types[1]/file[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "file88.jpg",
+    "answer" : "file88.jpg",
+    "appearance" : "ex:com.example.collectanswersprovider(questionFile='')",
+    "control" : "fileCapture",
+    "dataType" : "binary",
+    "event" : "question",
+    "hint" : "file type with ex:com.example.collectanswersprovider(questionFile='') appearance (can use other external apps)",
+    "label" : "External file",
+    "readonly" : false,
+    "ref" : "/data/media_question_types[1]/ex_file[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Date and time question types",
+    "ref" : "/data/date_time_question_types[1]"
+  }, {
+    "after" : "2023-07-10",
+    "answer" : "2023-07-10",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "date",
+    "event" : "question",
+    "hint" : "date type with no appearance",
+    "label" : "Date",
+    "readonly" : false,
+    "ref" : "/data/date_time_question_types[1]/date[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "2028-02-16",
+    "answer" : "2028-02-16",
+    "appearance" : "no-calendar",
+    "control" : "input",
+    "dataType" : "date",
+    "event" : "question",
+    "hint" : "date type with no-calendar appearance",
+    "label" : "Date",
+    "readonly" : false,
+    "ref" : "/data/date_time_question_types[1]/date_nocalendar[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "2028-02-17",
+    "answer" : "2028-02-17",
+    "appearance" : "month-year",
+    "control" : "input",
+    "dataType" : "date",
+    "event" : "question",
+    "hint" : "date type with month-year appearance",
+    "label" : "Date",
+    "readonly" : false,
+    "ref" : "/data/date_time_question_types[1]/date_month_year[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "2028-09-16",
+    "answer" : "2028-09-16",
+    "appearance" : "year",
+    "control" : "input",
+    "dataType" : "date",
+    "event" : "question",
+    "hint" : "date type with year appearance",
+    "label" : "Date",
+    "readonly" : false,
+    "ref" : "/data/date_time_question_types[1]/date_year[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "11:34:00.000Z",
+    "answer" : "11:34:00.000Z",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "time",
+    "event" : "question",
+    "hint" : "time type with no appearance",
+    "label" : "Time",
+    "readonly" : false,
+    "ref" : "/data/date_time_question_types[1]/time[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "2021-09-12T16:29:00.000Z",
+    "answer" : "2021-09-12T16:29:00.000Z",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "dateTime",
+    "event" : "question",
+    "hint" : "dateTime type with no appearance",
+    "label" : "Date time",
+    "readonly" : false,
+    "ref" : "/data/date_time_question_types[1]/date_time[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "2021-04-10T15:24:00.000Z",
+    "answer" : "2021-04-10T15:24:00.000Z",
+    "appearance" : "no-calendar",
+    "control" : "input",
+    "dataType" : "dateTime",
+    "event" : "question",
+    "hint" : "dateTime type with no-calendar appearance",
+    "label" : "Date time",
+    "readonly" : false,
+    "ref" : "/data/date_time_question_types[1]/date_time_nocalendar[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : "ethiopian",
+    "control" : "input",
+    "dataType" : "date",
+    "event" : "question",
+    "hint" : "date type ethiopian appearance",
+    "label" : "Ethiopian date",
+    "readonly" : false,
+    "ref" : "/data/date_time_question_types[1]/ethiopian_date[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "2023-03-15",
+    "answer" : "2023-03-15",
+    "appearance" : "coptic",
+    "control" : "input",
+    "dataType" : "date",
+    "event" : "question",
+    "hint" : "date type coptic appearance",
+    "label" : "Coptic date",
+    "readonly" : false,
+    "ref" : "/data/date_time_question_types[1]/coptic_date[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "2021-03-18",
+    "answer" : "2021-03-18",
+    "appearance" : "islamic",
+    "control" : "input",
+    "dataType" : "date",
+    "event" : "question",
+    "hint" : "date type islamic appearance",
+    "label" : "Islamic date",
+    "readonly" : false,
+    "ref" : "/data/date_time_question_types[1]/islamic_date[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : "bikram-sambat",
+    "control" : "input",
+    "dataType" : "date",
+    "event" : "question",
+    "hint" : "date type bikram-sambat appearance",
+    "label" : "Bikram Sambat date",
+    "readonly" : false,
+    "ref" : "/data/date_time_question_types[1]/bikram_sambat_date[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "2027-09-12",
+    "answer" : "2027-09-12",
+    "appearance" : "myanmar",
+    "control" : "input",
+    "dataType" : "date",
+    "event" : "question",
+    "hint" : "date type myanmar appearance",
+    "label" : "Myanmar date",
+    "readonly" : false,
+    "ref" : "/data/date_time_question_types[1]/myanmar_date[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "2020-09-13",
+    "answer" : "2020-09-13",
+    "appearance" : "persian",
+    "control" : "input",
+    "dataType" : "date",
+    "event" : "question",
+    "hint" : "date type persian appearance",
+    "label" : "Persian date",
+    "readonly" : false,
+    "ref" : "/data/date_time_question_types[1]/persian_date[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "2022-07-14",
+    "answer" : "2022-07-14",
+    "appearance" : "buddhist",
+    "control" : "input",
+    "dataType" : "date",
+    "event" : "question",
+    "hint" : "date type buddhist appearance",
+    "label" : "Buddhist date",
+    "readonly" : false,
+    "ref" : "/data/date_time_question_types[1]/buddhist_date[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Geospatial question types",
+    "ref" : "/data/geo_question_types[1]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "geopoint",
+    "event" : "question",
+    "hint" : "geopoint type with no appearance",
+    "label" : "Point with user confirmation",
+    "readonly" : false,
+    "ref" : "/data/geo_question_types[1]/geopoint[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "36.425 91.282 431.0 12.0",
+    "answer" : "36.425 91.282 431 12",
+    "appearance" : "placement-map",
+    "control" : "input",
+    "dataType" : "geopoint",
+    "event" : "question",
+    "hint" : "geopoint type with placement-map appearance",
+    "label" : "Point that can be manually-entered on map",
+    "readonly" : false,
+    "ref" : "/data/geo_question_types[1]/geopoint_placementmap[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "-64.698 -134.82 223.0 18.0",
+    "answer" : "-64.698 -134.820 223 18",
+    "appearance" : "maps",
+    "control" : "input",
+    "dataType" : "geopoint",
+    "event" : "question",
+    "hint" : "geopoint type with maps appearance",
+    "label" : "Point with user confirmation on map",
+    "readonly" : false,
+    "ref" : "/data/geo_question_types[1]/geopoint_maps[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "6.0 5.0 0.0 0.0;2.0 13.0 0.0 0.0;15.0 4.0 0.0 0.0;6.0 5.0 0.0 0.0",
+    "answer" : "6 5 0 0;2 13 0 0;15 4 0 0;6 5 0 0",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "geotrace",
+    "event" : "question",
+    "hint" : "geotrace type with no appearance",
+    "label" : "Line that can be either manually-entered or automatically recorded on a map",
+    "readonly" : false,
+    "ref" : "/data/geo_question_types[1]/geotrace[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "4.0 5.0 0.0 0.0;2.0 14.0 0.0 0.0;19.0 6.0 0.0 0.0;4.0 5.0 0.0 0.0",
+    "answer" : "4 5 0 0;2 14 0 0;19 6 0 0;4 5 0 0",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "geoshape",
+    "event" : "question",
+    "hint" : "geoshape type with no appearance",
+    "label" : "Polygon that can be either manually-entered or automatically recorded on a map",
+    "readonly" : false,
+    "ref" : "/data/geo_question_types[1]/geoshape[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Select one question types",
+    "ref" : "/data/select_one_question_types[1]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Noodle Dishes",
+      "value" : "a"
+    }, {
+      "label" : "Fruits",
+      "value" : "b"
+    }, {
+      "label" : "Burger Meals",
+      "value" : "c"
+    }, {
+      "label" : "Meat Dishes",
+      "value" : "d"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "select_one type with no appearance, 4 text choices",
+    "label" : "Select one",
+    "readonly" : false,
+    "ref" : "/data/select_one_question_types[1]/select_one[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "d",
+    "answer" : "d",
+    "appearance" : "minimal",
+    "choices" : [ {
+      "label" : "Noodle Dishes",
+      "value" : "a"
+    }, {
+      "label" : "Fruits",
+      "value" : "b"
+    }, {
+      "label" : "Burger Meals",
+      "value" : "c"
+    }, {
+      "label" : "Meat Dishes",
+      "value" : "d"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "select_one type with minimal appearance, 4 text choices",
+    "label" : "Select one minimal",
+    "readonly" : false,
+    "ref" : "/data/select_one_question_types[1]/select_one_minimal[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "c",
+    "answer" : "c",
+    "appearance" : "quick",
+    "choices" : [ {
+      "label" : "Noodle Dishes",
+      "value" : "a"
+    }, {
+      "label" : "Fruits",
+      "value" : "b"
+    }, {
+      "label" : "Burger Meals",
+      "value" : "c"
+    }, {
+      "label" : "Meat Dishes",
+      "value" : "d"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "select_one type with quick appearance, 4 text choices",
+    "label" : "Select one autoadvance",
+    "readonly" : false,
+    "ref" : "/data/select_one_question_types[1]/select_one_autoadvance[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "b",
+    "answer" : "b",
+    "appearance" : "search",
+    "choices" : [ {
+      "label" : "Noodle Dishes",
+      "value" : "a"
+    }, {
+      "label" : "Fruits",
+      "value" : "b"
+    }, {
+      "label" : "Burger Meals",
+      "value" : "c"
+    }, {
+      "label" : "Meat Dishes",
+      "value" : "d"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "select_one type with search appearance, 4 text choices (appearance \"autocomplete\" does the same thing)",
+    "label" : "Select one search",
+    "readonly" : false,
+    "ref" : "/data/select_one_question_types[1]/select_one_autocomplete[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "c",
+    "answer" : "c",
+    "appearance" : "columns-pack",
+    "choices" : [ {
+      "label" : "Noodle Dishes",
+      "value" : "a"
+    }, {
+      "label" : "Fruits",
+      "value" : "b"
+    }, {
+      "label" : "Burger Meals",
+      "value" : "c"
+    }, {
+      "label" : "Meat Dishes",
+      "value" : "d"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "select_one type with columns-pack appearance, 4 text choices. Choices are packed in to fit horizontal space with minimal padding.",
+    "label" : "Select one with packed columns",
+    "readonly" : false,
+    "ref" : "/data/select_one_question_types[1]/grid_columns_pack[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : "columns",
+    "choices" : [ {
+      "label" : "Noodle Dishes",
+      "value" : "a"
+    }, {
+      "label" : "Fruits",
+      "value" : "b"
+    }, {
+      "label" : "Burger Meals",
+      "value" : "c"
+    }, {
+      "label" : "Meat Dishes",
+      "value" : "d"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "select_one type with columns appearance, 4 text + image choices. Choices are layed out in fixed-width columns based on screen width.",
+    "label" : "Select one with fixed columns",
+    "readonly" : false,
+    "ref" : "/data/select_one_question_types[1]/grid_columns[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "a",
+    "answer" : "a",
+    "appearance" : "columns-2",
+    "choices" : [ {
+      "label" : "Noodle Dishes",
+      "value" : "a"
+    }, {
+      "label" : "Fruits",
+      "value" : "b"
+    }, {
+      "label" : "Burger Meals",
+      "value" : "c"
+    }, {
+      "label" : "Meat Dishes",
+      "value" : "d"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "select_one type with columns-2 appearance, 4 text + image choices. The available screen width is divided into 2 columns of the same width. Column counts between 1 and 10 are allowed.",
+    "label" : "Select one with fixed column count",
+    "readonly" : false,
+    "ref" : "/data/select_one_question_types[1]/grid_columns2[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "b",
+    "answer" : "b",
+    "appearance" : "columns-pack no-buttons",
+    "choices" : [ {
+      "label" : "Noodle Dishes",
+      "value" : "a"
+    }, {
+      "label" : "Fruits",
+      "value" : "b"
+    }, {
+      "label" : "Burger Meals",
+      "value" : "c"
+    }, {
+      "label" : "Meat Dishes",
+      "value" : "d"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "select_one type with columns-pack no-buttons appearance, 4 image choices. Choices are packed in to fit horizontal space with minimal padding and no buttons are displayed.",
+    "label" : "Select one with packed columns and no buttons",
+    "readonly" : false,
+    "ref" : "/data/select_one_question_types[1]/grid_columns_no_buttons[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "left_distal_leg",
+    "answer" : "left_distal_leg",
+    "appearance" : "image-map",
+    "choices" : [ {
+      "label" : "Head",
+      "value" : "head"
+    }, {
+      "label" : "Neck",
+      "value" : "neck"
+    }, {
+      "label" : "Lungs",
+      "value" : "lungs"
+    }, {
+      "label" : "Left proximal arm",
+      "value" : "left_proximal_arm"
+    }, {
+      "label" : "Left distal arm",
+      "value" : "left_distal_arm"
+    }, {
+      "label" : "Right proximal arm",
+      "value" : "right_proximal_arm"
+    }, {
+      "label" : "Right distal arm",
+      "value" : "right_distal_arm"
+    }, {
+      "label" : "Left proximal leg",
+      "value" : "left_proximal_leg"
+    }, {
+      "label" : "Left distal leg",
+      "value" : "left_distal_leg"
+    }, {
+      "label" : "Right proximal leg",
+      "value" : "right_proximal_leg"
+    }, {
+      "label" : "Right distal leg",
+      "value" : "right_distal_leg"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "select_one with type image-map appearance and image body.svg",
+    "label" : "Image select one",
+    "readonly" : false,
+    "ref" : "/data/select_one_question_types[1]/select_one_image_map[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "strongly_agree",
+    "answer" : "strongly_agree",
+    "appearance" : "likert",
+    "choices" : [ {
+      "label" : "Strongly Disagree",
+      "value" : "strongly_disagree"
+    }, {
+      "label" : "Disagree",
+      "value" : "disagree"
+    }, {
+      "label" : "Neutral",
+      "value" : "neutral"
+    }, {
+      "label" : "Agree",
+      "value" : "agree"
+    }, {
+      "label" : "Strongly Agree",
+      "value" : "strongly_agree"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "Images made by Pixel Perfect and downloaded from flaticon.com",
+    "label" : "Likert",
+    "readonly" : false,
+    "ref" : "/data/select_one_question_types[1]/likert[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "3",
+    "answer" : "3",
+    "appearance" : "map",
+    "choices" : [ {
+      "label" : "Last time red kangaroo was spotted",
+      "value" : "1"
+    }, {
+      "label" : "Red kangaroo feeding trail",
+      "value" : "2"
+    }, {
+      "label" : "Red kangaroo resting area",
+      "value" : "3"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "select_one type with map appearance. Choices are loaded from a GeoJSON attachment",
+    "label" : "Map",
+    "readonly" : false,
+    "ref" : "/data/select_one_question_types[1]/map[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : "minimal no-buttons columns-3 autocomplete quick",
+    "label" : "You can mix multiple appearances together. It's difficult to present all possible combinations because it would make this form huge so we showed you just those basic ones. For example you can even use a combination like:",
+    "readonly" : true,
+    "ref" : "/data/select_one_question_types[1]/select_one_final_note[1]",
+    "required" : false,
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Select multi question types",
+    "ref" : "/data/select_multi_question_types[1]"
+  }, {
+    "after" : "b d",
+    "answer" : "b d",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Noodle Dishes",
+      "value" : "a"
+    }, {
+      "label" : "Fruits",
+      "value" : "b"
+    }, {
+      "label" : "Burger Meals",
+      "value" : "c"
+    }, {
+      "label" : "Meat Dishes",
+      "value" : "d"
+    } ],
+    "control" : "selectMulti",
+    "dataType" : "multipleItems",
+    "event" : "question",
+    "hint" : "select_multiple type with no appearance, 4 text choices",
+    "label" : "Multi select",
+    "readonly" : false,
+    "ref" : "/data/select_multi_question_types[1]/select_multi[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "a",
+    "answer" : "a",
+    "appearance" : "autocomplete",
+    "choices" : [ {
+      "label" : "Noodle Dishes",
+      "value" : "a"
+    }, {
+      "label" : "Fruits",
+      "value" : "b"
+    }, {
+      "label" : "Burger Meals",
+      "value" : "c"
+    }, {
+      "label" : "Meat Dishes",
+      "value" : "d"
+    } ],
+    "control" : "selectMulti",
+    "dataType" : "multipleItems",
+    "event" : "question",
+    "hint" : "select_multiple type with autocomplete appearance, 4 text choices",
+    "label" : "Multi select autocomplete",
+    "readonly" : false,
+    "ref" : "/data/select_multi_question_types[1]/select_multi_autocomplete[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "a b c",
+    "answer" : "a b c",
+    "appearance" : "columns-pack",
+    "choices" : [ {
+      "label" : "Noodle Dishes",
+      "value" : "a"
+    }, {
+      "label" : "Fruits",
+      "value" : "b"
+    }, {
+      "label" : "Burger Meals",
+      "value" : "c"
+    }, {
+      "label" : "Meat Dishes",
+      "value" : "d"
+    } ],
+    "control" : "selectMulti",
+    "dataType" : "multipleItems",
+    "event" : "question",
+    "hint" : "select_multiple type with columns-pack appearance, 4 text choices",
+    "label" : "Select multiple with packed columns",
+    "readonly" : false,
+    "ref" : "/data/select_multi_question_types[1]/grid_multi_columns_pack[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "a b",
+    "answer" : "a b",
+    "appearance" : "columns",
+    "choices" : [ {
+      "label" : "Noodle Dishes",
+      "value" : "a"
+    }, {
+      "label" : "Fruits",
+      "value" : "b"
+    }, {
+      "label" : "Burger Meals",
+      "value" : "c"
+    }, {
+      "label" : "Meat Dishes",
+      "value" : "d"
+    } ],
+    "control" : "selectMulti",
+    "dataType" : "multipleItems",
+    "event" : "question",
+    "hint" : "select_multiple type with columns appearance, 4 text + image choices",
+    "label" : "Select multiple with fixed columns",
+    "readonly" : false,
+    "ref" : "/data/select_multi_question_types[1]/grid_multi_columns[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "a b c",
+    "answer" : "a b c",
+    "appearance" : "columns-2",
+    "choices" : [ {
+      "label" : "Noodle Dishes",
+      "value" : "a"
+    }, {
+      "label" : "Fruits",
+      "value" : "b"
+    }, {
+      "label" : "Burger Meals",
+      "value" : "c"
+    }, {
+      "label" : "Meat Dishes",
+      "value" : "d"
+    } ],
+    "control" : "selectMulti",
+    "dataType" : "multipleItems",
+    "event" : "question",
+    "hint" : "select_multiple type with columns-2 appearance, 4 text + image choices",
+    "label" : "Select multiple with fixed column count",
+    "readonly" : false,
+    "ref" : "/data/select_multi_question_types[1]/grid_multi_columns2[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "a",
+    "answer" : "a",
+    "appearance" : "columns-pack no-buttons",
+    "choices" : [ {
+      "label" : "Noodle Dishes",
+      "value" : "a"
+    }, {
+      "label" : "Fruits",
+      "value" : "b"
+    }, {
+      "label" : "Burger Meals",
+      "value" : "c"
+    }, {
+      "label" : "Meat Dishes",
+      "value" : "d"
+    } ],
+    "control" : "selectMulti",
+    "dataType" : "multipleItems",
+    "event" : "question",
+    "hint" : "select_multiple type with columns-pack no-buttons appearance, 4 image choices",
+    "label" : "Select multiple with packed columns and no buttons",
+    "readonly" : false,
+    "ref" : "/data/select_multi_question_types[1]/grid_multi_columns_no_buttons[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "a b",
+    "answer" : "a b",
+    "appearance" : "minimal",
+    "choices" : [ {
+      "label" : "Noodle Dishes",
+      "value" : "a"
+    }, {
+      "label" : "Fruits",
+      "value" : "b"
+    }, {
+      "label" : "Burger Meals",
+      "value" : "c"
+    }, {
+      "label" : "Meat Dishes",
+      "value" : "d"
+    } ],
+    "control" : "selectMulti",
+    "dataType" : "multipleItems",
+    "event" : "question",
+    "hint" : "select_multiple type with minimal appearance, 4 text choices",
+    "label" : "Select multiple minimal",
+    "readonly" : false,
+    "ref" : "/data/select_multi_question_types[1]/select_multi_minimal[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "left_distal_arm left_proximal_leg right_proximal_arm right_proximal_leg",
+    "answer" : "left_distal_arm left_proximal_leg right_proximal_arm right_proximal_leg",
+    "appearance" : "image-map",
+    "choices" : [ {
+      "label" : "Head",
+      "value" : "head"
+    }, {
+      "label" : "Neck",
+      "value" : "neck"
+    }, {
+      "label" : "Lungs",
+      "value" : "lungs"
+    }, {
+      "label" : "Left proximal arm",
+      "value" : "left_proximal_arm"
+    }, {
+      "label" : "Left distal arm",
+      "value" : "left_distal_arm"
+    }, {
+      "label" : "Right proximal arm",
+      "value" : "right_proximal_arm"
+    }, {
+      "label" : "Right distal arm",
+      "value" : "right_distal_arm"
+    }, {
+      "label" : "Left proximal leg",
+      "value" : "left_proximal_leg"
+    }, {
+      "label" : "Left distal leg",
+      "value" : "left_distal_leg"
+    }, {
+      "label" : "Right proximal leg",
+      "value" : "right_proximal_leg"
+    }, {
+      "label" : "Right distal leg",
+      "value" : "right_distal_leg"
+    } ],
+    "control" : "selectMulti",
+    "dataType" : "multipleItems",
+    "event" : "question",
+    "hint" : "select_multiple type with image-map appearance and image body.svg",
+    "label" : "Image select multiple",
+    "readonly" : false,
+    "ref" : "/data/select_multi_question_types[1]/select_multi_image_map[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : "minimal no-buttons columns-3 autocomplete",
+    "label" : "You can mix multiple appearances together. It's difficult to present all possible combinations because it would make this form huge so we showed you just those basic ones. For example you can even use a combination like:",
+    "readonly" : true,
+    "ref" : "/data/select_multi_question_types[1]/select_multiple_final_note[1]",
+    "required" : false,
+    "value" : null
+  }, {
+    "appearance" : "field-list",
+    "event" : "group",
+    "label" : "List group",
+    "ref" : "/data/table_list[1]"
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : "label",
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Don't Know",
+      "value" : "dk"
+    }, {
+      "label" : "Not Applicable",
+      "value" : "na"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "Show only the labels of these options and not the inputs (type=select_one yes_no, appearance=label)",
+    "label" : "Label",
+    "readonly" : false,
+    "ref" : "/data/table_list[1]/table_list_label[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : "label",
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Don't Know",
+      "value" : "dk"
+    }, {
+      "label" : "Not Applicable",
+      "value" : "na"
+    } ],
+    "control" : "selectMulti",
+    "dataType" : "multipleItems",
+    "event" : "question",
+    "hint" : "Show only the labels of these options and not the inputs (type=select_multiple yes_no, appearance=label)",
+    "label" : "Label multi",
+    "readonly" : false,
+    "ref" : "/data/table_list[1]/table_list_label_2[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "na",
+    "answer" : "na",
+    "appearance" : "list-nolabel",
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Don't Know",
+      "value" : "dk"
+    }, {
+      "label" : "Not Applicable",
+      "value" : "na"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "Show only the inputs of these options and not the labels (type=select_one yes_no, appearance=list-nolabel)",
+    "label" : "List",
+    "readonly" : false,
+    "ref" : "/data/table_list[1]/table_list_1[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "dk no yes",
+    "answer" : "dk no yes",
+    "appearance" : "list-nolabel",
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Don't Know",
+      "value" : "dk"
+    }, {
+      "label" : "Not Applicable",
+      "value" : "na"
+    } ],
+    "control" : "selectMulti",
+    "dataType" : "multipleItems",
+    "event" : "question",
+    "hint" : "Show only the inputs of these options and not the labels (type=select_multiple yes_no, appearance=list-nolabel)",
+    "label" : "List multi",
+    "readonly" : false,
+    "ref" : "/data/table_list[1]/table_list_2[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : "list",
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Don't Know",
+      "value" : "dk"
+    }, {
+      "label" : "Not Applicable",
+      "value" : "na"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "This is a normal list question type with (type = select_one, appearance = list)",
+    "label" : "List",
+    "readonly" : false,
+    "ref" : "/data/table_list[1]/list[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : "list",
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    }, {
+      "label" : "Don't Know",
+      "value" : "dk"
+    }, {
+      "label" : "Not Applicable",
+      "value" : "na"
+    } ],
+    "control" : "selectMulti",
+    "dataType" : "multipleItems",
+    "event" : "question",
+    "hint" : "This is a normal list question type with (type = select_multiple, appearance = list)",
+    "label" : "List multi",
+    "readonly" : false,
+    "ref" : "/data/table_list[1]/list_multi[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Other question types",
+    "ref" : "/data/other_question_types[1]"
+  }, {
+    "after" : "a",
+    "answer" : "a",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Noodle Dishes",
+      "value" : "a"
+    }, {
+      "label" : "Fruits",
+      "value" : "b"
+    }, {
+      "label" : "Burger Meals",
+      "value" : "c"
+    }, {
+      "label" : "Meat Dishes",
+      "value" : "d"
+    } ],
+    "control" : "rank",
+    "dataType" : "multipleItems",
+    "event" : "question",
+    "hint" : "rank type with no appearance, 4 text choices. Long press on a choice and drag it to change its position.",
+    "label" : "Rank",
+    "readonly" : false,
+    "ref" : "/data/other_question_types[1]/rank[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "trigger",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : "Prompts for confirmation. Useful to combine with required or relevant. (type=trigger)",
+    "label" : "Trigger",
+    "readonly" : false,
+    "ref" : "/data/other_question_types[1]/my_trigger[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

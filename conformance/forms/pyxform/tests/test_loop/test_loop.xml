@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:odk="http://www.opendatakit.org/xforms">
+  <h:head>
+    <h:title>data</h:title>
+    <model odk:xforms-version="1.0.0">
+      <instance>
+        <test_name id="data">
+          <l1>
+            <thing1>
+              <q1/>
+              <q2/>
+            </thing1>
+            <thing2>
+              <q1/>
+              <q2/>
+            </thing2>
+          </l1>
+          <meta>
+            <instanceID/>
+          </meta>
+        </test_name>
+      </instance>
+      <instance id="c1">
+        <root>
+          <item>
+            <name>thing1</name>
+            <label>Thing 1</label>
+          </item>
+          <item>
+            <name>thing2</name>
+            <label>Thing 2</label>
+          </item>
+        </root>
+      </instance>
+      <instance id="c2">
+        <root>
+          <item>
+            <name>type1</name>
+            <label>Big</label>
+          </item>
+          <item>
+            <name>type2</name>
+            <label>Small</label>
+          </item>
+        </root>
+      </instance>
+      <bind nodeset="/test_name/l1/thing1/q1" type="int"/>
+      <bind nodeset="/test_name/l1/thing1/q2" type="string"/>
+      <bind nodeset="/test_name/l1/thing2/q1" type="int"/>
+      <bind nodeset="/test_name/l1/thing2/q2" type="string"/>
+      <bind nodeset="/test_name/meta/instanceID" type="string" readonly="true()" jr:preload="uid"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="/test_name/l1">
+      <group ref="/test_name/l1/thing1">
+        <label>Thing 1</label>
+        <input ref="/test_name/l1/thing1/q1">
+          <label>Age</label>
+        </input>
+        <select1 ref="/test_name/l1/thing1/q2">
+          <label>Size of Thing 1</label>
+          <itemset nodeset="instance('c2')/root/item">
+            <value ref="name"/>
+            <label ref="label"/>
+          </itemset>
+        </select1>
+      </group>
+      <group ref="/test_name/l1/thing2">
+        <label>Thing 2</label>
+        <input ref="/test_name/l1/thing2/q1">
+          <label>Age</label>
+        </input>
+        <select1 ref="/test_name/l1/thing2/q2">
+          <label>Size of Thing 2</label>
+          <itemset nodeset="instance('c2')/root/item">
+            <value ref="name"/>
+            <label ref="label"/>
+          </itemset>
+        </select1>
+      </group>
+    </group>
+  </h:body>
+</h:html>

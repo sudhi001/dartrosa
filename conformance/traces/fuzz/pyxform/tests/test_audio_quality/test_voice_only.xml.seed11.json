@@ -1,0 +1,27 @@
+{
+  "form" : "forms/pyxform/tests/test_audio_quality/test_voice_only.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"data\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><audio>file92.jpg</audio><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 11,
+  "steps" : [ {
+    "after" : "file92.jpg",
+    "answer" : "file92.jpg",
+    "appearance" : null,
+    "control" : "audioCapture",
+    "dataType" : "binary",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Audio",
+    "readonly" : false,
+    "ref" : "/data/audio[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

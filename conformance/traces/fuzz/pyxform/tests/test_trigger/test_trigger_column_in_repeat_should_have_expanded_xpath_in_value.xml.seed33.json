@@ -1,0 +1,21 @@
+{
+  "form" : "forms/pyxform/tests/test_trigger/test_trigger_column_in_repeat_should_have_expanded_xpath_in_value.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><trigger-column id=\"data\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><rep><one>2021-03-16T19:21:00.000Z</one><three /></rep><meta><instanceID>uuid:<uuid></instanceID></meta></trigger-column>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 33,
+  "steps" : [ {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/trigger-column/rep[1]"
+  }, {
+    "error" : {
+      "message" : "Invalid cast of data [10] to type DateTime",
+      "type" : "IllegalArgumentException"
+    }
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

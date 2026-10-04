@@ -1,0 +1,49 @@
+{
+  "form" : "forms/pyxform/tests/test_search_function/test_shared_choice_list.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><test_name id=\"data\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><q1>id</q1><q2>id</q2><meta><instanceID>uuid:<uuid></instanceID></meta></test_name>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 11,
+  "steps" : [ {
+    "after" : "id",
+    "answer" : "id",
+    "appearance" : "search('my_file')",
+    "choices" : [ {
+      "label" : "label_en",
+      "value" : "id"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Question 1",
+    "readonly" : false,
+    "ref" : "/test_name/q1[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "id",
+    "answer" : "id",
+    "appearance" : "search('my_file', 'matches', 'filtercol', 'x1')",
+    "choices" : [ {
+      "label" : "label_en",
+      "value" : "id"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Question 2",
+    "readonly" : false,
+    "ref" : "/test_name/q2[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

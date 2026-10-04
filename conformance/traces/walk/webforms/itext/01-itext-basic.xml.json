@@ -1,0 +1,32 @@
+{
+  "form" : "forms/webforms/itext/01-itext-basic.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><root id=\"itext-basic\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms/\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><q1 /><meta><instanceID /></meta></root>",
+  "parse" : {
+    "language" : "English",
+    "languages" : [ "English", "Español" ],
+    "ok" : true,
+    "title" : "Itext (basic)"
+  },
+  "steps" : [ {
+    "events" : [ {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "null",
+      "event" : "question",
+      "hint" : null,
+      "label" : "1. Question one",
+      "readonly" : false,
+      "ref" : "/root/q1[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "event" : "endOfForm"
+    } ],
+    "op" : "walk"
+  }, {
+    "op" : "validate",
+    "outcome" : "ok",
+    "ref" : null
+  } ],
+  "traceVersion" : 1
+}

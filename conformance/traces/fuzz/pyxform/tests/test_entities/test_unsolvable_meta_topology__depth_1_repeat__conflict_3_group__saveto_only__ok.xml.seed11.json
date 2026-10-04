@@ -1,0 +1,131 @@
+{
+  "form" : "forms/pyxform/tests/test_entities/test_unsolvable_meta_topology__depth_1_repeat__conflict_3_group__saveto_only__ok.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><test_name id=\"data\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:entities=\"http://www.opendatakit.org/xforms/entities\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><r1><q1>x y z</q1><g1><q2 /><g2><g3><q3>123</q3></g3><g4><q4>zeta &amp; eta</q4></g4><q5>beta</q5><meta><entity dataset=\"e2\" create=\"1\" id=\"<uuid>\"><label /></entity></meta></g2><g5><q6 /><q7>beta</q7><meta><entity dataset=\"e3\" create=\"1\" id=\"<uuid>\"><label /></entity></meta></g5></g1><meta><entity dataset=\"e1\" create=\"1\" id=\"<uuid>\"><label /></entity></meta></r1><meta><instanceID>uuid:<uuid></instanceID></meta></test_name>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 11,
+  "steps" : [ {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "R1",
+    "ref" : "/test_name/r1[1]"
+  }, {
+    "after" : "x y z",
+    "answer" : "x y z",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Q1",
+    "readonly" : false,
+    "ref" : "/test_name/r1[1]/q1[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "G1",
+    "ref" : "/test_name/r1[1]/g1[1]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Q2",
+    "readonly" : false,
+    "ref" : "/test_name/r1[1]/g1[1]/q2[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "G2",
+    "ref" : "/test_name/r1[1]/g1[1]/g2[1]"
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "G3",
+    "ref" : "/test_name/r1[1]/g1[1]/g2[1]/g3[1]"
+  }, {
+    "after" : "123",
+    "answer" : "123",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Q3",
+    "readonly" : false,
+    "ref" : "/test_name/r1[1]/g1[1]/g2[1]/g3[1]/q3[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "G4",
+    "ref" : "/test_name/r1[1]/g1[1]/g2[1]/g4[1]"
+  }, {
+    "after" : "zeta & eta",
+    "answer" : "zeta & eta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Q4",
+    "readonly" : false,
+    "ref" : "/test_name/r1[1]/g1[1]/g2[1]/g4[1]/q4[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "beta",
+    "answer" : "beta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Q5",
+    "readonly" : false,
+    "ref" : "/test_name/r1[1]/g1[1]/g2[1]/q5[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "G5",
+    "ref" : "/test_name/r1[1]/g1[1]/g5[1]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Q6",
+    "readonly" : false,
+    "ref" : "/test_name/r1[1]/g1[1]/g5[1]/q6[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : false,
+    "event" : "promptNewRepeat",
+    "ref" : "/test_name/r1[2]"
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

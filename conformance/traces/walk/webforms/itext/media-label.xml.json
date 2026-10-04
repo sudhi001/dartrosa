@@ -1,0 +1,149 @@
+{
+  "form" : "forms/webforms/itext/media-label.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"media-test\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\"><meta><instanceID>uuid:<uuid></instanceID></meta><audio_question /><video_question /><image_question /><combined_question /><select_one_media /><select_multiple_media /><select_one_no_image /><select_multiple_no_image /></data>",
+  "parse" : {
+    "language" : "en",
+    "languages" : [ "en" ],
+    "ok" : true,
+    "title" : "Media Label Test"
+  },
+  "steps" : [ {
+    "events" : [ {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Question with audio label",
+      "readonly" : false,
+      "ref" : "/data/audio_question[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Question with video label",
+      "readonly" : false,
+      "ref" : "/data/video_question[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Question with image label",
+      "readonly" : false,
+      "ref" : "/data/image_question[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Edge case: question with all media in label",
+      "readonly" : false,
+      "ref" : "/data/combined_question[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "choices" : [ {
+        "label" : "Option 1: Audio",
+        "value" : "audio"
+      }, {
+        "label" : "Option 2: Video",
+        "value" : "video"
+      }, {
+        "label" : "Option 3: Image",
+        "value" : "image"
+      }, {
+        "label" : "Option 4: Audio + Image",
+        "value" : "image-audio"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Select one with media options (special style when it contains images)",
+      "readonly" : false,
+      "ref" : "/data/select_one_media[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "choices" : [ {
+        "label" : "Option 1: Audio",
+        "value" : "audio"
+      }, {
+        "label" : "Option 2: Video",
+        "value" : "video"
+      }, {
+        "label" : "Option 3: Image",
+        "value" : "image"
+      }, {
+        "label" : "Option 4: Audio + Image",
+        "value" : "image-audio"
+      } ],
+      "control" : "selectMulti",
+      "dataType" : "multipleItems",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Select multiple with media options (special style when it contains images)",
+      "readonly" : false,
+      "ref" : "/data/select_multiple_media[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "choices" : [ {
+        "label" : "Option 1: Audio",
+        "value" : "audio"
+      }, {
+        "label" : "Option 2: Video",
+        "value" : "video"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Select one audio or video",
+      "readonly" : false,
+      "ref" : "/data/select_one_no_image[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "choices" : [ {
+        "label" : "Option 1: Audio",
+        "value" : "audio"
+      }, {
+        "label" : "Option 2: Video",
+        "value" : "video"
+      } ],
+      "control" : "selectMulti",
+      "dataType" : "multipleItems",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Select multiple audio or video",
+      "readonly" : false,
+      "ref" : "/data/select_multiple_no_image[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "event" : "endOfForm"
+    } ],
+    "op" : "walk"
+  }, {
+    "op" : "validate",
+    "outcome" : "ok",
+    "ref" : null
+  } ],
+  "traceVersion" : 1
+}

@@ -1,0 +1,127 @@
+{
+  "form" : "forms/webforms/repeats/12-NestedRepeat.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"NestedRepeat\" version=\"20240415142016\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><person_repeat><person_name>kappa'lambda</person_name><language_repeat><language>kappa'lambda</language></language_repeat><country>x y z</country></person_repeat><person_repeat><person_name>épsilon</person_name><country>theta&lt;iota&gt;</country><language_repeat><language /></language_repeat></person_repeat><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 33,
+  "steps" : [ {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Persons",
+    "ref" : "/data/person_repeat[1]"
+  }, {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Person Name",
+    "readonly" : false,
+    "ref" : "/data/person_repeat[1]/person_name[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Languages",
+    "ref" : "/data/person_repeat[1]/language_repeat[1]"
+  }, {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Language",
+    "readonly" : false,
+    "ref" : "/data/person_repeat[1]/language_repeat[1]/language[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : false,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/person_repeat[1]/language_repeat[2]"
+  }, {
+    "after" : "x y z",
+    "answer" : "x y z",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Country",
+    "readonly" : false,
+    "ref" : "/data/person_repeat[1]/country[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : true,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/person_repeat[2]"
+  }, {
+    "after" : "épsilon",
+    "answer" : "épsilon",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Person Name",
+    "readonly" : false,
+    "ref" : "/data/person_repeat[2]/person_name[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : true,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/person_repeat[2]/language_repeat[1]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Language",
+    "readonly" : false,
+    "ref" : "/data/person_repeat[2]/language_repeat[1]/language[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : false,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/person_repeat[2]/language_repeat[2]"
+  }, {
+    "after" : "theta<iota>",
+    "answer" : "theta<iota>",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Country",
+    "readonly" : false,
+    "ref" : "/data/person_repeat[2]/country[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : false,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/person_repeat[3]"
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

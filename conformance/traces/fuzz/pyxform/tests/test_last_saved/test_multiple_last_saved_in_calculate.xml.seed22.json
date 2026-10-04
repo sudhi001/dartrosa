@@ -1,0 +1,41 @@
+{
+  "form" : "forms/pyxform/tests/test_last_saved/test_multiple_last_saved_in_calculate.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><last-saved id=\"data\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><foo>134</foo><bar>-44</bar><last-sum /><meta><instanceID>uuid:<uuid></instanceID></meta></last-saved>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 22,
+  "steps" : [ {
+    "after" : "134",
+    "answer" : "134",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Foo",
+    "readonly" : false,
+    "ref" : "/last-saved/foo[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "-44",
+    "answer" : "-44",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Bar",
+    "readonly" : false,
+    "ref" : "/last-saved/bar[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

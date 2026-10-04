@@ -1,0 +1,80 @@
+{
+  "cascades" : [ ],
+  "form" : "forms/webforms/select/6-select1-spaces.xml",
+  "initialize" : {
+    "ok" : true
+  },
+  "instance" : {
+    "attributes" : [ [ "", "id", "static-selects" ] ],
+    "bindAttributes" : [ ],
+    "children" : [ {
+      "attributes" : [ ],
+      "bindAttributes" : [ ],
+      "children" : [ ],
+      "constraint" : null,
+      "enabled" : true,
+      "mult" : 0,
+      "name" : "dessert",
+      "namespace" : null,
+      "prefix" : null,
+      "preload" : null,
+      "preloadParams" : null,
+      "relevant" : true,
+      "repeatable" : false,
+      "required" : false,
+      "type" : "choice",
+      "value" : "cherry pie"
+    }, {
+      "attributes" : [ ],
+      "bindAttributes" : [ ],
+      "children" : [ {
+        "attributes" : [ ],
+        "bindAttributes" : [ ],
+        "children" : [ ],
+        "constraint" : null,
+        "enabled" : true,
+        "mult" : 0,
+        "name" : "instanceID",
+        "namespace" : null,
+        "prefix" : null,
+        "preload" : null,
+        "preloadParams" : null,
+        "relevant" : true,
+        "repeatable" : false,
+        "required" : false,
+        "type" : "null",
+        "value" : null
+      } ],
+      "constraint" : null,
+      "enabled" : true,
+      "mult" : 0,
+      "name" : "meta",
+      "namespace" : null,
+      "prefix" : null,
+      "preload" : null,
+      "preloadParams" : null,
+      "relevant" : true,
+      "repeatable" : false,
+      "required" : false,
+      "type" : "null",
+      "value" : null
+    } ],
+    "constraint" : null,
+    "enabled" : true,
+    "mult" : 0,
+    "name" : "data",
+    "namespace" : null,
+    "prefix" : null,
+    "preload" : null,
+    "preloadParams" : null,
+    "relevant" : true,
+    "repeatable" : false,
+    "required" : false,
+    "type" : "null",
+    "value" : null
+  },
+  "parse" : {
+    "ok" : true
+  },
+  "traceVersion" : 1
+}

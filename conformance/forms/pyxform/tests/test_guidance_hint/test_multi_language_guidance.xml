@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:odk="http://www.opendatakit.org/xforms">
+  <h:head>
+    <h:title>data</h:title>
+    <model odk:xforms-version="1.0.0">
+      <itext>
+        <translation lang="default" default="true()">
+          <text id="/data/name:hint">
+            <value>your name</value>
+            <value form="guidance">as shown on birth certificate</value>
+          </text>
+        </translation>
+        <translation lang="French (fr)">
+          <text id="/data/name:hint">
+            <value form="guidance">comme sur le certificat de naissance</value>
+            <value>-</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <data id="data">
+          <name/>
+          <meta>
+            <instanceID/>
+          </meta>
+        </data>
+      </instance>
+      <bind nodeset="/data/name" type="string"/>
+      <bind nodeset="/data/meta/instanceID" type="string" readonly="true()" jr:preload="uid"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input ref="/data/name">
+      <label>Name</label>
+      <hint ref="jr:itext('/data/name:hint')"/>
+    </input>
+  </h:body>
+</h:html>

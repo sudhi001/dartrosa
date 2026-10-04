@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:odk="http://www.opendatakit.org/xforms">
+  <h:head>
+    <h:title>data</h:title>
+    <model odk:xforms-version="1.0.0">
+      <itext>
+        <translation lang="default" default="true()">
+          <text id="c1-0">
+            <value>la</value>
+          </text>
+          <text id="c1-1">
+            <value>lb</value>
+          </text>
+          <text id="c1-2">
+            <value>lc</value>
+          </text>
+          <text id="/test_name/q1:label">
+            <value>Question 1</value>
+          </text>
+        </translation>
+        <translation lang="en">
+          <text id="c1-1">
+            <value>lb-e</value>
+          </text>
+          <text id="c1-2">
+            <value>lc-e</value>
+          </text>
+          <text id="/test_name/q1:label">
+            <value>Question A</value>
+            <value form="image">jr://images/c1.png</value>
+          </text>
+          <text id="c1-0">
+            <value>-</value>
+          </text>
+        </translation>
+        <translation lang="de">
+          <text id="c1-1">
+            <value form="audio">jr://audio/c1_nb.mp3</value>
+            <value>-</value>
+          </text>
+          <text id="c1-2">
+            <value form="audio">jr://audio/c1_nc.mp3</value>
+            <value>-</value>
+          </text>
+          <text id="c1-0">
+            <value>-</value>
+          </text>
+          <text id="/test_name/q1:label">
+            <value>-</value>
+          </text>
+        </translation>
+        <translation lang="fr">
+          <text id="c1-2">
+            <value>lc-f</value>
+          </text>
+          <text id="c1-0">
+            <value>-</value>
+          </text>
+          <text id="c1-1">
+            <value>-</value>
+          </text>
+          <text id="/test_name/q1:label">
+            <value>-</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <test_name id="data">
+          <f/>
+          <q1/>
+          <meta>
+            <instanceID/>
+          </meta>
+        </test_name>
+      </instance>
+      <instance id="c0">
+        <root>
+          <item>
+            <name>n</name>
+            <label>l</label>
+          </item>
+        </root>
+      </instance>
+      <instance id="c1">
+        <root>
+          <item>
+            <itextId>c1-0</itextId>
+            <name>na</name>
+          </item>
+          <item>
+            <itextId>c1-1</itextId>
+            <name>nb</name>
+          </item>
+          <item>
+            <itextId>c1-2</itextId>
+            <name>nc</name>
+          </item>
+        </root>
+      </instance>
+      <bind nodeset="/test_name/f" type="string"/>
+      <bind nodeset="/test_name/q1" type="string"/>
+      <bind nodeset="/test_name/meta/instanceID" type="string" readonly="true()" jr:preload="uid"/>
+    </model>
+  </h:head>
+  <h:body>
+    <select1 ref="/test_name/f">
+      <label>f</label>
+      <itemset nodeset="instance('c0')/root/item">
+        <value ref="name"/>
+        <label ref="label"/>
+      </itemset>
+    </select1>
+    <select1 ref="/test_name/q1">
+      <label ref="jr:itext('/test_name/q1:label')"/>
+      <itemset nodeset="instance('c1')/root/item">
+        <value ref="name"/>
+        <label ref="jr:itext(itextId)"/>
+      </itemset>
+    </select1>
+  </h:body>
+</h:html>

@@ -1,0 +1,73 @@
+{
+  "form" : "forms/pyxform/tests/test_dynamic_default/test_dynamic_default_select_choice_name_with_hyphen.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><test_name id=\"data\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><q1>a-1</q1><q2>1-1</q2><q3>a-b</q3><meta><instanceID>uuid:<uuid></instanceID></meta></test_name>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 22,
+  "steps" : [ {
+    "after" : "a-1",
+    "answer" : "a-1",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "C A-1",
+      "value" : "a-1"
+    }, {
+      "label" : "C A-2",
+      "value" : "a-2"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Select1",
+    "readonly" : false,
+    "ref" : "/test_name/q1[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "a-2"
+  }, {
+    "after" : "1-1",
+    "answer" : "1-1",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "C 1-1",
+      "value" : "1-1"
+    }, {
+      "label" : "C 1-2",
+      "value" : "2-2"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Select2",
+    "readonly" : false,
+    "ref" : "/test_name/q2[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "1-1"
+  }, {
+    "after" : "a-b",
+    "answer" : "a-b",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "C A-B",
+      "value" : "a-b"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Select3",
+    "readonly" : false,
+    "ref" : "/test_name/q3[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "a-b"
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

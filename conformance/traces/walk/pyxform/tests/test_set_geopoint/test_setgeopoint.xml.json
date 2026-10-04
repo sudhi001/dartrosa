@@ -1,0 +1,11 @@
+{
+  "form" : "forms/pyxform/tests/test_set_geopoint/test_setgeopoint.xml",
+  "parse" : {
+    "error" : {
+      "message" : "For input string: \"no\"",
+      "type" : "NumberFormatException"
+    },
+    "ok" : false
+  },
+  "traceVersion" : 1
+}

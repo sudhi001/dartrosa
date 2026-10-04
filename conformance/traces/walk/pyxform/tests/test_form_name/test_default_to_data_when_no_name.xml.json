@@ -1,0 +1,32 @@
+{
+  "form" : "forms/pyxform/tests/test_form_name/test_default_to_data_when_no_name.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><test_name id=\"data\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><city /><meta><instanceID>uuid:<uuid></instanceID></meta></test_name>",
+  "parse" : {
+    "language" : null,
+    "languages" : [ ],
+    "ok" : true,
+    "title" : "data"
+  },
+  "steps" : [ {
+    "events" : [ {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "City Name",
+      "readonly" : false,
+      "ref" : "/test_name/city[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "event" : "endOfForm"
+    } ],
+    "op" : "walk"
+  }, {
+    "op" : "validate",
+    "outcome" : "ok",
+    "ref" : null
+  } ],
+  "traceVersion" : 1
+}

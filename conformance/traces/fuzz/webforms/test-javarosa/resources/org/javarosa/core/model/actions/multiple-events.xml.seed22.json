@@ -1,0 +1,60 @@
+{
+  "form" : "forms/webforms/test-javarosa/resources/org/javarosa/core/model/actions/multiple-events.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"multiple-events\" xmlns:h=\"http://www.w3.org/1999/xhtml\"><nested-first-load>123</nested-first-load><my-group><nested-first-load-in-group>beta</nested-first-load-in-group></my-group><my-value>146</my-value><my-calculated-value>292</my-calculated-value><meta><instanceID /></meta></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 22,
+  "steps" : [ {
+    "after" : "123",
+    "answer" : "123",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : null,
+    "readonly" : false,
+    "ref" : "/data/nested-first-load[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "cheese"
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : null,
+    "ref" : "/data/my-group[1]"
+  }, {
+    "after" : "beta",
+    "answer" : "beta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : null,
+    "readonly" : false,
+    "ref" : "/data/my-group[1]/nested-first-load-in-group[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "more cheese"
+  }, {
+    "after" : "146",
+    "answer" : "146",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : null,
+    "readonly" : false,
+    "ref" : "/data/my-value[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "5"
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

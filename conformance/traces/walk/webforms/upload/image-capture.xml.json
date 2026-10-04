@@ -1,0 +1,61 @@
+{
+  "form" : "forms/webforms/upload/image-capture.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"image_capture\" version=\"2025020401\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><cat_image /><dog_image /><have_birds /><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "language" : "English (en)",
+    "languages" : [ "English (en)", "French (fr)" ],
+    "ok" : true,
+    "title" : "Image Capture"
+  },
+  "steps" : [ {
+    "events" : [ {
+      "appearance" : null,
+      "control" : "imageChoose",
+      "dataType" : "binary",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Upload a picture of a cat",
+      "readonly" : false,
+      "ref" : "/data/cat_image[1]",
+      "required" : true,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "imageChoose",
+      "dataType" : "binary",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Upload a picture of a dog",
+      "readonly" : false,
+      "ref" : "/data/dog_image[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "choices" : [ {
+        "label" : "Yes",
+        "value" : "yes"
+      }, {
+        "label" : "No",
+        "value" : "no"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Do you have birds?",
+      "readonly" : false,
+      "ref" : "/data/have_birds[1]",
+      "required" : true,
+      "value" : null
+    }, {
+      "event" : "endOfForm"
+    } ],
+    "op" : "walk"
+  }, {
+    "op" : "validate",
+    "outcome" : "required",
+    "ref" : "/data/cat_image[1]"
+  } ],
+  "traceVersion" : 1
+}

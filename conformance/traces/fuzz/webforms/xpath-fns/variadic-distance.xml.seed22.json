@@ -1,0 +1,112 @@
+{
+  "form" : "forms/webforms/xpath-fns/variadic-distance.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"distance_examples\" version=\"20241025195211\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><location1>-6.8137120026589315 39.29392995851879 400 10</location1><location2>-6.815178491608137 39.29533915133268</location2><location3>-6.81189589956027 39.2973513889647 600</location3><location4>-6.81223343508222 39.29735351357036</location4><geoshape_12341>-6.8137120026589315 39.29392995851879 400 10; -6.815178491608137 39.29533915133268; -6.81189589956027 39.2973513889647 600; -6.81223343508222 39.29735351357036; -6.8137120026589315 39.29392995851879 400 10</geoshape_12341><distance_1234>690.9926821959281</distance_1234><area_1234>39484.87188558449</area_1234><distance_mixed>1103.6531215860318</distance_mixed><distance_via_geoshape>1103.6531215860318</distance_via_geoshape><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 22,
+  "steps" : [ {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "where 1",
+    "readonly" : true,
+    "ref" : "/data/location1[1]",
+    "required" : false,
+    "value" : "-6.8137120026589315 39.29392995851879 400 10"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "where 2",
+    "readonly" : true,
+    "ref" : "/data/location2[1]",
+    "required" : false,
+    "value" : "-6.815178491608137 39.29533915133268"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "where 3",
+    "readonly" : true,
+    "ref" : "/data/location3[1]",
+    "required" : false,
+    "value" : "-6.81189589956027 39.2973513889647 600"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "where 4",
+    "readonly" : true,
+    "ref" : "/data/location4[1]",
+    "required" : false,
+    "value" : "-6.81223343508222 39.29735351357036"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "geoshape 12341",
+    "readonly" : true,
+    "ref" : "/data/geoshape_12341[1]",
+    "required" : false,
+    "value" : "-6.8137120026589315 39.29392995851879 400 10; -6.815178491608137 39.29533915133268; -6.81189589956027 39.2973513889647 600; -6.81223343508222 39.29735351357036; -6.8137120026589315 39.29392995851879 400 10"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "distance 1234",
+    "readonly" : true,
+    "ref" : "/data/distance_1234[1]",
+    "required" : false,
+    "value" : "690.9926821959281"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "area 1234",
+    "readonly" : true,
+    "ref" : "/data/area_1234[1]",
+    "required" : false,
+    "value" : "39484.87188558449"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "distance 12341 mixed-type arguments",
+    "readonly" : true,
+    "ref" : "/data/distance_mixed[1]",
+    "required" : false,
+    "value" : "1103.6531215860318"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "distance 12341 via geoshape",
+    "readonly" : true,
+    "ref" : "/data/distance_via_geoshape[1]",
+    "required" : false,
+    "value" : "1103.6531215860318"
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

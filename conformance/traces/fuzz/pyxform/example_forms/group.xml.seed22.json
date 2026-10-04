@@ -1,0 +1,60 @@
+{
+  "form" : "forms/pyxform/example_forms/group.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"group\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><family_name>123</family_name><father><phone_number /><age>146</age></father><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 22,
+  "steps" : [ {
+    "after" : "123",
+    "answer" : "123",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "What's your family name?",
+    "readonly" : false,
+    "ref" : "/data/family_name[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Father",
+    "ref" : "/data/father[1]"
+  }, {
+    "after" : null,
+    "answer" : "beta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : "Enter numbers only.",
+    "label" : "What's your father's phone number?",
+    "readonly" : false,
+    "ref" : "/data/father[1]/phone_number[1]",
+    "required" : false,
+    "result" : "constraintViolated",
+    "value" : null
+  }, {
+    "after" : "146",
+    "answer" : "146",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "How old is your father?",
+    "readonly" : false,
+    "ref" : "/data/father[1]/age[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

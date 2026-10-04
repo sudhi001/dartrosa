@@ -1,0 +1,27 @@
+{
+  "form" : "forms/webforms/performance/bench9-alt.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><bench9 id=\"bench9\" version=\"201503171634\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><formhub><uuid>6b4b5d30712a4735ae90c1f51eb6a9c2</uuid></formhub><reps>-21</reps><rep_count>-21</rep_count><meta><instanceID>uuid:<uuid></instanceID></meta></bench9>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 33,
+  "steps" : [ {
+    "after" : "-21",
+    "answer" : "-21",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "number of repeats",
+    "readonly" : false,
+    "ref" : "/bench9/reps[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "5"
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

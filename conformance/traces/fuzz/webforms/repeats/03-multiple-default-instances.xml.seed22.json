@@ -1,0 +1,74 @@
+{
+  "form" : "forms/webforms/repeats/03-multiple-default-instances.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><root id=\"repeat-multiple-default-instances\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms/\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><rep><a>123</a></rep><rep><a>beta</a></rep><rep><a>kappa'lambda</a></rep><meta><instanceID /></meta></root>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 22,
+  "steps" : [ {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[1]"
+  }, {
+    "after" : "123",
+    "answer" : "123",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[1]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "default value (from first default instance)"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[2]"
+  }, {
+    "after" : "beta",
+    "answer" : "beta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[2]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "second default instance and its default value!"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[3]"
+  }, {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[3]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "&… 3rd"
+  }, {
+    "add" : false,
+    "event" : "promptNewRepeat",
+    "ref" : "/root/rep[4]"
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

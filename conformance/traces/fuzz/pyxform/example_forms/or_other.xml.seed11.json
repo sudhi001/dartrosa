@@ -1,0 +1,78 @@
+{
+  "form" : "forms/pyxform/example_forms/or_other.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"or_other\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><fav_color>other</fav_color><fav_color_other /><fav_pastel>other</fav_pastel><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 11,
+  "steps" : [ {
+    "after" : "other",
+    "answer" : "other",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "red",
+      "value" : "red"
+    }, {
+      "label" : "green",
+      "value" : "green"
+    }, {
+      "label" : "blue",
+      "value" : "blue"
+    }, {
+      "label" : "mauve",
+      "value" : "mauve"
+    }, {
+      "label" : "apricot",
+      "value" : "apricot"
+    }, {
+      "label" : "Other",
+      "value" : "other"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "What is your favorite color?",
+    "readonly" : false,
+    "ref" : "/data/fav_color[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Specify other.",
+    "readonly" : false,
+    "ref" : "/data/fav_color_other[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "other",
+    "answer" : "other",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Other",
+      "value" : "other"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "What is your favorite pastel?",
+    "readonly" : false,
+    "ref" : "/data/fav_pastel[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

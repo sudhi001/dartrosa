@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:odk="http://www.opendatakit.org/xforms">
+  <h:head>
+    <h:title>data</h:title>
+    <model odk:xforms-version="1.0.0">
+      <instance>
+        <test_name id="data">
+          <r1 jr:template="">
+            <q0/>
+            <q1/>
+            <r2 jr:template="">
+              <q2/>
+            </r2>
+          </r1>
+          <r1>
+            <q0/>
+            <q1/>
+            <r2>
+              <q2/>
+            </r2>
+          </r1>
+          <meta>
+            <instanceID/>
+          </meta>
+        </test_name>
+      </instance>
+      <bind nodeset="/test_name/r1/q0" type="date"/>
+      <setvalue ref="/test_name/r1/q0" event="odk-instance-first-load" value="now()"/>
+      <bind nodeset="/test_name/r1/q1" type="int"/>
+      <bind nodeset="/test_name/r1/r2/q2" type="int"/>
+      <setvalue ref="/test_name/r1/r2/q2" event="odk-instance-first-load" value=" ../../q1 "/>
+      <bind nodeset="/test_name/meta/instanceID" type="string" readonly="true()" jr:preload="uid"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="/test_name/r1">
+      <label/>
+      <repeat nodeset="/test_name/r1">
+        <input ref="/test_name/r1/q0">
+          <label>Date</label>
+        </input>
+        <input ref="/test_name/r1/q1">
+          <label>Foo</label>
+        </input>
+        <group ref="/test_name/r1/r2">
+          <label/>
+          <repeat nodeset="/test_name/r1/r2">
+            <input ref="/test_name/r1/r2/q2">
+              <label>Bar</label>
+            </input>
+            <setvalue ref="/test_name/r1/r2/q2" event="odk-new-repeat" value=" ../../q1 "/>
+          </repeat>
+        </group>
+        <setvalue ref="/test_name/r1/q0" event="odk-new-repeat" value="now()"/>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

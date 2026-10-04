@@ -1,0 +1,78 @@
+{
+  "form" : "forms/webforms/entities/bind-attributes.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"create_update_beneficiary\" version=\"20251103154221\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:entities=\"http://www.opendatakit.org/xforms/entities\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><beneficiary>james</beneficiary><info><summary /><update_full_name>kappa'lambda</update_full_name><update_number>zeta &amp; eta</update_number></info><full_name>kappa'lambda</full_name><phone_number>zeta &amp; eta</phone_number><meta><instanceID>uuid:<uuid></instanceID><instanceName>kappa'lambda - zeta &amp; eta</instanceName><entity dataset=\"beneficiaries\" create=\"0\" update=\"1\" baseVersion=\"\" trunkVersion=\"\" branchId=\"\" id=\"james\"><label>kappa'lambda - zeta &amp; eta</label></entity></meta></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 33,
+  "steps" : [ {
+    "after" : "james",
+    "answer" : "james",
+    "appearance" : "search",
+    "choices" : [ {
+      "label" : "James",
+      "value" : "james"
+    }, {
+      "label" : "Denis",
+      "value" : "denis"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Select beneficiary to update their basic information. You can search by name or phone number.\n\nIf you can't find the desired beneficiary, go to the next screen to register a new one.",
+    "readonly" : false,
+    "ref" : "/data/beneficiary[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : "field-list",
+    "event" : "group",
+    "label" : null,
+    "ref" : "/data/info[1]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Currently registered as\n          James Cameron with phone number\n          +1235556789\n\nLatest mood:\n          \n\nKiwis received:\n          ",
+    "readonly" : true,
+    "ref" : "/data/info[1]/summary[1]",
+    "required" : false,
+    "value" : null
+  }, {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Update beneficiary name",
+    "readonly" : false,
+    "ref" : "/data/info[1]/update_full_name[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "James Cameron"
+  }, {
+    "after" : "zeta & eta",
+    "answer" : "zeta & eta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Update beneficiary phone number",
+    "readonly" : false,
+    "ref" : "/data/info[1]/update_number[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "+1235556789"
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

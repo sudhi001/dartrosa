@@ -1,0 +1,90 @@
+{
+  "form" : "forms/webforms/repeats/07-jr-test-add-repeat-calc-multiple-deps.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"repeat-calcs\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\"><repeat><position>1</position><position_2>2</position_2><other>4</other><concatenated>2-4</concatenated></repeat><repeat><position>2</position><position_2>4</position_2><other>4</other><concatenated>4-4</concatenated></repeat><repeat><position>3</position><position_2>6</position_2><other>4</other><concatenated>6-4</concatenated></repeat><repeat><position>4</position><position_2>8</position_2><other>4</other><concatenated>épsilon</concatenated></repeat></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 22,
+  "steps" : [ {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/repeat[1]"
+  }, {
+    "after" : "123",
+    "answer" : "123",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : null,
+    "readonly" : false,
+    "ref" : "/data/repeat[1]/concatenated[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "2-4"
+  }, {
+    "add" : true,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/repeat[2]"
+  }, {
+    "after" : "alpha",
+    "answer" : "alpha",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : null,
+    "readonly" : false,
+    "ref" : "/data/repeat[2]/concatenated[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "4-4"
+  }, {
+    "add" : true,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/repeat[3]"
+  }, {
+    "after" : "mu\"nu",
+    "answer" : "mu\"nu",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : null,
+    "readonly" : false,
+    "ref" : "/data/repeat[3]/concatenated[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "6-4"
+  }, {
+    "add" : true,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/repeat[4]"
+  }, {
+    "after" : "épsilon",
+    "answer" : "épsilon",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : null,
+    "readonly" : false,
+    "ref" : "/data/repeat[4]/concatenated[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "8-4"
+  }, {
+    "add" : false,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/repeat[5]"
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

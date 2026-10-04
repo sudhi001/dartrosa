@@ -1,0 +1,43 @@
+{
+  "form" : "forms/pyxform/tests/test_bind_conversions/test_bind_required_message_with_reference.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"data\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><foo /><text /><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "language" : "default",
+    "languages" : [ "default" ],
+    "ok" : true,
+    "title" : "data"
+  },
+  "steps" : [ {
+    "events" : [ {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "integer",
+      "event" : "question",
+      "hint" : null,
+      "label" : "foo",
+      "readonly" : false,
+      "ref" : "/data/foo[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "text",
+      "readonly" : false,
+      "ref" : "/data/text[1]",
+      "required" : true,
+      "value" : null
+    }, {
+      "event" : "endOfForm"
+    } ],
+    "op" : "walk"
+  }, {
+    "op" : "validate",
+    "outcome" : "required",
+    "ref" : "/data/text[1]"
+  } ],
+  "traceVersion" : 1
+}

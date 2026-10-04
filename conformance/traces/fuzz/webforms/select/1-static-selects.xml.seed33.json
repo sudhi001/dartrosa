@@ -1,0 +1,106 @@
+{
+  "form" : "forms/webforms/select/1-static-selects.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"static-selects\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><fruit>grape</fruit><fruits>pear strawberry watermelon</fruits><meta><instanceID /></meta></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 33,
+  "steps" : [ {
+    "after" : "grape",
+    "answer" : "grape",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Mango",
+      "value" : "mango"
+    }, {
+      "label" : "Apple",
+      "value" : "apple"
+    }, {
+      "label" : "Orange",
+      "value" : "orange"
+    }, {
+      "label" : "Banana",
+      "value" : "banana"
+    }, {
+      "label" : "Kiwi",
+      "value" : "kiwi"
+    }, {
+      "label" : "Grape",
+      "value" : "grape"
+    }, {
+      "label" : "Cherry",
+      "value" : "cherry"
+    }, {
+      "label" : "Pineapple",
+      "value" : "pineapple"
+    }, {
+      "label" : "Grapefruit",
+      "value" : "grapefruit"
+    }, {
+      "label" : "Apricot",
+      "value" : "apricot"
+    }, {
+      "label" : "Avocado",
+      "value" : "avocado"
+    }, {
+      "label" : "Papaya",
+      "value" : "papaya"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Select a fruit",
+    "readonly" : false,
+    "ref" : "/data/fruit[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "cherry"
+  }, {
+    "after" : "pear strawberry watermelon",
+    "answer" : "pear strawberry watermelon",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Watermelon",
+      "value" : "watermelon"
+    }, {
+      "label" : "Peach",
+      "value" : "peach"
+    }, {
+      "label" : "Strawberry",
+      "value" : "strawberry"
+    }, {
+      "label" : "Blueberry",
+      "value" : "blueberry"
+    }, {
+      "label" : "Pear",
+      "value" : "pear"
+    }, {
+      "label" : "Plum",
+      "value" : "plum"
+    }, {
+      "label" : "Pomegranate",
+      "value" : "pomegranate"
+    }, {
+      "label" : "Blackberry",
+      "value" : "blackberry"
+    }, {
+      "label" : "Lychee",
+      "value" : "lychee"
+    } ],
+    "control" : "selectMulti",
+    "dataType" : "multipleItems",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Select multiple fruits",
+    "readonly" : false,
+    "ref" : "/data/fruits[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "blackberry peach"
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

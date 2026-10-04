@@ -1,0 +1,346 @@
+{
+  "form" : "forms/pyxform/tests/test_create_repeat/test_somewhat_ambiguous_repeat_nesting_references_with_saveto_and_many_competing_lists.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><test_name id=\"data\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:entities=\"http://www.opendatakit.org/xforms/entities\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><r1><g1><q1>x y z</q1><r2><g2><q2 /><g3><g4><q3>123</q3><q4>zeta &amp; eta</q4><meta><entity dataset=\"e2\" create=\"1\" id=\"<uuid>\"><label>x y z  123</label></entity></meta></g4><meta><entity dataset=\"e3\" create=\"1\" id=\"<uuid>\"><label>x y z  123</label></entity></meta></g3><meta><entity dataset=\"e1\" create=\"0\" id=\"<uuid>\"><label>x y z  123</label></entity></meta></g2><meta><entity dataset=\"e4\" create=\"1\" id=\"<uuid>\"><label>x y z  123</label></entity></meta></r2><r2><g2><q2>kappa'lambda</q2><g3><g4><q3 /><q4>alpha</q4><meta><entity dataset=\"e2\" create=\"1\" id=\"<uuid>\"><label>x y z kappa'lambda </label></entity></meta></g4><meta><entity dataset=\"e3\" create=\"1\" id=\"<uuid>\"><label>x y z kappa'lambda </label></entity></meta></g3><meta><entity dataset=\"e1\" create=\"0\" id=\"<uuid>\"><label>x y z kappa'lambda </label></entity></meta></g2><meta><entity dataset=\"e4\" create=\"1\" id=\"<uuid>\"><label>x y z kappa'lambda </label></entity></meta></r2></g1></r1><r1><g1><q1>alpha</q1><r2><g2><q2>alpha</q2><g3><g4><q3>zeta &amp; eta</q3><q4>beta</q4><meta><entity dataset=\"e2\" create=\"1\" id=\"\"><label>alpha alpha zeta &amp; eta</label></entity></meta></g4><meta><entity dataset=\"e3\" create=\"1\" id=\"\"><label>alpha alpha zeta &amp; eta</label></entity></meta></g3><meta><entity dataset=\"e1\" create=\"0\" id=\"\"><label>alpha alpha zeta &amp; eta</label></entity></meta></g2><meta><entity dataset=\"e4\" create=\"1\" id=\"\"><label>alpha alpha zeta &amp; eta</label></entity></meta></r2></g1></r1><r1><g1><q1>zeta &amp; eta</q1><r2><g2><q2>zeta &amp; eta</q2><g3><g4><q3>épsilon</q3><q4>alpha</q4><meta><entity dataset=\"e2\" create=\"1\" id=\"\"><label>zeta &amp; eta zeta &amp; eta épsilon</label></entity></meta></g4><meta><entity dataset=\"e3\" create=\"1\" id=\"\"><label>zeta &amp; eta zeta &amp; eta épsilon</label></entity></meta></g3><meta><entity dataset=\"e1\" create=\"0\" id=\"\"><label>zeta &amp; eta zeta &amp; eta épsilon</label></entity></meta></g2><meta><entity dataset=\"e4\" create=\"1\" id=\"\"><label>zeta &amp; eta zeta &amp; eta épsilon</label></entity></meta></r2></g1></r1><meta><instanceID>uuid:<uuid></instanceID></meta></test_name>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 11,
+  "steps" : [ {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "R1",
+    "ref" : "/test_name/r1[1]"
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "G1",
+    "ref" : "/test_name/r1[1]/g1[1]"
+  }, {
+    "after" : "x y z",
+    "answer" : "x y z",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Q1",
+    "readonly" : false,
+    "ref" : "/test_name/r1[1]/g1[1]/q1[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "R2",
+    "ref" : "/test_name/r1[1]/g1[1]/r2[1]"
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "G2",
+    "ref" : "/test_name/r1[1]/g1[1]/r2[1]/g2[1]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Q2",
+    "readonly" : false,
+    "ref" : "/test_name/r1[1]/g1[1]/r2[1]/g2[1]/q2[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "G3",
+    "ref" : "/test_name/r1[1]/g1[1]/r2[1]/g2[1]/g3[1]"
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "G4",
+    "ref" : "/test_name/r1[1]/g1[1]/r2[1]/g2[1]/g3[1]/g4[1]"
+  }, {
+    "after" : "123",
+    "answer" : "123",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Q3",
+    "readonly" : false,
+    "ref" : "/test_name/r1[1]/g1[1]/r2[1]/g2[1]/g3[1]/g4[1]/q3[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "zeta & eta",
+    "answer" : "zeta & eta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Q4",
+    "readonly" : false,
+    "ref" : "/test_name/r1[1]/g1[1]/r2[1]/g2[1]/g3[1]/g4[1]/q4[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : true,
+    "event" : "promptNewRepeat",
+    "ref" : "/test_name/r1[1]/g1[1]/r2[2]"
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "G2",
+    "ref" : "/test_name/r1[1]/g1[1]/r2[2]/g2[1]"
+  }, {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Q2",
+    "readonly" : false,
+    "ref" : "/test_name/r1[1]/g1[1]/r2[2]/g2[1]/q2[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "G3",
+    "ref" : "/test_name/r1[1]/g1[1]/r2[2]/g2[1]/g3[1]"
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "G4",
+    "ref" : "/test_name/r1[1]/g1[1]/r2[2]/g2[1]/g3[1]/g4[1]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Q3",
+    "readonly" : false,
+    "ref" : "/test_name/r1[1]/g1[1]/r2[2]/g2[1]/g3[1]/g4[1]/q3[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "alpha",
+    "answer" : "alpha",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Q4",
+    "readonly" : false,
+    "ref" : "/test_name/r1[1]/g1[1]/r2[2]/g2[1]/g3[1]/g4[1]/q4[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : false,
+    "event" : "promptNewRepeat",
+    "ref" : "/test_name/r1[1]/g1[1]/r2[3]"
+  }, {
+    "add" : true,
+    "event" : "promptNewRepeat",
+    "ref" : "/test_name/r1[2]"
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "G1",
+    "ref" : "/test_name/r1[2]/g1[1]"
+  }, {
+    "after" : "alpha",
+    "answer" : "alpha",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Q1",
+    "readonly" : false,
+    "ref" : "/test_name/r1[2]/g1[1]/q1[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "R2",
+    "ref" : "/test_name/r1[2]/g1[1]/r2[1]"
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "G2",
+    "ref" : "/test_name/r1[2]/g1[1]/r2[1]/g2[1]"
+  }, {
+    "after" : "alpha",
+    "answer" : "alpha",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Q2",
+    "readonly" : false,
+    "ref" : "/test_name/r1[2]/g1[1]/r2[1]/g2[1]/q2[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "G3",
+    "ref" : "/test_name/r1[2]/g1[1]/r2[1]/g2[1]/g3[1]"
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "G4",
+    "ref" : "/test_name/r1[2]/g1[1]/r2[1]/g2[1]/g3[1]/g4[1]"
+  }, {
+    "after" : "zeta & eta",
+    "answer" : "zeta & eta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Q3",
+    "readonly" : false,
+    "ref" : "/test_name/r1[2]/g1[1]/r2[1]/g2[1]/g3[1]/g4[1]/q3[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "beta",
+    "answer" : "beta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Q4",
+    "readonly" : false,
+    "ref" : "/test_name/r1[2]/g1[1]/r2[1]/g2[1]/g3[1]/g4[1]/q4[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : false,
+    "event" : "promptNewRepeat",
+    "ref" : "/test_name/r1[2]/g1[1]/r2[2]"
+  }, {
+    "add" : true,
+    "event" : "promptNewRepeat",
+    "ref" : "/test_name/r1[3]"
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "G1",
+    "ref" : "/test_name/r1[3]/g1[1]"
+  }, {
+    "after" : "zeta & eta",
+    "answer" : "zeta & eta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Q1",
+    "readonly" : false,
+    "ref" : "/test_name/r1[3]/g1[1]/q1[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "R2",
+    "ref" : "/test_name/r1[3]/g1[1]/r2[1]"
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "G2",
+    "ref" : "/test_name/r1[3]/g1[1]/r2[1]/g2[1]"
+  }, {
+    "after" : "zeta & eta",
+    "answer" : "zeta & eta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Q2",
+    "readonly" : false,
+    "ref" : "/test_name/r1[3]/g1[1]/r2[1]/g2[1]/q2[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "G3",
+    "ref" : "/test_name/r1[3]/g1[1]/r2[1]/g2[1]/g3[1]"
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "G4",
+    "ref" : "/test_name/r1[3]/g1[1]/r2[1]/g2[1]/g3[1]/g4[1]"
+  }, {
+    "after" : "épsilon",
+    "answer" : "épsilon",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Q3",
+    "readonly" : false,
+    "ref" : "/test_name/r1[3]/g1[1]/r2[1]/g2[1]/g3[1]/g4[1]/q3[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "alpha",
+    "answer" : "alpha",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Q4",
+    "readonly" : false,
+    "ref" : "/test_name/r1[3]/g1[1]/r2[1]/g2[1]/g3[1]/g4[1]/q4[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : false,
+    "event" : "promptNewRepeat",
+    "ref" : "/test_name/r1[3]/g1[1]/r2[2]"
+  }, {
+    "add" : false,
+    "event" : "promptNewRepeat",
+    "ref" : "/test_name/r1[4]"
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

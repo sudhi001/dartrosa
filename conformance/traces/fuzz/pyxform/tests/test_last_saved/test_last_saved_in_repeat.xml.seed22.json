@@ -1,0 +1,40 @@
+{
+  "form" : "forms/pyxform/tests/test_last_saved/test_last_saved_in_repeat.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><last-saved id=\"data\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><my-repeat><foo>134</foo><bar /></my-repeat><my-repeat><foo /><bar /></my-repeat><baz /><meta><instanceID>uuid:<uuid></instanceID></meta></last-saved>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 22,
+  "steps" : [ {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/last-saved/my-repeat[1]"
+  }, {
+    "after" : "134",
+    "answer" : "134",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Foo",
+    "readonly" : false,
+    "ref" : "/last-saved/my-repeat[1]/foo[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "error" : {
+      "message" : "Error evaluating field 'baz' (/last-saved/baz[1]): The problem was located in Calculate expression for /last-saved/baz\nXPath evaluation: type mismatch \nThis field is repeated: \n\n/last-saved/my-repeat[1]/foo[1];/last-saved/my-repeat[2]/foo[1]\n\nYou may need to use the indexed-repeat() function to specify which value you want.",
+      "type" : "RuntimeException"
+    }
+  } ],
+  "traceVersion" : 1,
+  "validate" : {
+    "error" : {
+      "message" : "Error evaluating field 'baz' (/last-saved/baz[1]): The problem was located in Calculate expression for /last-saved/baz\nXPath evaluation: type mismatch \nThis field is repeated: \n\n/last-saved/my-repeat[1]/foo[1];/last-saved/my-repeat[2]/foo[1]\n\nYou may need to use the indexed-repeat() function to specify which value you want.",
+      "type" : "RuntimeException"
+    }
+  }
+}

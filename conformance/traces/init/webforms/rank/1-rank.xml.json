@@ -1,0 +1,80 @@
+{
+  "cascades" : [ ],
+  "form" : "forms/webforms/rank/1-rank.xml",
+  "initialize" : {
+    "ok" : true
+  },
+  "instance" : {
+    "attributes" : [ [ "", "id", "1_rank" ], [ "", "version", "2025011401" ] ],
+    "bindAttributes" : [ ],
+    "children" : [ {
+      "attributes" : [ ],
+      "bindAttributes" : [ ],
+      "children" : [ ],
+      "constraint" : null,
+      "enabled" : true,
+      "mult" : 0,
+      "name" : "priorities",
+      "namespace" : null,
+      "prefix" : null,
+      "preload" : null,
+      "preloadParams" : null,
+      "relevant" : true,
+      "repeatable" : false,
+      "required" : false,
+      "type" : "multipleItems",
+      "value" : null
+    }, {
+      "attributes" : [ ],
+      "bindAttributes" : [ ],
+      "children" : [ {
+        "attributes" : [ ],
+        "bindAttributes" : [ ],
+        "children" : [ ],
+        "constraint" : null,
+        "enabled" : false,
+        "mult" : 0,
+        "name" : "instanceID",
+        "namespace" : null,
+        "prefix" : null,
+        "preload" : "uid",
+        "preloadParams" : null,
+        "relevant" : true,
+        "repeatable" : false,
+        "required" : false,
+        "type" : "text",
+        "value" : "uuid:<uuid>"
+      } ],
+      "constraint" : null,
+      "enabled" : true,
+      "mult" : 0,
+      "name" : "meta",
+      "namespace" : null,
+      "prefix" : null,
+      "preload" : null,
+      "preloadParams" : null,
+      "relevant" : true,
+      "repeatable" : false,
+      "required" : false,
+      "type" : "null",
+      "value" : null
+    } ],
+    "constraint" : null,
+    "enabled" : true,
+    "mult" : 0,
+    "name" : "data",
+    "namespace" : null,
+    "prefix" : null,
+    "preload" : null,
+    "preloadParams" : null,
+    "relevant" : true,
+    "repeatable" : false,
+    "required" : false,
+    "type" : "null",
+    "value" : null
+  },
+  "parse" : {
+    "ok" : true
+  },
+  "traceVersion" : 1
+}

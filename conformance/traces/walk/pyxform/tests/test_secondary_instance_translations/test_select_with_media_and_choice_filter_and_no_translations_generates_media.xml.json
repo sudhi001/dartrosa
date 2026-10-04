@@ -1,0 +1,51 @@
+{
+  "form" : "forms/pyxform/tests/test_secondary_instance_translations/test_select_with_media_and_choice_filter_and_no_translations_generates_media.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><test_name id=\"data\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><consent /><enumerator_mood /><meta><instanceID>uuid:<uuid></instanceID></meta></test_name>",
+  "parse" : {
+    "language" : "default",
+    "languages" : [ "default" ],
+    "ok" : true,
+    "title" : "data"
+  },
+  "steps" : [ {
+    "events" : [ {
+      "appearance" : null,
+      "choices" : [ {
+        "label" : "Yes",
+        "value" : "y"
+      }, {
+        "label" : "No",
+        "value" : "n"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Would you like to participate ?",
+      "readonly" : false,
+      "ref" : "/test_name/consent[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "choices" : [ ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : "How are you feeling today ?",
+      "readonly" : false,
+      "ref" : "/test_name/enumerator_mood[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "event" : "endOfForm"
+    } ],
+    "op" : "walk"
+  }, {
+    "op" : "validate",
+    "outcome" : "ok",
+    "ref" : null
+  } ],
+  "traceVersion" : 1
+}

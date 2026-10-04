@@ -1,0 +1,101 @@
+{
+  "form" : "forms/pyxform/tests/test_create_repeat/test_somewhat_ambiguous_repeat_nesting_references_with_saveto_and_many_competing_lists.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><test_name id=\"data\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:entities=\"http://www.opendatakit.org/xforms/entities\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><r1><g1><q1 /><r2><g2><q2 /><g3><g4><q3 /><q4 /><meta><entity dataset=\"e2\" create=\"1\" id=\"<uuid>\"><label>  </label></entity></meta></g4><meta><entity dataset=\"e3\" create=\"1\" id=\"<uuid>\"><label>  </label></entity></meta></g3><meta><entity dataset=\"e1\" create=\"1\" id=\"<uuid>\"><label>  </label></entity></meta></g2><meta><entity dataset=\"e4\" create=\"1\" id=\"<uuid>\"><label>  </label></entity></meta></r2></g1></r1><meta><instanceID>uuid:<uuid></instanceID></meta></test_name>",
+  "parse" : {
+    "language" : null,
+    "languages" : [ ],
+    "ok" : true,
+    "title" : "data"
+  },
+  "steps" : [ {
+    "events" : [ {
+      "appearance" : null,
+      "event" : "repeat",
+      "label" : "R1",
+      "ref" : "/test_name/r1[1]"
+    }, {
+      "appearance" : null,
+      "event" : "group",
+      "label" : "G1",
+      "ref" : "/test_name/r1[1]/g1[1]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Q1",
+      "readonly" : false,
+      "ref" : "/test_name/r1[1]/g1[1]/q1[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "event" : "repeat",
+      "label" : "R2",
+      "ref" : "/test_name/r1[1]/g1[1]/r2[1]"
+    }, {
+      "appearance" : null,
+      "event" : "group",
+      "label" : "G2",
+      "ref" : "/test_name/r1[1]/g1[1]/r2[1]/g2[1]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Q2",
+      "readonly" : false,
+      "ref" : "/test_name/r1[1]/g1[1]/r2[1]/g2[1]/q2[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "event" : "group",
+      "label" : "G3",
+      "ref" : "/test_name/r1[1]/g1[1]/r2[1]/g2[1]/g3[1]"
+    }, {
+      "appearance" : null,
+      "event" : "group",
+      "label" : "G4",
+      "ref" : "/test_name/r1[1]/g1[1]/r2[1]/g2[1]/g3[1]/g4[1]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Q3",
+      "readonly" : false,
+      "ref" : "/test_name/r1[1]/g1[1]/r2[1]/g2[1]/g3[1]/g4[1]/q3[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Q4",
+      "readonly" : false,
+      "ref" : "/test_name/r1[1]/g1[1]/r2[1]/g2[1]/g3[1]/g4[1]/q4[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "event" : "promptNewRepeat",
+      "ref" : "/test_name/r1[1]/g1[1]/r2[2]"
+    }, {
+      "event" : "promptNewRepeat",
+      "ref" : "/test_name/r1[2]"
+    }, {
+      "event" : "endOfForm"
+    } ],
+    "op" : "walk"
+  }, {
+    "op" : "validate",
+    "outcome" : "ok",
+    "ref" : null
+  } ],
+  "traceVersion" : 1
+}

@@ -1,0 +1,27 @@
+{
+  "form" : "forms/pyxform/tests/test_file/test_file_type.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"data\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><file>file84.jpg</file><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 22,
+  "steps" : [ {
+    "after" : "file84.jpg",
+    "answer" : "file84.jpg",
+    "appearance" : null,
+    "control" : "fileCapture",
+    "dataType" : "binary",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Attach a file",
+    "readonly" : false,
+    "ref" : "/data/file[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

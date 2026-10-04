@@ -1,0 +1,121 @@
+{
+  "form" : "forms/pyxform/example_forms/loop.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"loop\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><available_toilet_types>bucket_system</available_toilet_types><loop_toilet_types><pit_latrine_with_slab><number>134</number></pit_latrine_with_slab><open_pit_latrine><number>-26</number></open_pit_latrine><bucket_system><number>2</number></bucket_system><other><number /></other></loop_toilet_types><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 11,
+  "steps" : [ {
+    "after" : "bucket_system",
+    "answer" : "bucket_system",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Pit latrine with slab",
+      "value" : "pit_latrine_with_slab"
+    }, {
+      "label" : "Pit latrine without slab/open pit",
+      "value" : "open_pit_latrine"
+    }, {
+      "label" : "Bucket system",
+      "value" : "bucket_system"
+    }, {
+      "label" : "Other",
+      "value" : "other"
+    } ],
+    "control" : "selectMulti",
+    "dataType" : "multipleItems",
+    "event" : "question",
+    "hint" : null,
+    "label" : "What type of toilets are on the premises?",
+    "readonly" : false,
+    "ref" : "/data/available_toilet_types[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : null,
+    "ref" : "/data/loop_toilet_types[1]"
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Pit latrine with slab",
+    "ref" : "/data/loop_toilet_types[1]/pit_latrine_with_slab[1]"
+  }, {
+    "after" : "134",
+    "answer" : "134",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "How many Pit latrine with slab are on the premises?",
+    "readonly" : false,
+    "ref" : "/data/loop_toilet_types[1]/pit_latrine_with_slab[1]/number[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Pit latrine without slab/open pit",
+    "ref" : "/data/loop_toilet_types[1]/open_pit_latrine[1]"
+  }, {
+    "after" : "-26",
+    "answer" : "-26",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "How many Pit latrine without slab/open pit are on the premises?",
+    "readonly" : false,
+    "ref" : "/data/loop_toilet_types[1]/open_pit_latrine[1]/number[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Bucket system",
+    "ref" : "/data/loop_toilet_types[1]/bucket_system[1]"
+  }, {
+    "after" : "2",
+    "answer" : "2",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "How many Bucket system are on the premises?",
+    "readonly" : false,
+    "ref" : "/data/loop_toilet_types[1]/bucket_system[1]/number[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Other",
+    "ref" : "/data/loop_toilet_types[1]/other[1]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "How many Other are on the premises?",
+    "readonly" : false,
+    "ref" : "/data/loop_toilet_types[1]/other[1]/number[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

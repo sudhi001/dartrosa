@@ -1,0 +1,36 @@
+{
+  "form" : "forms/webforms/repeats/07-jr-test-add-repeat-calc-multiple-deps.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"repeat-calcs\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\"><repeat><position>1</position><position_2>2</position_2><other>4</other><concatenated>kappa'lambda</concatenated></repeat></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 33,
+  "steps" : [ {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/repeat[1]"
+  }, {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : null,
+    "readonly" : false,
+    "ref" : "/data/repeat[1]/concatenated[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "2-4"
+  }, {
+    "add" : false,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/repeat[2]"
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

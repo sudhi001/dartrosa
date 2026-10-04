@@ -21,8 +21,8 @@ Map<String, Object?> describe(FormEntryModel model, FormEntryEvent event) {
       ..['control'] = p.controlType.name
       ..['dataType'] = _dataTypeName(p.dataType)
       ..['appearance'] = p.appearanceHint
-      ..['label'] = p.longText
-      ..['hint'] = p.helpText
+      ..['label'] = normalize(p.longText)
+      ..['hint'] = normalize(p.helpText)
       ..['required'] = p.isRequired
       ..['readonly'] = p.isReadOnly;
     final value = p.answerValue;
@@ -33,7 +33,7 @@ Map<String, Object?> describe(FormEntryModel model, FormEntryEvent event) {
         q.controlType == ControlType.rank) {
       final choices = [
         for (final c in p.selectChoices)
-          {'value': c.value, 'label': p.selectChoiceText(c)},
+          {'value': c.value, 'label': normalize(p.selectChoiceText(c))},
       ];
       final itemset = q.dynamicChoices;
       if (itemset != null &&
@@ -46,7 +46,7 @@ Map<String, Object?> describe(FormEntryModel model, FormEntryEvent event) {
     }
   } else if (event == FormEntryEvent.group || event == FormEntryEvent.repeat) {
     e
-      ..['label'] = model.captionPrompt().longText
+      ..['label'] = normalize(model.captionPrompt().longText)
       ..['appearance'] = model.captionPrompt().appearanceHint;
   }
   return e;

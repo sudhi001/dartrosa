@@ -1,0 +1,120 @@
+{
+  "form" : "forms/webforms/value-types/numeric-value-types.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><root id=\"value-types-numeric\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms/\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><int-q>1</int-q><int-val>1</int-val><decimal-q>1.5</decimal-q><decimal-val>1.5</decimal-val><numbers-q>95</numbers-q><numbers-val>95</numbers-val><thousands-int /><thousands-decimal /><thousands-numbers /><thousands-q>9999</thousands-q><meta><instanceID /></meta></root>",
+  "parse" : {
+    "language" : null,
+    "languages" : [ ],
+    "ok" : true,
+    "title" : "Value types (numeric)"
+  },
+  "steps" : [ {
+    "events" : [ {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "integer",
+      "event" : "question",
+      "hint" : null,
+      "label" : "1. Int[eger] question",
+      "readonly" : false,
+      "ref" : "/root/int-q[1]",
+      "required" : false,
+      "value" : "1"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "null",
+      "event" : "question",
+      "hint" : null,
+      "label" : "1.1 Int value",
+      "readonly" : true,
+      "ref" : "/root/int-val[1]",
+      "required" : false,
+      "value" : "1"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "decimal",
+      "event" : "question",
+      "hint" : null,
+      "label" : "2. Decimal question",
+      "readonly" : false,
+      "ref" : "/root/decimal-q[1]",
+      "required" : false,
+      "value" : "1.5"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "null",
+      "event" : "question",
+      "hint" : null,
+      "label" : "2.1 Decimal value",
+      "readonly" : true,
+      "ref" : "/root/decimal-val[1]",
+      "required" : false,
+      "value" : "1.5"
+    }, {
+      "appearance" : "numbers",
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "3. Numbers question (string + appearance=\"numbers\")",
+      "readonly" : false,
+      "ref" : "/root/numbers-q[1]",
+      "required" : false,
+      "value" : "95"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "null",
+      "event" : "question",
+      "hint" : null,
+      "label" : "3.1 Numbers value",
+      "readonly" : true,
+      "ref" : "/root/numbers-val[1]",
+      "required" : false,
+      "value" : "95"
+    }, {
+      "appearance" : "thousands-sep",
+      "control" : "input",
+      "dataType" : "integer",
+      "event" : "question",
+      "hint" : null,
+      "label" : "4. Thousands separator (type=\"int\")",
+      "readonly" : false,
+      "ref" : "/root/thousands-int[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "thousands-sep",
+      "control" : "input",
+      "dataType" : "decimal",
+      "event" : "question",
+      "hint" : null,
+      "label" : "4. Thousands separator (type=\"decimal\")",
+      "readonly" : false,
+      "ref" : "/root/thousands-decimal[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "numbers thousands-sep",
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "4. Thousands separator (string + appearance=\"numbers thousands-sep\")",
+      "readonly" : false,
+      "ref" : "/root/thousands-numbers[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "event" : "endOfForm"
+    } ],
+    "op" : "walk"
+  }, {
+    "op" : "validate",
+    "outcome" : "constraintViolated",
+    "ref" : "/root/int-q[1]"
+  } ],
+  "traceVersion" : 1
+}

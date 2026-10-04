@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:odk="http://www.opendatakit.org/xforms">
+  <h:head>
+    <h:title>data</h:title>
+    <model odk:xforms-version="1.0.0">
+      <instance>
+        <intent_test id="data">
+          <pregrp/>
+          <xgrp>
+            <xgrp_q1/>
+            <xgrp_q2/>
+          </xgrp>
+          <postgrp/>
+          <meta>
+            <instanceID/>
+          </meta>
+        </intent_test>
+      </instance>
+      <bind nodeset="/intent_test/pregrp" type="string"/>
+      <bind nodeset="/intent_test/xgrp/xgrp_q1" type="string"/>
+      <bind nodeset="/intent_test/xgrp/xgrp_q2" type="int"/>
+      <bind nodeset="/intent_test/postgrp" readonly="true()" type="string"/>
+      <bind nodeset="/intent_test/meta/instanceID" type="string" readonly="true()" jr:preload="uid"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input ref="/intent_test/pregrp">
+      <label>Pregroup text</label>
+    </input>
+    <group intent="ex:org.redcross.openmapkit.action.QUERY(osm_file= /intent_test/pregrp )" ref="/intent_test/xgrp">
+      <label>XGroup questions</label>
+      <input ref="/intent_test/xgrp/xgrp_q1">
+        <label>XGroup Q1</label>
+      </input>
+      <input ref="/intent_test/xgrp/xgrp_q2">
+        <label>XGroup Q2</label>
+      </input>
+    </group>
+    <input ref="/intent_test/postgrp">
+      <label>Post group note</label>
+    </input>
+  </h:body>
+</h:html>

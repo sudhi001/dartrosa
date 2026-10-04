@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:odk="http://www.opendatakit.org/xforms">
+  <h:head>
+    <h:title>data</h:title>
+    <model odk:xforms-version="1.0.0">
+      <itext>
+        <translation lang="default" default="true()">
+          <text id="mylist-0">
+            <value>A</value>
+          </text>
+          <text id="mylist-1">
+            <value>B</value>
+          </text>
+          <text id="/test_name/order:label">
+            <value>Rank</value>
+          </text>
+        </translation>
+        <translation lang="French (fr)">
+          <text id="mylist-0">
+            <value>AA</value>
+          </text>
+          <text id="mylist-1">
+            <value>BB</value>
+          </text>
+          <text id="/test_name/order:label">
+            <value>Ranger</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <test_name id="data">
+          <order/>
+          <meta>
+            <instanceID/>
+          </meta>
+        </test_name>
+      </instance>
+      <instance id="mylist">
+        <root>
+          <item>
+            <itextId>mylist-0</itextId>
+            <name>a</name>
+          </item>
+          <item>
+            <itextId>mylist-1</itextId>
+            <name>b</name>
+          </item>
+        </root>
+      </instance>
+      <bind nodeset="/test_name/order" type="odk:rank"/>
+      <bind nodeset="/test_name/meta/instanceID" type="string" readonly="true()" jr:preload="uid"/>
+    </model>
+  </h:head>
+  <h:body>
+    <odk:rank ref="/test_name/order">
+      <label ref="jr:itext('/test_name/order:label')"/>
+      <itemset nodeset="instance('mylist')/root/item">
+        <value ref="name"/>
+        <label ref="jr:itext(itextId)"/>
+      </itemset>
+    </odk:rank>
+  </h:body>
+</h:html>

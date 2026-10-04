@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:odk="http://www.opendatakit.org/xforms">
+  <h:head>
+    <h:title>data</h:title>
+    <model odk:xforms-version="1.0.0">
+      <instance>
+        <test_name id="data">
+          <osm_road/>
+          <osm_build/>
+          <q1/>
+          <meta>
+            <instanceID/>
+          </meta>
+        </test_name>
+      </instance>
+      <instance id="c1">
+        <root>
+          <item>
+            <name>n1</name>
+            <label>l1</label>
+          </item>
+          <item>
+            <name>n2</name>
+            <label>l2</label>
+          </item>
+        </root>
+      </instance>
+      <bind nodeset="/test_name/osm_road" type="binary"/>
+      <bind nodeset="/test_name/osm_build" type="binary"/>
+      <bind nodeset="/test_name/q1" type="string"/>
+      <bind nodeset="/test_name/meta/instanceID" type="string" readonly="true()" jr:preload="uid"/>
+    </model>
+  </h:head>
+  <h:body>
+    <upload ref="/test_name/osm_road" mediatype="osm/*">
+      <label>Road</label>
+    </upload>
+    <upload ref="/test_name/osm_build" mediatype="osm/*">
+      <label>Building</label>
+      <tag key="name">
+        <label>Name</label>
+      </tag>
+      <tag key="addr:city">
+        <label>City</label>
+      </tag>
+    </upload>
+    <select1 ref="/test_name/q1">
+      <label>Q1</label>
+      <itemset nodeset="instance('c1')/root/item">
+        <value ref="name"/>
+        <label ref="label"/>
+      </itemset>
+    </select1>
+  </h:body>
+</h:html>

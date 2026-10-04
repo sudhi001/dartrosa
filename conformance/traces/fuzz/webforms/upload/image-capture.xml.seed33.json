@@ -1,0 +1,100 @@
+{
+  "form" : "forms/webforms/upload/image-capture.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"image_capture\" version=\"2025020401\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><cat_image>file29.jpg</cat_image><dog_image>file9.jpg</dog_image><have_birds>yes</have_birds><bird_image>file40.jpg</bird_image><fruits>mango orange</fruits><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 33,
+  "steps" : [ {
+    "after" : "file29.jpg",
+    "answer" : "file29.jpg",
+    "appearance" : null,
+    "control" : "imageChoose",
+    "dataType" : "binary",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Upload a picture of a cat",
+    "readonly" : false,
+    "ref" : "/data/cat_image[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "file9.jpg",
+    "answer" : "file9.jpg",
+    "appearance" : null,
+    "control" : "imageChoose",
+    "dataType" : "binary",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Upload a picture of a dog",
+    "readonly" : false,
+    "ref" : "/data/dog_image[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Do you have birds?",
+    "readonly" : false,
+    "ref" : "/data/have_birds[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "file40.jpg",
+    "answer" : "file40.jpg",
+    "appearance" : null,
+    "control" : "imageChoose",
+    "dataType" : "binary",
+    "event" : "question",
+    "hint" : "(It becomes read-only when a fruit is selected)",
+    "label" : "Upload a picture of a bird",
+    "readonly" : false,
+    "ref" : "/data/bird_image[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "mango orange",
+    "answer" : "mango orange",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Mango",
+      "value" : "mango"
+    }, {
+      "label" : "Apple",
+      "value" : "apple"
+    }, {
+      "label" : "Orange",
+      "value" : "orange"
+    } ],
+    "control" : "selectMulti",
+    "dataType" : "multipleItems",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Select fruits for the bird",
+    "readonly" : false,
+    "ref" : "/data/fruits[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

@@ -1,0 +1,298 @@
+{
+  "form" : "forms/webforms/preview-service/xforms/socio-economic-survey-v20240515.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"socio-economic-survey\" version=\"20240515\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><headOfHousehold><region /><district /><residentialAddress /><primaryContactNo /><SecondaryContactNo /><householdIncome /><SEClass>[itext:]</SEClass></headOfHousehold><informationTechnology><internetHH /></informationTechnology><familyMembers><persons><firstNameFM /><gender /><health><healthVisit /><diseases /></health></persons></familyMembers><comments /><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "language" : "English (en)",
+    "languages" : [ "English (en)", "French (fr)" ],
+    "ok" : true,
+    "title" : "Socio-economic Survey"
+  },
+  "steps" : [ {
+    "events" : [ {
+      "appearance" : "field-list",
+      "event" : "group",
+      "label" : "Household Information",
+      "ref" : "/data/headOfHousehold[1]"
+    }, {
+      "appearance" : "minimal",
+      "choices" : [ {
+        "label" : "Sindh",
+        "value" : "Sindh"
+      }, {
+        "label" : "Punjab",
+        "value" : "Punjab"
+      }, {
+        "label" : "Balochistan",
+        "value" : "Balochistan"
+      }, {
+        "label" : "Khyber Pakhunkhwan",
+        "value" : "KP"
+      }, {
+        "label" : "Azad Kashmir & Gilgit",
+        "value" : "AKG"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Region",
+      "readonly" : false,
+      "ref" : "/data/headOfHousehold[1]/region[1]",
+      "required" : true,
+      "value" : null
+    }, {
+      "appearance" : "minimal",
+      "choices" : [ ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : "District",
+      "readonly" : false,
+      "ref" : "/data/headOfHousehold[1]/district[1]",
+      "required" : true,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Residential Address",
+      "readonly" : false,
+      "ref" : "/data/headOfHousehold[1]/residentialAddress[1]",
+      "required" : true,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Primary contact no.",
+      "readonly" : false,
+      "ref" : "/data/headOfHousehold[1]/primaryContactNo[1]",
+      "required" : true,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Secondary contact no.",
+      "readonly" : false,
+      "ref" : "/data/headOfHousehold[1]/SecondaryContactNo[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "choices" : [ {
+        "label" : "Not willing to disclose",
+        "value" : "1"
+      }, {
+        "label" : "Less than 10,000",
+        "value" : "2"
+      }, {
+        "label" : "10,001 to 50,000",
+        "value" : "3"
+      }, {
+        "label" : "50,001 to 60,000",
+        "value" : "4"
+      }, {
+        "label" : "60,001 to 75,000",
+        "value" : "5"
+      }, {
+        "label" : "75,001 to 100,000",
+        "value" : "6"
+      }, {
+        "label" : "100,001 to 200,000",
+        "value" : "7"
+      }, {
+        "label" : "Above 200,000",
+        "value" : "8"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Household monthly income",
+      "readonly" : false,
+      "ref" : "/data/headOfHousehold[1]/householdIncome[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Economic Class",
+      "readonly" : true,
+      "ref" : "/data/headOfHousehold[1]/SEClass[1]",
+      "required" : false,
+      "value" : "[itext:]"
+    }, {
+      "appearance" : "field-list",
+      "event" : "group",
+      "label" : "Internet Access",
+      "ref" : "/data/informationTechnology[1]"
+    }, {
+      "appearance" : "horizontal",
+      "choices" : [ {
+        "label" : "Yes",
+        "value" : "1"
+      }, {
+        "label" : "No",
+        "value" : "2"
+      }, {
+        "label" : "I don't know",
+        "value" : "3"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Does the household have access to internet?",
+      "readonly" : false,
+      "ref" : "/data/informationTechnology[1]/internetHH[1]",
+      "required" : true,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "event" : "repeat",
+      "label" : "Household members",
+      "ref" : "/data/familyMembers[1]"
+    }, {
+      "appearance" : null,
+      "event" : "group",
+      "label" : "Person",
+      "ref" : "/data/familyMembers[1]/persons[1]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "First name",
+      "readonly" : false,
+      "ref" : "/data/familyMembers[1]/persons[1]/firstNameFM[1]",
+      "required" : true,
+      "value" : null
+    }, {
+      "appearance" : "horizontal",
+      "choices" : [ {
+        "label" : "Male",
+        "value" : "1"
+      }, {
+        "label" : "Female",
+        "value" : "2"
+      }, {
+        "label" : "Other",
+        "value" : "3"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Gender",
+      "readonly" : false,
+      "ref" : "/data/familyMembers[1]/persons[1]/gender[1]",
+      "required" : true,
+      "value" : null
+    }, {
+      "appearance" : "field-list",
+      "event" : "group",
+      "label" : "Health",
+      "ref" : "/data/familyMembers[1]/persons[1]/health[1]"
+    }, {
+      "appearance" : "horizontal",
+      "choices" : [ {
+        "label" : "Yes",
+        "value" : "1"
+      }, {
+        "label" : "No",
+        "value" : "2"
+      }, {
+        "label" : "I don't know",
+        "value" : "3"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Have they visited doctor / hospital in last 12 months?",
+      "readonly" : false,
+      "ref" : "/data/familyMembers[1]/persons[1]/health[1]/healthVisit[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "horizontal",
+      "choices" : [ {
+        "label" : "Diabetes",
+        "value" : "1"
+      }, {
+        "label" : "Cardiovascular (Heart)",
+        "value" : "2"
+      }, {
+        "label" : "Hypertension",
+        "value" : "3"
+      }, {
+        "label" : "Chronic kidney problem",
+        "value" : "4"
+      }, {
+        "label" : "Respiratory related (Asthma, lung infection)",
+        "value" : "5"
+      }, {
+        "label" : "Arthritis",
+        "value" : "6"
+      }, {
+        "label" : "Cancer",
+        "value" : "7"
+      }, {
+        "label" : "Mental health (Depression, etc)",
+        "value" : "8"
+      }, {
+        "label" : "Other",
+        "value" : "9"
+      }, {
+        "label" : "Not applicable",
+        "value" : "10"
+      }, {
+        "label" : "I don't know",
+        "value" : "11"
+      } ],
+      "control" : "selectMulti",
+      "dataType" : "multipleItems",
+      "event" : "question",
+      "hint" : "Select top 5",
+      "label" : "Have they been diagnosed and prescribed a medicine for any diseases?",
+      "readonly" : false,
+      "ref" : "/data/familyMembers[1]/persons[1]/health[1]/diseases[1]",
+      "required" : true,
+      "value" : null
+    }, {
+      "event" : "promptNewRepeat",
+      "ref" : "/data/familyMembers[2]"
+    }, {
+      "appearance" : "multiline",
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Other Comments",
+      "readonly" : false,
+      "ref" : "/data/comments[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "event" : "endOfForm"
+    } ],
+    "op" : "walk"
+  }, {
+    "op" : "validate",
+    "outcome" : "required",
+    "ref" : "/data/headOfHousehold[1]/region[1]"
+  } ],
+  "traceVersion" : 1
+}

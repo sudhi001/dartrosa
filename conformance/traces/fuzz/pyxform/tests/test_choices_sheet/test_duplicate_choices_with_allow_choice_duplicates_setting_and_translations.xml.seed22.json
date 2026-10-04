@@ -1,0 +1,40 @@
+{
+  "form" : "forms/pyxform/tests/test_choices_sheet/test_duplicate_choices_with_allow_choice_duplicates_setting_and_translations.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><test_name id=\"Duplicates\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><S1>a</S1><meta><instanceID>uuid:<uuid></instanceID></meta></test_name>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 22,
+  "steps" : [ {
+    "after" : "a",
+    "answer" : "a",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Pass",
+      "value" : "a"
+    }, {
+      "label" : "Fail",
+      "value" : "b"
+    }, {
+      "label" : "Skipped",
+      "value" : "c"
+    }, {
+      "label" : "Not Applicable",
+      "value" : "c"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "s1",
+    "readonly" : false,
+    "ref" : "/test_name/S1[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

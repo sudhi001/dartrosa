@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:odk="http://www.opendatakit.org/xforms">
+  <h:head>
+    <h:title>data</h:title>
+    <model odk:xforms-version="1.0.0">
+      <itext>
+        <translation lang="default" default="true()">
+          <text id="mood-0">
+            <value>Happy</value>
+            <value form="image">jr://images/happy.jpg</value>
+          </text>
+          <text id="mood-1">
+            <value>Sad</value>
+            <value form="image">jr://images/sad.jpg</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <test_name id="data">
+          <consent/>
+          <enumerator_mood/>
+          <meta>
+            <instanceID/>
+          </meta>
+        </test_name>
+      </instance>
+      <instance id="mood">
+        <root>
+          <item>
+            <itextId>mood-0</itextId>
+            <name>h</name>
+          </item>
+          <item>
+            <itextId>mood-1</itextId>
+            <name>s</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="consent">
+        <root>
+          <item>
+            <name>y</name>
+            <label>Yes</label>
+          </item>
+          <item>
+            <name>n</name>
+            <label>No</label>
+          </item>
+        </root>
+      </instance>
+      <bind nodeset="/test_name/consent" type="string"/>
+      <bind nodeset="/test_name/enumerator_mood" type="string"/>
+      <bind nodeset="/test_name/meta/instanceID" type="string" readonly="true()" jr:preload="uid"/>
+    </model>
+  </h:head>
+  <h:body>
+    <select1 ref="/test_name/consent">
+      <label>Would you like to participate ?</label>
+      <itemset nodeset="instance('consent')/root/item">
+        <value ref="name"/>
+        <label ref="label"/>
+      </itemset>
+    </select1>
+    <select1 ref="/test_name/enumerator_mood">
+      <label>How are you feeling today ?</label>
+      <itemset nodeset="instance('mood')/root/item[selected( /test_name/consent , 'y')]">
+        <value ref="name"/>
+        <label ref="jr:itext(itextId)"/>
+      </itemset>
+    </select1>
+  </h:body>
+</h:html>

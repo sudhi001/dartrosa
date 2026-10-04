@@ -1,0 +1,92 @@
+{
+  "form" : "forms/webforms/groups/presentation-group.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"build_requiredOnePage_1518518934\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><meta><instanceID>uuid:<uuid></instanceID></meta><group><text /><number /><date /><time /><location /><barcode /></group></data>",
+  "parse" : {
+    "language" : "English",
+    "languages" : [ "English" ],
+    "ok" : true,
+    "title" : "requiredOnePage"
+  },
+  "steps" : [ {
+    "events" : [ {
+      "appearance" : "field-list",
+      "event" : "group",
+      "label" : "group",
+      "ref" : "/data"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "text",
+      "readonly" : false,
+      "ref" : "/data/group[1]/text[1]",
+      "required" : true,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "integer",
+      "event" : "question",
+      "hint" : "hint number",
+      "label" : "number",
+      "readonly" : false,
+      "ref" : "/data/group[1]/number[1]",
+      "required" : true,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "date",
+      "event" : "question",
+      "hint" : null,
+      "label" : null,
+      "readonly" : false,
+      "ref" : "/data/group[1]/date[1]",
+      "required" : true,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "time",
+      "event" : "question",
+      "hint" : "hint time",
+      "label" : null,
+      "readonly" : false,
+      "ref" : "/data/group[1]/time[1]",
+      "required" : true,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "geopoint",
+      "event" : "question",
+      "hint" : null,
+      "label" : null,
+      "readonly" : false,
+      "ref" : "/data/group[1]/location[1]",
+      "required" : true,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "barcode",
+      "event" : "question",
+      "hint" : null,
+      "label" : "barcode",
+      "readonly" : false,
+      "ref" : "/data/group[1]/barcode[1]",
+      "required" : true,
+      "value" : null
+    }, {
+      "event" : "endOfForm"
+    } ],
+    "op" : "walk"
+  }, {
+    "op" : "validate",
+    "outcome" : "required",
+    "ref" : "/data/group[1]/text[1]"
+  } ],
+  "traceVersion" : 1
+}

@@ -1,0 +1,1210 @@
+{
+  "form" : "forms/webforms/performance/bench9.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><bench9 id=\"bench9\" version=\"201503171634\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><formhub><uuid>6b4b5d30712a4735ae90c1f51eb6a9c2</uuid></formhub><reps>134</reps><rep_count>134</rep_count><rep><group1><country>coun15</country><city>cit477</city><neighborhood /></group1><group2><country2>coun8</country2><city2>cit285</city2><neighborhood2 /></group2><group3><country3>coun31</country3><city3 /><neighborhood3 /></group3><group4><country4>coun44</country4><city4 /><neighborhood4 /></group4></rep><rep><group1><country>coun21</country><city /><neighborhood /></group1><group2><country2 /><city2 /><neighborhood2 /></group2><group3><country3>coun1</country3><city3 /><neighborhood3 /></group3><group4><country4>coun2</country4><city4>cit12</city4><neighborhood4>neigh115</neighborhood4></group4></rep><meta><instanceID>uuid:<uuid></instanceID></meta></bench9>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 22,
+  "steps" : [ {
+    "after" : "134",
+    "answer" : "134",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "number of repeats",
+    "readonly" : false,
+    "ref" : "/bench9/reps[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "5"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/bench9/rep[1]"
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Cascading Selects with Radio Buttons",
+    "ref" : "/bench9/rep[1]/group1[1]"
+  }, {
+    "after" : "coun15",
+    "answer" : "coun15",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Country 1",
+      "value" : "coun1"
+    }, {
+      "label" : "Country 2",
+      "value" : "coun2"
+    }, {
+      "label" : "Country 3",
+      "value" : "coun3"
+    }, {
+      "label" : "Country 4",
+      "value" : "coun4"
+    }, {
+      "label" : "Country 5",
+      "value" : "coun5"
+    }, {
+      "label" : "Country 6",
+      "value" : "coun6"
+    }, {
+      "label" : "Country 7",
+      "value" : "coun7"
+    }, {
+      "label" : "Country 8",
+      "value" : "coun8"
+    }, {
+      "label" : "Country 9",
+      "value" : "coun9"
+    }, {
+      "label" : "Country 10",
+      "value" : "coun10"
+    }, {
+      "label" : "Country 11",
+      "value" : "coun11"
+    }, {
+      "label" : "Country 12",
+      "value" : "coun12"
+    }, {
+      "label" : "Country 13",
+      "value" : "coun13"
+    }, {
+      "label" : "Country 14",
+      "value" : "coun14"
+    }, {
+      "label" : "Country 15",
+      "value" : "coun15"
+    }, {
+      "label" : "Country 16",
+      "value" : "coun16"
+    }, {
+      "label" : "Country 17",
+      "value" : "coun17"
+    }, {
+      "label" : "Country 18",
+      "value" : "coun18"
+    }, {
+      "label" : "Country 19",
+      "value" : "coun19"
+    }, {
+      "label" : "Country 20",
+      "value" : "coun20"
+    }, {
+      "label" : "Country 21",
+      "value" : "coun21"
+    }, {
+      "label" : "Country 22",
+      "value" : "coun22"
+    }, {
+      "label" : "Country 23",
+      "value" : "coun23"
+    }, {
+      "label" : "Country 24",
+      "value" : "coun24"
+    }, {
+      "label" : "Country 25",
+      "value" : "coun25"
+    }, {
+      "label" : "Country 26",
+      "value" : "coun26"
+    }, {
+      "label" : "Country 27",
+      "value" : "coun27"
+    }, {
+      "label" : "Country 28",
+      "value" : "coun28"
+    }, {
+      "label" : "Country 29",
+      "value" : "coun29"
+    }, {
+      "label" : "Country 30",
+      "value" : "coun30"
+    }, {
+      "label" : "Country 31",
+      "value" : "coun31"
+    }, {
+      "label" : "Country 32",
+      "value" : "coun32"
+    }, {
+      "label" : "Country 33",
+      "value" : "coun33"
+    }, {
+      "label" : "Country 34",
+      "value" : "coun34"
+    }, {
+      "label" : "Country 35",
+      "value" : "coun35"
+    }, {
+      "label" : "Country 36",
+      "value" : "coun36"
+    }, {
+      "label" : "Country 37",
+      "value" : "coun37"
+    }, {
+      "label" : "Country 38",
+      "value" : "coun38"
+    }, {
+      "label" : "Country 39",
+      "value" : "coun39"
+    }, {
+      "label" : "Country 40",
+      "value" : "coun40"
+    }, {
+      "label" : "Country 41",
+      "value" : "coun41"
+    }, {
+      "label" : "Country 42",
+      "value" : "coun42"
+    }, {
+      "label" : "Country 43",
+      "value" : "coun43"
+    }, {
+      "label" : "Country 44",
+      "value" : "coun44"
+    }, {
+      "label" : "Country 45",
+      "value" : "coun45"
+    }, {
+      "label" : "Country 46",
+      "value" : "coun46"
+    }, {
+      "label" : "Country 47",
+      "value" : "coun47"
+    }, {
+      "label" : "Country 48",
+      "value" : "coun48"
+    }, {
+      "label" : "Country 49",
+      "value" : "coun49"
+    }, {
+      "label" : "Country 50",
+      "value" : "coun50"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Country",
+    "readonly" : false,
+    "ref" : "/bench9/rep[1]/group1[1]/country[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "cit477",
+    "answer" : "cit477",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "City 141",
+      "value" : "cit141"
+    }, {
+      "label" : "City 142",
+      "value" : "cit142"
+    }, {
+      "label" : "City 143",
+      "value" : "cit143"
+    }, {
+      "label" : "City 144",
+      "value" : "cit144"
+    }, {
+      "label" : "City 145",
+      "value" : "cit145"
+    }, {
+      "label" : "City 146",
+      "value" : "cit146"
+    }, {
+      "label" : "City 147",
+      "value" : "cit147"
+    }, {
+      "label" : "City 148",
+      "value" : "cit148"
+    }, {
+      "label" : "City 149",
+      "value" : "cit149"
+    }, {
+      "label" : "City 150",
+      "value" : "cit150"
+    }, {
+      "label" : "City 471",
+      "value" : "cit471"
+    }, {
+      "label" : "City 472",
+      "value" : "cit472"
+    }, {
+      "label" : "City 473",
+      "value" : "cit473"
+    }, {
+      "label" : "City 474",
+      "value" : "cit474"
+    }, {
+      "label" : "City 475",
+      "value" : "cit475"
+    }, {
+      "label" : "City 476",
+      "value" : "cit476"
+    }, {
+      "label" : "City 477",
+      "value" : "cit477"
+    }, {
+      "label" : "City 478",
+      "value" : "cit478"
+    }, {
+      "label" : "City 479",
+      "value" : "cit479"
+    }, {
+      "label" : "City 480",
+      "value" : "cit480"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "City",
+    "readonly" : false,
+    "ref" : "/bench9/rep[1]/group1[1]/city[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "choices" : [ ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Neighborhood",
+    "readonly" : false,
+    "ref" : "/bench9/rep[1]/group1[1]/neighborhood[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Cascading Selects with Pulldowns",
+    "ref" : "/bench9/rep[1]/group2[1]"
+  }, {
+    "after" : "coun8",
+    "answer" : "coun8",
+    "appearance" : "minimal",
+    "choices" : [ {
+      "label" : "Country 1",
+      "value" : "coun1"
+    }, {
+      "label" : "Country 2",
+      "value" : "coun2"
+    }, {
+      "label" : "Country 3",
+      "value" : "coun3"
+    }, {
+      "label" : "Country 4",
+      "value" : "coun4"
+    }, {
+      "label" : "Country 5",
+      "value" : "coun5"
+    }, {
+      "label" : "Country 6",
+      "value" : "coun6"
+    }, {
+      "label" : "Country 7",
+      "value" : "coun7"
+    }, {
+      "label" : "Country 8",
+      "value" : "coun8"
+    }, {
+      "label" : "Country 9",
+      "value" : "coun9"
+    }, {
+      "label" : "Country 10",
+      "value" : "coun10"
+    }, {
+      "label" : "Country 11",
+      "value" : "coun11"
+    }, {
+      "label" : "Country 12",
+      "value" : "coun12"
+    }, {
+      "label" : "Country 13",
+      "value" : "coun13"
+    }, {
+      "label" : "Country 14",
+      "value" : "coun14"
+    }, {
+      "label" : "Country 15",
+      "value" : "coun15"
+    }, {
+      "label" : "Country 16",
+      "value" : "coun16"
+    }, {
+      "label" : "Country 17",
+      "value" : "coun17"
+    }, {
+      "label" : "Country 18",
+      "value" : "coun18"
+    }, {
+      "label" : "Country 19",
+      "value" : "coun19"
+    }, {
+      "label" : "Country 20",
+      "value" : "coun20"
+    }, {
+      "label" : "Country 21",
+      "value" : "coun21"
+    }, {
+      "label" : "Country 22",
+      "value" : "coun22"
+    }, {
+      "label" : "Country 23",
+      "value" : "coun23"
+    }, {
+      "label" : "Country 24",
+      "value" : "coun24"
+    }, {
+      "label" : "Country 25",
+      "value" : "coun25"
+    }, {
+      "label" : "Country 26",
+      "value" : "coun26"
+    }, {
+      "label" : "Country 27",
+      "value" : "coun27"
+    }, {
+      "label" : "Country 28",
+      "value" : "coun28"
+    }, {
+      "label" : "Country 29",
+      "value" : "coun29"
+    }, {
+      "label" : "Country 30",
+      "value" : "coun30"
+    }, {
+      "label" : "Country 31",
+      "value" : "coun31"
+    }, {
+      "label" : "Country 32",
+      "value" : "coun32"
+    }, {
+      "label" : "Country 33",
+      "value" : "coun33"
+    }, {
+      "label" : "Country 34",
+      "value" : "coun34"
+    }, {
+      "label" : "Country 35",
+      "value" : "coun35"
+    }, {
+      "label" : "Country 36",
+      "value" : "coun36"
+    }, {
+      "label" : "Country 37",
+      "value" : "coun37"
+    }, {
+      "label" : "Country 38",
+      "value" : "coun38"
+    }, {
+      "label" : "Country 39",
+      "value" : "coun39"
+    }, {
+      "label" : "Country 40",
+      "value" : "coun40"
+    }, {
+      "label" : "Country 41",
+      "value" : "coun41"
+    }, {
+      "label" : "Country 42",
+      "value" : "coun42"
+    }, {
+      "label" : "Country 43",
+      "value" : "coun43"
+    }, {
+      "label" : "Country 44",
+      "value" : "coun44"
+    }, {
+      "label" : "Country 45",
+      "value" : "coun45"
+    }, {
+      "label" : "Country 46",
+      "value" : "coun46"
+    }, {
+      "label" : "Country 47",
+      "value" : "coun47"
+    }, {
+      "label" : "Country 48",
+      "value" : "coun48"
+    }, {
+      "label" : "Country 49",
+      "value" : "coun49"
+    }, {
+      "label" : "Country 50",
+      "value" : "coun50"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Country",
+    "readonly" : false,
+    "ref" : "/bench9/rep[1]/group2[1]/country2[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "cit285",
+    "answer" : "cit285",
+    "appearance" : "minimal",
+    "choices" : [ {
+      "label" : "City 71",
+      "value" : "cit71"
+    }, {
+      "label" : "City 72",
+      "value" : "cit72"
+    }, {
+      "label" : "City 73",
+      "value" : "cit73"
+    }, {
+      "label" : "City 74",
+      "value" : "cit74"
+    }, {
+      "label" : "City 75",
+      "value" : "cit75"
+    }, {
+      "label" : "City 76",
+      "value" : "cit76"
+    }, {
+      "label" : "City 77",
+      "value" : "cit77"
+    }, {
+      "label" : "City 78",
+      "value" : "cit78"
+    }, {
+      "label" : "City 79",
+      "value" : "cit79"
+    }, {
+      "label" : "City 80",
+      "value" : "cit80"
+    }, {
+      "label" : "City 221",
+      "value" : "cit221"
+    }, {
+      "label" : "City 222",
+      "value" : "cit222"
+    }, {
+      "label" : "City 223",
+      "value" : "cit223"
+    }, {
+      "label" : "City 224",
+      "value" : "cit224"
+    }, {
+      "label" : "City 225",
+      "value" : "cit225"
+    }, {
+      "label" : "City 226",
+      "value" : "cit226"
+    }, {
+      "label" : "City 227",
+      "value" : "cit227"
+    }, {
+      "label" : "City 228",
+      "value" : "cit228"
+    }, {
+      "label" : "City 229",
+      "value" : "cit229"
+    }, {
+      "label" : "City 230",
+      "value" : "cit230"
+    }, {
+      "label" : "City 251",
+      "value" : "cit251"
+    }, {
+      "label" : "City 252",
+      "value" : "cit252"
+    }, {
+      "label" : "City 253",
+      "value" : "cit253"
+    }, {
+      "label" : "City 254",
+      "value" : "cit254"
+    }, {
+      "label" : "City 255",
+      "value" : "cit255"
+    }, {
+      "label" : "City 256",
+      "value" : "cit256"
+    }, {
+      "label" : "City 257",
+      "value" : "cit257"
+    }, {
+      "label" : "City 258",
+      "value" : "cit258"
+    }, {
+      "label" : "City 259",
+      "value" : "cit259"
+    }, {
+      "label" : "City 260",
+      "value" : "cit260"
+    }, {
+      "label" : "City 281",
+      "value" : "cit281"
+    }, {
+      "label" : "City 282",
+      "value" : "cit282"
+    }, {
+      "label" : "City 283",
+      "value" : "cit283"
+    }, {
+      "label" : "City 284",
+      "value" : "cit284"
+    }, {
+      "label" : "City 285",
+      "value" : "cit285"
+    }, {
+      "label" : "City 286",
+      "value" : "cit286"
+    }, {
+      "label" : "City 287",
+      "value" : "cit287"
+    }, {
+      "label" : "City 288",
+      "value" : "cit288"
+    }, {
+      "label" : "City 289",
+      "value" : "cit289"
+    }, {
+      "label" : "City 290",
+      "value" : "cit290"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "City",
+    "readonly" : false,
+    "ref" : "/bench9/rep[1]/group2[1]/city2[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : "minimal",
+    "choices" : [ ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Neighborhood",
+    "readonly" : false,
+    "ref" : "/bench9/rep[1]/group2[1]/neighborhood2[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Cascading Selects with Radio Buttons With a Default",
+    "ref" : "/bench9/rep[1]/group3[1]"
+  }, {
+    "after" : "coun31",
+    "answer" : "coun31",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Country 1",
+      "value" : "coun1"
+    }, {
+      "label" : "Country 2",
+      "value" : "coun2"
+    }, {
+      "label" : "Country 3",
+      "value" : "coun3"
+    }, {
+      "label" : "Country 4",
+      "value" : "coun4"
+    }, {
+      "label" : "Country 5",
+      "value" : "coun5"
+    }, {
+      "label" : "Country 6",
+      "value" : "coun6"
+    }, {
+      "label" : "Country 7",
+      "value" : "coun7"
+    }, {
+      "label" : "Country 8",
+      "value" : "coun8"
+    }, {
+      "label" : "Country 9",
+      "value" : "coun9"
+    }, {
+      "label" : "Country 10",
+      "value" : "coun10"
+    }, {
+      "label" : "Country 11",
+      "value" : "coun11"
+    }, {
+      "label" : "Country 12",
+      "value" : "coun12"
+    }, {
+      "label" : "Country 13",
+      "value" : "coun13"
+    }, {
+      "label" : "Country 14",
+      "value" : "coun14"
+    }, {
+      "label" : "Country 15",
+      "value" : "coun15"
+    }, {
+      "label" : "Country 16",
+      "value" : "coun16"
+    }, {
+      "label" : "Country 17",
+      "value" : "coun17"
+    }, {
+      "label" : "Country 18",
+      "value" : "coun18"
+    }, {
+      "label" : "Country 19",
+      "value" : "coun19"
+    }, {
+      "label" : "Country 20",
+      "value" : "coun20"
+    }, {
+      "label" : "Country 21",
+      "value" : "coun21"
+    }, {
+      "label" : "Country 22",
+      "value" : "coun22"
+    }, {
+      "label" : "Country 23",
+      "value" : "coun23"
+    }, {
+      "label" : "Country 24",
+      "value" : "coun24"
+    }, {
+      "label" : "Country 25",
+      "value" : "coun25"
+    }, {
+      "label" : "Country 26",
+      "value" : "coun26"
+    }, {
+      "label" : "Country 27",
+      "value" : "coun27"
+    }, {
+      "label" : "Country 28",
+      "value" : "coun28"
+    }, {
+      "label" : "Country 29",
+      "value" : "coun29"
+    }, {
+      "label" : "Country 30",
+      "value" : "coun30"
+    }, {
+      "label" : "Country 31",
+      "value" : "coun31"
+    }, {
+      "label" : "Country 32",
+      "value" : "coun32"
+    }, {
+      "label" : "Country 33",
+      "value" : "coun33"
+    }, {
+      "label" : "Country 34",
+      "value" : "coun34"
+    }, {
+      "label" : "Country 35",
+      "value" : "coun35"
+    }, {
+      "label" : "Country 36",
+      "value" : "coun36"
+    }, {
+      "label" : "Country 37",
+      "value" : "coun37"
+    }, {
+      "label" : "Country 38",
+      "value" : "coun38"
+    }, {
+      "label" : "Country 39",
+      "value" : "coun39"
+    }, {
+      "label" : "Country 40",
+      "value" : "coun40"
+    }, {
+      "label" : "Country 41",
+      "value" : "coun41"
+    }, {
+      "label" : "Country 42",
+      "value" : "coun42"
+    }, {
+      "label" : "Country 43",
+      "value" : "coun43"
+    }, {
+      "label" : "Country 44",
+      "value" : "coun44"
+    }, {
+      "label" : "Country 45",
+      "value" : "coun45"
+    }, {
+      "label" : "Country 46",
+      "value" : "coun46"
+    }, {
+      "label" : "Country 47",
+      "value" : "coun47"
+    }, {
+      "label" : "Country 48",
+      "value" : "coun48"
+    }, {
+      "label" : "Country 49",
+      "value" : "coun49"
+    }, {
+      "label" : "Country 50",
+      "value" : "coun50"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Country (default: country 1)",
+    "readonly" : false,
+    "ref" : "/bench9/rep[1]/group3[1]/country3[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "coun1"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "choices" : [ ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "City",
+    "readonly" : false,
+    "ref" : "/bench9/rep[1]/group3[1]/city3[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "choices" : [ ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Neighborhood",
+    "readonly" : false,
+    "ref" : "/bench9/rep[1]/group3[1]/neighborhood3[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Cascading Select with Pulldowns and Defaults",
+    "ref" : "/bench9/rep[1]/group4[1]"
+  }, {
+    "after" : "coun44",
+    "answer" : "coun44",
+    "appearance" : "minimal",
+    "choices" : [ {
+      "label" : "Country 1",
+      "value" : "coun1"
+    }, {
+      "label" : "Country 2",
+      "value" : "coun2"
+    }, {
+      "label" : "Country 3",
+      "value" : "coun3"
+    }, {
+      "label" : "Country 4",
+      "value" : "coun4"
+    }, {
+      "label" : "Country 5",
+      "value" : "coun5"
+    }, {
+      "label" : "Country 6",
+      "value" : "coun6"
+    }, {
+      "label" : "Country 7",
+      "value" : "coun7"
+    }, {
+      "label" : "Country 8",
+      "value" : "coun8"
+    }, {
+      "label" : "Country 9",
+      "value" : "coun9"
+    }, {
+      "label" : "Country 10",
+      "value" : "coun10"
+    }, {
+      "label" : "Country 11",
+      "value" : "coun11"
+    }, {
+      "label" : "Country 12",
+      "value" : "coun12"
+    }, {
+      "label" : "Country 13",
+      "value" : "coun13"
+    }, {
+      "label" : "Country 14",
+      "value" : "coun14"
+    }, {
+      "label" : "Country 15",
+      "value" : "coun15"
+    }, {
+      "label" : "Country 16",
+      "value" : "coun16"
+    }, {
+      "label" : "Country 17",
+      "value" : "coun17"
+    }, {
+      "label" : "Country 18",
+      "value" : "coun18"
+    }, {
+      "label" : "Country 19",
+      "value" : "coun19"
+    }, {
+      "label" : "Country 20",
+      "value" : "coun20"
+    }, {
+      "label" : "Country 21",
+      "value" : "coun21"
+    }, {
+      "label" : "Country 22",
+      "value" : "coun22"
+    }, {
+      "label" : "Country 23",
+      "value" : "coun23"
+    }, {
+      "label" : "Country 24",
+      "value" : "coun24"
+    }, {
+      "label" : "Country 25",
+      "value" : "coun25"
+    }, {
+      "label" : "Country 26",
+      "value" : "coun26"
+    }, {
+      "label" : "Country 27",
+      "value" : "coun27"
+    }, {
+      "label" : "Country 28",
+      "value" : "coun28"
+    }, {
+      "label" : "Country 29",
+      "value" : "coun29"
+    }, {
+      "label" : "Country 30",
+      "value" : "coun30"
+    }, {
+      "label" : "Country 31",
+      "value" : "coun31"
+    }, {
+      "label" : "Country 32",
+      "value" : "coun32"
+    }, {
+      "label" : "Country 33",
+      "value" : "coun33"
+    }, {
+      "label" : "Country 34",
+      "value" : "coun34"
+    }, {
+      "label" : "Country 35",
+      "value" : "coun35"
+    }, {
+      "label" : "Country 36",
+      "value" : "coun36"
+    }, {
+      "label" : "Country 37",
+      "value" : "coun37"
+    }, {
+      "label" : "Country 38",
+      "value" : "coun38"
+    }, {
+      "label" : "Country 39",
+      "value" : "coun39"
+    }, {
+      "label" : "Country 40",
+      "value" : "coun40"
+    }, {
+      "label" : "Country 41",
+      "value" : "coun41"
+    }, {
+      "label" : "Country 42",
+      "value" : "coun42"
+    }, {
+      "label" : "Country 43",
+      "value" : "coun43"
+    }, {
+      "label" : "Country 44",
+      "value" : "coun44"
+    }, {
+      "label" : "Country 45",
+      "value" : "coun45"
+    }, {
+      "label" : "Country 46",
+      "value" : "coun46"
+    }, {
+      "label" : "Country 47",
+      "value" : "coun47"
+    }, {
+      "label" : "Country 48",
+      "value" : "coun48"
+    }, {
+      "label" : "Country 49",
+      "value" : "coun49"
+    }, {
+      "label" : "Country 50",
+      "value" : "coun50"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Country (default: country 2)",
+    "readonly" : false,
+    "ref" : "/bench9/rep[1]/group4[1]/country4[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "coun2"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : "minimal",
+    "choices" : [ ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "City (default: city 12)",
+    "readonly" : false,
+    "ref" : "/bench9/rep[1]/group4[1]/city4[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : "minimal",
+    "choices" : [ ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Neighborhood",
+    "readonly" : false,
+    "ref" : "/bench9/rep[1]/group4[1]/neighborhood4[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/bench9/rep[2]"
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Cascading Selects with Radio Buttons",
+    "ref" : "/bench9/rep[2]/group1[1]"
+  }, {
+    "after" : "coun21",
+    "answer" : "coun21",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Country 1",
+      "value" : "coun1"
+    }, {
+      "label" : "Country 2",
+      "value" : "coun2"
+    }, {
+      "label" : "Country 3",
+      "value" : "coun3"
+    }, {
+      "label" : "Country 4",
+      "value" : "coun4"
+    }, {
+      "label" : "Country 5",
+      "value" : "coun5"
+    }, {
+      "label" : "Country 6",
+      "value" : "coun6"
+    }, {
+      "label" : "Country 7",
+      "value" : "coun7"
+    }, {
+      "label" : "Country 8",
+      "value" : "coun8"
+    }, {
+      "label" : "Country 9",
+      "value" : "coun9"
+    }, {
+      "label" : "Country 10",
+      "value" : "coun10"
+    }, {
+      "label" : "Country 11",
+      "value" : "coun11"
+    }, {
+      "label" : "Country 12",
+      "value" : "coun12"
+    }, {
+      "label" : "Country 13",
+      "value" : "coun13"
+    }, {
+      "label" : "Country 14",
+      "value" : "coun14"
+    }, {
+      "label" : "Country 15",
+      "value" : "coun15"
+    }, {
+      "label" : "Country 16",
+      "value" : "coun16"
+    }, {
+      "label" : "Country 17",
+      "value" : "coun17"
+    }, {
+      "label" : "Country 18",
+      "value" : "coun18"
+    }, {
+      "label" : "Country 19",
+      "value" : "coun19"
+    }, {
+      "label" : "Country 20",
+      "value" : "coun20"
+    }, {
+      "label" : "Country 21",
+      "value" : "coun21"
+    }, {
+      "label" : "Country 22",
+      "value" : "coun22"
+    }, {
+      "label" : "Country 23",
+      "value" : "coun23"
+    }, {
+      "label" : "Country 24",
+      "value" : "coun24"
+    }, {
+      "label" : "Country 25",
+      "value" : "coun25"
+    }, {
+      "label" : "Country 26",
+      "value" : "coun26"
+    }, {
+      "label" : "Country 27",
+      "value" : "coun27"
+    }, {
+      "label" : "Country 28",
+      "value" : "coun28"
+    }, {
+      "label" : "Country 29",
+      "value" : "coun29"
+    }, {
+      "label" : "Country 30",
+      "value" : "coun30"
+    }, {
+      "label" : "Country 31",
+      "value" : "coun31"
+    }, {
+      "label" : "Country 32",
+      "value" : "coun32"
+    }, {
+      "label" : "Country 33",
+      "value" : "coun33"
+    }, {
+      "label" : "Country 34",
+      "value" : "coun34"
+    }, {
+      "label" : "Country 35",
+      "value" : "coun35"
+    }, {
+      "label" : "Country 36",
+      "value" : "coun36"
+    }, {
+      "label" : "Country 37",
+      "value" : "coun37"
+    }, {
+      "label" : "Country 38",
+      "value" : "coun38"
+    }, {
+      "label" : "Country 39",
+      "value" : "coun39"
+    }, {
+      "label" : "Country 40",
+      "value" : "coun40"
+    }, {
+      "label" : "Country 41",
+      "value" : "coun41"
+    }, {
+      "label" : "Country 42",
+      "value" : "coun42"
+    }, {
+      "label" : "Country 43",
+      "value" : "coun43"
+    }, {
+      "label" : "Country 44",
+      "value" : "coun44"
+    }, {
+      "label" : "Country 45",
+      "value" : "coun45"
+    }, {
+      "label" : "Country 46",
+      "value" : "coun46"
+    }, {
+      "label" : "Country 47",
+      "value" : "coun47"
+    }, {
+      "label" : "Country 48",
+      "value" : "coun48"
+    }, {
+      "label" : "Country 49",
+      "value" : "coun49"
+    }, {
+      "label" : "Country 50",
+      "value" : "coun50"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Country",
+    "readonly" : false,
+    "ref" : "/bench9/rep[2]/group1[1]/country[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "choices" : [ ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "City",
+    "readonly" : false,
+    "ref" : "/bench9/rep[2]/group1[1]/city[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "error" : {
+      "message" : "XPath evaluation: type mismatch \nThis field is repeated: \n\n/bench9/rep[1]/group1[1]/country[1];/bench9/rep[2]/group1[1]/country[1]\n\nYou may need to use the indexed-repeat() function to specify which value you want.",
+      "type" : "XPathTypeMismatchException"
+    }
+  } ],
+  "traceVersion" : 1,
+  "validate" : {
+    "error" : {
+      "message" : "XPath evaluation: type mismatch \nThis field is repeated: \n\n/bench9/rep[1]/group1[1]/country[1];/bench9/rep[2]/group1[1]/country[1]\n\nYou may need to use the indexed-repeat() function to specify which value you want.",
+      "type" : "XPathTypeMismatchException"
+    }
+  }
+}

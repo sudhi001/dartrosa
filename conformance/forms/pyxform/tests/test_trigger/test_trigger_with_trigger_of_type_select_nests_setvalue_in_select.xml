@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:odk="http://www.opendatakit.org/xforms">
+  <h:head>
+    <h:title>data</h:title>
+    <model odk:xforms-version="1.0.0">
+      <instance>
+        <trigger-select_trigger id="data">
+          <a/>
+          <b/>
+          <meta>
+            <instanceID/>
+          </meta>
+        </trigger-select_trigger>
+      </instance>
+      <instance id="choices">
+        <root>
+          <item>
+            <name>a</name>
+            <label>A</label>
+          </item>
+          <item>
+            <name>aa</name>
+            <label>AA</label>
+          </item>
+        </root>
+      </instance>
+      <bind nodeset="/trigger-select_trigger/a" type="string"/>
+      <bind nodeset="/trigger-select_trigger/b" type="int"/>
+      <bind nodeset="/trigger-select_trigger/meta/instanceID" type="string" readonly="true()" jr:preload="uid"/>
+    </model>
+  </h:head>
+  <h:body>
+    <select1 ref="/trigger-select_trigger/a">
+      <label>Some choice</label>
+      <itemset nodeset="instance('choices')/root/item">
+        <value ref="name"/>
+        <label ref="label"/>
+      </itemset>
+      <setvalue ref="/trigger-select_trigger/b" event="xforms-value-changed" value="string-length( /trigger-select_trigger/a )"/>
+    </select1>
+  </h:body>
+</h:html>

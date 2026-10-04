@@ -1,0 +1,11 @@
+{
+  "form" : "forms/pyxform/example_forms/pull_data.xml",
+  "parse" : {
+    "error" : {
+      "message" : "Error evaluating field 'fruit' (/data/fruit[1]): The problem was located in Calculate expression for /data/fruit\nXPath evaluation: cannot handle function 'pulldata'",
+      "type" : "RuntimeException"
+    },
+    "ok" : false
+  },
+  "traceVersion" : 1
+}

@@ -1,0 +1,34 @@
+{
+  "form" : "forms/pyxform/tests/test_trigger/test_trigger_with_trigger_of_type_select_nests_setvalue_in_select.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><trigger-select_trigger id=\"data\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><a>a</a><b>1</b><meta><instanceID>uuid:<uuid></instanceID></meta></trigger-select_trigger>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 11,
+  "steps" : [ {
+    "after" : "a",
+    "answer" : "a",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "A",
+      "value" : "a"
+    }, {
+      "label" : "AA",
+      "value" : "aa"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Some choice",
+    "readonly" : false,
+    "ref" : "/trigger-select_trigger/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

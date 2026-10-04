@@ -1,0 +1,97 @@
+{
+  "form" : "forms/webforms/computations/7-readonly-group.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><root id=\"relevant-calculate-group\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms/\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><outer-1>outer-1 default</outer-1><grp1><a>grp1 a default</a><b>grp1 b default</b></grp1><outer-2>outer-2 default</outer-2><grp2><a>grp2 a default</a><b>grp2 b default</b></grp2><meta><instanceID /></meta></root>",
+  "parse" : {
+    "language" : null,
+    "languages" : [ ],
+    "ok" : true,
+    "title" : "Readonly, group"
+  },
+  "steps" : [ {
+    "events" : [ {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "null",
+      "event" : "question",
+      "hint" : null,
+      "label" : "1. First root level question",
+      "readonly" : false,
+      "ref" : "/root/outer-1[1]",
+      "required" : false,
+      "value" : "outer-1 default"
+    }, {
+      "appearance" : null,
+      "event" : "group",
+      "label" : "2. Group 1",
+      "ref" : "/root/grp1[1]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "null",
+      "event" : "question",
+      "hint" : null,
+      "label" : "2.1. Group 1 - a",
+      "readonly" : false,
+      "ref" : "/root/grp1[1]/a[1]",
+      "required" : false,
+      "value" : "grp1 a default"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "null",
+      "event" : "question",
+      "hint" : null,
+      "label" : "2.2. Group 1 - b, readonly if #2.1 is its default value",
+      "readonly" : true,
+      "ref" : "/root/grp1[1]/b[1]",
+      "required" : false,
+      "value" : "grp1 b default"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "null",
+      "event" : "question",
+      "hint" : null,
+      "label" : "3. Second root level question, readonly",
+      "readonly" : true,
+      "ref" : "/root/outer-2[1]",
+      "required" : false,
+      "value" : "outer-2 default"
+    }, {
+      "appearance" : null,
+      "event" : "group",
+      "label" : "4. Group 2, readonly if #2.1 is NOT its default value",
+      "ref" : "/root/grp2[1]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "null",
+      "event" : "question",
+      "hint" : null,
+      "label" : "4.1. Group 2 - a, readonly if parent group is",
+      "readonly" : false,
+      "ref" : "/root/grp2[1]/a[1]",
+      "required" : false,
+      "value" : "grp2 a default"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "null",
+      "event" : "question",
+      "hint" : null,
+      "label" : "4.2. Group 2 - b, readonly if its group is, or if #1 is its default value",
+      "readonly" : true,
+      "ref" : "/root/grp2[1]/b[1]",
+      "required" : false,
+      "value" : "grp2 b default"
+    }, {
+      "event" : "endOfForm"
+    } ],
+    "op" : "walk"
+  }, {
+    "op" : "validate",
+    "outcome" : "ok",
+    "ref" : null
+  } ],
+  "traceVersion" : 1
+}

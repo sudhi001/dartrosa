@@ -1,0 +1,51 @@
+{
+  "form" : "forms/pyxform/tests/test_trigger/test_trigger_column_in_repeat_should_have_expanded_xpath.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><trigger-column id=\"data\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><rep><one /><three /></rep><meta><instanceID>uuid:<uuid></instanceID></meta></trigger-column>",
+  "parse" : {
+    "language" : null,
+    "languages" : [ ],
+    "ok" : true,
+    "title" : "data"
+  },
+  "steps" : [ {
+    "events" : [ {
+      "appearance" : null,
+      "event" : "repeat",
+      "label" : null,
+      "ref" : "/trigger-column/rep[1]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "dateTime",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Enter text",
+      "readonly" : false,
+      "ref" : "/trigger-column/rep[1]/one[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "dateTime",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Enter text (triggered)",
+      "readonly" : false,
+      "ref" : "/trigger-column/rep[1]/three[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "event" : "promptNewRepeat",
+      "ref" : "/trigger-column/rep[2]"
+    }, {
+      "event" : "endOfForm"
+    } ],
+    "op" : "walk"
+  }, {
+    "op" : "validate",
+    "outcome" : "ok",
+    "ref" : null
+  } ],
+  "traceVersion" : 1
+}

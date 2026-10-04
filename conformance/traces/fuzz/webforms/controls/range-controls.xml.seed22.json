@@ -1,0 +1,74 @@
+{
+  "form" : "forms/webforms/controls/range-controls.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><root id=\"range-controls\" xmlns:h=\"http://www.w3.org/1999/xhtml\"><range-decimal>-316.54</range-decimal><range-int>93</range-int><vertical><v-decimal>-179.58</v-decimal><v-int>8</v-int></vertical></root>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 22,
+  "steps" : [ {
+    "after" : "-316.54",
+    "answer" : "-316.54",
+    "appearance" : null,
+    "control" : "range",
+    "dataType" : "decimal",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Range control (decimal)",
+    "readonly" : false,
+    "ref" : "/root/range-decimal[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "1.0"
+  }, {
+    "after" : "93",
+    "answer" : "93",
+    "appearance" : null,
+    "control" : "range",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Range control (int)",
+    "readonly" : false,
+    "ref" : "/root/range-int[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "2"
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : null,
+    "ref" : "/root/vertical[1]"
+  }, {
+    "after" : "-179.58",
+    "answer" : "-179.58",
+    "appearance" : "vertical",
+    "control" : "range",
+    "dataType" : "decimal",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Range control (decimal)",
+    "readonly" : false,
+    "ref" : "/root/vertical[1]/v-decimal[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "1.25"
+  }, {
+    "after" : "8",
+    "answer" : "8",
+    "appearance" : "vertical no-ticks",
+    "control" : "range",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Range control (int)",
+    "readonly" : false,
+    "ref" : "/root/vertical[1]/v-int[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "1"
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

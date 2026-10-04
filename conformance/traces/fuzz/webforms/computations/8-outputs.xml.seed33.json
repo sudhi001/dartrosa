@@ -1,0 +1,69 @@
+{
+  "form" : "forms/webforms/computations/8-outputs.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><root id=\"outputs\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms/\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><a>kappa'lambda</a><b><now></b><d>kappa'lambda</d><e /><c>alpha</c><meta><instanceID /></meta></root>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 33,
+  "steps" : [ {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "1. Whoops, accidentally built part of output functionality!\n        now() calculated by /root/b: <today>",
+    "readonly" : false,
+    "ref" : "/root/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "/root/d",
+    "readonly" : false,
+    "ref" : "/root/d[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "10"
+  }, {
+    "after" : "zeta & eta",
+    "answer" : "zeta & eta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "/root/e",
+    "readonly" : false,
+    "ref" : "/root/e[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "alpha",
+    "answer" : "alpha",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "2. Wonder if calculate also works...\n        d: kappa'lambda, e (d * 2): zeta & eta",
+    "readonly" : false,
+    "ref" : "/root/c[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "default value of c"
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

@@ -1,0 +1,236 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:odk="http://www.opendatakit.org/xforms">
+  <h:head>
+    <h:title>data</h:title>
+    <model odk:xforms-version="1.0.0">
+      <instance>
+        <test_name id="data">
+          <Z/>
+          <section jr:template="">
+            <AA/>
+            <A/>
+            <B/>
+            <note1/>
+          </section>
+          <section>
+            <AA/>
+            <A/>
+            <B/>
+            <note1/>
+          </section>
+          <section2 jr:template="">
+            <C/>
+            <sectiona>
+              <D/>
+              <E/>
+              <note2/>
+            </sectiona>
+            <note3/>
+          </section2>
+          <section2>
+            <C/>
+            <sectiona>
+              <D/>
+              <E/>
+              <note2/>
+            </sectiona>
+            <note3/>
+          </section2>
+          <section3 jr:template="">
+            <FF/>
+            <F/>
+            <sectionb>
+              <G/>
+              <H/>
+              <note4/>
+            </sectionb>
+            <sectionc jr:template="">
+              <I/>
+              <J/>
+              <K/>
+              <L/>
+              <note5/>
+              <note6/>
+            </sectionc>
+            <note7/>
+            <sectiond>
+              <M/>
+              <N/>
+              <O/>
+              <note8/>
+            </sectiond>
+            <note9/>
+          </section3>
+          <section3>
+            <FF/>
+            <F/>
+            <sectionb>
+              <G/>
+              <H/>
+              <note4/>
+            </sectionb>
+            <sectionc>
+              <I/>
+              <J/>
+              <K/>
+              <L/>
+              <note5/>
+              <note6/>
+            </sectionc>
+            <note7/>
+            <sectiond>
+              <M/>
+              <N/>
+              <O/>
+              <note8/>
+            </sectiond>
+            <note9/>
+          </section3>
+          <meta>
+            <instanceID/>
+          </meta>
+        </test_name>
+      </instance>
+      <bind nodeset="/test_name/Z" type="string"/>
+      <bind nodeset="/test_name/section/AA" type="string"/>
+      <bind nodeset="/test_name/section/A" type="string"/>
+      <bind nodeset="/test_name/section/B" type="string" relevant=" ../A ='oat'"/>
+      <bind nodeset="/test_name/section/note1" readonly="true()" type="string"/>
+      <bind nodeset="/test_name/section2/C" type="string"/>
+      <bind nodeset="/test_name/section2/sectiona/D" type="string"/>
+      <bind nodeset="/test_name/section2/sectiona/E" type="string" relevant=" ../D ='oat'"/>
+      <bind nodeset="/test_name/section2/sectiona/note2" readonly="true()" type="string"/>
+      <bind nodeset="/test_name/section2/note3" readonly="true()" type="string"/>
+      <bind nodeset="/test_name/section3/FF" type="string"/>
+      <bind nodeset="/test_name/section3/F" type="string"/>
+      <bind nodeset="/test_name/section3/sectionb/G" type="string"/>
+      <bind nodeset="/test_name/section3/sectionb/H" type="string" relevant=" ../G ='oat'"/>
+      <bind nodeset="/test_name/section3/sectionb/note4" readonly="true()" type="string"/>
+      <bind nodeset="/test_name/section3/sectionc/I" type="string"/>
+      <bind nodeset="/test_name/section3/sectionc/J" type="string" relevant=" ../I ='oat'"/>
+      <bind nodeset="/test_name/section3/sectionc/K" type="string" relevant=" ../../F ='oat'"/>
+      <bind nodeset="/test_name/section3/sectionc/L" type="string" relevant=" ../../sectionb/G ='oat'"/>
+      <bind nodeset="/test_name/section3/sectionc/note5" readonly="true()" type="string"/>
+      <bind nodeset="/test_name/section3/sectionc/note6" readonly="true()" type="string"/>
+      <bind nodeset="/test_name/section3/note7" readonly="true()" type="string"/>
+      <bind nodeset="/test_name/section3/sectiond/M" type="string"/>
+      <bind nodeset="/test_name/section3/sectiond/N" type="string" relevant=" ../../sectionb/G ='oat'"/>
+      <bind nodeset="/test_name/section3/sectiond/O" type="string" relevant=" ../M ='oat'"/>
+      <bind nodeset="/test_name/section3/sectiond/note8" readonly="true()" type="string"/>
+      <bind nodeset="/test_name/section3/note9" readonly="true()" type="string"/>
+      <bind nodeset="/test_name/meta/instanceID" type="string" readonly="true()" jr:preload="uid"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input ref="/test_name/Z">
+      <label>Fruit</label>
+    </input>
+    <group ref="/test_name/section">
+      <label>Section</label>
+      <repeat nodeset="/test_name/section">
+        <input ref="/test_name/section/AA">
+          <label>Anything really</label>
+        </input>
+        <input ref="/test_name/section/A">
+          <label>A oat</label>
+        </input>
+        <input ref="/test_name/section/B">
+          <label> B w <output value=" ../A "/> </label>
+        </input>
+        <input ref="/test_name/section/note1">
+          <label> Noted <output value=" ../AA "/> w <output value=" ../A "/> </label>
+        </input>
+      </repeat>
+    </group>
+    <group ref="/test_name/section2">
+      <label>Section 2</label>
+      <repeat nodeset="/test_name/section2">
+        <input ref="/test_name/section2/C">
+          <label>C</label>
+        </input>
+        <group ref="/test_name/section2/sectiona">
+          <label>Section A</label>
+          <input ref="/test_name/section2/sectiona/D">
+            <label>D oat</label>
+          </input>
+          <input ref="/test_name/section2/sectiona/E">
+            <label> E w <output value=" /test_name/Z "/> </label>
+          </input>
+          <input ref="/test_name/section2/sectiona/note2">
+            <label> Noted <output value=" ../../C "/> w <output value=" ../E "/> </label>
+          </input>
+        </group>
+        <input ref="/test_name/section2/note3">
+          <label> Noted <output value=" ../C "/> w <output value=" ../sectiona/E "/> </label>
+        </input>
+      </repeat>
+    </group>
+    <group ref="/test_name/section3">
+      <label>Section 3</label>
+      <repeat nodeset="/test_name/section3">
+        <input ref="/test_name/section3/FF">
+          <label>F any text</label>
+        </input>
+        <input ref="/test_name/section3/F">
+          <label>F oat</label>
+        </input>
+        <group ref="/test_name/section3/sectionb">
+          <label>Section B</label>
+          <input ref="/test_name/section3/sectionb/G">
+            <label>G oat</label>
+          </input>
+          <input ref="/test_name/section3/sectionb/H">
+            <label> H w <output value=" /test_name/Z "/> </label>
+          </input>
+          <input ref="/test_name/section3/sectionb/note4">
+            <label> Noted <output value=" ../H "/> w <output value=" /test_name/Z "/> </label>
+          </input>
+        </group>
+        <group ref="/test_name/section3/sectionc">
+          <label>Section B</label>
+          <repeat nodeset="/test_name/section3/sectionc">
+            <input ref="/test_name/section3/sectionc/I">
+              <label>I</label>
+            </input>
+            <input ref="/test_name/section3/sectionc/J">
+              <label> J w <output value=" /test_name/Z "/> </label>
+            </input>
+            <input ref="/test_name/section3/sectionc/K">
+              <label> K w <output value=" /test_name/Z "/> </label>
+            </input>
+            <input ref="/test_name/section3/sectionc/L">
+              <label> K w <output value=" /test_name/Z "/> </label>
+            </input>
+            <input ref="/test_name/section3/sectionc/note5">
+              <label> Noted <output value=" ../../FF "/> w <output value=" ../../sectionb/H "/> </label>
+            </input>
+            <input ref="/test_name/section3/sectionc/note6">
+              <label> JKL #<output value=" ../J "/>#<output value=" ../K "/>#<output value=" ../L "/> </label>
+            </input>
+          </repeat>
+        </group>
+        <input ref="/test_name/section3/note7">
+          <label> Noted <output value=" ../FF "/> w <output value=" ../sectionb/H "/> </label>
+        </input>
+        <group ref="/test_name/section3/sectiond">
+          <label>Section D</label>
+          <input ref="/test_name/section3/sectiond/M">
+            <label>M oat</label>
+          </input>
+          <input ref="/test_name/section3/sectiond/N">
+            <label> N w <output value=" /test_name/Z "/> </label>
+          </input>
+          <input ref="/test_name/section3/sectiond/O">
+            <label> O w <output value=" /test_name/Z "/> </label>
+          </input>
+          <input ref="/test_name/section3/sectiond/note8">
+            <label> NO #<output value=" ../N "/> #<output value=" ../O "/> </label>
+          </input>
+        </group>
+        <input ref="/test_name/section3/note9">
+          <label><output value=" ../FF "/> <output value=" ../sectionb/H "/> <output value=" ../sectiond/N "/> <output value=" ../sectiond/N "/> </label>
+        </input>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

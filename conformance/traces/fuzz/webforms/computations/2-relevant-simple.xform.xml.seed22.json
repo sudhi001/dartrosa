@@ -1,0 +1,41 @@
+{
+  "form" : "forms/webforms/computations/2-relevant-simple.xform.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><root id=\"relevant-simple\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms/\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><first-question>123</first-question><second-question>beta</second-question><meta><instanceID /></meta></root>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 22,
+  "steps" : [ {
+    "after" : "123",
+    "answer" : "123",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "1. Default value is 1",
+    "readonly" : false,
+    "ref" : "/root/first-question[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "1"
+  }, {
+    "after" : "beta",
+    "answer" : "beta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "2. Relevant if #1 is greater than 2",
+    "readonly" : false,
+    "ref" : "/root/second-question[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "default if relevant"
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

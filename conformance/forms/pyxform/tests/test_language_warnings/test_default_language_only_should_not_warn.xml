@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:odk="http://www.opendatakit.org/xforms">
+  <h:head>
+    <h:title>data</h:title>
+    <model odk:xforms-version="1.0.0">
+      <instance>
+        <test_name id="data">
+          <opt/>
+          <meta>
+            <instanceID/>
+          </meta>
+        </test_name>
+      </instance>
+      <instance id="opts">
+        <root>
+          <item>
+            <name>opt1</name>
+            <label>Opt1</label>
+            <fake>1</fake>
+          </item>
+          <item>
+            <name>opt2</name>
+            <label>Opt2</label>
+            <fake>1</fake>
+          </item>
+        </root>
+      </instance>
+      <bind nodeset="/test_name/opt" type="string"/>
+      <bind nodeset="/test_name/meta/instanceID" type="string" readonly="true()" jr:preload="uid"/>
+    </model>
+  </h:head>
+  <h:body>
+    <select1 ref="/test_name/opt">
+      <label>My opt</label>
+      <itemset nodeset="instance('opts')/root/item[fake = 1]">
+        <value ref="name"/>
+        <label ref="label"/>
+      </itemset>
+    </select1>
+  </h:body>
+</h:html>

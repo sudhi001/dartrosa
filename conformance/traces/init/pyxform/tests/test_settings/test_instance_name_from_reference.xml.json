@@ -1,0 +1,100 @@
+{
+  "cascades" : [ {
+    "cascades" : [ ],
+    "triggerable" : "recalculate|{path-expr:abs,{{step:child,test_name},{step:child,q1}}}|/test_name/meta/instanceName|[/test_name/meta/instanceName]"
+  } ],
+  "form" : "forms/pyxform/tests/test_settings/test_instance_name_from_reference.xml",
+  "initialize" : {
+    "ok" : true
+  },
+  "instance" : {
+    "attributes" : [ [ "", "id", "data" ] ],
+    "bindAttributes" : [ ],
+    "children" : [ {
+      "attributes" : [ ],
+      "bindAttributes" : [ ],
+      "children" : [ ],
+      "constraint" : null,
+      "enabled" : true,
+      "mult" : 0,
+      "name" : "q1",
+      "namespace" : null,
+      "prefix" : null,
+      "preload" : null,
+      "preloadParams" : null,
+      "relevant" : true,
+      "repeatable" : false,
+      "required" : false,
+      "type" : "text",
+      "value" : null
+    }, {
+      "attributes" : [ ],
+      "bindAttributes" : [ ],
+      "children" : [ {
+        "attributes" : [ ],
+        "bindAttributes" : [ ],
+        "children" : [ ],
+        "constraint" : null,
+        "enabled" : false,
+        "mult" : 0,
+        "name" : "instanceID",
+        "namespace" : null,
+        "prefix" : null,
+        "preload" : "uid",
+        "preloadParams" : null,
+        "relevant" : true,
+        "repeatable" : false,
+        "required" : false,
+        "type" : "text",
+        "value" : "uuid:<uuid>"
+      }, {
+        "attributes" : [ ],
+        "bindAttributes" : [ ],
+        "children" : [ ],
+        "constraint" : null,
+        "enabled" : true,
+        "mult" : 0,
+        "name" : "instanceName",
+        "namespace" : null,
+        "prefix" : null,
+        "preload" : null,
+        "preloadParams" : null,
+        "relevant" : true,
+        "repeatable" : false,
+        "required" : false,
+        "type" : "text",
+        "value" : null
+      } ],
+      "constraint" : null,
+      "enabled" : true,
+      "mult" : 0,
+      "name" : "meta",
+      "namespace" : null,
+      "prefix" : null,
+      "preload" : null,
+      "preloadParams" : null,
+      "relevant" : true,
+      "repeatable" : false,
+      "required" : false,
+      "type" : "null",
+      "value" : null
+    } ],
+    "constraint" : null,
+    "enabled" : true,
+    "mult" : 0,
+    "name" : "test_name",
+    "namespace" : null,
+    "prefix" : null,
+    "preload" : null,
+    "preloadParams" : null,
+    "relevant" : true,
+    "repeatable" : false,
+    "required" : false,
+    "type" : "null",
+    "value" : null
+  },
+  "parse" : {
+    "ok" : true
+  },
+  "traceVersion" : 1
+}

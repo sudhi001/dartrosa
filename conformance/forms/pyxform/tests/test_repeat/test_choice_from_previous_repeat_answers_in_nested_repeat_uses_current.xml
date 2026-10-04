@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:odk="http://www.opendatakit.org/xforms">
+  <h:head>
+    <h:title>data</h:title>
+    <model odk:xforms-version="1.0.0">
+      <instance>
+        <test_name id="data">
+          <enumerators_name/>
+          <household_rep jr:template="">
+            <household_id/>
+            <household_mem_rep jr:template="">
+              <name/>
+              <age/>
+            </household_mem_rep>
+            <selected jr:template="">
+              <target_min_age/>
+              <selected_name/>
+            </selected>
+          </household_rep>
+          <household_rep>
+            <household_id/>
+            <household_mem_rep>
+              <name/>
+              <age/>
+            </household_mem_rep>
+            <selected>
+              <target_min_age/>
+              <selected_name/>
+            </selected>
+          </household_rep>
+          <meta>
+            <instanceID/>
+          </meta>
+        </test_name>
+      </instance>
+      <bind nodeset="/test_name/enumerators_name" type="string"/>
+      <bind nodeset="/test_name/household_rep/household_id" type="int"/>
+      <bind nodeset="/test_name/household_rep/household_mem_rep/name" type="string"/>
+      <bind nodeset="/test_name/household_rep/household_mem_rep/age" type="int"/>
+      <bind nodeset="/test_name/household_rep/selected/target_min_age" type="int"/>
+      <bind nodeset="/test_name/household_rep/selected/selected_name" type="string"/>
+      <bind nodeset="/test_name/meta/instanceID" type="string" readonly="true()" jr:preload="uid"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input ref="/test_name/enumerators_name">
+      <label>Enter enumerators name</label>
+    </input>
+    <group ref="/test_name/household_rep">
+      <label>Household Repeat</label>
+      <repeat nodeset="/test_name/household_rep">
+        <input ref="/test_name/household_rep/household_id">
+          <label>Enter household ID</label>
+        </input>
+        <group ref="/test_name/household_rep/household_mem_rep">
+          <label>Household member repeat</label>
+          <repeat nodeset="/test_name/household_rep/household_mem_rep">
+            <input ref="/test_name/household_rep/household_mem_rep/name">
+              <label>Enter name of a household member</label>
+            </input>
+            <input ref="/test_name/household_rep/household_mem_rep/age">
+              <label>Enter age of the household member</label>
+            </input>
+          </repeat>
+        </group>
+        <group ref="/test_name/household_rep/selected">
+          <label>Select a representative</label>
+          <repeat nodeset="/test_name/household_rep/selected">
+            <input ref="/test_name/household_rep/selected/target_min_age">
+              <label>Minimum age requirement</label>
+            </input>
+            <select1 ref="/test_name/household_rep/selected/selected_name">
+              <label>Choose a name</label>
+              <itemset nodeset="../../household_mem_rep[ ./age  &gt;  current()/../target_min_age ]">
+                <value ref="name"/>
+                <label ref="name"/>
+              </itemset>
+            </select1>
+          </repeat>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

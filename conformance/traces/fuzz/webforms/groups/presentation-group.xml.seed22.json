@@ -1,0 +1,102 @@
+{
+  "form" : "forms/webforms/groups/presentation-group.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"build_requiredOnePage_1518518934\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><meta><instanceID>uuid:<uuid></instanceID></meta><group><text>123</text><number>-44</number><date>2026-06-10</date><time>18:34:00.000Z</time><location>-12.924 -73.949 136.0 18.0</location><barcode>x y z</barcode></group></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 22,
+  "steps" : [ {
+    "appearance" : "field-list",
+    "event" : "group",
+    "label" : "group",
+    "ref" : "/data"
+  }, {
+    "after" : "123",
+    "answer" : "123",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "text",
+    "readonly" : false,
+    "ref" : "/data/group[1]/text[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "-44",
+    "answer" : "-44",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : "hint number",
+    "label" : "number",
+    "readonly" : false,
+    "ref" : "/data/group[1]/number[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "2026-06-10",
+    "answer" : "2026-06-10",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "date",
+    "event" : "question",
+    "hint" : null,
+    "label" : null,
+    "readonly" : false,
+    "ref" : "/data/group[1]/date[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "18:34:00.000Z",
+    "answer" : "18:34:00.000Z",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "time",
+    "event" : "question",
+    "hint" : "hint time",
+    "label" : null,
+    "readonly" : false,
+    "ref" : "/data/group[1]/time[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "-12.924 -73.949 136.0 18.0",
+    "answer" : "-12.924 -73.949 136 18",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "geopoint",
+    "event" : "question",
+    "hint" : null,
+    "label" : null,
+    "readonly" : false,
+    "ref" : "/data/group[1]/location[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "x y z",
+    "answer" : "x y z",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "barcode",
+    "event" : "question",
+    "hint" : null,
+    "label" : "barcode",
+    "readonly" : false,
+    "ref" : "/data/group[1]/barcode[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

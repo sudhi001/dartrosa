@@ -346,8 +346,8 @@ public final class Oracle {
             e.put("control", CONTROL_TYPES.getOrDefault(p.getControlType(), String.valueOf(p.getControlType())));
             e.put("dataType", DATA_TYPES.getOrDefault(p.getDataType(), String.valueOf(p.getDataType())));
             e.put("appearance", p.getAppearanceHint());
-            e.put("label", p.getLongText());
-            e.put("hint", p.getHelpText());
+            e.put("label", normalize(p.getLongText()));
+            e.put("hint", normalize(p.getHelpText()));
             e.put("required", p.isRequired());
             e.put("readonly", p.isReadOnly());
             IAnswerData value = p.getAnswerValue();
@@ -362,7 +362,7 @@ public final class Oracle {
                     for (SelectChoice c : list) {
                         Map<String, Object> choice = new LinkedHashMap<>();
                         choice.put("value", c.getValue());
-                        choice.put("label", p.getSelectChoiceText(c));
+                        choice.put("label", normalize(p.getSelectChoiceText(c)));
                         choices.add(choice);
                     }
                 }
@@ -376,7 +376,7 @@ public final class Oracle {
                 e.put("choices", choices);
             }
         } else if (event == FormEntryController.EVENT_GROUP || event == FormEntryController.EVENT_REPEAT) {
-            e.put("label", model.getCaptionPrompt().getLongText());
+            e.put("label", normalize(model.getCaptionPrompt().getLongText()));
             e.put("appearance", model.getCaptionPrompt().getAppearanceHint());
         }
         return e;

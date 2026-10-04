@@ -1,0 +1,21 @@
+{
+  "form" : "forms/pyxform/tests/test_background_geopoint/test_question_in_nonrep_group__trigger_in_different_rep_group.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"data\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><groupA><temp>42</temp></groupA><groupB><temp_geo /><today /></groupB><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 11,
+  "steps" : [ {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/groupA[1]"
+  }, {
+    "error" : {
+      "message" : "For input string: \"no\"",
+      "type" : "NumberFormatException"
+    }
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

@@ -1,0 +1,62 @@
+{
+  "form" : "forms/pyxform/example_forms/case_insensitivity.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"YesNo\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:entities=\"http://www.opendatakit.org/xforms/entities\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><q1>n2-c</q1><q2>kappa'lambda</q2><q3>file47.jpg</q3><meta><entity dataset=\"e1\" create=\"1\" id=\"<uuid>\"><label /></entity><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 33,
+  "steps" : [ {
+    "after" : "n2-c",
+    "answer" : "n2-c",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "l1-c",
+      "value" : "n1-c"
+    }, {
+      "label" : "l2-c",
+      "value" : "n2-c"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Are you good?",
+    "readonly" : false,
+    "ref" : "/data/q1[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Where are you?",
+    "readonly" : false,
+    "ref" : "/data/q2[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "file47.jpg",
+    "answer" : "file47.jpg",
+    "appearance" : null,
+    "control" : "osmCapture",
+    "dataType" : "binary",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Where exactly?",
+    "readonly" : false,
+    "ref" : "/data/q3[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

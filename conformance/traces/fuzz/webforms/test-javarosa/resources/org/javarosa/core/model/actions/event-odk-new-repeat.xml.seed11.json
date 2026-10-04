@@ -1,0 +1,2860 @@
+{
+  "form" : "forms/webforms/test-javarosa/resources/org/javarosa/core/model/actions/event-odk-new-repeat.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"event-odk-new-repeat\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\"><meta><instanceID>uuid:<uuid></instanceID></meta><my-toplevel-value>42</my-toplevel-value><repeat-count>145</repeat-count><my-jr-count-repeat><defaults-to-position-again>alpha</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>zeta &amp; eta</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>kappa'lambda</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again /></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>alpha</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again /></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>alpha</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>alpha</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>zeta &amp; eta</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>beta</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again /></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>zeta &amp; eta</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>zeta &amp; eta</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>épsilon</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>alpha</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>mu\"nu</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>épsilon</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>kappa'lambda</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>beta</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>épsilon</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>alpha</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>gamma delta</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again /></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>épsilon</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>123</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>mu\"nu</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again /></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>beta</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>gamma delta</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again /></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>beta</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>123</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>beta</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again /></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>mu\"nu</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again /></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>beta</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>épsilon</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>gamma delta</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>alpha</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>gamma delta</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>épsilon</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>beta</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>123</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>mu\"nu</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>theta&lt;iota&gt;</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>kappa'lambda</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>123</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again /></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>mu\"nu</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>x y z</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>épsilon</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again /></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>beta</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>theta&lt;iota&gt;</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>theta&lt;iota&gt;</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>x y z</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>zeta &amp; eta</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>x y z</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>alpha</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again /></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>zeta &amp; eta</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>123</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>mu\"nu</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>zeta &amp; eta</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>zeta &amp; eta</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>kappa'lambda</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again /></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>theta&lt;iota&gt;</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>theta&lt;iota&gt;</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>theta&lt;iota&gt;</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again /></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>kappa'lambda</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>theta&lt;iota&gt;</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again /></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>beta</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>123</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>theta&lt;iota&gt;</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>zeta &amp; eta</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>épsilon</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again /></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>123</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>gamma delta</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>x y z</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>kappa'lambda</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>gamma delta</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>x y z</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>kappa'lambda</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>x y z</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again /></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>kappa'lambda</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>beta</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>123</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>gamma delta</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>gamma delta</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again /></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>épsilon</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again /></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>theta&lt;iota&gt;</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>gamma delta</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>zeta &amp; eta</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>beta</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>mu\"nu</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again /></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>kappa'lambda</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>gamma delta</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>épsilon</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>zeta &amp; eta</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>zeta &amp; eta</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>alpha</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again /></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again /></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>zeta &amp; eta</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>zeta &amp; eta</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>123</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>gamma delta</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again /></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>kappa'lambda</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>123</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>mu\"nu</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>gamma delta</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again /></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again /></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>123</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>x y z</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>theta&lt;iota&gt;</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>alpha</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>épsilon</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again /></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>zeta &amp; eta</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>123</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>zeta &amp; eta</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>x y z</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again /></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>theta&lt;iota&gt;</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again /></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>alpha</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>beta</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>kappa'lambda</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>zeta &amp; eta</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>épsilon</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>kappa'lambda</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>123</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>123</defaults-to-position-again></my-jr-count-repeat><my-jr-count-repeat><defaults-to-position-again>123</defaults-to-position-again></my-jr-count-repeat><my-repeat-without-template><my-value>131</my-value></my-repeat-without-template><my-repeat-without-template><my-value>26</my-value></my-repeat-without-template><my-repeat-without-template><my-value>122</my-value></my-repeat-without-template></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 11,
+  "steps" : [ {
+    "after" : "42",
+    "answer" : "42",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A top-level value",
+    "readonly" : false,
+    "ref" : "/data/my-toplevel-value[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : false,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/my-repeat[1]"
+  }, {
+    "after" : "145",
+    "answer" : "145",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat count",
+    "readonly" : false,
+    "ref" : "/data/repeat-count[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[1]"
+  }, {
+    "after" : "alpha",
+    "answer" : "alpha",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[1]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "1"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[2]"
+  }, {
+    "after" : "zeta & eta",
+    "answer" : "zeta & eta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[2]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "2"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[3]"
+  }, {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[3]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "3"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[4]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[4]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "4"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[5]"
+  }, {
+    "after" : "alpha",
+    "answer" : "alpha",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[5]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "5"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[6]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[6]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "6"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[7]"
+  }, {
+    "after" : "alpha",
+    "answer" : "alpha",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[7]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "7"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[8]"
+  }, {
+    "after" : "alpha",
+    "answer" : "alpha",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[8]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "8"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[9]"
+  }, {
+    "after" : "zeta & eta",
+    "answer" : "zeta & eta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[9]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "9"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[10]"
+  }, {
+    "after" : "beta",
+    "answer" : "beta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[10]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "10"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[11]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[11]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "11"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[12]"
+  }, {
+    "after" : "zeta & eta",
+    "answer" : "zeta & eta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[12]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "12"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[13]"
+  }, {
+    "after" : "zeta & eta",
+    "answer" : "zeta & eta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[13]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "13"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[14]"
+  }, {
+    "after" : "épsilon",
+    "answer" : "épsilon",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[14]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "14"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[15]"
+  }, {
+    "after" : "alpha",
+    "answer" : "alpha",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[15]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "15"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[16]"
+  }, {
+    "after" : "mu\"nu",
+    "answer" : "mu\"nu",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[16]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "16"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[17]"
+  }, {
+    "after" : "épsilon",
+    "answer" : "épsilon",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[17]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "17"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[18]"
+  }, {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[18]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "18"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[19]"
+  }, {
+    "after" : "beta",
+    "answer" : "beta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[19]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "19"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[20]"
+  }, {
+    "after" : "épsilon",
+    "answer" : "épsilon",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[20]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "20"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[21]"
+  }, {
+    "after" : "alpha",
+    "answer" : "alpha",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[21]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "21"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[22]"
+  }, {
+    "after" : "gamma delta",
+    "answer" : "gamma delta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[22]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "22"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[23]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[23]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "23"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[24]"
+  }, {
+    "after" : "épsilon",
+    "answer" : "épsilon",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[24]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "24"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[25]"
+  }, {
+    "after" : "123",
+    "answer" : "123",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[25]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "25"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[26]"
+  }, {
+    "after" : "mu\"nu",
+    "answer" : "mu\"nu",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[26]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "26"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[27]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[27]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "27"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[28]"
+  }, {
+    "after" : "beta",
+    "answer" : "beta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[28]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "28"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[29]"
+  }, {
+    "after" : "gamma delta",
+    "answer" : "gamma delta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[29]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "29"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[30]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[30]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "30"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[31]"
+  }, {
+    "after" : "beta",
+    "answer" : "beta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[31]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "31"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[32]"
+  }, {
+    "after" : "123",
+    "answer" : "123",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[32]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "32"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[33]"
+  }, {
+    "after" : "beta",
+    "answer" : "beta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[33]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "33"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[34]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[34]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "34"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[35]"
+  }, {
+    "after" : "mu\"nu",
+    "answer" : "mu\"nu",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[35]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "35"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[36]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[36]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "36"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[37]"
+  }, {
+    "after" : "beta",
+    "answer" : "beta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[37]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "37"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[38]"
+  }, {
+    "after" : "épsilon",
+    "answer" : "épsilon",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[38]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "38"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[39]"
+  }, {
+    "after" : "gamma delta",
+    "answer" : "gamma delta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[39]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "39"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[40]"
+  }, {
+    "after" : "alpha",
+    "answer" : "alpha",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[40]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "40"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[41]"
+  }, {
+    "after" : "gamma delta",
+    "answer" : "gamma delta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[41]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "41"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[42]"
+  }, {
+    "after" : "épsilon",
+    "answer" : "épsilon",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[42]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "42"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[43]"
+  }, {
+    "after" : "beta",
+    "answer" : "beta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[43]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "43"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[44]"
+  }, {
+    "after" : "123",
+    "answer" : "123",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[44]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "44"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[45]"
+  }, {
+    "after" : "mu\"nu",
+    "answer" : "mu\"nu",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[45]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "45"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[46]"
+  }, {
+    "after" : "theta<iota>",
+    "answer" : "theta<iota>",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[46]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "46"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[47]"
+  }, {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[47]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "47"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[48]"
+  }, {
+    "after" : "123",
+    "answer" : "123",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[48]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "48"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[49]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[49]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "49"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[50]"
+  }, {
+    "after" : "mu\"nu",
+    "answer" : "mu\"nu",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[50]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "50"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[51]"
+  }, {
+    "after" : "x y z",
+    "answer" : "x y z",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[51]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "51"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[52]"
+  }, {
+    "after" : "épsilon",
+    "answer" : "épsilon",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[52]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "52"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[53]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[53]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "53"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[54]"
+  }, {
+    "after" : "beta",
+    "answer" : "beta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[54]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "54"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[55]"
+  }, {
+    "after" : "theta<iota>",
+    "answer" : "theta<iota>",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[55]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "55"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[56]"
+  }, {
+    "after" : "theta<iota>",
+    "answer" : "theta<iota>",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[56]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "56"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[57]"
+  }, {
+    "after" : "x y z",
+    "answer" : "x y z",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[57]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "57"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[58]"
+  }, {
+    "after" : "zeta & eta",
+    "answer" : "zeta & eta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[58]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "58"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[59]"
+  }, {
+    "after" : "x y z",
+    "answer" : "x y z",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[59]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "59"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[60]"
+  }, {
+    "after" : "alpha",
+    "answer" : "alpha",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[60]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "60"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[61]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[61]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "61"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[62]"
+  }, {
+    "after" : "zeta & eta",
+    "answer" : "zeta & eta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[62]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "62"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[63]"
+  }, {
+    "after" : "123",
+    "answer" : "123",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[63]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "63"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[64]"
+  }, {
+    "after" : "mu\"nu",
+    "answer" : "mu\"nu",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[64]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "64"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[65]"
+  }, {
+    "after" : "zeta & eta",
+    "answer" : "zeta & eta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[65]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "65"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[66]"
+  }, {
+    "after" : "zeta & eta",
+    "answer" : "zeta & eta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[66]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "66"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[67]"
+  }, {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[67]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "67"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[68]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[68]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "68"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[69]"
+  }, {
+    "after" : "theta<iota>",
+    "answer" : "theta<iota>",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[69]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "69"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[70]"
+  }, {
+    "after" : "theta<iota>",
+    "answer" : "theta<iota>",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[70]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "70"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[71]"
+  }, {
+    "after" : "theta<iota>",
+    "answer" : "theta<iota>",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[71]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "71"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[72]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[72]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "72"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[73]"
+  }, {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[73]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "73"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[74]"
+  }, {
+    "after" : "theta<iota>",
+    "answer" : "theta<iota>",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[74]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "74"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[75]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[75]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "75"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[76]"
+  }, {
+    "after" : "beta",
+    "answer" : "beta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[76]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "76"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[77]"
+  }, {
+    "after" : "123",
+    "answer" : "123",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[77]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "77"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[78]"
+  }, {
+    "after" : "theta<iota>",
+    "answer" : "theta<iota>",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[78]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "78"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[79]"
+  }, {
+    "after" : "zeta & eta",
+    "answer" : "zeta & eta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[79]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "79"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[80]"
+  }, {
+    "after" : "épsilon",
+    "answer" : "épsilon",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[80]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "80"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[81]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[81]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "81"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[82]"
+  }, {
+    "after" : "123",
+    "answer" : "123",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[82]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "82"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[83]"
+  }, {
+    "after" : "gamma delta",
+    "answer" : "gamma delta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[83]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "83"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[84]"
+  }, {
+    "after" : "x y z",
+    "answer" : "x y z",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[84]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "84"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[85]"
+  }, {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[85]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "85"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[86]"
+  }, {
+    "after" : "gamma delta",
+    "answer" : "gamma delta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[86]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "86"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[87]"
+  }, {
+    "after" : "x y z",
+    "answer" : "x y z",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[87]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "87"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[88]"
+  }, {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[88]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "88"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[89]"
+  }, {
+    "after" : "x y z",
+    "answer" : "x y z",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[89]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "89"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[90]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[90]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "90"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[91]"
+  }, {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[91]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "91"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[92]"
+  }, {
+    "after" : "beta",
+    "answer" : "beta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[92]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "92"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[93]"
+  }, {
+    "after" : "123",
+    "answer" : "123",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[93]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "93"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[94]"
+  }, {
+    "after" : "gamma delta",
+    "answer" : "gamma delta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[94]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "94"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[95]"
+  }, {
+    "after" : "gamma delta",
+    "answer" : "gamma delta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[95]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "95"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[96]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[96]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "96"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[97]"
+  }, {
+    "after" : "épsilon",
+    "answer" : "épsilon",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[97]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "97"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[98]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[98]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "98"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[99]"
+  }, {
+    "after" : "theta<iota>",
+    "answer" : "theta<iota>",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[99]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "99"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[100]"
+  }, {
+    "after" : "gamma delta",
+    "answer" : "gamma delta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[100]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "100"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[101]"
+  }, {
+    "after" : "zeta & eta",
+    "answer" : "zeta & eta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[101]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "101"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[102]"
+  }, {
+    "after" : "beta",
+    "answer" : "beta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[102]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "102"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[103]"
+  }, {
+    "after" : "mu\"nu",
+    "answer" : "mu\"nu",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[103]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "103"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[104]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[104]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "104"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[105]"
+  }, {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[105]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "105"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[106]"
+  }, {
+    "after" : "gamma delta",
+    "answer" : "gamma delta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[106]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "106"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[107]"
+  }, {
+    "after" : "épsilon",
+    "answer" : "épsilon",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[107]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "107"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[108]"
+  }, {
+    "after" : "zeta & eta",
+    "answer" : "zeta & eta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[108]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "108"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[109]"
+  }, {
+    "after" : "zeta & eta",
+    "answer" : "zeta & eta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[109]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "109"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[110]"
+  }, {
+    "after" : "alpha",
+    "answer" : "alpha",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[110]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "110"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[111]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[111]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "111"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[112]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[112]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "112"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[113]"
+  }, {
+    "after" : "zeta & eta",
+    "answer" : "zeta & eta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[113]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "113"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[114]"
+  }, {
+    "after" : "zeta & eta",
+    "answer" : "zeta & eta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[114]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "114"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[115]"
+  }, {
+    "after" : "123",
+    "answer" : "123",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[115]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "115"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[116]"
+  }, {
+    "after" : "gamma delta",
+    "answer" : "gamma delta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[116]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "116"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[117]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[117]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "117"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[118]"
+  }, {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[118]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "118"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[119]"
+  }, {
+    "after" : "123",
+    "answer" : "123",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[119]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "119"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[120]"
+  }, {
+    "after" : "mu\"nu",
+    "answer" : "mu\"nu",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[120]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "120"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[121]"
+  }, {
+    "after" : "gamma delta",
+    "answer" : "gamma delta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[121]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "121"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[122]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[122]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "122"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[123]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[123]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "123"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[124]"
+  }, {
+    "after" : "123",
+    "answer" : "123",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[124]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "124"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[125]"
+  }, {
+    "after" : "x y z",
+    "answer" : "x y z",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[125]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "125"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[126]"
+  }, {
+    "after" : "theta<iota>",
+    "answer" : "theta<iota>",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[126]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "126"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[127]"
+  }, {
+    "after" : "alpha",
+    "answer" : "alpha",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[127]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "127"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[128]"
+  }, {
+    "after" : "épsilon",
+    "answer" : "épsilon",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[128]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "128"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[129]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[129]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "129"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[130]"
+  }, {
+    "after" : "zeta & eta",
+    "answer" : "zeta & eta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[130]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "130"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[131]"
+  }, {
+    "after" : "123",
+    "answer" : "123",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[131]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "131"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[132]"
+  }, {
+    "after" : "zeta & eta",
+    "answer" : "zeta & eta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[132]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "132"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[133]"
+  }, {
+    "after" : "x y z",
+    "answer" : "x y z",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[133]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "133"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[134]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[134]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "134"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[135]"
+  }, {
+    "after" : "theta<iota>",
+    "answer" : "theta<iota>",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[135]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "135"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[136]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[136]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "136"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[137]"
+  }, {
+    "after" : "alpha",
+    "answer" : "alpha",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[137]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "137"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[138]"
+  }, {
+    "after" : "beta",
+    "answer" : "beta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[138]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "138"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[139]"
+  }, {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[139]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "139"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[140]"
+  }, {
+    "after" : "zeta & eta",
+    "answer" : "zeta & eta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[140]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "140"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[141]"
+  }, {
+    "after" : "épsilon",
+    "answer" : "épsilon",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[141]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "141"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[142]"
+  }, {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[142]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "142"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[143]"
+  }, {
+    "after" : "123",
+    "answer" : "123",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[143]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "143"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[144]"
+  }, {
+    "after" : "123",
+    "answer" : "123",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[144]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "144"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-jr-count-repeat[145]"
+  }, {
+    "after" : "123",
+    "answer" : "123",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-jr-count-repeat[145]/defaults-to-position-again[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "145"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-repeat-without-template[1]"
+  }, {
+    "after" : "131",
+    "answer" : "131",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-repeat-without-template[1]/my-value[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/data/my-repeat-without-template[2]"
+  }, {
+    "after" : "26",
+    "answer" : "26",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-repeat-without-template[2]/my-value[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : true,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/my-repeat-without-template[3]"
+  }, {
+    "after" : "122",
+    "answer" : "122",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "A value",
+    "readonly" : false,
+    "ref" : "/data/my-repeat-without-template[3]/my-value[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "2"
+  }, {
+    "add" : false,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/my-repeat-without-template[4]"
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

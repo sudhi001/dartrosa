@@ -1,0 +1,81 @@
+{
+  "form" : "forms/webforms/test-scenario/child_vaccination_VOL_tool_v12-alt.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"VOL_CVT_0627\" version=\"1\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\"><today><today></today><start><now></start><end /><deviceid /><phonenumber /><building_type /><home_type /><home_type2 /><home_type3 /><not_single><gps /><accuracy /><rounded_accuracy /></not_single><household_count /><household><houseCount>1</houseCount><nextHse>2</nextHse><inHome /><NameA>the caregiver</NameA><child_repeat_count /><no_cards>0</no_cards><missVaccine>0</missVaccine><thankyou>Thank the person for their time.</thankyou><finishednote>You have finished the questionnaire for this multi-family dwelling. Go to the next building.</finishednote></household><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "language" : null,
+    "languages" : [ ],
+    "ok" : true,
+    "title" : "child_vaccination_VOL_tool_v12"
+  },
+  "steps" : [ {
+    "events" : [ {
+      "appearance" : null,
+      "choices" : [ {
+        "label" : "Not a dwelling (examples: store, abandoned building, factory, etc.)",
+        "value" : "not_dwelling"
+      }, {
+        "label" : "Single family dwelling (house)",
+        "value" : "single"
+      }, {
+        "label" : "Multi-family dwelling (flat, apartment)",
+        "value" : "multi"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : "What type of building is this?",
+      "readonly" : false,
+      "ref" : "/data/building_type[1]",
+      "required" : true,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "event" : "group",
+      "label" : null,
+      "ref" : "/data/not_single[1]"
+    }, {
+      "appearance" : "placement-map",
+      "control" : "input",
+      "dataType" : "geopoint",
+      "event" : "question",
+      "hint" : "Ensure clear sky for better accuracies",
+      "label" : "Record GPS coordinates of this building",
+      "readonly" : false,
+      "ref" : "/data/not_single[1]/gps[1]",
+      "required" : true,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "event" : "repeat",
+      "label" : "",
+      "ref" : "/data/household[1]"
+    }, {
+      "appearance" : null,
+      "choices" : [ {
+        "label" : "Yes",
+        "value" : "yes"
+      }, {
+        "label" : "No",
+        "value" : "no"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Knock on the door. Is there a response?",
+      "readonly" : false,
+      "ref" : "/data/household[1]/inHome[1]",
+      "required" : true,
+      "value" : null
+    }, {
+      "event" : "endOfForm"
+    } ],
+    "op" : "walk"
+  }, {
+    "op" : "validate",
+    "outcome" : "required",
+    "ref" : "/data/building_type[1]"
+  } ],
+  "traceVersion" : 1
+}

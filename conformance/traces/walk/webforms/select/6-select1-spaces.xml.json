@@ -1,0 +1,42 @@
+{
+  "form" : "forms/webforms/select/6-select1-spaces.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"static-selects\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><dessert>cherry pie</dessert><meta><instanceID /></meta></data>",
+  "parse" : {
+    "language" : null,
+    "languages" : [ ],
+    "ok" : true,
+    "title" : "Select1, values with spaces"
+  },
+  "steps" : [ {
+    "events" : [ {
+      "appearance" : null,
+      "choices" : [ {
+        "label" : "Cherry pie",
+        "value" : "cherry pie"
+      }, {
+        "label" : "Apple pie",
+        "value" : "apple pie"
+      }, {
+        "label" : "Cheesecake",
+        "value" : "cheesecake"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Dessert",
+      "readonly" : false,
+      "ref" : "/data/dessert[1]",
+      "required" : false,
+      "value" : "cherry pie"
+    }, {
+      "event" : "endOfForm"
+    } ],
+    "op" : "walk"
+  }, {
+    "op" : "validate",
+    "outcome" : "ok",
+    "ref" : null
+  } ],
+  "traceVersion" : 1
+}

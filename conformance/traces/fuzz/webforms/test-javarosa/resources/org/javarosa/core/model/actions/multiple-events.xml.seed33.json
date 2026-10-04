@@ -1,0 +1,60 @@
+{
+  "form" : "forms/webforms/test-javarosa/resources/org/javarosa/core/model/actions/multiple-events.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"multiple-events\" xmlns:h=\"http://www.w3.org/1999/xhtml\"><nested-first-load>kappa'lambda</nested-first-load><my-group><nested-first-load-in-group>kappa'lambda</nested-first-load-in-group></my-group><my-value>-3</my-value><my-calculated-value>-6</my-calculated-value><meta><instanceID /></meta></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 33,
+  "steps" : [ {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : null,
+    "readonly" : false,
+    "ref" : "/data/nested-first-load[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "cheese"
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : null,
+    "ref" : "/data/my-group[1]"
+  }, {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : null,
+    "readonly" : false,
+    "ref" : "/data/my-group[1]/nested-first-load-in-group[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "more cheese"
+  }, {
+    "after" : "-3",
+    "answer" : "-3",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : null,
+    "readonly" : false,
+    "ref" : "/data/my-value[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "5"
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

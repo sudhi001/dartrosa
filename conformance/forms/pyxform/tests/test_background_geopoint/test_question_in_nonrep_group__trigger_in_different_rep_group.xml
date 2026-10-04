@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:odk="http://www.opendatakit.org/xforms">
+  <h:head>
+    <h:title>data</h:title>
+    <model odk:xforms-version="1.0.0">
+      <instance>
+        <data id="data">
+          <groupA jr:template="">
+            <temp/>
+          </groupA>
+          <groupA>
+            <temp/>
+          </groupA>
+          <groupB>
+            <temp_geo/>
+            <today/>
+          </groupB>
+          <meta>
+            <instanceID/>
+          </meta>
+        </data>
+      </instance>
+      <bind nodeset="/data/groupA/temp" type="int"/>
+      <bind nodeset="/data/groupB/temp_geo" type="geopoint"/>
+      <bind nodeset="/data/groupB/today" type="date"/>
+      <bind nodeset="/data/meta/instanceID" type="string" readonly="true()" jr:preload="uid"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="/data/groupA">
+      <label/>
+      <repeat nodeset="/data/groupA">
+        <input ref="/data/groupA/temp">
+          <label>Enter temp</label>
+          <odk:setgeopoint ref="/data/groupB/temp_geo" event="xforms-value-changed"/>
+        </input>
+      </repeat>
+    </group>
+    <group ref="/data/groupB">
+      <input ref="/data/groupB/today">
+        <label>Enter date</label>
+      </input>
+    </group>
+  </h:body>
+</h:html>

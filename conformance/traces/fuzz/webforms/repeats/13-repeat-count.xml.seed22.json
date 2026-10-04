@@ -1,0 +1,3717 @@
+{
+  "form" : "forms/webforms/repeats/13-repeat-count.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><root id=\"repeat-multiple-default-instances\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms/\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><reps>123</reps><rep><a>beta</a><b>1</b></rep><rep><a>kappa'lambda</a><b>2</b></rep><rep><a>mu\"nu</a><b>3</b></rep><rep><a>gamma delta</a><b>4</b></rep><rep><a>alpha</a><b>5</b></rep><rep><a>alpha</a><b>6</b></rep><rep><a>alpha</a><b>7</b></rep><rep><a>alpha</a><b>8</b></rep><rep><a>x y z</a><b>9</b></rep><rep><a>kappa'lambda</a><b>10</b></rep><rep><a>gamma delta</a><b>11</b></rep><rep><a>alpha</a><b>12</b></rep><rep><a>mu\"nu</a><b>13</b></rep><rep><a>kappa'lambda</a><b>14</b></rep><rep><a /><b>15</b></rep><rep><a>x y z</a><b>16</b></rep><rep><a>zeta &amp; eta</a><b>17</b></rep><rep><a /><b>18</b></rep><rep><a>épsilon</a><b>19</b></rep><rep><a>beta</a><b>20</b></rep><rep><a /><b>21</b></rep><rep><a>x y z</a><b>22</b></rep><rep><a>épsilon</a><b>23</b></rep><rep><a>gamma delta</a><b>24</b></rep><rep><a /><b>25</b></rep><rep><a /><b>26</b></rep><rep><a>zeta &amp; eta</a><b>27</b></rep><rep><a>beta</a><b>28</b></rep><rep><a>gamma delta</a><b>29</b></rep><rep><a>épsilon</a><b>30</b></rep><rep><a>alpha</a><b>31</b></rep><rep><a>beta</a><b>32</b></rep><rep><a /><b>33</b></rep><rep><a>gamma delta</a><b>34</b></rep><rep><a>alpha</a><b>35</b></rep><rep><a>theta&lt;iota&gt;</a><b>36</b></rep><rep><a>alpha</a><b>37</b></rep><rep><a>gamma delta</a><b>38</b></rep><rep><a /><b>39</b></rep><rep><a>zeta &amp; eta</a><b>40</b></rep><rep><a>alpha</a><b>41</b></rep><rep><a>épsilon</a><b>42</b></rep><rep><a /><b>43</b></rep><rep><a>beta</a><b>44</b></rep><rep><a /><b>45</b></rep><rep><a>zeta &amp; eta</a><b>46</b></rep><rep><a>123</a><b>47</b></rep><rep><a>gamma delta</a><b>48</b></rep><rep><a /><b>49</b></rep><rep><a>alpha</a><b>50</b></rep><rep><a>theta&lt;iota&gt;</a><b>51</b></rep><rep><a>mu\"nu</a><b>52</b></rep><rep><a>theta&lt;iota&gt;</a><b>53</b></rep><rep><a>alpha</a><b>54</b></rep><rep><a>beta</a><b>55</b></rep><rep><a /><b>56</b></rep><rep><a>épsilon</a><b>57</b></rep><rep><a>zeta &amp; eta</a><b>58</b></rep><rep><a>kappa'lambda</a><b>59</b></rep><rep><a>123</a><b>60</b></rep><rep><a>theta&lt;iota&gt;</a><b>61</b></rep><rep><a>gamma delta</a><b>62</b></rep><rep><a /><b>63</b></rep><rep><a>gamma delta</a><b>64</b></rep><rep><a>mu\"nu</a><b>65</b></rep><rep><a>épsilon</a><b>66</b></rep><rep><a>mu\"nu</a><b>67</b></rep><rep><a>épsilon</a><b>68</b></rep><rep><a>beta</a><b>69</b></rep><rep><a>x y z</a><b>70</b></rep><rep><a>x y z</a><b>71</b></rep><rep><a>x y z</a><b>72</b></rep><rep><a>beta</a><b>73</b></rep><rep><a>mu\"nu</a><b>74</b></rep><rep><a /><b>75</b></rep><rep><a>beta</a><b>76</b></rep><rep><a>123</a><b>77</b></rep><rep><a /><b>78</b></rep><rep><a>123</a><b>79</b></rep><rep><a>mu\"nu</a><b>80</b></rep><rep><a>theta&lt;iota&gt;</a><b>81</b></rep><rep><a>beta</a><b>82</b></rep><rep><a /><b>83</b></rep><rep><a>alpha</a><b>84</b></rep><rep><a>gamma delta</a><b>85</b></rep><rep><a>gamma delta</a><b>86</b></rep><rep><a>123</a><b>87</b></rep><rep><a>123</a><b>88</b></rep><rep><a>x y z</a><b>89</b></rep><rep><a /><b>90</b></rep><rep><a>theta&lt;iota&gt;</a><b>91</b></rep><rep><a>zeta &amp; eta</a><b>92</b></rep><rep><a>theta&lt;iota&gt;</a><b>93</b></rep><rep><a>mu\"nu</a><b>94</b></rep><rep><a>mu\"nu</a><b>95</b></rep><rep><a /><b>96</b></rep><rep><a>beta</a><b>97</b></rep><rep><a>123</a><b>98</b></rep><rep><a /><b>99</b></rep><rep><a>gamma delta</a><b>100</b></rep><rep><a>gamma delta</a><b>101</b></rep><rep><a>kappa'lambda</a><b>102</b></rep><rep><a>beta</a><b>103</b></rep><rep><a>zeta &amp; eta</a><b>104</b></rep><rep><a>alpha</a><b>105</b></rep><rep><a>123</a><b>106</b></rep><rep><a>x y z</a><b>107</b></rep><rep><a>gamma delta</a><b>108</b></rep><rep><a>épsilon</a><b>109</b></rep><rep><a>theta&lt;iota&gt;</a><b>110</b></rep><rep><a /><b>111</b></rep><rep><a /><b>112</b></rep><rep><a>alpha</a><b>113</b></rep><rep><a /><b>114</b></rep><rep><a>kappa'lambda</a><b>115</b></rep><rep><a>mu\"nu</a><b>116</b></rep><rep><a>kappa'lambda</a><b>117</b></rep><rep><a>épsilon</a><b>118</b></rep><rep><a>alpha</a><b>119</b></rep><rep><a>gamma delta</a><b>120</b></rep><rep><a>kappa'lambda</a><b>121</b></rep><rep><a>theta&lt;iota&gt;</a><b>122</b></rep><rep><a>épsilon</a><b>123</b></rep><meta><instanceID /></meta></root>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 22,
+  "steps" : [ {
+    "after" : "123",
+    "answer" : "123",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Number of repeats",
+    "readonly" : false,
+    "ref" : "/root/reps[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "50"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (1) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[1]"
+  }, {
+    "after" : "beta",
+    "answer" : "beta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[1]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "default value (from first default instance)"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[1]/b[1]",
+    "required" : false,
+    "value" : "1"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (2) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[2]"
+  }, {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[2]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "second default instance and its default value!"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[2]/b[1]",
+    "required" : false,
+    "value" : "2"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (3) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[3]"
+  }, {
+    "after" : "mu\"nu",
+    "answer" : "mu\"nu",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[3]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "&… 3rd"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[3]/b[1]",
+    "required" : false,
+    "value" : "3"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (4) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[4]"
+  }, {
+    "after" : "gamma delta",
+    "answer" : "gamma delta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[4]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[4]/b[1]",
+    "required" : false,
+    "value" : "4"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (5) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[5]"
+  }, {
+    "after" : "alpha",
+    "answer" : "alpha",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[5]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[5]/b[1]",
+    "required" : false,
+    "value" : "5"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (6) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[6]"
+  }, {
+    "after" : "alpha",
+    "answer" : "alpha",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[6]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[6]/b[1]",
+    "required" : false,
+    "value" : "6"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (7) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[7]"
+  }, {
+    "after" : "alpha",
+    "answer" : "alpha",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[7]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[7]/b[1]",
+    "required" : false,
+    "value" : "7"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (8) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[8]"
+  }, {
+    "after" : "alpha",
+    "answer" : "alpha",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[8]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[8]/b[1]",
+    "required" : false,
+    "value" : "8"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (9) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[9]"
+  }, {
+    "after" : "x y z",
+    "answer" : "x y z",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[9]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[9]/b[1]",
+    "required" : false,
+    "value" : "9"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (10) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[10]"
+  }, {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[10]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[10]/b[1]",
+    "required" : false,
+    "value" : "10"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (11) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[11]"
+  }, {
+    "after" : "gamma delta",
+    "answer" : "gamma delta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[11]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[11]/b[1]",
+    "required" : false,
+    "value" : "11"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (12) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[12]"
+  }, {
+    "after" : "alpha",
+    "answer" : "alpha",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[12]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[12]/b[1]",
+    "required" : false,
+    "value" : "12"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (13) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[13]"
+  }, {
+    "after" : "mu\"nu",
+    "answer" : "mu\"nu",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[13]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[13]/b[1]",
+    "required" : false,
+    "value" : "13"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (14) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[14]"
+  }, {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[14]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[14]/b[1]",
+    "required" : false,
+    "value" : "14"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (15) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[15]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[15]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[15]/b[1]",
+    "required" : false,
+    "value" : "15"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (16) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[16]"
+  }, {
+    "after" : "x y z",
+    "answer" : "x y z",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[16]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[16]/b[1]",
+    "required" : false,
+    "value" : "16"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (17) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[17]"
+  }, {
+    "after" : "zeta & eta",
+    "answer" : "zeta & eta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[17]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[17]/b[1]",
+    "required" : false,
+    "value" : "17"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (18) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[18]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[18]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[18]/b[1]",
+    "required" : false,
+    "value" : "18"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (19) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[19]"
+  }, {
+    "after" : "épsilon",
+    "answer" : "épsilon",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[19]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[19]/b[1]",
+    "required" : false,
+    "value" : "19"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (20) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[20]"
+  }, {
+    "after" : "beta",
+    "answer" : "beta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[20]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[20]/b[1]",
+    "required" : false,
+    "value" : "20"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (21) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[21]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[21]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[21]/b[1]",
+    "required" : false,
+    "value" : "21"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (22) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[22]"
+  }, {
+    "after" : "x y z",
+    "answer" : "x y z",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[22]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[22]/b[1]",
+    "required" : false,
+    "value" : "22"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (23) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[23]"
+  }, {
+    "after" : "épsilon",
+    "answer" : "épsilon",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[23]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[23]/b[1]",
+    "required" : false,
+    "value" : "23"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (24) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[24]"
+  }, {
+    "after" : "gamma delta",
+    "answer" : "gamma delta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[24]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[24]/b[1]",
+    "required" : false,
+    "value" : "24"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (25) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[25]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[25]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[25]/b[1]",
+    "required" : false,
+    "value" : "25"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (26) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[26]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[26]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[26]/b[1]",
+    "required" : false,
+    "value" : "26"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (27) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[27]"
+  }, {
+    "after" : "zeta & eta",
+    "answer" : "zeta & eta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[27]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[27]/b[1]",
+    "required" : false,
+    "value" : "27"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (28) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[28]"
+  }, {
+    "after" : "beta",
+    "answer" : "beta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[28]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[28]/b[1]",
+    "required" : false,
+    "value" : "28"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (29) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[29]"
+  }, {
+    "after" : "gamma delta",
+    "answer" : "gamma delta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[29]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[29]/b[1]",
+    "required" : false,
+    "value" : "29"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (30) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[30]"
+  }, {
+    "after" : "épsilon",
+    "answer" : "épsilon",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[30]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[30]/b[1]",
+    "required" : false,
+    "value" : "30"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (31) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[31]"
+  }, {
+    "after" : "alpha",
+    "answer" : "alpha",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[31]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[31]/b[1]",
+    "required" : false,
+    "value" : "31"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (32) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[32]"
+  }, {
+    "after" : "beta",
+    "answer" : "beta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[32]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[32]/b[1]",
+    "required" : false,
+    "value" : "32"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (33) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[33]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[33]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[33]/b[1]",
+    "required" : false,
+    "value" : "33"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (34) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[34]"
+  }, {
+    "after" : "gamma delta",
+    "answer" : "gamma delta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[34]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[34]/b[1]",
+    "required" : false,
+    "value" : "34"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (35) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[35]"
+  }, {
+    "after" : "alpha",
+    "answer" : "alpha",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[35]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[35]/b[1]",
+    "required" : false,
+    "value" : "35"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (36) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[36]"
+  }, {
+    "after" : "theta<iota>",
+    "answer" : "theta<iota>",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[36]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[36]/b[1]",
+    "required" : false,
+    "value" : "36"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (37) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[37]"
+  }, {
+    "after" : "alpha",
+    "answer" : "alpha",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[37]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[37]/b[1]",
+    "required" : false,
+    "value" : "37"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (38) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[38]"
+  }, {
+    "after" : "gamma delta",
+    "answer" : "gamma delta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[38]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[38]/b[1]",
+    "required" : false,
+    "value" : "38"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (39) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[39]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[39]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[39]/b[1]",
+    "required" : false,
+    "value" : "39"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (40) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[40]"
+  }, {
+    "after" : "zeta & eta",
+    "answer" : "zeta & eta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[40]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[40]/b[1]",
+    "required" : false,
+    "value" : "40"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (41) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[41]"
+  }, {
+    "after" : "alpha",
+    "answer" : "alpha",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[41]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[41]/b[1]",
+    "required" : false,
+    "value" : "41"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (42) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[42]"
+  }, {
+    "after" : "épsilon",
+    "answer" : "épsilon",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[42]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[42]/b[1]",
+    "required" : false,
+    "value" : "42"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (43) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[43]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[43]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[43]/b[1]",
+    "required" : false,
+    "value" : "43"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (44) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[44]"
+  }, {
+    "after" : "beta",
+    "answer" : "beta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[44]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[44]/b[1]",
+    "required" : false,
+    "value" : "44"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (45) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[45]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[45]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[45]/b[1]",
+    "required" : false,
+    "value" : "45"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (46) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[46]"
+  }, {
+    "after" : "zeta & eta",
+    "answer" : "zeta & eta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[46]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[46]/b[1]",
+    "required" : false,
+    "value" : "46"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (47) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[47]"
+  }, {
+    "after" : "123",
+    "answer" : "123",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[47]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[47]/b[1]",
+    "required" : false,
+    "value" : "47"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (48) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[48]"
+  }, {
+    "after" : "gamma delta",
+    "answer" : "gamma delta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[48]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[48]/b[1]",
+    "required" : false,
+    "value" : "48"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (49) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[49]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[49]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[49]/b[1]",
+    "required" : false,
+    "value" : "49"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (50) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[50]"
+  }, {
+    "after" : "alpha",
+    "answer" : "alpha",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[50]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[50]/b[1]",
+    "required" : false,
+    "value" : "50"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (51) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[51]"
+  }, {
+    "after" : "theta<iota>",
+    "answer" : "theta<iota>",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[51]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[51]/b[1]",
+    "required" : false,
+    "value" : "51"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (52) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[52]"
+  }, {
+    "after" : "mu\"nu",
+    "answer" : "mu\"nu",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[52]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[52]/b[1]",
+    "required" : false,
+    "value" : "52"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (53) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[53]"
+  }, {
+    "after" : "theta<iota>",
+    "answer" : "theta<iota>",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[53]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[53]/b[1]",
+    "required" : false,
+    "value" : "53"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (54) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[54]"
+  }, {
+    "after" : "alpha",
+    "answer" : "alpha",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[54]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[54]/b[1]",
+    "required" : false,
+    "value" : "54"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (55) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[55]"
+  }, {
+    "after" : "beta",
+    "answer" : "beta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[55]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[55]/b[1]",
+    "required" : false,
+    "value" : "55"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (56) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[56]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[56]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[56]/b[1]",
+    "required" : false,
+    "value" : "56"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (57) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[57]"
+  }, {
+    "after" : "épsilon",
+    "answer" : "épsilon",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[57]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[57]/b[1]",
+    "required" : false,
+    "value" : "57"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (58) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[58]"
+  }, {
+    "after" : "zeta & eta",
+    "answer" : "zeta & eta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[58]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[58]/b[1]",
+    "required" : false,
+    "value" : "58"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (59) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[59]"
+  }, {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[59]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[59]/b[1]",
+    "required" : false,
+    "value" : "59"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (60) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[60]"
+  }, {
+    "after" : "123",
+    "answer" : "123",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[60]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[60]/b[1]",
+    "required" : false,
+    "value" : "60"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (61) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[61]"
+  }, {
+    "after" : "theta<iota>",
+    "answer" : "theta<iota>",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[61]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[61]/b[1]",
+    "required" : false,
+    "value" : "61"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (62) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[62]"
+  }, {
+    "after" : "gamma delta",
+    "answer" : "gamma delta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[62]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[62]/b[1]",
+    "required" : false,
+    "value" : "62"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (63) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[63]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[63]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[63]/b[1]",
+    "required" : false,
+    "value" : "63"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (64) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[64]"
+  }, {
+    "after" : "gamma delta",
+    "answer" : "gamma delta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[64]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[64]/b[1]",
+    "required" : false,
+    "value" : "64"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (65) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[65]"
+  }, {
+    "after" : "mu\"nu",
+    "answer" : "mu\"nu",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[65]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[65]/b[1]",
+    "required" : false,
+    "value" : "65"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (66) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[66]"
+  }, {
+    "after" : "épsilon",
+    "answer" : "épsilon",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[66]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[66]/b[1]",
+    "required" : false,
+    "value" : "66"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (67) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[67]"
+  }, {
+    "after" : "mu\"nu",
+    "answer" : "mu\"nu",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[67]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[67]/b[1]",
+    "required" : false,
+    "value" : "67"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (68) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[68]"
+  }, {
+    "after" : "épsilon",
+    "answer" : "épsilon",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[68]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[68]/b[1]",
+    "required" : false,
+    "value" : "68"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (69) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[69]"
+  }, {
+    "after" : "beta",
+    "answer" : "beta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[69]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[69]/b[1]",
+    "required" : false,
+    "value" : "69"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (70) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[70]"
+  }, {
+    "after" : "x y z",
+    "answer" : "x y z",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[70]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[70]/b[1]",
+    "required" : false,
+    "value" : "70"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (71) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[71]"
+  }, {
+    "after" : "x y z",
+    "answer" : "x y z",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[71]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[71]/b[1]",
+    "required" : false,
+    "value" : "71"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (72) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[72]"
+  }, {
+    "after" : "x y z",
+    "answer" : "x y z",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[72]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[72]/b[1]",
+    "required" : false,
+    "value" : "72"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (73) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[73]"
+  }, {
+    "after" : "beta",
+    "answer" : "beta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[73]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[73]/b[1]",
+    "required" : false,
+    "value" : "73"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (74) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[74]"
+  }, {
+    "after" : "mu\"nu",
+    "answer" : "mu\"nu",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[74]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[74]/b[1]",
+    "required" : false,
+    "value" : "74"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (75) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[75]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[75]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[75]/b[1]",
+    "required" : false,
+    "value" : "75"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (76) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[76]"
+  }, {
+    "after" : "beta",
+    "answer" : "beta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[76]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[76]/b[1]",
+    "required" : false,
+    "value" : "76"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (77) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[77]"
+  }, {
+    "after" : "123",
+    "answer" : "123",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[77]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[77]/b[1]",
+    "required" : false,
+    "value" : "77"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (78) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[78]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[78]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[78]/b[1]",
+    "required" : false,
+    "value" : "78"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (79) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[79]"
+  }, {
+    "after" : "123",
+    "answer" : "123",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[79]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[79]/b[1]",
+    "required" : false,
+    "value" : "79"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (80) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[80]"
+  }, {
+    "after" : "mu\"nu",
+    "answer" : "mu\"nu",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[80]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[80]/b[1]",
+    "required" : false,
+    "value" : "80"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (81) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[81]"
+  }, {
+    "after" : "theta<iota>",
+    "answer" : "theta<iota>",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[81]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[81]/b[1]",
+    "required" : false,
+    "value" : "81"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (82) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[82]"
+  }, {
+    "after" : "beta",
+    "answer" : "beta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[82]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[82]/b[1]",
+    "required" : false,
+    "value" : "82"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (83) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[83]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[83]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[83]/b[1]",
+    "required" : false,
+    "value" : "83"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (84) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[84]"
+  }, {
+    "after" : "alpha",
+    "answer" : "alpha",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[84]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[84]/b[1]",
+    "required" : false,
+    "value" : "84"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (85) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[85]"
+  }, {
+    "after" : "gamma delta",
+    "answer" : "gamma delta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[85]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[85]/b[1]",
+    "required" : false,
+    "value" : "85"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (86) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[86]"
+  }, {
+    "after" : "gamma delta",
+    "answer" : "gamma delta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[86]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[86]/b[1]",
+    "required" : false,
+    "value" : "86"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (87) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[87]"
+  }, {
+    "after" : "123",
+    "answer" : "123",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[87]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[87]/b[1]",
+    "required" : false,
+    "value" : "87"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (88) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[88]"
+  }, {
+    "after" : "123",
+    "answer" : "123",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[88]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[88]/b[1]",
+    "required" : false,
+    "value" : "88"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (89) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[89]"
+  }, {
+    "after" : "x y z",
+    "answer" : "x y z",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[89]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[89]/b[1]",
+    "required" : false,
+    "value" : "89"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (90) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[90]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[90]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[90]/b[1]",
+    "required" : false,
+    "value" : "90"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (91) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[91]"
+  }, {
+    "after" : "theta<iota>",
+    "answer" : "theta<iota>",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[91]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[91]/b[1]",
+    "required" : false,
+    "value" : "91"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (92) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[92]"
+  }, {
+    "after" : "zeta & eta",
+    "answer" : "zeta & eta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[92]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[92]/b[1]",
+    "required" : false,
+    "value" : "92"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (93) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[93]"
+  }, {
+    "after" : "theta<iota>",
+    "answer" : "theta<iota>",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[93]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[93]/b[1]",
+    "required" : false,
+    "value" : "93"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (94) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[94]"
+  }, {
+    "after" : "mu\"nu",
+    "answer" : "mu\"nu",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[94]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[94]/b[1]",
+    "required" : false,
+    "value" : "94"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (95) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[95]"
+  }, {
+    "after" : "mu\"nu",
+    "answer" : "mu\"nu",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[95]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[95]/b[1]",
+    "required" : false,
+    "value" : "95"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (96) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[96]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[96]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[96]/b[1]",
+    "required" : false,
+    "value" : "96"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (97) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[97]"
+  }, {
+    "after" : "beta",
+    "answer" : "beta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[97]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[97]/b[1]",
+    "required" : false,
+    "value" : "97"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (98) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[98]"
+  }, {
+    "after" : "123",
+    "answer" : "123",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[98]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[98]/b[1]",
+    "required" : false,
+    "value" : "98"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (99) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[99]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[99]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[99]/b[1]",
+    "required" : false,
+    "value" : "99"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (100) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[100]"
+  }, {
+    "after" : "gamma delta",
+    "answer" : "gamma delta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[100]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[100]/b[1]",
+    "required" : false,
+    "value" : "100"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (101) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[101]"
+  }, {
+    "after" : "gamma delta",
+    "answer" : "gamma delta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[101]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[101]/b[1]",
+    "required" : false,
+    "value" : "101"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (102) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[102]"
+  }, {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[102]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[102]/b[1]",
+    "required" : false,
+    "value" : "102"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (103) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[103]"
+  }, {
+    "after" : "beta",
+    "answer" : "beta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[103]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[103]/b[1]",
+    "required" : false,
+    "value" : "103"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (104) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[104]"
+  }, {
+    "after" : "zeta & eta",
+    "answer" : "zeta & eta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[104]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[104]/b[1]",
+    "required" : false,
+    "value" : "104"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (105) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[105]"
+  }, {
+    "after" : "alpha",
+    "answer" : "alpha",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[105]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[105]/b[1]",
+    "required" : false,
+    "value" : "105"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (106) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[106]"
+  }, {
+    "after" : "123",
+    "answer" : "123",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[106]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[106]/b[1]",
+    "required" : false,
+    "value" : "106"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (107) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[107]"
+  }, {
+    "after" : "x y z",
+    "answer" : "x y z",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[107]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[107]/b[1]",
+    "required" : false,
+    "value" : "107"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (108) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[108]"
+  }, {
+    "after" : "gamma delta",
+    "answer" : "gamma delta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[108]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[108]/b[1]",
+    "required" : false,
+    "value" : "108"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (109) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[109]"
+  }, {
+    "after" : "épsilon",
+    "answer" : "épsilon",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[109]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[109]/b[1]",
+    "required" : false,
+    "value" : "109"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (110) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[110]"
+  }, {
+    "after" : "theta<iota>",
+    "answer" : "theta<iota>",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[110]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[110]/b[1]",
+    "required" : false,
+    "value" : "110"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (111) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[111]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[111]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[111]/b[1]",
+    "required" : false,
+    "value" : "111"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (112) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[112]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[112]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[112]/b[1]",
+    "required" : false,
+    "value" : "112"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (113) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[113]"
+  }, {
+    "after" : "alpha",
+    "answer" : "alpha",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[113]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[113]/b[1]",
+    "required" : false,
+    "value" : "113"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (114) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[114]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[114]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[114]/b[1]",
+    "required" : false,
+    "value" : "114"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (115) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[115]"
+  }, {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[115]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[115]/b[1]",
+    "required" : false,
+    "value" : "115"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (116) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[116]"
+  }, {
+    "after" : "mu\"nu",
+    "answer" : "mu\"nu",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[116]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[116]/b[1]",
+    "required" : false,
+    "value" : "116"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (117) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[117]"
+  }, {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[117]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[117]/b[1]",
+    "required" : false,
+    "value" : "117"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (118) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[118]"
+  }, {
+    "after" : "épsilon",
+    "answer" : "épsilon",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[118]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[118]/b[1]",
+    "required" : false,
+    "value" : "118"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (119) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[119]"
+  }, {
+    "after" : "alpha",
+    "answer" : "alpha",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[119]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[119]/b[1]",
+    "required" : false,
+    "value" : "119"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (120) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[120]"
+  }, {
+    "after" : "gamma delta",
+    "answer" : "gamma delta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[120]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[120]/b[1]",
+    "required" : false,
+    "value" : "120"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (121) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[121]"
+  }, {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[121]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[121]/b[1]",
+    "required" : false,
+    "value" : "121"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (122) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[122]"
+  }, {
+    "after" : "theta<iota>",
+    "answer" : "theta<iota>",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[122]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[122]/b[1]",
+    "required" : false,
+    "value" : "122"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (123) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[123]"
+  }, {
+    "after" : "épsilon",
+    "answer" : "épsilon",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[123]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "[template default value]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[123]/b[1]",
+    "required" : false,
+    "value" : "123"
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}
