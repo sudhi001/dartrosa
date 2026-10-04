@@ -48,17 +48,17 @@ final class OdkDecryptor {
     final formId = data.getAttribute('id')!;
     final version = data.getAttribute('version');
     String text(String name) =>
-        data.findElements(name, namespace: ns).single.innerText;
+        data.findElements(name, namespaceUri: ns).single.innerText;
     final encryptedKey = text('base64EncryptedKey');
     final instanceId = data
-        .findElements('meta', namespace: 'http://openrosa.org/xforms')
+        .findElements('meta', namespaceUri: 'http://openrosa.org/xforms')
         .single
-        .findElements('instanceID', namespace: 'http://openrosa.org/xforms')
+        .findElements('instanceID', namespaceUri: 'http://openrosa.org/xforms')
         .single
         .innerText;
     final mediaNames = [
-      for (final media in data.findElements('media', namespace: ns))
-        media.findElements('file', namespace: ns).single.innerText,
+      for (final media in data.findElements('media', namespaceUri: ns))
+        media.findElements('file', namespaceUri: ns).single.innerText,
     ];
     final xmlName = text('encryptedXmlFile');
     final signature = text('base64EncryptedElementSignature');

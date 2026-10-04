@@ -5,7 +5,6 @@ import 'package:dartrosa_encryption/dartrosa_encryption.dart';
 import 'package:test/test.dart';
 
 import 'src/counter_random.dart';
-import 'src/golden_case.dart';
 import 'src/golden_fixtures.dart';
 import 'src/odk_decryptor.dart';
 
