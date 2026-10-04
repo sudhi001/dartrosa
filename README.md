@@ -3,13 +3,13 @@
 A pure-Dart port of [JavaRosa](https://github.com/getodk/javarosa), the ODK
 XForms engine used by ODK Collect, for Flutter and any other Dart platform.
 
-> **Status: Phases 0–4 complete; Phase 6 in progress.** XPath, parser,
-> dependency graph, form entry and navigation, the app-facing session API
-> (`FormDefinition` / `FormSession`), byte-identical submission XML,
-> instance loading and a form codec. Every JavaRosa test class is ported
-> (tests needing serialization are being finished), and the oracle
-> comparison covers parsing, initialization, recalculation scenarios,
-> full form walks and serialized instances for every test form.
+> **Status:** the JavaRosa engine port is complete (Phases 0–6): every
+> JavaRosa test class is ported, and the JVM oracle comparison (parse
+> structure, initialization, recalculation scenarios, full walks, seeded
+> random-answer walks and byte-identical submission XML) matches on the
+> JavaRosa, DartRosa and ODK Collect test-form corpora. Phase 7 (Flutter
+> renderer) and Phase 8 (Collect layer) are well under way and Phase 9 has
+> started.
 
 ## Packages
 
