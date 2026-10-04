@@ -58,7 +58,11 @@ final class CollectCsvReader {
       if (c == _escape) {
         _inField = true;
         // handleEscapeCharacter
-        if (_isNextCharacterEscapable(line, _inQuotesOrField(inQuotes), i - 1)) {
+        if (_isNextCharacterEscapable(
+          line,
+          _inQuotesOrField(inQuotes),
+          i - 1,
+        )) {
           out.writeCharCode(line.codeUnitAt(i++));
         }
       } else if (c == _quote) {
@@ -106,11 +110,8 @@ final class CollectCsvReader {
 
   bool _inQuotesOrField(bool inQuotes) => inQuotes || _inField;
 
-  static bool _isNextCharacterEscapedQuote(
-    String line,
-    bool inQuotes,
-    int i,
-  ) => inQuotes && line.length > i + 1 && line.codeUnitAt(i + 1) == _quote;
+  static bool _isNextCharacterEscapedQuote(String line, bool inQuotes, int i) =>
+      inQuotes && line.length > i + 1 && line.codeUnitAt(i + 1) == _quote;
 
   static bool _isNextCharacterEscapable(String line, bool inQuotes, int i) {
     if (!inQuotes || line.length <= i + 1) return false;

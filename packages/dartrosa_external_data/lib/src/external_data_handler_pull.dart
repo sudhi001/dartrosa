@@ -26,8 +26,10 @@ final class ExternalDataHandlerPull extends ExternalDataHandler {
   @override
   Object eval(List<Object> args, EvaluationContext context) {
     if (args.length != 4) {
-      _log.severe('4 arguments are needed to evaluate the $handlerName '
-          'function');
+      _log.severe(
+        '4 arguments are needed to evaluate the $handlerName '
+        'function',
+      );
       return '';
     }
     final dataSetName = ExternalDataHandler.normalize(toXPathString(args[0]));
@@ -48,8 +50,10 @@ final class ExternalDataHandlerPull extends ExternalDataHandler {
         ),
       );
       if (rows.isNotEmpty) return ExternalDataUtil.nullSafe(rows.first[0]);
-      _log.info('Could not find a value in $queriedColumn where the column '
-          '$referenceColumn has the value $referenceValue');
+      _log.info(
+        'Could not find a value in $queriedColumn where the column '
+        '$referenceColumn has the value $referenceValue',
+      );
       return '';
     } on ExternalDataQueryException catch (e) {
       _log.info(e.message);

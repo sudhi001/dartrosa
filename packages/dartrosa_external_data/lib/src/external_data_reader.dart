@@ -237,7 +237,8 @@ final class ExternalDataReader {
   /// Collect runs `CREATE INDEX <header>_idx ON ...` with the raw header,
   /// which SQLite rejects unless it is a plain identifier.
   static void _checkIndexName(String header) {
-    final indexName = '${header.replaceFirst(RegExp(r'^[ \t\n\f\r]+'), '')}_idx';
+    final indexName =
+        '${header.replaceFirst(RegExp(r'^[ \t\n\f\r]+'), '')}_idx';
     if (!_sqlIdentifier.hasMatch(indexName)) {
       throw ExternalDataException(
         'syntax error (code 1 SQLITE_ERROR): , while compiling: CREATE INDEX '

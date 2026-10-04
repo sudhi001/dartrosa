@@ -12,11 +12,19 @@ final class ExternalDataManager {
   ExternalDataManager({
     Map<String, ExternalDataSet> dataSets = const {},
     Iterable<String> mediaFiles = const [],
+    this.mediaUri = defaultMediaUri,
   }) : _dataSets = {
          for (final MapEntry(:key, :value) in dataSets.entries)
            key.toLowerCase(): value,
        },
        _mediaFiles = {for (final f in mediaFiles) f.toLowerCase()};
+
+  /// `jr://file/<fileName>`: where form media are read from by default.
+  static String defaultMediaUri(String fileName) => 'jr://file/$fileName';
+
+  /// The URI of the media file called `fileName` (used in messages about
+  /// missing files).
+  final String Function(String fileName) mediaUri;
 
   final Map<String, ExternalDataSet> _dataSets;
   final Set<String> _mediaFiles;

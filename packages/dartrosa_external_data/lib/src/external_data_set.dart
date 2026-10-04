@@ -98,9 +98,8 @@ final class ColumnsLike extends ExternalDataCondition {
   final List<String> patterns;
 
   @override
-  String get selection => [
-    for (final column in likeColumns) '$column LIKE ? ',
-  ].join(' OR ');
+  String get selection =>
+      [for (final column in likeColumns) '$column LIKE ? '].join(' OR ');
 
   @override
   List<String> get args => patterns;
@@ -196,15 +195,16 @@ final class ExternalDataTable implements ExternalDataSet {
         if (where == null || _matches(where, row, indexOf)) row,
     ];
     if (orderBy != null) {
-      final positions = {for (var i = 0; i < matching.length; i++) matching[i]: i};
+      final positions = {
+        for (var i = 0; i < matching.length; i++) matching[i]: i,
+      };
       matching.sort((a, b) {
         final byValue = _compareValues(a[orderBy], b[orderBy]);
         return byValue != 0 ? byValue : positions[a]! - positions[b]!;
       });
     }
     return [
-      for (final row in matching)
-        [for (final i in selected) _asText(row[i])],
+      for (final row in matching) [for (final i in selected) _asText(row[i])],
     ];
   }
 
