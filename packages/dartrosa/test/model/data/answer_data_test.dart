@@ -13,6 +13,7 @@ import 'package:dartrosa/src/model/data/answer_value.dart';
 import 'package:dartrosa/src/model/form_element.dart';
 import 'package:dartrosa/src/model/select_choice.dart';
 import 'package:dartrosa/src/model/utils/date_utils.dart';
+import 'package:dartrosa/testing.dart';
 import 'package:test/test.dart';
 
 void main() {
@@ -132,11 +133,35 @@ void main() {
     test('display text has three components when accuracy omitted', () {
       expect(GeoPointValue([2.3, 7.3, 3.2]).displayText, '2.3 7.3 3.2');
     });
-    test(
-      'missing accuracy is not treated as 0',
-      () {},
-      skip: 'needs the form runner (P4)',
-    );
+    test('missing accuracy is not treated as 0', () async {
+      final scenario =
+          await Scenario.init(
+              html(
+                head([
+                  title('Missing accuracy'),
+                  model([
+                    mainInstance([
+                      t('data id="missing-accuracy"', [
+                        t('q1'),
+                        t('accuracy_rounded'),
+                        t('note'),
+                      ]),
+                    ]),
+                    bind('/data/q1')..type('geopoint'),
+                    bind('/data/accuracy_rounded')
+                      ..calculate('round(selected-at(/data/q1, 3), 2)'),
+                    bind('/data/note')..relevant('/data/accuracy_rounded = 0'),
+                  ]),
+                ]),
+                body([input('/data/q1'), input('/data/note')]),
+              ),
+            )
+            ..answer('/data/q1', '1.234 5.678');
+      expect(scenario.getAnswerNode('/data/note').isRelevant, isFalse);
+
+      scenario.answer('/data/q1', '1.234 5.678 0 0');
+      expect(scenario.getAnswerNode('/data/note').isRelevant, isTrue);
+    });
     test('equals compares points', () {
       final data = GeoPointValue([0, 0, 0, 0]);
       expect(data, equals(data));

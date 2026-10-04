@@ -3,6 +3,8 @@ library;
 
 // Port of JavaRosa v6.0.0 XFormParserTest. Tests that need the form runner
 // (Phase 4) or instance serialization (Phase 6) are skipped with a note.
+import 'package:dartrosa/src/form_api/form_entry_controller.dart';
+import 'package:dartrosa/src/form_api/form_entry_model.dart';
 import 'package:dartrosa/src/model/actions/actions.dart';
 import 'package:dartrosa/src/model/control_type.dart';
 import 'package:dartrosa/src/model/form_def.dart';
@@ -14,6 +16,7 @@ import 'package:dartrosa/testing.dart';
 import 'package:test/test.dart';
 
 import '../support/forms.dart';
+import '../support/matchers.dart';
 
 void assertNoParseErrors(FormDef form) => expect(form.parseErrors, isEmpty);
 
@@ -137,9 +140,8 @@ void main() {
   });
 
   test('parses range form with itemset', () async {
-    final question =
-        (await parseForm('range-form-itemset.xml')).childAt(0)!
-            as RangeQuestion;
+    final form = await parseForm('range-form-itemset.xml');
+    final question = form.childAt(0)! as RangeQuestion;
     expect(question.controlType, ControlType.range);
     expect(double.parse(question.rangeStart!), -2.0);
     expect(double.parse(question.rangeEnd!), 2.0);
@@ -147,7 +149,13 @@ void main() {
     expect(double.parse(question.tickInterval!), 2.0);
     expect(double.parse(question.placeholder!), 1.0);
     expect(question.dynamicChoices, isNotNull);
-    // The choice count is checked through the form runner in P4/P5.
+
+    final formEntryModel = FormEntryModel(form);
+    final formEntryController = FormEntryController(formEntryModel)
+      ..stepToNextEvent();
+    final questionIndex = formEntryController.model.formIndex;
+    final formEntryPrompt = formEntryModel.questionPrompt(questionIndex);
+    expect(formEntryPrompt.selectChoices, hasLength(2));
   });
 
   test('throws parse exception on bad range form', () {
@@ -170,11 +178,11 @@ void main() {
     );
   });
 
-  test(
-    'form with count-non-empty() does not throw',
-    () {},
-    skip: 'needs the form runner (P4)',
-  );
+  test('form with count-non-empty() does not throw', () async {
+    final scenario = await scenarioFor('countNonEmptyForm.xml');
+    expect(scenario.answerOf('/test/count_value'), intAnswer(4));
+    expect(scenario.answerOf('/test/count_non_empty_value'), intAnswer(2));
+  });
 
   test('parses meta namespace form', () async {
     final form = await parseForm('meta-namespace-form.xml');
@@ -240,14 +248,18 @@ void main() {
   });
 
   test('parses form with setvalue action', () async {
-    final form = await parseForm('form-with-setvalue-action.xml');
+    final form = await parseForm('form-with-setvalue-action.xml')
+      // dispatch 'odk-instance-first-load' event
+      ..initialize(newInstance: true);
     expect(form.title, 'SetValue action');
     assertNoParseErrors(form);
     expect(
       form.actionController.listenersFor(FormEvents.odkInstanceFirstLoad),
       hasLength(1),
     );
-    // Running the action on initialization is tested with the engine (P4).
+
+    final textNode = form.mainInstance.root.childrenWithName('text').first;
+    expect(textNode.value!.value, 'Test Value');
   });
 
   test('parses group with nodeset attribute', () async {
@@ -289,5 +301,15 @@ void main() {
     );
   });
 
-  test('setvalue with strings', () {}, skip: 'needs the form runner (P4)');
+  test('setvalue with strings', () async {
+    final scenario = await scenarioFor('default_test.xml');
+    expect(
+      scenario.getAnswerNode('/data/string_val').value!.value.toString(),
+      'string-value',
+    );
+    expect(
+      scenario.getAnswerNode('/data/inline_val').value!.value.toString(),
+      'inline-value',
+    );
+  });
 }
