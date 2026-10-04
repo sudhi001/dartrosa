@@ -1,3 +1,9 @@
+// Golden images are rendered on macOS; text rasterization differs on other
+// platforms, so CI (Linux) excludes the `golden` tag. Regenerate with
+// `flutter test --update-goldens --tags golden` on macOS.
+@Tags(['golden'])
+library;
+
 import 'package:dartrosa_flutter/dartrosa_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';

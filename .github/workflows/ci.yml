@@ -50,7 +50,8 @@ jobs:
         run: |
           flutter pub get
           flutter analyze --fatal-infos
-          flutter test
+          # Goldens are rendered on macOS (see test/golden_test.dart).
+          flutter test --exclude-tags golden
       - name: Analyze the example
         working-directory: packages/dartrosa_flutter/example
         run: |
