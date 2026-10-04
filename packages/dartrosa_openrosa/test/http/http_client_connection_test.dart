@@ -367,7 +367,7 @@ void main() {
       await upload(tempFile('<a/>'), [tempFile('x' * 20000)], 1 << 20);
       final request = mockWebServer.takeRequest();
       expect(request.body.length, greaterThan(20000));
-      expect(request.bodyUtf8, endsWith('--\r\n'));
+      expect(request.bodyText, endsWith('--\r\n'));
     });
 
     test(

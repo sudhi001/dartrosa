@@ -36,7 +36,9 @@ final class RecordedRequest {
     return null;
   }
 
-  String get bodyUtf8 => utf8.decode(body, allowMalformed: true);
+  /// The body as ISO-8859-1 (binary-safe; dart2wasm's malformed UTF-8
+  /// decoding asserts on some binary input).
+  String get bodyText => latin1.decode(body);
 }
 
 /// Stands in for OkHttp's `MockWebServer`: a `package:http` client that
@@ -97,7 +99,7 @@ http.Client routingClient(List<MockWebServer> servers) =>
 /// The parts of a multipart body, each split into lines, as Collect's
 /// `splitMultiPart` test helper does.
 List<List<String>> splitMultiPart(RecordedRequest request) {
-  final body = request.bodyUtf8;
+  final body = request.bodyText;
   final boundary = body.split('\r\n')[0];
   final split = body.split(boundary);
   return [
