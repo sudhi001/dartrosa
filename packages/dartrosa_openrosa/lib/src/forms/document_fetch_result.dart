@@ -1,0 +1,37 @@
+import 'package:dartrosa/javarosa.dart';
+
+/// The result of fetching an XML document: either the document (and
+/// whether it was an OpenRosa response, and its MD5 hash) or an error
+/// message and status code.
+///
+/// Port of Collect's `org.odk.collect.openrosa.forms.DocumentFetchResult`.
+final class DocumentFetchResult {
+  /// A failure with [errorMessage] and [responseCode].
+  const DocumentFetchResult.error(String this.errorMessage, this.responseCode)
+    : doc = null,
+      isOpenRosaResponse = false,
+      hash = null;
+
+  /// A fetched document.
+  const DocumentFetchResult(
+    KElement this.doc, {
+    required this.isOpenRosaResponse,
+    required this.hash,
+  }) : errorMessage = null,
+       responseCode = 0;
+
+  /// What went wrong, or `null` on success.
+  final String? errorMessage;
+
+  /// The status code of a failure, `0` on success.
+  final int responseCode;
+
+  /// The document element, on success.
+  final KElement? doc;
+
+  /// Whether the response had an `X-OpenRosa-Version` header.
+  final bool isOpenRosaResponse;
+
+  /// The MD5 hash of the document.
+  final String? hash;
+}
