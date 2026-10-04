@@ -1,0 +1,46 @@
+{
+  "form" : "forms/collect/string_widgets_in_field_list.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"stringwidgets\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><my-group><question1>x y z</question1><question2>-47</question2></my-group><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 11,
+  "steps" : [ {
+    "appearance" : "field-list",
+    "event" : "group",
+    "label" : "My group",
+    "ref" : "/data/my-group[1]"
+  }, {
+    "after" : "x y z",
+    "answer" : "x y z",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Question1",
+    "readonly" : false,
+    "ref" : "/data/my-group[1]/question1[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "-47",
+    "answer" : "-47",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Question2",
+    "readonly" : false,
+    "ref" : "/data/my-group[1]/question2[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

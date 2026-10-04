@@ -1,0 +1,200 @@
+{
+  "form" : "forms/collect/RepeatTitles_1648.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"build_1648_1511357420\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><meta><instanceID>uuid:<uuid></instanceID></meta><Text>x y z</Text><gr1><gr2><name /><age>48</age><photo>file29.jpg</photo></gr2></gr1><gr1><gr2><name>kappa'lambda</name><age /><photo>file62.jpg</photo></gr2></gr1><part1><part2><partText>zeta &amp; eta</partText><date>2022-03-18</date><multi /></part2></part1></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 11,
+  "steps" : [ {
+    "after" : "x y z",
+    "answer" : "x y z",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Text",
+    "readonly" : false,
+    "ref" : "/data/Text[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "gr1",
+    "ref" : "/data/gr1[1]"
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Person: ",
+    "ref" : "/data/gr1[1]/gr2[1]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Name",
+    "readonly" : false,
+    "ref" : "/data/gr1[1]/gr2[1]/name[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "48",
+    "answer" : "48",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Age",
+    "readonly" : false,
+    "ref" : "/data/gr1[1]/gr2[1]/age[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "file29.jpg",
+    "answer" : "file29.jpg",
+    "appearance" : null,
+    "control" : "imageChoose",
+    "dataType" : "binary",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Photo",
+    "readonly" : false,
+    "ref" : "/data/gr1[1]/gr2[1]/photo[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : true,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/gr1[2]"
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Person: ",
+    "ref" : "/data/gr1[2]/gr2[1]"
+  }, {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Name",
+    "readonly" : false,
+    "ref" : "/data/gr1[2]/gr2[1]/name[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Age",
+    "readonly" : false,
+    "ref" : "/data/gr1[2]/gr2[1]/age[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "file62.jpg",
+    "answer" : "file62.jpg",
+    "appearance" : null,
+    "control" : "imageChoose",
+    "dataType" : "binary",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Photo",
+    "readonly" : false,
+    "ref" : "/data/gr1[2]/gr2[1]/photo[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : false,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/gr1[3]"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Part1",
+    "ref" : "/data/part1[1]"
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Xxx: ",
+    "ref" : "/data/part1[1]/part2[1]"
+  }, {
+    "after" : "zeta & eta",
+    "answer" : "zeta & eta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Part text",
+    "readonly" : false,
+    "ref" : "/data/part1[1]/part2[1]/partText[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "2022-03-18",
+    "answer" : "2022-03-18",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "date",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Date",
+    "readonly" : false,
+    "ref" : "/data/part1[1]/part2[1]/date[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "a",
+      "value" : "a"
+    }, {
+      "label" : "b",
+      "value" : "b"
+    }, {
+      "label" : "c",
+      "value" : "c"
+    } ],
+    "control" : "selectMulti",
+    "dataType" : "multipleItems",
+    "event" : "question",
+    "hint" : "",
+    "label" : "Multi Select",
+    "readonly" : false,
+    "ref" : "/data/part1[1]/part2[1]/multi[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : false,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/part1[2]"
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

@@ -1,0 +1,143 @@
+{
+  "form" : "forms/collect/longListOfQuestionsWithRequiredOneAtTheEnd.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"longListOfQuestionsWithRequiredOneAtTheEnd\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><group><text1 /><text2 /><text3 /><text4 /><text5 /><text6 /><text7 /><text8 /><text9 /><text10 /></group><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "language" : null,
+    "languages" : [ ],
+    "ok" : true,
+    "title" : "longListOfQuestionsWithRequiredOneAtTheEnd"
+  },
+  "steps" : [ {
+    "events" : [ {
+      "appearance" : "field-list",
+      "event" : "group",
+      "label" : null,
+      "ref" : "/data/group[1]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Question 1",
+      "readonly" : false,
+      "ref" : "/data/group[1]/text1[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Question 2",
+      "readonly" : false,
+      "ref" : "/data/group[1]/text2[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Question 3",
+      "readonly" : false,
+      "ref" : "/data/group[1]/text3[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Question 4",
+      "readonly" : false,
+      "ref" : "/data/group[1]/text4[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Question 5",
+      "readonly" : false,
+      "ref" : "/data/group[1]/text5[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Question 6",
+      "readonly" : false,
+      "ref" : "/data/group[1]/text6[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Question 7",
+      "readonly" : false,
+      "ref" : "/data/group[1]/text7[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Question 8",
+      "readonly" : false,
+      "ref" : "/data/group[1]/text8[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Question 9",
+      "readonly" : false,
+      "ref" : "/data/group[1]/text9[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "choices" : [ {
+        "label" : "Option A",
+        "value" : "a"
+      }, {
+        "label" : "Option B",
+        "value" : "b"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Question 10",
+      "readonly" : false,
+      "ref" : "/data/group[1]/text10[1]",
+      "required" : true,
+      "value" : null
+    }, {
+      "event" : "endOfForm"
+    } ],
+    "op" : "walk"
+  }, {
+    "op" : "validate",
+    "outcome" : "required",
+    "ref" : "/data/group[1]/text10[1]"
+  } ],
+  "traceVersion" : 1
+}

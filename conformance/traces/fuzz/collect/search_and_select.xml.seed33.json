@@ -1,0 +1,65 @@
+{
+  "form" : "forms/collect/search_and_select.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><search_and_select id=\"search_and_select\" version=\"103\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><encabezado><nombre>name_key</nombre><nombre2>name_key</nombre2><note_fruit /></encabezado><meta><instanceID>uuid:<uuid></instanceID></meta></search_and_select>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 33,
+  "steps" : [ {
+    "appearance" : "field-list",
+    "event" : "group",
+    "label" : "Registro de sondeo",
+    "ref" : "/search_and_select/encabezado[1]"
+  }, {
+    "after" : "name_key",
+    "answer" : "name_key",
+    "appearance" : "minimal search('nombre')",
+    "choices" : [ {
+      "label" : "name",
+      "value" : "name_key"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "seleccione un nombre",
+    "readonly" : false,
+    "ref" : "/search_and_select/encabezado[1]/nombre[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "name_key",
+    "answer" : "name_key",
+    "appearance" : "minimal search('nombre2')",
+    "choices" : [ {
+      "label" : "name",
+      "value" : "name_key"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "seleccione un nombre",
+    "readonly" : false,
+    "ref" : "/search_and_select/encabezado[1]/nombre2[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "The fruit\n                    name_key\n                    pulled from csv",
+    "readonly" : true,
+    "ref" : "/search_and_select/encabezado[1]/note_fruit[1]",
+    "required" : false,
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

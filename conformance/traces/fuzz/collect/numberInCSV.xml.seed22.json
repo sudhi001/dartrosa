@@ -1,0 +1,112 @@
+{
+  "form" : "forms/collect/numberInCSV.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"a0e1C00000DA61ZQAT\" xmlns:h=\"http://www.w3.org/1999/xhtml\"><new_section><number><number_static /><a0R1C00000anTbn>Cobrança de rendas</a0R1C00000anTbn><a0R1C00000anTbo>beta</a0R1C00000anTbo><a0R1C00000anTbp>kappa'lambda</a0R1C00000anTbp></number></new_section><closemessage /></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 22,
+  "steps" : [ {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "New section",
+    "ref" : "/data/new_section[1]"
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "number",
+    "ref" : "/data/new_section[1]/number[1]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "number",
+    "readonly" : true,
+    "ref" : "/data/new_section[1]/number[1]/number_static[1]",
+    "required" : false,
+    "value" : null
+  }, {
+    "after" : "Cobrança de rendas",
+    "answer" : "Cobrança de rendas",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Vendas agrícolas",
+      "value" : "Vendas agrícolas"
+    }, {
+      "label" : "Venda de animais",
+      "value" : "Venda de animais"
+    }, {
+      "label" : "Salário",
+      "value" : "Salário"
+    }, {
+      "label" : "Pensão",
+      "value" : "Pensão"
+    }, {
+      "label" : "Enviu de dinheiro de algum familiar/amigo que não vive na casa",
+      "value" : "Enviu de dinheiro de algum familiar/amigo que não vive na casa"
+    }, {
+      "label" : "Cobrança de rendas",
+      "value" : "Cobrança de rendas"
+    }, {
+      "label" : "Dinheiro do esposo/esposa ou outro familiar que vive na casa",
+      "value" : "Dinheiro do esposo/esposa ou outro familiar que vive na casa"
+    }, {
+      "label" : "Outro",
+      "value" : "Outro"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "﻿1a",
+    "readonly" : false,
+    "ref" : "/data/new_section[1]/number[1]/a0R1C00000anTbn[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "beta",
+    "answer" : "beta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "2a",
+    "readonly" : false,
+    "ref" : "/data/new_section[1]/number[1]/a0R1C00000anTbo[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "3a",
+    "readonly" : false,
+    "ref" : "/data/new_section[1]/number[1]/a0R1C00000anTbp[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Thank you for taking the time to complete this form!",
+    "readonly" : true,
+    "ref" : "/data/closemessage[1]",
+    "required" : false,
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

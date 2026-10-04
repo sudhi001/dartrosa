@@ -1,0 +1,43 @@
+{
+  "form" : "forms/collect/single-geopoint.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"single-geopoint\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\"><name /><location /><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "language" : null,
+    "languages" : [ ],
+    "ok" : true,
+    "title" : "Single geopoint"
+  },
+  "steps" : [ {
+    "events" : [ {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Name",
+      "readonly" : false,
+      "ref" : "/data/name[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "geopoint",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Location",
+      "readonly" : false,
+      "ref" : "/data/location[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "event" : "endOfForm"
+    } ],
+    "op" : "walk"
+  }, {
+    "op" : "validate",
+    "outcome" : "ok",
+    "ref" : null
+  } ],
+  "traceVersion" : 1
+}

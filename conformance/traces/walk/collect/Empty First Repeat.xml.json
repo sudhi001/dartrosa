@@ -1,0 +1,29 @@
+{
+  "form" : "forms/collect/Empty First Repeat.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"empty_first_repeat\" version=\"1\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\"><repeat /><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "language" : null,
+    "languages" : [ ],
+    "ok" : true,
+    "title" : "Empty First Repeat"
+  },
+  "steps" : [ {
+    "events" : [ {
+      "appearance" : null,
+      "event" : "repeat",
+      "label" : "Repeat",
+      "ref" : "/data/repeat[1]"
+    }, {
+      "event" : "promptNewRepeat",
+      "ref" : "/data/repeat[2]"
+    }, {
+      "event" : "endOfForm"
+    } ],
+    "op" : "walk"
+  }, {
+    "op" : "validate",
+    "outcome" : "ok",
+    "ref" : null
+  } ],
+  "traceVersion" : 1
+}

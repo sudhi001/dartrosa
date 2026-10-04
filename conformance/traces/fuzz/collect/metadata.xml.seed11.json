@@ -1,0 +1,90 @@
+{
+  "form" : "forms/collect/metadata.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><preload id=\"preload\" version=\"2017061601\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><username /><email /><phonenumber /><deviceID /><subscriberID>x y z</subscriberID><simSerial /><meta><instanceID>uuid:<uuid></instanceID></meta></preload>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 11,
+  "steps" : [ {
+    "appearance" : "field-list",
+    "event" : "group",
+    "label" : null,
+    "ref" : "/preload"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Username",
+    "readonly" : true,
+    "ref" : "/preload/username[1]",
+    "required" : false,
+    "value" : null
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Email",
+    "readonly" : true,
+    "ref" : "/preload/email[1]",
+    "required" : false,
+    "value" : null
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Phone number",
+    "readonly" : true,
+    "ref" : "/preload/phonenumber[1]",
+    "required" : false,
+    "value" : null
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Device ID",
+    "readonly" : true,
+    "ref" : "/preload/deviceID[1]",
+    "required" : false,
+    "value" : null
+  }, {
+    "after" : "x y z",
+    "answer" : "x y z",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Subscriber ID",
+    "readonly" : false,
+    "ref" : "/preload/subscriberID[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "SIM serial number",
+    "readonly" : false,
+    "ref" : "/preload/simSerial[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

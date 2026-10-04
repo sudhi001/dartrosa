@@ -1,0 +1,102 @@
+{
+  "form" : "forms/collect/simple-search-external-csv.xml",
+  "parse" : {
+    "ok" : true
+  },
+  "structure" : {
+    "defaultLanguage" : null,
+    "elements" : [ {
+      "appearance" : "search('simple-search-external-csv-fruits')",
+      "attributes" : [ ],
+      "children" : [ ],
+      "choices" : [ {
+        "index" : 0,
+        "label" : "name",
+        "textId" : null,
+        "value" : "name_key"
+      } ],
+      "control" : "selectOne",
+      "helpInnerText" : null,
+      "helpText" : null,
+      "helpTextId" : null,
+      "kind" : "question",
+      "label" : "Select from a CSV using search() appearance/function",
+      "ref" : "/simple-search-external-csv/fruit1",
+      "textId" : null
+    }, {
+      "appearance" : null,
+      "attributes" : [ ],
+      "children" : [ ],
+      "choices" : [ ],
+      "control" : "input",
+      "helpInnerText" : null,
+      "helpText" : null,
+      "helpTextId" : null,
+      "kind" : "question",
+      "label" : "The fruit ${0} pulled from csv",
+      "ref" : "/simple-search-external-csv/note_fruit",
+      "textId" : null
+    } ],
+    "instance" : {
+      "attributes" : [ [ "", "id", "simple-search-external-csv" ] ],
+      "bindAttributes" : [ ],
+      "children" : [ {
+        "attributes" : [ ],
+        "bindAttributes" : [ ],
+        "children" : [ ],
+        "constraint" : null,
+        "enabled" : true,
+        "mult" : 0,
+        "name" : "fruit1",
+        "namespace" : null,
+        "prefix" : null,
+        "preload" : null,
+        "preloadParams" : null,
+        "relevant" : true,
+        "repeatable" : false,
+        "required" : false,
+        "type" : "choice",
+        "value" : null
+      }, {
+        "attributes" : [ ],
+        "bindAttributes" : [ ],
+        "children" : [ ],
+        "constraint" : null,
+        "enabled" : false,
+        "mult" : 0,
+        "name" : "note_fruit",
+        "namespace" : null,
+        "prefix" : null,
+        "preload" : null,
+        "preloadParams" : null,
+        "relevant" : true,
+        "repeatable" : false,
+        "required" : false,
+        "type" : "text",
+        "value" : null
+      } ],
+      "constraint" : null,
+      "enabled" : true,
+      "mult" : 0,
+      "name" : "simple-search-external-csv",
+      "namespace" : null,
+      "prefix" : null,
+      "preload" : null,
+      "preloadParams" : null,
+      "relevant" : true,
+      "repeatable" : false,
+      "required" : false,
+      "type" : "null",
+      "value" : null
+    },
+    "languages" : null,
+    "name" : "simple-search-external-csv",
+    "outputs" : [ "{path-expr:abs,{{step:child,simple-search-external-csv},{step:child,fruit1}}}" ],
+    "secondaryInstances" : { },
+    "submission" : null,
+    "title" : "simple-search-external-csv",
+    "triggerables" : [ ],
+    "warnings" : [ ]
+  },
+  "traceVersion" : 1
+}

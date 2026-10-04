@@ -184,10 +184,18 @@ DateFields getFields(DateTime d, {String? timeZone, String? locale}) {
     final offset = _fixedOffset(timeZone);
     wall = d.toUtc().add(Duration(milliseconds: offset));
   }
+  // java.util.Calendar's hybrid calendar: Julian dates before the
+  // Gregorian cutover, and the year of the era (1 BC is year 1).
+  final (year, month, day) = _hybridDate(
+    _floorDiv(
+      DateTime.utc(wall.year, wall.month, wall.day).millisecondsSinceEpoch,
+      dayInMilliseconds,
+    ),
+  );
   return DateFields(
-    year: wall.year,
-    month: wall.month,
-    day: wall.day,
+    year: year > 0 ? year : 1 - year,
+    month: month,
+    day: day,
     hour: wall.hour,
     minute: wall.minute,
     second: wall.second,
@@ -210,15 +218,7 @@ DateFields getFields(DateTime d, {String? timeZone, String? locale}) {
 /// Throws [ArgumentError] for invalid fields.
 DateTime getDateFromFields(DateFields f, {String? timeZone}) {
   _validate(f.year, f.month, f.day, f.hour, f.minute, f.second, f.secTicks);
-  final wall = DateTime.utc(
-    f.year,
-    f.month,
-    f.day,
-    f.hour,
-    f.minute,
-    f.second,
-    f.secTicks,
-  ).millisecondsSinceEpoch;
+  final wall = _hybridWallMillis(f);
   if (timeZone != null) {
     return DateTime.fromMillisecondsSinceEpoch(wall - _fixedOffset(timeZone));
   }
@@ -346,18 +346,7 @@ String _formatTimeIso8601(DateFields f) {
   var time =
       '${intPad(f.hour, 2)}:${intPad(f.minute, 2)}:${intPad(f.second, 2)}'
       '.${intPad(f.secTicks, 3)}';
-  final offset = _offsetForWallTime(
-    DateTime.utc(
-      f.year,
-      f.month,
-      f.day,
-      f.hour,
-      f.minute,
-      f.second,
-      f.secTicks,
-    ).millisecondsSinceEpoch,
-    f.year,
-  );
+  final offset = _offsetForWallTime(_hybridWallMillis(f), f.year);
   if (offset == 0) {
     time += 'Z';
   } else {
@@ -508,15 +497,7 @@ DateFields? _parseTime(String timeStr, DateFields f) {
   if (offsetHours == null) return raw;
 
   // Read the fields as UTC, apply the offset, then express in local time.
-  final utc = DateTime.utc(
-    raw.year,
-    raw.month,
-    raw.day,
-    raw.hour,
-    raw.minute,
-    raw.second,
-    raw.secTicks,
-  ).millisecondsSinceEpoch;
+  final utc = _hybridWallMillis(raw);
   final instant = DateTime.fromMillisecondsSinceEpoch(
     utc + (60 * offsetHours + offsetMinutes) * 60 * 1000,
   );
@@ -775,6 +756,57 @@ void _validate(
     );
   }
 }
+
+/// The first day of the Gregorian calendar in `java.util.GregorianCalendar`
+/// (1582-10-15), as days since 1970-01-01.
+const _gregorianCutoverEpochDay = -141427;
+
+/// Wall-clock milliseconds since 1970-01-01 for [f] read like Java's
+/// hybrid calendar (`new Date(y - 1900, …)`, as Joda's
+/// `LocalDateTime.toDate()` does): dates before the Gregorian cutover —
+/// including the ten skipped days, leniently — are Julian; year 0 is 1 BC.
+int _hybridWallMillis(DateFields f) {
+  final gregorian = _epochDay(f.year, f.month, f.day);
+  final day = gregorian >= _gregorianCutoverEpochDay
+      ? gregorian
+      : _julianEpochDay(f.year, f.month, f.day);
+  return day * dayInMilliseconds +
+      ((f.hour * 60 + f.minute) * 60 + f.second) * 1000 +
+      f.secTicks;
+}
+
+/// Days since 1970-01-01 of the Julian-calendar date (astronomical year).
+int _julianEpochDay(int year, int month, int day) {
+  final a = (14 - month) ~/ 12;
+  final y = year + 4800 - a;
+  final m = month + 12 * a - 3;
+  final julianDayNumber =
+      day + (153 * m + 2) ~/ 5 + 365 * y + _floorDiv(y, 4) - 32083;
+  return julianDayNumber - 2440588;
+}
+
+/// The (astronomical year, month, day) of [epochDay] in Java's hybrid
+/// calendar: Gregorian from the cutover, Julian before.
+(int, int, int) _hybridDate(int epochDay) {
+  if (epochDay >= _gregorianCutoverEpochDay) {
+    final d = DateTime.fromMillisecondsSinceEpoch(
+      epochDay * dayInMilliseconds,
+      isUtc: true,
+    );
+    return (d.year, d.month, d.day);
+  }
+  final c = epochDay + 2440588 + 32082;
+  final d = _floorDiv(4 * c + 3, 1461);
+  final e = c - _floorDiv(1461 * d, 4);
+  final m = (5 * e + 2) ~/ 153;
+  return (
+    d - 4800 + m ~/ 10,
+    m + 3 - 12 * (m ~/ 10),
+    e - (153 * m + 2) ~/ 5 + 1,
+  );
+}
+
+int _floorDiv(int a, int b) => (a - (a % b)) ~/ b;
 
 /// Days since 1970-01-01 of a proleptic Gregorian date.
 int _epochDay(int year, int month, int day) =>

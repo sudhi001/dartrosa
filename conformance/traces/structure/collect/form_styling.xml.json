@@ -1,0 +1,725 @@
+{
+  "form" : "forms/collect/form_styling.xml",
+  "parse" : {
+    "ok" : true
+  },
+  "structure" : {
+    "defaultLanguage" : "default",
+    "elements" : [ {
+      "appearance" : null,
+      "attributes" : [ ],
+      "children" : [ ],
+      "choices" : [ ],
+      "control" : "input",
+      "helpInnerText" : null,
+      "helpText" : null,
+      "helpTextId" : "/data/q0:hint",
+      "kind" : "question",
+      "label" : "<span style=\"color:blue\">Note text</span>",
+      "ref" : "/data/q0",
+      "textId" : null
+    }, {
+      "appearance" : null,
+      "attributes" : [ ],
+      "children" : [ ],
+      "choices" : [ ],
+      "control" : "input",
+      "helpInnerText" : null,
+      "helpText" : null,
+      "helpTextId" : null,
+      "kind" : "question",
+      "label" : "#### <span style=\"color:blue\">Required text question with header style</span>",
+      "ref" : "/data/q1",
+      "textId" : null
+    }, {
+      "appearance" : null,
+      "attributes" : [ ],
+      "children" : [ {
+        "appearance" : null,
+        "attributes" : [ ],
+        "children" : [ ],
+        "choices" : [ {
+          "index" : 0,
+          "label" : "<span style=\"color:blue\">One</span>",
+          "textId" : null,
+          "value" : "one"
+        }, {
+          "index" : 1,
+          "label" : "<span style=\"color:blue\">Two</span>",
+          "textId" : null,
+          "value" : "two"
+        }, {
+          "index" : 2,
+          "label" : "<span style=\"color:blue\">Three</span>",
+          "textId" : null,
+          "value" : "three"
+        } ],
+        "control" : "selectOne",
+        "helpInnerText" : null,
+        "helpText" : null,
+        "helpTextId" : null,
+        "kind" : "question",
+        "label" : "Select one widget",
+        "ref" : "/data/selectOneQuestions/q2",
+        "textId" : null
+      }, {
+        "appearance" : "minimal",
+        "attributes" : [ ],
+        "children" : [ ],
+        "choices" : [ {
+          "index" : 0,
+          "label" : "<span style=\"color:blue\">One</span>",
+          "textId" : null,
+          "value" : "one"
+        }, {
+          "index" : 1,
+          "label" : "<span style=\"color:blue\">Two</span>",
+          "textId" : null,
+          "value" : "two"
+        }, {
+          "index" : 2,
+          "label" : "<span style=\"color:blue\">Three</span>",
+          "textId" : null,
+          "value" : "three"
+        } ],
+        "control" : "selectOne",
+        "helpInnerText" : null,
+        "helpText" : null,
+        "helpTextId" : null,
+        "kind" : "question",
+        "label" : "Select one minimal widget",
+        "ref" : "/data/selectOneQuestions/q3",
+        "textId" : null
+      }, {
+        "appearance" : "Image-map",
+        "attributes" : [ ],
+        "children" : [ ],
+        "choices" : [ {
+          "index" : 0,
+          "label" : "<span style=\"color:blue\">One</span>",
+          "textId" : null,
+          "value" : "one"
+        }, {
+          "index" : 1,
+          "label" : "<span style=\"color:blue\">Two</span>",
+          "textId" : null,
+          "value" : "two"
+        }, {
+          "index" : 2,
+          "label" : "<span style=\"color:blue\">Three</span>",
+          "textId" : null,
+          "value" : "three"
+        } ],
+        "control" : "selectOne",
+        "helpInnerText" : null,
+        "helpText" : null,
+        "helpTextId" : null,
+        "kind" : "question",
+        "label" : "Select one image-map widget",
+        "ref" : "/data/selectOneQuestions/q4",
+        "textId" : null
+      }, {
+        "appearance" : "label",
+        "attributes" : [ ],
+        "children" : [ ],
+        "choices" : [ {
+          "index" : 0,
+          "label" : "<span style=\"color:blue\">One</span>",
+          "textId" : null,
+          "value" : "one"
+        }, {
+          "index" : 1,
+          "label" : "<span style=\"color:blue\">Two</span>",
+          "textId" : null,
+          "value" : "two"
+        }, {
+          "index" : 2,
+          "label" : "<span style=\"color:blue\">Three</span>",
+          "textId" : null,
+          "value" : "three"
+        } ],
+        "control" : "selectOne",
+        "helpInnerText" : null,
+        "helpText" : null,
+        "helpTextId" : null,
+        "kind" : "question",
+        "label" : "Select one label widget",
+        "ref" : "/data/selectOneQuestions/q5",
+        "textId" : null
+      }, {
+        "appearance" : "list",
+        "attributes" : [ ],
+        "children" : [ ],
+        "choices" : [ {
+          "index" : 0,
+          "label" : "<span style=\"color:blue\">One</span>",
+          "textId" : null,
+          "value" : "one"
+        }, {
+          "index" : 1,
+          "label" : "<span style=\"color:blue\">Two</span>",
+          "textId" : null,
+          "value" : "two"
+        }, {
+          "index" : 2,
+          "label" : "<span style=\"color:blue\">Three</span>",
+          "textId" : null,
+          "value" : "three"
+        } ],
+        "control" : "selectOne",
+        "helpInnerText" : null,
+        "helpText" : null,
+        "helpTextId" : null,
+        "kind" : "question",
+        "label" : "Select one list widget",
+        "ref" : "/data/selectOneQuestions/q6",
+        "textId" : null
+      }, {
+        "appearance" : "likert",
+        "attributes" : [ ],
+        "children" : [ ],
+        "choices" : [ {
+          "index" : 0,
+          "label" : "<span style=\"color:blue\">One</span>",
+          "textId" : null,
+          "value" : "one"
+        }, {
+          "index" : 1,
+          "label" : "<span style=\"color:blue\">Two</span>",
+          "textId" : null,
+          "value" : "two"
+        }, {
+          "index" : 2,
+          "label" : "<span style=\"color:blue\">Three</span>",
+          "textId" : null,
+          "value" : "three"
+        } ],
+        "control" : "selectOne",
+        "helpInnerText" : null,
+        "helpText" : null,
+        "helpTextId" : null,
+        "kind" : "question",
+        "label" : "Select one likert widget",
+        "ref" : "/data/selectOneQuestions/q7",
+        "textId" : null
+      } ],
+      "count" : null,
+      "kind" : "group",
+      "label" : "<span style=\"color:blue\">selectOneQuestions</span>",
+      "noAddRemove" : false,
+      "ref" : "/data/selectOneQuestions",
+      "textId" : null
+    }, {
+      "appearance" : null,
+      "attributes" : [ ],
+      "children" : [ {
+        "appearance" : null,
+        "attributes" : [ ],
+        "children" : [ ],
+        "choices" : [ {
+          "index" : 0,
+          "label" : "<span style=\"color:blue\">One</span>",
+          "textId" : null,
+          "value" : "one"
+        }, {
+          "index" : 1,
+          "label" : "<span style=\"color:blue\">Two</span>",
+          "textId" : null,
+          "value" : "two"
+        }, {
+          "index" : 2,
+          "label" : "<span style=\"color:blue\">Three</span>",
+          "textId" : null,
+          "value" : "three"
+        } ],
+        "control" : "selectMulti",
+        "helpInnerText" : null,
+        "helpText" : null,
+        "helpTextId" : null,
+        "kind" : "question",
+        "label" : "Select multiple widget",
+        "ref" : "/data/selectMultipleQuestions/q8",
+        "textId" : null
+      }, {
+        "appearance" : "minimal",
+        "attributes" : [ ],
+        "children" : [ ],
+        "choices" : [ {
+          "index" : 0,
+          "label" : "<span style=\"color:blue\">One</span>",
+          "textId" : null,
+          "value" : "one"
+        }, {
+          "index" : 1,
+          "label" : "<span style=\"color:blue\">Two</span>",
+          "textId" : null,
+          "value" : "two"
+        }, {
+          "index" : 2,
+          "label" : "<span style=\"color:blue\">Three</span>",
+          "textId" : null,
+          "value" : "three"
+        } ],
+        "control" : "selectMulti",
+        "helpInnerText" : null,
+        "helpText" : null,
+        "helpTextId" : null,
+        "kind" : "question",
+        "label" : "Select multiple minimal widget",
+        "ref" : "/data/selectMultipleQuestions/q9",
+        "textId" : null
+      }, {
+        "appearance" : "Image-map",
+        "attributes" : [ ],
+        "children" : [ ],
+        "choices" : [ {
+          "index" : 0,
+          "label" : "<span style=\"color:blue\">One</span>",
+          "textId" : null,
+          "value" : "one"
+        }, {
+          "index" : 1,
+          "label" : "<span style=\"color:blue\">Two</span>",
+          "textId" : null,
+          "value" : "two"
+        }, {
+          "index" : 2,
+          "label" : "<span style=\"color:blue\">Three</span>",
+          "textId" : null,
+          "value" : "three"
+        } ],
+        "control" : "selectMulti",
+        "helpInnerText" : null,
+        "helpText" : null,
+        "helpTextId" : null,
+        "kind" : "question",
+        "label" : "Select multiple image-map widget",
+        "ref" : "/data/selectMultipleQuestions/q10",
+        "textId" : null
+      }, {
+        "appearance" : "label",
+        "attributes" : [ ],
+        "children" : [ ],
+        "choices" : [ {
+          "index" : 0,
+          "label" : "<span style=\"color:blue\">One</span>",
+          "textId" : null,
+          "value" : "one"
+        }, {
+          "index" : 1,
+          "label" : "<span style=\"color:blue\">Two</span>",
+          "textId" : null,
+          "value" : "two"
+        }, {
+          "index" : 2,
+          "label" : "<span style=\"color:blue\">Three</span>",
+          "textId" : null,
+          "value" : "three"
+        } ],
+        "control" : "selectMulti",
+        "helpInnerText" : null,
+        "helpText" : null,
+        "helpTextId" : null,
+        "kind" : "question",
+        "label" : "Select multiple label widget",
+        "ref" : "/data/selectMultipleQuestions/q11",
+        "textId" : null
+      }, {
+        "appearance" : "list",
+        "attributes" : [ ],
+        "children" : [ ],
+        "choices" : [ {
+          "index" : 0,
+          "label" : "<span style=\"color:blue\">One</span>",
+          "textId" : null,
+          "value" : "one"
+        }, {
+          "index" : 1,
+          "label" : "<span style=\"color:blue\">Two</span>",
+          "textId" : null,
+          "value" : "two"
+        }, {
+          "index" : 2,
+          "label" : "<span style=\"color:blue\">Three</span>",
+          "textId" : null,
+          "value" : "three"
+        } ],
+        "control" : "selectMulti",
+        "helpInnerText" : null,
+        "helpText" : null,
+        "helpTextId" : null,
+        "kind" : "question",
+        "label" : "Select multiple list widget",
+        "ref" : "/data/selectMultipleQuestions/q12",
+        "textId" : null
+      } ],
+      "count" : null,
+      "kind" : "group",
+      "label" : "<span style=\"color:blue\">selectMultipleQuestions</span>",
+      "noAddRemove" : false,
+      "ref" : "/data/selectMultipleQuestions",
+      "textId" : null
+    }, {
+      "appearance" : null,
+      "attributes" : [ ],
+      "children" : [ ],
+      "choices" : [ {
+        "index" : 0,
+        "label" : "<span style=\"color:blue\">One</span>",
+        "textId" : null,
+        "value" : "one"
+      }, {
+        "index" : 1,
+        "label" : "<span style=\"color:blue\">Two</span>",
+        "textId" : null,
+        "value" : "two"
+      }, {
+        "index" : 2,
+        "label" : "<span style=\"color:blue\">Three</span>",
+        "textId" : null,
+        "value" : "three"
+      } ],
+      "control" : "rank",
+      "helpInnerText" : null,
+      "helpText" : null,
+      "helpTextId" : null,
+      "kind" : "question",
+      "label" : "Rank widget",
+      "ref" : "/data/q13",
+      "textId" : null
+    } ],
+    "instance" : {
+      "attributes" : [ [ "", "id", "form_styling" ] ],
+      "bindAttributes" : [ ],
+      "children" : [ {
+        "attributes" : [ ],
+        "bindAttributes" : [ ],
+        "children" : [ ],
+        "constraint" : null,
+        "enabled" : false,
+        "mult" : 0,
+        "name" : "q0",
+        "namespace" : null,
+        "prefix" : null,
+        "preload" : null,
+        "preloadParams" : null,
+        "relevant" : true,
+        "repeatable" : false,
+        "required" : false,
+        "type" : "text",
+        "value" : null
+      }, {
+        "attributes" : [ ],
+        "bindAttributes" : [ ],
+        "children" : [ ],
+        "constraint" : null,
+        "enabled" : true,
+        "mult" : 0,
+        "name" : "q1",
+        "namespace" : null,
+        "prefix" : null,
+        "preload" : null,
+        "preloadParams" : null,
+        "relevant" : true,
+        "repeatable" : false,
+        "required" : true,
+        "type" : "text",
+        "value" : null
+      }, {
+        "attributes" : [ ],
+        "bindAttributes" : [ ],
+        "children" : [ {
+          "attributes" : [ ],
+          "bindAttributes" : [ ],
+          "children" : [ ],
+          "constraint" : null,
+          "enabled" : true,
+          "mult" : 0,
+          "name" : "q2",
+          "namespace" : null,
+          "prefix" : null,
+          "preload" : null,
+          "preloadParams" : null,
+          "relevant" : true,
+          "repeatable" : false,
+          "required" : false,
+          "type" : "choice",
+          "value" : null
+        }, {
+          "attributes" : [ ],
+          "bindAttributes" : [ ],
+          "children" : [ ],
+          "constraint" : null,
+          "enabled" : true,
+          "mult" : 0,
+          "name" : "q3",
+          "namespace" : null,
+          "prefix" : null,
+          "preload" : null,
+          "preloadParams" : null,
+          "relevant" : true,
+          "repeatable" : false,
+          "required" : false,
+          "type" : "choice",
+          "value" : "one"
+        }, {
+          "attributes" : [ ],
+          "bindAttributes" : [ ],
+          "children" : [ ],
+          "constraint" : null,
+          "enabled" : true,
+          "mult" : 0,
+          "name" : "q4",
+          "namespace" : null,
+          "prefix" : null,
+          "preload" : null,
+          "preloadParams" : null,
+          "relevant" : true,
+          "repeatable" : false,
+          "required" : false,
+          "type" : "choice",
+          "value" : "one"
+        }, {
+          "attributes" : [ ],
+          "bindAttributes" : [ ],
+          "children" : [ ],
+          "constraint" : null,
+          "enabled" : true,
+          "mult" : 0,
+          "name" : "q5",
+          "namespace" : null,
+          "prefix" : null,
+          "preload" : null,
+          "preloadParams" : null,
+          "relevant" : true,
+          "repeatable" : false,
+          "required" : false,
+          "type" : "choice",
+          "value" : null
+        }, {
+          "attributes" : [ ],
+          "bindAttributes" : [ ],
+          "children" : [ ],
+          "constraint" : null,
+          "enabled" : true,
+          "mult" : 0,
+          "name" : "q6",
+          "namespace" : null,
+          "prefix" : null,
+          "preload" : null,
+          "preloadParams" : null,
+          "relevant" : true,
+          "repeatable" : false,
+          "required" : false,
+          "type" : "choice",
+          "value" : null
+        }, {
+          "attributes" : [ ],
+          "bindAttributes" : [ ],
+          "children" : [ ],
+          "constraint" : null,
+          "enabled" : true,
+          "mult" : 0,
+          "name" : "q7",
+          "namespace" : null,
+          "prefix" : null,
+          "preload" : null,
+          "preloadParams" : null,
+          "relevant" : true,
+          "repeatable" : false,
+          "required" : false,
+          "type" : "choice",
+          "value" : null
+        } ],
+        "constraint" : null,
+        "enabled" : true,
+        "mult" : 0,
+        "name" : "selectOneQuestions",
+        "namespace" : null,
+        "prefix" : null,
+        "preload" : null,
+        "preloadParams" : null,
+        "relevant" : true,
+        "repeatable" : false,
+        "required" : false,
+        "type" : "null",
+        "value" : null
+      }, {
+        "attributes" : [ ],
+        "bindAttributes" : [ ],
+        "children" : [ {
+          "attributes" : [ ],
+          "bindAttributes" : [ ],
+          "children" : [ ],
+          "constraint" : null,
+          "enabled" : true,
+          "mult" : 0,
+          "name" : "q8",
+          "namespace" : null,
+          "prefix" : null,
+          "preload" : null,
+          "preloadParams" : null,
+          "relevant" : true,
+          "repeatable" : false,
+          "required" : false,
+          "type" : "multipleItems",
+          "value" : null
+        }, {
+          "attributes" : [ ],
+          "bindAttributes" : [ ],
+          "children" : [ ],
+          "constraint" : null,
+          "enabled" : true,
+          "mult" : 0,
+          "name" : "q9",
+          "namespace" : null,
+          "prefix" : null,
+          "preload" : null,
+          "preloadParams" : null,
+          "relevant" : true,
+          "repeatable" : false,
+          "required" : false,
+          "type" : "multipleItems",
+          "value" : "one"
+        }, {
+          "attributes" : [ ],
+          "bindAttributes" : [ ],
+          "children" : [ ],
+          "constraint" : null,
+          "enabled" : true,
+          "mult" : 0,
+          "name" : "q10",
+          "namespace" : null,
+          "prefix" : null,
+          "preload" : null,
+          "preloadParams" : null,
+          "relevant" : true,
+          "repeatable" : false,
+          "required" : false,
+          "type" : "multipleItems",
+          "value" : "one"
+        }, {
+          "attributes" : [ ],
+          "bindAttributes" : [ ],
+          "children" : [ ],
+          "constraint" : null,
+          "enabled" : true,
+          "mult" : 0,
+          "name" : "q11",
+          "namespace" : null,
+          "prefix" : null,
+          "preload" : null,
+          "preloadParams" : null,
+          "relevant" : true,
+          "repeatable" : false,
+          "required" : false,
+          "type" : "multipleItems",
+          "value" : null
+        }, {
+          "attributes" : [ ],
+          "bindAttributes" : [ ],
+          "children" : [ ],
+          "constraint" : null,
+          "enabled" : true,
+          "mult" : 0,
+          "name" : "q12",
+          "namespace" : null,
+          "prefix" : null,
+          "preload" : null,
+          "preloadParams" : null,
+          "relevant" : true,
+          "repeatable" : false,
+          "required" : false,
+          "type" : "multipleItems",
+          "value" : null
+        } ],
+        "constraint" : null,
+        "enabled" : true,
+        "mult" : 0,
+        "name" : "selectMultipleQuestions",
+        "namespace" : null,
+        "prefix" : null,
+        "preload" : null,
+        "preloadParams" : null,
+        "relevant" : true,
+        "repeatable" : false,
+        "required" : false,
+        "type" : "null",
+        "value" : null
+      }, {
+        "attributes" : [ ],
+        "bindAttributes" : [ ],
+        "children" : [ ],
+        "constraint" : null,
+        "enabled" : true,
+        "mult" : 0,
+        "name" : "q13",
+        "namespace" : null,
+        "prefix" : null,
+        "preload" : null,
+        "preloadParams" : null,
+        "relevant" : true,
+        "repeatable" : false,
+        "required" : false,
+        "type" : "multipleItems",
+        "value" : "one"
+      }, {
+        "attributes" : [ ],
+        "bindAttributes" : [ ],
+        "children" : [ {
+          "attributes" : [ ],
+          "bindAttributes" : [ ],
+          "children" : [ ],
+          "constraint" : null,
+          "enabled" : false,
+          "mult" : 0,
+          "name" : "instanceID",
+          "namespace" : null,
+          "prefix" : null,
+          "preload" : "uid",
+          "preloadParams" : null,
+          "relevant" : true,
+          "repeatable" : false,
+          "required" : false,
+          "type" : "text",
+          "value" : null
+        } ],
+        "constraint" : null,
+        "enabled" : true,
+        "mult" : 0,
+        "name" : "meta",
+        "namespace" : null,
+        "prefix" : null,
+        "preload" : null,
+        "preloadParams" : null,
+        "relevant" : true,
+        "repeatable" : false,
+        "required" : false,
+        "type" : "null",
+        "value" : null
+      } ],
+      "constraint" : null,
+      "enabled" : true,
+      "mult" : 0,
+      "name" : "data",
+      "namespace" : null,
+      "prefix" : null,
+      "preload" : null,
+      "preloadParams" : null,
+      "relevant" : true,
+      "repeatable" : false,
+      "required" : false,
+      "type" : "null",
+      "value" : null
+    },
+    "languages" : [ "default" ],
+    "name" : "Form styling",
+    "outputs" : [ ],
+    "secondaryInstances" : { },
+    "submission" : null,
+    "title" : "Form styling",
+    "triggerables" : [ ],
+    "warnings" : [ "XForm Parse Warning: Warning: 1 Unrecognized attributes found in Element [model] and will be ignored: [xforms-version] \n    Problem found at nodeset: /html/head/model\n    With element <model xforms-version=\"1.0.0\"><itext><translation default=\"true()\" lang=\"default\">...\n" ]
+  },
+  "traceVersion" : 1
+}

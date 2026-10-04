@@ -1,0 +1,79 @@
+{
+  "form" : "forms/collect/external_csv_form.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><ecsv id=\"ecsv\" version=\"\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><country>nl</country><city>rot</city><neighborhood>centrum</neighborhood><meta><instanceID>uuid:<uuid></instanceID></meta></ecsv>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 11,
+  "steps" : [ {
+    "after" : "nl",
+    "answer" : "nl",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "The Netherlands",
+      "value" : "nl"
+    }, {
+      "label" : "United States",
+      "value" : "usa"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Country",
+    "readonly" : false,
+    "ref" : "/ecsv/country[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "rot",
+    "answer" : "rot",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Amsterdam",
+      "value" : "ams"
+    }, {
+      "label" : "Rotterdam",
+      "value" : "rot"
+    }, {
+      "label" : "Dronten",
+      "value" : "dro"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "City",
+    "readonly" : false,
+    "ref" : "/ecsv/city[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "centrum",
+    "answer" : "centrum",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Harbor",
+      "value" : "haven"
+    }, {
+      "label" : "Downtown",
+      "value" : "centrum"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Neighborhood",
+    "readonly" : false,
+    "ref" : "/ecsv/neighborhood[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

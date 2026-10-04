@@ -1,0 +1,49 @@
+{
+  "form" : "forms/collect/TestRepeat.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><TestRepeat id=\"TestRepeat\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><q0 /><q3 /><meta><instanceID>uuid:<uuid></instanceID></meta></TestRepeat>",
+  "parse" : {
+    "language" : "language",
+    "languages" : [ "language" ],
+    "ok" : true,
+    "title" : "TestRepeat"
+  },
+  "steps" : [ {
+    "events" : [ {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "This form behaves different if navigation is set as horizontal wipes (OK) vs. buttons (infinite cycle). Please choose DO NOT ADD both \"Repeat # 1\" group and \"Repeat # 1\"",
+      "readonly" : true,
+      "ref" : "/TestRepeat/q0[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "event" : "promptNewRepeat",
+      "ref" : "/TestRepeat/q1[1]"
+    }, {
+      "event" : "promptNewRepeat",
+      "ref" : "/TestRepeat/q2[1]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "If it was set horizontal wipes should be displayed once, if not, it would be displayed indefinitely",
+      "readonly" : true,
+      "ref" : "/TestRepeat/q3[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "event" : "endOfForm"
+    } ],
+    "op" : "walk"
+  }, {
+    "op" : "validate",
+    "outcome" : "ok",
+    "ref" : null
+  } ],
+  "traceVersion" : 1
+}

@@ -1,0 +1,11 @@
+{
+  "form" : "forms/collect/start-geopoint.xml",
+  "parse" : {
+    "error" : {
+      "message" : "For input string: \"no\"",
+      "type" : "NumberFormatException"
+    },
+    "ok" : false
+  },
+  "traceVersion" : 1
+}

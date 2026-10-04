@@ -1,0 +1,48 @@
+{
+  "form" : "forms/collect/requiredQuestionInFieldList.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><required id=\"requiredQuestionInFieldList\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><group><text /><text2 /></group><meta><instanceID>uuid:<uuid></instanceID></meta></required>",
+  "parse" : {
+    "language" : null,
+    "languages" : [ ],
+    "ok" : true,
+    "title" : "requiredQuestionInFieldList"
+  },
+  "steps" : [ {
+    "events" : [ {
+      "appearance" : "field-list",
+      "event" : "group",
+      "label" : null,
+      "ref" : "/required/group[1]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Foo",
+      "readonly" : false,
+      "ref" : "/required/group[1]/text[1]",
+      "required" : true,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Bar",
+      "readonly" : false,
+      "ref" : "/required/group[1]/text2[1]",
+      "required" : true,
+      "value" : null
+    }, {
+      "event" : "endOfForm"
+    } ],
+    "op" : "walk"
+  }, {
+    "op" : "validate",
+    "outcome" : "required",
+    "ref" : "/required/group[1]/text[1]"
+  } ],
+  "traceVersion" : 1
+}

@@ -1,0 +1,60 @@
+{
+  "form" : "forms/collect/form_design_error.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"form-list-relevance-issue\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\"><group><name>x y z</name><fullName>x y z</fullName></group><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 11,
+  "steps" : [ {
+    "appearance" : "field-list",
+    "event" : "group",
+    "label" : null,
+    "ref" : "/data/group[1]"
+  }, {
+    "after" : "x y z",
+    "answer" : "x y z",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "What is your first name",
+    "readonly" : false,
+    "ref" : "/data/group[1]/name[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "A"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Please add your second name to have your full name",
+    "readonly" : false,
+    "ref" : "/data/group[1]/fullName[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "x y z"
+  }, {
+    "after" : "123",
+    "answer" : "123",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : "Display if full name is different than first name",
+    "label" : "Please add your middle name if you have one",
+    "readonly" : false,
+    "ref" : "/data/group[1]/middleName[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "third"
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

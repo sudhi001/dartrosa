@@ -1,0 +1,69 @@
+{
+  "form" : "forms/collect/image-compression.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"image-compression\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><image>file29.jpg</image><annotate>file9.jpg</annotate><draw>file47.jpg</draw><signature>file40.jpg</signature><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 33,
+  "steps" : [ {
+    "after" : "file29.jpg",
+    "answer" : "file29.jpg",
+    "appearance" : null,
+    "control" : "imageChoose",
+    "dataType" : "binary",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Image",
+    "readonly" : false,
+    "ref" : "/data/image[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "file9.jpg",
+    "answer" : "file9.jpg",
+    "appearance" : "annotate",
+    "control" : "imageChoose",
+    "dataType" : "binary",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Annotate",
+    "readonly" : false,
+    "ref" : "/data/annotate[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "file47.jpg",
+    "answer" : "file47.jpg",
+    "appearance" : "draw",
+    "control" : "imageChoose",
+    "dataType" : "binary",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Draw",
+    "readonly" : false,
+    "ref" : "/data/draw[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "file40.jpg",
+    "answer" : "file40.jpg",
+    "appearance" : "signature",
+    "control" : "imageChoose",
+    "dataType" : "binary",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Signature",
+    "readonly" : false,
+    "ref" : "/data/signature[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

@@ -1,0 +1,102 @@
+{
+  "form" : "forms/collect/nested-intent-group.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"person_registration\" version=\"20250411164720\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><container><skip>no</skip><Right_Thumb><right_thumb_Registration_NFIQ>-44</right_thumb_Registration_NFIQ><right_thumb_Registration_template>kappa'lambda</right_thumb_Registration_template></Right_Thumb><outside><template_length>12</template_length><note /><text>mu\"nu</text></outside></container><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 22,
+  "steps" : [ {
+    "appearance" : "field-list",
+    "event" : "group",
+    "label" : null,
+    "ref" : "/data/container[1]"
+  }, {
+    "after" : "no",
+    "answer" : "no",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Skip?",
+    "readonly" : false,
+    "ref" : "/data/container[1]/skip[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Scan the Right Thumb",
+    "ref" : "/data/container[1]/Right_Thumb[1]"
+  }, {
+    "after" : "-44",
+    "answer" : "-44",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "NFIQ Score",
+    "readonly" : false,
+    "ref" : "/data/container[1]/Right_Thumb[1]/right_thumb_Registration_NFIQ[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : "masked",
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Template",
+    "readonly" : false,
+    "ref" : "/data/container[1]/Right_Thumb[1]/right_thumb_Registration_template[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Outside",
+    "ref" : "/data/container[1]/outside[1]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Length of template: 12",
+    "readonly" : true,
+    "ref" : "/data/container[1]/outside[1]/note[1]",
+    "required" : false,
+    "value" : null
+  }, {
+    "after" : "mu\"nu",
+    "answer" : "mu\"nu",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Some text",
+    "readonly" : false,
+    "ref" : "/data/container[1]/outside[1]/text[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

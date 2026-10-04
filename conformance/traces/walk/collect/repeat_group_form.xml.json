@@ -1,0 +1,70 @@
+{
+  "form" : "forms/collect/repeat_group_form.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"<uuid>\" version=\"mrc\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><grp<uuid>><header /><qing<uuid> /><qing<uuid> /></grp<uuid>></data>",
+  "parse" : {
+    "language" : "English",
+    "languages" : [ "English" ],
+    "ok" : true,
+    "title" : "Repeat Group"
+  },
+  "steps" : [ {
+    "events" : [ {
+      "event" : "promptNewRepeat",
+      "ref" : "/data/grp09d86f73-7b3c-44e5-9f49-bdae8ab50132[1]"
+    }, {
+      "appearance" : null,
+      "event" : "group",
+      "label" : "Group Name",
+      "ref" : "/data/grp2ea471c2-9316-4166-9749-566f2ab4b45a[1]"
+    }, {
+      "appearance" : "field-list",
+      "event" : "group",
+      "label" : null,
+      "ref" : "/data/grp2ea471c2-9316-4166-9749-566f2ab4b45a[1]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : "Group Hint",
+      "label" : null,
+      "readonly" : true,
+      "ref" : "/data/grp2ea471c2-9316-4166-9749-566f2ab4b45a[1]/header[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : "Question Hint 4",
+      "label" : "Text Question Title 4",
+      "readonly" : false,
+      "ref" : "/data/grp2ea471c2-9316-4166-9749-566f2ab4b45a[1]/qinga12441e2-79c0-4584-90ce-349923583726[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : "Question Hint 5",
+      "label" : "Text Question Title 5",
+      "readonly" : false,
+      "ref" : "/data/grp2ea471c2-9316-4166-9749-566f2ab4b45a[1]/qing281f13e2-94d3-4be7-992e-1d02f4259b34[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "event" : "promptNewRepeat",
+      "ref" : "/data/grpa337aa68-0152-44b6-aae3-1fe91b55890e[1]"
+    }, {
+      "event" : "endOfForm"
+    } ],
+    "op" : "walk"
+  }, {
+    "op" : "validate",
+    "outcome" : "ok",
+    "ref" : null
+  } ],
+  "traceVersion" : 1
+}

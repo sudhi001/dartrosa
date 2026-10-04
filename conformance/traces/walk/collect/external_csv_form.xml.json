@@ -1,0 +1,63 @@
+{
+  "form" : "forms/collect/external_csv_form.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><ecsv id=\"ecsv\" version=\"\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><country /><city /><neighborhood /><meta><instanceID>uuid:<uuid></instanceID></meta></ecsv>",
+  "parse" : {
+    "language" : null,
+    "languages" : [ ],
+    "ok" : true,
+    "title" : "Form with external CSV files"
+  },
+  "steps" : [ {
+    "events" : [ {
+      "appearance" : null,
+      "choices" : [ {
+        "label" : "The Netherlands",
+        "value" : "nl"
+      }, {
+        "label" : "United States",
+        "value" : "usa"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Country",
+      "readonly" : false,
+      "ref" : "/ecsv/country[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "choices" : [ ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : "City",
+      "readonly" : false,
+      "ref" : "/ecsv/city[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "choices" : [ ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Neighborhood",
+      "readonly" : false,
+      "ref" : "/ecsv/neighborhood[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "event" : "endOfForm"
+    } ],
+    "op" : "walk"
+  }, {
+    "op" : "validate",
+    "outcome" : "ok",
+    "ref" : null
+  } ],
+  "traceVersion" : 1
+}

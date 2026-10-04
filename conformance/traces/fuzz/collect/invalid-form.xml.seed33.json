@@ -1,0 +1,12 @@
+{
+  "form" : "forms/collect/invalid-form.xml",
+  "parse" : {
+    "error" : {
+      "message" : "Cycle detected in form's relevant and calculation logic!\nThe following nodes are likely involved in the loop:\n/asasas/q2",
+      "type" : "XFormParseException"
+    },
+    "ok" : false
+  },
+  "seed" : 33,
+  "traceVersion" : 1
+}

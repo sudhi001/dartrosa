@@ -10,7 +10,7 @@ import 'package:dartrosa/testing.dart';
 import 'package:test/test.dart';
 
 import '../support/forms.dart';
-import 'init_test.dart' show diff, stableMessage;
+import 'init_test.dart' show diff, exceptionMessage;
 import 'structure_dump.dart';
 
 /// Replays the `scenarios/**.dag.json` scripts (value changes, repeat
@@ -43,7 +43,7 @@ void main() {
         try {
           result = _apply(form, step);
         } on Object catch (e) {
-          error = stableMessage('$e');
+          error = exceptionMessage(e);
         }
         final at = '.steps[$i] ${jsonEncode(step)}';
         final expectedError = (expected['error'] as Map?)?['message'];

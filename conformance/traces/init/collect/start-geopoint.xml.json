@@ -1,0 +1,15 @@
+{
+  "cascades" : [ ],
+  "form" : "forms/collect/start-geopoint.xml",
+  "initialize" : {
+    "error" : {
+      "message" : "For input string: \"no\"",
+      "type" : "NumberFormatException"
+    },
+    "ok" : false
+  },
+  "parse" : {
+    "ok" : true
+  },
+  "traceVersion" : 1
+}

@@ -1,0 +1,111 @@
+{
+  "form" : "forms/collect/selectOneExternal.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"cascading_select_test\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><state>a1</state><county /><city>123</city><state2>a2</state2><county2>beta</county2><city2 /><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 11,
+  "steps" : [ {
+    "after" : "a1",
+    "answer" : "a1",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Texas",
+      "value" : "a1"
+    }, {
+      "label" : "Washington",
+      "value" : "a2"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "state",
+    "readonly" : false,
+    "ref" : "/data/state[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "county",
+    "readonly" : false,
+    "ref" : "/data/county[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "123",
+    "answer" : "123",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "city",
+    "readonly" : false,
+    "ref" : "/data/city[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "a2",
+    "answer" : "a2",
+    "appearance" : "minimal",
+    "choices" : [ {
+      "label" : "Texas",
+      "value" : "a1"
+    }, {
+      "label" : "Washington",
+      "value" : "a2"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "minimal",
+    "label" : "state",
+    "readonly" : false,
+    "ref" : "/data/state2[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "beta",
+    "answer" : "beta",
+    "appearance" : "minimal",
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : "minimal",
+    "label" : "county",
+    "readonly" : false,
+    "ref" : "/data/county2[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : "minimal autocomplete",
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : "minimal autocomplete",
+    "label" : "city",
+    "readonly" : false,
+    "ref" : "/data/city2[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

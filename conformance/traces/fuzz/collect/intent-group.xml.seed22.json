@@ -1,0 +1,116 @@
+{
+  "form" : "forms/collect/intent-group.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"intent-group\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><group><questionInteger>134</questionInteger><questionDecimal>-494.43</questionDecimal><questionText>x y z</questionText><questionImage>file48.jpg</questionImage><questionAudio>file4.jpg</questionAudio><questionVideo>file78.jpg</questionVideo><questionFile>file67.jpg</questionFile></group><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 22,
+  "steps" : [ {
+    "appearance" : "field-list",
+    "event" : "group",
+    "label" : "Fields to populate",
+    "ref" : "/data/group[1]"
+  }, {
+    "after" : "134",
+    "answer" : "134",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Integer external",
+    "readonly" : false,
+    "ref" : "/data/group[1]/questionInteger[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "-494.43",
+    "answer" : "-494.43",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "decimal",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Decimal external",
+    "readonly" : false,
+    "ref" : "/data/group[1]/questionDecimal[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "x y z",
+    "answer" : "x y z",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Text external",
+    "readonly" : false,
+    "ref" : "/data/group[1]/questionText[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "file48.jpg",
+    "answer" : "file48.jpg",
+    "appearance" : null,
+    "control" : "imageChoose",
+    "dataType" : "binary",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Image external",
+    "readonly" : false,
+    "ref" : "/data/group[1]/questionImage[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "file4.jpg",
+    "answer" : "file4.jpg",
+    "appearance" : null,
+    "control" : "audioCapture",
+    "dataType" : "binary",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Audio external",
+    "readonly" : false,
+    "ref" : "/data/group[1]/questionAudio[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "file78.jpg",
+    "answer" : "file78.jpg",
+    "appearance" : null,
+    "control" : "videoCapture",
+    "dataType" : "binary",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Video external",
+    "readonly" : false,
+    "ref" : "/data/group[1]/questionVideo[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "file67.jpg",
+    "answer" : "file67.jpg",
+    "appearance" : null,
+    "control" : "fileCapture",
+    "dataType" : "binary",
+    "event" : "question",
+    "hint" : null,
+    "label" : "File external",
+    "readonly" : false,
+    "ref" : "/data/group[1]/questionFile[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

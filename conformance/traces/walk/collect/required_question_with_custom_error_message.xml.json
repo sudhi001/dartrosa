@@ -1,0 +1,32 @@
+{
+  "form" : "forms/collect/required_question_with_custom_error_message.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"required_question_with_custom_error_message\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><q1 /><meta><instanceID>uuid:<uuid></instanceID><orx:audit /></meta></data>",
+  "parse" : {
+    "language" : null,
+    "languages" : [ ],
+    "ok" : true,
+    "title" : "required_question_with_custom_error_message"
+  },
+  "steps" : [ {
+    "events" : [ {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Required question",
+      "readonly" : false,
+      "ref" : "/data/q1[1]",
+      "required" : true,
+      "value" : null
+    }, {
+      "event" : "endOfForm"
+    } ],
+    "op" : "walk"
+  }, {
+    "op" : "validate",
+    "outcome" : "required",
+    "ref" : "/data/q1[1]"
+  } ],
+  "traceVersion" : 1
+}

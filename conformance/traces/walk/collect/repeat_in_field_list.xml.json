@@ -1,0 +1,51 @@
+{
+  "form" : "forms/collect/repeat_in_field_list.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"repeat_in_field_list\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><meta><instanceID>uuid:<uuid></instanceID></meta><g1><text1 /></g1><text3 /></data>",
+  "parse" : {
+    "language" : "English",
+    "languages" : [ "English" ],
+    "ok" : true,
+    "title" : "repeat_in_field_list"
+  },
+  "steps" : [ {
+    "events" : [ {
+      "appearance" : "field-list",
+      "event" : "group",
+      "label" : "g1",
+      "ref" : "/data"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "text1",
+      "readonly" : false,
+      "ref" : "/data/g1[1]/text1[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "event" : "promptNewRepeat",
+      "ref" : "/data/g1[1]/g2[1]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "text3",
+      "readonly" : false,
+      "ref" : "/data/text3[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "event" : "endOfForm"
+    } ],
+    "op" : "walk"
+  }, {
+    "op" : "validate",
+    "outcome" : "ok",
+    "ref" : null
+  } ],
+  "traceVersion" : 1
+}

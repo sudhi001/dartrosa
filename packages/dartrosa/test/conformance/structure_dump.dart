@@ -163,7 +163,10 @@ Map<String, Object?> _tree(TreeElement? t) {
     'preload': t.preloadHandler,
     'preloadParams': t.preloadParams,
     'constraint': constraint?.constraint.expr.toString(),
-    'attributes': _attributes(t.attributes),
+    'attributes': [
+      for (final a in t.attributes)
+        ['${a.namespace}', a.name, normalize('${a.attributeValue}')],
+    ],
     'bindAttributes': _attributes(t.bindAttributes),
     'children': [for (final c in t.children) _tree(c)],
   };

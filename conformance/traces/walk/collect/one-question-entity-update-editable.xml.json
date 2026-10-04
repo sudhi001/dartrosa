@@ -1,0 +1,47 @@
+{
+  "form" : "forms/collect/one-question-entity-update-editable.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"one_question_entity_update-editable\" version=\"1\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:entities=\"http://www.opendatakit.org/xforms/entities\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><person /><name /><meta><instanceID>uuid:<uuid></instanceID><instanceName /><entity dataset=\"people\" update=\"true\" id=\"\" baseVersion=\"\" trunkVersion=\"\" branchId=\"\"><label /></entity></meta></data>",
+  "parse" : {
+    "language" : null,
+    "languages" : [ ],
+    "ok" : true,
+    "title" : "One Question Entity Update Editable"
+  },
+  "steps" : [ {
+    "events" : [ {
+      "appearance" : null,
+      "choices" : [ {
+        "label" : "Roman Roy",
+        "value" : "93a179a0-71b3-42f8-b78e-4c182eaf2ae7"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Select person",
+      "readonly" : false,
+      "ref" : "/data/person[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Name",
+      "readonly" : false,
+      "ref" : "/data/name[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "event" : "endOfForm"
+    } ],
+    "op" : "walk"
+  }, {
+    "op" : "validate",
+    "outcome" : "ok",
+    "ref" : null
+  } ],
+  "traceVersion" : 1
+}

@@ -1,0 +1,105 @@
+{
+  "form" : "forms/collect/formHierarchy3.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><formHierarchy3 id=\"formHierarchy3\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><intro /><group1><text /><group1_1><intereg1_1 /><integer1_2 /></group1_1><group1_2><integer2_1 /><integer2_2 /></group1_2></group1><meta><instanceID>uuid:<uuid></instanceID></meta></formHierarchy3>",
+  "parse" : {
+    "language" : null,
+    "languages" : [ ],
+    "ok" : true,
+    "title" : "formHierarchy3"
+  },
+  "steps" : [ {
+    "events" : [ {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Intro",
+      "readonly" : true,
+      "ref" : "/formHierarchy3/intro[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "event" : "group",
+      "label" : "Group 1",
+      "ref" : "/formHierarchy3/group1[1]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Text",
+      "readonly" : false,
+      "ref" : "/formHierarchy3/group1[1]/text[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "event" : "group",
+      "label" : "Group 1_1",
+      "ref" : "/formHierarchy3/group1[1]/group1_1[1]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "integer",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Integer 1_1",
+      "readonly" : false,
+      "ref" : "/formHierarchy3/group1[1]/group1_1[1]/intereg1_1[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "integer",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Integer 1_2",
+      "readonly" : false,
+      "ref" : "/formHierarchy3/group1[1]/group1_1[1]/integer1_2[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "event" : "group",
+      "label" : "Group 1_2",
+      "ref" : "/formHierarchy3/group1[1]/group1_2[1]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "integer",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Integer 2_1",
+      "readonly" : false,
+      "ref" : "/formHierarchy3/group1[1]/group1_2[1]/integer2_1[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "integer",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Integer 2_2",
+      "readonly" : false,
+      "ref" : "/formHierarchy3/group1[1]/group1_2[1]/integer2_2[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "event" : "promptNewRepeat",
+      "ref" : "/formHierarchy3/repeatGroup1[1]"
+    }, {
+      "event" : "endOfForm"
+    } ],
+    "op" : "walk"
+  }, {
+    "op" : "validate",
+    "outcome" : "ok",
+    "ref" : null
+  } ],
+  "traceVersion" : 1
+}

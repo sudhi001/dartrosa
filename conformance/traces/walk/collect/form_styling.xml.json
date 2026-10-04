@@ -1,0 +1,305 @@
+{
+  "form" : "forms/collect/form_styling.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"form_styling\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><q0 /><q1 /><selectOneQuestions><q2 /><q3>one</q3><q4>one</q4><q5 /><q6 /><q7 /></selectOneQuestions><selectMultipleQuestions><q8 /><q9>one</q9><q10>one</q10><q11 /><q12 /></selectMultipleQuestions><q13>one</q13><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "language" : "default",
+    "languages" : [ "default" ],
+    "ok" : true,
+    "title" : "Form styling"
+  },
+  "steps" : [ {
+    "events" : [ {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : "<span style=\"color:blue\">Hint text</span>",
+      "label" : "<span style=\"color:blue\">Note text</span>",
+      "readonly" : true,
+      "ref" : "/data/q0[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "#### <span style=\"color:blue\">Required text question with header style</span>",
+      "readonly" : false,
+      "ref" : "/data/q1[1]",
+      "required" : true,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "event" : "group",
+      "label" : "<span style=\"color:blue\">selectOneQuestions</span>",
+      "ref" : "/data/selectOneQuestions[1]"
+    }, {
+      "appearance" : null,
+      "choices" : [ {
+        "label" : "<span style=\"color:blue\">One</span>",
+        "value" : "one"
+      }, {
+        "label" : "<span style=\"color:blue\">Two</span>",
+        "value" : "two"
+      }, {
+        "label" : "<span style=\"color:blue\">Three</span>",
+        "value" : "three"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Select one widget",
+      "readonly" : false,
+      "ref" : "/data/selectOneQuestions[1]/q2[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "minimal",
+      "choices" : [ {
+        "label" : "<span style=\"color:blue\">One</span>",
+        "value" : "one"
+      }, {
+        "label" : "<span style=\"color:blue\">Two</span>",
+        "value" : "two"
+      }, {
+        "label" : "<span style=\"color:blue\">Three</span>",
+        "value" : "three"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Select one minimal widget",
+      "readonly" : false,
+      "ref" : "/data/selectOneQuestions[1]/q3[1]",
+      "required" : false,
+      "value" : "one"
+    }, {
+      "appearance" : "Image-map",
+      "choices" : [ {
+        "label" : "<span style=\"color:blue\">One</span>",
+        "value" : "one"
+      }, {
+        "label" : "<span style=\"color:blue\">Two</span>",
+        "value" : "two"
+      }, {
+        "label" : "<span style=\"color:blue\">Three</span>",
+        "value" : "three"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Select one image-map widget",
+      "readonly" : false,
+      "ref" : "/data/selectOneQuestions[1]/q4[1]",
+      "required" : false,
+      "value" : "one"
+    }, {
+      "appearance" : "label",
+      "choices" : [ {
+        "label" : "<span style=\"color:blue\">One</span>",
+        "value" : "one"
+      }, {
+        "label" : "<span style=\"color:blue\">Two</span>",
+        "value" : "two"
+      }, {
+        "label" : "<span style=\"color:blue\">Three</span>",
+        "value" : "three"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Select one label widget",
+      "readonly" : false,
+      "ref" : "/data/selectOneQuestions[1]/q5[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "list",
+      "choices" : [ {
+        "label" : "<span style=\"color:blue\">One</span>",
+        "value" : "one"
+      }, {
+        "label" : "<span style=\"color:blue\">Two</span>",
+        "value" : "two"
+      }, {
+        "label" : "<span style=\"color:blue\">Three</span>",
+        "value" : "three"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Select one list widget",
+      "readonly" : false,
+      "ref" : "/data/selectOneQuestions[1]/q6[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "likert",
+      "choices" : [ {
+        "label" : "<span style=\"color:blue\">One</span>",
+        "value" : "one"
+      }, {
+        "label" : "<span style=\"color:blue\">Two</span>",
+        "value" : "two"
+      }, {
+        "label" : "<span style=\"color:blue\">Three</span>",
+        "value" : "three"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Select one likert widget",
+      "readonly" : false,
+      "ref" : "/data/selectOneQuestions[1]/q7[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "event" : "group",
+      "label" : "<span style=\"color:blue\">selectMultipleQuestions</span>",
+      "ref" : "/data/selectMultipleQuestions[1]"
+    }, {
+      "appearance" : null,
+      "choices" : [ {
+        "label" : "<span style=\"color:blue\">One</span>",
+        "value" : "one"
+      }, {
+        "label" : "<span style=\"color:blue\">Two</span>",
+        "value" : "two"
+      }, {
+        "label" : "<span style=\"color:blue\">Three</span>",
+        "value" : "three"
+      } ],
+      "control" : "selectMulti",
+      "dataType" : "multipleItems",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Select multiple widget",
+      "readonly" : false,
+      "ref" : "/data/selectMultipleQuestions[1]/q8[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "minimal",
+      "choices" : [ {
+        "label" : "<span style=\"color:blue\">One</span>",
+        "value" : "one"
+      }, {
+        "label" : "<span style=\"color:blue\">Two</span>",
+        "value" : "two"
+      }, {
+        "label" : "<span style=\"color:blue\">Three</span>",
+        "value" : "three"
+      } ],
+      "control" : "selectMulti",
+      "dataType" : "multipleItems",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Select multiple minimal widget",
+      "readonly" : false,
+      "ref" : "/data/selectMultipleQuestions[1]/q9[1]",
+      "required" : false,
+      "value" : "one"
+    }, {
+      "appearance" : "Image-map",
+      "choices" : [ {
+        "label" : "<span style=\"color:blue\">One</span>",
+        "value" : "one"
+      }, {
+        "label" : "<span style=\"color:blue\">Two</span>",
+        "value" : "two"
+      }, {
+        "label" : "<span style=\"color:blue\">Three</span>",
+        "value" : "three"
+      } ],
+      "control" : "selectMulti",
+      "dataType" : "multipleItems",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Select multiple image-map widget",
+      "readonly" : false,
+      "ref" : "/data/selectMultipleQuestions[1]/q10[1]",
+      "required" : false,
+      "value" : "one"
+    }, {
+      "appearance" : "label",
+      "choices" : [ {
+        "label" : "<span style=\"color:blue\">One</span>",
+        "value" : "one"
+      }, {
+        "label" : "<span style=\"color:blue\">Two</span>",
+        "value" : "two"
+      }, {
+        "label" : "<span style=\"color:blue\">Three</span>",
+        "value" : "three"
+      } ],
+      "control" : "selectMulti",
+      "dataType" : "multipleItems",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Select multiple label widget",
+      "readonly" : false,
+      "ref" : "/data/selectMultipleQuestions[1]/q11[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "list",
+      "choices" : [ {
+        "label" : "<span style=\"color:blue\">One</span>",
+        "value" : "one"
+      }, {
+        "label" : "<span style=\"color:blue\">Two</span>",
+        "value" : "two"
+      }, {
+        "label" : "<span style=\"color:blue\">Three</span>",
+        "value" : "three"
+      } ],
+      "control" : "selectMulti",
+      "dataType" : "multipleItems",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Select multiple list widget",
+      "readonly" : false,
+      "ref" : "/data/selectMultipleQuestions[1]/q12[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "choices" : [ {
+        "label" : "<span style=\"color:blue\">One</span>",
+        "value" : "one"
+      }, {
+        "label" : "<span style=\"color:blue\">Two</span>",
+        "value" : "two"
+      }, {
+        "label" : "<span style=\"color:blue\">Three</span>",
+        "value" : "three"
+      } ],
+      "control" : "rank",
+      "dataType" : "multipleItems",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Rank widget",
+      "readonly" : false,
+      "ref" : "/data/q13[1]",
+      "required" : false,
+      "value" : "one"
+    }, {
+      "event" : "endOfForm"
+    } ],
+    "op" : "walk"
+  }, {
+    "op" : "validate",
+    "outcome" : "required",
+    "ref" : "/data/q1[1]"
+  } ],
+  "traceVersion" : 1
+}

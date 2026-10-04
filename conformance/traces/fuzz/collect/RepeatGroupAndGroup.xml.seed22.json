@@ -1,0 +1,72 @@
+{
+  "form" : "forms/collect/RepeatGroupAndGroup.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"build_OneGroup-One_1518698685\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><meta><instanceID>uuid:<uuid></instanceID></meta><G1><Text1 /></G1><G1><Text1>kappa'lambda</Text1></G1><G3><Text3>mu\"nu</Text3></G3></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 22,
+  "steps" : [ {
+    "add" : true,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/G1[1]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Text1",
+    "readonly" : false,
+    "ref" : "/data/G1[1]/Text1[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : true,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/G1[2]"
+  }, {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Text1",
+    "readonly" : false,
+    "ref" : "/data/G1[2]/Text1[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : false,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/G1[3]"
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "G3",
+    "ref" : "/data"
+  }, {
+    "after" : "mu\"nu",
+    "answer" : "mu\"nu",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Text3",
+    "readonly" : false,
+    "ref" : "/data/G3[1]/Text3[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

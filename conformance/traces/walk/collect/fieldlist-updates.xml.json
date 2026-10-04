@@ -1,0 +1,640 @@
+{
+  "form" : "forms/collect/fieldlist-updates.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><fieldlist-updates id=\"fieldlist-updates\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><single_relevance_at_end><source1 /></single_relevance_at_end><single_relevance_at_beginning><source2 /></single_relevance_at_beginning><single_relevance_in_middle><source3 /><filler3 /></single_relevance_in_middle><label_change><target4 /><source4 /></label_change><hint_change><source5 /><target5 /></hint_change><value_change><source6 /><target6>0</target6><target6_1 /></value_change><cascading_select><source7 /><target7 /><target7-1 /></cascading_select><cascading_select_minimal><source8 /><target8 /><target8-1 /></cascading_select_minimal><push_off_screen><source9 /></push_off_screen><push_off_screen_binary><source10 /></push_off_screen_binary><guidance><source11 /><calculate11 /><target11 /></guidance><date-time><source12 /></date-time><rating><source13 /></rating><external_app><source14 /></external_app><search_in_field_list_group><source15 /></search_in_field_list_group><long_list_of_questions><question1 /><question2 /><question3 /><question4 /><question5 /><question6 /><question7 /><question8 /><question9 /><question10 /><question11 /><question12 /><question13 /><question14 /><question15 /><question16 /><question17 /><question18 /><question19 /><question20 /></long_list_of_questions><audio><source16 /></audio><meta><instanceID>uuid:<uuid></instanceID></meta></fieldlist-updates>",
+  "parse" : {
+    "language" : "default",
+    "languages" : [ "default" ],
+    "ok" : true,
+    "title" : "fieldlist-updates"
+  },
+  "steps" : [ {
+    "events" : [ {
+      "appearance" : "field-list",
+      "event" : "group",
+      "label" : "Single relevance at end",
+      "ref" : "/fieldlist-updates/single_relevance_at_end[1]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Source1",
+      "readonly" : false,
+      "ref" : "/fieldlist-updates/single_relevance_at_end[1]/source1[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "field-list",
+      "event" : "group",
+      "label" : "Single relevance at beginning",
+      "ref" : "/fieldlist-updates/single_relevance_at_beginning[1]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Source2",
+      "readonly" : false,
+      "ref" : "/fieldlist-updates/single_relevance_at_beginning[1]/source2[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "field-list",
+      "event" : "group",
+      "label" : "Single relevance in middle",
+      "ref" : "/fieldlist-updates/single_relevance_in_middle[1]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Source3",
+      "readonly" : false,
+      "ref" : "/fieldlist-updates/single_relevance_in_middle[1]/source3[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Filler3",
+      "readonly" : false,
+      "ref" : "/fieldlist-updates/single_relevance_in_middle[1]/filler3[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "field-list",
+      "event" : "group",
+      "label" : "Label change",
+      "ref" : "/fieldlist-updates/label_change[1]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Hello, , how are you today?",
+      "readonly" : false,
+      "ref" : "/fieldlist-updates/label_change[1]/target4[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "What is your name?",
+      "readonly" : false,
+      "ref" : "/fieldlist-updates/label_change[1]/source4[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "field-list",
+      "event" : "group",
+      "label" : "Hint change",
+      "ref" : "/fieldlist-updates/hint_change[1]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "What is your name?",
+      "readonly" : false,
+      "ref" : "/fieldlist-updates/hint_change[1]/source5[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : "Please don't use your calculator, !",
+      "label" : "What is 2 + 2?",
+      "readonly" : false,
+      "ref" : "/fieldlist-updates/hint_change[1]/target5[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "field-list",
+      "event" : "group",
+      "label" : "Value change",
+      "ref" : "/fieldlist-updates/value_change[1]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "What is your name?",
+      "readonly" : false,
+      "ref" : "/fieldlist-updates/value_change[1]/source6[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "integer",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Name length",
+      "readonly" : false,
+      "ref" : "/fieldlist-updates/value_change[1]/target6[1]",
+      "required" : false,
+      "value" : "0"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "First name letter",
+      "readonly" : false,
+      "ref" : "/fieldlist-updates/value_change[1]/target6_1[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "field-list",
+      "event" : "group",
+      "label" : "Cascading select",
+      "ref" : "/fieldlist-updates/cascading_select[1]"
+    }, {
+      "appearance" : null,
+      "choices" : [ {
+        "label" : "A",
+        "value" : "a"
+      }, {
+        "label" : "B",
+        "value" : "b"
+      }, {
+        "label" : "C",
+        "value" : "c"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Level1",
+      "readonly" : false,
+      "ref" : "/fieldlist-updates/cascading_select[1]/source7[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "choices" : [ ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Level2",
+      "readonly" : false,
+      "ref" : "/fieldlist-updates/cascading_select[1]/target7[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "choices" : [ ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Level3",
+      "readonly" : false,
+      "ref" : "/fieldlist-updates/cascading_select[1]/target7-1[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "field-list",
+      "event" : "group",
+      "label" : "Cascading select minimal",
+      "ref" : "/fieldlist-updates/cascading_select_minimal[1]"
+    }, {
+      "appearance" : "minimal",
+      "choices" : [ {
+        "label" : "A",
+        "value" : "a"
+      }, {
+        "label" : "B",
+        "value" : "b"
+      }, {
+        "label" : "C",
+        "value" : "c"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Level1",
+      "readonly" : false,
+      "ref" : "/fieldlist-updates/cascading_select_minimal[1]/source8[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "minimal",
+      "choices" : [ ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Level2",
+      "readonly" : false,
+      "ref" : "/fieldlist-updates/cascading_select_minimal[1]/target8[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "minimal",
+      "choices" : [ ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Level3",
+      "readonly" : false,
+      "ref" : "/fieldlist-updates/cascading_select_minimal[1]/target8-1[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "field-list",
+      "event" : "group",
+      "label" : "Push off screen",
+      "ref" : "/fieldlist-updates/push_off_screen[1]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Source9",
+      "readonly" : false,
+      "ref" : "/fieldlist-updates/push_off_screen[1]/source9[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "field-list",
+      "event" : "group",
+      "label" : "Push off screen binary",
+      "ref" : "/fieldlist-updates/push_off_screen_binary[1]"
+    }, {
+      "appearance" : null,
+      "control" : "imageChoose",
+      "dataType" : "binary",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Source10",
+      "readonly" : false,
+      "ref" : "/fieldlist-updates/push_off_screen_binary[1]/source10[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "field-list",
+      "event" : "group",
+      "label" : "Guidance hint",
+      "ref" : "/fieldlist-updates/guidance[1]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "integer",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Source11",
+      "readonly" : false,
+      "ref" : "/fieldlist-updates/guidance[1]/source11[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Target11",
+      "readonly" : false,
+      "ref" : "/fieldlist-updates/guidance[1]/target11[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "field-list",
+      "event" : "group",
+      "label" : "Date time",
+      "ref" : "/fieldlist-updates/date-time[1]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "dateTime",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Source12",
+      "readonly" : false,
+      "ref" : "/fieldlist-updates/date-time[1]/source12[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "field-list",
+      "event" : "group",
+      "label" : "Rating",
+      "ref" : "/fieldlist-updates/rating[1]"
+    }, {
+      "appearance" : "rating",
+      "control" : "range",
+      "dataType" : "integer",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Source13",
+      "readonly" : false,
+      "ref" : "/fieldlist-updates/rating[1]/source13[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "field-list",
+      "event" : "group",
+      "label" : "External app",
+      "ref" : "/fieldlist-updates/external_app[1]"
+    }, {
+      "appearance" : "ex:org.fake.app(fake=\"fake\")",
+      "control" : "input",
+      "dataType" : "integer",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Source14",
+      "readonly" : false,
+      "ref" : "/fieldlist-updates/external_app[1]/source14[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "field-list",
+      "event" : "group",
+      "label" : "Search in field-list",
+      "ref" : "/fieldlist-updates/search_in_field_list_group[1]"
+    }, {
+      "appearance" : "minimal search('fruits')",
+      "choices" : [ {
+        "label" : "name",
+        "value" : "name_key"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Source15",
+      "readonly" : false,
+      "ref" : "/fieldlist-updates/search_in_field_list_group[1]/source15[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "field-list",
+      "event" : "group",
+      "label" : "Long list of questions",
+      "ref" : "/fieldlist-updates/long_list_of_questions[1]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Question1",
+      "readonly" : false,
+      "ref" : "/fieldlist-updates/long_list_of_questions[1]/question1[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Question2",
+      "readonly" : false,
+      "ref" : "/fieldlist-updates/long_list_of_questions[1]/question2[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Question3",
+      "readonly" : false,
+      "ref" : "/fieldlist-updates/long_list_of_questions[1]/question3[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Question4",
+      "readonly" : false,
+      "ref" : "/fieldlist-updates/long_list_of_questions[1]/question4[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Question5",
+      "readonly" : false,
+      "ref" : "/fieldlist-updates/long_list_of_questions[1]/question5[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Question6",
+      "readonly" : false,
+      "ref" : "/fieldlist-updates/long_list_of_questions[1]/question6[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Question7",
+      "readonly" : false,
+      "ref" : "/fieldlist-updates/long_list_of_questions[1]/question7[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Question8",
+      "readonly" : false,
+      "ref" : "/fieldlist-updates/long_list_of_questions[1]/question8[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Question9",
+      "readonly" : false,
+      "ref" : "/fieldlist-updates/long_list_of_questions[1]/question9[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Question10",
+      "readonly" : false,
+      "ref" : "/fieldlist-updates/long_list_of_questions[1]/question10[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Question11",
+      "readonly" : false,
+      "ref" : "/fieldlist-updates/long_list_of_questions[1]/question11[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Question12",
+      "readonly" : false,
+      "ref" : "/fieldlist-updates/long_list_of_questions[1]/question12[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Question13",
+      "readonly" : false,
+      "ref" : "/fieldlist-updates/long_list_of_questions[1]/question13[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Question14",
+      "readonly" : false,
+      "ref" : "/fieldlist-updates/long_list_of_questions[1]/question14[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Question15",
+      "readonly" : false,
+      "ref" : "/fieldlist-updates/long_list_of_questions[1]/question15[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Question16",
+      "readonly" : false,
+      "ref" : "/fieldlist-updates/long_list_of_questions[1]/question16[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Question17",
+      "readonly" : false,
+      "ref" : "/fieldlist-updates/long_list_of_questions[1]/question17[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Question18",
+      "readonly" : false,
+      "ref" : "/fieldlist-updates/long_list_of_questions[1]/question18[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Question19",
+      "readonly" : false,
+      "ref" : "/fieldlist-updates/long_list_of_questions[1]/question19[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "integer",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Question20",
+      "readonly" : false,
+      "ref" : "/fieldlist-updates/long_list_of_questions[1]/question20[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "field-list",
+      "event" : "group",
+      "label" : "Audio",
+      "ref" : "/fieldlist-updates/audio[1]"
+    }, {
+      "appearance" : null,
+      "control" : "audioCapture",
+      "dataType" : "binary",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Source16",
+      "readonly" : false,
+      "ref" : "/fieldlist-updates/audio[1]/source16[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "event" : "endOfForm"
+    } ],
+    "op" : "walk"
+  }, {
+    "op" : "validate",
+    "outcome" : "ok",
+    "ref" : null
+  } ],
+  "traceVersion" : 1
+}

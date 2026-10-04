@@ -1,0 +1,46 @@
+{
+  "form" : "forms/collect/form_design_error.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"form-list-relevance-issue\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\"><group><name>kappa'lambda</name><fullName>kappa'lambda</fullName></group><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 33,
+  "steps" : [ {
+    "appearance" : "field-list",
+    "event" : "group",
+    "label" : null,
+    "ref" : "/data/group[1]"
+  }, {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "What is your first name",
+    "readonly" : false,
+    "ref" : "/data/group[1]/name[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "A"
+  }, {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Please add your second name to have your full name",
+    "readonly" : false,
+    "ref" : "/data/group[1]/fullName[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "kappa'lambda"
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

@@ -1,0 +1,57 @@
+{
+  "form" : "forms/collect/dynamic_and_static_choices.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"dynamic_and_static_choices\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><fruits /><numbers /><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "language" : null,
+    "languages" : [ ],
+    "ok" : true,
+    "title" : "dynamic_and_static_choices"
+  },
+  "steps" : [ {
+    "events" : [ {
+      "appearance" : "search('fruits')",
+      "choices" : [ {
+        "label" : "name",
+        "value" : "name_key"
+      }, {
+        "label" : "None of the above",
+        "value" : "0"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Choose a fruit",
+      "readonly" : false,
+      "ref" : "/data/fruits[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "search('numbers')",
+      "choices" : [ {
+        "label" : "0",
+        "value" : "0"
+      }, {
+        "label" : "1",
+        "value" : "1"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Choose a number",
+      "readonly" : false,
+      "ref" : "/data/numbers[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "event" : "endOfForm"
+    } ],
+    "op" : "walk"
+  }, {
+    "op" : "validate",
+    "outcome" : "ok",
+    "ref" : null
+  } ],
+  "traceVersion" : 1
+}

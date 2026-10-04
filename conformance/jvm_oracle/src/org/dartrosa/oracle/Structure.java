@@ -137,7 +137,7 @@ final class Structure {
         m.put("constraint", c == null ? null : c.constraint.getExpr().toString());
         List<Object> attrs = new ArrayList<>();
         for (int i = 0; i < t.getAttributeCount(); i++) {
-            attrs.add(List.of(String.valueOf(t.getAttributeNamespace(i)), t.getAttributeName(i), String.valueOf(t.getAttributeValue(i))));
+            attrs.add(List.of(String.valueOf(t.getAttributeNamespace(i)), t.getAttributeName(i), String.valueOf(Oracle.normalize(t.getAttributeValue(i)))));
         }
         m.put("attributes", attrs);
         List<Object> bindAttrs = new ArrayList<>();

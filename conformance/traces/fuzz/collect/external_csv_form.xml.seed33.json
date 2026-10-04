@@ -1,0 +1,76 @@
+{
+  "form" : "forms/collect/external_csv_form.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><ecsv id=\"ecsv\" version=\"\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><country>usa</country><city>den</city><neighborhood>parkhill</neighborhood><meta><instanceID>uuid:<uuid></instanceID></meta></ecsv>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 33,
+  "steps" : [ {
+    "after" : "usa",
+    "answer" : "usa",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "The Netherlands",
+      "value" : "nl"
+    }, {
+      "label" : "United States",
+      "value" : "usa"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Country",
+    "readonly" : false,
+    "ref" : "/ecsv/country[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "den",
+    "answer" : "den",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Denver",
+      "value" : "den"
+    }, {
+      "label" : "New York City",
+      "value" : "nyc"
+    }, {
+      "label" : "Los Angeles",
+      "value" : "la"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "City",
+    "readonly" : false,
+    "ref" : "/ecsv/city[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "parkhill",
+    "answer" : "parkhill",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Park Hill",
+      "value" : "parkhill"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Neighborhood",
+    "readonly" : false,
+    "ref" : "/ecsv/neighborhood[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

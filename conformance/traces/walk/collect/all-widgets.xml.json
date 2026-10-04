@@ -1,0 +1,1257 @@
+{
+  "form" : "forms/collect/all-widgets.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"all-widgets\" version=\"2019121101\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><intro /><text_widgets><string_widget /><string_number_widget /><url_widget>http://opendatakit.org/</url_widget><ex_string_widget /><ex_printer_widget>123456789&lt;br&gt;QRCODE&lt;br&gt;Text</ex_printer_widget></text_widgets><number_widgets><integer_widget /><integer_thousands_sep_widget /><ex_integer_widget /><decimal_widget /><ex_decimal_widget /><bearing_widget /></number_widgets><range_widgets><range_integer_widget /><range_decimal_widget /><range_integer_widget_vertical /><range_integer_widget_picker /><range_integer_widget_rating /></range_widgets><image_widgets><image_widget /><image_widget_no_choose /><selfie_image_widget /><draw_image_widget /><annotate_image_widget /><signature_widget /></image_widgets><media_widgets><barcode_widget /><audio_widget /><video_widget /><file_widget /></media_widgets><date_time_widgets><date_widget /><date_widget_nocalendar /><date_widget_month_year /><date_widget_year /><time_widget /><date_time_widget /><date_time_widget_nocalendar /><ethiopian_date_widget /><coptic_date_widget /><islamic_date_widget /><bikram_sambat_date_widget /><myanmar_date_widget /><persian_date_widget /></date_time_widgets><geopoint_widgets><geopoint_widget /><geopoint_widget_placementmap /><geopoint_widget_maps /><geotrace_widget /><geoshape_widget /><osm_building /></geopoint_widgets><select_one_widgets><select_one_widget /><spinner_widget /><select_one_autoadvance_widget /><select_one_search_widget /><select_one_autocomplete_widget /><grid_widget /><grid_widget_compact /><grid_widget_compact2 /><grid_widget_quickcompact /><grid_widget_quickcompact2 /><select_one_image_map /><likert_widget /><select_one_from_map_widget /></select_one_widgets><select_multi_widgets><select_multi_widget /><select_multi_widget_autocomplete /><grid_multi_widget_compact /><grid_multi_widget_compact2 /><spinner_multi_widget /><select_multi_image_map /></select_multi_widgets><table_list_test><table_list_test_label /><table_list_test_label_2 /><table_list_1 /><table_list_2 /><list_widget /><list_multi_widget /></table_list_test><rank_widget /><my_trigger /><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "language" : "default",
+    "languages" : [ "default", "French (fr)" ],
+    "ok" : true,
+    "title" : "All widgets"
+  },
+  "steps" : [ {
+    "events" : [ {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : "This is a sample for introductory and debugging purposes. It is updated periodically so check \"Get Blank Form\" to get the latest!\n\n        Version 2019120201 adds:\n        &nbsp;&nbsp;&nbsp;&nbsp;- Likert widget\n\n        Version 2019061302 adds:\n        &nbsp;&nbsp;&nbsp;&nbsp;- Myanmar calendar\n        &nbsp;&nbsp;&nbsp;&nbsp;- Persian calendar\n\n        Version 2019020201 adds:\n        &nbsp;&nbsp;&nbsp;&nbsp;- Appearance rating for range type\n\n        Version 2018102901 adds:\n        &nbsp;&nbsp;&nbsp;&nbsp;- Bikram Sambat calendar\n\n        Version 2018081601 adds:\n        &nbsp;&nbsp;&nbsp;&nbsp;- Rank widget\n\n        Version 2018051401 adds:\n        &nbsp;&nbsp;&nbsp;&nbsp;- File widget\n\n        Version 2018032801 adds:\n        &nbsp;&nbsp;&nbsp;&nbsp;- Appearance new-front (selfie) for video type\n\n        Version 2018022001 adds:\n        &nbsp;&nbsp;&nbsp;&nbsp;- Appearance image-map for select\\_one and select\\_multiple types\n        &nbsp;&nbsp;&nbsp;&nbsp;- Appearance new for image, audio, video types\n\n        Version 2017121301 added:\n        &nbsp;&nbsp;&nbsp;&nbsp;- Appearance thousands-sep for numeric types\n        &nbsp;&nbsp;&nbsp;&nbsp;- Range questions\n        &nbsp;&nbsp;&nbsp;&nbsp;- Ethiopian, coptic and islamic calendars",
+      "label" : "Welcome to ODK Collect! This form showcases the different available question types (<em>widgets</em>).",
+      "readonly" : true,
+      "ref" : "/data/intro[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "event" : "group",
+      "label" : "Text widgets",
+      "ref" : "/data/text_widgets[1]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "String widget",
+      "readonly" : false,
+      "ref" : "/data/text_widgets[1]/string_widget[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "numbers",
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : "text type with numbers appearance",
+      "label" : "String number widget",
+      "readonly" : false,
+      "ref" : "/data/text_widgets[1]/string_number_widget[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "url",
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : "text type with url appearance and default value of http://opendatakit.org/",
+      "label" : "URL widget",
+      "readonly" : false,
+      "ref" : "/data/text_widgets[1]/url_widget[1]",
+      "required" : false,
+      "value" : "http://opendatakit.org/"
+    }, {
+      "appearance" : "ex:change.uw.android.BREATHCOUNT",
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : "text type with ex:change.uw.android.BREATHCOUNT appearance (can use other external apps)",
+      "label" : "Ex string widget",
+      "readonly" : false,
+      "ref" : "/data/text_widgets[1]/ex_string_widget[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "printer:org.opendatakit.sensors.ZebraPrinter",
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : "text type with printer:org.opendatakit.sensors.ZebraPrinter",
+      "label" : "Ex printer widget",
+      "readonly" : false,
+      "ref" : "/data/text_widgets[1]/ex_printer_widget[1]",
+      "required" : false,
+      "value" : "123456789<br>QRCODE<br>Text"
+    }, {
+      "appearance" : null,
+      "event" : "group",
+      "label" : "Numerical widgets",
+      "ref" : "/data/number_widgets[1]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "integer",
+      "event" : "question",
+      "hint" : "integer type with no appearance",
+      "label" : "Integer widget",
+      "readonly" : false,
+      "ref" : "/data/number_widgets[1]/integer_widget[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "thousands-sep",
+      "control" : "input",
+      "dataType" : "integer",
+      "event" : "question",
+      "hint" : "integer type with thousands-sep appearance. This appearance can also be applied to decimal and string numbers widgets",
+      "label" : "Integer widget with thousands separators",
+      "readonly" : false,
+      "ref" : "/data/number_widgets[1]/integer_thousands_sep_widget[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "ex:change.uw.android.BREATHCOUNT",
+      "control" : "input",
+      "dataType" : "integer",
+      "event" : "question",
+      "hint" : "integer type with ex:change.uw.android.BREATHCOUNT appearance (can use other external apps)",
+      "label" : "Ex integer widget",
+      "readonly" : false,
+      "ref" : "/data/number_widgets[1]/ex_integer_widget[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "decimal",
+      "event" : "question",
+      "hint" : "decimal type with no appearance",
+      "label" : "Decimal widget",
+      "readonly" : false,
+      "ref" : "/data/number_widgets[1]/decimal_widget[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "ex:change.uw.android.BREATHCOUNT",
+      "control" : "input",
+      "dataType" : "decimal",
+      "event" : "question",
+      "hint" : "decimal type with ex:change.uw.android.BREATHCOUNT appearance (can use other external apps)",
+      "label" : "Ex decimal widget",
+      "readonly" : false,
+      "ref" : "/data/number_widgets[1]/ex_decimal_widget[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "bearing",
+      "control" : "input",
+      "dataType" : "decimal",
+      "event" : "question",
+      "hint" : "decimal type with bearing appearance",
+      "label" : "Bearing widget",
+      "readonly" : false,
+      "ref" : "/data/number_widgets[1]/bearing_widget[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "event" : "group",
+      "label" : "Range widgets",
+      "ref" : "/data/range_widgets[1]"
+    }, {
+      "appearance" : null,
+      "control" : "range",
+      "dataType" : "integer",
+      "event" : "question",
+      "hint" : "range integer widget with no appearance",
+      "label" : "Range integer widget",
+      "readonly" : false,
+      "ref" : "/data/range_widgets[1]/range_integer_widget[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "range",
+      "dataType" : "decimal",
+      "event" : "question",
+      "hint" : "range decimal widget with no appearance",
+      "label" : "Range decimal widget",
+      "readonly" : false,
+      "ref" : "/data/range_widgets[1]/range_decimal_widget[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "vertical",
+      "control" : "range",
+      "dataType" : "integer",
+      "event" : "question",
+      "hint" : "range integer widget with vertical appearance. This appearance can also be applied to a decimal range.",
+      "label" : "Range vertical integer widget",
+      "readonly" : false,
+      "ref" : "/data/range_widgets[1]/range_integer_widget_vertical[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "picker",
+      "control" : "range",
+      "dataType" : "integer",
+      "event" : "question",
+      "hint" : "range integer widget with picker appearance. This appearance can also be applied to a decimal range.",
+      "label" : "Range picker integer widget",
+      "readonly" : false,
+      "ref" : "/data/range_widgets[1]/range_integer_widget_picker[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "rating",
+      "control" : "range",
+      "dataType" : "integer",
+      "event" : "question",
+      "hint" : "range integer widget with rating appearance. This appearance can also be applied to a decimal range.",
+      "label" : "Range rating integer widget",
+      "readonly" : false,
+      "ref" : "/data/range_widgets[1]/range_integer_widget_rating[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "event" : "group",
+      "label" : "Image widgets",
+      "ref" : "/data/image_widgets[1]"
+    }, {
+      "appearance" : null,
+      "control" : "imageChoose",
+      "dataType" : "binary",
+      "event" : "question",
+      "hint" : "image type with no appearance",
+      "label" : "Image widget",
+      "readonly" : false,
+      "ref" : "/data/image_widgets[1]/image_widget[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "new",
+      "control" : "imageChoose",
+      "dataType" : "binary",
+      "event" : "question",
+      "hint" : "image type with new appearance (can also be added with annotate appearance and on audio and video types)",
+      "label" : "Image widget without Choose button",
+      "readonly" : false,
+      "ref" : "/data/image_widgets[1]/image_widget_no_choose[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "selfie",
+      "control" : "imageChoose",
+      "dataType" : "binary",
+      "event" : "question",
+      "hint" : "image type with selfie appearance",
+      "label" : "Selfie widget",
+      "readonly" : false,
+      "ref" : "/data/image_widgets[1]/selfie_image_widget[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "draw",
+      "control" : "imageChoose",
+      "dataType" : "binary",
+      "event" : "question",
+      "hint" : "image type with draw appearance",
+      "label" : "Draw widget",
+      "readonly" : false,
+      "ref" : "/data/image_widgets[1]/draw_image_widget[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "annotate",
+      "control" : "imageChoose",
+      "dataType" : "binary",
+      "event" : "question",
+      "hint" : "image type with annotate appearance",
+      "label" : "Annotate widget",
+      "readonly" : false,
+      "ref" : "/data/image_widgets[1]/annotate_image_widget[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "signature",
+      "control" : "imageChoose",
+      "dataType" : "binary",
+      "event" : "question",
+      "hint" : "image type with signature appearance",
+      "label" : "Signature widget",
+      "readonly" : false,
+      "ref" : "/data/image_widgets[1]/signature_widget[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "event" : "group",
+      "label" : "Media widgets",
+      "ref" : "/data/media_widgets[1]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "barcode",
+      "event" : "question",
+      "hint" : "barcode type with no appearance",
+      "label" : "Barcode widget",
+      "readonly" : false,
+      "ref" : "/data/media_widgets[1]/barcode_widget[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "audioCapture",
+      "dataType" : "binary",
+      "event" : "question",
+      "hint" : "audio type with no appearance",
+      "label" : "Audio widget",
+      "readonly" : false,
+      "ref" : "/data/media_widgets[1]/audio_widget[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "videoCapture",
+      "dataType" : "binary",
+      "event" : "question",
+      "hint" : "video type with no appearance",
+      "label" : "Video widget",
+      "readonly" : false,
+      "ref" : "/data/media_widgets[1]/video_widget[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "fileCapture",
+      "dataType" : "binary",
+      "event" : "question",
+      "hint" : "file type with no appearance <br/> WARNING: any kind of file could be uploaded including files that contain viruses or other malware. Be sure to take proper precautions when downloading files from server.",
+      "label" : "File widget",
+      "readonly" : false,
+      "ref" : "/data/media_widgets[1]/file_widget[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "event" : "group",
+      "label" : "Date and time widgets",
+      "ref" : "/data/date_time_widgets[1]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "date",
+      "event" : "question",
+      "hint" : "date type with no appearance",
+      "label" : "Date widget",
+      "readonly" : false,
+      "ref" : "/data/date_time_widgets[1]/date_widget[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "no-calendar",
+      "control" : "input",
+      "dataType" : "date",
+      "event" : "question",
+      "hint" : "date type with no-calendar appearance",
+      "label" : "Date Widget",
+      "readonly" : false,
+      "ref" : "/data/date_time_widgets[1]/date_widget_nocalendar[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "month-year",
+      "control" : "input",
+      "dataType" : "date",
+      "event" : "question",
+      "hint" : "date type with month-year appearance",
+      "label" : "Date widget",
+      "readonly" : false,
+      "ref" : "/data/date_time_widgets[1]/date_widget_month_year[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "year",
+      "control" : "input",
+      "dataType" : "date",
+      "event" : "question",
+      "hint" : "date type with year appearance",
+      "label" : "Date widget",
+      "readonly" : false,
+      "ref" : "/data/date_time_widgets[1]/date_widget_year[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "time",
+      "event" : "question",
+      "hint" : "time type with no appearance",
+      "label" : "Time widget",
+      "readonly" : false,
+      "ref" : "/data/date_time_widgets[1]/time_widget[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "dateTime",
+      "event" : "question",
+      "hint" : "dateTime type with no appearance",
+      "label" : "Date time widget",
+      "readonly" : false,
+      "ref" : "/data/date_time_widgets[1]/date_time_widget[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "no-calendar",
+      "control" : "input",
+      "dataType" : "dateTime",
+      "event" : "question",
+      "hint" : "dateTime type with no-calendar appearance",
+      "label" : "Date time widget",
+      "readonly" : false,
+      "ref" : "/data/date_time_widgets[1]/date_time_widget_nocalendar[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "ethiopian",
+      "control" : "input",
+      "dataType" : "date",
+      "event" : "question",
+      "hint" : "date type ethiopian appearance",
+      "label" : "Ethiopian date widget",
+      "readonly" : false,
+      "ref" : "/data/date_time_widgets[1]/ethiopian_date_widget[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "coptic",
+      "control" : "input",
+      "dataType" : "date",
+      "event" : "question",
+      "hint" : "date type coptic appearance",
+      "label" : "Coptic date widget",
+      "readonly" : false,
+      "ref" : "/data/date_time_widgets[1]/coptic_date_widget[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "islamic",
+      "control" : "input",
+      "dataType" : "date",
+      "event" : "question",
+      "hint" : "date type islamic appearance",
+      "label" : "Islamic date widget",
+      "readonly" : false,
+      "ref" : "/data/date_time_widgets[1]/islamic_date_widget[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "bikram-sambat",
+      "control" : "input",
+      "dataType" : "date",
+      "event" : "question",
+      "hint" : "date type bikram-sambat appearance",
+      "label" : "Bikram Sambat date widget",
+      "readonly" : false,
+      "ref" : "/data/date_time_widgets[1]/bikram_sambat_date_widget[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "myanmar",
+      "control" : "input",
+      "dataType" : "date",
+      "event" : "question",
+      "hint" : "date type myanmar appearance",
+      "label" : "Myanmar date widget",
+      "readonly" : false,
+      "ref" : "/data/date_time_widgets[1]/myanmar_date_widget[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "persian",
+      "control" : "input",
+      "dataType" : "date",
+      "event" : "question",
+      "hint" : "date type persian appearance",
+      "label" : "Persian date widget",
+      "readonly" : false,
+      "ref" : "/data/date_time_widgets[1]/persian_date_widget[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "event" : "group",
+      "label" : "Geo widgets",
+      "ref" : "/data/geopoint_widgets[1]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "geopoint",
+      "event" : "question",
+      "hint" : "geopoint type with no appearance",
+      "label" : "Geopoint widget",
+      "readonly" : false,
+      "ref" : "/data/geopoint_widgets[1]/geopoint_widget[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "placement-map",
+      "control" : "input",
+      "dataType" : "geopoint",
+      "event" : "question",
+      "hint" : "geopoint type with placement-map appearance",
+      "label" : "Geopoint widget",
+      "readonly" : false,
+      "ref" : "/data/geopoint_widgets[1]/geopoint_widget_placementmap[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "maps",
+      "control" : "input",
+      "dataType" : "geopoint",
+      "event" : "question",
+      "hint" : "geopoint type with maps appearance",
+      "label" : "Geopoint widget",
+      "readonly" : false,
+      "ref" : "/data/geopoint_widgets[1]/geopoint_widget_maps[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "geotrace",
+      "event" : "question",
+      "hint" : "geotrace type with no appearance",
+      "label" : "Geotrace widget",
+      "readonly" : false,
+      "ref" : "/data/geopoint_widgets[1]/geotrace_widget[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "geoshape",
+      "event" : "question",
+      "hint" : "geoshape type with no appearance",
+      "label" : "Geoshape widget",
+      "readonly" : false,
+      "ref" : "/data/geopoint_widgets[1]/geoshape_widget[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "osmCapture",
+      "dataType" : "binary",
+      "event" : "question",
+      "hint" : "osm type with required tags defined in osm list osm_building",
+      "label" : "OSM integration",
+      "readonly" : false,
+      "ref" : "/data/geopoint_widgets[1]/osm_building[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "event" : "group",
+      "label" : "Select one widgets",
+      "ref" : "/data/select_one_widgets[1]"
+    }, {
+      "appearance" : null,
+      "choices" : [ {
+        "label" : "A",
+        "value" : "a"
+      }, {
+        "label" : "B",
+        "value" : "b"
+      }, {
+        "label" : "C",
+        "value" : "c"
+      }, {
+        "label" : "D",
+        "value" : "d"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : "select_one type with no appearance, 4 text choices",
+      "label" : "Select one widget",
+      "readonly" : false,
+      "ref" : "/data/select_one_widgets[1]/select_one_widget[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "minimal",
+      "choices" : [ {
+        "label" : "A",
+        "value" : "a"
+      }, {
+        "label" : "B",
+        "value" : "b"
+      }, {
+        "label" : "C",
+        "value" : "c"
+      }, {
+        "label" : "D",
+        "value" : "d"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : "select_one type with minimal appearance, 4 text choices",
+      "label" : "Spinner widget",
+      "readonly" : false,
+      "ref" : "/data/select_one_widgets[1]/spinner_widget[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "quick",
+      "choices" : [ {
+        "label" : "A",
+        "value" : "a"
+      }, {
+        "label" : "B",
+        "value" : "b"
+      }, {
+        "label" : "C",
+        "value" : "c"
+      }, {
+        "label" : "D",
+        "value" : "d"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : "select_one type with quick appearance, 4 text choices",
+      "label" : "Select one autoadvance widget",
+      "readonly" : false,
+      "ref" : "/data/select_one_widgets[1]/select_one_autoadvance_widget[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "search",
+      "choices" : [ {
+        "label" : "A",
+        "value" : "a"
+      }, {
+        "label" : "B",
+        "value" : "b"
+      }, {
+        "label" : "C",
+        "value" : "c"
+      }, {
+        "label" : "D",
+        "value" : "d"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : "select_one type with search appearance, 4 text choices",
+      "label" : "Select one search widget",
+      "readonly" : false,
+      "ref" : "/data/select_one_widgets[1]/select_one_search_widget[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "autocomplete",
+      "choices" : [ {
+        "label" : "A",
+        "value" : "a"
+      }, {
+        "label" : "B",
+        "value" : "b"
+      }, {
+        "label" : "C",
+        "value" : "c"
+      }, {
+        "label" : "D",
+        "value" : "d"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : "select_one type with autocomplete appearance, 4 text choices",
+      "label" : "Select one search widget",
+      "readonly" : false,
+      "ref" : "/data/select_one_widgets[1]/select_one_autocomplete_widget[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "choices" : [ {
+        "label" : "A",
+        "value" : "a"
+      }, {
+        "label" : "B",
+        "value" : "b"
+      }, {
+        "label" : "C",
+        "value" : "c"
+      }, {
+        "label" : "D",
+        "value" : "d"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : "select_one type with no appearance, 4 image choices (a.jpg, b.jpg, c.jpg, d.jpg)",
+      "label" : "Grid select one widget",
+      "readonly" : false,
+      "ref" : "/data/select_one_widgets[1]/grid_widget[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "compact",
+      "choices" : [ {
+        "label" : "A",
+        "value" : "a"
+      }, {
+        "label" : "B",
+        "value" : "b"
+      }, {
+        "label" : "C",
+        "value" : "c"
+      }, {
+        "label" : "D",
+        "value" : "d"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : "select_one type with compact appearance, 4 image choices (a.jpg, b.jpg, c.jpg, d.jpg)",
+      "label" : "Grid select one widget",
+      "readonly" : false,
+      "ref" : "/data/select_one_widgets[1]/grid_widget_compact[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "compact-2",
+      "choices" : [ {
+        "label" : "A",
+        "value" : "a"
+      }, {
+        "label" : "B",
+        "value" : "b"
+      }, {
+        "label" : "C",
+        "value" : "c"
+      }, {
+        "label" : "D",
+        "value" : "d"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : "select_one type with compact-2 appearance, 4 image choices (a.jpg, b.jpg, c.jpg, d.jpg)",
+      "label" : "Grid select one widget",
+      "readonly" : false,
+      "ref" : "/data/select_one_widgets[1]/grid_widget_compact2[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "quickcompact",
+      "choices" : [ {
+        "label" : "A",
+        "value" : "a"
+      }, {
+        "label" : "B",
+        "value" : "b"
+      }, {
+        "label" : "C",
+        "value" : "c"
+      }, {
+        "label" : "D",
+        "value" : "d"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : "select_one type with quickcompact appearance, 4 image choices (a.jpg, b.jpg, c.jpg, d.jpg)",
+      "label" : "Grid select one widget",
+      "readonly" : false,
+      "ref" : "/data/select_one_widgets[1]/grid_widget_quickcompact[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "quickcompact-2",
+      "choices" : [ {
+        "label" : "A",
+        "value" : "a"
+      }, {
+        "label" : "B",
+        "value" : "b"
+      }, {
+        "label" : "C",
+        "value" : "c"
+      }, {
+        "label" : "D",
+        "value" : "d"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : "select_one type with quickcompact-2 appearance, 4 image choices (a.jpg, b.jpg, c.jpg, d.jpg)",
+      "label" : "Grid select one widget",
+      "readonly" : false,
+      "ref" : "/data/select_one_widgets[1]/grid_widget_quickcompact2[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "image-map",
+      "choices" : [ {
+        "label" : "Head",
+        "value" : "head"
+      }, {
+        "label" : "Neck",
+        "value" : "neck"
+      }, {
+        "label" : "Lungs",
+        "value" : "lungs"
+      }, {
+        "label" : "Left proximal arm",
+        "value" : "left_proximal_arm"
+      }, {
+        "label" : "Left distal arm",
+        "value" : "left_distal_arm"
+      }, {
+        "label" : "Right proximal arm",
+        "value" : "right_proximal_arm"
+      }, {
+        "label" : "Right distal arm",
+        "value" : "right_distal_arm"
+      }, {
+        "label" : "Left proximal leg",
+        "value" : "left_proximal_leg"
+      }, {
+        "label" : "Left distal leg",
+        "value" : "left_distal_leg"
+      }, {
+        "label" : "Right proximal leg",
+        "value" : "right_proximal_leg"
+      }, {
+        "label" : "Right distal leg",
+        "value" : "right_distal_leg"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : "select_one with type image-map appearance and image body.svg",
+      "label" : "Image select one widget",
+      "readonly" : false,
+      "ref" : "/data/select_one_widgets[1]/select_one_image_map[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "likert",
+      "choices" : [ {
+        "label" : "Strongly Disagree",
+        "value" : "strongly_disagree"
+      }, {
+        "label" : "Disagree",
+        "value" : "disagree"
+      }, {
+        "label" : "Neutral",
+        "value" : "neutral"
+      }, {
+        "label" : "Agree",
+        "value" : "agree"
+      }, {
+        "label" : "Strongly Agree",
+        "value" : "strongly_agree"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : "Images made by Pixel Perfect and downloaded from flaticon.com",
+      "label" : "Likert widget",
+      "readonly" : false,
+      "ref" : "/data/select_one_widgets[1]/likert_widget[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "map",
+      "choices" : [ {
+        "label" : "A",
+        "value" : "a"
+      }, {
+        "label" : "B",
+        "value" : "b"
+      }, {
+        "label" : "C",
+        "value" : "c"
+      }, {
+        "label" : "D",
+        "value" : "d"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : "select_one type with map appearance",
+      "label" : "Select one from map widget",
+      "readonly" : false,
+      "ref" : "/data/select_one_widgets[1]/select_one_from_map_widget[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "event" : "group",
+      "label" : "Select multi widgets",
+      "ref" : "/data/select_multi_widgets[1]"
+    }, {
+      "appearance" : null,
+      "choices" : [ {
+        "label" : "A",
+        "value" : "a"
+      }, {
+        "label" : "B",
+        "value" : "b"
+      }, {
+        "label" : "C",
+        "value" : "c"
+      }, {
+        "label" : "D",
+        "value" : "d"
+      } ],
+      "control" : "selectMulti",
+      "dataType" : "multipleItems",
+      "event" : "question",
+      "hint" : "select_multiple type with no appearance, 4 text choices",
+      "label" : "Multi select widget",
+      "readonly" : false,
+      "ref" : "/data/select_multi_widgets[1]/select_multi_widget[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "autocomplete",
+      "choices" : [ {
+        "label" : "A",
+        "value" : "a"
+      }, {
+        "label" : "B",
+        "value" : "b"
+      }, {
+        "label" : "C",
+        "value" : "c"
+      }, {
+        "label" : "D",
+        "value" : "d"
+      } ],
+      "control" : "selectMulti",
+      "dataType" : "multipleItems",
+      "event" : "question",
+      "hint" : "select_multiple type with autocomplete appearance, 4 text choices",
+      "label" : "Multi select autocomplete widget",
+      "readonly" : false,
+      "ref" : "/data/select_multi_widgets[1]/select_multi_widget_autocomplete[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "compact",
+      "choices" : [ {
+        "label" : "A",
+        "value" : "a"
+      }, {
+        "label" : "B",
+        "value" : "b"
+      }, {
+        "label" : "C",
+        "value" : "c"
+      }, {
+        "label" : "D",
+        "value" : "d"
+      } ],
+      "control" : "selectMulti",
+      "dataType" : "multipleItems",
+      "event" : "question",
+      "hint" : "select_multiple type with compact appearance, 4 image choices",
+      "label" : "Grid select multiple widget",
+      "readonly" : false,
+      "ref" : "/data/select_multi_widgets[1]/grid_multi_widget_compact[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "compact-2",
+      "choices" : [ {
+        "label" : "A",
+        "value" : "a"
+      }, {
+        "label" : "B",
+        "value" : "b"
+      }, {
+        "label" : "C",
+        "value" : "c"
+      }, {
+        "label" : "D",
+        "value" : "d"
+      } ],
+      "control" : "selectMulti",
+      "dataType" : "multipleItems",
+      "event" : "question",
+      "hint" : "select_multiple type with compact-2 appearance, 4 image choices",
+      "label" : "Grid select multiple widget",
+      "readonly" : false,
+      "ref" : "/data/select_multi_widgets[1]/grid_multi_widget_compact2[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "minimal",
+      "choices" : [ {
+        "label" : "A",
+        "value" : "a"
+      }, {
+        "label" : "B",
+        "value" : "b"
+      }, {
+        "label" : "C",
+        "value" : "c"
+      }, {
+        "label" : "D",
+        "value" : "d"
+      } ],
+      "control" : "selectMulti",
+      "dataType" : "multipleItems",
+      "event" : "question",
+      "hint" : "select_multiple type with minimal appearance, 4 image choices",
+      "label" : "Spinner widget: select multiple",
+      "readonly" : false,
+      "ref" : "/data/select_multi_widgets[1]/spinner_multi_widget[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "image-map",
+      "choices" : [ {
+        "label" : "Head",
+        "value" : "head"
+      }, {
+        "label" : "Neck",
+        "value" : "neck"
+      }, {
+        "label" : "Lungs",
+        "value" : "lungs"
+      }, {
+        "label" : "Left proximal arm",
+        "value" : "left_proximal_arm"
+      }, {
+        "label" : "Left distal arm",
+        "value" : "left_distal_arm"
+      }, {
+        "label" : "Right proximal arm",
+        "value" : "right_proximal_arm"
+      }, {
+        "label" : "Right distal arm",
+        "value" : "right_distal_arm"
+      }, {
+        "label" : "Left proximal leg",
+        "value" : "left_proximal_leg"
+      }, {
+        "label" : "Left distal leg",
+        "value" : "left_distal_leg"
+      }, {
+        "label" : "Right proximal leg",
+        "value" : "right_proximal_leg"
+      }, {
+        "label" : "Right distal leg",
+        "value" : "right_distal_leg"
+      } ],
+      "control" : "selectMulti",
+      "dataType" : "multipleItems",
+      "event" : "question",
+      "hint" : "select_multiple type with image-map appearance and image body.svg",
+      "label" : "Image select multiple widget",
+      "readonly" : false,
+      "ref" : "/data/select_multi_widgets[1]/select_multi_image_map[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "field-list",
+      "event" : "group",
+      "label" : "List group",
+      "ref" : "/data/table_list_test[1]"
+    }, {
+      "appearance" : "label",
+      "choices" : [ {
+        "label" : "Yes",
+        "value" : "yes"
+      }, {
+        "label" : "No",
+        "value" : "no"
+      }, {
+        "label" : "Don't Know",
+        "value" : "dk"
+      }, {
+        "label" : "Not Applicable",
+        "value" : "na"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : "Show only the labels of these options and not the inputs (type=select_one yes_no, appearance=label)",
+      "label" : "Label widget",
+      "readonly" : false,
+      "ref" : "/data/table_list_test[1]/table_list_test_label[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "label",
+      "choices" : [ {
+        "label" : "Yes",
+        "value" : "yes"
+      }, {
+        "label" : "No",
+        "value" : "no"
+      }, {
+        "label" : "Don't Know",
+        "value" : "dk"
+      }, {
+        "label" : "Not Applicable",
+        "value" : "na"
+      } ],
+      "control" : "selectMulti",
+      "dataType" : "multipleItems",
+      "event" : "question",
+      "hint" : "Show only the labels of these options and not the inputs (type=select_multiple yes_no, appearance=label)",
+      "label" : "Label multi widget",
+      "readonly" : false,
+      "ref" : "/data/table_list_test[1]/table_list_test_label_2[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "list-nolabel",
+      "choices" : [ {
+        "label" : "Yes",
+        "value" : "yes"
+      }, {
+        "label" : "No",
+        "value" : "no"
+      }, {
+        "label" : "Don't Know",
+        "value" : "dk"
+      }, {
+        "label" : "Not Applicable",
+        "value" : "na"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : "Show only the inputs of these options and not the labels (type=select_one yes_no, appearance=list-nolabel)",
+      "label" : "List widget",
+      "readonly" : false,
+      "ref" : "/data/table_list_test[1]/table_list_1[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "list-nolabel",
+      "choices" : [ {
+        "label" : "Yes",
+        "value" : "yes"
+      }, {
+        "label" : "No",
+        "value" : "no"
+      }, {
+        "label" : "Don't Know",
+        "value" : "dk"
+      }, {
+        "label" : "Not Applicable",
+        "value" : "na"
+      } ],
+      "control" : "selectMulti",
+      "dataType" : "multipleItems",
+      "event" : "question",
+      "hint" : "Show only the inputs of these options and not the labels (type=select_multiple yes_no, appearance=list-nolabel)",
+      "label" : "List multi widget",
+      "readonly" : false,
+      "ref" : "/data/table_list_test[1]/table_list_2[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "list",
+      "choices" : [ {
+        "label" : "Yes",
+        "value" : "yes"
+      }, {
+        "label" : "No",
+        "value" : "no"
+      }, {
+        "label" : "Don't Know",
+        "value" : "dk"
+      }, {
+        "label" : "Not Applicable",
+        "value" : "na"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : "This is a normal list widget with (type = select_one, appearance = list)",
+      "label" : "List widget",
+      "readonly" : false,
+      "ref" : "/data/table_list_test[1]/list_widget[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "list",
+      "choices" : [ {
+        "label" : "Yes",
+        "value" : "yes"
+      }, {
+        "label" : "No",
+        "value" : "no"
+      }, {
+        "label" : "Don't Know",
+        "value" : "dk"
+      }, {
+        "label" : "Not Applicable",
+        "value" : "na"
+      } ],
+      "control" : "selectMulti",
+      "dataType" : "multipleItems",
+      "event" : "question",
+      "hint" : "This is a normal list widget with (type = select_multiple, appearance = list)",
+      "label" : "List multi widget",
+      "readonly" : false,
+      "ref" : "/data/table_list_test[1]/list_multi_widget[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "choices" : [ {
+        "label" : "A",
+        "value" : "a"
+      }, {
+        "label" : "B",
+        "value" : "b"
+      }, {
+        "label" : "C",
+        "value" : "c"
+      }, {
+        "label" : "D",
+        "value" : "d"
+      } ],
+      "control" : "rank",
+      "dataType" : "multipleItems",
+      "event" : "question",
+      "hint" : "rank type with no appearance, 4 text choices. Long press on a choice and drag it to change its position.",
+      "label" : "Rank widget",
+      "readonly" : false,
+      "ref" : "/data/rank_widget[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "trigger",
+      "dataType" : "null",
+      "event" : "question",
+      "hint" : "Prompts for confirmation. Useful to combine with required or relevant. (type=trigger)",
+      "label" : "Trigger widget",
+      "readonly" : false,
+      "ref" : "/data/my_trigger[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "event" : "endOfForm"
+    } ],
+    "op" : "walk"
+  }, {
+    "op" : "validate",
+    "outcome" : "ok",
+    "ref" : null
+  } ],
+  "traceVersion" : 1
+}

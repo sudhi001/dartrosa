@@ -1,0 +1,65 @@
+{
+  "form" : "forms/collect/image-compression.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"image-compression\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><image /><annotate /><draw /><signature /><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "language" : null,
+    "languages" : [ ],
+    "ok" : true,
+    "title" : "image-compression"
+  },
+  "steps" : [ {
+    "events" : [ {
+      "appearance" : null,
+      "control" : "imageChoose",
+      "dataType" : "binary",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Image",
+      "readonly" : false,
+      "ref" : "/data/image[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "annotate",
+      "control" : "imageChoose",
+      "dataType" : "binary",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Annotate",
+      "readonly" : false,
+      "ref" : "/data/annotate[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "draw",
+      "control" : "imageChoose",
+      "dataType" : "binary",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Draw",
+      "readonly" : false,
+      "ref" : "/data/draw[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "signature",
+      "control" : "imageChoose",
+      "dataType" : "binary",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Signature",
+      "readonly" : false,
+      "ref" : "/data/signature[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "event" : "endOfForm"
+    } ],
+    "op" : "walk"
+  }, {
+    "op" : "validate",
+    "outcome" : "ok",
+    "ref" : null
+  } ],
+  "traceVersion" : 1
+}

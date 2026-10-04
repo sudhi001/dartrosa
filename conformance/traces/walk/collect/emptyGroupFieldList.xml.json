@@ -1,0 +1,26 @@
+{
+  "form" : "forms/collect/emptyGroupFieldList.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"build_emptyGroupFieldList_1538592237\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><meta><instanceID>uuid:<uuid></instanceID></meta><g /></data>",
+  "parse" : {
+    "language" : "English",
+    "languages" : [ "English" ],
+    "ok" : true,
+    "title" : "emptyGroupFieldList"
+  },
+  "steps" : [ {
+    "events" : [ {
+      "appearance" : "field-list",
+      "event" : "group",
+      "label" : "g",
+      "ref" : "/data"
+    }, {
+      "event" : "endOfForm"
+    } ],
+    "op" : "walk"
+  }, {
+    "op" : "validate",
+    "outcome" : "ok",
+    "ref" : null
+  } ],
+  "traceVersion" : 1
+}

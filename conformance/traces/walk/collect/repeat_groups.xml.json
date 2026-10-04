@@ -1,0 +1,166 @@
+{
+  "form" : "forms/collect/repeat_groups.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"build_repeatGroups_1567117575\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><meta><instanceID>uuid:<uuid></instanceID></meta><text0>0</text0><repeatGroup><text1>1</text1></repeatGroup><repeatGroup><text1>2</text1></repeatGroup><repeatGroup><text1>3</text1></repeatGroup><repeatGroup><text1>4</text1></repeatGroup><repeatGroupFieldList><number1>1</number1></repeatGroupFieldList><repeatGroupFieldList><number1>2</number1></repeatGroupFieldList><repeatGroupFieldList><number1>3</number1></repeatGroupFieldList><repeatGroupFieldList><number1>4</number1></repeatGroupFieldList></data>",
+  "parse" : {
+    "language" : "English",
+    "languages" : [ "English" ],
+    "ok" : true,
+    "title" : "repeatGroups"
+  },
+  "steps" : [ {
+    "events" : [ {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "null",
+      "event" : "question",
+      "hint" : null,
+      "label" : "text0",
+      "readonly" : false,
+      "ref" : "/data/text0[1]",
+      "required" : false,
+      "value" : "0"
+    }, {
+      "appearance" : null,
+      "event" : "repeat",
+      "label" : "repeatGroup",
+      "ref" : "/data/repeatGroup[1]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "text1",
+      "readonly" : false,
+      "ref" : "/data/repeatGroup[1]/text1[1]",
+      "required" : false,
+      "value" : "1"
+    }, {
+      "appearance" : null,
+      "event" : "repeat",
+      "label" : "repeatGroup",
+      "ref" : "/data/repeatGroup[2]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "text1",
+      "readonly" : false,
+      "ref" : "/data/repeatGroup[2]/text1[1]",
+      "required" : false,
+      "value" : "2"
+    }, {
+      "appearance" : null,
+      "event" : "repeat",
+      "label" : "repeatGroup",
+      "ref" : "/data/repeatGroup[3]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "text1",
+      "readonly" : false,
+      "ref" : "/data/repeatGroup[3]/text1[1]",
+      "required" : false,
+      "value" : "3"
+    }, {
+      "appearance" : null,
+      "event" : "repeat",
+      "label" : "repeatGroup",
+      "ref" : "/data/repeatGroup[4]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "text1",
+      "readonly" : false,
+      "ref" : "/data/repeatGroup[4]/text1[1]",
+      "required" : false,
+      "value" : "4"
+    }, {
+      "event" : "promptNewRepeat",
+      "ref" : "/data/repeatGroup[5]"
+    }, {
+      "appearance" : "field-list",
+      "event" : "repeat",
+      "label" : "repeatGroupFieldList",
+      "ref" : "/data/repeatGroupFieldList[1]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "integer",
+      "event" : "question",
+      "hint" : null,
+      "label" : "number1",
+      "readonly" : false,
+      "ref" : "/data/repeatGroupFieldList[1]/number1[1]",
+      "required" : false,
+      "value" : "1"
+    }, {
+      "appearance" : "field-list",
+      "event" : "repeat",
+      "label" : "repeatGroupFieldList",
+      "ref" : "/data/repeatGroupFieldList[2]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "integer",
+      "event" : "question",
+      "hint" : null,
+      "label" : "number1",
+      "readonly" : false,
+      "ref" : "/data/repeatGroupFieldList[2]/number1[1]",
+      "required" : false,
+      "value" : "2"
+    }, {
+      "appearance" : "field-list",
+      "event" : "repeat",
+      "label" : "repeatGroupFieldList",
+      "ref" : "/data/repeatGroupFieldList[3]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "integer",
+      "event" : "question",
+      "hint" : null,
+      "label" : "number1",
+      "readonly" : false,
+      "ref" : "/data/repeatGroupFieldList[3]/number1[1]",
+      "required" : false,
+      "value" : "3"
+    }, {
+      "appearance" : "field-list",
+      "event" : "repeat",
+      "label" : "repeatGroupFieldList",
+      "ref" : "/data/repeatGroupFieldList[4]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "integer",
+      "event" : "question",
+      "hint" : null,
+      "label" : "number1",
+      "readonly" : false,
+      "ref" : "/data/repeatGroupFieldList[4]/number1[1]",
+      "required" : false,
+      "value" : "4"
+    }, {
+      "event" : "promptNewRepeat",
+      "ref" : "/data/repeatGroupFieldList[5]"
+    }, {
+      "event" : "endOfForm"
+    } ],
+    "op" : "walk"
+  }, {
+    "op" : "validate",
+    "outcome" : "ok",
+    "ref" : null
+  } ],
+  "traceVersion" : 1
+}

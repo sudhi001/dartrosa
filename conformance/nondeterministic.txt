@@ -1,0 +1,6 @@
+# Forms whose results are random by design (unseeded random()), so neither
+# engine can be compared against recorded traces. The oracle batch skips
+# them; the engine behaviour they exercise is covered by unit tests
+# (RandomizeTest, XPathEvalTest).
+forms/collect/random.xml
+forms/collect/randomTest_broken.xml

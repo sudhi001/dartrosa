@@ -1,0 +1,21 @@
+{
+  "form" : "forms/collect/validate.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><validate id=\"validate\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><year>-21</year><result>17897</result><showresult /><meta><instanceID>uuid:<uuid></instanceID></meta></validate>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 33,
+  "steps" : [ {
+    "error" : {
+      "message" : "Error evaluating field 'result' (/validate/result[1]): The problem was located in Calculate expression for /validate/result\nXPath evaluation: type mismatch \nThe value \"-21-01-01\" can't be converted to a date.",
+      "type" : "RuntimeException"
+    }
+  } ],
+  "traceVersion" : 1,
+  "validate" : {
+    "error" : {
+      "message" : "Error evaluating field 'result' (/validate/result[1]): The problem was located in Calculate expression for /validate/result\nXPath evaluation: type mismatch \nThe value \"-21-01-01\" can't be converted to a date.",
+      "type" : "RuntimeException"
+    }
+  }
+}

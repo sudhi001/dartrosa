@@ -1,0 +1,32 @@
+{
+  "form" : "forms/collect/hints_textq.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"hints_textq\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><meta><instanceID>uuid:<uuid></instanceID></meta><one-page><text>kappa'lambda</text></one-page></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 33,
+  "steps" : [ {
+    "appearance" : "field-list",
+    "event" : "group",
+    "label" : "One page",
+    "ref" : "/data"
+  }, {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : "Hint 1",
+    "label" : "Text",
+    "readonly" : false,
+    "ref" : "/data/one-page[1]/text[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

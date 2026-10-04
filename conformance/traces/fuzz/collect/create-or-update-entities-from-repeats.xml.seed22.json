@@ -1,0 +1,57 @@
+{
+  "form" : "forms/collect/create-or-update-entities-from-repeats.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"create_or_update_entities_from_repeats\" version=\"1\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:entities=\"http://www.opendatakit.org/xforms/entities\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><people><action>create</action><name>beta</name><meta><entity dataset=\"people\" create=\"1\" update=\"0\" id=\"<uuid>\" baseVersion=\"<uuid>\" trunkVersion=\"<uuid>\" branchId=\"<uuid>\"><label>beta</label></entity></meta></people><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 22,
+  "steps" : [ {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "People",
+    "ref" : "/data/people[1]"
+  }, {
+    "after" : "create",
+    "answer" : "create",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Create entity",
+      "value" : "create"
+    }, {
+      "label" : "Update entity",
+      "value" : "update"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "What do you want to do?",
+    "readonly" : false,
+    "ref" : "/data/people[1]/action[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "beta",
+    "answer" : "beta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Name",
+    "readonly" : false,
+    "ref" : "/data/people[1]/name[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : false,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/people[2]"
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

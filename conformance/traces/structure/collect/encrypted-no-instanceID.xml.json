@@ -1,0 +1,71 @@
+{
+  "form" : "forms/collect/encrypted-no-instanceID.xml",
+  "parse" : {
+    "ok" : true
+  },
+  "structure" : {
+    "defaultLanguage" : null,
+    "elements" : [ {
+      "appearance" : null,
+      "attributes" : [ ],
+      "children" : [ ],
+      "choices" : [ ],
+      "control" : "input",
+      "helpInnerText" : null,
+      "helpText" : null,
+      "helpTextId" : null,
+      "kind" : "question",
+      "label" : "Question 1",
+      "ref" : "/encrypted-no-instanceID/question",
+      "textId" : null
+    } ],
+    "instance" : {
+      "attributes" : [ [ "", "id", "encrypted-no-instanceID" ] ],
+      "bindAttributes" : [ ],
+      "children" : [ {
+        "attributes" : [ ],
+        "bindAttributes" : [ ],
+        "children" : [ ],
+        "constraint" : null,
+        "enabled" : true,
+        "mult" : 0,
+        "name" : "question",
+        "namespace" : null,
+        "prefix" : null,
+        "preload" : null,
+        "preloadParams" : null,
+        "relevant" : true,
+        "repeatable" : false,
+        "required" : false,
+        "type" : "text",
+        "value" : null
+      } ],
+      "constraint" : null,
+      "enabled" : true,
+      "mult" : 0,
+      "name" : "encrypted-no-instanceID",
+      "namespace" : null,
+      "prefix" : null,
+      "preload" : null,
+      "preloadParams" : null,
+      "relevant" : true,
+      "repeatable" : false,
+      "required" : false,
+      "type" : "null",
+      "value" : null
+    },
+    "languages" : null,
+    "name" : "encrypted-no-instanceID",
+    "outputs" : [ ],
+    "secondaryInstances" : { },
+    "submission" : {
+      "action" : "null",
+      "method" : "null",
+      "ref" : "/"
+    },
+    "title" : "encrypted-no-instanceID",
+    "triggerables" : [ ],
+    "warnings" : [ ]
+  },
+  "traceVersion" : 1
+}

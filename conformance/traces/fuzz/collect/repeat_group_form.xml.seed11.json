@@ -1,0 +1,166 @@
+{
+  "form" : "forms/collect/repeat_group_form.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"<uuid>\" version=\"mrc\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><grp<uuid>><header /><qing<uuid>>épsilon</qing<uuid>><qing<uuid> /></grp<uuid>><grp<uuid>><header /><qing<uuid>>79</qing<uuid>><qing<uuid>>beta</qing<uuid>></grp<uuid>><grp<uuid>><header /><qing<uuid> /><qing<uuid>>alpha</qing<uuid>></grp<uuid>></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 11,
+  "steps" : [ {
+    "add" : false,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/grp09d86f73-7b3c-44e5-9f49-bdae8ab50132[1]"
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Group Name",
+    "ref" : "/data/grp2ea471c2-9316-4166-9749-566f2ab4b45a[1]"
+  }, {
+    "appearance" : "field-list",
+    "event" : "group",
+    "label" : null,
+    "ref" : "/data/grp2ea471c2-9316-4166-9749-566f2ab4b45a[1]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : "Group Hint",
+    "label" : null,
+    "readonly" : true,
+    "ref" : "/data/grp2ea471c2-9316-4166-9749-566f2ab4b45a[1]/header[1]",
+    "required" : false,
+    "value" : null
+  }, {
+    "after" : "épsilon",
+    "answer" : "épsilon",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : "Question Hint 4",
+    "label" : "Text Question Title 4",
+    "readonly" : false,
+    "ref" : "/data/grp2ea471c2-9316-4166-9749-566f2ab4b45a[1]/qinga12441e2-79c0-4584-90ce-349923583726[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : "Question Hint 5",
+    "label" : "Text Question Title 5",
+    "readonly" : false,
+    "ref" : "/data/grp2ea471c2-9316-4166-9749-566f2ab4b45a[1]/qing281f13e2-94d3-4be7-992e-1d02f4259b34[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : true,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/grpa337aa68-0152-44b6-aae3-1fe91b55890e[1]"
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "C",
+    "ref" : "/data/grpa337aa68-0152-44b6-aae3-1fe91b55890e[1]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : "Grp2",
+    "label" : null,
+    "readonly" : true,
+    "ref" : "/data/grpa337aa68-0152-44b6-aae3-1fe91b55890e[1]/header[1]",
+    "required" : false,
+    "value" : null
+  }, {
+    "after" : "79",
+    "answer" : "79",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : "Question Hint 6",
+    "label" : "Integer Question Title 6",
+    "readonly" : false,
+    "ref" : "/data/grpa337aa68-0152-44b6-aae3-1fe91b55890e[1]/qing7bd3d9e8-4fbb-4b7f-9a35-e117a34c8ccc[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "beta",
+    "answer" : "beta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : "Question Hint 7",
+    "label" : "Text Question Title 7",
+    "readonly" : false,
+    "ref" : "/data/grpa337aa68-0152-44b6-aae3-1fe91b55890e[1]/qingc26f3f0f-eb3e-4375-aafa-e2ea0cd683a4[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : true,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/grpa337aa68-0152-44b6-aae3-1fe91b55890e[2]"
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "C",
+    "ref" : "/data/grpa337aa68-0152-44b6-aae3-1fe91b55890e[2]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : "Grp2",
+    "label" : null,
+    "readonly" : true,
+    "ref" : "/data/grpa337aa68-0152-44b6-aae3-1fe91b55890e[2]/header[1]",
+    "required" : false,
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : "Question Hint 6",
+    "label" : "Integer Question Title 6",
+    "readonly" : false,
+    "ref" : "/data/grpa337aa68-0152-44b6-aae3-1fe91b55890e[2]/qing7bd3d9e8-4fbb-4b7f-9a35-e117a34c8ccc[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "alpha",
+    "answer" : "alpha",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : "Question Hint 7",
+    "label" : "Text Question Title 7",
+    "readonly" : false,
+    "ref" : "/data/grpa337aa68-0152-44b6-aae3-1fe91b55890e[2]/qingc26f3f0f-eb3e-4375-aafa-e2ea0cd683a4[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : false,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/grpa337aa68-0152-44b6-aae3-1fe91b55890e[3]"
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

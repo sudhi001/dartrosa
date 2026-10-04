@@ -1,0 +1,61 @@
+{
+  "form" : "forms/collect/external_select_10.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><external_select_10 id=\"external_select_10\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><first>c</first><second>cb</second><meta><instanceID>uuid:<uuid></instanceID></meta></external_select_10>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 22,
+  "steps" : [ {
+    "after" : "c",
+    "answer" : "c",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "a",
+      "value" : "a"
+    }, {
+      "label" : "b",
+      "value" : "b"
+    }, {
+      "label" : "c",
+      "value" : "c"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "First",
+    "readonly" : false,
+    "ref" : "/external_select_10/first[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "cb",
+    "answer" : "cb",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "ca",
+      "value" : "ca"
+    }, {
+      "label" : "cb",
+      "value" : "cb"
+    }, {
+      "label" : "cc",
+      "value" : "cc"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Second",
+    "readonly" : false,
+    "ref" : "/external_select_10/second[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

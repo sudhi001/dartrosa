@@ -1,0 +1,65 @@
+{
+  "form" : "forms/collect/form2.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"build_form2_1517303824\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><meta><instanceID>uuid:<uuid></instanceID></meta><G1><G2><T1>x y z</T1><T2 /><T3>123</T3></G2></G1></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 11,
+  "steps" : [ {
+    "appearance" : "field-list",
+    "event" : "group",
+    "label" : "G1",
+    "ref" : "/data"
+  }, {
+    "appearance" : "field-list",
+    "event" : "group",
+    "label" : "G2",
+    "ref" : "/data"
+  }, {
+    "after" : "x y z",
+    "answer" : "x y z",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "T1",
+    "readonly" : false,
+    "ref" : "/data/G1[1]/G2[1]/T1[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "T2",
+    "readonly" : false,
+    "ref" : "/data/G1[1]/G2[1]/T2[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "123",
+    "answer" : "123",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "T3",
+    "readonly" : false,
+    "ref" : "/data/G1[1]/G2[1]/T3[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

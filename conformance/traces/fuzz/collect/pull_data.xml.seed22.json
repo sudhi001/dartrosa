@@ -1,0 +1,12 @@
+{
+  "form" : "forms/collect/pull_data.xml",
+  "parse" : {
+    "error" : {
+      "message" : "Error evaluating field 'fruit' (/data/fruit[1]): The problem was located in Calculate expression for /data/fruit\nXPath evaluation: cannot handle function 'pulldata'",
+      "type" : "RuntimeException"
+    },
+    "ok" : false
+  },
+  "seed" : 22,
+  "traceVersion" : 1
+}

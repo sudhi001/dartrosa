@@ -1,0 +1,56 @@
+{
+  "form" : "forms/collect/search-with-last-saved.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"search-with-last-saved\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><group><fruit /><number /></group><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "language" : null,
+    "languages" : [ ],
+    "ok" : true,
+    "title" : "Search with last-saved"
+  },
+  "steps" : [ {
+    "events" : [ {
+      "appearance" : "field-list",
+      "event" : "group",
+      "label" : null,
+      "ref" : "/data/group[1]"
+    }, {
+      "appearance" : "search('fruits')",
+      "choices" : [ {
+        "label" : "name",
+        "value" : "name_key"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Select fruit",
+      "readonly" : false,
+      "ref" : "/data/group[1]/fruit[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "search('external_data')",
+      "choices" : [ {
+        "label" : "label",
+        "value" : "name"
+      } ],
+      "control" : "selectMulti",
+      "dataType" : "multipleItems",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Select numbers",
+      "readonly" : false,
+      "ref" : "/data/group[1]/number[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "event" : "endOfForm"
+    } ],
+    "op" : "walk"
+  }, {
+    "op" : "validate",
+    "outcome" : "ok",
+    "ref" : null
+  } ],
+  "traceVersion" : 1
+}

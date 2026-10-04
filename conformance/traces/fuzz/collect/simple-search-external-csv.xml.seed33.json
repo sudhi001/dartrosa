@@ -1,0 +1,42 @@
+{
+  "form" : "forms/collect/simple-search-external-csv.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><simple-search-external-csv id=\"simple-search-external-csv\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><fruit1>name_key</fruit1><note_fruit /></simple-search-external-csv>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 33,
+  "steps" : [ {
+    "after" : "name_key",
+    "answer" : "name_key",
+    "appearance" : "search('simple-search-external-csv-fruits')",
+    "choices" : [ {
+      "label" : "name",
+      "value" : "name_key"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Select from a CSV using search() appearance/function",
+    "readonly" : false,
+    "ref" : "/simple-search-external-csv/fruit1[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "The fruit name_key pulled from csv",
+    "readonly" : true,
+    "ref" : "/simple-search-external-csv/note_fruit[1]",
+    "required" : false,
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

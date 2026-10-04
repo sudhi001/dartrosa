@@ -1,0 +1,38 @@
+{
+  "form" : "forms/collect/formHierarchy2.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><formHierarchy2 id=\"formHierarchy2\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><number_in_party>-21</number_in_party><party_names_note /><guest_details_count>-21</guest_details_count><meta><instanceID>uuid:<uuid></instanceID></meta></formHierarchy2>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 33,
+  "steps" : [ {
+    "after" : "-21",
+    "answer" : "-21",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "How many guests are in your party?",
+    "readonly" : false,
+    "ref" : "/formHierarchy2/number_in_party[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Please provide details for each guest.",
+    "readonly" : true,
+    "ref" : "/formHierarchy2/party_names_note[1]",
+    "required" : false,
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

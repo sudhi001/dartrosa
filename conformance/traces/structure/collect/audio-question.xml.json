@@ -1,0 +1,67 @@
+{
+  "form" : "forms/collect/audio-question.xml",
+  "parse" : {
+    "ok" : true
+  },
+  "structure" : {
+    "defaultLanguage" : null,
+    "elements" : [ {
+      "appearance" : null,
+      "attributes" : [ ],
+      "children" : [ ],
+      "choices" : [ ],
+      "control" : "audioCapture",
+      "helpInnerText" : null,
+      "helpText" : null,
+      "helpTextId" : null,
+      "kind" : "question",
+      "label" : "What does it sound like?",
+      "ref" : "/data/sound",
+      "textId" : null
+    } ],
+    "instance" : {
+      "attributes" : [ [ "", "id", "audio_question" ], [ "http://openrosa.org/xforms", "version", "1" ] ],
+      "bindAttributes" : [ ],
+      "children" : [ {
+        "attributes" : [ ],
+        "bindAttributes" : [ ],
+        "children" : [ ],
+        "constraint" : null,
+        "enabled" : true,
+        "mult" : 0,
+        "name" : "sound",
+        "namespace" : null,
+        "prefix" : null,
+        "preload" : null,
+        "preloadParams" : null,
+        "relevant" : true,
+        "repeatable" : false,
+        "required" : false,
+        "type" : "binary",
+        "value" : null
+      } ],
+      "constraint" : null,
+      "enabled" : true,
+      "mult" : 0,
+      "name" : "data",
+      "namespace" : null,
+      "prefix" : null,
+      "preload" : null,
+      "preloadParams" : null,
+      "relevant" : true,
+      "repeatable" : false,
+      "required" : false,
+      "type" : "null",
+      "value" : null
+    },
+    "languages" : null,
+    "name" : "Audio Question",
+    "outputs" : [ ],
+    "secondaryInstances" : { },
+    "submission" : null,
+    "title" : "Audio Question",
+    "triggerables" : [ ],
+    "warnings" : [ ]
+  },
+  "traceVersion" : 1
+}

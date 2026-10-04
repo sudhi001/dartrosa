@@ -102,8 +102,16 @@ public final class Oracle {
         Path traces = root.resolve("traces");
         int ok = 0, failed = 0;
 
+        java.util.Set<String> skipped = new java.util.HashSet<>();
+        Path skipList = root.resolve("nondeterministic.txt");
+        if (Files.exists(skipList)) {
+            for (String line : Files.readAllLines(skipList)) {
+                if (!line.isBlank() && !line.startsWith("#")) skipped.add(line.trim());
+            }
+        }
         for (Path form : list(forms, ".xml", ".xhtml")) {
             if (!isXForm(form)) continue; // secondary-instance data files
+            if (skipped.contains("forms/" + forms.relativize(form))) continue;
             String rel = forms.relativize(form).toString();
             Map<String, Object> trace = walkTrace(form.toFile(), "forms/" + rel);
             if (!(boolean) ((Map<?, ?>) trace.get("parse")).get("ok")) failed++; else ok++;

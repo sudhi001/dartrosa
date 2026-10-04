@@ -18,17 +18,19 @@ Directory conformanceDir() {
   }
 }
 
-/// The conformance form called [name], wherever it is under `forms/`
-/// (port of JavaRosa's `ResourcePathHelper.r`).
+/// The conformance form called [name] (JavaRosa's
+/// `ResourcePathHelper.r`). JavaRosa's resources are searched first, then
+/// DartRosa's and ODK Collect's, since some file names repeat.
 File formFile(String name) {
-  final forms = Directory('${conformanceDir().path}/forms');
-  return forms
-      .listSync(recursive: true)
-      .whereType<File>()
-      .firstWhere(
-        (f) => f.uri.pathSegments.last == name,
-        orElse: () => throw StateError('form $name not found'),
-      );
+  final forms = '${conformanceDir().path}/forms';
+  for (final dir in ['javarosa', 'dartrosa', 'collect']) {
+    final root = Directory('$forms/$dir');
+    if (!root.existsSync()) continue;
+    for (final f in root.listSync(recursive: true).whereType<File>()) {
+      if (f.uri.pathSegments.last == name) return f;
+    }
+  }
+  throw StateError('form $name not found');
 }
 
 /// Resolves `jr://<scheme>/x` to the file `x` in [dir].

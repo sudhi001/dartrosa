@@ -1,0 +1,618 @@
+{
+  "form" : "forms/collect/different-search-appearances.xml",
+  "parse" : {
+    "ok" : true
+  },
+  "structure" : {
+    "defaultLanguage" : null,
+    "elements" : [ {
+      "appearance" : "search('fruits')",
+      "attributes" : [ ],
+      "children" : [ ],
+      "choices" : [ {
+        "index" : 0,
+        "label" : "name",
+        "textId" : null,
+        "value" : "name_key"
+      } ],
+      "control" : "selectOne",
+      "helpInnerText" : null,
+      "helpText" : null,
+      "helpTextId" : null,
+      "kind" : "question",
+      "label" : "Select one from a CSV using search() appearance/function",
+      "ref" : "/different-search-appearances/fruit1",
+      "textId" : null
+    }, {
+      "appearance" : null,
+      "attributes" : [ ],
+      "children" : [ ],
+      "choices" : [ ],
+      "control" : "input",
+      "helpInnerText" : null,
+      "helpText" : null,
+      "helpTextId" : null,
+      "kind" : "question",
+      "label" : "The fruit ${0} pulled from csv",
+      "ref" : "/different-search-appearances/note_fruit",
+      "textId" : null
+    }, {
+      "appearance" : null,
+      "attributes" : [ ],
+      "children" : [ ],
+      "choices" : [ {
+        "index" : 0,
+        "label" : "Wolf",
+        "textId" : null,
+        "value" : "wolf"
+      }, {
+        "index" : 1,
+        "label" : "Warthog",
+        "textId" : null,
+        "value" : "warthog"
+      }, {
+        "index" : 2,
+        "label" : "Raccoon",
+        "textId" : null,
+        "value" : "raccoon"
+      }, {
+        "index" : 3,
+        "label" : "Rabbit",
+        "textId" : null,
+        "value" : "rabbit"
+      } ],
+      "control" : "selectOne",
+      "helpInnerText" : null,
+      "helpText" : null,
+      "helpTextId" : null,
+      "kind" : "question",
+      "label" : "Static select one with no appearance",
+      "ref" : "/different-search-appearances/animal1",
+      "textId" : null
+    }, {
+      "appearance" : "search",
+      "attributes" : [ ],
+      "children" : [ ],
+      "choices" : [ {
+        "index" : 0,
+        "label" : "Wolf",
+        "textId" : null,
+        "value" : "wolf"
+      }, {
+        "index" : 1,
+        "label" : "Warthog",
+        "textId" : null,
+        "value" : "warthog"
+      }, {
+        "index" : 2,
+        "label" : "Raccoon",
+        "textId" : null,
+        "value" : "raccoon"
+      }, {
+        "index" : 3,
+        "label" : "Rabbit",
+        "textId" : null,
+        "value" : "rabbit"
+      } ],
+      "control" : "selectOne",
+      "helpInnerText" : null,
+      "helpText" : null,
+      "helpTextId" : null,
+      "kind" : "question",
+      "label" : "Static select one with search appearance",
+      "ref" : "/different-search-appearances/animal2",
+      "textId" : null
+    }, {
+      "appearance" : "autocomplete",
+      "attributes" : [ ],
+      "children" : [ ],
+      "choices" : [ {
+        "index" : 0,
+        "label" : "Wolf",
+        "textId" : null,
+        "value" : "wolf"
+      }, {
+        "index" : 1,
+        "label" : "Warthog",
+        "textId" : null,
+        "value" : "warthog"
+      }, {
+        "index" : 2,
+        "label" : "Raccoon",
+        "textId" : null,
+        "value" : "raccoon"
+      }, {
+        "index" : 3,
+        "label" : "Rabbit",
+        "textId" : null,
+        "value" : "rabbit"
+      } ],
+      "control" : "selectOne",
+      "helpInnerText" : null,
+      "helpText" : null,
+      "helpTextId" : null,
+      "kind" : "question",
+      "label" : "Static select one with autocomplete appearance",
+      "ref" : "/different-search-appearances/animal3",
+      "textId" : null
+    }, {
+      "appearance" : "search search('fruits')",
+      "attributes" : [ ],
+      "children" : [ ],
+      "choices" : [ {
+        "index" : 0,
+        "label" : "name",
+        "textId" : null,
+        "value" : "name_key"
+      } ],
+      "control" : "selectOne",
+      "helpInnerText" : null,
+      "helpText" : null,
+      "helpTextId" : null,
+      "kind" : "question",
+      "label" : "Select one from a CSV using search() appearance/function and search appearance",
+      "ref" : "/different-search-appearances/fruit2",
+      "textId" : null
+    }, {
+      "appearance" : "autocomplete search('fruits')",
+      "attributes" : [ ],
+      "children" : [ ],
+      "choices" : [ {
+        "index" : 0,
+        "label" : "name",
+        "textId" : null,
+        "value" : "name_key"
+      } ],
+      "control" : "selectOne",
+      "helpInnerText" : null,
+      "helpText" : null,
+      "helpTextId" : null,
+      "kind" : "question",
+      "label" : "Select one from a CSV using search() appearance/function and autocomplete appearance",
+      "ref" : "/different-search-appearances/fruit3",
+      "textId" : null
+    }, {
+      "appearance" : "search('fruits')",
+      "attributes" : [ ],
+      "children" : [ ],
+      "choices" : [ {
+        "index" : 0,
+        "label" : "name",
+        "textId" : null,
+        "value" : "name_key"
+      } ],
+      "control" : "selectMulti",
+      "helpInnerText" : null,
+      "helpText" : null,
+      "helpTextId" : null,
+      "kind" : "question",
+      "label" : "Select multiple from a CSV using search() appearance/function",
+      "ref" : "/different-search-appearances/fruit4",
+      "textId" : null
+    }, {
+      "appearance" : null,
+      "attributes" : [ ],
+      "children" : [ ],
+      "choices" : [ {
+        "index" : 0,
+        "label" : "Wolf",
+        "textId" : null,
+        "value" : "wolf"
+      }, {
+        "index" : 1,
+        "label" : "Warthog",
+        "textId" : null,
+        "value" : "warthog"
+      }, {
+        "index" : 2,
+        "label" : "Raccoon",
+        "textId" : null,
+        "value" : "raccoon"
+      }, {
+        "index" : 3,
+        "label" : "Rabbit",
+        "textId" : null,
+        "value" : "rabbit"
+      } ],
+      "control" : "selectMulti",
+      "helpInnerText" : null,
+      "helpText" : null,
+      "helpTextId" : null,
+      "kind" : "question",
+      "label" : "Static select multiple with no appearance",
+      "ref" : "/different-search-appearances/animal4",
+      "textId" : null
+    }, {
+      "appearance" : "search",
+      "attributes" : [ ],
+      "children" : [ ],
+      "choices" : [ {
+        "index" : 0,
+        "label" : "Wolf",
+        "textId" : null,
+        "value" : "wolf"
+      }, {
+        "index" : 1,
+        "label" : "Warthog",
+        "textId" : null,
+        "value" : "warthog"
+      }, {
+        "index" : 2,
+        "label" : "Raccoon",
+        "textId" : null,
+        "value" : "raccoon"
+      }, {
+        "index" : 3,
+        "label" : "Rabbit",
+        "textId" : null,
+        "value" : "rabbit"
+      } ],
+      "control" : "selectMulti",
+      "helpInnerText" : null,
+      "helpText" : null,
+      "helpTextId" : null,
+      "kind" : "question",
+      "label" : "Static select multiple with search appearance",
+      "ref" : "/different-search-appearances/animal5",
+      "textId" : null
+    }, {
+      "appearance" : "autocomplete",
+      "attributes" : [ ],
+      "children" : [ ],
+      "choices" : [ {
+        "index" : 0,
+        "label" : "Wolf",
+        "textId" : null,
+        "value" : "wolf"
+      }, {
+        "index" : 1,
+        "label" : "Warthog",
+        "textId" : null,
+        "value" : "warthog"
+      }, {
+        "index" : 2,
+        "label" : "Raccoon",
+        "textId" : null,
+        "value" : "raccoon"
+      }, {
+        "index" : 3,
+        "label" : "Rabbit",
+        "textId" : null,
+        "value" : "rabbit"
+      } ],
+      "control" : "selectMulti",
+      "helpInnerText" : null,
+      "helpText" : null,
+      "helpTextId" : null,
+      "kind" : "question",
+      "label" : "Static select multiple with autocomplete appearance",
+      "ref" : "/different-search-appearances/animal6",
+      "textId" : null
+    }, {
+      "appearance" : "search search('fruits')",
+      "attributes" : [ ],
+      "children" : [ ],
+      "choices" : [ {
+        "index" : 0,
+        "label" : "name",
+        "textId" : null,
+        "value" : "name_key"
+      } ],
+      "control" : "selectMulti",
+      "helpInnerText" : null,
+      "helpText" : null,
+      "helpTextId" : null,
+      "kind" : "question",
+      "label" : "Select multiple from a CSV using search() appearance/function and search appearance",
+      "ref" : "/different-search-appearances/fruit5",
+      "textId" : null
+    }, {
+      "appearance" : "autocomplete search('fruits')",
+      "attributes" : [ ],
+      "children" : [ ],
+      "choices" : [ {
+        "index" : 0,
+        "label" : "name",
+        "textId" : null,
+        "value" : "name_key"
+      } ],
+      "control" : "selectMulti",
+      "helpInnerText" : null,
+      "helpText" : null,
+      "helpTextId" : null,
+      "kind" : "question",
+      "label" : "Select multiple from a CSV using search() appearance/function and autocomplete appearance",
+      "ref" : "/different-search-appearances/fruit6",
+      "textId" : null
+    } ],
+    "instance" : {
+      "attributes" : [ [ "", "id", "different-search-appearances" ] ],
+      "bindAttributes" : [ ],
+      "children" : [ {
+        "attributes" : [ ],
+        "bindAttributes" : [ ],
+        "children" : [ ],
+        "constraint" : null,
+        "enabled" : true,
+        "mult" : 0,
+        "name" : "fruit1",
+        "namespace" : null,
+        "prefix" : null,
+        "preload" : null,
+        "preloadParams" : null,
+        "relevant" : true,
+        "repeatable" : false,
+        "required" : false,
+        "type" : "choice",
+        "value" : null
+      }, {
+        "attributes" : [ ],
+        "bindAttributes" : [ ],
+        "children" : [ ],
+        "constraint" : null,
+        "enabled" : false,
+        "mult" : 0,
+        "name" : "note_fruit",
+        "namespace" : null,
+        "prefix" : null,
+        "preload" : null,
+        "preloadParams" : null,
+        "relevant" : true,
+        "repeatable" : false,
+        "required" : false,
+        "type" : "text",
+        "value" : null
+      }, {
+        "attributes" : [ ],
+        "bindAttributes" : [ ],
+        "children" : [ ],
+        "constraint" : null,
+        "enabled" : true,
+        "mult" : 0,
+        "name" : "animal1",
+        "namespace" : null,
+        "prefix" : null,
+        "preload" : null,
+        "preloadParams" : null,
+        "relevant" : true,
+        "repeatable" : false,
+        "required" : false,
+        "type" : "choice",
+        "value" : null
+      }, {
+        "attributes" : [ ],
+        "bindAttributes" : [ ],
+        "children" : [ ],
+        "constraint" : null,
+        "enabled" : true,
+        "mult" : 0,
+        "name" : "animal2",
+        "namespace" : null,
+        "prefix" : null,
+        "preload" : null,
+        "preloadParams" : null,
+        "relevant" : true,
+        "repeatable" : false,
+        "required" : false,
+        "type" : "choice",
+        "value" : null
+      }, {
+        "attributes" : [ ],
+        "bindAttributes" : [ ],
+        "children" : [ ],
+        "constraint" : null,
+        "enabled" : true,
+        "mult" : 0,
+        "name" : "animal3",
+        "namespace" : null,
+        "prefix" : null,
+        "preload" : null,
+        "preloadParams" : null,
+        "relevant" : true,
+        "repeatable" : false,
+        "required" : false,
+        "type" : "choice",
+        "value" : null
+      }, {
+        "attributes" : [ ],
+        "bindAttributes" : [ ],
+        "children" : [ ],
+        "constraint" : null,
+        "enabled" : true,
+        "mult" : 0,
+        "name" : "fruit2",
+        "namespace" : null,
+        "prefix" : null,
+        "preload" : null,
+        "preloadParams" : null,
+        "relevant" : true,
+        "repeatable" : false,
+        "required" : false,
+        "type" : "choice",
+        "value" : null
+      }, {
+        "attributes" : [ ],
+        "bindAttributes" : [ ],
+        "children" : [ ],
+        "constraint" : null,
+        "enabled" : true,
+        "mult" : 0,
+        "name" : "fruit3",
+        "namespace" : null,
+        "prefix" : null,
+        "preload" : null,
+        "preloadParams" : null,
+        "relevant" : true,
+        "repeatable" : false,
+        "required" : false,
+        "type" : "choice",
+        "value" : null
+      }, {
+        "attributes" : [ ],
+        "bindAttributes" : [ ],
+        "children" : [ ],
+        "constraint" : null,
+        "enabled" : true,
+        "mult" : 0,
+        "name" : "fruit4",
+        "namespace" : null,
+        "prefix" : null,
+        "preload" : null,
+        "preloadParams" : null,
+        "relevant" : true,
+        "repeatable" : false,
+        "required" : false,
+        "type" : "multipleItems",
+        "value" : null
+      }, {
+        "attributes" : [ ],
+        "bindAttributes" : [ ],
+        "children" : [ ],
+        "constraint" : null,
+        "enabled" : true,
+        "mult" : 0,
+        "name" : "animal4",
+        "namespace" : null,
+        "prefix" : null,
+        "preload" : null,
+        "preloadParams" : null,
+        "relevant" : true,
+        "repeatable" : false,
+        "required" : false,
+        "type" : "multipleItems",
+        "value" : null
+      }, {
+        "attributes" : [ ],
+        "bindAttributes" : [ ],
+        "children" : [ ],
+        "constraint" : null,
+        "enabled" : true,
+        "mult" : 0,
+        "name" : "animal5",
+        "namespace" : null,
+        "prefix" : null,
+        "preload" : null,
+        "preloadParams" : null,
+        "relevant" : true,
+        "repeatable" : false,
+        "required" : false,
+        "type" : "multipleItems",
+        "value" : null
+      }, {
+        "attributes" : [ ],
+        "bindAttributes" : [ ],
+        "children" : [ ],
+        "constraint" : null,
+        "enabled" : true,
+        "mult" : 0,
+        "name" : "animal6",
+        "namespace" : null,
+        "prefix" : null,
+        "preload" : null,
+        "preloadParams" : null,
+        "relevant" : true,
+        "repeatable" : false,
+        "required" : false,
+        "type" : "multipleItems",
+        "value" : null
+      }, {
+        "attributes" : [ ],
+        "bindAttributes" : [ ],
+        "children" : [ ],
+        "constraint" : null,
+        "enabled" : true,
+        "mult" : 0,
+        "name" : "fruit5",
+        "namespace" : null,
+        "prefix" : null,
+        "preload" : null,
+        "preloadParams" : null,
+        "relevant" : true,
+        "repeatable" : false,
+        "required" : false,
+        "type" : "multipleItems",
+        "value" : null
+      }, {
+        "attributes" : [ ],
+        "bindAttributes" : [ ],
+        "children" : [ ],
+        "constraint" : null,
+        "enabled" : true,
+        "mult" : 0,
+        "name" : "fruit6",
+        "namespace" : null,
+        "prefix" : null,
+        "preload" : null,
+        "preloadParams" : null,
+        "relevant" : true,
+        "repeatable" : false,
+        "required" : false,
+        "type" : "multipleItems",
+        "value" : null
+      }, {
+        "attributes" : [ ],
+        "bindAttributes" : [ ],
+        "children" : [ {
+          "attributes" : [ ],
+          "bindAttributes" : [ ],
+          "children" : [ ],
+          "constraint" : null,
+          "enabled" : false,
+          "mult" : 0,
+          "name" : "instanceID",
+          "namespace" : null,
+          "prefix" : null,
+          "preload" : null,
+          "preloadParams" : null,
+          "relevant" : true,
+          "repeatable" : false,
+          "required" : false,
+          "type" : "text",
+          "value" : null
+        } ],
+        "constraint" : null,
+        "enabled" : true,
+        "mult" : 0,
+        "name" : "meta",
+        "namespace" : null,
+        "prefix" : null,
+        "preload" : null,
+        "preloadParams" : null,
+        "relevant" : true,
+        "repeatable" : false,
+        "required" : false,
+        "type" : "null",
+        "value" : null
+      } ],
+      "constraint" : null,
+      "enabled" : true,
+      "mult" : 0,
+      "name" : "different-search-appearances",
+      "namespace" : null,
+      "prefix" : null,
+      "preload" : null,
+      "preloadParams" : null,
+      "relevant" : true,
+      "repeatable" : false,
+      "required" : false,
+      "type" : "null",
+      "value" : null
+    },
+    "languages" : null,
+    "name" : "different-search-appearances",
+    "outputs" : [ "{path-expr:abs,{{step:child,different-search-appearances},{step:child,fruit1}}}" ],
+    "secondaryInstances" : { },
+    "submission" : null,
+    "title" : "different-search-appearances",
+    "triggerables" : [ {
+      "context" : "/different-search-appearances/meta/instanceID",
+      "expr" : "{func-expr:concat,{{str:'uuid:'},{func-expr:uuid,{}}}}",
+      "kind" : "recalculate",
+      "originalContext" : "/different-search-appearances/meta/instanceID",
+      "targets" : [ "/different-search-appearances/meta/instanceID" ],
+      "triggers" : [ ]
+    } ],
+    "warnings" : [ ]
+  },
+  "traceVersion" : 1
+}

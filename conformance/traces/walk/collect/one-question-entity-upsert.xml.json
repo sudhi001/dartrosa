@@ -1,0 +1,50 @@
+{
+  "form" : "forms/collect/one-question-entity-upsert.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"one_question_entity_upsert\" version=\"1\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:entities=\"http://www.opendatakit.org/xforms/entities\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><action /><name /><meta><instanceID>uuid:<uuid></instanceID><entity dataset=\"people\" create=\"true\" update=\"true\" id=\"\" baseVersion=\"<uuid>\" trunkVersion=\"<uuid>\" branchId=\"<uuid>\"><label /></entity></meta></data>",
+  "parse" : {
+    "language" : null,
+    "languages" : [ ],
+    "ok" : true,
+    "title" : "One Question Entity Upsert"
+  },
+  "steps" : [ {
+    "events" : [ {
+      "appearance" : null,
+      "choices" : [ {
+        "label" : "Create entity",
+        "value" : "create"
+      }, {
+        "label" : "Update entity",
+        "value" : "update"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : "What do you want to do?",
+      "readonly" : false,
+      "ref" : "/data/action[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Name",
+      "readonly" : false,
+      "ref" : "/data/name[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "event" : "endOfForm"
+    } ],
+    "op" : "walk"
+  }, {
+    "op" : "validate",
+    "outcome" : "ok",
+    "ref" : null
+  } ],
+  "traceVersion" : 1
+}

@@ -1,0 +1,41 @@
+{
+  "form" : "forms/collect/repeat_group_wrapped_with_a_regular_group.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"groups_crash\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><outer><inner><name>x y z</name></inner></outer><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 11,
+  "steps" : [ {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Outer",
+    "ref" : "/data/outer[1]"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Inner",
+    "ref" : "/data/outer[1]/inner[1]"
+  }, {
+    "after" : "x y z",
+    "answer" : "x y z",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Name",
+    "readonly" : false,
+    "ref" : "/data/outer[1]/inner[1]/name[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : false,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/outer[1]/inner[2]"
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

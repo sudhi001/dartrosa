@@ -1,0 +1,58 @@
+{
+  "form" : "forms/collect/create-or-update-entities-from-repeats.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"create_or_update_entities_from_repeats\" version=\"1\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:entities=\"http://www.opendatakit.org/xforms/entities\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><people><action /><name /><meta><entity dataset=\"people\" create=\"0\" update=\"0\" id=\"\" baseVersion=\"<uuid>\" trunkVersion=\"<uuid>\" branchId=\"<uuid>\"><label /></entity></meta></people><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "language" : null,
+    "languages" : [ ],
+    "ok" : true,
+    "title" : "Create or update entities from repeats"
+  },
+  "steps" : [ {
+    "events" : [ {
+      "appearance" : null,
+      "event" : "repeat",
+      "label" : "People",
+      "ref" : "/data/people[1]"
+    }, {
+      "appearance" : null,
+      "choices" : [ {
+        "label" : "Create entity",
+        "value" : "create"
+      }, {
+        "label" : "Update entity",
+        "value" : "update"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : "What do you want to do?",
+      "readonly" : false,
+      "ref" : "/data/people[1]/action[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Name",
+      "readonly" : false,
+      "ref" : "/data/people[1]/name[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "event" : "promptNewRepeat",
+      "ref" : "/data/people[2]"
+    }, {
+      "event" : "endOfForm"
+    } ],
+    "op" : "walk"
+  }, {
+    "op" : "validate",
+    "outcome" : "ok",
+    "ref" : null
+  } ],
+  "traceVersion" : 1
+}

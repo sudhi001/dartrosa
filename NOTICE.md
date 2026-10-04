@@ -60,3 +60,10 @@ licensed under the Apache License 2.0. The original JavaRosa notice follows.
 
 ## Notes
 If you have contributed to JavaRosa and are not included this list, please issue a pull request.
+
+## ODK Collect test forms
+
+`conformance/forms/collect/` contains test forms and media from ODK Collect
+(https://github.com/getodk/collect, `test-forms/src/main/resources`),
+Copyright the ODK Collect contributors, licensed under the Apache License,
+Version 2.0. They are used unmodified as conformance inputs.

@@ -1,0 +1,258 @@
+{
+  "form" : "forms/collect/likert_test.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><likert_test id=\"all-widgets-icon\" version=\"2019051305\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><likert_widget>choice_4</likert_widget><likert_image_widget>strongly_disagree</likert_image_widget><likert_widget_error>choice_3</likert_widget_error><likert_image_widget_error>agree</likert_image_widget_error><likert_image_widget_error2>neutral</likert_image_widget_error2><likert_error_missing_text>choice_2</likert_error_missing_text><cascading_select><source1>c</source1><target1>c1</target1><target1-1 /></cascading_select><meta><instanceID>uuid:<uuid></instanceID></meta></likert_test>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 33,
+  "steps" : [ {
+    "after" : "choice_4",
+    "answer" : "choice_4",
+    "appearance" : "likert",
+    "choices" : [ {
+      "label" : "0",
+      "value" : "choice_0"
+    }, {
+      "label" : "1",
+      "value" : "choice_1"
+    }, {
+      "label" : "2",
+      "value" : "choice_2"
+    }, {
+      "label" : "3",
+      "value" : "choice_3"
+    }, {
+      "label" : "4",
+      "value" : "choice_4"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "Likert type widget (happy case)",
+    "label" : "Likert Widget",
+    "readonly" : false,
+    "ref" : "/likert_test/likert_widget[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "strongly_disagree",
+    "answer" : "strongly_disagree",
+    "appearance" : "likert",
+    "choices" : [ {
+      "label" : "Strongly Disagree",
+      "value" : "strongly_disagree"
+    }, {
+      "label" : "Disagree",
+      "value" : "disagree"
+    }, {
+      "label" : "Neutral",
+      "value" : "neutral"
+    }, {
+      "label" : "Agree",
+      "value" : "agree"
+    }, {
+      "label" : "Strongly Agree",
+      "value" : "strongly_agree"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "Likert type widget with images (happy case)",
+    "label" : "Likert Image Widget",
+    "readonly" : false,
+    "ref" : "/likert_test/likert_image_widget[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "choice_3",
+    "answer" : "choice_3",
+    "appearance" : "likert",
+    "choices" : [ {
+      "label" : "0",
+      "value" : "choice_0"
+    }, {
+      "label" : "1",
+      "value" : "choice_1"
+    }, {
+      "label" : "2",
+      "value" : "choice_2"
+    }, {
+      "label" : "3",
+      "value" : "choice_3"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "Insufficient text provided",
+    "label" : "Likert Widget Error",
+    "readonly" : false,
+    "ref" : "/likert_test/likert_widget_error[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "agree",
+    "answer" : "agree",
+    "appearance" : "likert",
+    "choices" : [ {
+      "label" : "Strongly Disagree",
+      "value" : "strongly_disagree"
+    }, {
+      "label" : "Disagree",
+      "value" : "disagree"
+    }, {
+      "label" : "Neutral",
+      "value" : "neutral"
+    }, {
+      "label" : "Agree",
+      "value" : "agree"
+    }, {
+      "label" : "Strongly Agree",
+      "value" : "strongly_agree"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "Insufficient images provided",
+    "label" : "Likert Image Widget Error",
+    "readonly" : false,
+    "ref" : "/likert_test/likert_image_widget_error[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "neutral",
+    "answer" : "neutral",
+    "appearance" : "likert",
+    "choices" : [ {
+      "label" : "Strongly Disagree",
+      "value" : "strongly_disagree"
+    }, {
+      "label" : "Disagree",
+      "value" : "disagree"
+    }, {
+      "label" : "Neutral",
+      "value" : "neutral"
+    }, {
+      "label" : "Agree",
+      "value" : "agree"
+    }, {
+      "label" : "Strongly Agree",
+      "value" : "strongly_agree"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "Image cannot be found",
+    "label" : "Likert Image Widget Error2",
+    "readonly" : false,
+    "ref" : "/likert_test/likert_image_widget_error2[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "choice_2",
+    "answer" : "choice_2",
+    "appearance" : "likert",
+    "choices" : [ {
+      "label" : "0",
+      "value" : "choice_0"
+    }, {
+      "label" : "",
+      "value" : "choice_1"
+    }, {
+      "label" : "2",
+      "value" : "choice_2"
+    }, {
+      "label" : "3",
+      "value" : "choice_3"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "When there is a missing Text",
+    "label" : "Likert Missing text Error",
+    "readonly" : false,
+    "ref" : "/likert_test/likert_error_missing_text[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : "field-list",
+    "event" : "group",
+    "label" : "Cascading likert",
+    "ref" : "/likert_test/cascading_select[1]"
+  }, {
+    "after" : "c",
+    "answer" : "c",
+    "appearance" : "likert",
+    "choices" : [ {
+      "label" : "A",
+      "value" : "a"
+    }, {
+      "label" : "B",
+      "value" : "b"
+    }, {
+      "label" : "C",
+      "value" : "c"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Level1",
+    "readonly" : false,
+    "ref" : "/likert_test/cascading_select[1]/source1[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "c1",
+    "answer" : "c1",
+    "appearance" : "likert",
+    "choices" : [ {
+      "label" : "C1",
+      "value" : "c1"
+    }, {
+      "label" : "C2",
+      "value" : "c2"
+    }, {
+      "label" : "C3",
+      "value" : "c3"
+    }, {
+      "label" : "C4",
+      "value" : "c4"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Level2",
+    "readonly" : false,
+    "ref" : "/likert_test/cascading_select[1]/target1[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : "likert",
+    "choices" : [ ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Level3",
+    "readonly" : false,
+    "ref" : "/likert_test/cascading_select[1]/target1-1[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

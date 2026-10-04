@@ -1,0 +1,33 @@
+{
+  "cascades" : [ {
+    "cascades" : [ "recalculate|{path-expr:abs,{{step:child,data},{step:child,name}}}|/data/meta/entity/label|[/data/meta/entity/label]" ],
+    "triggerable" : "recalculate|{func-expr:pulldata,{{str:'people'},{str:'full_name'},{str:'name'},{path-expr:abs,{{step:child,data},{step:child,person}}}}}|/data/selected_person|[/data/name, /data/selected_person]"
+  }, {
+    "cascades" : [ ],
+    "triggerable" : "recalculate|{path-expr:abs,{{step:child,data},{step:child,name}}}|/data/meta/entity/label|[/data/meta/entity/label]"
+  }, {
+    "cascades" : [ ],
+    "triggerable" : "recalculate|{path-expr:abs,{{step:child,data},{step:child,person}}}|/data/meta/entity/@id|[/data/meta/entity/@id]"
+  }, {
+    "cascades" : [ ],
+    "triggerable" : "recalculate|{path-expr:{filt-expr:{func-expr:instance,{{str:'people'}}},{}},{{step:child,root},{step:child,item,{{binop-expr:==,{path-expr:rel,{{step:child,name}}},{path-expr:abs,{{step:child,data},{step:child,person}}}}}},{step:child,__branchId}}}|/data/meta/entity/@branchId|[/data/meta/entity/@branchId]"
+  }, {
+    "cascades" : [ ],
+    "triggerable" : "recalculate|{path-expr:{filt-expr:{func-expr:instance,{{str:'people'}}},{}},{{step:child,root},{step:child,item,{{binop-expr:==,{path-expr:rel,{{step:child,name}}},{path-expr:abs,{{step:child,data},{step:child,person}}}}}},{step:child,__trunkVersion}}}|/data/meta/entity/@trunkVersion|[/data/meta/entity/@trunkVersion]"
+  }, {
+    "cascades" : [ ],
+    "triggerable" : "recalculate|{path-expr:{filt-expr:{func-expr:instance,{{str:'people'}}},{}},{{step:child,root},{step:child,item,{{binop-expr:==,{path-expr:rel,{{step:child,name}}},{path-expr:abs,{{step:child,data},{step:child,person}}}}}},{step:child,__version}}}|/data/meta/entity/@baseVersion|[/data/meta/entity/@baseVersion]"
+  } ],
+  "form" : "forms/collect/entity-update-pulldata.xml",
+  "initialize" : {
+    "error" : {
+      "message" : "Error evaluating field 'data' (/data): The problem was located in Calculate expression for /data\nXPath evaluation: cannot handle function 'pulldata'",
+      "type" : "RuntimeException"
+    },
+    "ok" : false
+  },
+  "parse" : {
+    "ok" : true
+  },
+  "traceVersion" : 1
+}

@@ -1,0 +1,47 @@
+{
+  "form" : "forms/collect/external-csv-search-broken.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><external-csv-search id=\"external-csv-search\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><produce_search /><produce /><meta><instanceID>uuid:<uuid></instanceID></meta></external-csv-search>",
+  "parse" : {
+    "language" : null,
+    "languages" : [ ],
+    "ok" : true,
+    "title" : "external-csv-search"
+  },
+  "steps" : [ {
+    "events" : [ {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Produce search",
+      "readonly" : false,
+      "ref" : "/external-csv-search/produce_search[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "search('external-csv-search-produce', 'contains', 'wat',  /external-csv-search/produce_search )",
+      "choices" : [ {
+        "label" : "label",
+        "value" : "name"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Produce",
+      "readonly" : false,
+      "ref" : "/external-csv-search/produce[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "event" : "endOfForm"
+    } ],
+    "op" : "walk"
+  }, {
+    "op" : "validate",
+    "outcome" : "ok",
+    "ref" : null
+  } ],
+  "traceVersion" : 1
+}

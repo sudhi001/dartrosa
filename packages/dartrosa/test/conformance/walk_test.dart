@@ -13,7 +13,7 @@ import 'package:test/test.dart';
 
 import '../support/forms.dart';
 import 'describe.dart';
-import 'init_test.dart' show diff, stableMessage;
+import 'init_test.dart' show diff, exceptionMessage;
 import 'structure_dump.dart';
 
 const _maxEvents = 2000;
@@ -62,7 +62,7 @@ void main() {
         try {
           _runStep(s, scenario[i], actual);
         } on Object catch (e) {
-          actual['error'] = {'message': stableMessage('$e')};
+          actual['error'] = {'message': exceptionMessage(e)};
         }
         final expectedError = expected['error'] as Map?;
         if (expectedError != null || actual['error'] != null) {

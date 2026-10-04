@@ -1,0 +1,241 @@
+{
+  "form" : "forms/collect/repeat_groups.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"build_repeatGroups_1567117575\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><meta><instanceID>uuid:<uuid></instanceID></meta><text0>123</text0><repeatGroup><text1>beta</text1></repeatGroup><repeatGroup><text1>kappa'lambda</text1></repeatGroup><repeatGroup><text1>mu\"nu</text1></repeatGroup><repeatGroup><text1>gamma delta</text1></repeatGroup><repeatGroup><text1>zeta &amp; eta</text1></repeatGroup><repeatGroup><text1>alpha</text1></repeatGroup><repeatGroup><text1>épsilon</text1></repeatGroup><repeatGroupFieldList><number1>-7</number1></repeatGroupFieldList><repeatGroupFieldList><number1>-16</number1></repeatGroupFieldList><repeatGroupFieldList><number1>24</number1></repeatGroupFieldList><repeatGroupFieldList><number1>34</number1></repeatGroupFieldList></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 22,
+  "steps" : [ {
+    "after" : "123",
+    "answer" : "123",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "text0",
+    "readonly" : false,
+    "ref" : "/data/text0[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "0"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "repeatGroup",
+    "ref" : "/data/repeatGroup[1]"
+  }, {
+    "after" : "beta",
+    "answer" : "beta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "text1",
+    "readonly" : false,
+    "ref" : "/data/repeatGroup[1]/text1[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "1"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "repeatGroup",
+    "ref" : "/data/repeatGroup[2]"
+  }, {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "text1",
+    "readonly" : false,
+    "ref" : "/data/repeatGroup[2]/text1[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "2"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "repeatGroup",
+    "ref" : "/data/repeatGroup[3]"
+  }, {
+    "after" : "mu\"nu",
+    "answer" : "mu\"nu",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "text1",
+    "readonly" : false,
+    "ref" : "/data/repeatGroup[3]/text1[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "3"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "repeatGroup",
+    "ref" : "/data/repeatGroup[4]"
+  }, {
+    "after" : "gamma delta",
+    "answer" : "gamma delta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "text1",
+    "readonly" : false,
+    "ref" : "/data/repeatGroup[4]/text1[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "4"
+  }, {
+    "add" : true,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/repeatGroup[5]"
+  }, {
+    "after" : "zeta & eta",
+    "answer" : "zeta & eta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "text1",
+    "readonly" : false,
+    "ref" : "/data/repeatGroup[5]/text1[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : true,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/repeatGroup[6]"
+  }, {
+    "after" : "alpha",
+    "answer" : "alpha",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "text1",
+    "readonly" : false,
+    "ref" : "/data/repeatGroup[6]/text1[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : true,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/repeatGroup[7]"
+  }, {
+    "after" : "épsilon",
+    "answer" : "épsilon",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "text1",
+    "readonly" : false,
+    "ref" : "/data/repeatGroup[7]/text1[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : false,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/repeatGroup[8]"
+  }, {
+    "appearance" : "field-list",
+    "event" : "repeat",
+    "label" : "repeatGroupFieldList",
+    "ref" : "/data/repeatGroupFieldList[1]"
+  }, {
+    "after" : "-7",
+    "answer" : "-7",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "number1",
+    "readonly" : false,
+    "ref" : "/data/repeatGroupFieldList[1]/number1[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "1"
+  }, {
+    "appearance" : "field-list",
+    "event" : "repeat",
+    "label" : "repeatGroupFieldList",
+    "ref" : "/data/repeatGroupFieldList[2]"
+  }, {
+    "after" : "-16",
+    "answer" : "-16",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "number1",
+    "readonly" : false,
+    "ref" : "/data/repeatGroupFieldList[2]/number1[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "2"
+  }, {
+    "appearance" : "field-list",
+    "event" : "repeat",
+    "label" : "repeatGroupFieldList",
+    "ref" : "/data/repeatGroupFieldList[3]"
+  }, {
+    "after" : "24",
+    "answer" : "24",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "number1",
+    "readonly" : false,
+    "ref" : "/data/repeatGroupFieldList[3]/number1[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "3"
+  }, {
+    "appearance" : "field-list",
+    "event" : "repeat",
+    "label" : "repeatGroupFieldList",
+    "ref" : "/data/repeatGroupFieldList[4]"
+  }, {
+    "after" : "34",
+    "answer" : "34",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "number1",
+    "readonly" : false,
+    "ref" : "/data/repeatGroupFieldList[4]/number1[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "4"
+  }, {
+    "add" : false,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/repeatGroupFieldList[5]"
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

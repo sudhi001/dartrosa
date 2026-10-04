@@ -1,0 +1,65 @@
+{
+  "form" : "forms/collect/form1.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"build_form1_1517264936\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><meta><instanceID>uuid:<uuid></instanceID></meta><G1><G2><T1>kappa'lambda</T1><T2>kappa'lambda</T2><T3>zeta &amp; eta</T3></G2></G1></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 33,
+  "steps" : [ {
+    "appearance" : "field-list",
+    "event" : "group",
+    "label" : "G1",
+    "ref" : "/data"
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "G2",
+    "ref" : "/data"
+  }, {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "T1",
+    "readonly" : false,
+    "ref" : "/data/G1[1]/G2[1]/T1[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "T2",
+    "readonly" : false,
+    "ref" : "/data/G1[1]/G2[1]/T2[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "zeta & eta",
+    "answer" : "zeta & eta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "T3",
+    "readonly" : false,
+    "ref" : "/data/G1[1]/G2[1]/T3[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

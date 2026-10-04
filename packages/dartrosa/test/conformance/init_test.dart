@@ -62,7 +62,7 @@ void main() {
         // JavaRosa evaluates a DAG level in identity-hash order, so what a
         // failed initialization already changed isn't comparable; the error
         // is.
-        expect('$e', (init['error']! as Map)['message']);
+        expect(exceptionMessage(e), (init['error']! as Map)['message']);
         expect(differences, isEmpty, reason: differences.join('\n'));
         return;
       }
@@ -79,6 +79,11 @@ void main() {
 }
 
 Object? _json(Object? o) => jsonDecode(jsonEncode(o));
+
+/// [e]'s message as Java's `getMessage()` gives it (Dart's
+/// `FormatException.toString()` adds its type), with cycle lines sorted.
+String exceptionMessage(Object e) =>
+    stableMessage(e is FormatException ? e.message : '$e');
 
 /// The oracle's `stableError`: cycle node lines sorted.
 String stableMessage(String message) {

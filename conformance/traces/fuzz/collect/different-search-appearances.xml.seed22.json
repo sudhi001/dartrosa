@@ -1,0 +1,294 @@
+{
+  "form" : "forms/collect/different-search-appearances.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><different-search-appearances id=\"different-search-appearances\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><fruit1>name_key</fruit1><note_fruit /><animal1>warthog</animal1><animal2>rabbit</animal2><animal3>warthog</animal3><fruit2>name_key</fruit2><fruit3>name_key</fruit3><fruit4>name_key</fruit4><animal4>raccoon warthog wolf</animal4><animal5>warthog wolf</animal5><animal6>raccoon warthog</animal6><fruit5>name_key</fruit5><fruit6 /><meta><instanceID>uuid:<uuid></instanceID></meta></different-search-appearances>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 22,
+  "steps" : [ {
+    "after" : "name_key",
+    "answer" : "name_key",
+    "appearance" : "search('fruits')",
+    "choices" : [ {
+      "label" : "name",
+      "value" : "name_key"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Select one from a CSV using search() appearance/function",
+    "readonly" : false,
+    "ref" : "/different-search-appearances/fruit1[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "The fruit name_key pulled from csv",
+    "readonly" : true,
+    "ref" : "/different-search-appearances/note_fruit[1]",
+    "required" : false,
+    "value" : null
+  }, {
+    "after" : "warthog",
+    "answer" : "warthog",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Wolf",
+      "value" : "wolf"
+    }, {
+      "label" : "Warthog",
+      "value" : "warthog"
+    }, {
+      "label" : "Raccoon",
+      "value" : "raccoon"
+    }, {
+      "label" : "Rabbit",
+      "value" : "rabbit"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Static select one with no appearance",
+    "readonly" : false,
+    "ref" : "/different-search-appearances/animal1[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "rabbit",
+    "answer" : "rabbit",
+    "appearance" : "search",
+    "choices" : [ {
+      "label" : "Wolf",
+      "value" : "wolf"
+    }, {
+      "label" : "Warthog",
+      "value" : "warthog"
+    }, {
+      "label" : "Raccoon",
+      "value" : "raccoon"
+    }, {
+      "label" : "Rabbit",
+      "value" : "rabbit"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Static select one with search appearance",
+    "readonly" : false,
+    "ref" : "/different-search-appearances/animal2[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "warthog",
+    "answer" : "warthog",
+    "appearance" : "autocomplete",
+    "choices" : [ {
+      "label" : "Wolf",
+      "value" : "wolf"
+    }, {
+      "label" : "Warthog",
+      "value" : "warthog"
+    }, {
+      "label" : "Raccoon",
+      "value" : "raccoon"
+    }, {
+      "label" : "Rabbit",
+      "value" : "rabbit"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Static select one with autocomplete appearance",
+    "readonly" : false,
+    "ref" : "/different-search-appearances/animal3[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "name_key",
+    "answer" : "name_key",
+    "appearance" : "search search('fruits')",
+    "choices" : [ {
+      "label" : "name",
+      "value" : "name_key"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Select one from a CSV using search() appearance/function and search appearance",
+    "readonly" : false,
+    "ref" : "/different-search-appearances/fruit2[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "name_key",
+    "answer" : "name_key",
+    "appearance" : "autocomplete search('fruits')",
+    "choices" : [ {
+      "label" : "name",
+      "value" : "name_key"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Select one from a CSV using search() appearance/function and autocomplete appearance",
+    "readonly" : false,
+    "ref" : "/different-search-appearances/fruit3[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "name_key",
+    "answer" : "name_key",
+    "appearance" : "search('fruits')",
+    "choices" : [ {
+      "label" : "name",
+      "value" : "name_key"
+    } ],
+    "control" : "selectMulti",
+    "dataType" : "multipleItems",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Select multiple from a CSV using search() appearance/function",
+    "readonly" : false,
+    "ref" : "/different-search-appearances/fruit4[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "raccoon warthog wolf",
+    "answer" : "raccoon warthog wolf",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Wolf",
+      "value" : "wolf"
+    }, {
+      "label" : "Warthog",
+      "value" : "warthog"
+    }, {
+      "label" : "Raccoon",
+      "value" : "raccoon"
+    }, {
+      "label" : "Rabbit",
+      "value" : "rabbit"
+    } ],
+    "control" : "selectMulti",
+    "dataType" : "multipleItems",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Static select multiple with no appearance",
+    "readonly" : false,
+    "ref" : "/different-search-appearances/animal4[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "warthog wolf",
+    "answer" : "warthog wolf",
+    "appearance" : "search",
+    "choices" : [ {
+      "label" : "Wolf",
+      "value" : "wolf"
+    }, {
+      "label" : "Warthog",
+      "value" : "warthog"
+    }, {
+      "label" : "Raccoon",
+      "value" : "raccoon"
+    }, {
+      "label" : "Rabbit",
+      "value" : "rabbit"
+    } ],
+    "control" : "selectMulti",
+    "dataType" : "multipleItems",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Static select multiple with search appearance",
+    "readonly" : false,
+    "ref" : "/different-search-appearances/animal5[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "raccoon warthog",
+    "answer" : "raccoon warthog",
+    "appearance" : "autocomplete",
+    "choices" : [ {
+      "label" : "Wolf",
+      "value" : "wolf"
+    }, {
+      "label" : "Warthog",
+      "value" : "warthog"
+    }, {
+      "label" : "Raccoon",
+      "value" : "raccoon"
+    }, {
+      "label" : "Rabbit",
+      "value" : "rabbit"
+    } ],
+    "control" : "selectMulti",
+    "dataType" : "multipleItems",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Static select multiple with autocomplete appearance",
+    "readonly" : false,
+    "ref" : "/different-search-appearances/animal6[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "name_key",
+    "answer" : "name_key",
+    "appearance" : "search search('fruits')",
+    "choices" : [ {
+      "label" : "name",
+      "value" : "name_key"
+    } ],
+    "control" : "selectMulti",
+    "dataType" : "multipleItems",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Select multiple from a CSV using search() appearance/function and search appearance",
+    "readonly" : false,
+    "ref" : "/different-search-appearances/fruit5[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : "autocomplete search('fruits')",
+    "choices" : [ {
+      "label" : "name",
+      "value" : "name_key"
+    } ],
+    "control" : "selectMulti",
+    "dataType" : "multipleItems",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Select multiple from a CSV using search() appearance/function and autocomplete appearance",
+    "readonly" : false,
+    "ref" : "/different-search-appearances/fruit6[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

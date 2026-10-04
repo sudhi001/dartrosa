@@ -1,0 +1,58 @@
+{
+  "form" : "forms/collect/Empty First Repeat.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"empty_first_repeat\" version=\"1\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\"><repeat /><repeat><text /></repeat><repeat><text>kappa'lambda</text></repeat><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 22,
+  "steps" : [ {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat",
+    "ref" : "/data/repeat[1]"
+  }, {
+    "add" : true,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/repeat[2]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : "Will never be relevant for first repeat instance",
+    "label" : "Question in repeat",
+    "readonly" : false,
+    "ref" : "/data/repeat[2]/text[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : true,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/repeat[3]"
+  }, {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : "Will never be relevant for first repeat instance",
+    "label" : "Question in repeat",
+    "readonly" : false,
+    "ref" : "/data/repeat[3]/text[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : false,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/repeat[4]"
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

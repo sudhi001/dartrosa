@@ -15,7 +15,7 @@ import 'package:test/test.dart';
 
 import '../support/forms.dart';
 import 'describe.dart';
-import 'init_test.dart' show diff, stableMessage;
+import 'init_test.dart' show diff, exceptionMessage;
 import 'structure_dump.dart';
 
 const _maxSteps = 400;
@@ -55,7 +55,7 @@ void main() {
       for (final key in ['steps', 'validate', 'instance']) {
         diff(
           '.$key',
-          trace[key],
+          _withoutJavaTypes(trace[key]),
           jsonDecode(jsonEncode(actual[key])),
           differences,
         );
@@ -64,6 +64,18 @@ void main() {
     });
   }
 }
+
+/// [value] without the Java exception class names the oracle records next
+/// to error messages (only messages are compared).
+Object? _withoutJavaTypes(Object? value) => switch (value) {
+  final Map<String, Object?> map => {
+    for (final MapEntry(:key, value: v) in map.entries)
+      if (!(key == 'type' && map.containsKey('message')))
+        key: _withoutJavaTypes(v),
+  },
+  final List<Object?> list => [for (final v in list) _withoutJavaTypes(v)],
+  _ => value,
+};
 
 /// Park-Miller minimal standard generator, as in `FuzzWalk.Rng`.
 final class _Rng {
@@ -178,7 +190,7 @@ Map<String, Object?> _run(Scenario s, int seed) {
     }
   } on Object catch (e) {
     steps.add({
-      'error': {'message': stableMessage('$e')},
+      'error': {'message': exceptionMessage(e)},
     });
   }
   Object? validate;
@@ -190,7 +202,7 @@ Map<String, Object?> _run(Scenario s, int seed) {
               '${outcome.failedPrompt.reference!.toString(includePredicates: true)}';
   } on Object catch (e) {
     validate = {
-      'error': {'message': stableMessage('$e')},
+      'error': {'message': exceptionMessage(e)},
     };
   }
   Object? instance;
@@ -202,7 +214,7 @@ Map<String, Object?> _run(Scenario s, int seed) {
     );
   } on Object catch (e) {
     instance = {
-      'error': {'message': stableMessage('$e')},
+      'error': {'message': exceptionMessage(e)},
     };
   }
   return {'steps': steps, 'validate': validate, 'instance': instance};

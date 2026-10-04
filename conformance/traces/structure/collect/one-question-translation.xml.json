@@ -1,0 +1,67 @@
+{
+  "form" : "forms/collect/one-question-translation.xml",
+  "parse" : {
+    "ok" : true
+  },
+  "structure" : {
+    "defaultLanguage" : "English (en)",
+    "elements" : [ {
+      "appearance" : null,
+      "attributes" : [ ],
+      "children" : [ ],
+      "choices" : [ ],
+      "control" : "input",
+      "helpInnerText" : null,
+      "helpText" : null,
+      "helpTextId" : null,
+      "kind" : "question",
+      "label" : null,
+      "ref" : "/data/age",
+      "textId" : "/data/age:label"
+    } ],
+    "instance" : {
+      "attributes" : [ [ "", "id", "one_question" ], [ "http://openrosa.org/xforms", "version", "1" ] ],
+      "bindAttributes" : [ ],
+      "children" : [ {
+        "attributes" : [ ],
+        "bindAttributes" : [ ],
+        "children" : [ ],
+        "constraint" : null,
+        "enabled" : true,
+        "mult" : 0,
+        "name" : "age",
+        "namespace" : null,
+        "prefix" : null,
+        "preload" : null,
+        "preloadParams" : null,
+        "relevant" : true,
+        "repeatable" : false,
+        "required" : false,
+        "type" : "integer",
+        "value" : null
+      } ],
+      "constraint" : null,
+      "enabled" : true,
+      "mult" : 0,
+      "name" : "data",
+      "namespace" : null,
+      "prefix" : null,
+      "preload" : null,
+      "preloadParams" : null,
+      "relevant" : true,
+      "repeatable" : false,
+      "required" : false,
+      "type" : "null",
+      "value" : null
+    },
+    "languages" : [ "English (en)", "French (fr)" ],
+    "name" : "One Question",
+    "outputs" : [ ],
+    "secondaryInstances" : { },
+    "submission" : null,
+    "title" : "One Question",
+    "triggerables" : [ ],
+    "warnings" : [ ]
+  },
+  "traceVersion" : 1
+}

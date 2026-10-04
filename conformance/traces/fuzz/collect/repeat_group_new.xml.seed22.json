@@ -1,0 +1,128 @@
+{
+  "form" : "forms/collect/repeat_group_new.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"build_Untitled-Form_150757354889\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><meta><instanceID>uuid:<uuid></instanceID></meta><RepeatGroup><Name /><Age>93</Age></RepeatGroup><RepeatGroup><Name>mu\"nu</Name><Age>8</Age></RepeatGroup><RepeatGroup><Name>zeta &amp; eta</Name><Age>17</Age></RepeatGroup></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 22,
+  "steps" : [ {
+    "add" : true,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/RepeatGroup[1]"
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Person: ",
+    "ref" : "/data/RepeatGroup[1]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Name",
+    "readonly" : false,
+    "ref" : "/data/RepeatGroup[1]/Name[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "93",
+    "answer" : "93",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Age",
+    "readonly" : false,
+    "ref" : "/data/RepeatGroup[1]/Age[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : true,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/RepeatGroup[2]"
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Person: ",
+    "ref" : "/data/RepeatGroup[2]"
+  }, {
+    "after" : "mu\"nu",
+    "answer" : "mu\"nu",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Name",
+    "readonly" : false,
+    "ref" : "/data/RepeatGroup[2]/Name[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "8",
+    "answer" : "8",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Age",
+    "readonly" : false,
+    "ref" : "/data/RepeatGroup[2]/Age[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : true,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/RepeatGroup[3]"
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Person: ",
+    "ref" : "/data/RepeatGroup[3]"
+  }, {
+    "after" : "zeta & eta",
+    "answer" : "zeta & eta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Name",
+    "readonly" : false,
+    "ref" : "/data/RepeatGroup[3]/Name[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "17",
+    "answer" : "17",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Age",
+    "readonly" : false,
+    "ref" : "/data/RepeatGroup[3]/Age[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : false,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/RepeatGroup[4]"
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

@@ -1,0 +1,40 @@
+{
+  "form" : "forms/collect/RepeatGroupAndGroup.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"build_OneGroup-One_1518698685\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><meta><instanceID>uuid:<uuid></instanceID></meta><G3><Text3 /></G3></data>",
+  "parse" : {
+    "language" : "English",
+    "languages" : [ "English" ],
+    "ok" : true,
+    "title" : "RepeatGroupAndGroup"
+  },
+  "steps" : [ {
+    "events" : [ {
+      "event" : "promptNewRepeat",
+      "ref" : "/data/G1[1]"
+    }, {
+      "appearance" : null,
+      "event" : "group",
+      "label" : "G3",
+      "ref" : "/data"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Text3",
+      "readonly" : false,
+      "ref" : "/data/G3[1]/Text3[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "event" : "endOfForm"
+    } ],
+    "op" : "walk"
+  }, {
+    "op" : "validate",
+    "outcome" : "ok",
+    "ref" : null
+  } ],
+  "traceVersion" : 1
+}
