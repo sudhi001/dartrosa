@@ -36,7 +36,7 @@ final class RecordedRequest {
     return null;
   }
 
-  String get bodyUtf8 => utf8.decode(body);
+  String get bodyUtf8 => utf8.decode(body, allowMalformed: true);
 }
 
 /// Stands in for OkHttp's `MockWebServer`: a `package:http` client that
