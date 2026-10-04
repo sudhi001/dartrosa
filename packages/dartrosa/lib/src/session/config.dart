@@ -1,10 +1,12 @@
 import '../form_api/form_entry_controller.dart';
 import '../model/actions/actions.dart';
 import '../model/condition/evaluation_context.dart';
+import '../model/form_def.dart';
 import '../model/instance/external/external_instance_parser.dart';
 import '../model/instance/tree_reference.dart';
 import '../model/utils/question_preloader.dart';
 import '../reference/resource_resolver.dart';
+import '../xform/instance_loading.dart';
 
 /// Everything that configures how forms are parsed and filled. Immutable;
 /// create one per app (or per form source) and reuse it.
@@ -20,6 +22,7 @@ final class DartRosaConfig {
     this.externalInstanceParser,
     this.setGeopointAction,
     this.properties,
+    this.plugins = const [],
   });
 
   /// Reads `jr://` resources (media, CSV/XML/GeoJSON instances, last-saved).
@@ -50,4 +53,37 @@ final class DartRosaConfig {
 
   /// Device and user properties (`deviceid`, `username`, `email`, ...).
   final PropertyManager? properties;
+
+  /// Feature plugins taking part in loading every form (e.g. ODK Collect's
+  /// external data); see [FormLoadPlugin].
+  final List<FormLoadPlugin> plugins;
+}
+
+/// A feature that takes part in loading every form parsed with a
+/// [DartRosaConfig]: it adds parser processors with per-form state, then
+/// prepares each parsed form asynchronously (for example importing CSV
+/// media) before any session starts.
+///
+/// DartRosa's counterpart of the work ODK Collect does by wrapping
+/// `IXFormParserFactory` (fresh processors per parse), in `FormLoaderTask`
+/// between parsing and creating the `FormEntryController`, and by setting
+/// a custom `IAnswerResolver` when loading saved instances.
+abstract class FormLoadPlugin {
+  /// Allows subclasses to declare a const constructor.
+  const FormLoadPlugin();
+
+  /// Fresh processors for one parse (any of the types
+  /// `XFormParser.addProcessor` accepts). Called once per form, so
+  /// processors may keep per-form state.
+  List<Object> createParseProcessors() => const [];
+
+  /// Called with each parsed form, before [DartRosaConfig.functions] are
+  /// added (so the app's functions take precedence over the plugin's) and
+  /// before any session starts. May add function handlers and filter
+  /// strategies to [form]. [resolver] reads the form's `jr://` media.
+  Future<void> prepareForm(FormDef form, ResourceResolver resolver) async {}
+
+  /// Types the answers of saved instances loaded into sessions, replacing
+  /// the default resolver (the first plugin providing one wins).
+  AnswerResolver? get answerResolver => null;
 }

@@ -26,7 +26,7 @@ jobs:
       - name: Test Collect-layer packages (VM, two time zones)
         run: |
           for tz in UTC America/New_York; do
-            for p in dartrosa_encryption dartrosa_entities; do
+            for p in dartrosa_encryption dartrosa_entities dartrosa_external_data; do
               echo "TZ=$tz $p"; TZ=$tz dart test packages/$p
             done
           done
@@ -39,7 +39,7 @@ jobs:
       # Browser tests must run from inside each package (test runner limitation).
       - name: Test (Chrome, dart2js and dart2wasm)
         run: |
-          for p in dartrosa dartrosa_encryption dartrosa_entities; do
+          for p in dartrosa dartrosa_encryption dartrosa_entities dartrosa_external_data; do
             (cd packages/$p && dart test -p chrome && dart test -p chrome --compiler dart2wasm)
           done
 

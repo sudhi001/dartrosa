@@ -1,6 +1,7 @@
 import 'package:collection/collection.dart';
 
 import '../i18n/localizer.dart';
+import '../util/extras.dart';
 import '../xform/xform_answer_data_parser.dart';
 import '../xform/xform_answer_data_serializer.dart';
 import '../xpath/conversions.dart';
@@ -54,6 +55,12 @@ final class FormDef extends FormElement {
   final _equalityIndexStrategy = EqualityExpressionIndexFilterStrategy();
   final _comparisonCacheStrategy = ComparisonExpressionCacheFilterStrategy();
 
+  /// Objects plugins attach to the form, at most one per type (e.g. ODK
+  /// Collect's `DynamicPreloadExtra` and entities `EntityFormExtra`). Port
+  /// of `getExtras()`; like other parse results, they are rebuilt by the
+  /// processors when a form is restored by `FormDefCodec`.
+  final Extras<Object> extras = Extras();
+
   /// The form title (`<h:title>`).
   String? title;
 
@@ -81,12 +88,6 @@ final class FormDef extends FormElement {
 
   /// Non-fatal errors found while parsing.
   final List<String> parseErrors = [];
-
-  /// App-defined data attached by parser plugins, keyed by type (e.g. ODK
-  /// Collect's entities `EntityFormExtra`). Port of `FormDef.getExtras()`;
-  /// like other parse results, it is rebuilt by the processors when a
-  /// form is restored by `FormDefCodec`.
-  final Map<Object, Object?> extras = {};
 
   /// Receives `<odk:recordaudio>` requests (replaces JavaRosa's static
   /// `RecordAudioActions` listener).

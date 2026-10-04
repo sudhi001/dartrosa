@@ -93,7 +93,7 @@ void main() {
         configureBind: (b) => b.withAttribute('incorrect', 'saveto', 'name'),
       ),
     );
-    final extra = formDef.extras[EntityFormExtra]! as EntityFormExtra;
+    final extra = formDef.extras.get<EntityFormExtra>()!;
     expect(extra.saveTos, isEmpty);
   });
 
@@ -109,7 +109,7 @@ void main() {
 
   test('saveTos record the field and its entity group', () async {
     final formDef = await _parse(_form(version: '2024.1.0'));
-    final extra = formDef.extras[EntityFormExtra]! as EntityFormExtra;
+    final extra = formDef.extras.get<EntityFormExtra>()!;
     expect(extra.saveTos, hasLength(1));
     expect(extra.saveTos.single.value, 'name');
     expect(extra.saveTos.single.reference.toString(), '/data/name');
@@ -118,6 +118,6 @@ void main() {
 
   test('forms using versions without local entities get no extra', () async {
     final formDef = await _parse(_form(version: '2023.1.0'));
-    expect(formDef.extras[EntityFormExtra], isNull);
+    expect(formDef.extras.get<EntityFormExtra>(), isNull);
   });
 }

@@ -9,6 +9,7 @@ import '../model/instance/data_instance.dart';
 import '../model/instance/tree_reference.dart';
 import '../model/triggerable_dag.dart';
 import '../model/utils/question_preloader.dart';
+import '../reference/resource_resolver.dart';
 import '../xform/instance_loading.dart';
 import '../xform/xform_parser.dart';
 import '../xform/xform_serializing_visitor.dart';
@@ -36,7 +37,14 @@ final class FormDefinition {
       setGeopointAction: config.setGeopointAction,
     );
     config.parseProcessors.forEach(parser.addProcessor);
+    for (final plugin in config.plugins) {
+      plugin.createParseProcessors().forEach(parser.addProcessor);
+    }
     final form = await parser.parse(xml);
+    final resolver = config.resolver ?? MapResourceResolver(const {});
+    for (final plugin in config.plugins) {
+      await plugin.prepareForm(form, resolver);
+    }
     config.functions.forEach(form.addFunctionHandler);
     config.filterStrategies.forEach(form.addFilterStrategy);
     form.preloader = QuestionPreloader(properties: config.properties);
@@ -62,7 +70,14 @@ final class FormDefinition {
   /// saved draft or submission XML), in [language] if given.
   FormSession createSession({String? existingInstance, String? language}) {
     formDef.mainInstance = _blankInstance.clone();
-    if (existingInstance != null) formDef.loadXmlInstance(existingInstance);
+    if (existingInstance != null) {
+      formDef.loadXmlInstance(
+        existingInstance,
+        resolver:
+            config.plugins.map((p) => p.answerResolver).nonNulls.firstOrNull ??
+            defaultAnswerResolver,
+      );
+    }
     final session = FormSession._(this, newInstance: existingInstance == null);
     if (language != null) session.language = language;
     return session;

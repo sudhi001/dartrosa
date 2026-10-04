@@ -94,7 +94,7 @@ final class EntityFormParseProcessor
           saveTos.add(SaveTo(ref, value, entityGroup.ref.genericize()));
         }
       }
-      form.extras[EntityFormExtra] = EntityFormExtra(saveTos);
+      form.extras.put(EntityFormExtra(saveTos));
     }
   }
 

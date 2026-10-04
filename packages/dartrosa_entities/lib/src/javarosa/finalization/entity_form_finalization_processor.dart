@@ -28,7 +28,7 @@ final class EntityFormFinalizationProcessor
     final formDef = model.form;
     final mainInstance = formDef.mainInstance;
 
-    final entityFormExtra = formDef.extras[EntityFormExtra];
+    final entityFormExtra = formDef.extras.get<EntityFormExtra>();
     if (entityFormExtra is! EntityFormExtra) return;
     final saveTos = entityFormExtra.saveTos;
 

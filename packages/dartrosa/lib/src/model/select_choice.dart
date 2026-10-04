@@ -6,7 +6,8 @@ import 'instance/tree_element.dart';
 ///
 /// Port of `org.javarosa.core.model.SelectChoice`. Choices are created by
 /// the parser; [index] is assigned afterwards by the owning question.
-final class SelectChoice {
+/// Plugins may subclass it (e.g. Collect's `ExternalSelectChoice`).
+base class SelectChoice {
   /// A choice whose label is the itext id [labelId].
   SelectChoice.localized(String labelId, String value)
     : this._(labelId, null, value, true, null, null);
