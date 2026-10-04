@@ -19,3 +19,4 @@ export 'src/itemsets/fast_external_itemsets_plugin.dart';
 export 'src/itemsets/fast_external_itemsets_repository.dart';
 export 'src/itemsets/itemset_dao.dart';
 export 'src/itemsets/itemsets_csv_reader.dart';
+export 'src/last_saved/last_saved.dart';
