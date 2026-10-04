@@ -32,11 +32,16 @@ final class ExternalDataInstance extends DataInstance {
   ///
   /// Instance providers are asked for a partial instance first; it's
   /// completed when evaluation reaches a partial element.
+  ///
+  /// With [placeholderIfMissing] false a missing file throws
+  /// [ResourceNotFoundException] instead, as JavaRosa's `readExternal`
+  /// (deserializing a cached form) does.
   static Future<ExternalDataInstance> build(
     ResourceResolver resolver,
     String instanceSrc,
     String instanceId, {
     ExternalInstanceParser? parser,
+    bool placeholderIfMissing = true,
   }) async {
     final instanceParser = parser ?? ExternalInstanceParser();
     TreeElement? root;
@@ -49,6 +54,7 @@ final class ExternalDataInstance extends DataInstance {
         partial: true,
       );
     } on ResourceNotFoundException {
+      if (!placeholderIfMissing) rethrow;
       root = null;
     }
     final usePlaceholder = root == null || !root.hasChildren;
