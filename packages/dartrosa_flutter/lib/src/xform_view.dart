@@ -26,8 +26,12 @@ class XFormView extends StatefulWidget {
     this.delegates = const NoDelegates(),
     this.widgetOverrides = const {},
     this.onFinalized,
+    this.guidanceHints = GuidanceHintMode.yes,
     super.key,
   });
+
+  /// When guidance hints are shown.
+  final GuidanceHintMode guidanceHints;
 
   /// The form being filled.
   final FormSession session;
@@ -88,6 +92,7 @@ class _XFormViewState extends State<XFormView> {
     controller: _controller,
     delegates: widget.delegates,
     overrides: widget.widgetOverrides,
+    guidanceHints: widget.guidanceHints,
     child: Builder(
       builder: (context) => switch (widget.mode) {
         XFormMode.scroll => _ScrollForm(onFinalize: () => _finalize(context)),

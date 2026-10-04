@@ -8,6 +8,7 @@ export 'package:dartrosa/dartrosa.dart';
 
 export 'src/appearance.dart';
 export 'src/delegates.dart';
+export 'src/markdown.dart';
 export 'src/widgets/common.dart' show XFormPagerScope;
 export 'src/widgets/date_input.dart';
 export 'src/widgets/label.dart';

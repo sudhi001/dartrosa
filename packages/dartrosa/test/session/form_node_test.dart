@@ -75,6 +75,28 @@ void main() {
     expect(fr.language, 'fr');
   });
 
+  test('guidance hints come from the hint itext', () async {
+    final definition = await FormDefinition.parse(
+      formXml
+          .replaceFirst(
+            '<text id="c-y">',
+            '<text id="h"><value>Hint</value>'
+                '<value form="guidance">Probe gently</value></text>'
+                '<text id="c-y">',
+          )
+          .replaceFirst(
+            '<hint>In years</hint>',
+            '<hint ref="jr:itext(\'h\')"/>',
+          ),
+    );
+    final age =
+        definition.createSession(language: 'en').root.children[0]
+            as QuestionNode;
+    expect(age.hint, 'Hint');
+    expect(age.guidanceHint, 'Probe gently');
+    expect(question(0).guidanceHint, isNull);
+  });
+
   test('question details', () {
     final age = question(0);
     expect(age.question.textId, 'age');

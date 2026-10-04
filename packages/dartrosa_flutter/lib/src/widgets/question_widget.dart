@@ -91,11 +91,7 @@ class QuestionWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 XFormLabel(node.label, required: node.isRequired),
-                if (node.hint case final hint? when hint.isNotEmpty)
-                  Padding(
-                    padding: const EdgeInsets.only(top: 4),
-                    child: Text(hint, style: theme.textTheme.bodySmall),
-                  ),
+                XFormHint(node),
                 if (!node.isNote)
                   Padding(
                     padding: const EdgeInsets.only(top: 8),

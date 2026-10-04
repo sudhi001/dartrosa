@@ -2,6 +2,7 @@ import 'package:dartrosa/dartrosa.dart';
 import 'package:flutter/material.dart';
 
 import '../appearance.dart';
+import '../markdown.dart';
 import '../xform_scope.dart';
 import 'common.dart';
 
@@ -47,7 +48,10 @@ class ChoiceContent extends StatelessWidget {
             child: Image(image: image, semanticLabel: label),
           ),
         if (showLabel)
-          Text(label, textAlign: center ? TextAlign.center : TextAlign.start),
+          XFormMarkdown(
+            label,
+            textAlign: center ? TextAlign.center : TextAlign.start,
+          ),
       ],
     );
   }
