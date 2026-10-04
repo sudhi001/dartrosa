@@ -1,0 +1,18 @@
+name: dartrosa_encryption
+description: >-
+  Encrypted ODK submissions for DartRosa: a port of ODK Collect's
+  EncryptionUtils, byte-compatible with ODK Central and Briefcase decryption.
+version: 0.0.1
+publish_to: none
+resolution: workspace
+
+environment:
+  sdk: ^3.10.0
+
+dependencies:
+  crypto: ^3.0.7
+  dartrosa: any
+  meta: ^1.19.0
+  pointycastle: ^4.0.0
+dev_dependencies:
+  test: ^1.32.0
