@@ -159,6 +159,13 @@ class FormInstance extends DataInstance {
 
   TreeElement _base = TreeElement();
 
+  /// Names this secondary instance [instanceId] when the form starts.
+  /// Port of `FormInstance.initialize`.
+  void initialize(String instanceId) {
+    this.instanceId = instanceId;
+    root.instanceName = instanceId;
+  }
+
   /// Form schema (the `xmlns` of the top-level element).
   String? schema;
 

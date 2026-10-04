@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:odk="http://www.opendatakit.org/xforms" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>DAG chain</h:title>
+    <model>
+      <instance>
+        <data id="dag-chain">
+          <a>3</a><b/><c/><d/><e>keep</e>
+          <flag>yes</flag><ro/><req/>
+          <g><g1>x</g1><g2/><inner><i1/></inner></g>
+          <start/><today/><meta><instanceID/></meta>
+        </data>
+      </instance>
+      <bind nodeset="/data/a" type="int"/>
+      <bind nodeset="/data/b" type="int" calculate="/data/a * 2"/>
+      <bind nodeset="/data/c" type="decimal" calculate="/data/b div 4"/>
+      <bind nodeset="/data/d" type="string" calculate="concat(/data/c, '-', /data/e)"/>
+      <bind nodeset="/data/ro" type="string" readonly="/data/flag = 'yes'" calculate="'computed'"/>
+      <bind nodeset="/data/req" type="string" required="/data/b &gt; 5"/>
+      <bind nodeset="/data/g" relevant="/data/flag != 'yes'"/>
+      <bind nodeset="/data/g/g2" type="string" calculate="concat(../g1, '!')"/>
+      <bind nodeset="/data/g/inner/i1" type="string" required="true()" calculate="../../g1"/>
+      <bind nodeset="/data/start" type="dateTime" jr:preload="timestamp" jr:preloadParams="start"/>
+      <bind nodeset="/data/today" type="date" jr:preload="date" jr:preloadParams="today"/>
+      <bind nodeset="/data/meta/instanceID" type="string" readonly="true()" jr:preload="uid"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input ref="/data/a"><label>A</label></input>
+    <input ref="/data/flag"><label>Flag</label></input>
+    <input ref="/data/req"><label>Req</label></input>
+    <group ref="/data/g"><input ref="/data/g/g1"><label>G1</label></input></group>
+  </h:body>
+</h:html>

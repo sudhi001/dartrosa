@@ -108,6 +108,12 @@ public final class Oracle {
             if (!(boolean) ((Map<?, ?>) trace.get("parse")).get("ok")) failed++; else ok++;
             write(traces.resolve("walk").resolve(rel + ".json"), trace);
             write(traces.resolve("structure").resolve(rel + ".json"), structureTrace(form.toFile(), "forms/" + rel));
+            write(traces.resolve("init").resolve(rel + ".json"), initTrace(form.toFile(), "forms/" + rel));
+        }
+        for (Path dag : list(scenarios, ".dag.json")) {
+            String rel = scenarios.relativize(dag).toString();
+            write(traces.resolve("dag").resolve(rel), DagScenario.run(dag.toFile(), root.toFile()));
+            ok++;
         }
         for (Path scenario : list(scenarios, ".scenario.json")) {
             String rel = scenarios.relativize(scenario).toString();
@@ -160,6 +166,49 @@ public final class Oracle {
             trace.put("parse", Map.of("ok", false, "error", error(t)));
         }
         return trace;
+    }
+
+    /** Dependency graph and the instance after initialize(newInstance = true). */
+    static Map<String, Object> initTrace(File form, String displayPath) {
+        Map<String, Object> trace = new LinkedHashMap<>();
+        trace.put("traceVersion", TRACE_VERSION);
+        trace.put("form", displayPath);
+        FormDef def;
+        try {
+            setUpReferences(form.getAbsoluteFile().getParentFile());
+            def = Scenario.createFormDef(form);
+        } catch (Throwable t) {
+            trace.put("parse", Map.of("ok", false, "error", stableError(t)));
+            return trace;
+        }
+        trace.put("parse", Map.of("ok", true));
+        trace.put("cascades", Structure.cascades(def));
+        try {
+            def.initialize(true, new org.javarosa.core.model.instance.InstanceInitializationFactory());
+            trace.put("initialize", Map.of("ok", true));
+        } catch (Throwable t) {
+            trace.put("initialize", Map.of("ok", false, "error", stableError(t)));
+        }
+        trace.put("instance", Structure.tree(def.getMainInstance().getRoot()));
+        return trace;
+    }
+
+    /**
+     * error(t), with the node lines of a cycle message sorted: JavaRosa lists
+     * them in identity-hash order, which changes between runs.
+     */
+    static Map<String, Object> stableError(Throwable t) {
+        Map<String, Object> e = new LinkedHashMap<>(error(t));
+        Object message = e.get("message");
+        String marker = "The following nodes are likely involved in the loop:";
+        if (message instanceof String m && m.contains(marker)) {
+            int at = m.indexOf(marker) + marker.length();
+            List<String> lines = new ArrayList<>(List.of(m.substring(at).split("\n")));
+            lines.removeIf(String::isEmpty);
+            java.util.Collections.sort(lines);
+            e.put("message", m.substring(0, at) + "\n" + String.join("\n", lines));
+        }
+        return e;
     }
 
     static Map<String, Object> scenarioTrace(File scenarioFile, File conformanceRoot) throws Exception {

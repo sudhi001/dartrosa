@@ -1,0 +1,15 @@
+{
+  "form": "forms/dartrosa/dag/repeat.xml",
+  "steps": [
+    {"op": "repeatRelevant", "ref": "/data/r[1]"},
+    {"op": "createRepeat", "ref": "/data/r[3]"},
+    {"op": "setValue", "ref": "/data/r[3]/v", "value": "9"},
+    {"op": "setValue", "ref": "/data/limit", "value": "4"},
+    {"op": "createRepeat", "ref": "/data/r[4]"},
+    {"op": "setValue", "ref": "/data/r[4]/v", "value": "3"},
+    {"op": "deleteRepeat", "ref": "/data/r[1]"},
+    {"op": "setValue", "ref": "/data/r[1]/v", "value": "7"},
+    {"op": "deleteRepeat", "ref": "/data/r[3]"},
+    {"op": "setValue", "ref": "/data/limit", "value": "0"}
+  ]
+}

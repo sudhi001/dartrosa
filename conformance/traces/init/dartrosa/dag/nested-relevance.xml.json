@@ -1,0 +1,160 @@
+{
+  "cascades" : [ {
+    "cascades" : [ "condition|{binop-expr:==,{path-expr:rel,{{step:parent,node()},{step:child,mid},{step:child,leaf}}},{str:'v'}}|/data/outer/other|[/data/outer/other]", "recalculate|{func-expr:concat,{{path-expr:rel,{{step:parent,node()},{step:child,leaf}}},{path-expr:rel,{{step:parent,node()},{step:child,leaf}}}}}|/data/outer/mid/calc|[/data/outer/mid/calc]", "recalculate|{path-expr:abs,{{step:child,data},{step:child,outer},{step:child,mid},{step:child,calc}}}|/data/uses|[/data/uses]" ],
+    "triggerable" : "condition|{binop-expr:==,{path-expr:abs,{{step:child,data},{step:child,show}}},{str:'yes'}}|/data/outer|[/data/outer]"
+  }, {
+    "cascades" : [ ],
+    "triggerable" : "condition|{binop-expr:==,{path-expr:rel,{{step:parent,node()},{step:child,mid},{step:child,leaf}}},{str:'v'}}|/data/outer/other|[/data/outer/other]"
+  }, {
+    "cascades" : [ "recalculate|{path-expr:abs,{{step:child,data},{step:child,outer},{step:child,mid},{step:child,calc}}}|/data/uses|[/data/uses]" ],
+    "triggerable" : "recalculate|{func-expr:concat,{{path-expr:rel,{{step:parent,node()},{step:child,leaf}}},{path-expr:rel,{{step:parent,node()},{step:child,leaf}}}}}|/data/outer/mid/calc|[/data/outer/mid/calc]"
+  }, {
+    "cascades" : [ ],
+    "triggerable" : "recalculate|{path-expr:abs,{{step:child,data},{step:child,outer},{step:child,mid},{step:child,calc}}}|/data/uses|[/data/uses]"
+  } ],
+  "form" : "forms/dartrosa/dag/nested-relevance.xml",
+  "initialize" : {
+    "ok" : true
+  },
+  "instance" : {
+    "attributes" : [ [ "", "id", "dag-nested-relevance" ] ],
+    "bindAttributes" : [ ],
+    "children" : [ {
+      "attributes" : [ ],
+      "bindAttributes" : [ ],
+      "children" : [ ],
+      "constraint" : null,
+      "enabled" : true,
+      "mult" : 0,
+      "name" : "show",
+      "namespace" : null,
+      "prefix" : null,
+      "preload" : null,
+      "preloadParams" : null,
+      "relevant" : true,
+      "repeatable" : false,
+      "required" : false,
+      "type" : "null",
+      "value" : "no"
+    }, {
+      "attributes" : [ ],
+      "bindAttributes" : [ ],
+      "children" : [ {
+        "attributes" : [ ],
+        "bindAttributes" : [ ],
+        "children" : [ {
+          "attributes" : [ ],
+          "bindAttributes" : [ ],
+          "children" : [ ],
+          "constraint" : null,
+          "enabled" : true,
+          "mult" : 0,
+          "name" : "leaf",
+          "namespace" : null,
+          "prefix" : null,
+          "preload" : null,
+          "preloadParams" : null,
+          "relevant" : false,
+          "repeatable" : false,
+          "required" : false,
+          "type" : "null",
+          "value" : "v"
+        }, {
+          "attributes" : [ ],
+          "bindAttributes" : [ ],
+          "children" : [ ],
+          "constraint" : null,
+          "enabled" : true,
+          "mult" : 0,
+          "name" : "calc",
+          "namespace" : null,
+          "prefix" : null,
+          "preload" : null,
+          "preloadParams" : null,
+          "relevant" : false,
+          "repeatable" : false,
+          "required" : false,
+          "type" : "text",
+          "value" : null
+        } ],
+        "constraint" : null,
+        "enabled" : true,
+        "mult" : 0,
+        "name" : "mid",
+        "namespace" : null,
+        "prefix" : null,
+        "preload" : null,
+        "preloadParams" : null,
+        "relevant" : false,
+        "repeatable" : false,
+        "required" : false,
+        "type" : "null",
+        "value" : null
+      }, {
+        "attributes" : [ ],
+        "bindAttributes" : [ ],
+        "children" : [ ],
+        "constraint" : null,
+        "enabled" : true,
+        "mult" : 0,
+        "name" : "other",
+        "namespace" : null,
+        "prefix" : null,
+        "preload" : null,
+        "preloadParams" : null,
+        "relevant" : false,
+        "repeatable" : false,
+        "required" : false,
+        "type" : "null",
+        "value" : null
+      } ],
+      "constraint" : null,
+      "enabled" : true,
+      "mult" : 0,
+      "name" : "outer",
+      "namespace" : null,
+      "prefix" : null,
+      "preload" : null,
+      "preloadParams" : null,
+      "relevant" : false,
+      "repeatable" : false,
+      "required" : false,
+      "type" : "null",
+      "value" : null
+    }, {
+      "attributes" : [ ],
+      "bindAttributes" : [ ],
+      "children" : [ ],
+      "constraint" : null,
+      "enabled" : true,
+      "mult" : 0,
+      "name" : "uses",
+      "namespace" : null,
+      "prefix" : null,
+      "preload" : null,
+      "preloadParams" : null,
+      "relevant" : true,
+      "repeatable" : false,
+      "required" : false,
+      "type" : "text",
+      "value" : null
+    } ],
+    "constraint" : null,
+    "enabled" : true,
+    "mult" : 0,
+    "name" : "data",
+    "namespace" : null,
+    "prefix" : null,
+    "preload" : null,
+    "preloadParams" : null,
+    "relevant" : true,
+    "repeatable" : false,
+    "required" : false,
+    "type" : "null",
+    "value" : null
+  },
+  "parse" : {
+    "ok" : true
+  },
+  "traceVersion" : 1
+}

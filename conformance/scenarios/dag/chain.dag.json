@@ -1,0 +1,13 @@
+{
+  "form": "forms/dartrosa/dag/chain.xml",
+  "steps": [
+    {"op": "setValue", "ref": "/data/a", "value": "10"},
+    {"op": "setValue", "ref": "/data/e", "value": "changed"},
+    {"op": "setValue", "ref": "/data/flag", "value": "no"},
+    {"op": "setValue", "ref": "/data/g/g1", "value": "hello"},
+    {"op": "setValue", "ref": "/data/a", "value": "1"},
+    {"op": "setValue", "ref": "/data/a", "value": null},
+    {"op": "setValue", "ref": "/data/flag", "value": "yes"},
+    {"op": "postProcess"}
+  ]
+}

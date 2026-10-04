@@ -1,0 +1,11 @@
+{
+  "form" : "forms/dartrosa/dag/cycle.xml",
+  "parse" : {
+    "error" : {
+      "message" : "Cycle detected in form's relevant and calculation logic!\nThe following nodes are likely involved in the loop:\n/data/a\n/data/c\n/data/b",
+      "type" : "XFormParseException"
+    },
+    "ok" : false
+  },
+  "traceVersion" : 1
+}

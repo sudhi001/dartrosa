@@ -1,0 +1,54 @@
+{
+  "form" : "forms/dartrosa/dag/chain.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"dag-chain\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\"><a>3</a><b>6</b><c>1.5</c><d>1.5-keep</d><e>keep</e><flag>yes</flag><ro>computed</ro><req /><start><now></start><today><today></today><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "language" : null,
+    "languages" : [ ],
+    "ok" : true,
+    "title" : "DAG chain"
+  },
+  "steps" : [ {
+    "events" : [ {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "integer",
+      "event" : "question",
+      "hint" : null,
+      "label" : "A",
+      "readonly" : false,
+      "ref" : "/data/a[1]",
+      "required" : false,
+      "value" : "3"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "null",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Flag",
+      "readonly" : false,
+      "ref" : "/data/flag[1]",
+      "required" : false,
+      "value" : "yes"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Req",
+      "readonly" : false,
+      "ref" : "/data/req[1]",
+      "required" : true,
+      "value" : null
+    }, {
+      "event" : "endOfForm"
+    } ],
+    "op" : "walk"
+  }, {
+    "op" : "validate",
+    "outcome" : "required",
+    "ref" : "/data/req[1]"
+  } ],
+  "traceVersion" : 1
+}

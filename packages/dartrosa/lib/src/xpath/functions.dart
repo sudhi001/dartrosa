@@ -21,6 +21,7 @@ import '../util/java_base64.dart';
 import '../util/java_double.dart';
 import '../util/java_lang.dart';
 import '../util/randomize.dart';
+import '../util/uuid.dart';
 import 'conversions.dart';
 import 'exceptions.dart';
 import 'expression.dart';
@@ -284,7 +285,7 @@ Object evalFunction(
       final current = _currentNodeValue(model, context);
       return toXPathString(current).isEmpty ? args[0] : current;
     case 'uuid' when n == 0 || n == 1:
-      if (n == 0) return _uuid();
+      if (n == 0) return randomUuid();
       return _guid(javaIntCast(toInt(args[0])));
     case 'version':
       _assertArgsCount(name, n, 0);
@@ -767,16 +768,6 @@ String _extractSigned(String contents, String publicKey) {
     // Too short or invalid key: JavaRosa returns "".
     return '';
   }
-}
-
-String _uuid() {
-  final random = math.Random.secure();
-  final bytes = List<int>.generate(16, (_) => random.nextInt(256));
-  bytes[6] = (bytes[6] & 0x0f) | 0x40; // version 4
-  bytes[8] = (bytes[8] & 0x3f) | 0x80; // IETF variant
-  final hex = bytes.map((b) => b.toRadixString(16).padLeft(2, '0')).join();
-  return '${hex.substring(0, 8)}-${hex.substring(8, 12)}-'
-      '${hex.substring(12, 16)}-${hex.substring(16, 20)}-${hex.substring(20)}';
 }
 
 /// `uuid(n)`: [length] random base-36 characters, upper case.

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:odk="http://www.opendatakit.org/xforms" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>DAG relevance cycle</h:title>
+    <model>
+      <instance><data id="dag-relevance-cycle"><g><x/></g><y/></data></instance>
+      <bind nodeset="/data/g" relevant="/data/y = 1"/>
+      <bind nodeset="/data/y" type="int" calculate="/data/g/x"/>
+    </model>
+  </h:head>
+  <h:body><input ref="/data/g/x"><label>X</label></input></h:body>
+</h:html>

@@ -1,0 +1,11 @@
+{
+  "form" : "forms/javarosa/bad-range-form.xml",
+  "parse" : {
+    "error" : {
+      "message" : "Value -2.0.1 of range attribute start can't be parsed as a decimal number",
+      "type" : "XFormParseException"
+    },
+    "ok" : false
+  },
+  "traceVersion" : 1
+}

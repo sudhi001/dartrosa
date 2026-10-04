@@ -1,0 +1,80 @@
+{
+  "form" : "forms/dartrosa/dag/repeat.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"dag-repeat\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\"><n>3</n><limit>2</limit><r><pos>1</pos><v>5</v><big>big-1</big><label>1/1</label></r><r><pos>2</pos><v>1</v><label>2/1</label></r><r><pos>3</pos><v /><label>3/1</label></r><total>6</total><count>3</count><firstBig /></data>",
+  "parse" : {
+    "language" : null,
+    "languages" : [ ],
+    "ok" : true,
+    "title" : "DAG repeat"
+  },
+  "steps" : [ {
+    "events" : [ {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "integer",
+      "event" : "question",
+      "hint" : null,
+      "label" : "N",
+      "readonly" : false,
+      "ref" : "/data/n[1]",
+      "required" : false,
+      "value" : "3"
+    }, {
+      "appearance" : null,
+      "event" : "repeat",
+      "label" : null,
+      "ref" : "/data/r[1]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "integer",
+      "event" : "question",
+      "hint" : null,
+      "label" : "V",
+      "readonly" : false,
+      "ref" : "/data/r[1]/v[1]",
+      "required" : false,
+      "value" : "5"
+    }, {
+      "appearance" : null,
+      "event" : "repeat",
+      "label" : null,
+      "ref" : "/data/r[2]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "integer",
+      "event" : "question",
+      "hint" : null,
+      "label" : "V",
+      "readonly" : false,
+      "ref" : "/data/r[2]/v[1]",
+      "required" : false,
+      "value" : "1"
+    }, {
+      "appearance" : null,
+      "event" : "repeat",
+      "label" : null,
+      "ref" : "/data/r[3]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "integer",
+      "event" : "question",
+      "hint" : null,
+      "label" : "V",
+      "readonly" : false,
+      "ref" : "/data/r[3]/v[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "event" : "endOfForm"
+    } ],
+    "op" : "walk"
+  }, {
+    "op" : "validate",
+    "outcome" : "ok",
+    "ref" : null
+  } ],
+  "traceVersion" : 1
+}

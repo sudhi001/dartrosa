@@ -63,6 +63,9 @@ final class SelectChoice {
   /// Name of the itemset label child, if any.
   final String? labelRefName;
 
+  /// Deprecated `<copy>` itemsets: the subtree copied when selected.
+  TreeElement? copyNode;
+
   int _index = -1;
 
   /// Position within the question's choices. Throws if not yet assigned.

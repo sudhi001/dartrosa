@@ -1,0 +1,13 @@
+{
+  "form": "forms/dartrosa/dag/constraints.xml",
+  "steps": [
+    {"op": "constraint", "ref": "/data/age", "value": "20"},
+    {"op": "constraint", "ref": "/data/age", "value": "200"},
+    {"op": "constraint", "ref": "/data/age", "value": null},
+    {"op": "setValue", "ref": "/data/min", "value": "30"},
+    {"op": "constraint", "ref": "/data/age", "value": "20"},
+    {"op": "constraint", "ref": "/data/name", "value": "ab"},
+    {"op": "constraint", "ref": "/data/name", "value": "abcdef"},
+    {"op": "constraint", "ref": "/data/free", "value": "x"}
+  ]
+}

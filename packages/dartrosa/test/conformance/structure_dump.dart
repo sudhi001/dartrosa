@@ -14,9 +14,25 @@ final _uuid = RegExp(
   '[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}',
 );
 
-/// The oracle's value normalization (UUIDs and today's date).
+final _dateTime = RegExp(
+  r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[+-]\d{2}:\d{2})?',
+);
+
+/// When the test run started (for `<now>` normalization).
+final runStarted = DateTime.now();
+
+/// The oracle's value normalization: UUIDs, date-times during the run and
+/// today's date.
 String? normalize(String? s) {
   if (s == null) return null;
+  s = s.replaceAllMapped(_dateTime, (m) {
+    final t = DateTime.tryParse(m[0]!);
+    final duringRun =
+        t != null &&
+        !t.isBefore(runStarted.subtract(const Duration(seconds: 1))) &&
+        !t.isAfter(DateTime.now().add(const Duration(seconds: 1)));
+    return duringRun ? '<now>' : m[0]!;
+  });
   final today = DateTime.now();
   final iso =
       '${today.year.toString().padLeft(4, '0')}-'
@@ -56,6 +72,27 @@ Map<String, Object?> structureOf(FormDef f) {
           },
     'warnings': f.parseWarnings,
   };
+}
+
+/// Each triggerable's immediate cascades, both sorted by sort key (the
+/// oracle's `Structure.cascades`).
+List<Object?> cascadesOf(FormDef f) {
+  final out =
+      [
+        for (final t in f.triggerables)
+          {
+            'triggerable': _sortKey(_triggerable(t)),
+            'cascades': [
+              for (final c in f.dag.immediateCascades(t))
+                _sortKey(_triggerable(c)),
+            ]..sort(),
+          },
+      ]..sort(
+        (a, b) => (a['triggerable']! as String).compareTo(
+          b['triggerable']! as String,
+        ),
+      );
+  return out;
 }
 
 String _sortKey(Map<String, Object?> t) =>

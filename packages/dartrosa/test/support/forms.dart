@@ -47,6 +47,11 @@ final class DirectoryResolver implements ResourceResolver {
   }
 }
 
+/// Parses the form [file], resolving `jr://` files next to it.
+Future<FormDef> parseFile(File file, {String? lastSavedSrc}) => XFormParser(
+  resolver: DirectoryResolver(file.parent),
+).parse(file.readAsStringSync(), lastSavedSrc: lastSavedSrc);
+
 /// Parses the conformance form [name].
 Future<FormDef> parseForm(String name, {String? lastSavedSrc}) {
   final file = formFile(name);
@@ -57,3 +62,11 @@ Future<FormDef> parseForm(String name, {String? lastSavedSrc}) {
 
 /// Parses form XML [xml] (e.g. built with the testing DSL).
 Future<FormDef> parseXml(String xml) => XFormParser().parse(xml);
+
+/// Why a comparison with oracle traces that contain local date-times is
+/// skipped: the JVM oracle runs with TZ=UTC. `null` in UTC.
+String? get skipUnlessUtc =>
+    DateTime(2018).timeZoneOffset == Duration.zero &&
+        DateTime(2018, 7).timeZoneOffset == Duration.zero
+    ? null
+    : 'oracle traces are recorded with TZ=UTC';

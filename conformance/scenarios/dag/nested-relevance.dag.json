@@ -1,0 +1,10 @@
+{
+  "form": "forms/dartrosa/dag/nested-relevance.xml",
+  "steps": [
+    {"op": "setValue", "ref": "/data/show", "value": "yes"},
+    {"op": "setValue", "ref": "/data/outer/mid/leaf", "value": "w"},
+    {"op": "setValue", "ref": "/data/outer/mid/leaf", "value": "v"},
+    {"op": "setValue", "ref": "/data/show", "value": "no"},
+    {"op": "setValue", "ref": "/data/outer/mid/leaf", "value": "z"}
+  ]
+}

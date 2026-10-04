@@ -328,23 +328,23 @@ Disposition: **PORT** = behaviour ported 1:1 (idiomatic structure) · **REDESIGN
 **Custom:** `XPathFunction` plugin interface with arity validation + fallback handler (`IFallbackFunctionHandler`).
 
 ### 7.7 Dependency graph / recalculation (TriggerableDag, dag.md)
-- [ ] Triggerables: `Condition` (relevant, readonly, required → true/false actions), `Recalculate` (calculate), `Constraint` (validation, not in DAG ordering)
-- [ ] Trigger index: reference → triggerables, with generic (repeat-agnostic) references and contextualization per repeat instance
-- [ ] Topological order computed at parse time; cycle detection with JavaRosa-equivalent error message (lists the cycle)
-- [ ] Initialize on new form; initialize on loaded instance (respecting `once()` / already-filled calculations)
-- [ ] Trigger on value change (cascade), on repeat insert, on repeat delete (incl. `position()`-dependent and `count()`-dependent recompute), on language change (itext-dependent outputs)
-- [ ] `QuickTriggerable` dedup; children-of-relevance propagation; readonly calculate behaviour (ReadOnlyCalculateTest)
+- [x] Triggerables: `Condition` (relevant, readonly, required → true/false actions), `Recalculate` (calculate), `Constraint` (validation, not in DAG ordering)
+- [x] Trigger index: reference → triggerables, with generic (repeat-agnostic) references and contextualization per repeat instance
+- [x] Topological order computed at parse time; cycle detection with JavaRosa-equivalent error message (lists the cycle)
+- [x] Initialize on new form (loaded instances: P6); initialize on loaded instance (respecting `once()` / already-filled calculations)
+- [x] Trigger on value change (cascade), on repeat insert, on repeat delete (incl. `position()`-dependent and `count()`-dependent recompute), on language change (itext-dependent outputs)
+- [x] `QuickTriggerable` dedup; children-of-relevance propagation; readonly calculate behaviour (ReadOnlyCalculateTest runs with Scenario in P4)
 - [ ] Constraint evaluation only on answer + finalize; `required` checked on navigation/finalize as JavaRosa
 - [ ] Revalidate whole form (`xforms-revalidate`) on finalize → list of failures with first-failure index
-- [ ] Predicate/filter strategies: Raw, ComparisonExpressionCache, EqualityExpressionIndex, IdempotentExpressionCache — results must equal Raw strategy (property test)
-- [ ] Debug trace stream (EvaluationResult/Event)
+- [x] Predicate/filter strategies: Raw, ComparisonExpressionCache, EqualityExpressionIndex, IdempotentExpressionCache — ported faithfully and installed as in JavaRosa. **Correction:** they are *not* always equivalent to Raw (the equality index matches candidates by their unpacked node side, so a missing child equals `''`); results must equal JavaRosa's, checked by the init traces
+- [x] Debug trace stream (EvaluationResult/Event)
 
 ### 7.8 Preloaders (QuestionPreloader / PreloadUtils)
-- [ ] `jr:preload="timestamp"` params `start` | `end` (end set at finalize)
-- [ ] `jr:preload="date"` params `today`
-- [ ] `jr:preload="property"` params `deviceid`, `subscriberid`, `simserial`, `phonenumber`, `username`, `email` (from `DeviceProperties`)
-- [ ] `jr:preload="uid"` (instanceID — `uuid:` prefix)
-- [ ] Custom `PreloadHandler` registration
+- [x] `jr:preload="timestamp"` params `start` | `end` (end set at finalize)
+- [x] `jr:preload="date"` params `today`
+- [x] `jr:preload="property"` params `deviceid`, `subscriberid`, `simserial`, `phonenumber`, `username`, `email` (from `DeviceProperties`)
+- [x] `jr:preload="uid"` (instanceID — `uuid:` prefix)
+- [x] Custom `PreloadHandler` registration
 - [ ] `meta/instanceID`, `meta/deprecatedID` (set when editing a finalized instance), `meta/instanceName` (calculate)
 
 ### 7.9 Actions & events

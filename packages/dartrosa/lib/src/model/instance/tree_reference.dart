@@ -412,6 +412,29 @@ final class TreeReference {
     return hash;
   }
 
+  /// The last name with the 1-based positions of the bound steps, such as
+  /// `name [2_3]`; for event summaries. Port of `toShortString`.
+  String toShortString() {
+    final sb = StringBuffer();
+    for (var i = 0; i < size; i++) {
+      final mult = multiplicityAt(i);
+      switch (mult) {
+        case indexUnbound:
+          break;
+        case indexTemplate:
+          sb.write('[@template]');
+        case indexRepeatJuncture:
+          sb.write('[@juncture]');
+        default:
+          if ((i > 0 || mult != 0) && mult != -4) {
+            if (sb.isNotEmpty) sb.write('_');
+            sb.write(mult + 1);
+          }
+      }
+    }
+    return '$lastName [$sb]';
+  }
+
   /// Prints the reference as JavaRosa does: multiplicities 1-based (or
   /// 0-based with [zeroIndexMultiplicity]), `[@template]`, `[@juncture]`,
   /// `@` for attributes, and `instance(id)`, `current()` or `inherited()`

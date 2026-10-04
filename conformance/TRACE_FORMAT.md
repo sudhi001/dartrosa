@@ -93,6 +93,30 @@ checked by `test/conformance/structure_test.dart`):
   `HashSet`);
 - `outputs`, default `submission`, and parse `warnings`.
 
+## Init traces (`traces/init/`)
+
+For every form: `parse` (with the error for failures; cycle node lines
+sorted, because JavaRosa lists them in identity-hash order), `cascades`
+(each triggerable's immediate cascades, by sort key), `initialize` (ok or
+the error) and `instance` (as in structure traces) after
+`FormDef.initialize(newInstance = true)`. When initialization fails, only
+the error is compared: what JavaRosa evaluated before failing depends on
+its identity-hash order. Checked by `test/conformance/init_test.dart`.
+
+## DAG traces (`traces/dag/`)
+
+`scenarios/**.dag.json` scripts drive the form directly after
+initialization: `setValue {ref, value}`, `createRepeat {ref}`,
+`deleteRepeat {ref}`, `constraint {ref, value}` (result recorded),
+`repeatRelevant {ref}` (result recorded) and `postProcess`. Each step
+records its result or error and the main instance. Repeat creation and
+deletion replay `FormDef.createNewRepeat` / `deleteRepeat` after their
+`FormIndex`-to-reference step. Checked by
+`test/conformance/dag_scenario_test.dart`.
+
+Init and DAG traces contain local date-times, so the Dart comparisons run
+only when the process time zone is UTC (as the oracle's is).
+
 ## Normalization (both sides must apply it)
 
 So that traces are byte-identical across runs and machines:

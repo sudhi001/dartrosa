@@ -189,6 +189,26 @@ final class Structure {
         }
     }
 
+    /** Each triggerable's immediate cascades, both sorted by sortKey. */
+    static List<Object> cascades(FormDef f) {
+        List<Map<String, Object>> out = new ArrayList<>();
+        for (Triggerable t : allTriggerables(f)) {
+            Map<String, Object> m = new LinkedHashMap<>();
+            m.put("triggerable", sortKey(triggerable(t)));
+            List<String> cascades = new ArrayList<>();
+            if (t.getImmediateCascades() != null) {
+                for (org.javarosa.core.model.QuickTriggerable qt : t.getImmediateCascades()) {
+                    cascades.add(sortKey(triggerable(qt.getTriggerable())));
+                }
+            }
+            cascades.sort(null);
+            m.put("cascades", cascades);
+            out.add(m);
+        }
+        out.sort(java.util.Comparator.comparing(m -> (String) m.get("triggerable")));
+        return new ArrayList<>(out);
+    }
+
     static String sortKey(Map<String, Object> t) {
         return t.get("kind") + "|" + t.get("expr") + "|" + t.get("originalContext") + "|" + t.get("targets");
     }

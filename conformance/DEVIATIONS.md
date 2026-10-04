@@ -88,6 +88,13 @@ Recorded so that nothing in JavaRosa disappears silently.
 | `XFormParser.parse` is synchronous | `Future<FormDef>` | External secondary instances are read through an async `ResourceResolver`. |
 | `XPathReference` / `IDataReference` wrappers | plain `TreeReference` | The wrapper added nothing. |
 | `RecordAudioActions` static listener | `FormDef.recordAudioListener` | No global state. |
+| `QuickTriggerable` and identity-hash-ordered sets in `TriggerableDag` | `Triggerable` (identity equality) in insertion-ordered sets | JavaRosa's evaluation order within a DAG level, and the node order of its cycle message, change from run to run; DartRosa uses registration order, one of JavaRosa's possible orders. |
+| `FormDef.initialize(boolean, InstanceInitializationFactory)` | `initialize({required bool newInstance})` | JavaRosa never uses the factory. |
+| `createNewRepeat(FormIndex)`, `deleteRepeat(FormIndex)`, `canCreateRepeat(ref, FormIndex)` | reference-based `createRepeatInstance`, `deleteRepeatInstance`, `canCreateRepeat(ref, repeat, multiplicity)`; the `FormIndex` forms come with navigation (P4) | Same logic after the index-to-reference step. |
+| Global `PropertyManager` | `PropertyManager` interface on `FormDef.preloader`, also read by `property()` | No global state. |
+| `EventNotifier` | `FormDef.addEventListener` receiving `EvaluationEvent`s | Same events and messages. |
+| `RuntimeException("Error evaluating field …")` | `TriggerableEvaluationException` with the same message | Typed exception. |
+| Filter-strategy cache keys (`Object.toString()` of unpacked values) | Java formatting for numbers and booleans; dates use Dart's `toString` | Keys only need to be consistent within a run; a date node side never equals a string context side in either. |
 | `SubmissionParser` class and `matchesCustomMethod` | inlined into `XFormParser` | JavaRosa's static `submissionParsers` list has no public registration, so only the default parser ever runs. |
 | `QuestionDef.getChildren()` returns `null` | returns an empty list | Null-safe API; `addChild` still throws. |
 | Dart `String.trim()` | `javaTrim` everywhere | Dart also strips Unicode spaces such as U+00A0; Java only characters `<= ' '`. |
