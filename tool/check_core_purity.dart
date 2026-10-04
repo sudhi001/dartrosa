@@ -7,6 +7,7 @@ const corePackages = [
   'dartrosa_encryption',
   'dartrosa_entities',
   'dartrosa_external_data',
+  'dartrosa_openrosa',
 ];
 final forbidden = RegExp(
   r'''^\s*(import|export)\s+['"](dart:io|dart:html|dart:mirrors|dart:ffi|package:flutter/|package:web/)''',
