@@ -636,20 +636,12 @@ final class _TreeElementChildren extends Iterable<TreeElement> {
     var count = 0;
     for (final child in _list) {
       if (child.multiplicity != TreeReference.indexTemplate &&
-          _matchesName(child, name)) {
+          elementMatchesName(child, name)) {
         count++;
         results?.add(child);
       }
     }
     return count;
-  }
-
-  /// Port of `TreeElementNameComparator.elementMatchesName`.
-  static bool _matchesName(TreeElement element, String name) {
-    if (name == TreeReference.nameWildcard) return true;
-    if (element.name == name) return true;
-    final prefix = element.namespacePrefix;
-    return prefix != null && '$prefix:${element.name}' == name;
   }
 
   int _indexOf(String name, int multiplicity) {
@@ -669,4 +661,15 @@ final class _TreeElementChildren extends Iterable<TreeElement> {
     }
     return -1;
   }
+}
+
+/// Whether [element] matches [name]: the wildcard `*`, its name, or
+/// `prefix:name` with its namespace prefix.
+///
+/// Port of `TreeElementNameComparator.elementMatchesName`.
+bool elementMatchesName(TreeElement element, String name) {
+  if (name == TreeReference.nameWildcard) return true;
+  if (element.name == name) return true;
+  final prefix = element.namespacePrefix;
+  return prefix != null && '$prefix:${element.name}' == name;
 }
