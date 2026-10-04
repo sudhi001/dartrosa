@@ -901,7 +901,7 @@ final class XFormParser {
         sb.write(e.textAt(i));
       }
     }
-    return _javaTrim(sb.toString());
+    return javaTrim(sb.toString());
   }
 
   void _recurseForOutput(KElement e) {
@@ -1480,17 +1480,5 @@ final class XFormParser {
     for (final callback in _errorCallbacks) {
       callback(error);
     }
-  }
-
-  static String _javaTrim(String s) {
-    var start = 0;
-    var end = s.length;
-    while (start < end && s.codeUnitAt(start) <= 0x20) {
-      start++;
-    }
-    while (end > start && s.codeUnitAt(end - 1) <= 0x20) {
-      end--;
-    }
-    return s.substring(start, end);
   }
 }

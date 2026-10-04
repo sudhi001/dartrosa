@@ -1,3 +1,4 @@
+import '../util/java_lang.dart';
 import 'exceptions.dart';
 import 'qname.dart';
 
@@ -250,18 +251,18 @@ Never _badParse(String expr, int i) {
   final c = expr[i];
   final preStart = i - _contextLength < 0 ? 0 : i - _contextLength;
   final preContext =
-      (preStart != 0 ? '...' : '') + expr.substring(preStart, i).trim();
+      (preStart != 0 ? '...' : '') + javaTrim(expr.substring(preStart, i));
   final postEnd = i + _contextLength < expr.length
       ? i + _contextLength
       : expr.length;
   final postContext = i == expr.length - 1
       ? ''
-      : expr
-                .substring(
-                  i + 1 < expr.length - 1 ? i + 1 : expr.length - 1,
-                  postEnd,
-                )
-                .trim() +
+      : javaTrim(
+              expr.substring(
+                i + 1 < expr.length - 1 ? i + 1 : expr.length - 1,
+                postEnd,
+              ),
+            ) +
             (postEnd != expr.length ? '...' : '');
   throw XPathSyntaxException(
     "Couldn't understand the expression starting at this point: "

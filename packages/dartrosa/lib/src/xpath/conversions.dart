@@ -56,24 +56,11 @@ double toNumeric(Object value) {
 }
 
 double _stringToNumber(String s) {
-  final trimmed = _javaTrim(s.replaceAll(',', '.'));
+  final trimmed = javaTrim(s.replaceAll(',', '.'));
   for (final c in trimmed.codeUnits) {
     if (c != 0x2D && c != 0x2E && (c < 0x30 || c > 0x39)) return double.nan;
   }
   return javaParseDouble(trimmed) ?? double.nan;
-}
-
-/// Java `String.trim()`: strips characters `<= ' '`.
-String _javaTrim(String s) {
-  var start = 0;
-  var end = s.length;
-  while (start < end && s.codeUnitAt(start) <= 0x20) {
-    start++;
-  }
-  while (end > start && s.codeUnitAt(end - 1) <= 0x20) {
-    end--;
-  }
-  return s.substring(start, end);
 }
 
 /// Like [toNumeric], but a date becomes fractional days since the epoch.

@@ -1,3 +1,4 @@
+import '../util/java_lang.dart';
 import 'instance/tree_element.dart';
 
 /// One choice of a select question: a value and a label (literal text or
@@ -42,7 +43,7 @@ final class SelectChoice {
     this.isLocalizable,
     this.item,
     this.labelRefName,
-  ) : value = value.trim();
+  ) : value = javaTrim(value);
 
   /// The value stored when this choice is selected (trimmed).
   final String value;

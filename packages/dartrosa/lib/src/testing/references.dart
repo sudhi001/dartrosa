@@ -1,4 +1,5 @@
 import '../model/instance/tree_reference.dart';
+import '../util/java_lang.dart';
 import '../xpath/expression.dart';
 import '../xpath/parser.dart';
 
@@ -12,7 +13,7 @@ import '../xpath/parser.dart';
 ///
 /// Port of `org.javarosa.test.Scenario.getRef`.
 TreeReference getRef(String xpath) {
-  if (xpath.trim().isEmpty) return const TreeReference.relative();
+  if (javaTrim(xpath).isEmpty) return const TreeReference.relative();
   var ref = (parseXPath(xpath) as XPathPathExpr).toTreeReference();
   for (var i = 0; i < ref.size; i++) {
     final multiplicity = _multiplicityFromPredicate(ref.predicatesAt(i));

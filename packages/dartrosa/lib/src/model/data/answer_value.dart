@@ -492,7 +492,7 @@ sealed class _GeoPointsValue extends AnswerValue implements ExprDataType {
 
   static List<GeoPointValue> _castPoints(UncastValue data) => [
     for (final part in javaSplit(data.string, ';'))
-      GeoPointValue.cast(UncastValue(part.trim())),
+      GeoPointValue.cast(UncastValue(javaTrim(part))),
   ];
 
   @override
@@ -793,7 +793,7 @@ final class MultiPointerValue extends AnswerValue {
 
   @override
   UncastValue uncast() =>
-      UncastValue(pointers.map((p) => '${p.displayText} ').join().trim());
+      UncastValue(javaTrim(pointers.map((p) => '${p.displayText} ').join()));
 
   @override
   bool operator ==(Object other) =>

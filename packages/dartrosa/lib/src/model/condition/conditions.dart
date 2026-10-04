@@ -1,6 +1,7 @@
 import 'package:collection/collection.dart';
 import 'package:meta/meta.dart';
 
+import '../../util/java_lang.dart';
 import '../../xpath/conversions.dart';
 import '../../xpath/exceptions.dart';
 import '../../xpath/expression.dart';
@@ -149,8 +150,8 @@ final class Constraint {
   /// Creates a constraint; a message of the form `jr:itext('id')` is
   /// compiled so it can be localized.
   Constraint(this.constraint, String? message)
-    : message = message?.trim(),
-      _messageExpression = _compile(message?.trim());
+    : message = message == null ? null : javaTrim(message),
+      _messageExpression = _compile(message == null ? null : javaTrim(message));
 
   /// The constraint expression.
   final XPathConditional constraint;

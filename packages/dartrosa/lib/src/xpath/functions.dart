@@ -433,7 +433,7 @@ bool _multiSelected(Object list, Object choice, String functionName) {
     );
   }
   final selections = unpack(list) as String;
-  return ' $selections '.contains(' ${value.trim()} ');
+  return ' $selections '.contains(' ${javaTrim(value)} ');
 }
 
 String _selectedAt(Object list, Object index) {

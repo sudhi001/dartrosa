@@ -6,6 +6,7 @@ import '../model/form_element.dart';
 import '../model/instance/data_instance.dart';
 import '../model/instance/tree_element.dart';
 import '../model/instance/tree_reference.dart';
+import '../util/java_lang.dart';
 import 'kdom.dart';
 import 'type_mappings.dart';
 import 'xform_answer_data_parser.dart';
@@ -35,7 +36,7 @@ TreeElement buildInstanceStructure(
       hasElements = true;
     } else if (child is KText &&
         child.type == KNodeType.text &&
-        child.content.trim().isNotEmpty) {
+        javaTrim(child.content).isNotEmpty) {
       hasText = true;
     }
   }
@@ -139,7 +140,7 @@ void loadInstanceData(KElement node, TreeElement current, FormDef? form) {
     }
   } else {
     final text = xmlText(node, trim: true);
-    if (text != null && text.trim().isNotEmpty) {
+    if (text != null && javaTrim(text).isNotEmpty) {
       current.value = parseAnswerData(
         text,
         current.dataType,

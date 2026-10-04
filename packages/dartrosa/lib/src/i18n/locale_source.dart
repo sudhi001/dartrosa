@@ -1,6 +1,8 @@
 /// Sources of localized text for a [Localizer].
 library;
 
+import '../util/java_lang.dart';
+
 /// A source of text mappings (text id → text) for one locale.
 ///
 /// Port of `org.javarosa.core.services.locale.LocaleDataSource`.
@@ -68,22 +70,10 @@ Map<String, String> parseLocaleInput(String input) {
 }
 
 void _parseAndAdd(Map<String, String> locale, String rawLine) {
-  var line = _javaTrim(rawLine);
+  var line = javaTrim(rawLine);
   final hash = line.indexOf('#');
   if (hash != -1) line = line.substring(0, hash);
   final equals = line.indexOf('=');
   if (equals == -1 || equals == line.length - 1) return;
   locale[line.substring(0, equals)] = line.substring(equals + 1);
-}
-
-String _javaTrim(String s) {
-  var start = 0;
-  var end = s.length;
-  while (start < end && s.codeUnitAt(start) <= 0x20) {
-    start++;
-  }
-  while (end > start && s.codeUnitAt(end - 1) <= 0x20) {
-    end--;
-  }
-  return s.substring(start, end);
 }

@@ -16,6 +16,7 @@
 library;
 
 import 'package:xml/xml.dart' as xml;
+import '../util/java_lang.dart';
 
 /// Kinds of non-element child.
 enum KNodeType {
@@ -197,13 +198,13 @@ void consolidateText(KElement root) {
         continue;
       }
       if (child is KElement) stack.add(child);
-      if (accumulator.trim().isNotEmpty) {
+      if (javaTrim(accumulator).isNotEmpty) {
         kept.add(KText(KNodeType.text, accumulator));
       }
       accumulator = '';
       kept.add(child);
     }
-    if (accumulator.trim().isNotEmpty) {
+    if (javaTrim(accumulator).isNotEmpty) {
       kept.add(KText(KNodeType.text, accumulator));
     }
     e.children
@@ -222,19 +223,7 @@ String? xmlText(KElement node, {required bool trim, int from = 0}) {
   for (var i = from + 1; i < node.childCount && node.isText(i); i++) {
     text = text! + node.textAt(i)!;
   }
-  return trim ? _javaTrim(text!) : text;
-}
-
-String _javaTrim(String s) {
-  var start = 0;
-  var end = s.length;
-  while (start < end && s.codeUnitAt(start) <= 0x20) {
-    start++;
-  }
-  while (end > start && s.codeUnitAt(end - 1) <= 0x20) {
-    end--;
-  }
-  return s.substring(start, end);
+  return trim ? javaTrim(text!) : text;
 }
 
 /// Serializes [element] as kXML's `KXmlSerializer` does with no output

@@ -92,13 +92,13 @@ final _choiceFilterPattern = RegExp(r'^randomize\((.+?),?([^,)\]]+?)?\)$');
 /// Port of `RandomizeHelper.cleanNodesetDefinition`; throws
 /// [ArgumentError] when the definition doesn't use `randomize(...)`.
 String cleanNodesetDefinition(String nodeset) =>
-    randomizeArgs(nodeset)[0].trim();
+    javaTrim(randomizeArgs(nodeset)[0]);
 
 /// The arguments of a `randomize(path, seed?)` nodeset definition.
 ///
 /// Port of `RandomizeHelper.getArgs`.
 List<String> randomizeArgs(String definition) {
-  final trimmed = definition.trim();
+  final trimmed = javaTrim(definition);
   if (!trimmed.startsWith('randomize(') || !trimmed.endsWith(')')) {
     throw ArgumentError(
       'Nodeset definition must use randomize(path, seed?) function',

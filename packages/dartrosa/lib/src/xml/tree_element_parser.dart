@@ -16,6 +16,7 @@ import 'package:xml/xml.dart';
 import '../model/data/answer_value.dart';
 import '../model/instance/data_instance.dart';
 import '../model/instance/tree_element.dart';
+import '../util/java_lang.dart';
 import 'xml_exceptions.dart';
 
 const _xmlNamespace = 'http://www.w3.org/XML/1998/namespace';
@@ -130,19 +131,6 @@ String _namespaceOf(XmlElement element, String? prefix) {
 
 /// kXML's notion of whitespace: every character `<= ' '`.
 bool _isWhitespace(String s) => s.codeUnits.every((c) => c <= 0x20);
-
-/// Java `String.trim()`: strips characters `<= ' '`.
-String javaTrim(String s) {
-  var start = 0;
-  var end = s.length;
-  while (start < end && s.codeUnitAt(start) <= 0x20) {
-    start++;
-  }
-  while (end > start && s.codeUnitAt(end - 1) <= 0x20) {
-    end--;
-  }
-  return s.substring(start, end);
-}
 
 /// The internal secondary instances of the XForm [xml]: every `<instance>`
 /// element without a `src` attribute, except the first one (the primary

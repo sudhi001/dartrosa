@@ -4,18 +4,6 @@ import '../model/form_element.dart';
 import '../model/utils/date_utils.dart' as date_utils;
 import '../util/java_lang.dart';
 
-String _javaTrim(String s) {
-  var start = 0;
-  var end = s.length;
-  while (start < end && s.codeUnitAt(start) <= 0x20) {
-    start++;
-  }
-  while (end > start && s.codeUnitAt(end - 1) <= 0x20) {
-    end--;
-  }
-  return s.substring(start, end);
-}
-
 /// Parses the XML text of an instance node into an answer of [dataType];
 /// `null` when the text is empty or invalid for the type.
 ///
@@ -27,7 +15,7 @@ AnswerValue? parseAnswerData(
   DataType dataType, [
   QuestionDef? question,
 ]) {
-  final trimmed = _javaTrim(text);
+  final trimmed = javaTrim(text);
   final value = trimmed.isEmpty ? null : trimmed;
   switch (dataType) {
     case DataType.nullType ||

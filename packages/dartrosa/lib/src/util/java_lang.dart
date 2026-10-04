@@ -122,3 +122,19 @@ List<String> javaSplit(String s, String separator) {
   }
   return parts.sublist(0, end);
 }
+
+/// Java `String.trim()`: strips leading and trailing characters `<= ' '`.
+///
+/// Unlike Dart's [String.trim], it keeps other Unicode whitespace such as
+/// the no-break space (U+00A0), which matters for labels.
+String javaTrim(String s) {
+  var start = 0;
+  var end = s.length;
+  while (start < end && s.codeUnitAt(start) <= 0x20) {
+    start++;
+  }
+  while (end > start && s.codeUnitAt(end - 1) <= 0x20) {
+    end--;
+  }
+  return s.substring(start, end);
+}
