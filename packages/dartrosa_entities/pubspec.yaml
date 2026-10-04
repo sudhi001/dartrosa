@@ -1,0 +1,19 @@
+name: dartrosa_entities
+description: >-
+  ODK entities for DartRosa: entity forms (create/update/upsert), entity
+  lists as secondary instances, offline entity updates and local storage.
+  A port of ODK Collect's entities module.
+version: 0.0.1
+publish_to: none
+resolution: workspace
+
+environment:
+  sdk: ^3.10.0
+
+dependencies:
+  collection: ^1.19.0
+  dartrosa: any
+  meta: ^1.16.0
+
+dev_dependencies:
+  test: ^1.25.0

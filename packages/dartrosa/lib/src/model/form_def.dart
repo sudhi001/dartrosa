@@ -82,6 +82,12 @@ final class FormDef extends FormElement {
   /// Non-fatal errors found while parsing.
   final List<String> parseErrors = [];
 
+  /// App-defined data attached by parser plugins, keyed by type (e.g. ODK
+  /// Collect's entities `EntityFormExtra`). Port of `FormDef.getExtras()`;
+  /// like other parse results, it is rebuilt by the processors when a
+  /// form is restored by `FormDefCodec`.
+  final Map<Object, Object?> extras = {};
+
   /// Receives `<odk:recordaudio>` requests (replaces JavaRosa's static
   /// `RecordAudioActions` listener).
   RecordAudioListener? recordAudioListener;

@@ -7,6 +7,7 @@ environment:
 workspace:
   - packages/dartrosa
   - packages/dartrosa_encryption
+  - packages/dartrosa_entities
 
 dev_dependencies:
   lints: ^6.1.0

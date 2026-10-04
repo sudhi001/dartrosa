@@ -23,7 +23,13 @@ jobs:
           for tz in UTC America/New_York Asia/Kolkata Europe/London Etc/GMT-2 Etc/GMT-3 Pacific/Chatham Europe/Warsaw Europe/Kiev; do
             echo "TZ=$tz"; TZ=$tz dart test packages/dartrosa
           done
-      - run: dart test packages/dartrosa_encryption
+      - name: Test Collect-layer packages (VM, two time zones)
+        run: |
+          for tz in UTC America/New_York; do
+            for p in dartrosa_encryption dartrosa_entities; do
+              echo "TZ=$tz $p"; TZ=$tz dart test packages/$p
+            done
+          done
       - name: Coverage (at least 90% of lines)
         run: |
           (cd packages/dartrosa && TZ=UTC dart test --coverage=coverage)
@@ -33,7 +39,7 @@ jobs:
       # Browser tests must run from inside each package (test runner limitation).
       - name: Test (Chrome, dart2js and dart2wasm)
         run: |
-          for p in dartrosa dartrosa_encryption; do
+          for p in dartrosa dartrosa_encryption dartrosa_entities; do
             (cd packages/$p && dart test -p chrome && dart test -p chrome --compiler dart2wasm)
           done
 

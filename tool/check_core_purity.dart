@@ -2,7 +2,7 @@
 // running on every platform (web, server, Flutter). See PORTING_PLAN.md §3.
 import 'dart:io';
 
-const corePackages = ['dartrosa'];
+const corePackages = ['dartrosa', 'dartrosa_entities'];
 final forbidden = RegExp(
   r'''^\s*(import|export)\s+['"](dart:io|dart:html|dart:mirrors|dart:ffi|package:flutter/|package:web/)''',
   multiLine: true,
