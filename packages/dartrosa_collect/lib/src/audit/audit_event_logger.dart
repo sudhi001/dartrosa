@@ -291,7 +291,8 @@ final class AuditEventLogger {
       _surveyOpenTime = _clock.currentTimeMillis();
       _surveyOpenElapsedTime = _clock.elapsedRealtime();
     }
-    return _surveyOpenTime + (_clock.elapsedRealtime() - _surveyOpenElapsedTime);
+    return _surveyOpenTime +
+        (_clock.elapsedRealtime() - _surveyOpenElapsedTime);
   }
 
   AuditLocation? _getMostAccurateLocation(int currentTime) {

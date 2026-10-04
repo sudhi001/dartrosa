@@ -33,8 +33,7 @@ final class InMemoryAuditLogStore implements AuditLogStore {
   Future<void> write(String contents) async => this.contents = contents;
 
   @override
-  Future<void> append(String text) async =>
-      contents = '${contents ?? ''}$text';
+  Future<void> append(String text) async => contents = '${contents ?? ''}$text';
 }
 
 /// Writes audit events as CSV lines to an [AuditLogStore], starting the

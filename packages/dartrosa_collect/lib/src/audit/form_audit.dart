@@ -11,7 +11,8 @@ import 'form_session_audit_state.dart';
 /// Provides device locations for an audit with [AuditConfig]
 /// ([AuditConfig.locationPriority], [AuditConfig.locationMinInterval]).
 /// Collect's `BackgroundLocationManager` requests them from the platform.
-typedef AuditLocationSource = Stream<AuditLocation> Function(AuditConfig config);
+typedef AuditLocationSource =
+    Stream<AuditLocation> Function(AuditConfig config);
 
 /// The audit log of one [FormSession], logging what ODK Collect logs at the
 /// same moments of form filling.

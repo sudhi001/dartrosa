@@ -15,3 +15,7 @@ export 'src/audit/audit_event_csv_writer.dart';
 export 'src/audit/audit_event_logger.dart';
 export 'src/audit/form_audit.dart';
 export 'src/audit/form_session_audit_state.dart';
+export 'src/itemsets/fast_external_itemsets_plugin.dart';
+export 'src/itemsets/fast_external_itemsets_repository.dart';
+export 'src/itemsets/itemset_dao.dart';
+export 'src/itemsets/itemsets_csv_reader.dart';

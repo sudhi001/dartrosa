@@ -114,13 +114,12 @@ final class AuditConfig {
       _locationMinInterval != null &&
       locationMaxAge != null;
 
-  static LocationPriority _getMode(String mode) =>
-      switch (mode.toLowerCase()) {
-        'balanced' => LocationPriority.balancedPowerAccuracy,
-        'low_power' || 'low-power' => LocationPriority.lowPower,
-        'no_power' || 'no-power' => LocationPriority.noPower,
-        _ => LocationPriority.highAccuracy,
-      };
+  static LocationPriority _getMode(String mode) => switch (mode.toLowerCase()) {
+    'balanced' => LocationPriority.balancedPowerAccuracy,
+    'low_power' || 'low-power' => LocationPriority.lowPower,
+    'no_power' || 'no-power' => LocationPriority.noPower,
+    _ => LocationPriority.highAccuracy,
+  };
 
   static int _parseLong(String s) =>
       javaParseInt(s, bits: 64) ??
