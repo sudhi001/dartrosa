@@ -1,0 +1,73 @@
+{
+  "form" : "forms/pyxform/tests/test_dynamic_default/test_dynamic_default_in_repeat_nested_in_repeat.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><test_name id=\"data\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><r1><q0>2019-07-16</q0><q1>-3</q1><r2><q2>90</q2></r2></r1><meta><instanceID>uuid:<uuid></instanceID></meta></test_name>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 33,
+  "steps" : [ {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/test_name/r1[1]"
+  }, {
+    "after" : "2019-07-16",
+    "answer" : "2019-07-16",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "date",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Date",
+    "readonly" : false,
+    "ref" : "/test_name/r1[1]/q0[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "<today>"
+  }, {
+    "after" : "-3",
+    "answer" : "-3",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Foo",
+    "readonly" : false,
+    "ref" : "/test_name/r1[1]/q1[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/test_name/r1[1]/r2[1]"
+  }, {
+    "after" : "90",
+    "answer" : "90",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Bar",
+    "readonly" : false,
+    "ref" : "/test_name/r1[1]/r2[1]/q2[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : false,
+    "event" : "promptNewRepeat",
+    "ref" : "/test_name/r1[1]/r2[2]"
+  }, {
+    "add" : false,
+    "event" : "promptNewRepeat",
+    "ref" : "/test_name/r1[2]"
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

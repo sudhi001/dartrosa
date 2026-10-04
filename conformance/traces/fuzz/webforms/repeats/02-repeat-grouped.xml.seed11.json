@@ -1,0 +1,36 @@
+{
+  "form" : "forms/webforms/repeats/02-repeat-grouped.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><root id=\"repeat-grouped\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms/\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><rep><a>x y z</a></rep><meta><instanceID /></meta></root>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 11,
+  "steps" : [ {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat group",
+    "ref" : "/root/rep[1]"
+  }, {
+    "after" : "x y z",
+    "answer" : "x y z",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[1]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "default value"
+  }, {
+    "add" : false,
+    "event" : "promptNewRepeat",
+    "ref" : "/root/rep[2]"
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

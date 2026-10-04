@@ -1,0 +1,1036 @@
+{
+  "form" : "forms/webforms/test-web-forms/select-control.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"select-control\" version=\"20240617163057\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><no-appearance><sel1>cherry</sel1><sel>peach</sel></no-appearance><minimal>karachi</minimal><search>toronto</search><minimal_search>vancouver</minimal_search><quick>toronto</quick><columns-pack>lahore</columns-pack><columns>karachi</columns><columns-n>vancouver</columns-n><no-buttons>toronto</no-buttons><image-map>vancouver</image-map><likert>vancouver</likert><map>vancouver</map><label>vancouver</label><list-nolabel>vancouver</list-nolabel><list /><underlying_conditions><condition_labels>yes</condition_labels><Comcond_preg>yes</Comcond_preg><Comcond_partum>no</Comcond_partum></underlying_conditions><underlying_conditions2><generated_table_list_label_24 /><reserved_name_for_field_list_labels_25>no</reserved_name_for_field_list_labels_25><Comcond_preg2>yes</Comcond_preg2><Comcond_partum2>no</Comcond_partum2></underlying_conditions2><section_break /><minimal_m /><search_m /><minimal_search_m>karachi vancouver</minimal_search_m><columns-pack_m>islamabad</columns-pack_m><columns_m>karachi vancouver</columns_m><columns-n_m>karachi lahore toronto</columns-n_m><no-buttons_m>islamabad lahore toronto vancouver</no-buttons_m><image-map_m>islamabad vancouver</image-map_m><label_m>toronto</label_m><list-nolabel_m>karachi toronto</list-nolabel_m><list_m>karachi lahore</list_m><underlying_conditions_n><condition_labels_n>yes</condition_labels_n><Comcond_preg_n>no</Comcond_preg_n><Comcond_partum_n /></underlying_conditions_n><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 22,
+  "steps" : [ {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Selects with no appearance (default presentation and behavior)",
+    "ref" : "/data/no-appearance[1]"
+  }, {
+    "after" : "cherry",
+    "answer" : "cherry",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Mango",
+      "value" : "mango"
+    }, {
+      "label" : "Cherry",
+      "value" : "cherry"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Select1, no appearance",
+    "readonly" : false,
+    "ref" : "/data/no-appearance[1]/sel1[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "cherry"
+  }, {
+    "after" : "peach",
+    "answer" : "peach",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Watermelon",
+      "value" : "watermelon"
+    }, {
+      "label" : "Peach",
+      "value" : "peach"
+    } ],
+    "control" : "selectMulti",
+    "dataType" : "multipleItems",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Select, no appearance",
+    "readonly" : false,
+    "ref" : "/data/no-appearance[1]/sel[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "peach"
+  }, {
+    "after" : "karachi",
+    "answer" : "karachi",
+    "appearance" : "minimal",
+    "choices" : [ {
+      "label" : "Karachi",
+      "value" : "karachi"
+    }, {
+      "label" : "Toronto",
+      "value" : "toronto"
+    }, {
+      "label" : "Lahore",
+      "value" : "lahore"
+    }, {
+      "label" : "Islamabad",
+      "value" : "islamabad"
+    }, {
+      "label" : "Vancouver",
+      "value" : "vancouver"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "minimal",
+    "readonly" : false,
+    "ref" : "/data/minimal[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "toronto",
+    "answer" : "toronto",
+    "appearance" : "search",
+    "choices" : [ {
+      "label" : "Karachi",
+      "value" : "karachi"
+    }, {
+      "label" : "Toronto",
+      "value" : "toronto"
+    }, {
+      "label" : "Lahore",
+      "value" : "lahore"
+    }, {
+      "label" : "Islamabad",
+      "value" : "islamabad"
+    }, {
+      "label" : "Vancouver",
+      "value" : "vancouver"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "search",
+    "readonly" : false,
+    "ref" : "/data/search[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "vancouver",
+    "answer" : "vancouver",
+    "appearance" : "minimal search",
+    "choices" : [ {
+      "label" : "Karachi",
+      "value" : "karachi"
+    }, {
+      "label" : "Toronto",
+      "value" : "toronto"
+    }, {
+      "label" : "Lahore",
+      "value" : "lahore"
+    }, {
+      "label" : "Islamabad",
+      "value" : "islamabad"
+    }, {
+      "label" : "Vancouver",
+      "value" : "vancouver"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "minimal plus search",
+    "readonly" : false,
+    "ref" : "/data/minimal_search[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "toronto",
+    "answer" : "toronto",
+    "appearance" : "quick",
+    "choices" : [ {
+      "label" : "Karachi",
+      "value" : "karachi"
+    }, {
+      "label" : "Toronto",
+      "value" : "toronto"
+    }, {
+      "label" : "Lahore",
+      "value" : "lahore"
+    }, {
+      "label" : "Islamabad",
+      "value" : "islamabad"
+    }, {
+      "label" : "Vancouver",
+      "value" : "vancouver"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "quick",
+    "readonly" : false,
+    "ref" : "/data/quick[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "lahore",
+    "answer" : "lahore",
+    "appearance" : "columns-pack ",
+    "choices" : [ {
+      "label" : "Karachi",
+      "value" : "karachi"
+    }, {
+      "label" : "Toronto",
+      "value" : "toronto"
+    }, {
+      "label" : "Lahore",
+      "value" : "lahore"
+    }, {
+      "label" : "Islamabad",
+      "value" : "islamabad"
+    }, {
+      "label" : "Vancouver",
+      "value" : "vancouver"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "columns-pack",
+    "readonly" : false,
+    "ref" : "/data/columns-pack[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "karachi",
+    "answer" : "karachi",
+    "appearance" : "columns",
+    "choices" : [ {
+      "label" : "Karachi",
+      "value" : "karachi"
+    }, {
+      "label" : "Toronto",
+      "value" : "toronto"
+    }, {
+      "label" : "Lahore",
+      "value" : "lahore"
+    }, {
+      "label" : "Islamabad",
+      "value" : "islamabad"
+    }, {
+      "label" : "Vancouver",
+      "value" : "vancouver"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "columns",
+    "readonly" : false,
+    "ref" : "/data/columns[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "vancouver",
+    "answer" : "vancouver",
+    "appearance" : "columns-5",
+    "choices" : [ {
+      "label" : "Karachi",
+      "value" : "karachi"
+    }, {
+      "label" : "Toronto",
+      "value" : "toronto"
+    }, {
+      "label" : "Lahore",
+      "value" : "lahore"
+    }, {
+      "label" : "Islamabad",
+      "value" : "islamabad"
+    }, {
+      "label" : "Vancouver",
+      "value" : "vancouver"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "columns-n",
+    "readonly" : false,
+    "ref" : "/data/columns-n[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "toronto",
+    "answer" : "toronto",
+    "appearance" : "no-buttons",
+    "choices" : [ {
+      "label" : "Karachi",
+      "value" : "karachi"
+    }, {
+      "label" : "Toronto",
+      "value" : "toronto"
+    }, {
+      "label" : "Lahore",
+      "value" : "lahore"
+    }, {
+      "label" : "Islamabad",
+      "value" : "islamabad"
+    }, {
+      "label" : "Vancouver",
+      "value" : "vancouver"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "no-buttons",
+    "readonly" : false,
+    "ref" : "/data/no-buttons[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "vancouver",
+    "answer" : "vancouver",
+    "appearance" : "image-map",
+    "choices" : [ {
+      "label" : "Karachi",
+      "value" : "karachi"
+    }, {
+      "label" : "Toronto",
+      "value" : "toronto"
+    }, {
+      "label" : "Lahore",
+      "value" : "lahore"
+    }, {
+      "label" : "Islamabad",
+      "value" : "islamabad"
+    }, {
+      "label" : "Vancouver",
+      "value" : "vancouver"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "image-map",
+    "readonly" : false,
+    "ref" : "/data/image-map[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "vancouver",
+    "answer" : "vancouver",
+    "appearance" : "likert",
+    "choices" : [ {
+      "label" : "Karachi",
+      "value" : "karachi"
+    }, {
+      "label" : "Toronto",
+      "value" : "toronto"
+    }, {
+      "label" : "Lahore",
+      "value" : "lahore"
+    }, {
+      "label" : "Islamabad",
+      "value" : "islamabad"
+    }, {
+      "label" : "Vancouver",
+      "value" : "vancouver"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "likert",
+    "readonly" : false,
+    "ref" : "/data/likert[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "vancouver",
+    "answer" : "vancouver",
+    "appearance" : "map",
+    "choices" : [ {
+      "label" : "Karachi",
+      "value" : "karachi"
+    }, {
+      "label" : "Toronto",
+      "value" : "toronto"
+    }, {
+      "label" : "Lahore",
+      "value" : "lahore"
+    }, {
+      "label" : "Islamabad",
+      "value" : "islamabad"
+    }, {
+      "label" : "Vancouver",
+      "value" : "vancouver"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "map",
+    "readonly" : false,
+    "ref" : "/data/map[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "vancouver",
+    "answer" : "vancouver",
+    "appearance" : "label",
+    "choices" : [ {
+      "label" : "Karachi",
+      "value" : "karachi"
+    }, {
+      "label" : "Toronto",
+      "value" : "toronto"
+    }, {
+      "label" : "Lahore",
+      "value" : "lahore"
+    }, {
+      "label" : "Islamabad",
+      "value" : "islamabad"
+    }, {
+      "label" : "Vancouver",
+      "value" : "vancouver"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "label",
+    "readonly" : false,
+    "ref" : "/data/label[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "vancouver",
+    "answer" : "vancouver",
+    "appearance" : "list-nolabel",
+    "choices" : [ {
+      "label" : "Karachi",
+      "value" : "karachi"
+    }, {
+      "label" : "Toronto",
+      "value" : "toronto"
+    }, {
+      "label" : "Lahore",
+      "value" : "lahore"
+    }, {
+      "label" : "Islamabad",
+      "value" : "islamabad"
+    }, {
+      "label" : "Vancouver",
+      "value" : "vancouver"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "list-nolabel",
+    "readonly" : false,
+    "ref" : "/data/list-nolabel[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : "list",
+    "choices" : [ {
+      "label" : "Karachi",
+      "value" : "karachi"
+    }, {
+      "label" : "Toronto",
+      "value" : "toronto"
+    }, {
+      "label" : "Lahore",
+      "value" : "lahore"
+    }, {
+      "label" : "Islamabad",
+      "value" : "islamabad"
+    }, {
+      "label" : "Vancouver",
+      "value" : "vancouver"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "list",
+    "readonly" : false,
+    "ref" : "/data/list[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : "field-list",
+    "event" : "group",
+    "label" : "Underlying conditions",
+    "ref" : "/data/underlying_conditions[1]"
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : "label",
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Conditions",
+    "readonly" : false,
+    "ref" : "/data/underlying_conditions[1]/condition_labels[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : "list-nolabel",
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Pregnancy",
+    "readonly" : false,
+    "ref" : "/data/underlying_conditions[1]/Comcond_preg[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "no",
+    "answer" : "no",
+    "appearance" : "list-nolabel",
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Post-partum (< 6 weeks)",
+    "readonly" : false,
+    "ref" : "/data/underlying_conditions[1]/Comcond_partum[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : "field-list",
+    "event" : "group",
+    "label" : null,
+    "ref" : "/data/underlying_conditions2[1]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Underlying conditions",
+    "readonly" : true,
+    "ref" : "/data/underlying_conditions2[1]/generated_table_list_label_24[1]",
+    "required" : false,
+    "value" : null
+  }, {
+    "after" : "no",
+    "answer" : "no",
+    "appearance" : "label",
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : null,
+    "readonly" : false,
+    "ref" : "/data/underlying_conditions2[1]/reserved_name_for_field_list_labels_25[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : "list-nolabel",
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Pregnancy",
+    "readonly" : false,
+    "ref" : "/data/underlying_conditions2[1]/Comcond_preg2[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "no",
+    "answer" : "no",
+    "appearance" : "list-nolabel",
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Post-partum (< 6 weeks)",
+    "readonly" : false,
+    "ref" : "/data/underlying_conditions2[1]/Comcond_partum2[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Select Multiple Appearances start here:",
+    "readonly" : true,
+    "ref" : "/data/section_break[1]",
+    "required" : false,
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : "minimal no-buttons",
+    "choices" : [ {
+      "label" : "Karachi",
+      "value" : "karachi"
+    }, {
+      "label" : "Toronto",
+      "value" : "toronto"
+    }, {
+      "label" : "Lahore",
+      "value" : "lahore"
+    }, {
+      "label" : "Islamabad",
+      "value" : "islamabad"
+    }, {
+      "label" : "Vancouver",
+      "value" : "vancouver"
+    } ],
+    "control" : "selectMulti",
+    "dataType" : "multipleItems",
+    "event" : "question",
+    "hint" : null,
+    "label" : "minimal",
+    "readonly" : false,
+    "ref" : "/data/minimal_m[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : "search",
+    "choices" : [ {
+      "label" : "Karachi",
+      "value" : "karachi"
+    }, {
+      "label" : "Toronto",
+      "value" : "toronto"
+    }, {
+      "label" : "Lahore",
+      "value" : "lahore"
+    }, {
+      "label" : "Islamabad",
+      "value" : "islamabad"
+    }, {
+      "label" : "Vancouver",
+      "value" : "vancouver"
+    } ],
+    "control" : "selectMulti",
+    "dataType" : "multipleItems",
+    "event" : "question",
+    "hint" : null,
+    "label" : "search",
+    "readonly" : false,
+    "ref" : "/data/search_m[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "karachi vancouver",
+    "answer" : "karachi vancouver",
+    "appearance" : "minimal search",
+    "choices" : [ {
+      "label" : "Karachi",
+      "value" : "karachi"
+    }, {
+      "label" : "Toronto",
+      "value" : "toronto"
+    }, {
+      "label" : "Lahore",
+      "value" : "lahore"
+    }, {
+      "label" : "Islamabad",
+      "value" : "islamabad"
+    }, {
+      "label" : "Vancouver",
+      "value" : "vancouver"
+    } ],
+    "control" : "selectMulti",
+    "dataType" : "multipleItems",
+    "event" : "question",
+    "hint" : null,
+    "label" : "minimal plus search",
+    "readonly" : false,
+    "ref" : "/data/minimal_search_m[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "islamabad",
+    "answer" : "islamabad",
+    "appearance" : "columns-pack",
+    "choices" : [ {
+      "label" : "Karachi",
+      "value" : "karachi"
+    }, {
+      "label" : "Toronto",
+      "value" : "toronto"
+    }, {
+      "label" : "Lahore",
+      "value" : "lahore"
+    }, {
+      "label" : "Islamabad",
+      "value" : "islamabad"
+    }, {
+      "label" : "Vancouver",
+      "value" : "vancouver"
+    } ],
+    "control" : "selectMulti",
+    "dataType" : "multipleItems",
+    "event" : "question",
+    "hint" : null,
+    "label" : "columns-pack",
+    "readonly" : false,
+    "ref" : "/data/columns-pack_m[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "karachi vancouver",
+    "answer" : "karachi vancouver",
+    "appearance" : "columns",
+    "choices" : [ {
+      "label" : "Karachi",
+      "value" : "karachi"
+    }, {
+      "label" : "Toronto",
+      "value" : "toronto"
+    }, {
+      "label" : "Lahore",
+      "value" : "lahore"
+    }, {
+      "label" : "Islamabad",
+      "value" : "islamabad"
+    }, {
+      "label" : "Vancouver",
+      "value" : "vancouver"
+    } ],
+    "control" : "selectMulti",
+    "dataType" : "multipleItems",
+    "event" : "question",
+    "hint" : null,
+    "label" : "columns",
+    "readonly" : false,
+    "ref" : "/data/columns_m[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "karachi lahore toronto",
+    "answer" : "karachi lahore toronto",
+    "appearance" : "columns-5",
+    "choices" : [ {
+      "label" : "Karachi",
+      "value" : "karachi"
+    }, {
+      "label" : "Toronto",
+      "value" : "toronto"
+    }, {
+      "label" : "Lahore",
+      "value" : "lahore"
+    }, {
+      "label" : "Islamabad",
+      "value" : "islamabad"
+    }, {
+      "label" : "Vancouver",
+      "value" : "vancouver"
+    } ],
+    "control" : "selectMulti",
+    "dataType" : "multipleItems",
+    "event" : "question",
+    "hint" : null,
+    "label" : "columns-n",
+    "readonly" : false,
+    "ref" : "/data/columns-n_m[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "islamabad lahore toronto vancouver",
+    "answer" : "islamabad lahore toronto vancouver",
+    "appearance" : "no-buttons",
+    "choices" : [ {
+      "label" : "Karachi",
+      "value" : "karachi"
+    }, {
+      "label" : "Toronto",
+      "value" : "toronto"
+    }, {
+      "label" : "Lahore",
+      "value" : "lahore"
+    }, {
+      "label" : "Islamabad",
+      "value" : "islamabad"
+    }, {
+      "label" : "Vancouver",
+      "value" : "vancouver"
+    } ],
+    "control" : "selectMulti",
+    "dataType" : "multipleItems",
+    "event" : "question",
+    "hint" : null,
+    "label" : "no-buttons",
+    "readonly" : false,
+    "ref" : "/data/no-buttons_m[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "islamabad vancouver",
+    "answer" : "islamabad vancouver",
+    "appearance" : "image-map",
+    "choices" : [ {
+      "label" : "Karachi",
+      "value" : "karachi"
+    }, {
+      "label" : "Toronto",
+      "value" : "toronto"
+    }, {
+      "label" : "Lahore",
+      "value" : "lahore"
+    }, {
+      "label" : "Islamabad",
+      "value" : "islamabad"
+    }, {
+      "label" : "Vancouver",
+      "value" : "vancouver"
+    } ],
+    "control" : "selectMulti",
+    "dataType" : "multipleItems",
+    "event" : "question",
+    "hint" : null,
+    "label" : "image-map",
+    "readonly" : false,
+    "ref" : "/data/image-map_m[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "toronto",
+    "answer" : "toronto",
+    "appearance" : "label",
+    "choices" : [ {
+      "label" : "Karachi",
+      "value" : "karachi"
+    }, {
+      "label" : "Toronto",
+      "value" : "toronto"
+    }, {
+      "label" : "Lahore",
+      "value" : "lahore"
+    }, {
+      "label" : "Islamabad",
+      "value" : "islamabad"
+    }, {
+      "label" : "Vancouver",
+      "value" : "vancouver"
+    } ],
+    "control" : "selectMulti",
+    "dataType" : "multipleItems",
+    "event" : "question",
+    "hint" : null,
+    "label" : "label",
+    "readonly" : false,
+    "ref" : "/data/label_m[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "karachi toronto",
+    "answer" : "karachi toronto",
+    "appearance" : "list-nolabel",
+    "choices" : [ {
+      "label" : "Karachi",
+      "value" : "karachi"
+    }, {
+      "label" : "Toronto",
+      "value" : "toronto"
+    }, {
+      "label" : "Lahore",
+      "value" : "lahore"
+    }, {
+      "label" : "Islamabad",
+      "value" : "islamabad"
+    }, {
+      "label" : "Vancouver",
+      "value" : "vancouver"
+    } ],
+    "control" : "selectMulti",
+    "dataType" : "multipleItems",
+    "event" : "question",
+    "hint" : null,
+    "label" : "list-nolabel",
+    "readonly" : false,
+    "ref" : "/data/list-nolabel_m[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "karachi lahore",
+    "answer" : "karachi lahore",
+    "appearance" : "list",
+    "choices" : [ {
+      "label" : "Karachi",
+      "value" : "karachi"
+    }, {
+      "label" : "Toronto",
+      "value" : "toronto"
+    }, {
+      "label" : "Lahore",
+      "value" : "lahore"
+    }, {
+      "label" : "Islamabad",
+      "value" : "islamabad"
+    }, {
+      "label" : "Vancouver",
+      "value" : "vancouver"
+    } ],
+    "control" : "selectMulti",
+    "dataType" : "multipleItems",
+    "event" : "question",
+    "hint" : null,
+    "label" : "list",
+    "readonly" : false,
+    "ref" : "/data/list_m[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : "field-list",
+    "event" : "group",
+    "label" : "Underlying conditions",
+    "ref" : "/data/underlying_conditions_n[1]"
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : "label",
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectMulti",
+    "dataType" : "multipleItems",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Conditions",
+    "readonly" : false,
+    "ref" : "/data/underlying_conditions_n[1]/condition_labels_n[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "no",
+    "answer" : "no",
+    "appearance" : "list-nolabel",
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectMulti",
+    "dataType" : "multipleItems",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Pregnancy",
+    "readonly" : false,
+    "ref" : "/data/underlying_conditions_n[1]/Comcond_preg_n[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : "list-nolabel",
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectMulti",
+    "dataType" : "multipleItems",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Post-partum (< 6 weeks)",
+    "readonly" : false,
+    "ref" : "/data/underlying_conditions_n[1]/Comcond_partum_n[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

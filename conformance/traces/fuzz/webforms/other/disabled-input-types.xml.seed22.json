@@ -1,0 +1,57 @@
+{
+  "form" : "forms/webforms/other/disabled-input-types.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><root id=\"minimal\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms/\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><slider>8</slider><rating>3</rating><pic /><geopoint /><meta><instanceID /></meta></root>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 22,
+  "steps" : [ {
+    "appearance" : "picker",
+    "control" : "range",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Range picker integer",
+    "readonly" : true,
+    "ref" : "/root/slider[1]",
+    "required" : false,
+    "value" : "8"
+  }, {
+    "appearance" : "rating",
+    "control" : "range",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Range rating integer",
+    "readonly" : true,
+    "ref" : "/root/rating[1]",
+    "required" : false,
+    "value" : "3"
+  }, {
+    "appearance" : null,
+    "control" : "imageChoose",
+    "dataType" : "binary",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Image",
+    "readonly" : true,
+    "ref" : "/root/pic[1]",
+    "required" : false,
+    "value" : null
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "geopoint",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Point with user confirmation",
+    "readonly" : true,
+    "ref" : "/root/geopoint[1]",
+    "required" : false,
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

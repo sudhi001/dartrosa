@@ -1,0 +1,94 @@
+{
+  "form" : "forms/webforms/upload/file-upload.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"file_upload\" version=\"2025020401\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><image>file29.jpg</image><audio>file9.jpg</audio><video>file47.jpg</video><doc>file40.jpg</doc><anything>file87.jpg</anything><disabled /><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 33,
+  "steps" : [ {
+    "after" : "file29.jpg",
+    "answer" : "file29.jpg",
+    "appearance" : null,
+    "control" : "imageChoose",
+    "dataType" : "binary",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Upload image",
+    "readonly" : false,
+    "ref" : "/data/image[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "file9.jpg",
+    "answer" : "file9.jpg",
+    "appearance" : null,
+    "control" : "audioCapture",
+    "dataType" : "binary",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Upload audio",
+    "readonly" : false,
+    "ref" : "/data/audio[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "file47.jpg",
+    "answer" : "file47.jpg",
+    "appearance" : null,
+    "control" : "videoCapture",
+    "dataType" : "binary",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Upload video",
+    "readonly" : false,
+    "ref" : "/data/video[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "file40.jpg",
+    "answer" : "file40.jpg",
+    "appearance" : null,
+    "control" : "fileCapture",
+    "dataType" : "binary",
+    "event" : "question",
+    "hint" : "Must have an extension matching \"pdf\", \"doc\", or \"docx\"",
+    "label" : "Upload PDF or Word doc",
+    "readonly" : false,
+    "ref" : "/data/doc[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "file87.jpg",
+    "answer" : "file87.jpg",
+    "appearance" : null,
+    "control" : "fileCapture",
+    "dataType" : "binary",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Upload any file",
+    "readonly" : false,
+    "ref" : "/data/anything[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "control" : "fileCapture",
+    "dataType" : "binary",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Disabled upload",
+    "readonly" : true,
+    "ref" : "/data/disabled[1]",
+    "required" : false,
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

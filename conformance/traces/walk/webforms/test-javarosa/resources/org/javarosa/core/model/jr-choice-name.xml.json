@@ -1,0 +1,11 @@
+{
+  "form" : "forms/webforms/test-javarosa/resources/org/javarosa/core/model/jr-choice-name.xml",
+  "parse" : {
+    "error" : {
+      "message" : "<repeat> member's binding [/jr-choice-name/my-repeat/select_one_name] is within the scope of a <repeat> that is not its closest containing <repeat>!",
+      "type" : "XFormParseException"
+    },
+    "ok" : false
+  },
+  "traceVersion" : 1
+}

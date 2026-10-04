@@ -1,0 +1,145 @@
+{
+  "form" : "forms/pyxform/tests/test_dynamic_default/test_dynamic_default_in_repeat_nested_in_repeat.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><test_name id=\"data\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><r1><q0>2022-03-18</q0><q1>48</q1><r2><q2>79</q2></r2><r2><q2>2</q2></r2><r2><q2>12</q2></r2></r1><r1><q0>2029-02-12</q0><q1>80</q1></r1><meta><instanceID>uuid:<uuid></instanceID></meta></test_name>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 11,
+  "steps" : [ {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/test_name/r1[1]"
+  }, {
+    "after" : "2022-03-18",
+    "answer" : "2022-03-18",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "date",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Date",
+    "readonly" : false,
+    "ref" : "/test_name/r1[1]/q0[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "<today>"
+  }, {
+    "after" : "48",
+    "answer" : "48",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Foo",
+    "readonly" : false,
+    "ref" : "/test_name/r1[1]/q1[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/test_name/r1[1]/r2[1]"
+  }, {
+    "after" : "79",
+    "answer" : "79",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Bar",
+    "readonly" : false,
+    "ref" : "/test_name/r1[1]/r2[1]/q2[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : true,
+    "event" : "promptNewRepeat",
+    "ref" : "/test_name/r1[1]/r2[2]"
+  }, {
+    "after" : "2",
+    "answer" : "2",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Bar",
+    "readonly" : false,
+    "ref" : "/test_name/r1[1]/r2[2]/q2[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "48"
+  }, {
+    "add" : true,
+    "event" : "promptNewRepeat",
+    "ref" : "/test_name/r1[1]/r2[3]"
+  }, {
+    "after" : "12",
+    "answer" : "12",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Bar",
+    "readonly" : false,
+    "ref" : "/test_name/r1[1]/r2[3]/q2[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "48"
+  }, {
+    "add" : false,
+    "event" : "promptNewRepeat",
+    "ref" : "/test_name/r1[1]/r2[4]"
+  }, {
+    "add" : true,
+    "event" : "promptNewRepeat",
+    "ref" : "/test_name/r1[2]"
+  }, {
+    "after" : "2029-02-12",
+    "answer" : "2029-02-12",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "date",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Date",
+    "readonly" : false,
+    "ref" : "/test_name/r1[2]/q0[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "<today>"
+  }, {
+    "after" : "80",
+    "answer" : "80",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Foo",
+    "readonly" : false,
+    "ref" : "/test_name/r1[2]/q1[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : false,
+    "event" : "promptNewRepeat",
+    "ref" : "/test_name/r1[2]/r2[1]"
+  }, {
+    "add" : false,
+    "event" : "promptNewRepeat",
+    "ref" : "/test_name/r1[3]"
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

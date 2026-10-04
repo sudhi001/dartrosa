@@ -1,0 +1,62 @@
+{
+  "form" : "forms/pyxform/tests/test_unicode_rtl/test_smart_quotes.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><quoth id=\"data\" version=\"q('-')p\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><smart_single_quoted>xxx</smart_single_quoted><smart_double_quoted /><my_default_is_123>48</my_default_is_123><meta><instanceID>uuid:<uuid></instanceID></meta></quoth>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 11,
+  "steps" : [ {
+    "after" : "xxx",
+    "answer" : "xxx",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "'Xxx'",
+      "value" : "xxx"
+    }, {
+      "label" : "\"Yyy\"",
+      "value" : "yyy"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "'single-quoted'",
+    "readonly" : false,
+    "ref" : "/quoth/smart_single_quoted[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "\"double-quoted\"",
+    "readonly" : false,
+    "ref" : "/quoth/smart_double_quoted[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "48",
+    "answer" : "48",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "my default is 123",
+    "readonly" : false,
+    "ref" : "/quoth/my_default_is_123[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "123"
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

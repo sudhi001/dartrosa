@@ -1,0 +1,82 @@
+{
+  "form" : "forms/pyxform/tests/test_trigger/test_trigger_column_in_repeat_should_have_expanded_xpath.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><trigger-column id=\"data\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><rep><one>2021-09-14T16:23:00.000Z</one><three>2021-06-10T18:28:00.000Z</three></rep><rep><one>2021-07-15T17:29:00.000Z</one><three>2021-02-12T17:23:00.000Z</three></rep><meta><instanceID>uuid:<uuid></instanceID></meta></trigger-column>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 22,
+  "steps" : [ {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/trigger-column/rep[1]"
+  }, {
+    "after" : "2021-09-14T16:23:00.000Z",
+    "answer" : "2021-09-14T16:23:00.000Z",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "dateTime",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Enter text",
+    "readonly" : false,
+    "ref" : "/trigger-column/rep[1]/one[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "2021-06-10T18:28:00.000Z",
+    "answer" : "2021-06-10T18:28:00.000Z",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "dateTime",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Enter text (triggered)",
+    "readonly" : false,
+    "ref" : "/trigger-column/rep[1]/three[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "<now>"
+  }, {
+    "add" : true,
+    "event" : "promptNewRepeat",
+    "ref" : "/trigger-column/rep[2]"
+  }, {
+    "after" : "2021-07-15T17:29:00.000Z",
+    "answer" : "2021-07-15T17:29:00.000Z",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "dateTime",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Enter text",
+    "readonly" : false,
+    "ref" : "/trigger-column/rep[2]/one[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "2021-02-12T17:23:00.000Z",
+    "answer" : "2021-02-12T17:23:00.000Z",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "dateTime",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Enter text (triggered)",
+    "readonly" : false,
+    "ref" : "/trigger-column/rep[2]/three[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "<now>"
+  }, {
+    "add" : false,
+    "event" : "promptNewRepeat",
+    "ref" : "/trigger-column/rep[3]"
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

@@ -1,0 +1,169 @@
+{
+  "form" : "forms/webforms/select/select-one-from-map-external-files.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"select-one-from-map-external-files\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><show_q1>yes</show_q1><q1>fea-07</q1><disable_q2>yes</disable_q2><q2 /><q3>3</q3><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 33,
+  "steps" : [ {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Do you want to show the select with geojson file?",
+    "readonly" : false,
+    "ref" : "/data/show_q1[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "fea-07",
+    "answer" : "fea-07",
+    "appearance" : "map",
+    "choices" : [ {
+      "label" : "Chinatown Medical Center",
+      "value" : "fea-07"
+    }, {
+      "label" : "West End Health Clinic",
+      "value" : "fea-08"
+    }, {
+      "label" : "Verdun Community Clinic",
+      "value" : "fea-09"
+    }, {
+      "label" : "Canada Goose",
+      "value" : "fea-018"
+    }, {
+      "label" : "Snowy Owl",
+      "value" : "fea-019"
+    }, {
+      "label" : "Peregrine Falcon",
+      "value" : "fea-020"
+    }, {
+      "label" : "Montreal Urban Farm 1",
+      "value" : "fea-021"
+    }, {
+      "label" : "Montreal Urban Farm 2",
+      "value" : "fea-022"
+    }, {
+      "label" : "Montreal Urban Farm 3",
+      "value" : "fea-023"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Select one from geojson file",
+    "readonly" : false,
+    "ref" : "/data/q1[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Do you want to disable the select with csv file?",
+    "readonly" : false,
+    "ref" : "/data/disable_q2[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : "map",
+    "choices" : [ {
+      "label" : "Lisbon",
+      "value" : "1"
+    }, {
+      "label" : "Dublin",
+      "value" : "2"
+    }, {
+      "label" : "Edinburgh",
+      "value" : "3"
+    }, {
+      "label" : "Amsterdam-Brussels-Luxembourg",
+      "value" : "4"
+    }, {
+      "label" : "Zurich-Geneva-Basel",
+      "value" : "5"
+    }, {
+      "label" : "Barcelona-Madrid",
+      "value" : "6"
+    }, {
+      "label" : "London-Paris-Amsterdam-London",
+      "value" : "7"
+    }, {
+      "label" : "Berlin-Frankfurt-Munich-Berlin",
+      "value" : "8"
+    }, {
+      "label" : "Vienna-Salzburg-Innsbruck-Vienna",
+      "value" : "9"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Select one from csv file",
+    "readonly" : true,
+    "ref" : "/data/q2[1]",
+    "required" : false,
+    "value" : null
+  }, {
+    "after" : "3",
+    "answer" : "3",
+    "appearance" : "map",
+    "choices" : [ {
+      "label" : "Madrid",
+      "value" : "1"
+    }, {
+      "label" : "Warsaw",
+      "value" : "2"
+    }, {
+      "label" : "Stockholm-Copenhagen-Berlin",
+      "value" : "3"
+    }, {
+      "label" : "Prague-Vienna-Budapest",
+      "value" : "4"
+    }, {
+      "label" : "London-Leeds-Liverpool-London",
+      "value" : "5"
+    }, {
+      "label" : "Paris-Basel-Frankfurt-Paris",
+      "value" : "6"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Select one from xml file",
+    "readonly" : false,
+    "ref" : "/data/q3[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

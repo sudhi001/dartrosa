@@ -1,0 +1,27 @@
+{
+  "form" : "forms/webforms/upload/video-capture.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"video_capture\" version=\"2025020401\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><cat_video>file29.jpg</cat_video><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 33,
+  "steps" : [ {
+    "after" : "file29.jpg",
+    "answer" : "file29.jpg",
+    "appearance" : null,
+    "control" : "videoCapture",
+    "dataType" : "binary",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Upload a video of a cat",
+    "readonly" : false,
+    "ref" : "/data/cat_video[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

@@ -1,0 +1,259 @@
+{
+  "form" : "forms/webforms/select/5-select-types.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><root id=\"select-types\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\"><select-relevance>yes</select-relevance><sel-1><string-value>explicit string</string-value><implicit-string-value>implicit string</implicit-string-value><int-value>123</int-value><decimal-value>45.67</decimal-value></sel-1><sel-n><string-value>explicit string</string-value><implicit-string-value>implicit string</implicit-string-value><int-value>123</int-value><decimal-value>45.67</decimal-value></sel-n></root>",
+  "parse" : {
+    "language" : null,
+    "languages" : [ ],
+    "ok" : true,
+    "title" : "Select types (now expected to error on load)"
+  },
+  "steps" : [ {
+    "events" : [ {
+      "appearance" : null,
+      "choices" : [ {
+        "label" : "Yes",
+        "value" : "yes"
+      }, {
+        "label" : "No",
+        "value" : "no"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : "All selects relevant?",
+      "readonly" : false,
+      "ref" : "/root/select-relevance[1]",
+      "required" : false,
+      "value" : "yes"
+    }, {
+      "appearance" : null,
+      "event" : "group",
+      "label" : "Select (1) with types",
+      "ref" : "/root/sel-1[1]"
+    }, {
+      "appearance" : null,
+      "choices" : [ {
+        "label" : "Implicit String",
+        "value" : "implicit string"
+      }, {
+        "label" : "Explicit String",
+        "value" : "explicit string"
+      }, {
+        "label" : "Updated String",
+        "value" : "updated string"
+      }, {
+        "label" : "Implicit",
+        "value" : "implicit"
+      }, {
+        "label" : "Explicit",
+        "value" : "explicit"
+      }, {
+        "label" : "Updated",
+        "value" : "updated"
+      }, {
+        "label" : "string",
+        "value" : "string"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : null,
+      "readonly" : false,
+      "ref" : "/root/sel-1[1]/string-value[1]",
+      "required" : false,
+      "value" : "explicit string"
+    }, {
+      "appearance" : null,
+      "choices" : [ {
+        "label" : "Implicit String",
+        "value" : "implicit string"
+      }, {
+        "label" : "Explicit String",
+        "value" : "explicit string"
+      }, {
+        "label" : "Updated String",
+        "value" : "updated string"
+      }, {
+        "label" : "Implicit",
+        "value" : "implicit"
+      }, {
+        "label" : "Explicit",
+        "value" : "explicit"
+      }, {
+        "label" : "Updated",
+        "value" : "updated"
+      }, {
+        "label" : "string",
+        "value" : "string"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : null,
+      "readonly" : false,
+      "ref" : "/root/sel-1[1]/implicit-string-value[1]",
+      "required" : false,
+      "value" : "implicit string"
+    }, {
+      "appearance" : null,
+      "choices" : [ {
+        "label" : "123",
+        "value" : "123"
+      }, {
+        "label" : "10",
+        "value" : "10"
+      }, {
+        "label" : "23",
+        "value" : "23"
+      }, {
+        "label" : "89",
+        "value" : "89"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "integer",
+      "event" : "question",
+      "hint" : null,
+      "label" : null,
+      "readonly" : false,
+      "ref" : "/root/sel-1[1]/int-value[1]",
+      "required" : false,
+      "value" : "123"
+    }, {
+      "appearance" : null,
+      "choices" : [ {
+        "label" : "45.67",
+        "value" : "45.67"
+      }, {
+        "label" : "89",
+        "value" : "89"
+      }, {
+        "label" : "10",
+        "value" : "10"
+      }, {
+        "label" : "23.4",
+        "value" : "23.4"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "decimal",
+      "event" : "question",
+      "hint" : null,
+      "label" : null,
+      "readonly" : false,
+      "ref" : "/root/sel-1[1]/decimal-value[1]",
+      "required" : false,
+      "value" : "45.67"
+    }, {
+      "appearance" : null,
+      "event" : "group",
+      "label" : "Select (N) with types",
+      "ref" : "/root/sel-n[1]"
+    }, {
+      "appearance" : null,
+      "choices" : [ {
+        "label" : "Implicit",
+        "value" : "implicit"
+      }, {
+        "label" : "Explicit",
+        "value" : "explicit"
+      }, {
+        "label" : "Updated",
+        "value" : "updated"
+      }, {
+        "label" : "string",
+        "value" : "string"
+      } ],
+      "control" : "selectMulti",
+      "dataType" : "multipleItems",
+      "event" : "question",
+      "hint" : null,
+      "label" : null,
+      "readonly" : false,
+      "ref" : "/root/sel-n[1]/string-value[1]",
+      "required" : false,
+      "value" : "explicit string"
+    }, {
+      "appearance" : null,
+      "choices" : [ {
+        "label" : "Implicit",
+        "value" : "implicit"
+      }, {
+        "label" : "Explicit",
+        "value" : "explicit"
+      }, {
+        "label" : "Updated",
+        "value" : "updated"
+      }, {
+        "label" : "string",
+        "value" : "string"
+      } ],
+      "control" : "selectMulti",
+      "dataType" : "multipleItems",
+      "event" : "question",
+      "hint" : null,
+      "label" : null,
+      "readonly" : false,
+      "ref" : "/root/sel-n[1]/implicit-string-value[1]",
+      "required" : false,
+      "value" : "implicit string"
+    }, {
+      "appearance" : null,
+      "choices" : [ {
+        "label" : "123",
+        "value" : "123"
+      }, {
+        "label" : "10",
+        "value" : "10"
+      }, {
+        "label" : "23",
+        "value" : "23"
+      }, {
+        "label" : "89",
+        "value" : "89"
+      } ],
+      "control" : "selectMulti",
+      "dataType" : "integer",
+      "event" : "question",
+      "hint" : null,
+      "label" : null,
+      "readonly" : false,
+      "ref" : "/root/sel-n[1]/int-value[1]",
+      "required" : false,
+      "value" : "123"
+    }, {
+      "appearance" : null,
+      "choices" : [ {
+        "label" : "45.67",
+        "value" : "45.67"
+      }, {
+        "label" : "89",
+        "value" : "89"
+      }, {
+        "label" : "10",
+        "value" : "10"
+      }, {
+        "label" : "23.4",
+        "value" : "23.4"
+      } ],
+      "control" : "selectMulti",
+      "dataType" : "decimal",
+      "event" : "question",
+      "hint" : null,
+      "label" : null,
+      "readonly" : false,
+      "ref" : "/root/sel-n[1]/decimal-value[1]",
+      "required" : false,
+      "value" : "45.67"
+    }, {
+      "event" : "endOfForm"
+    } ],
+    "op" : "walk"
+  }, {
+    "op" : "validate",
+    "outcome" : "ok",
+    "ref" : null
+  } ],
+  "traceVersion" : 1
+}

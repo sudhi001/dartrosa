@@ -1,0 +1,43 @@
+{
+  "form" : "forms/webforms/computations/4-calculate-required.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><root id=\"calculate-required\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms/\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><first-question>10</first-question><second-question>20</second-question><meta><instanceID /></meta></root>",
+  "parse" : {
+    "language" : null,
+    "languages" : [ ],
+    "ok" : true,
+    "title" : "Calculate and required"
+  },
+  "steps" : [ {
+    "events" : [ {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "null",
+      "event" : "question",
+      "hint" : null,
+      "label" : "1. Default value is 10",
+      "readonly" : false,
+      "ref" : "/root/first-question[1]",
+      "required" : false,
+      "value" : "10"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "null",
+      "event" : "question",
+      "hint" : null,
+      "label" : "2. Required if #1 is greater than 1, calculates #1 × 2",
+      "readonly" : false,
+      "ref" : "/root/second-question[1]",
+      "required" : true,
+      "value" : "20"
+    }, {
+      "event" : "endOfForm"
+    } ],
+    "op" : "walk"
+  }, {
+    "op" : "validate",
+    "outcome" : "ok",
+    "ref" : null
+  } ],
+  "traceVersion" : 1
+}

@@ -1,0 +1,176 @@
+{
+  "form" : "forms/pyxform/tests/test_geo/test_geo_widgets_types.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><geos id=\"data\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><repeat><point>-61.881 69.691 447.0 5.0</point><point_note /><trace /><trace_note /><shape>7.0 6.0 0.0 0.0;6.0 17.0 0.0 0.0;19.0 4.0 0.0 0.0;7.0 6.0 0.0 0.0</shape><shape_note /></repeat><repeat><point>87.956 -158.588 343.0 4.0</point><point_note /><trace>1.0 0.0 0.0 0.0;6.0 17.0 0.0 0.0;17.0 4.0 0.0 0.0;1.0 0.0 0.0 0.0</trace><trace_note /><shape>3.0 0.0 0.0 0.0;4.0 12.0 0.0 0.0;19.0 7.0 0.0 0.0;3.0 0.0 0.0 0.0</shape><shape_note /></repeat><meta><instanceID>uuid:<uuid></instanceID></meta></geos>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 33,
+  "steps" : [ {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/geos/repeat[1]"
+  }, {
+    "after" : "-61.881 69.691 447.0 5.0",
+    "answer" : "-61.881 69.691 447 5",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "geopoint",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Record Geopoint",
+    "readonly" : false,
+    "ref" : "/geos/repeat[1]/point[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Point -61.881 69.691 447.0 5.0",
+    "readonly" : true,
+    "ref" : "/geos/repeat[1]/point_note[1]",
+    "required" : false,
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "geotrace",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Record a Geotrace",
+    "readonly" : false,
+    "ref" : "/geos/repeat[1]/trace[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Trace: ",
+    "readonly" : true,
+    "ref" : "/geos/repeat[1]/trace_note[1]",
+    "required" : false,
+    "value" : null
+  }, {
+    "after" : "7.0 6.0 0.0 0.0;6.0 17.0 0.0 0.0;19.0 4.0 0.0 0.0;7.0 6.0 0.0 0.0",
+    "answer" : "7 6 0 0;6 17 0 0;19 4 0 0;7 6 0 0",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "geoshape",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Record a Geoshape",
+    "readonly" : false,
+    "ref" : "/geos/repeat[1]/shape[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Shape: 7.0 6.0 0.0 0.0;6.0 17.0 0.0 0.0;19.0 4.0 0.0 0.0;7.0 6.0 0.0 0.0",
+    "readonly" : true,
+    "ref" : "/geos/repeat[1]/shape_note[1]",
+    "required" : false,
+    "value" : null
+  }, {
+    "add" : true,
+    "event" : "promptNewRepeat",
+    "ref" : "/geos/repeat[2]"
+  }, {
+    "after" : "87.956 -158.588 343.0 4.0",
+    "answer" : "87.956 -158.588 343 4",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "geopoint",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Record Geopoint",
+    "readonly" : false,
+    "ref" : "/geos/repeat[2]/point[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Point 87.956 -158.588 343.0 4.0",
+    "readonly" : true,
+    "ref" : "/geos/repeat[2]/point_note[1]",
+    "required" : false,
+    "value" : null
+  }, {
+    "after" : "1.0 0.0 0.0 0.0;6.0 17.0 0.0 0.0;17.0 4.0 0.0 0.0;1.0 0.0 0.0 0.0",
+    "answer" : "1 0 0 0;6 17 0 0;17 4 0 0;1 0 0 0",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "geotrace",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Record a Geotrace",
+    "readonly" : false,
+    "ref" : "/geos/repeat[2]/trace[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Trace: 1.0 0.0 0.0 0.0;6.0 17.0 0.0 0.0;17.0 4.0 0.0 0.0;1.0 0.0 0.0 0.0",
+    "readonly" : true,
+    "ref" : "/geos/repeat[2]/trace_note[1]",
+    "required" : false,
+    "value" : null
+  }, {
+    "after" : "3.0 0.0 0.0 0.0;4.0 12.0 0.0 0.0;19.0 7.0 0.0 0.0;3.0 0.0 0.0 0.0",
+    "answer" : "3 0 0 0;4 12 0 0;19 7 0 0;3 0 0 0",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "geoshape",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Record a Geoshape",
+    "readonly" : false,
+    "ref" : "/geos/repeat[2]/shape[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Shape: 3.0 0.0 0.0 0.0;4.0 12.0 0.0 0.0;19.0 7.0 0.0 0.0;3.0 0.0 0.0 0.0",
+    "readonly" : true,
+    "ref" : "/geos/repeat[2]/shape_note[1]",
+    "required" : false,
+    "value" : null
+  }, {
+    "add" : false,
+    "event" : "promptNewRepeat",
+    "ref" : "/geos/repeat[3]"
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

@@ -1,0 +1,65 @@
+{
+  "form" : "forms/pyxform/tests/test_translations/test_specify_other__with_translations__with_nested_repeat.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><test_name id=\"data\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><g1><r1><q1>other</q1><q1_other>kappa'lambda</q1_other></r1></g1><meta><instanceID>uuid:<uuid></instanceID></meta></test_name>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 33,
+  "steps" : [ {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Group 1",
+    "ref" : "/test_name/g1[1]"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat 1",
+    "ref" : "/test_name/g1[1]/r1[1]"
+  }, {
+    "after" : "other",
+    "answer" : "other",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "la",
+      "value" : "na"
+    }, {
+      "label" : "lb",
+      "value" : "nb"
+    }, {
+      "label" : "Other",
+      "value" : "other"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Question 1",
+    "readonly" : false,
+    "ref" : "/test_name/g1[1]/r1[1]/q1[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Specify other.",
+    "readonly" : false,
+    "ref" : "/test_name/g1[1]/r1[1]/q1_other[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : false,
+    "event" : "promptNewRepeat",
+    "ref" : "/test_name/g1[1]/r1[2]"
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

@@ -1,0 +1,117 @@
+{
+  "form" : "forms/webforms/repeats/14-repeat-fixed.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><root id=\"repeat-multiple-default-instances\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms/\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><reps>x y z</reps><rep><a /><b>1</b></rep><rep><a>123</a><b>2</b></rep><rep><a>zeta &amp; eta</a><b>3</b></rep><meta><instanceID /></meta></root>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 11,
+  "steps" : [ {
+    "after" : "x y z",
+    "answer" : "x y z",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Number of repeats",
+    "readonly" : false,
+    "ref" : "/root/reps[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "50"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (1) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[1]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[1]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "default value (from first default instance)"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[1]/b[1]",
+    "required" : false,
+    "value" : "1"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (2) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[2]"
+  }, {
+    "after" : "123",
+    "answer" : "123",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[2]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "second default instance and its default value!"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[2]/b[1]",
+    "required" : false,
+    "value" : "2"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat (3) group with a longer title lorem ipsum dolor sit amet consectetur",
+    "ref" : "/root/rep[3]"
+  }, {
+    "after" : "zeta & eta",
+    "answer" : "zeta & eta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/root/rep[3]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "&… 3rd"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Position(..) ❗❗❗",
+    "readonly" : true,
+    "ref" : "/root/rep[3]/b[1]",
+    "required" : false,
+    "value" : "3"
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

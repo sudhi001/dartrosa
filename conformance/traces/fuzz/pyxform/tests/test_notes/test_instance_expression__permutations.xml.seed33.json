@@ -1,0 +1,72 @@
+{
+  "form" : "forms/pyxform/tests/test_notes/test_instance_expression__permutations.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><test_name id=\"data\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><q1>y</q1><q2>s</q2><text>zeta &amp; eta</text><note /><meta><instanceID>uuid:<uuid></instanceID></meta></test_name>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 33,
+  "steps" : [ {
+    "after" : "y",
+    "answer" : "y",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "y"
+    }, {
+      "label" : "No",
+      "value" : "n"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Q1",
+    "readonly" : false,
+    "ref" : "/test_name/q1[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "s",
+    "answer" : "s",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Big",
+      "value" : "b"
+    }, {
+      "label" : "Small",
+      "value" : "s"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Q2",
+    "readonly" : false,
+    "ref" : "/test_name/q2[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "zeta & eta",
+    "answer" : "zeta & eta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Text",
+    "readonly" : false,
+    "ref" : "/test_name/text[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "error" : {
+      "message" : "Dependency cycle in <output>s; recursion limit exceeded!!",
+      "type" : "RuntimeException"
+    }
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

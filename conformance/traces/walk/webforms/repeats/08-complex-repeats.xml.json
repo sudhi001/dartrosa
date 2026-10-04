@@ -1,0 +1,216 @@
+{
+  "form" : "forms/webforms/repeats/08-complex-repeats.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"groups_and_repeats\" version=\"20240326122412\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><simple_text /><group_without_label><first_name /></group_without_label><repeat_without_anything_count>3</repeat_without_anything_count><repeat_without_anything><last_name /></repeat_without_anything><repeat_without_anything><last_name /></repeat_without_anything><repeat_without_anything><last_name /></repeat_without_anything><repeat_with_label><middle_name /></repeat_with_label><repeat_with_label><middle_name /></repeat_with_label><nested_group_without_label_1><nested_group_without_label_1_1><a_name /></nested_group_without_label_1_1></nested_group_without_label_1><repeat_with_child_group_1><repeat_with_child_group_1_1><b_name /></repeat_with_child_group_1_1></repeat_with_child_group_1><repeat_without_parent_group><c_name /></repeat_without_parent_group><nested_group_1><child_group_1_1><d_name /></child_group_1_1></nested_group_1><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "language" : null,
+    "languages" : [ ],
+    "ok" : true,
+    "title" : "Groups and Repeats"
+  },
+  "steps" : [ {
+    "events" : [ {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Simple textbox",
+      "readonly" : false,
+      "ref" : "/data/simple_text[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "event" : "group",
+      "label" : null,
+      "ref" : "/data/group_without_label[1]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "First Name",
+      "readonly" : false,
+      "ref" : "/data/group_without_label[1]/first_name[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "event" : "repeat",
+      "label" : "",
+      "ref" : "/data/repeat_without_anything[1]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Last Name",
+      "readonly" : false,
+      "ref" : "/data/repeat_without_anything[1]/last_name[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "event" : "repeat",
+      "label" : "",
+      "ref" : "/data/repeat_without_anything[2]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Last Name",
+      "readonly" : false,
+      "ref" : "/data/repeat_without_anything[2]/last_name[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "event" : "repeat",
+      "label" : "",
+      "ref" : "/data/repeat_without_anything[3]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Last Name",
+      "readonly" : false,
+      "ref" : "/data/repeat_without_anything[3]/last_name[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "event" : "repeat",
+      "label" : "Repeat with label",
+      "ref" : "/data/repeat_with_label[1]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Middle Name",
+      "readonly" : false,
+      "ref" : "/data/repeat_with_label[1]/middle_name[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "event" : "repeat",
+      "label" : "Repeat with label",
+      "ref" : "/data/repeat_with_label[2]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Middle Name",
+      "readonly" : false,
+      "ref" : "/data/repeat_with_label[2]/middle_name[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "event" : "promptNewRepeat",
+      "ref" : "/data/repeat_with_label[3]"
+    }, {
+      "appearance" : null,
+      "event" : "group",
+      "label" : null,
+      "ref" : "/data/nested_group_without_label_1[1]"
+    }, {
+      "appearance" : null,
+      "event" : "group",
+      "label" : null,
+      "ref" : "/data/nested_group_without_label_1[1]/nested_group_without_label_1_1[1]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "A name (I have two group ancestors without labels)",
+      "readonly" : false,
+      "ref" : "/data/nested_group_without_label_1[1]/nested_group_without_label_1_1[1]/a_name[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "event" : "repeat",
+      "label" : "Repeat label",
+      "ref" : "/data/repeat_with_child_group_1[1]"
+    }, {
+      "appearance" : null,
+      "event" : "group",
+      "label" : "",
+      "ref" : "/data/repeat_with_child_group_1[1]/repeat_with_child_group_1_1[1]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "B Name",
+      "readonly" : false,
+      "ref" : "/data/repeat_with_child_group_1[1]/repeat_with_child_group_1_1[1]/b_name[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "event" : "promptNewRepeat",
+      "ref" : "/data/repeat_with_child_group_1[2]"
+    }, {
+      "appearance" : null,
+      "event" : "repeat",
+      "label" : null,
+      "ref" : "/data/repeat_without_parent_group[1]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "C Name",
+      "readonly" : false,
+      "ref" : "/data/repeat_without_parent_group[1]/c_name[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "event" : "promptNewRepeat",
+      "ref" : "/data/repeat_without_parent_group[2]"
+    }, {
+      "appearance" : null,
+      "event" : "group",
+      "label" : "Top group label",
+      "ref" : "/data/nested_group_1[1]"
+    }, {
+      "appearance" : null,
+      "event" : "group",
+      "label" : "child group label",
+      "ref" : "/data/nested_group_1[1]/child_group_1_1[1]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "D Name",
+      "readonly" : false,
+      "ref" : "/data/nested_group_1[1]/child_group_1_1[1]/d_name[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "event" : "endOfForm"
+    } ],
+    "op" : "walk"
+  }, {
+    "op" : "validate",
+    "outcome" : "ok",
+    "ref" : null
+  } ],
+  "traceVersion" : 1
+}

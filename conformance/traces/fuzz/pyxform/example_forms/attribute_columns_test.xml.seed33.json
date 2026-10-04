@@ -1,0 +1,48 @@
+{
+  "form" : "forms/pyxform/example_forms/attribute_columns_test.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"Spec test\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><skip_to_end testAttribute=\"test\">yes</skip_to_end><launch>-41</launch><meta><instanceID>uuid:<uuid></instanceID><instanceName /></meta></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 33,
+  "steps" : [ {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "-",
+    "readonly" : false,
+    "ref" : "/data/skip_to_end[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "-41",
+    "answer" : "-41",
+    "appearance" : "ex:org.thirdparty.app.ActivityName",
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "-",
+    "readonly" : false,
+    "ref" : "/data/launch[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

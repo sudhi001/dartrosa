@@ -1,0 +1,71 @@
+{
+  "form" : "forms/pyxform/tests/test_group/test_group_intent.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><intent_test id=\"data\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><pregrp>123</pregrp><xgrp><xgrp_q1>beta</xgrp_q1><xgrp_q2>146</xgrp_q2></xgrp><postgrp /><meta><instanceID>uuid:<uuid></instanceID></meta></intent_test>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 22,
+  "steps" : [ {
+    "after" : "123",
+    "answer" : "123",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Pregroup text",
+    "readonly" : false,
+    "ref" : "/intent_test/pregrp[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "XGroup questions",
+    "ref" : "/intent_test/xgrp[1]"
+  }, {
+    "after" : "beta",
+    "answer" : "beta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "XGroup Q1",
+    "readonly" : false,
+    "ref" : "/intent_test/xgrp[1]/xgrp_q1[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "146",
+    "answer" : "146",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "XGroup Q2",
+    "readonly" : false,
+    "ref" : "/intent_test/xgrp[1]/xgrp_q2[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Post group note",
+    "readonly" : true,
+    "ref" : "/intent_test/postgrp[1]",
+    "required" : false,
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

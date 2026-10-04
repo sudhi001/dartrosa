@@ -1,0 +1,56 @@
+{
+  "form" : "forms/webforms/repeats/10-repeat-with-multiple-children.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"groups_and_repeats\" version=\"20240328181053\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><repeat_with_child_group_1><repeat_with_child_group_1_1><b_name /></repeat_with_child_group_1_1><c_name /></repeat_with_child_group_1><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "language" : null,
+    "languages" : [ ],
+    "ok" : true,
+    "title" : "Groups and Repeats"
+  },
+  "steps" : [ {
+    "events" : [ {
+      "appearance" : null,
+      "event" : "repeat",
+      "label" : "Repeat label",
+      "ref" : "/data/repeat_with_child_group_1[1]"
+    }, {
+      "appearance" : null,
+      "event" : "group",
+      "label" : "",
+      "ref" : "/data/repeat_with_child_group_1[1]/repeat_with_child_group_1_1[1]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "B Name",
+      "readonly" : false,
+      "ref" : "/data/repeat_with_child_group_1[1]/repeat_with_child_group_1_1[1]/b_name[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "C Name",
+      "readonly" : false,
+      "ref" : "/data/repeat_with_child_group_1[1]/c_name[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "event" : "promptNewRepeat",
+      "ref" : "/data/repeat_with_child_group_1[2]"
+    }, {
+      "event" : "endOfForm"
+    } ],
+    "op" : "walk"
+  }, {
+    "op" : "validate",
+    "outcome" : "ok",
+    "ref" : null
+  } ],
+  "traceVersion" : 1
+}

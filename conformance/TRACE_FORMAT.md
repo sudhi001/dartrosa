@@ -140,6 +140,9 @@ So that traces are byte-identical across runs and machines:
 5. Unseeded random choice lists are sorted (see `choicesOrder`).
 6. JSON objects have their keys sorted; output is pretty-printed.
 
+Rules 2–4 apply to answer values, labels, hints, choice labels and the
+serialized instance.
+
 ## Comparing
 
 - `parse.ok` must match. When both fail, only `ok` must match; error type

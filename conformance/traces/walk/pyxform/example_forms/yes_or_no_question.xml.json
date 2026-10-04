@@ -1,0 +1,39 @@
+{
+  "form" : "forms/pyxform/example_forms/yes_or_no_question.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"yes_or_no_question\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><good_day /><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "language" : "english",
+    "languages" : [ "english" ],
+    "ok" : true,
+    "title" : "yes_or_no_question"
+  },
+  "steps" : [ {
+    "events" : [ {
+      "appearance" : null,
+      "choices" : [ {
+        "label" : "yes",
+        "value" : "yes"
+      }, {
+        "label" : "no",
+        "value" : "no"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : "have you had a good day today?",
+      "readonly" : false,
+      "ref" : "/data/good_day[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "event" : "endOfForm"
+    } ],
+    "op" : "walk"
+  }, {
+    "op" : "validate",
+    "outcome" : "ok",
+    "ref" : null
+  } ],
+  "traceVersion" : 1
+}

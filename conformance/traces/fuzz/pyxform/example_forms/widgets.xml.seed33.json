@@ -1,0 +1,703 @@
+{
+  "form" : "forms/pyxform/example_forms/widgets.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"widgets\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><my_string>kappa'lambda</my_string><my_int>-41</my_int><my_decimal>18.31</my_decimal><my_date /><my_time>17:36:00.000Z</my_time><my_select>a c</my_select><my_select1>2</my_select1><my_trigger>123</my_trigger><my_output /><my_geopoint>-7.104 -9.11 290.0 6.0</my_geopoint><my_barcode>123</my_barcode><my_image>file91.jpg</my_image><my_audio>file20.jpg</my_audio><my_video>file2.jpg</my_video><numberAsString>gamma delta</numberAsString><locationMap>13.329 115.472 88.0 0.0</locationMap><dateTime>2021-02-11T10:26:00.000Z</dateTime><spinner>c</spinner><spinner_all /><selectadvance /><grid_test>a</grid_test><grid_test_audio>b</grid_test_audio><table_list_test><table_list_test_label>no</table_list_test_label><table_list_1>yes</table_list_1><table_list_2>yes</table_list_2></table_list_test><table_list_test2><generated_table_list_label_29 /><reserved_name_for_field_list_labels_30 /><table_list_3>yes</table_list_3><table_list_4>yes</table_list_4></table_list_test2><happy_sad_table_2><happy_sad_second_method>sad</happy_sad_second_method><happy_sad_brian2>happy</happy_sad_brian2><happy_sad_michael2 /></happy_sad_table_2><happy_sad_table><generated_table_list_label_38 /><reserved_name_for_field_list_labels_39>happy sad</reserved_name_for_field_list_labels_39><happy_sad_brian /><happy_sad_michael /></happy_sad_table><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 33,
+  "steps" : [ {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : "can be short or very long",
+    "label" : "string widget",
+    "readonly" : false,
+    "ref" : "/data/my_string[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "-41",
+    "answer" : "-41",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : "try entering a number < 10",
+    "label" : "integer widget",
+    "readonly" : false,
+    "ref" : "/data/my_int[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "18.31",
+    "answer" : "-53.5",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "decimal",
+    "event" : "question",
+    "hint" : "only numbers > 10.51 and < 18.39",
+    "label" : "decimal widget",
+    "readonly" : false,
+    "ref" : "/data/my_decimal[1]",
+    "required" : false,
+    "result" : "constraintViolated",
+    "value" : "18.31"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "date",
+    "event" : "question",
+    "hint" : "only future dates allowed",
+    "label" : "date widget",
+    "readonly" : false,
+    "ref" : "/data/my_date[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "2010-06-15"
+  }, {
+    "after" : "17:36:00.000Z",
+    "answer" : "17:36:00.000Z",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "time",
+    "event" : "question",
+    "hint" : "testing time",
+    "label" : "time widget",
+    "readonly" : false,
+    "ref" : "/data/my_time[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "a c",
+    "answer" : "c d",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "option a",
+      "value" : "a"
+    }, {
+      "label" : "option b",
+      "value" : "b"
+    }, {
+      "label" : "option c",
+      "value" : "c"
+    }, {
+      "label" : "option d",
+      "value" : "d"
+    } ],
+    "control" : "selectMulti",
+    "dataType" : "multipleItems",
+    "event" : "question",
+    "hint" : "don't pick c and d together",
+    "label" : "select multiple widget",
+    "readonly" : false,
+    "ref" : "/data/my_select[1]",
+    "required" : false,
+    "result" : "constraintViolated",
+    "value" : "a c"
+  }, {
+    "after" : "2",
+    "answer" : "2",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "option 1",
+      "value" : "1"
+    }, {
+      "label" : "option 2",
+      "value" : "2"
+    }, {
+      "label" : "option 3",
+      "value" : "3"
+    }, {
+      "label" : "option 4",
+      "value" : "4"
+    }, {
+      "label" : "option 5",
+      "value" : "5"
+    }, {
+      "label" : "option 6",
+      "value" : "6"
+    }, {
+      "label" : "option 7",
+      "value" : "7"
+    }, {
+      "label" : "option 8",
+      "value" : "8"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "scroll down to see default selection",
+    "label" : "select one widget",
+    "readonly" : false,
+    "ref" : "/data/my_select1[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "8"
+  }, {
+    "after" : "123",
+    "answer" : "123",
+    "appearance" : null,
+    "control" : "trigger",
+    "dataType" : "null",
+    "event" : "question",
+    "hint" : "need to push button",
+    "label" : "acknowledge widget",
+    "readonly" : false,
+    "ref" : "/data/my_trigger[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : "long hint: there is an upcoming section.",
+    "label" : "review widget. is your email still 123?",
+    "readonly" : true,
+    "ref" : "/data/my_output[1]",
+    "required" : false,
+    "value" : null
+  }, {
+    "after" : "-7.104 -9.11 290.0 6.0",
+    "answer" : "-7.104 -9.11 290 6",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "geopoint",
+    "event" : "question",
+    "hint" : "this will get gps location",
+    "label" : "geopoint widget",
+    "readonly" : false,
+    "ref" : "/data/my_geopoint[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "123",
+    "answer" : "123",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "barcode",
+    "event" : "question",
+    "hint" : "scans multi-format 1d/2d barcodes",
+    "label" : "barcode widget",
+    "readonly" : false,
+    "ref" : "/data/my_barcode[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "file91.jpg",
+    "answer" : "file91.jpg",
+    "appearance" : null,
+    "control" : "imageChoose",
+    "dataType" : "binary",
+    "event" : "question",
+    "hint" : "this will launch the camera",
+    "label" : "image widget",
+    "readonly" : false,
+    "ref" : "/data/my_image[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "file20.jpg",
+    "answer" : "file20.jpg",
+    "appearance" : null,
+    "control" : "audioCapture",
+    "dataType" : "binary",
+    "event" : "question",
+    "hint" : "this will launch the audio recorder",
+    "label" : "audio widget",
+    "readonly" : false,
+    "ref" : "/data/my_audio[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "file2.jpg",
+    "answer" : "file2.jpg",
+    "appearance" : null,
+    "control" : "videoCapture",
+    "dataType" : "binary",
+    "event" : "question",
+    "hint" : "this will launch the video recorder",
+    "label" : "video widget",
+    "readonly" : false,
+    "ref" : "/data/my_video[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "gamma delta",
+    "answer" : "gamma delta",
+    "appearance" : "numbers",
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : "Takes 0-9, -, +, ., space, and comma",
+    "label" : "String field that uses only numbers (plus a couple extra)",
+    "readonly" : false,
+    "ref" : "/data/numberAsString[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "13.329 115.472 88.0 0.0",
+    "answer" : "13.329 115.472 88 0",
+    "appearance" : "maps",
+    "control" : "input",
+    "dataType" : "geopoint",
+    "event" : "question",
+    "hint" : "Note: this uses DATA and requires a connection",
+    "label" : "Geopoint with map Widget",
+    "readonly" : false,
+    "ref" : "/data/locationMap[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "2021-02-11T10:26:00.000Z",
+    "answer" : "2021-02-11T10:26:00.000Z",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "dateTime",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Date and Time Widget",
+    "readonly" : false,
+    "ref" : "/data/dateTime[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "c",
+    "answer" : "c",
+    "appearance" : "minimal",
+    "choices" : [ {
+      "label" : "option a",
+      "value" : "a"
+    }, {
+      "label" : "option b",
+      "value" : "b"
+    }, {
+      "label" : "option c",
+      "value" : "c"
+    }, {
+      "label" : "option d",
+      "value" : "d"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Spinner Widget: Select 1",
+    "readonly" : false,
+    "ref" : "/data/spinner[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : "minimal",
+    "choices" : [ {
+      "label" : "option a",
+      "value" : "a"
+    }, {
+      "label" : "option b",
+      "value" : "b"
+    }, {
+      "label" : "option c",
+      "value" : "c"
+    }, {
+      "label" : "option d",
+      "value" : "d"
+    } ],
+    "control" : "selectMulti",
+    "dataType" : "multipleItems",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Spinner Widget: Select All",
+    "readonly" : false,
+    "ref" : "/data/spinner_all[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : "quick",
+    "choices" : [ {
+      "label" : "option a",
+      "value" : "a"
+    }, {
+      "label" : "option b",
+      "value" : "b"
+    }, {
+      "label" : "option c",
+      "value" : "c"
+    }, {
+      "label" : "option d",
+      "value" : "d"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Select Widget - Auto Advance",
+    "readonly" : false,
+    "ref" : "/data/selectadvance[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "a",
+    "answer" : "a",
+    "appearance" : "compact",
+    "choices" : [ {
+      "label" : "a",
+      "value" : "a"
+    }, {
+      "label" : "b",
+      "value" : "b"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "make sure to put a.jpg and b.jpg in the form-media folder",
+    "label" : "Grid test",
+    "readonly" : false,
+    "ref" : "/data/grid_test[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "b",
+    "answer" : "b",
+    "appearance" : "quickcompact",
+    "choices" : [ {
+      "label" : "a",
+      "value" : "a"
+    }, {
+      "label" : "b",
+      "value" : "b"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "make sure to put a.jpg and b.jpg in the form-media folder",
+    "label" : "Grid auto-advance test",
+    "readonly" : false,
+    "ref" : "/data/grid_test_audio[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : "field-list",
+    "event" : "group",
+    "label" : "List Group",
+    "ref" : "/data/table_list_test[1]"
+  }, {
+    "after" : "no",
+    "answer" : "no",
+    "appearance" : "label",
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Labeled Choices",
+    "readonly" : false,
+    "ref" : "/data/table_list_test[1]/table_list_test_label[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : "list-nolabel",
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Q1",
+    "readonly" : false,
+    "ref" : "/data/table_list_test[1]/table_list_1[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : "list-nolabel",
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Question 2",
+    "readonly" : false,
+    "ref" : "/data/table_list_test[1]/table_list_2[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : "field-list",
+    "event" : "group",
+    "label" : null,
+    "ref" : "/data/table_list_test2[1]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(An easier to specify list group)",
+    "readonly" : true,
+    "ref" : "/data/table_list_test2[1]/generated_table_list_label_29[1]",
+    "required" : false,
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : "label",
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : null,
+    "readonly" : false,
+    "ref" : "/data/table_list_test2[1]/reserved_name_for_field_list_labels_30[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : "list-nolabel",
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Q1",
+    "readonly" : false,
+    "ref" : "/data/table_list_test2[1]/table_list_3[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : "list-nolabel",
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Question 2",
+    "readonly" : false,
+    "ref" : "/data/table_list_test2[1]/table_list_4[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : "field-list",
+    "event" : "group",
+    "label" : "Multi List Group",
+    "ref" : "/data/happy_sad_table_2[1]"
+  }, {
+    "after" : "sad",
+    "answer" : "sad",
+    "appearance" : "label",
+    "choices" : [ {
+      "label" : null,
+      "value" : "happy"
+    }, {
+      "label" : null,
+      "value" : "sad"
+    } ],
+    "control" : "selectMulti",
+    "dataType" : "multipleItems",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Multi Choice List",
+    "readonly" : false,
+    "ref" : "/data/happy_sad_table_2[1]/happy_sad_second_method[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "happy",
+    "answer" : "happy",
+    "appearance" : "list-nolabel",
+    "choices" : [ {
+      "label" : null,
+      "value" : "happy"
+    }, {
+      "label" : null,
+      "value" : "sad"
+    } ],
+    "control" : "selectMulti",
+    "dataType" : "multipleItems",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Brian",
+    "readonly" : false,
+    "ref" : "/data/happy_sad_table_2[1]/happy_sad_brian2[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : "list-nolabel",
+    "choices" : [ {
+      "label" : null,
+      "value" : "happy"
+    }, {
+      "label" : null,
+      "value" : "sad"
+    } ],
+    "control" : "selectMulti",
+    "dataType" : "multipleItems",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Michael",
+    "readonly" : false,
+    "ref" : "/data/happy_sad_table_2[1]/happy_sad_michael2[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : "field-list",
+    "event" : "group",
+    "label" : null,
+    "ref" : "/data/happy_sad_table[1]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "(An easier to specify multi list group)",
+    "readonly" : true,
+    "ref" : "/data/happy_sad_table[1]/generated_table_list_label_38[1]",
+    "required" : false,
+    "value" : null
+  }, {
+    "after" : "happy sad",
+    "answer" : "happy sad",
+    "appearance" : "label",
+    "choices" : [ {
+      "label" : null,
+      "value" : "happy"
+    }, {
+      "label" : null,
+      "value" : "sad"
+    } ],
+    "control" : "selectMulti",
+    "dataType" : "multipleItems",
+    "event" : "question",
+    "hint" : null,
+    "label" : null,
+    "readonly" : false,
+    "ref" : "/data/happy_sad_table[1]/reserved_name_for_field_list_labels_39[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : "list-nolabel",
+    "choices" : [ {
+      "label" : null,
+      "value" : "happy"
+    }, {
+      "label" : null,
+      "value" : "sad"
+    } ],
+    "control" : "selectMulti",
+    "dataType" : "multipleItems",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Brian",
+    "readonly" : false,
+    "ref" : "/data/happy_sad_table[1]/happy_sad_brian[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : "list-nolabel",
+    "choices" : [ {
+      "label" : null,
+      "value" : "happy"
+    }, {
+      "label" : null,
+      "value" : "sad"
+    } ],
+    "control" : "selectMulti",
+    "dataType" : "multipleItems",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Michael",
+    "readonly" : false,
+    "ref" : "/data/happy_sad_table[1]/happy_sad_michael[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

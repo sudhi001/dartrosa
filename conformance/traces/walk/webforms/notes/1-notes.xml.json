@@ -1,0 +1,89 @@
+{
+  "form" : "forms/webforms/notes/1-notes.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><root id=\"notes\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms/\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><top-level-note /><top-level-inp /><grp><grp-note /><grp-inp /></grp><rep><rep-inp /></rep><meta><instanceID /></meta></root>",
+  "parse" : {
+    "language" : null,
+    "languages" : [ ],
+    "ok" : true,
+    "title" : "Notes"
+  },
+  "steps" : [ {
+    "events" : [ {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "null",
+      "event" : "question",
+      "hint" : null,
+      "label" : "top-level note!",
+      "readonly" : true,
+      "ref" : "/root/top-level-note[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "null",
+      "event" : "question",
+      "hint" : null,
+      "label" : "top-level input",
+      "readonly" : false,
+      "ref" : "/root/top-level-inp[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "event" : "group",
+      "label" : "grp",
+      "ref" : "/root/grp[1]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "null",
+      "event" : "question",
+      "hint" : null,
+      "label" : "grp note!",
+      "readonly" : true,
+      "ref" : "/root/grp[1]/grp-note[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "null",
+      "event" : "question",
+      "hint" : null,
+      "label" : "grp input",
+      "readonly" : false,
+      "ref" : "/root/grp[1]/grp-inp[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "event" : "repeat",
+      "label" : "rep",
+      "ref" : "/root/rep[1]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "null",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Repeat input",
+      "readonly" : false,
+      "ref" : "/root/rep[1]/rep-inp[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "event" : "promptNewRepeat",
+      "ref" : "/root/rep[2]"
+    }, {
+      "event" : "endOfForm"
+    } ],
+    "op" : "walk"
+  }, {
+    "op" : "validate",
+    "outcome" : "ok",
+    "ref" : null
+  } ],
+  "traceVersion" : 1
+}

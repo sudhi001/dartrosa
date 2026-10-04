@@ -1,0 +1,34 @@
+{
+  "form" : "forms/webforms/test-scenario/two-secondary-instances-alt.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"two-secondary-instances\" version=\"1\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\"><choice>c</choice><one>C (from instance_one)</one><two>C (from instance_two)</two><both>C (from instance_one)C (from instance_two)</both></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 33,
+  "steps" : [ {
+    "after" : "c",
+    "answer" : "c",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "A",
+      "value" : "a"
+    }, {
+      "label" : "C",
+      "value" : "c"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Choice",
+    "readonly" : false,
+    "ref" : "/data/choice[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

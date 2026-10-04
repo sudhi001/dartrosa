@@ -1,0 +1,47 @@
+{
+  "form" : "forms/pyxform/tests/test_translations/test_specify_other__with_translations__with_nested_group.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><test_name id=\"data\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><g1><g2><q1>nb</q1></g2></g1><meta><instanceID>uuid:<uuid></instanceID></meta></test_name>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 11,
+  "steps" : [ {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Group 1",
+    "ref" : "/test_name/g1[1]"
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Group 2",
+    "ref" : "/test_name/g1[1]/g2[1]"
+  }, {
+    "after" : "nb",
+    "answer" : "nb",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "la",
+      "value" : "na"
+    }, {
+      "label" : "lb",
+      "value" : "nb"
+    }, {
+      "label" : "Other",
+      "value" : "other"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Question 1",
+    "readonly" : false,
+    "ref" : "/test_name/g1[1]/g2[1]/q1[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

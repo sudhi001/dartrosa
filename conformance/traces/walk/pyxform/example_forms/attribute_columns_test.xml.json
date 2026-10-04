@@ -1,0 +1,713 @@
+{
+  "form" : "forms/pyxform/example_forms/attribute_columns_test.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"Spec test\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><skip_to_end testAttribute=\"test\" /><everything testAttribute=\"test\"><my_name /><invalid_variable /><address testAttribute=\" /data/everything/my_name \" /><number_label /><text_image_audio_video_test /><display_image_test /><autocomplete_test /><autocomplete_chars_test /><a_integer /><a_decimal /><repeat_test_count>2</repeat_test_count><repeat_test testAttribute=\"test\"><group_test><required_text /><select_multiple_test /></group_test><labeled_select_group><label-test /><list-nolabel-test /></labeled_select_group><name><reserved_name_for_field_list_labels_25 /><table_list_question /></name><compact-test /><compact-2-test /></repeat_test><repeat_test><group_test><required_text /><select_multiple_test /></group_test><labeled_select_group><label-test /><list-nolabel-test /></labeled_select_group><name><reserved_name_for_field_list_labels_25 /><table_list_question /></name><compact-test /><compact-2-test /></repeat_test><acknowledge_test testAttribute=\"test\" /><date_test testAttribute=\"test\" /><time_test testAttribute=\"test\" /><datetime_test testAttribute=\"test\" /><geopoint_test testAttribute=\"test\" /><barcode_test testAttribute=\"test\" /><image_test testAttribute=\"test\" /><audio_test testAttribute=\"test\" /><video_test testAttribute=\"test\" /><note_test /><calculate_test testAttribute=\"test\">4</calculate_test><calculate_test_output /><start><now></start><start_test_output /><end /><end_test_output /><today><today></today><today_test_output /><deviceid testAttribute=\"test\" /><deviceid_test_output /><uri_deviceid /><uri_deviceid_test_output /><simserial /><simserial_test_output /><phonenumber /><phonenumber_test_output /><_1 /><FALSE /></everything><launch /><meta><instanceID>uuid:<uuid></instanceID><instanceName /></meta></data>",
+  "parse" : {
+    "language" : "default",
+    "languages" : [ "default", "chinese", "english" ],
+    "ok" : true,
+    "title" : "Spec test"
+  },
+  "steps" : [ {
+    "events" : [ {
+      "appearance" : null,
+      "choices" : [ {
+        "label" : "Yes",
+        "value" : "yes"
+      }, {
+        "label" : "No",
+        "value" : "no"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : "-",
+      "readonly" : false,
+      "ref" : "/data/skip_to_end[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "event" : "group",
+      "label" : null,
+      "ref" : "/data/everything[1]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "-",
+      "readonly" : false,
+      "ref" : "/data/everything[1]/my_name[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : "Try replacing my_name with a invalid variable",
+      "label" : "-",
+      "readonly" : true,
+      "ref" : "/data/everything[1]/invalid_variable[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : "-",
+      "label" : "-",
+      "readonly" : false,
+      "ref" : "/data/everything[1]/address[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : "a note",
+      "label" : "-",
+      "readonly" : true,
+      "ref" : "/data/everything[1]/number_label[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : "The goal of this test is to try out all the different media types in many languages to see if there are any bugs inserting media.",
+      "label" : "-",
+      "readonly" : false,
+      "ref" : "/data/everything[1]/text_image_audio_video_test[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : null,
+      "readonly" : true,
+      "ref" : "/data/everything[1]/display_image_test[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "autocomplete",
+      "choices" : [ {
+        "label" : "Yes",
+        "value" : "yes"
+      }, {
+        "label" : "No",
+        "value" : "no"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : "-",
+      "readonly" : false,
+      "ref" : "/data/everything[1]/autocomplete_test[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "autocomplete_chars",
+      "choices" : [ {
+        "label" : "Yes",
+        "value" : "yes"
+      }, {
+        "label" : "No",
+        "value" : "no"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : "-",
+      "readonly" : false,
+      "ref" : "/data/everything[1]/autocomplete_chars_test[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "integer",
+      "event" : "question",
+      "hint" : null,
+      "label" : "-",
+      "readonly" : false,
+      "ref" : "/data/everything[1]/a_integer[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "decimal",
+      "event" : "question",
+      "hint" : null,
+      "label" : "-",
+      "readonly" : false,
+      "ref" : "/data/everything[1]/a_decimal[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "event" : "repeat",
+      "label" : "-",
+      "ref" : "/data/everything[1]/repeat_test[1]"
+    }, {
+      "appearance" : "field-list",
+      "event" : "group",
+      "label" : null,
+      "ref" : "/data/everything[1]/repeat_test[1]/group_test[1]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "-",
+      "readonly" : false,
+      "ref" : "/data/everything[1]/repeat_test[1]/group_test[1]/required_text[1]",
+      "required" : true,
+      "value" : null
+    }, {
+      "appearance" : "minimal",
+      "choices" : [ {
+        "label" : "Yes",
+        "value" : "yes"
+      }, {
+        "label" : "No",
+        "value" : "no"
+      } ],
+      "control" : "selectMulti",
+      "dataType" : "multipleItems",
+      "event" : "question",
+      "hint" : null,
+      "label" : "-",
+      "readonly" : false,
+      "ref" : "/data/everything[1]/repeat_test[1]/group_test[1]/select_multiple_test[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "field-list",
+      "event" : "group",
+      "label" : "-",
+      "ref" : "/data/everything[1]/repeat_test[1]/labeled_select_group[1]"
+    }, {
+      "appearance" : "label",
+      "choices" : [ {
+        "label" : "Yes",
+        "value" : "yes"
+      }, {
+        "label" : "No",
+        "value" : "no"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : "-",
+      "readonly" : false,
+      "ref" : "/data/everything[1]/repeat_test[1]/labeled_select_group[1]/label-test[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "list-nolabel",
+      "choices" : [ {
+        "label" : "Yes",
+        "value" : "yes"
+      }, {
+        "label" : "No",
+        "value" : "no"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : "-",
+      "readonly" : false,
+      "ref" : "/data/everything[1]/repeat_test[1]/labeled_select_group[1]/list-nolabel-test[1]",
+      "required" : true,
+      "value" : null
+    }, {
+      "appearance" : "field-list",
+      "event" : "group",
+      "label" : null,
+      "ref" : "/data/everything[1]/repeat_test[1]/name[1]"
+    }, {
+      "appearance" : "label",
+      "choices" : [ {
+        "label" : "Yes",
+        "value" : "yes"
+      }, {
+        "label" : "No",
+        "value" : "no"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : null,
+      "readonly" : false,
+      "ref" : "/data/everything[1]/repeat_test[1]/name[1]/reserved_name_for_field_list_labels_25[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "list-nolabel",
+      "choices" : [ {
+        "label" : "Yes",
+        "value" : "yes"
+      }, {
+        "label" : "No",
+        "value" : "no"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : "hint",
+      "label" : "-",
+      "readonly" : false,
+      "ref" : "/data/everything[1]/repeat_test[1]/name[1]/table_list_question[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "compact",
+      "choices" : [ {
+        "label" : null,
+        "value" : "a"
+      }, {
+        "label" : null,
+        "value" : "b"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : "-",
+      "readonly" : false,
+      "ref" : "/data/everything[1]/repeat_test[1]/compact-test[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "compact-2",
+      "choices" : [ {
+        "label" : null,
+        "value" : "a"
+      }, {
+        "label" : null,
+        "value" : "b"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : "-",
+      "readonly" : false,
+      "ref" : "/data/everything[1]/repeat_test[1]/compact-2-test[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "event" : "repeat",
+      "label" : "-",
+      "ref" : "/data/everything[1]/repeat_test[2]"
+    }, {
+      "appearance" : "field-list",
+      "event" : "group",
+      "label" : null,
+      "ref" : "/data/everything[1]/repeat_test[2]/group_test[1]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "-",
+      "readonly" : false,
+      "ref" : "/data/everything[1]/repeat_test[2]/group_test[1]/required_text[1]",
+      "required" : true,
+      "value" : null
+    }, {
+      "appearance" : "minimal",
+      "choices" : [ {
+        "label" : "Yes",
+        "value" : "yes"
+      }, {
+        "label" : "No",
+        "value" : "no"
+      } ],
+      "control" : "selectMulti",
+      "dataType" : "multipleItems",
+      "event" : "question",
+      "hint" : null,
+      "label" : "-",
+      "readonly" : false,
+      "ref" : "/data/everything[1]/repeat_test[2]/group_test[1]/select_multiple_test[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "field-list",
+      "event" : "group",
+      "label" : "-",
+      "ref" : "/data/everything[1]/repeat_test[2]/labeled_select_group[1]"
+    }, {
+      "appearance" : "label",
+      "choices" : [ {
+        "label" : "Yes",
+        "value" : "yes"
+      }, {
+        "label" : "No",
+        "value" : "no"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : "-",
+      "readonly" : false,
+      "ref" : "/data/everything[1]/repeat_test[2]/labeled_select_group[1]/label-test[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "list-nolabel",
+      "choices" : [ {
+        "label" : "Yes",
+        "value" : "yes"
+      }, {
+        "label" : "No",
+        "value" : "no"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : "-",
+      "readonly" : false,
+      "ref" : "/data/everything[1]/repeat_test[2]/labeled_select_group[1]/list-nolabel-test[1]",
+      "required" : true,
+      "value" : null
+    }, {
+      "appearance" : "field-list",
+      "event" : "group",
+      "label" : null,
+      "ref" : "/data/everything[1]/repeat_test[2]/name[1]"
+    }, {
+      "appearance" : "label",
+      "choices" : [ {
+        "label" : "Yes",
+        "value" : "yes"
+      }, {
+        "label" : "No",
+        "value" : "no"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : null,
+      "readonly" : false,
+      "ref" : "/data/everything[1]/repeat_test[2]/name[1]/reserved_name_for_field_list_labels_25[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "list-nolabel",
+      "choices" : [ {
+        "label" : "Yes",
+        "value" : "yes"
+      }, {
+        "label" : "No",
+        "value" : "no"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : "hint",
+      "label" : "-",
+      "readonly" : false,
+      "ref" : "/data/everything[1]/repeat_test[2]/name[1]/table_list_question[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "compact",
+      "choices" : [ {
+        "label" : null,
+        "value" : "a"
+      }, {
+        "label" : null,
+        "value" : "b"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : "-",
+      "readonly" : false,
+      "ref" : "/data/everything[1]/repeat_test[2]/compact-test[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "compact-2",
+      "choices" : [ {
+        "label" : null,
+        "value" : "a"
+      }, {
+        "label" : null,
+        "value" : "b"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : "-",
+      "readonly" : false,
+      "ref" : "/data/everything[1]/repeat_test[2]/compact-2-test[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "trigger",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "-",
+      "readonly" : false,
+      "ref" : "/data/everything[1]/acknowledge_test[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "date",
+      "event" : "question",
+      "hint" : null,
+      "label" : "-",
+      "readonly" : false,
+      "ref" : "/data/everything[1]/date_test[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "time",
+      "event" : "question",
+      "hint" : null,
+      "label" : "-",
+      "readonly" : false,
+      "ref" : "/data/everything[1]/time_test[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "dateTime",
+      "event" : "question",
+      "hint" : null,
+      "label" : "-",
+      "readonly" : false,
+      "ref" : "/data/everything[1]/datetime_test[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "geopoint",
+      "event" : "question",
+      "hint" : null,
+      "label" : "-",
+      "readonly" : false,
+      "ref" : "/data/everything[1]/geopoint_test[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "barcode",
+      "event" : "question",
+      "hint" : null,
+      "label" : "-",
+      "readonly" : false,
+      "ref" : "/data/everything[1]/barcode_test[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "imageChoose",
+      "dataType" : "binary",
+      "event" : "question",
+      "hint" : null,
+      "label" : "-",
+      "readonly" : false,
+      "ref" : "/data/everything[1]/image_test[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "audioCapture",
+      "dataType" : "binary",
+      "event" : "question",
+      "hint" : null,
+      "label" : "-",
+      "readonly" : false,
+      "ref" : "/data/everything[1]/audio_test[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "videoCapture",
+      "dataType" : "binary",
+      "event" : "question",
+      "hint" : null,
+      "label" : "-",
+      "readonly" : false,
+      "ref" : "/data/everything[1]/video_test[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "-",
+      "readonly" : true,
+      "ref" : "/data/everything[1]/note_test[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "-",
+      "readonly" : true,
+      "ref" : "/data/everything[1]/calculate_test_output[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "-",
+      "readonly" : true,
+      "ref" : "/data/everything[1]/start_test_output[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "-",
+      "readonly" : true,
+      "ref" : "/data/everything[1]/end_test_output[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "-",
+      "readonly" : true,
+      "ref" : "/data/everything[1]/today_test_output[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "-",
+      "readonly" : true,
+      "ref" : "/data/everything[1]/deviceid_test_output[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "-",
+      "readonly" : true,
+      "ref" : "/data/everything[1]/uri_deviceid_test_output[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "-",
+      "readonly" : true,
+      "ref" : "/data/everything[1]/simserial_test_output[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "-",
+      "readonly" : true,
+      "ref" : "/data/everything[1]/phonenumber_test_output[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "-",
+      "readonly" : false,
+      "ref" : "/data/everything[1]/_1[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "-",
+      "readonly" : false,
+      "ref" : "/data/everything[1]/FALSE[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "ex:org.thirdparty.app.ActivityName",
+      "control" : "input",
+      "dataType" : "integer",
+      "event" : "question",
+      "hint" : null,
+      "label" : "-",
+      "readonly" : false,
+      "ref" : "/data/launch[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "event" : "endOfForm"
+    } ],
+    "op" : "walk"
+  }, {
+    "op" : "validate",
+    "outcome" : "required",
+    "ref" : "/data/everything[1]/repeat_test[1]/group_test[1]/required_text[1]"
+  } ],
+  "traceVersion" : 1
+}

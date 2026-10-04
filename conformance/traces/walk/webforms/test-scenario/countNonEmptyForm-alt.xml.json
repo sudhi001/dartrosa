@@ -1,0 +1,108 @@
+{
+  "form" : "forms/webforms/test-scenario/countNonEmptyForm-alt.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><test id=\"test\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\"><details><group2><weight>1</weight></group2></details><details><group2><weight>2</weight></group2></details><details><group2><weight /></group2></details><details><group2><weight /></group2></details><count_value>4</count_value><count_non_empty_value>2</count_non_empty_value></test>",
+  "parse" : {
+    "language" : null,
+    "languages" : [ ],
+    "ok" : true,
+    "title" : "CountNonEmpty (+ namespaces)"
+  },
+  "steps" : [ {
+    "events" : [ {
+      "appearance" : null,
+      "event" : "repeat",
+      "label" : null,
+      "ref" : "/test/details[1]"
+    }, {
+      "appearance" : null,
+      "event" : "group",
+      "label" : null,
+      "ref" : "/test/details[1]/group2[1]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "weight (kg)",
+      "readonly" : false,
+      "ref" : "/test/details[1]/group2[1]/weight[1]",
+      "required" : false,
+      "value" : "1"
+    }, {
+      "appearance" : null,
+      "event" : "repeat",
+      "label" : null,
+      "ref" : "/test/details[2]"
+    }, {
+      "appearance" : null,
+      "event" : "group",
+      "label" : null,
+      "ref" : "/test/details[2]/group2[1]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "weight (kg)",
+      "readonly" : false,
+      "ref" : "/test/details[2]/group2[1]/weight[1]",
+      "required" : false,
+      "value" : "2"
+    }, {
+      "appearance" : null,
+      "event" : "repeat",
+      "label" : null,
+      "ref" : "/test/details[3]"
+    }, {
+      "appearance" : null,
+      "event" : "group",
+      "label" : null,
+      "ref" : "/test/details[3]/group2[1]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "weight (kg)",
+      "readonly" : false,
+      "ref" : "/test/details[3]/group2[1]/weight[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "event" : "repeat",
+      "label" : null,
+      "ref" : "/test/details[4]"
+    }, {
+      "appearance" : null,
+      "event" : "group",
+      "label" : null,
+      "ref" : "/test/details[4]/group2[1]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "weight (kg)",
+      "readonly" : false,
+      "ref" : "/test/details[4]/group2[1]/weight[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "event" : "promptNewRepeat",
+      "ref" : "/test/details[5]"
+    }, {
+      "event" : "endOfForm"
+    } ],
+    "op" : "walk"
+  }, {
+    "op" : "validate",
+    "outcome" : "ok",
+    "ref" : null
+  } ],
+  "traceVersion" : 1
+}

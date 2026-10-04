@@ -1,0 +1,44 @@
+{
+  "form" : "forms/webforms/select/5-select-types.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><root id=\"select-types\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\"><select-relevance>no</select-relevance><sel-1 /><sel-n /></root>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 22,
+  "steps" : [ {
+    "after" : "no",
+    "answer" : "no",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Yes",
+      "value" : "yes"
+    }, {
+      "label" : "No",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "All selects relevant?",
+    "readonly" : false,
+    "ref" : "/root/select-relevance[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "yes"
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Select (1) with types",
+    "ref" : "/root/sel-1[1]"
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Select (N) with types",
+    "ref" : "/root/sel-n[1]"
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

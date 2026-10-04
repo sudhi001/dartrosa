@@ -1,0 +1,106 @@
+{
+  "cascades" : [ {
+    "cascades" : [ ],
+    "triggerable" : "recalculate|{func-expr:concat,{{path-expr:abs,{{step:child,data},{step:child,one}}},{path-expr:abs,{{step:child,data},{step:child,two}}}}}|/data/both|[/data/both]"
+  }, {
+    "cascades" : [ "recalculate|{func-expr:concat,{{path-expr:abs,{{step:child,data},{step:child,one}}},{path-expr:abs,{{step:child,data},{step:child,two}}}}}|/data/both|[/data/both]" ],
+    "triggerable" : "recalculate|{path-expr:{filt-expr:{func-expr:instance,{{str:'instance_one'}}},{}},{{step:child,root},{step:child,item,{{binop-expr:==,{path-expr:rel,{{step:child,name}}},{path-expr:abs,{{step:child,data},{step:child,choice}}}}}},{step:child,label}}}|/data/one|[/data/one]"
+  }, {
+    "cascades" : [ "recalculate|{func-expr:concat,{{path-expr:abs,{{step:child,data},{step:child,one}}},{path-expr:abs,{{step:child,data},{step:child,two}}}}}|/data/both|[/data/both]" ],
+    "triggerable" : "recalculate|{path-expr:{filt-expr:{func-expr:instance,{{str:'instance_two'}}},{}},{{step:child,root},{step:child,item,{{binop-expr:==,{path-expr:rel,{{step:child,name}}},{path-expr:abs,{{step:child,data},{step:child,choice}}}}}},{step:child,label}}}|/data/two|[/data/two]"
+  } ],
+  "form" : "forms/webforms/test-scenario/two-secondary-instances-alt.xml",
+  "initialize" : {
+    "ok" : true
+  },
+  "instance" : {
+    "attributes" : [ [ "", "id", "two-secondary-instances" ], [ "", "version", "1" ] ],
+    "bindAttributes" : [ ],
+    "children" : [ {
+      "attributes" : [ ],
+      "bindAttributes" : [ ],
+      "children" : [ ],
+      "constraint" : null,
+      "enabled" : true,
+      "mult" : 0,
+      "name" : "choice",
+      "namespace" : null,
+      "prefix" : null,
+      "preload" : null,
+      "preloadParams" : null,
+      "relevant" : true,
+      "repeatable" : false,
+      "required" : false,
+      "type" : "choice",
+      "value" : null
+    }, {
+      "attributes" : [ ],
+      "bindAttributes" : [ ],
+      "children" : [ ],
+      "constraint" : null,
+      "enabled" : true,
+      "mult" : 0,
+      "name" : "one",
+      "namespace" : null,
+      "prefix" : null,
+      "preload" : null,
+      "preloadParams" : null,
+      "relevant" : true,
+      "repeatable" : false,
+      "required" : false,
+      "type" : "text",
+      "value" : null
+    }, {
+      "attributes" : [ ],
+      "bindAttributes" : [ ],
+      "children" : [ ],
+      "constraint" : null,
+      "enabled" : true,
+      "mult" : 0,
+      "name" : "two",
+      "namespace" : null,
+      "prefix" : null,
+      "preload" : null,
+      "preloadParams" : null,
+      "relevant" : true,
+      "repeatable" : false,
+      "required" : false,
+      "type" : "text",
+      "value" : null
+    }, {
+      "attributes" : [ ],
+      "bindAttributes" : [ ],
+      "children" : [ ],
+      "constraint" : null,
+      "enabled" : false,
+      "mult" : 0,
+      "name" : "both",
+      "namespace" : null,
+      "prefix" : null,
+      "preload" : null,
+      "preloadParams" : null,
+      "relevant" : true,
+      "repeatable" : false,
+      "required" : false,
+      "type" : "text",
+      "value" : null
+    } ],
+    "constraint" : null,
+    "enabled" : true,
+    "mult" : 0,
+    "name" : "data",
+    "namespace" : null,
+    "prefix" : null,
+    "preload" : null,
+    "preloadParams" : null,
+    "relevant" : true,
+    "repeatable" : false,
+    "required" : false,
+    "type" : "null",
+    "value" : null
+  },
+  "parse" : {
+    "ok" : true
+  },
+  "traceVersion" : 1
+}

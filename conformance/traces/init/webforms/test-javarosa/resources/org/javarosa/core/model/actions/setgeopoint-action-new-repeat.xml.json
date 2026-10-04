@@ -1,0 +1,80 @@
+{
+  "cascades" : [ ],
+  "form" : "forms/webforms/test-javarosa/resources/org/javarosa/core/model/actions/setgeopoint-action-new-repeat.xml",
+  "initialize" : {
+    "ok" : true
+  },
+  "instance" : {
+    "attributes" : [ [ "", "id", "setgeopoint-action-new-repeat" ] ],
+    "bindAttributes" : [ ],
+    "children" : [ {
+      "attributes" : [ ],
+      "bindAttributes" : [ ],
+      "children" : [ {
+        "attributes" : [ ],
+        "bindAttributes" : [ ],
+        "children" : [ ],
+        "constraint" : null,
+        "enabled" : true,
+        "mult" : 0,
+        "name" : "age",
+        "namespace" : null,
+        "prefix" : null,
+        "preload" : null,
+        "preloadParams" : null,
+        "relevant" : true,
+        "repeatable" : false,
+        "required" : false,
+        "type" : "integer",
+        "value" : null
+      }, {
+        "attributes" : [ ],
+        "bindAttributes" : [ ],
+        "children" : [ ],
+        "constraint" : null,
+        "enabled" : false,
+        "mult" : 0,
+        "name" : "location",
+        "namespace" : null,
+        "prefix" : null,
+        "preload" : null,
+        "preloadParams" : null,
+        "relevant" : true,
+        "repeatable" : false,
+        "required" : false,
+        "type" : "text",
+        "value" : null
+      } ],
+      "constraint" : null,
+      "enabled" : true,
+      "mult" : -2,
+      "name" : "person",
+      "namespace" : null,
+      "prefix" : null,
+      "preload" : null,
+      "preloadParams" : null,
+      "relevant" : true,
+      "repeatable" : true,
+      "required" : false,
+      "type" : "null",
+      "value" : null
+    } ],
+    "constraint" : null,
+    "enabled" : true,
+    "mult" : 0,
+    "name" : "data",
+    "namespace" : null,
+    "prefix" : null,
+    "preload" : null,
+    "preloadParams" : null,
+    "relevant" : true,
+    "repeatable" : false,
+    "required" : false,
+    "type" : "null",
+    "value" : null
+  },
+  "parse" : {
+    "ok" : true
+  },
+  "traceVersion" : 1
+}

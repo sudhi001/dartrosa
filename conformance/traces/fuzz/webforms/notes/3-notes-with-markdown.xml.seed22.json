@@ -1,0 +1,211 @@
+{
+  "form" : "forms/webforms/notes/3-notes-with-markdown.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"notes\" version=\"20240802121047\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><group><headings /><name>123</name><phone>+255755555555</phone><url>https://www.getodk.org</url><userentered /><translated /><selected>emphasis</selected><selectedminimal>no</selectedminimal><dropdown>no yes</dropdown><rank>B C D</rank><note /></group><group2><input>beta</input></group2><rep><a>kappa'lambda</a></rep><meta><instanceID /></meta></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 22,
+  "steps" : [ {
+    "appearance" : "field-list",
+    "event" : "group",
+    "label" : null,
+    "ref" : "/data/group[1]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "You _can_ try this with other <span style=\"color:red;font-family:cursive\">colours</span>; **most** primary colours should work.",
+    "readonly" : true,
+    "ref" : "/data/group[1]/headings[1]",
+    "required" : false,
+    "value" : null
+  }, {
+    "after" : "123",
+    "answer" : "123",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : "Type **your name** below",
+    "label" : "What's your name?",
+    "readonly" : false,
+    "ref" : "/data/group[1]/name[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "*You said:<span style=\"color:red;font-family:cursive\">123</span>* but should it be markeddown?",
+    "readonly" : true,
+    "ref" : "/data/group[1]/userentered[1]",
+    "required" : false,
+    "value" : null
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "_Translated_",
+    "readonly" : true,
+    "ref" : "/data/group[1]/translated[1]",
+    "required" : false,
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "*Groups*",
+    "ref" : "/data/group2[1]"
+  }, {
+    "after" : "beta",
+    "answer" : "beta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "label",
+    "readonly" : false,
+    "ref" : "/data/group2[1]/input[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "<span style=\"color:green\">Repeat group</span>",
+    "ref" : "/data/rep[1]"
+  }, {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Repeat input a",
+    "readonly" : false,
+    "ref" : "/data/rep[1]/a[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "default value"
+  }, {
+    "add" : false,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/rep[2]"
+  }, {
+    "after" : "emphasis",
+    "answer" : "emphasis",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "plain text",
+      "value" : "plain"
+    }, {
+      "label" : "**strong style**",
+      "value" : "strong"
+    }, {
+      "label" : "_italics_",
+      "value" : "emphasis"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Select options full",
+    "readonly" : false,
+    "ref" : "/data/group[1]/selected[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "no",
+    "answer" : "no",
+    "appearance" : "minimal",
+    "choices" : [ {
+      "label" : "<span style=\"color:green\">Yes</span>",
+      "value" : "yes"
+    }, {
+      "label" : "<span style=\"color:red\">No</span>",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Select options minimal",
+    "readonly" : false,
+    "ref" : "/data/group[1]/selectedminimal[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "no yes",
+    "answer" : "no yes",
+    "appearance" : "minimal",
+    "choices" : [ {
+      "label" : "<span style=\"color:green\">Yes</span>",
+      "value" : "yes"
+    }, {
+      "label" : "<span style=\"color:red\">No</span>",
+      "value" : "no"
+    } ],
+    "control" : "selectMulti",
+    "dataType" : "multipleItems",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Select multiple minimal",
+    "readonly" : false,
+    "ref" : "/data/group[1]/dropdown[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "B C D",
+    "answer" : "B C D",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "<span style=\"color:green\">Green</span>",
+      "value" : "A"
+    }, {
+      "label" : "<span style=\"color:red\">Red</span>",
+      "value" : "B"
+    }, {
+      "label" : "<span style=\"color:blue\">Blue</span>",
+      "value" : "C"
+    }, {
+      "label" : "<span style=\"color:yellow\">Yellow</span>",
+      "value" : "D"
+    } ],
+    "control" : "rank",
+    "dataType" : "multipleItems",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Rank this",
+    "readonly" : false,
+    "ref" : "/data/group[1]/rank[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "unsupported",
+    "event" : "question",
+    "hint" : null,
+    "label" : "# heading 1\n## heading 2\n### heading 3\n#### heading 4\n##### heading 5\n###### heading 6\n\n&nbsp;&nbsp;&nbsp;&nbsp;Indented text\n\n[get odk](https://www.getodk.org)\n\nPhone number: [+255755555555](tel:+255755555555)\n\nEscaping: \\*hello\\*\n\n<span style=\"color:red;font-family:cursive\">signature</span>\n\n<p style=\"text-align:center\">\n  centered paragraph\n</p>\n\n<div style=\"text-align:center\">centered div</div>\n\n<table style=\"border:1px solid\">\n  <tr>\n    <td style=\"border:1px solid\">name</td>\n    <td style=\"border:1px solid\">value</td>\n  </tr>\n  <tr>\n    <td style=\"border:1px solid\">once</td>\n    <td style=\"border:1px solid\">twice</td>\n  </tr>\n</table>\n\n- unordered list 1\n- unordered list 5\n- unordered list 3\n\n\n1. ordered list 1\n2. ordered list 2\n3. ordered list 3\n\nItems can be\nseparated by\nsingle line breaks\n\n_styles **can <span style=\"color:red;\">be</span> nested** inside_",
+    "readonly" : true,
+    "ref" : "/data/group[1]/note[1]",
+    "required" : false,
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

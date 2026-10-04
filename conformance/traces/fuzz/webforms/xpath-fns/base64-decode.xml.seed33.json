@@ -1,0 +1,60 @@
+{
+  "form" : "forms/webforms/xpath-fns/base64-decode.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"distance_examples\" version=\"20241025195211\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><emoji>🥰</emoji><accents>Hélène</accents><input>kappa'lambda</input><calc /><meta><instanceID /></meta></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 33,
+  "steps" : [ {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "emoji",
+    "readonly" : true,
+    "ref" : "/data/emoji[1]",
+    "required" : false,
+    "value" : "🥰"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "accents",
+    "readonly" : true,
+    "ref" : "/data/accents[1]",
+    "required" : false,
+    "value" : "Hélène"
+  }, {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "test input",
+    "readonly" : false,
+    "ref" : "/data/input[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "calculated output",
+    "readonly" : true,
+    "ref" : "/data/calc[1]",
+    "required" : false,
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

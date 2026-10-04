@@ -1,0 +1,277 @@
+{
+  "form" : "forms/pyxform/tests/test_repeat/test_repeat_relative_reference.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><test_name id=\"data\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><Z /><section><AA /><A /><note1 /></section><section2><C /><sectiona><D /><note2 /></sectiona><note3 /></section2><section3><FF /><F /><sectionb><G /><note4 /></sectionb><sectionc><I /><note5 /><note6 /></sectionc><note7 /><sectiond><M /><note8 /></sectiond><note9 /></section3><meta><instanceID>uuid:<uuid></instanceID></meta></test_name>",
+  "parse" : {
+    "language" : null,
+    "languages" : [ ],
+    "ok" : true,
+    "title" : "data"
+  },
+  "steps" : [ {
+    "events" : [ {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Fruit",
+      "readonly" : false,
+      "ref" : "/test_name/Z[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "event" : "repeat",
+      "label" : "Section",
+      "ref" : "/test_name/section[1]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Anything really",
+      "readonly" : false,
+      "ref" : "/test_name/section[1]/AA[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "A oat",
+      "readonly" : false,
+      "ref" : "/test_name/section[1]/A[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Noted  w ",
+      "readonly" : true,
+      "ref" : "/test_name/section[1]/note1[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "event" : "promptNewRepeat",
+      "ref" : "/test_name/section[2]"
+    }, {
+      "appearance" : null,
+      "event" : "repeat",
+      "label" : "Section 2",
+      "ref" : "/test_name/section2[1]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "C",
+      "readonly" : false,
+      "ref" : "/test_name/section2[1]/C[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "event" : "group",
+      "label" : "Section A",
+      "ref" : "/test_name/section2[1]/sectiona[1]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "D oat",
+      "readonly" : false,
+      "ref" : "/test_name/section2[1]/sectiona[1]/D[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Noted  w ",
+      "readonly" : true,
+      "ref" : "/test_name/section2[1]/sectiona[1]/note2[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Noted  w ",
+      "readonly" : true,
+      "ref" : "/test_name/section2[1]/note3[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "event" : "promptNewRepeat",
+      "ref" : "/test_name/section2[2]"
+    }, {
+      "appearance" : null,
+      "event" : "repeat",
+      "label" : "Section 3",
+      "ref" : "/test_name/section3[1]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "F any text",
+      "readonly" : false,
+      "ref" : "/test_name/section3[1]/FF[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "F oat",
+      "readonly" : false,
+      "ref" : "/test_name/section3[1]/F[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "event" : "group",
+      "label" : "Section B",
+      "ref" : "/test_name/section3[1]/sectionb[1]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "G oat",
+      "readonly" : false,
+      "ref" : "/test_name/section3[1]/sectionb[1]/G[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Noted  w ",
+      "readonly" : true,
+      "ref" : "/test_name/section3[1]/sectionb[1]/note4[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "event" : "repeat",
+      "label" : "Section B",
+      "ref" : "/test_name/section3[1]/sectionc[1]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "I",
+      "readonly" : false,
+      "ref" : "/test_name/section3[1]/sectionc[1]/I[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Noted  w ",
+      "readonly" : true,
+      "ref" : "/test_name/section3[1]/sectionc[1]/note5[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "JKL ###",
+      "readonly" : true,
+      "ref" : "/test_name/section3[1]/sectionc[1]/note6[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "event" : "promptNewRepeat",
+      "ref" : "/test_name/section3[1]/sectionc[2]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Noted  w ",
+      "readonly" : true,
+      "ref" : "/test_name/section3[1]/note7[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "event" : "group",
+      "label" : "Section D",
+      "ref" : "/test_name/section3[1]/sectiond[1]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "M oat",
+      "readonly" : false,
+      "ref" : "/test_name/section3[1]/sectiond[1]/M[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "NO # #",
+      "readonly" : true,
+      "ref" : "/test_name/section3[1]/sectiond[1]/note8[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "",
+      "readonly" : true,
+      "ref" : "/test_name/section3[1]/note9[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "event" : "promptNewRepeat",
+      "ref" : "/test_name/section3[2]"
+    }, {
+      "event" : "endOfForm"
+    } ],
+    "op" : "walk"
+  }, {
+    "op" : "validate",
+    "outcome" : "ok",
+    "ref" : null
+  } ],
+  "traceVersion" : 1
+}

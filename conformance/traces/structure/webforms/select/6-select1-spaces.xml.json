@@ -1,0 +1,116 @@
+{
+  "form" : "forms/webforms/select/6-select1-spaces.xml",
+  "parse" : {
+    "ok" : true
+  },
+  "structure" : {
+    "defaultLanguage" : null,
+    "elements" : [ {
+      "appearance" : null,
+      "attributes" : [ ],
+      "children" : [ ],
+      "choices" : [ {
+        "index" : 0,
+        "label" : "Cherry pie",
+        "textId" : null,
+        "value" : "cherry pie"
+      }, {
+        "index" : 1,
+        "label" : "Apple pie",
+        "textId" : null,
+        "value" : "apple pie"
+      }, {
+        "index" : 2,
+        "label" : "Cheesecake",
+        "textId" : null,
+        "value" : "cheesecake"
+      } ],
+      "control" : "selectOne",
+      "helpInnerText" : null,
+      "helpText" : null,
+      "helpTextId" : null,
+      "kind" : "question",
+      "label" : "Dessert",
+      "ref" : "/data/dessert",
+      "textId" : null
+    } ],
+    "instance" : {
+      "attributes" : [ [ "", "id", "static-selects" ] ],
+      "bindAttributes" : [ ],
+      "children" : [ {
+        "attributes" : [ ],
+        "bindAttributes" : [ ],
+        "children" : [ ],
+        "constraint" : null,
+        "enabled" : true,
+        "mult" : 0,
+        "name" : "dessert",
+        "namespace" : null,
+        "prefix" : null,
+        "preload" : null,
+        "preloadParams" : null,
+        "relevant" : true,
+        "repeatable" : false,
+        "required" : false,
+        "type" : "choice",
+        "value" : "cherry pie"
+      }, {
+        "attributes" : [ ],
+        "bindAttributes" : [ ],
+        "children" : [ {
+          "attributes" : [ ],
+          "bindAttributes" : [ ],
+          "children" : [ ],
+          "constraint" : null,
+          "enabled" : true,
+          "mult" : 0,
+          "name" : "instanceID",
+          "namespace" : null,
+          "prefix" : null,
+          "preload" : null,
+          "preloadParams" : null,
+          "relevant" : true,
+          "repeatable" : false,
+          "required" : false,
+          "type" : "null",
+          "value" : null
+        } ],
+        "constraint" : null,
+        "enabled" : true,
+        "mult" : 0,
+        "name" : "meta",
+        "namespace" : null,
+        "prefix" : null,
+        "preload" : null,
+        "preloadParams" : null,
+        "relevant" : true,
+        "repeatable" : false,
+        "required" : false,
+        "type" : "null",
+        "value" : null
+      } ],
+      "constraint" : null,
+      "enabled" : true,
+      "mult" : 0,
+      "name" : "data",
+      "namespace" : null,
+      "prefix" : null,
+      "preload" : null,
+      "preloadParams" : null,
+      "relevant" : true,
+      "repeatable" : false,
+      "required" : false,
+      "type" : "null",
+      "value" : null
+    },
+    "languages" : null,
+    "name" : "Select1, values with spaces",
+    "outputs" : [ ],
+    "secondaryInstances" : { },
+    "submission" : null,
+    "title" : "Select1, values with spaces",
+    "triggerables" : [ ],
+    "warnings" : [ "XForm Parse Warning: Warning: 1 Unrecognized attributes found in Element [model] and will be ignored: [xforms-version] \n    Problem found at nodeset: /html/head/model\n    With element <model xforms-version=\"1.0.0\"><instance><data id=\"static-selects\">...\n", "XForm Parse Warning: select1 question <value>s [cherry pie] should not contain spaces, and are recommended not to contain apostrophes/quotation marks\n    Problem found at nodeset: /html/body/select1[@ref=/data/dessert]/item/value\n    With element <value>\n", "XForm Parse Warning: select1 question <value>s [apple pie] should not contain spaces, and are recommended not to contain apostrophes/quotation marks\n    Problem found at nodeset: /html/body/select1[@ref=/data/dessert]/item/value\n    With element <value>\n" ]
+  },
+  "traceVersion" : 1
+}

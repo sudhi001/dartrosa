@@ -1,0 +1,236 @@
+{
+  "form" : "forms/webforms/select/1-static-selects.xml",
+  "parse" : {
+    "ok" : true
+  },
+  "structure" : {
+    "defaultLanguage" : "English",
+    "elements" : [ {
+      "appearance" : null,
+      "attributes" : [ ],
+      "children" : [ ],
+      "choices" : [ {
+        "index" : 0,
+        "label" : null,
+        "textId" : "fruit:mango",
+        "value" : "mango"
+      }, {
+        "index" : 1,
+        "label" : null,
+        "textId" : "fruit:apple",
+        "value" : "apple"
+      }, {
+        "index" : 2,
+        "label" : null,
+        "textId" : "fruit:orange",
+        "value" : "orange"
+      }, {
+        "index" : 3,
+        "label" : null,
+        "textId" : "fruit:banana",
+        "value" : "banana"
+      }, {
+        "index" : 4,
+        "label" : null,
+        "textId" : "fruit:kiwi",
+        "value" : "kiwi"
+      }, {
+        "index" : 5,
+        "label" : null,
+        "textId" : "fruit:grape",
+        "value" : "grape"
+      }, {
+        "index" : 6,
+        "label" : null,
+        "textId" : "fruit:cherry",
+        "value" : "cherry"
+      }, {
+        "index" : 7,
+        "label" : null,
+        "textId" : "fruit:pineapple",
+        "value" : "pineapple"
+      }, {
+        "index" : 8,
+        "label" : null,
+        "textId" : "fruit:grapefruit",
+        "value" : "grapefruit"
+      }, {
+        "index" : 9,
+        "label" : null,
+        "textId" : "fruit:apricot",
+        "value" : "apricot"
+      }, {
+        "index" : 10,
+        "label" : null,
+        "textId" : "fruit:avocado",
+        "value" : "avocado"
+      }, {
+        "index" : 11,
+        "label" : null,
+        "textId" : "fruit:papaya",
+        "value" : "papaya"
+      } ],
+      "control" : "selectOne",
+      "helpInnerText" : null,
+      "helpText" : null,
+      "helpTextId" : null,
+      "kind" : "question",
+      "label" : null,
+      "ref" : "/data/fruit",
+      "textId" : "fruit:label"
+    }, {
+      "appearance" : null,
+      "attributes" : [ ],
+      "children" : [ ],
+      "choices" : [ {
+        "index" : 0,
+        "label" : null,
+        "textId" : "fruit:watermelon",
+        "value" : "watermelon"
+      }, {
+        "index" : 1,
+        "label" : null,
+        "textId" : "fruit:peach",
+        "value" : "peach"
+      }, {
+        "index" : 2,
+        "label" : null,
+        "textId" : "fruit:strawberry",
+        "value" : "strawberry"
+      }, {
+        "index" : 3,
+        "label" : null,
+        "textId" : "fruit:blueberry",
+        "value" : "blueberry"
+      }, {
+        "index" : 4,
+        "label" : null,
+        "textId" : "fruit:pear",
+        "value" : "pear"
+      }, {
+        "index" : 5,
+        "label" : null,
+        "textId" : "fruit:plum",
+        "value" : "plum"
+      }, {
+        "index" : 6,
+        "label" : null,
+        "textId" : "fruit:pomegranate",
+        "value" : "pomegranate"
+      }, {
+        "index" : 7,
+        "label" : null,
+        "textId" : "fruit:blackberry",
+        "value" : "blackberry"
+      }, {
+        "index" : 8,
+        "label" : null,
+        "textId" : "fruit:lychee",
+        "value" : "lychee"
+      } ],
+      "control" : "selectMulti",
+      "helpInnerText" : null,
+      "helpText" : null,
+      "helpTextId" : null,
+      "kind" : "question",
+      "label" : null,
+      "ref" : "/data/fruits",
+      "textId" : "fruits:label"
+    } ],
+    "instance" : {
+      "attributes" : [ [ "", "id", "static-selects" ] ],
+      "bindAttributes" : [ ],
+      "children" : [ {
+        "attributes" : [ ],
+        "bindAttributes" : [ ],
+        "children" : [ ],
+        "constraint" : null,
+        "enabled" : true,
+        "mult" : 0,
+        "name" : "fruit",
+        "namespace" : null,
+        "prefix" : null,
+        "preload" : null,
+        "preloadParams" : null,
+        "relevant" : true,
+        "repeatable" : false,
+        "required" : false,
+        "type" : "choice",
+        "value" : "cherry"
+      }, {
+        "attributes" : [ ],
+        "bindAttributes" : [ ],
+        "children" : [ ],
+        "constraint" : null,
+        "enabled" : true,
+        "mult" : 0,
+        "name" : "fruits",
+        "namespace" : null,
+        "prefix" : null,
+        "preload" : null,
+        "preloadParams" : null,
+        "relevant" : true,
+        "repeatable" : false,
+        "required" : false,
+        "type" : "multipleItems",
+        "value" : "blackberry peach"
+      }, {
+        "attributes" : [ ],
+        "bindAttributes" : [ ],
+        "children" : [ {
+          "attributes" : [ ],
+          "bindAttributes" : [ ],
+          "children" : [ ],
+          "constraint" : null,
+          "enabled" : true,
+          "mult" : 0,
+          "name" : "instanceID",
+          "namespace" : null,
+          "prefix" : null,
+          "preload" : null,
+          "preloadParams" : null,
+          "relevant" : true,
+          "repeatable" : false,
+          "required" : false,
+          "type" : "null",
+          "value" : null
+        } ],
+        "constraint" : null,
+        "enabled" : true,
+        "mult" : 0,
+        "name" : "meta",
+        "namespace" : null,
+        "prefix" : null,
+        "preload" : null,
+        "preloadParams" : null,
+        "relevant" : true,
+        "repeatable" : false,
+        "required" : false,
+        "type" : "null",
+        "value" : null
+      } ],
+      "constraint" : null,
+      "enabled" : true,
+      "mult" : 0,
+      "name" : "data",
+      "namespace" : null,
+      "prefix" : null,
+      "preload" : null,
+      "preloadParams" : null,
+      "relevant" : true,
+      "repeatable" : false,
+      "required" : false,
+      "type" : "null",
+      "value" : null
+    },
+    "languages" : [ "French", "English" ],
+    "name" : "Static selects",
+    "outputs" : [ ],
+    "secondaryInstances" : { },
+    "submission" : null,
+    "title" : "Static selects",
+    "triggerables" : [ ],
+    "warnings" : [ "XForm Parse Warning: Warning: 1 Unrecognized attributes found in Element [model] and will be ignored: [xforms-version] \n    Problem found at nodeset: /html/head/model\n    With element <model xforms-version=\"1.0.0\"><itext><translation lang=\"French\">...\n" ]
+  },
+  "traceVersion" : 1
+}

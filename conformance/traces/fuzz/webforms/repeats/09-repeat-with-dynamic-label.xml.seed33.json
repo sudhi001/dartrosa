@@ -1,0 +1,41 @@
+{
+  "form" : "forms/webforms/repeats/09-repeat-with-dynamic-label.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"groups_and_repeats\" version=\"20240328181053\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><repeat_with_child_group_1><repeat_with_child_group_1_1><b_name>kappa'lambda</b_name></repeat_with_child_group_1_1></repeat_with_child_group_1><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 33,
+  "steps" : [ {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Repeat label",
+    "ref" : "/data/repeat_with_child_group_1[1]"
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "",
+    "ref" : "/data/repeat_with_child_group_1[1]/repeat_with_child_group_1_1[1]"
+  }, {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "B Name",
+    "readonly" : false,
+    "ref" : "/data/repeat_with_child_group_1[1]/repeat_with_child_group_1_1[1]/b_name[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : false,
+    "event" : "promptNewRepeat",
+    "ref" : "/data/repeat_with_child_group_1[2]"
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

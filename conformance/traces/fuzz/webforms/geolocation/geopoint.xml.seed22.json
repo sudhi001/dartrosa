@@ -1,0 +1,80 @@
+{
+  "form" : "forms/webforms/geolocation/geopoint.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"1_geopoint\" version=\"2025020401\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><intro /><location_no_autosave>-46.254 106.343 396.0 1.0</location_no_autosave><location_with_big_threshold>18.658 -116.513 178.0 4.0</location_with_big_threshold><location_with_default_attributes>-21.136 -62.304 317.0 3.0</location_with_default_attributes><location_with_unacceptable_accuracy_only>24.514 -146.409 384.0 18.0</location_with_unacceptable_accuracy_only><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 22,
+  "steps" : [ {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "The browser will display a permission prompt to allow or block location access. Click 'Allow' to enable location services. If dismissed, the prompt may not appear again unless permissions are reset in browser settings.",
+    "readonly" : true,
+    "ref" : "/data/intro[1]",
+    "required" : false,
+    "value" : null
+  }, {
+    "after" : "-46.254 106.343 396.0 1.0",
+    "answer" : "-46.254 106.343 396 1",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "geopoint",
+    "event" : "question",
+    "hint" : "(No autosave)",
+    "label" : "Where are you filling out the survey?",
+    "readonly" : false,
+    "ref" : "/data/location_no_autosave[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "18.658 -116.513 178.0 4.0",
+    "answer" : "18.658 -116.513 178 4",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "geopoint",
+    "event" : "question",
+    "hint" : "(Acceptable accuracy: 100m, unacceptable: 500m)",
+    "label" : "Where are you within the target area?",
+    "readonly" : false,
+    "ref" : "/data/location_with_big_threshold[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "-21.136 -62.304 317.0 3.0",
+    "answer" : "-21.136 -62.304 317 3",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "geopoint",
+    "event" : "question",
+    "hint" : "(Default acceptable accuracy: 5m, unacceptable: 100m)",
+    "label" : "Where are you within the default threshold area?",
+    "readonly" : false,
+    "ref" : "/data/location_with_default_attributes[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "24.514 -146.409 384.0 18.0",
+    "answer" : "24.514 -146.409 384 18",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "geopoint",
+    "event" : "question",
+    "hint" : "(Unacceptable accuracy: 7m)",
+    "label" : "Try to provide a more specific location",
+    "readonly" : false,
+    "ref" : "/data/location_with_unacceptable_accuracy_only[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

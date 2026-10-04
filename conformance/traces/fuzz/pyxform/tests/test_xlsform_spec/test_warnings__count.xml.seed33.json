@@ -1,0 +1,381 @@
+{
+  "form" : "forms/pyxform/tests/test_xlsform_spec/test_warnings__count.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><test_name id=\"spec_test\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><some_text>kappa'lambda</some_text><number_label /><display_image_test /><autocomplete_test>yes</autocomplete_test><autocomplete_chars_test>yes</autocomplete_chars_test><a_integer>90</a_integer><a_decimal>487.56</a_decimal><repeat_test><group_test><required_text /><select_multiple_test>no yes</select_multiple_test></group_test><labeled_select_group><inside>alpha</inside></labeled_select_group><name><reserved_name_for_field_list_labels_18>no</reserved_name_for_field_list_labels_18><table_list_question>yes</table_list_question></name><compact-test>b</compact-test></repeat_test><acknowledge_test /><date_test>2017-09-11</date_test><time_test>13:30:00.000Z</time_test><datetime_test>2021-07-18T17:29:00.000Z</datetime_test><geopoint_test>-21.735 52.88 60.0 18.0</geopoint_test><barcode_test>gamma delta</barcode_test><image_test /><audio_test>file23.jpg</audio_test><video_test>file44.jpg</video_test><start><now></start><end /><today><today></today><deviceid /><phonenumber /><meta><instanceID>uuid:<uuid></instanceID></meta></test_name>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 33,
+  "steps" : [ {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : "a hint",
+    "label" : null,
+    "readonly" : false,
+    "ref" : "/test_name/some_text[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : "a note",
+    "label" : null,
+    "readonly" : true,
+    "ref" : "/test_name/number_label[1]",
+    "required" : false,
+    "value" : null
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : null,
+    "readonly" : true,
+    "ref" : "/test_name/display_image_test[1]",
+    "required" : false,
+    "value" : null
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : "autocomplete",
+    "choices" : [ {
+      "label" : "yes",
+      "value" : "yes"
+    }, {
+      "label" : "no",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "autocomplete_test",
+    "readonly" : false,
+    "ref" : "/test_name/autocomplete_test[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : "autocomplete_chars",
+    "choices" : [ {
+      "label" : "yes",
+      "value" : "yes"
+    }, {
+      "label" : "no",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "autocomplete_chars_test",
+    "readonly" : false,
+    "ref" : "/test_name/autocomplete_chars_test[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "90",
+    "answer" : "90",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : "integer",
+    "label" : null,
+    "readonly" : false,
+    "ref" : "/test_name/a_integer[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "487.56",
+    "answer" : "487.56",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "decimal",
+    "event" : "question",
+    "hint" : "decimal",
+    "label" : null,
+    "readonly" : false,
+    "ref" : "/test_name/a_decimal[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : null,
+    "ref" : "/test_name/repeat_test[1]"
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : null,
+    "ref" : "/test_name/repeat_test[1]/group_test[1]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "required_text",
+    "readonly" : false,
+    "ref" : "/test_name/repeat_test[1]/group_test[1]/required_text[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "no yes",
+    "answer" : "no yes",
+    "appearance" : "minimal",
+    "choices" : [ {
+      "label" : "yes",
+      "value" : "yes"
+    }, {
+      "label" : "no",
+      "value" : "no"
+    } ],
+    "control" : "selectMulti",
+    "dataType" : "multipleItems",
+    "event" : "question",
+    "hint" : null,
+    "label" : "select multiple test",
+    "readonly" : false,
+    "ref" : "/test_name/repeat_test[1]/group_test[1]/select_multiple_test[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : "field-list",
+    "event" : "group",
+    "label" : "labeled select group test",
+    "ref" : "/test_name/repeat_test[1]/labeled_select_group[1]"
+  }, {
+    "after" : "alpha",
+    "answer" : "alpha",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Inside",
+    "readonly" : false,
+    "ref" : "/test_name/repeat_test[1]/labeled_select_group[1]/inside[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : "field-list",
+    "event" : "group",
+    "label" : null,
+    "ref" : "/test_name/repeat_test[1]/name[1]"
+  }, {
+    "after" : "no",
+    "answer" : "no",
+    "appearance" : "label",
+    "choices" : [ {
+      "label" : "yes",
+      "value" : "yes"
+    }, {
+      "label" : "no",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : null,
+    "readonly" : false,
+    "ref" : "/test_name/repeat_test[1]/name[1]/reserved_name_for_field_list_labels_18[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "yes",
+    "answer" : "yes",
+    "appearance" : "list-nolabel",
+    "choices" : [ {
+      "label" : "yes",
+      "value" : "yes"
+    }, {
+      "label" : "no",
+      "value" : "no"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "hint",
+    "label" : "table list question",
+    "readonly" : false,
+    "ref" : "/test_name/repeat_test[1]/name[1]/table_list_question[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "b",
+    "answer" : "b",
+    "appearance" : "compact",
+    "choices" : [ {
+      "label" : null,
+      "value" : "a"
+    }, {
+      "label" : null,
+      "value" : "b"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : "hint",
+    "label" : null,
+    "readonly" : false,
+    "ref" : "/test_name/repeat_test[1]/compact-test[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : false,
+    "event" : "promptNewRepeat",
+    "ref" : "/test_name/repeat_test[2]"
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "trigger",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : "hint",
+    "label" : null,
+    "readonly" : false,
+    "ref" : "/test_name/acknowledge_test[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "2017-09-11",
+    "answer" : "2017-09-11",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "date",
+    "event" : "question",
+    "hint" : "hint",
+    "label" : null,
+    "readonly" : false,
+    "ref" : "/test_name/date_test[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "13:30:00.000Z",
+    "answer" : "13:30:00.000Z",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "time",
+    "event" : "question",
+    "hint" : "hint",
+    "label" : null,
+    "readonly" : false,
+    "ref" : "/test_name/time_test[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "2021-07-18T17:29:00.000Z",
+    "answer" : "2021-07-18T17:29:00.000Z",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "dateTime",
+    "event" : "question",
+    "hint" : "hint",
+    "label" : null,
+    "readonly" : false,
+    "ref" : "/test_name/datetime_test[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "-21.735 52.88 60.0 18.0",
+    "answer" : "-21.735 52.88 60 18",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "geopoint",
+    "event" : "question",
+    "hint" : "hint",
+    "label" : null,
+    "readonly" : false,
+    "ref" : "/test_name/geopoint_test[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "gamma delta",
+    "answer" : "gamma delta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "barcode",
+    "event" : "question",
+    "hint" : "hint",
+    "label" : null,
+    "readonly" : false,
+    "ref" : "/test_name/barcode_test[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : null,
+    "answer" : "",
+    "appearance" : null,
+    "control" : "imageChoose",
+    "dataType" : "binary",
+    "event" : "question",
+    "hint" : "hint",
+    "label" : null,
+    "readonly" : false,
+    "ref" : "/test_name/image_test[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "file23.jpg",
+    "answer" : "file23.jpg",
+    "appearance" : null,
+    "control" : "audioCapture",
+    "dataType" : "binary",
+    "event" : "question",
+    "hint" : "hint",
+    "label" : null,
+    "readonly" : false,
+    "ref" : "/test_name/audio_test[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "file44.jpg",
+    "answer" : "file44.jpg",
+    "appearance" : null,
+    "control" : "videoCapture",
+    "dataType" : "binary",
+    "event" : "question",
+    "hint" : "hint",
+    "label" : null,
+    "readonly" : false,
+    "ref" : "/test_name/video_test[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

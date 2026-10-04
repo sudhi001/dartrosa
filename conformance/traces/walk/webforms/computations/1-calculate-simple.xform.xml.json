@@ -1,0 +1,43 @@
+{
+  "form" : "forms/webforms/computations/1-calculate-simple.xform.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><root id=\"calculate-simple\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms/\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:jr=\"http://openrosa.org/javarosa\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><first-question>1</first-question><second-question>2</second-question><meta><instanceID /></meta></root>",
+  "parse" : {
+    "language" : null,
+    "languages" : [ ],
+    "ok" : true,
+    "title" : "Calculate (simple)"
+  },
+  "steps" : [ {
+    "events" : [ {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "null",
+      "event" : "question",
+      "hint" : null,
+      "label" : "1. Default value is 1",
+      "readonly" : false,
+      "ref" : "/root/first-question[1]",
+      "required" : false,
+      "value" : "1"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "null",
+      "event" : "question",
+      "hint" : null,
+      "label" : "2. Calculates #1 × 2",
+      "readonly" : false,
+      "ref" : "/root/second-question[1]",
+      "required" : false,
+      "value" : "2"
+    }, {
+      "event" : "endOfForm"
+    } ],
+    "op" : "walk"
+  }, {
+    "op" : "validate",
+    "outcome" : "ok",
+    "ref" : null
+  } ],
+  "traceVersion" : 1
+}

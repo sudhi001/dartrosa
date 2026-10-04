@@ -1,0 +1,34 @@
+{
+  "form" : "forms/pyxform/tests/test_language_warnings/test_default_language_only_should_not_warn.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><test_name id=\"data\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><opt>opt2</opt><meta><instanceID>uuid:<uuid></instanceID></meta></test_name>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 33,
+  "steps" : [ {
+    "after" : "opt2",
+    "answer" : "opt2",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Opt1",
+      "value" : "opt1"
+    }, {
+      "label" : "Opt2",
+      "value" : "opt2"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "My opt",
+    "readonly" : false,
+    "ref" : "/test_name/opt[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

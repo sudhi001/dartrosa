@@ -1,0 +1,58 @@
+{
+  "form" : "forms/pyxform/example_forms/simple_loop.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"simple_loop\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><my_table><col1><count /></col1><col2><count /></col2></my_table><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "language" : "English",
+    "languages" : [ "English" ],
+    "ok" : true,
+    "title" : "simple_loop"
+  },
+  "steps" : [ {
+    "events" : [ {
+      "appearance" : null,
+      "event" : "group",
+      "label" : "My Table",
+      "ref" : "/data/my_table[1]"
+    }, {
+      "appearance" : null,
+      "event" : "group",
+      "label" : "Column 1",
+      "ref" : "/data/my_table[1]/col1[1]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "integer",
+      "event" : "question",
+      "hint" : null,
+      "label" : "How many are there in this group?",
+      "readonly" : false,
+      "ref" : "/data/my_table[1]/col1[1]/count[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "event" : "group",
+      "label" : "Column 2",
+      "ref" : "/data/my_table[1]/col2[1]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "integer",
+      "event" : "question",
+      "hint" : null,
+      "label" : "How many are there in this group?",
+      "readonly" : false,
+      "ref" : "/data/my_table[1]/col2[1]/count[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "event" : "endOfForm"
+    } ],
+    "op" : "walk"
+  }, {
+    "op" : "validate",
+    "outcome" : "ok",
+    "ref" : null
+  } ],
+  "traceVersion" : 1
+}

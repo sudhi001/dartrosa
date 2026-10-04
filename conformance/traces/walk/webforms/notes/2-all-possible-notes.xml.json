@@ -1,0 +1,202 @@
+{
+  "form" : "forms/webforms/notes/2-all-possible-notes.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"notes\" version=\"20240802121047\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><group><intro /><note_w_hint /><note_hint_only /><note_w_default>A value</note_w_default><note_w_calculation>A value</note_w_calculation><note_w_masked_appearance /><note_w_ex_appearance /><read_only_int /><read_only_int_value>3</read_only_int_value><note_calc_decimal_from_int>4.5</note_calc_decimal_from_int><date_note /><time_note>16:02:10.562Z</time_note><datetime_note>2026-04-22T14:30:00+07:00</datetime_note><geopoint_note>38.253094215699576 21.756382658677467 0.0 150.0</geopoint_note><geotrace_note>37.7749 -122.4194 0.0 0.0;37.775 -122.419 0.0 0.0;37.774 -122.42 0.0 0.0</geotrace_note><geoshape_note>37.7749 -122.4194 0.0 0.0;37.775 -122.419 0.0 0.0;37.774 -122.42 0.0 0.0;37.7749 -122.4194 0.0 0.0</geoshape_note></group><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "language" : null,
+    "languages" : [ ],
+    "ok" : true,
+    "title" : "Notes"
+  },
+  "steps" : [ {
+    "events" : [ {
+      "appearance" : "field-list",
+      "event" : "group",
+      "label" : null,
+      "ref" : "/data/group[1]"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "This form illustrates the note concept in ODK. This is not a concept that exists in the underlying ODK XForms spec, it's introduced by XLSForm and discussed informally. Typically a note only has a label.",
+      "readonly" : true,
+      "ref" : "/data/group[1]/intro[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : "This is a hint",
+      "label" : "A note with a hint",
+      "readonly" : true,
+      "ref" : "/data/group[1]/note_w_hint[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : "Hint-only note",
+      "label" : "",
+      "readonly" : true,
+      "ref" : "/data/group[1]/note_hint_only[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "A note with a default value",
+      "readonly" : true,
+      "ref" : "/data/group[1]/note_w_default[1]",
+      "required" : false,
+      "value" : "A value"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "A note with a calculation",
+      "readonly" : true,
+      "ref" : "/data/group[1]/note_w_calculation[1]",
+      "required" : false,
+      "value" : "A value"
+    }, {
+      "appearance" : "masked",
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "A note with masked appearance",
+      "readonly" : true,
+      "ref" : "/data/group[1]/note_w_masked_appearance[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : "ex:my.cool.app()",
+      "control" : "input",
+      "dataType" : "text",
+      "event" : "question",
+      "hint" : null,
+      "label" : "A note with external app appearance",
+      "readonly" : true,
+      "ref" : "/data/group[1]/note_w_ex_appearance[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "integer",
+      "event" : "question",
+      "hint" : null,
+      "label" : "A readonly integer",
+      "readonly" : true,
+      "ref" : "/data/group[1]/read_only_int[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "integer",
+      "event" : "question",
+      "hint" : null,
+      "label" : "A readonly integer with value",
+      "readonly" : true,
+      "ref" : "/data/group[1]/read_only_int_value[1]",
+      "required" : false,
+      "value" : "3"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "decimal",
+      "event" : "question",
+      "hint" : null,
+      "label" : "A note with decimal type calculated from int",
+      "readonly" : true,
+      "ref" : "/data/group[1]/note_calc_decimal_from_int[1]",
+      "required" : false,
+      "value" : "4.5"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "date",
+      "event" : "question",
+      "hint" : null,
+      "label" : "A note with date type",
+      "readonly" : true,
+      "ref" : "/data/group[1]/date_note[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "time",
+      "event" : "question",
+      "hint" : null,
+      "label" : "A note with time type",
+      "readonly" : true,
+      "ref" : "/data/group[1]/time_note[1]",
+      "required" : false,
+      "value" : "16:02:10.562Z"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "unsupported",
+      "event" : "question",
+      "hint" : null,
+      "label" : "A note with datetime type",
+      "readonly" : true,
+      "ref" : "/data/group[1]/datetime_note[1]",
+      "required" : false,
+      "value" : "2026-04-22T14:30:00+07:00"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "geopoint",
+      "event" : "question",
+      "hint" : null,
+      "label" : "A note with geopoint type",
+      "readonly" : true,
+      "ref" : "/data/group[1]/geopoint_note[1]",
+      "required" : false,
+      "value" : "38.253094215699576 21.756382658677467 0.0 150.0"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "geotrace",
+      "event" : "question",
+      "hint" : null,
+      "label" : "A note with geotrace type",
+      "readonly" : true,
+      "ref" : "/data/group[1]/geotrace_note[1]",
+      "required" : false,
+      "value" : "37.7749 -122.4194 0.0 0.0;37.775 -122.419 0.0 0.0;37.774 -122.42 0.0 0.0"
+    }, {
+      "appearance" : null,
+      "control" : "input",
+      "dataType" : "geoshape",
+      "event" : "question",
+      "hint" : null,
+      "label" : "A note with geoshape type",
+      "readonly" : true,
+      "ref" : "/data/group[1]/geoshape_note[1]",
+      "required" : false,
+      "value" : "37.7749 -122.4194 0.0 0.0;37.775 -122.419 0.0 0.0;37.774 -122.42 0.0 0.0;37.7749 -122.4194 0.0 0.0"
+    }, {
+      "event" : "endOfForm"
+    } ],
+    "op" : "walk"
+  }, {
+    "op" : "validate",
+    "outcome" : "ok",
+    "ref" : null
+  } ],
+  "traceVersion" : 1
+}

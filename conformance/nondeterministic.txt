@@ -4,3 +4,9 @@
 # (RandomizeTest, XPathEvalTest).
 forms/collect/random.xml
 forms/collect/randomTest_broken.xml
+# decimal-date-time(now()) as a number: the normalizer only recognises ISO date-times.
+forms/pyxform/tests/test_dynamic_default/test_dynamic_default_xform_structure.xml
+# Two independent self-referencing calculates: JavaRosa reports whichever its
+# identity-hash-ordered allTriggerables HashSet yields first
+# (TriggerableDag.getDagEdges), so the parse error changes between runs.
+forms/webforms/geolocation/geopoint-with-maps.xml

@@ -1,0 +1,27 @@
+{
+  "form" : "forms/pyxform/tests/test_area/test_area.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><test_name id=\"data\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><geoshape1>2.0 7.0 0.0 0.0;3.0 15.0 0.0 0.0;18.0 4.0 0.0 0.0;2.0 7.0 0.0 0.0</geoshape1><result>8.096718417998943E11</result><meta><instanceID>uuid:<uuid></instanceID></meta></test_name>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 11,
+  "steps" : [ {
+    "after" : "2.0 7.0 0.0 0.0;3.0 15.0 0.0 0.0;18.0 4.0 0.0 0.0;2.0 7.0 0.0 0.0",
+    "answer" : "2 7 0 0;3 15 0 0;18 4 0 0;2 7 0 0",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "geoshape",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Draw shape...",
+    "readonly" : false,
+    "ref" : "/test_name/geoshape1[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : "38.253094215699576 21.756382658677467 0.0 0.0;38.25021274773806 21.756382658677467 0.0 0.0;38.25007793942195 21.763892843919166 0.0 0.0;38.25290886154963 21.763935759263404 0.0 0.0;38.25146813817506 21.758421137528785 0.0 0.0"
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

@@ -1,0 +1,62 @@
+{
+  "form" : "forms/pyxform/tests/test_repeat/test_repeat_using_select_uses_current_with_reference_path_in_predicate_and_instance_is_not_first_expression.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><test_name id=\"data\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><item-repeat><item-counter>1</item-counter><item /><item-info><item-note /><stock-item>gasoline-premium</stock-item></item-info></item-repeat><meta><instanceID>uuid:<uuid></instanceID></meta></test_name>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 11,
+  "steps" : [ {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Item",
+    "ref" : "/test_name/item-repeat[1]"
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Item info",
+    "ref" : "/test_name/item-repeat[1]/item-info[1]"
+  }, {
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "All the following questions are about .",
+    "readonly" : true,
+    "ref" : "/test_name/item-repeat[1]/item-info[1]/item-note[1]",
+    "required" : false,
+    "value" : null
+  }, {
+    "after" : "gasoline-premium",
+    "answer" : "gasoline-premium",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Gasoline, Regular",
+      "value" : "gasoline-regular"
+    }, {
+      "label" : "Gasoline, Premium",
+      "value" : "gasoline-premium"
+    }, {
+      "label" : "Gasoline, Diesel",
+      "value" : "gasoline-diesel"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Do you stock this item?",
+    "readonly" : false,
+    "ref" : "/test_name/item-repeat[1]/item-info[1]/stock-item[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : false,
+    "event" : "promptNewRepeat",
+    "ref" : "/test_name/item-repeat[2]"
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

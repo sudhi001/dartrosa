@@ -1,0 +1,13 @@
+{
+  "form" : "forms/pyxform/tests/test_metadata/test_metadata_bindings.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><metadata id=\"data\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><deviceid /><phonenumber /><start><now></start><end /><today><today></today><username /><email /><meta><instanceID>uuid:<uuid></instanceID></meta></metadata>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 11,
+  "steps" : [ {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

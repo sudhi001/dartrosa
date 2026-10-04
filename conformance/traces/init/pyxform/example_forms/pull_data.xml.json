@@ -1,0 +1,18 @@
+{
+  "cascades" : [ {
+    "cascades" : [ ],
+    "triggerable" : "recalculate|{func-expr:pulldata,{{str:'fruits'},{str:'name'},{str:'name'},{str:'mango'}}}|/data/fruit|[/data/fruit]"
+  } ],
+  "form" : "forms/pyxform/example_forms/pull_data.xml",
+  "initialize" : {
+    "error" : {
+      "message" : "Error evaluating field 'fruit' (/data/fruit[1]): The problem was located in Calculate expression for /data/fruit\nXPath evaluation: cannot handle function 'pulldata'",
+      "type" : "RuntimeException"
+    },
+    "ok" : false
+  },
+  "parse" : {
+    "ok" : true
+  },
+  "traceVersion" : 1
+}

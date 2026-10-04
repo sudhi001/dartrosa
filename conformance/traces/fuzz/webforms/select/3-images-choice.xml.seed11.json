@@ -1,0 +1,34 @@
+{
+  "form" : "forms/webforms/select/3-images-choice.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"images-choice\" version=\"20240611120218\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><animal>camel</animal><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 11,
+  "steps" : [ {
+    "after" : "camel",
+    "answer" : "camel",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "tiger",
+      "value" : "tiger"
+    }, {
+      "label" : "camel",
+      "value" : "camel"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Animal",
+    "readonly" : false,
+    "ref" : "/data/animal[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

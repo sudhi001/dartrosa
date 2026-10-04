@@ -1,0 +1,59 @@
+{
+  "form" : "forms/webforms/rank/1-rank.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"1_rank\" version=\"2025011401\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><priorities>building_a_supportive_community career_growth_and_learning_opportunities creativity_and_innovation family_and_friends health personal_development_and_mindfulness pursuit_of_hobbies_and_passions time_management_and_work_life_balance</priorities><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 22,
+  "steps" : [ {
+    "after" : "building_a_supportive_community career_growth_and_learning_opportunities creativity_and_innovation family_and_friends health personal_development_and_mindfulness pursuit_of_hobbies_and_passions time_management_and_work_life_balance",
+    "answer" : "building_a_supportive_community career_growth_and_learning_opportunities creativity_and_innovation family_and_friends health personal_development_and_mindfulness pursuit_of_hobbies_and_passions time_management_and_work_life_balance",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Building a Supportive Community",
+      "value" : "building_a_supportive_community"
+    }, {
+      "label" : "Career Growth and Learning Opportunities",
+      "value" : "career_growth_and_learning_opportunities"
+    }, {
+      "label" : "Creativity and Innovation",
+      "value" : "creativity_and_innovation"
+    }, {
+      "label" : "Environmental Sustainability",
+      "value" : "environmental_sustainability"
+    }, {
+      "label" : "Family and Friends",
+      "value" : "family_and_friends"
+    }, {
+      "label" : "Financial Stability",
+      "value" : "financial_stability"
+    }, {
+      "label" : "Health",
+      "value" : "health"
+    }, {
+      "label" : "Personal Development and Mindfulness",
+      "value" : "personal_development_and_mindfulness"
+    }, {
+      "label" : "Pursuit of Hobbies and Passions",
+      "value" : "pursuit_of_hobbies_and_passions"
+    }, {
+      "label" : "Time Management and Work-Life Balance",
+      "value" : "time_management_and_work_life_balance"
+    } ],
+    "choicesOrder" : "unseededRandom",
+    "control" : "rank",
+    "dataType" : "multipleItems",
+    "event" : "question",
+    "hint" : null,
+    "label" : "What values guide your decision-making?",
+    "readonly" : false,
+    "ref" : "/data/priorities[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

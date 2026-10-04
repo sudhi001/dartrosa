@@ -1,0 +1,108 @@
+{
+  "form" : "forms/pyxform/tests/test_loop/test_loop__groups_error.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><test_name id=\"data\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><l1><thing1><g1><q1>134</q1><q2>type1</q2></g1></thing1><thing2><g1><q1>146</q1><q2>type1</q2></g1></thing2></l1><meta><instanceID>uuid:<uuid></instanceID></meta></test_name>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 22,
+  "steps" : [ {
+    "appearance" : null,
+    "event" : "group",
+    "label" : null,
+    "ref" : "/test_name/l1[1]"
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Thing 1",
+    "ref" : "/test_name/l1[1]/thing1[1]"
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : null,
+    "ref" : "/test_name/l1[1]/thing1[1]/g1[1]"
+  }, {
+    "after" : "134",
+    "answer" : "134",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Age",
+    "readonly" : false,
+    "ref" : "/test_name/l1[1]/thing1[1]/g1[1]/q1[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "type1",
+    "answer" : "type1",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Big",
+      "value" : "type1"
+    }, {
+      "label" : "Small",
+      "value" : "type2"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Size of %(label)s",
+    "readonly" : false,
+    "ref" : "/test_name/l1[1]/thing1[1]/g1[1]/q2[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : "Thing 2",
+    "ref" : "/test_name/l1[1]/thing2[1]"
+  }, {
+    "appearance" : null,
+    "event" : "group",
+    "label" : null,
+    "ref" : "/test_name/l1[1]/thing2[1]/g1[1]"
+  }, {
+    "after" : "146",
+    "answer" : "146",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Age",
+    "readonly" : false,
+    "ref" : "/test_name/l1[1]/thing2[1]/g1[1]/q1[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "type1",
+    "answer" : "type1",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "Big",
+      "value" : "type1"
+    }, {
+      "label" : "Small",
+      "value" : "type2"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Size of %(label)s",
+    "readonly" : false,
+    "ref" : "/test_name/l1[1]/thing2[1]/g1[1]/q2[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

@@ -1,0 +1,102 @@
+{
+  "form" : "forms/webforms/date-and-time/date-and-time.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"date\" version=\"2025020401\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><dates><survey_date>2022-03-18</survey_date><date_of_birth>2028-04-10</date_of_birth><fruits_date>2019-06-12</fruits_date><vegetables_date>2012-01-18</vegetables_date><time>19:32:00.000Z</time><last_full_meal>2021-09-14T17:27:00.000Z</last_full_meal></dates><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 11,
+  "steps" : [ {
+    "appearance" : "field-list",
+    "event" : "group",
+    "label" : null,
+    "ref" : "/data/dates[1]"
+  }, {
+    "after" : "2022-03-18",
+    "answer" : "2022-03-18",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "date",
+    "event" : "question",
+    "hint" : null,
+    "label" : "¿Cuando está completando este formulario?",
+    "readonly" : false,
+    "ref" : "/data/dates[1]/survey_date[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "2028-04-10",
+    "answer" : "2028-04-10",
+    "appearance" : "month-year",
+    "control" : "input",
+    "dataType" : "date",
+    "event" : "question",
+    "hint" : null,
+    "label" : "¿En qué mes y año nació?",
+    "readonly" : false,
+    "ref" : "/data/dates[1]/date_of_birth[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "2019-06-12",
+    "answer" : "2019-06-12",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "date",
+    "event" : "question",
+    "hint" : null,
+    "label" : "¿Cuando fué la ultima vez que comió frutas?",
+    "readonly" : false,
+    "ref" : "/data/dates[1]/fruits_date[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "2012-01-18",
+    "answer" : "2012-01-18",
+    "appearance" : "year",
+    "control" : "input",
+    "dataType" : "date",
+    "event" : "question",
+    "hint" : null,
+    "label" : "¿En qué año empezó a cultivar verduras?",
+    "readonly" : false,
+    "ref" : "/data/dates[1]/vegetables_date[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "19:32:00.000Z",
+    "answer" : "19:32:00.000Z",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "time",
+    "event" : "question",
+    "hint" : null,
+    "label" : "¿A que hora es su primera comida?",
+    "readonly" : false,
+    "ref" : "/data/dates[1]/time[1]",
+    "required" : true,
+    "result" : "accepted",
+    "value" : "15:02:10.562Z"
+  }, {
+    "after" : "2021-09-14T17:27:00.000Z",
+    "answer" : "2021-09-14T17:27:00.000Z",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "dateTime",
+    "event" : "question",
+    "hint" : null,
+    "label" : "¿Cuándo fue la última vez que comió una comida completa?",
+    "readonly" : false,
+    "ref" : "/data/dates[1]/last_full_meal[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

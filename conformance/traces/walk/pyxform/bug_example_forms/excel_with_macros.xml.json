@@ -1,0 +1,39 @@
+{
+  "form" : "forms/pyxform/bug_example_forms/excel_with_macros.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><data id=\"wtp11\" version=\"1101\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><permission /><deviceid /><meta><instanceID>uuid:<uuid></instanceID></meta></data>",
+  "parse" : {
+    "language" : "English (en)",
+    "languages" : [ "English (en)" ],
+    "ok" : true,
+    "title" : "WTP Survey v1101"
+  },
+  "steps" : [ {
+    "events" : [ {
+      "appearance" : null,
+      "choices" : [ {
+        "label" : "Yes",
+        "value" : "yes"
+      }, {
+        "label" : "No",
+        "value" : "no"
+      } ],
+      "control" : "selectOne",
+      "dataType" : "choice",
+      "event" : "question",
+      "hint" : null,
+      "label" : "Module - This survey will cover approximately XXXX randomly selected premises inlcuding households, \nDo I have your permission to start the interview?",
+      "readonly" : false,
+      "ref" : "/data/permission[1]",
+      "required" : false,
+      "value" : null
+    }, {
+      "event" : "endOfForm"
+    } ],
+    "op" : "walk"
+  }, {
+    "op" : "validate",
+    "outcome" : "ok",
+    "ref" : null
+  } ],
+  "traceVersion" : 1
+}

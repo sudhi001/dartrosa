@@ -1,0 +1,224 @@
+{
+  "form" : "forms/pyxform/tests/test_repeat/test_choice_from_previous_repeat_answers_in_nested_repeat_uses_current.xml",
+  "instance" : "<?xml version='1.0' encoding='UTF-8' ?><test_name id=\"data\" xmlns:ev=\"http://www.w3.org/2001/xml-events\" xmlns:orx=\"http://openrosa.org/xforms\" xmlns:odk=\"http://www.opendatakit.org/xforms\" xmlns:h=\"http://www.w3.org/1999/xhtml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:jr=\"http://openrosa.org/javarosa\"><enumerators_name>123</enumerators_name><household_rep><household_id>-44</household_id><household_mem_rep><name>kappa'lambda</name><age>8</age></household_mem_rep><household_mem_rep><name>épsilon</name><age>128</age></household_mem_rep><household_mem_rep><name>alpha</name><age>-12</age></household_mem_rep><household_mem_rep><name>gamma delta</name><age>-16</age></household_mem_rep><selected><target_min_age>24</target_min_age><selected_name>épsilon</selected_name></selected></household_rep><meta><instanceID>uuid:<uuid></instanceID></meta></test_name>",
+  "parse" : {
+    "ok" : true
+  },
+  "seed" : 22,
+  "steps" : [ {
+    "after" : "123",
+    "answer" : "123",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Enter enumerators name",
+    "readonly" : false,
+    "ref" : "/test_name/enumerators_name[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Household Repeat",
+    "ref" : "/test_name/household_rep[1]"
+  }, {
+    "after" : "-44",
+    "answer" : "-44",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Enter household ID",
+    "readonly" : false,
+    "ref" : "/test_name/household_rep[1]/household_id[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Household member repeat",
+    "ref" : "/test_name/household_rep[1]/household_mem_rep[1]"
+  }, {
+    "after" : "kappa'lambda",
+    "answer" : "kappa'lambda",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Enter name of a household member",
+    "readonly" : false,
+    "ref" : "/test_name/household_rep[1]/household_mem_rep[1]/name[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "8",
+    "answer" : "8",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Enter age of the household member",
+    "readonly" : false,
+    "ref" : "/test_name/household_rep[1]/household_mem_rep[1]/age[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : true,
+    "event" : "promptNewRepeat",
+    "ref" : "/test_name/household_rep[1]/household_mem_rep[2]"
+  }, {
+    "after" : "épsilon",
+    "answer" : "épsilon",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Enter name of a household member",
+    "readonly" : false,
+    "ref" : "/test_name/household_rep[1]/household_mem_rep[2]/name[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "128",
+    "answer" : "128",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Enter age of the household member",
+    "readonly" : false,
+    "ref" : "/test_name/household_rep[1]/household_mem_rep[2]/age[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : true,
+    "event" : "promptNewRepeat",
+    "ref" : "/test_name/household_rep[1]/household_mem_rep[3]"
+  }, {
+    "after" : "alpha",
+    "answer" : "alpha",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Enter name of a household member",
+    "readonly" : false,
+    "ref" : "/test_name/household_rep[1]/household_mem_rep[3]/name[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "-12",
+    "answer" : "-12",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Enter age of the household member",
+    "readonly" : false,
+    "ref" : "/test_name/household_rep[1]/household_mem_rep[3]/age[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : true,
+    "event" : "promptNewRepeat",
+    "ref" : "/test_name/household_rep[1]/household_mem_rep[4]"
+  }, {
+    "after" : "gamma delta",
+    "answer" : "gamma delta",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "text",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Enter name of a household member",
+    "readonly" : false,
+    "ref" : "/test_name/household_rep[1]/household_mem_rep[4]/name[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "-16",
+    "answer" : "-16",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Enter age of the household member",
+    "readonly" : false,
+    "ref" : "/test_name/household_rep[1]/household_mem_rep[4]/age[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : false,
+    "event" : "promptNewRepeat",
+    "ref" : "/test_name/household_rep[1]/household_mem_rep[5]"
+  }, {
+    "appearance" : null,
+    "event" : "repeat",
+    "label" : "Select a representative",
+    "ref" : "/test_name/household_rep[1]/selected[1]"
+  }, {
+    "after" : "24",
+    "answer" : "24",
+    "appearance" : null,
+    "control" : "input",
+    "dataType" : "integer",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Minimum age requirement",
+    "readonly" : false,
+    "ref" : "/test_name/household_rep[1]/selected[1]/target_min_age[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "after" : "épsilon",
+    "answer" : "épsilon",
+    "appearance" : null,
+    "choices" : [ {
+      "label" : "épsilon",
+      "value" : "épsilon"
+    } ],
+    "control" : "selectOne",
+    "dataType" : "choice",
+    "event" : "question",
+    "hint" : null,
+    "label" : "Choose a name",
+    "readonly" : false,
+    "ref" : "/test_name/household_rep[1]/selected[1]/selected_name[1]",
+    "required" : false,
+    "result" : "accepted",
+    "value" : null
+  }, {
+    "add" : false,
+    "event" : "promptNewRepeat",
+    "ref" : "/test_name/household_rep[1]/selected[2]"
+  }, {
+    "add" : false,
+    "event" : "promptNewRepeat",
+    "ref" : "/test_name/household_rep[2]"
+  }, {
+    "event" : "endOfForm"
+  } ],
+  "traceVersion" : 1,
+  "validate" : "ok"
+}

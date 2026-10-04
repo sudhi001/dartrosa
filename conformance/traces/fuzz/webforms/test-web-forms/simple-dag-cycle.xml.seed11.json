@@ -1,0 +1,12 @@
+{
+  "form" : "forms/webforms/test-web-forms/simple-dag-cycle.xml",
+  "parse" : {
+    "error" : {
+      "message" : "Cycle detected in form's relevant and calculation logic!\nThe following nodes are likely involved in the loop:\n/data/group/a",
+      "type" : "XFormParseException"
+    },
+    "ok" : false
+  },
+  "seed" : 11,
+  "traceVersion" : 1
+}
