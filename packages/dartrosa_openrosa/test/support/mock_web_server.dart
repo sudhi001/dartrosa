@@ -57,9 +57,12 @@ final class MockWebServer {
 
   Uri url(String path) => Uri.parse('$base$path');
 
-  late final http.Client client = MockClient.streaming((
-    request,
-    bodyStream,
+  late final http.Client client = MockClient.streaming(handle);
+
+  /// Answers [request] with the next queued response.
+  Future<http.StreamedResponse> handle(
+    http.BaseRequest request,
+    http.ByteStream bodyStream,
   ) async {
     final body = await bodyStream.toBytes();
     _requests.add(
@@ -76,8 +79,20 @@ final class MockWebServer {
       reasonPhrase: response.reasonPhrase,
       request: request,
     );
-  });
+  }
 }
+
+/// A client sending each request to the server of its host and port.
+http.Client routingClient(List<MockWebServer> servers) =>
+    MockClient.streaming((request, body) {
+      for (final server in servers) {
+        final base = Uri.parse(server.base);
+        if (base.host == request.url.host && base.port == request.url.port) {
+          return server.handle(request, body);
+        }
+      }
+      throw http.ClientException('Unknown host', request.url);
+    });
 
 /// The parts of a multipart body, each split into lines, as Collect's
 /// `splitMultiPart` test helper does.

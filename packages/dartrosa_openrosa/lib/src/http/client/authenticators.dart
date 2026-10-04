@@ -150,15 +150,20 @@ final class BasicAuthenticator implements Authenticator {
 /// HTTP Digest authentication, RFC 2617 (MD5 and MD5-sess, `qop=auth`)
 /// (`okhttp-digest`'s `DigestAuthenticator`).
 final class DigestAuthenticator implements Authenticator {
-  /// Creates an authenticator with [credentials]; [random] makes client
-  /// nonces.
-  DigestAuthenticator(this.credentials, {Random? random})
-    : _random = random ?? Random.secure();
+  /// Creates an authenticator with [credentials]; client nonces come from
+  /// [cnonce], or are 8 bytes of [random] in hex.
+  DigestAuthenticator(
+    this.credentials, {
+    Random? random,
+    String Function()? cnonce,
+  }) : _random = random ?? Random.secure(),
+       _cnonceGenerator = cnonce;
 
   /// The credentials to authenticate with.
   final HttpCredentialsInterface credentials;
 
   final Random _random;
+  final String Function()? _cnonceGenerator;
   Map<String, String> _challenge = const {};
   int _nonceCount = 0;
   String? _lastNonce;
@@ -228,6 +233,7 @@ final class DigestAuthenticator implements Authenticator {
   }
 
   String _cnonce() {
+    if (_cnonceGenerator case final generator?) return generator();
     final buffer = StringBuffer();
     for (var i = 0; i < 8; i++) {
       buffer.write(_random.nextInt(256).toRadixString(16).padLeft(2, '0'));
