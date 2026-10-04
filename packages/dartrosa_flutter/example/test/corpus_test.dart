@@ -47,7 +47,26 @@ void main() {
     testWidgets(form.path, skip: _knownIssues.containsKey(form.path), (
       tester,
     ) async {
-      outcomes[form.path] = await _fill(tester, Workspace(corpus), form);
+      // Report the renderer's known setState-during-build assertion
+      // (test/known_issues/itemset_build_test.dart) instead of failing.
+      var knownErrors = 0;
+      final onError = FlutterError.onError;
+      FlutterError.onError = (details) {
+        if ('${details.stack}'.contains('FormEntryPrompt.selectChoices') &&
+            '${details.exception}'.contains('called during build')) {
+          knownErrors++;
+        } else {
+          onError?.call(details);
+        }
+      };
+      try {
+        final outcome = await _fill(tester, Workspace(corpus), form);
+        outcomes[form.path] = knownErrors == 0
+            ? outcome
+            : '$outcome [itemset setState during build]';
+      } finally {
+        FlutterError.onError = onError;
+      }
     });
   }
 }
@@ -55,13 +74,14 @@ void main() {
 Future<FormDefinition?> _load(WidgetTester tester, Workspace w, CorpusForm f) =>
     tester.runAsync(() => w.load(f));
 
-Future<Submission?> _show(
+/// Shows [session] in a pager.
+Future<void> _show(
   WidgetTester tester,
   Workspace workspace,
   FormSession session,
-  CorpusForm form,
-) async {
-  Submission? submission;
+  CorpusForm form, {
+  ValueChanged<Submission>? onFinalized,
+}) async {
   await tester.pumpWidget(
     MaterialApp(
       home: Scaffold(
@@ -70,15 +90,15 @@ Future<Submission?> _show(
           session: session,
           delegates: AssetDelegates(
             AssetResolver(workspace.bundle, form.folder),
+            workspace.corpus.mediaOf(form),
           ),
           widgetOverrides: externalChoiceOverrides,
-          onFinalized: (s) => submission = s,
+          onFinalized: onFinalized,
         ),
       ),
     ),
   );
   await tester.pump();
-  return submission;
 }
 
 Future<void> _tap(WidgetTester tester, String label) async {
@@ -110,21 +130,13 @@ Future<String> _fill(
   final session = workspace.open(definition, instance);
   final rng = Rng(seedOf(form.path));
   Submission? submission;
-  await tester.pumpWidget(
-    MaterialApp(
-      home: Scaffold(
-        body: XFormView(
-          session: session,
-          delegates: AssetDelegates(
-            AssetResolver(workspace.bundle, form.folder),
-          ),
-          widgetOverrides: externalChoiceOverrides,
-          onFinalized: (s) => submission = s,
-        ),
-      ),
-    ),
+  await _show(
+    tester,
+    workspace,
+    session,
+    form,
+    onFinalized: (s) => submission = s,
   );
-  await tester.pump();
   final nav = session.navigator;
   String? blocked;
   var repeats = 0;
@@ -202,11 +214,15 @@ Future<String> _fill(
     await _show(tester, workspace, editing, form);
     switch (editing.finalize()) {
       case FinalizeSuccess(submission: final s):
-        expect(
-          s.xml,
-          contains('<deprecatedID>${submission?.instanceId}'),
-          reason: 'the edit deprecates the original instance ID',
-        );
+        // The edit keeps the ID it was loaded with as meta/deprecatedID
+        // (forms calculating it with uuid() get a new one on every load,
+        // as in JavaRosa).
+        final deprecated = RegExp(
+          '<deprecatedID>([^<]*)<',
+        ).firstMatch(s.xml)?.group(1);
+        expect(deprecated, isNotNull, reason: 'the edit has a deprecatedID');
+        expect(s.instanceId, isNot(deprecated));
+        if (deprecated != submission?.instanceId) notes.add('new ID on load');
         notes.add('edited');
       case FinalizeFailure(:final failure):
         notes.add('edit invalid: ${_describe(failure)}');

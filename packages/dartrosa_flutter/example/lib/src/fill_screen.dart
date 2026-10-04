@@ -9,18 +9,22 @@ import 'corpus.dart';
 import 'external_choices.dart';
 import 'workspace.dart';
 
-/// Shows [form]'s images from its asset folder.
+/// Shows a form's images from its asset folder.
 class AssetDelegates extends XFormDelegates {
-  /// Creates delegates for [resolver]'s folder.
-  const AssetDelegates(this.resolver);
+  /// Creates delegates for [resolver]'s folder, holding [files].
+  const AssetDelegates(this.resolver, this.files);
 
   /// Maps `jr://` URIs to assets.
   final AssetResolver resolver;
 
+  /// The files in the folder; images that are missing aren't shown.
+  final List<String> files;
+
   @override
   ImageProvider? image(String uri) => switch (resolver.assetKey(uri)) {
-    final key? => AssetImage(key, bundle: resolver.bundle),
-    null => null,
+    final key? when files.contains(key.substring(key.lastIndexOf('/') + 1)) =>
+      AssetImage(key, bundle: resolver.bundle),
+    _ => null,
   };
 }
 
@@ -258,6 +262,7 @@ class _FillScreenState extends State<FillScreen> {
             mode: _mode,
             delegates: AssetDelegates(
               AssetResolver(widget.workspace.bundle, _instance.form.folder),
+              widget.workspace.corpus.mediaOf(_instance.form),
             ),
             widgetOverrides: externalChoiceOverrides,
             onFinalized: (submission) => _finalized(filling, submission),
