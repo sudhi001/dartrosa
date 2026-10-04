@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:odk="http://www.opendatakit.org/xforms" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>DAG repeat</h:title>
+    <model>
+      <instance>
+        <data id="dag-repeat">
+          <n>3</n><limit>2</limit>
+          <r jr:template=""><pos/><v/><big/><label/></r>
+          <r><pos/><v>5</v><big/><label/></r>
+          <r><pos/><v>1</v><big/><label/></r>
+          <total/><count/><firstBig/>
+        </data>
+      </instance>
+      <bind nodeset="/data/n" type="int"/>
+      <bind nodeset="/data/limit" type="int"/>
+      <bind nodeset="/data/r/pos" type="int" calculate="position(..)"/>
+      <bind nodeset="/data/r/v" type="int"/>
+      <bind nodeset="/data/r/big" relevant="../v &gt; /data/limit" type="string" calculate="concat('big-', ../pos)"/>
+      <bind nodeset="/data/r/label" type="string" calculate="concat(../pos, '/', count(/data/r))"/>
+      <bind nodeset="/data/total" type="int" calculate="sum(/data/r/v)"/>
+      <bind nodeset="/data/count" type="int" calculate="count(/data/r)"/>
+      <bind nodeset="/data/firstBig" type="string" calculate="/data/r[v &gt; /data/limit][1]/big"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input ref="/data/n"><label>N</label></input>
+    <repeat nodeset="/data/r" jr:count="/data/n">
+      <input ref="/data/r/v"><label>V</label></input>
+    </repeat>
+  </h:body>
+</h:html>

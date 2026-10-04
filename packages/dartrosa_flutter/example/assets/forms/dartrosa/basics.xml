@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:odk="http://www.opendatakit.org/xforms" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>Basics</h:title>
+    <model odk:xforms-version="1.0.0">
+      <instance>
+        <data id="basics">
+          <age/>
+          <adult/>
+          <licence/>
+          <child jr:template=""><name/><order/></child>
+          <meta><instanceID/></meta>
+        </data>
+      </instance>
+      <bind nodeset="/data/age" type="int" required="true()" constraint=". &gt;= 0 and . &lt; 130" jr:constraintMsg="Age must be 0-129"/>
+      <bind nodeset="/data/adult" type="string" calculate="if(/data/age &gt;= 18, 'yes', 'no')"/>
+      <bind nodeset="/data/licence" type="string" relevant="/data/adult = 'yes'"/>
+      <bind nodeset="/data/child/name" type="string"/>
+      <bind nodeset="/data/child/order" type="int" calculate="position(..)"/>
+      <bind nodeset="/data/meta/instanceID" type="string" readonly="true()" jr:preload="uid"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input ref="/data/age"><label>Age</label></input>
+    <select1 ref="/data/licence">
+      <label>Driving licence?</label>
+      <item><label>Yes</label><value>y</value></item>
+      <item><label>No</label><value>n</value></item>
+    </select1>
+    <repeat nodeset="/data/child">
+      <input ref="/data/child/name"><label>Child name</label></input>
+    </repeat>
+  </h:body>
+</h:html>

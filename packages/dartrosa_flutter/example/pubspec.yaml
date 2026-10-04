@@ -1,18 +1,60 @@
 name: dartrosa_flutter_example
-description: Fills an ODK XForm with dartrosa_flutter.
+description: >-
+  Fills, saves, resumes, edits, finalizes, encrypts and exports the DartRosa
+  conformance corpus with dartrosa_flutter.
 publish_to: none
 
 environment:
   sdk: ^3.10.0
 
 dependencies:
+  dartrosa:
+    path: ../../dartrosa
+  dartrosa_collect:
+    path: ../../dartrosa_collect
+  dartrosa_encryption:
+    path: ../../dartrosa_encryption
+  dartrosa_entities:
+    path: ../../dartrosa_entities
+  dartrosa_external_data:
+    path: ../../dartrosa_external_data
   dartrosa_flutter:
     path: ..
   flutter:
     sdk: flutter
 
+# The Collect packages depend on dartrosa from their pub workspace.
+dependency_overrides:
+  dartrosa:
+    path: ../../dartrosa
+
 dev_dependencies:
   flutter_lints: ^6.0.0
+  flutter_test:
+    sdk: flutter
 
 flutter:
   uses-material-design: true
+  assets:
+    # BEGIN corpus assets (tool/bundle_corpus.dart)
+    - assets/forms/
+    - assets/forms/collect/
+    - assets/forms/collect/rects_v1/
+    - assets/forms/collect/rects_v2/
+    - assets/forms/collect/selectOneExternal-media/
+    - assets/forms/dartrosa/
+    - assets/forms/dartrosa/dag/
+    - assets/forms/javarosa/
+    - assets/forms/javarosa/org/javarosa/core/model/
+    - assets/forms/javarosa/org/javarosa/core/model/actions/
+    - assets/forms/javarosa/org/javarosa/core/model/condition/
+    - assets/forms/javarosa/org/javarosa/core/model/instance/
+    - assets/forms/javarosa/org/javarosa/core/model/instance/geojson/
+    - assets/forms/javarosa/org/javarosa/form/api/
+    - assets/forms/javarosa/org/javarosa/form/api/navigation/
+    - assets/forms/javarosa/org/javarosa/xform/parse/
+    - assets/forms/javarosa/org/javarosa/xml/
+    - assets/forms/javarosa/org/javarosa/xpath/expr/
+    - assets/forms/javarosa/regression/
+    - assets/forms/javarosa/smoketests/
+    # END corpus assets

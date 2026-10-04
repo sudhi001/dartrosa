@@ -1,0 +1,1428 @@
+{
+ "forms": [
+  {
+   "path": "collect/Empty First Repeat.xml",
+   "title": "Empty First Repeat",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/RepeatGroupAndGroup.xml",
+   "title": "RepeatGroupAndGroup",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/RepeatTitles_1648.xml",
+   "title": "Repeat titles 1648",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/TestRepeat.xml",
+   "title": "TestRepeat",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/all-widgets.xml",
+   "title": "All widgets",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/audio-question.xml",
+   "title": "Audio Question",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/basic.xml",
+   "title": "basic",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/create-or-update-entities-from-repeats.xml",
+   "title": "Create or update entities from repeats",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/different-search-appearances.xml",
+   "title": "different-search-appearances",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/dynamic_and_static_choices.xml",
+   "title": "dynamic_and_static_choices",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/dynamic_required_question.xml",
+   "title": "dynamic_required_question",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/emptyGroupFieldList.xml",
+   "title": "emptyGroupFieldList",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/encrypted-no-instanceID.xml",
+   "title": "encrypted-no-instanceID",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/encrypted.xml",
+   "title": "encrypted",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/entity-update-pulldata.xml",
+   "title": "Entity Update Pull Data",
+   "javarosaParses": true,
+   "javarosaInitializes": false
+  },
+  {
+   "path": "collect/external-audio-question.xml",
+   "title": "External Audio Question",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/external-csv-search-broken.xml",
+   "title": "external-csv-search",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/external-csv-search.xml",
+   "title": "external-csv-search",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/external-csv-select.xml",
+   "title": "External Csv Select",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/external_csv_form.xml",
+   "title": "Form with external CSV files",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/external_data_questions.xml",
+   "title": "externalDataQuestions",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/external_select.xml",
+   "title": "external select",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/external_select_10.xml",
+   "title": "external select 10",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/external_select_csv.xml",
+   "title": "external select",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/field-list-repeat.xml",
+   "title": "Field-List Repeat",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/fieldlist-updates.xml",
+   "title": "fieldlist-updates",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/fixed-count-repeat.xml",
+   "title": "Fixed Count Repeat",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/form1.xml",
+   "title": "form1",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/form2.xml",
+   "title": "form2",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/form3.xml",
+   "title": "form3",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/form4.xml",
+   "title": "form4",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/form5.xml",
+   "title": "form5",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/form6.xml",
+   "title": "form6",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/form7.xml",
+   "title": "form7",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/form8.xml",
+   "title": "form8",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/form9.xml",
+   "title": "form9",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/formHierarchy1.xml",
+   "title": "formHierarchy1",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/formHierarchy2.xml",
+   "title": "formHierarchy2",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/formHierarchy3.xml",
+   "title": "formHierarchy3",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/form_design_error.xml",
+   "title": "Relevance and calculate loop",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/form_styling.xml",
+   "title": "Form styling",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/form_with_images.xml",
+   "title": "form_with_images",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/g6Error.xml",
+   "title": "g6Error",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/hints_textq.xml",
+   "title": "hints textq",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/identify-user-audit-false.xml",
+   "title": "Identify User False",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/identify-user-audit.xml",
+   "title": "Identify User",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/image-compression.xml",
+   "title": "image-compression",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/intent-group.xml",
+   "title": "intent-group",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/internal-audio-question.xml",
+   "title": "Audio Question",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/invalid-form.xml",
+   "title": "invalid-form",
+   "javarosaParses": false,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/likert_test.xml",
+   "title": "All widgets likert icon",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/location-audit.xml",
+   "title": "Audit with Location",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/longListOfQuestionsWithRequiredOneAtTheEnd.xml",
+   "title": "longListOfQuestionsWithRequiredOneAtTheEnd",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/manyQ.xml",
+   "title": "manyQ",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/metadata.xml",
+   "title": "Metadata",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/nested-intent-group.xml",
+   "title": "nested-intent-group",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/numberInCSV.xml",
+   "title": "numberInCSV",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/one-question-audit.xml",
+   "title": "One Question Audit",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/one-question-autoplay.xml",
+   "title": "One Question Autoplay",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/one-question-autosend-disabled.xml",
+   "title": "One Question Autosend Disabled",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/one-question-autosend.xml",
+   "title": "One Question Autosend",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/one-question-background-audio-audit.xml",
+   "title": "One Question Background Audio And Audit",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/one-question-background-audio-multiple.xml",
+   "title": "One Question",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/one-question-background-audio.xml",
+   "title": "One Question",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/one-question-editable.xml",
+   "title": "One Question Editable",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/one-question-encrypted-unicode.xml",
+   "title": "One Question Encrypted Unicode",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/one-question-entity-follow-up.xml",
+   "title": "One Question Entity Follow Up",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/one-question-entity-registration-broken.xml",
+   "title": "One Question Entity Registration Broken",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/one-question-entity-registration-editable.xml",
+   "title": "One Question Entity Registration Editable",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/one-question-entity-registration-id.xml",
+   "title": "One Question Entity Registration",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/one-question-entity-registration-v2020.1.xml",
+   "title": "One Question Entity Registration",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/one-question-entity-registration-v2023.1.xml",
+   "title": "One Question Entity Registration",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/one-question-entity-registration.xml",
+   "title": "One Question Entity Registration",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/one-question-entity-update-editable.xml",
+   "title": "One Question Entity Update Editable",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/one-question-entity-update.xml",
+   "title": "One Question Entity Update",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/one-question-entity-upsert.xml",
+   "title": "One Question Entity Upsert",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/one-question-last-saved-updated.xml",
+   "title": "One Question Last Saved",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/one-question-last-saved.xml",
+   "title": "One Question Last Saved",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/one-question-partial.xml",
+   "title": "One Question",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/one-question-relevance.xml",
+   "title": "One Question Relevance",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/one-question-repeat.xml",
+   "title": "One Question Repeat",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/one-question-translation.xml",
+   "title": "One Question",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/one-question-updated.xml",
+   "title": "One Question Updated",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/one-question-uuid-instance-name.xml",
+   "title": "One Question",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/one-question-with-constraint.xml",
+   "title": "One Question With Constraint",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/one-question.xml",
+   "title": "One Question",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/pull_data.xml",
+   "title": "pull_data",
+   "javarosaParses": true,
+   "javarosaInitializes": false
+  },
+  {
+   "path": "collect/ranking_widget.xml",
+   "title": "ranking_widget",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/repeat_group_form.xml",
+   "title": "Repeat Group",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/repeat_group_new.xml",
+   "title": "RepeatGroupNew",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/repeat_group_wrapped_with_a_regular_group.xml",
+   "title": "Repeat group wrapped with a regular group",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/repeat_groups.xml",
+   "title": "repeatGroups",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/repeat_in_field_list.xml",
+   "title": "repeat_in_field_list",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/repeat_without_label.xml",
+   "title": "Repeat without label",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/requiredQuestionInFieldList.xml",
+   "title": "requiredQuestionInFieldList",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/required_question_with_audio.xml",
+   "title": "required_question_with_audio",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/required_question_with_custom_error_message.xml",
+   "title": "required_question_with_custom_error_message",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/search-with-last-saved.xml",
+   "title": "Search with last-saved",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/search_and_select.xml",
+   "title": "search_and_select",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/selectOneExternal.xml",
+   "title": "selectOneExternal",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/select_one_external.xml",
+   "title": "cascading select test",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/setgeopoint-action.xml",
+   "title": "setgeopoint-action-instance-load",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/simple-search-external-csv.xml",
+   "title": "simple-search-external-csv",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/single-geopoint.xml",
+   "title": "Single geopoint",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/start-geopoint.xml",
+   "title": "start-geopoint",
+   "javarosaParses": true,
+   "javarosaInitializes": false
+  },
+  {
+   "path": "collect/string_widgets_in_field_list.xml",
+   "title": "fl",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/track-changes-reason-on-edit.xml",
+   "title": "Track Changes Reason",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/two-question-audit-track-changes.xml",
+   "title": "One Question Audit Track Changes",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/two-question-audit.xml",
+   "title": "Two Question",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/two-question-external.xml",
+   "title": "Two Question",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/two-question-required.xml",
+   "title": "Two Question Required",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/two-question-save-incomplete-required.xml",
+   "title": "Two Question Save Incomplete Required",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/two-question-save-incomplete.xml",
+   "title": "Two Question Save Incomplete",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/two-question-updated.xml",
+   "title": "Two Question Updated",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/two-question.xml",
+   "title": "Two Question",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/two-questions-in-group.xml",
+   "title": "two-questions-in-group",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "collect/validate.xml",
+   "title": "validate",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "dartrosa/basics.xml",
+   "title": "Basics",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "dartrosa/dag/chain.xml",
+   "title": "DAG chain",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "dartrosa/dag/constraints.xml",
+   "title": "DAG constraints",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "dartrosa/dag/cycle.xml",
+   "title": "DAG cycle",
+   "javarosaParses": false,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "dartrosa/dag/nested-relevance.xml",
+   "title": "DAG nested relevance",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "dartrosa/dag/relevance-cycle.xml",
+   "title": "DAG relevance cycle",
+   "javarosaParses": false,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "dartrosa/dag/repeat.xml",
+   "title": "DAG repeat",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "dartrosa/dag/self-cycle.xml",
+   "title": "DAG self cycle",
+   "javarosaParses": false,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "javarosa/ImageSelectTester.xhtml",
+   "title": "RichMedia testing Images",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "javarosa/Simpler_Cascading_Select_Form.xml",
+   "title": "Simpler Cascading Select Form",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "javarosa/bad-range-form.xml",
+   "title": "Form with a bad Range",
+   "javarosaParses": false,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "javarosa/body-before-model.xml",
+   "title": "Body Before Model",
+   "javarosaParses": false,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "javarosa/countNonEmptyForm.xml",
+   "title": "CountNonEmpty",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "javarosa/default_test.xml",
+   "title": "Sum_test",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "javarosa/eIMCI-by-D-Tree.xml",
+   "title": "eIMCI by D-Tree",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "javarosa/form-with-setvalue-action.xml",
+   "title": "SetValue action",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "javarosa/form2.xml",
+   "title": "My Survey",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "javarosa/form_with_additional_attributes.xml",
+   "title": "form_with_additional_attributes",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "javarosa/form_with_bind_attributes.xml",
+   "title": "form_with_bind_attributes",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "javarosa/formindex-serialization.xml",
+   "title": "FormIndex Serialization",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "javarosa/group-with-nodeset-attr.xml",
+   "title": "group with nodeset attribute",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "javarosa/group-with-ref-attr.xml",
+   "title": "group with ref attribute",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "javarosa/meta-namespace-form.xml",
+   "title": "Namespace for Metadata",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "javarosa/nigeria_wards_external.xml",
+   "title": "Nigeria Wards External",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "javarosa/nigeria_wards_external_combined.xml",
+   "title": "Nigeria Wards External",
+   "javarosaParses": true,
+   "javarosaInitializes": false
+  },
+  {
+   "path": "javarosa/org/javarosa/core/model/actions/event-odk-new-repeat-model.xml",
+   "title": "Event: odk-new-repeat in model",
+   "javarosaParses": false,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "javarosa/org/javarosa/core/model/actions/event-odk-new-repeat.xml",
+   "title": "Event: odk-new-repeat",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "javarosa/org/javarosa/core/model/actions/invalid-events.xml",
+   "title": "Invalid events",
+   "javarosaParses": false,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "javarosa/org/javarosa/core/model/actions/multiple-events.xml",
+   "title": "Space-separated event list",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "javarosa/org/javarosa/core/model/actions/setgeopoint-action-bad-namespace.xml",
+   "title": "setgeopoint-action-bad-namespace",
+   "javarosaParses": false,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "javarosa/org/javarosa/core/model/actions/setgeopoint-action-instance-load.xml",
+   "title": "setgeopoint-action-instance-load",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "javarosa/org/javarosa/core/model/actions/setgeopoint-action-value-changed.xml",
+   "title": "setgeopoint-action-value-changed",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "javarosa/org/javarosa/core/model/condition/calculate-now.xml",
+   "title": "data",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "javarosa/org/javarosa/core/model/jr-choice-name.xml",
+   "title": "jr-choice-name",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "javarosa/org/javarosa/core/model/three-level-cascading-multi-select.xml",
+   "title": "Three level cascading multi select",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "javarosa/org/javarosa/core/model/three-level-cascading-select.xml",
+   "title": "Three level cascading select",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "javarosa/org/javarosa/form/api/constraint-message-error.xml",
+   "title": "Constraint",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "javarosa/org/javarosa/form/api/navigation/repeatGroupWithQuestionAndRegularGroupInside.xml",
+   "title": "repeatGroupWithQuestionAndRegularGroupInside",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "javarosa/org/javarosa/form/api/navigation/repeatGroupWithTwoQuestions.xml",
+   "title": "repeatGroupWithTwoQuestions",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "javarosa/org/javarosa/form/api/navigation/simpleFormWithThreeQuestions.xml",
+   "title": "simpleFormWithThreeQuestions",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "javarosa/org/javarosa/form/api/navigation/twoNestedRegularGroups.xml",
+   "title": "twoNestedRegularGroups",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "javarosa/org/javarosa/form/api/navigation/twoNestedRepeatGroups.xml",
+   "title": "twoNestedRepeatGroups",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "javarosa/org/javarosa/xform/parse/external-secondary-instance-large.xml",
+   "title": "Form with external secondary instance",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "javarosa/org/javarosa/xform/parse/external-secondary-instance.xml",
+   "title": "Form with external secondary instance",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "javarosa/org/javarosa/xform/parse/external-select-csv.xml",
+   "title": "CSV External Secondary Instance",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "javarosa/org/javarosa/xform/parse/external-select-geojson.xml",
+   "title": "GeoJSON External Secondary Instance",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "javarosa/org/javarosa/xform/parse/external-select-xml-dummy-nodes.xml",
+   "title": "XML External Secondary Instance With Dummy Nodes",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "javarosa/org/javarosa/xform/parse/external-select-xml.xml",
+   "title": "XML External Secondary Instance",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "javarosa/org/javarosa/xform/parse/internal_empty_select.xml",
+   "title": "internal empty select",
+   "javarosaParses": false,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "javarosa/org/javarosa/xform/parse/internal_select_10.xml",
+   "title": "internal select 10",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "javarosa/org/javarosa/xform/parse/last-saved-blank.xml",
+   "title": "Form with last-saved instance (blank)",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "javarosa/org/javarosa/xform/parse/last-saved-filled.xml",
+   "title": "Form with last-saved instance (filled)",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "javarosa/org/javarosa/xform/parse/secondary-instance.xml",
+   "title": "Form with secondary instance",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "javarosa/org/javarosa/xform/parse/unused-secondary-instance.xml",
+   "title": "unused-secondary-instance",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "javarosa/org/javarosa/xml/primary-instance-with-id.xml",
+   "title": "My Survey",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "javarosa/org/javarosa/xpath/expr/randomize.xml",
+   "title": "Randomize Test",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "javarosa/org/javarosa/xpath/expr/relative-current-ref-field-ref.xml",
+   "title": "relative-current-ref",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "javarosa/org/javarosa/xpath/expr/relative-current-ref-group-count-ref.xml",
+   "title": "relative-current-ref",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "javarosa/org/javarosa/xpath/expr/relative-current-ref.xml",
+   "title": "relative-current-ref",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "javarosa/populate-nodes-attributes.xml",
+   "title": "populate nodes attributes test",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "javarosa/range-form-itemset.xml",
+   "title": "Form with a Range",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "javarosa/range-form.xml",
+   "title": "Form with a Range",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "javarosa/rank-form.xml",
+   "title": "Rank Form",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "javarosa/regression/issue_449.xml",
+   "title": "Form title",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "javarosa/repeat-secondary-instance.xml",
+   "title": "Repeat Secondary Instance",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "javarosa/simple-form.xml",
+   "title": "Simple Form",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "javarosa/smoketests/child_vaccination_VOL_tool_v12.xml",
+   "title": "child_vaccination_VOL_tool_v12",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "javarosa/smoketests/whova_form.xml",
+   "title": "2016 WHO Verbal Autopsy Form 1.5.2",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "javarosa/sms_form.xml",
+   "title": "SMS Tester Form",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "javarosa/submission-element.xml",
+   "title": "Single Submission Element",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "javarosa/template-repeat.xml",
+   "title": "Repeat with template",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "javarosa/two-models.xml",
+   "title": "Two Models",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  },
+  {
+   "path": "javarosa/two-secondary-instances.xml",
+   "title": "Two Secondary Instances",
+   "javarosaParses": true,
+   "javarosaInitializes": true
+  }
+ ],
+ "files": {
+  "collect": [
+   "Empty First Repeat.xml",
+   "RepeatGroupAndGroup.xml",
+   "RepeatTitles_1648.xml",
+   "TestRepeat.xml",
+   "all-widgets.xml",
+   "audio-question.xml",
+   "basic.xml",
+   "create-or-update-entities-from-repeats.xml",
+   "different-search-appearances.xml",
+   "doc.png",
+   "dynamic_and_static_choices.xml",
+   "dynamic_required_question.xml",
+   "emptyGroupFieldList.xml",
+   "encrypted-no-instanceID.xml",
+   "encrypted.xml",
+   "entity-update-pulldata.xml",
+   "external-audio-question.xml",
+   "external-csv-search-broken.xml",
+   "external-csv-search-produce.csv",
+   "external-csv-search.xml",
+   "external-csv-select.xml",
+   "external_csv_cities.csv",
+   "external_csv_countries.csv",
+   "external_csv_form.xml",
+   "external_csv_neighbourhoods.csv",
+   "external_data.csv",
+   "external_data.xml",
+   "external_data_10.xml",
+   "external_data_broken.csv",
+   "external_data_questions.xml",
+   "external_select.xml",
+   "external_select_10.xml",
+   "external_select_csv.xml",
+   "famous.jpg",
+   "field-list-repeat.xml",
+   "fieldlist-updates.xml",
+   "file.gif",
+   "fixed-count-repeat.xml",
+   "form1.xml",
+   "form2.xml",
+   "form3.xml",
+   "form4.xml",
+   "form5.xml",
+   "form6.xml",
+   "form7.xml",
+   "form8.xml",
+   "form9.xml",
+   "formHierarchy1.xml",
+   "formHierarchy2.xml",
+   "formHierarchy3.xml",
+   "form_design_error.xml",
+   "form_styling.xml",
+   "form_with_images.xml",
+   "fruits.csv",
+   "g6Error.xml",
+   "hints_textq.xml",
+   "identify-user-audit-false.xml",
+   "identify-user-audit.xml",
+   "image-compression.xml",
+   "intent-group.xml",
+   "internal-audio-question.xml",
+   "invalid-form.xml",
+   "itemSets.csv",
+   "likert_test.xml",
+   "location-audit.xml",
+   "longListOfQuestionsWithRequiredOneAtTheEnd.xml",
+   "manyQ.xml",
+   "metadata.xml",
+   "nested-intent-group.xml",
+   "numberInCSV.xml",
+   "one-question-audit.xml",
+   "one-question-autoplay.xml",
+   "one-question-autosend-disabled.xml",
+   "one-question-autosend.xml",
+   "one-question-background-audio-audit.xml",
+   "one-question-background-audio-multiple.xml",
+   "one-question-background-audio.xml",
+   "one-question-editable.xml",
+   "one-question-encrypted-unicode.xml",
+   "one-question-entity-follow-up.xml",
+   "one-question-entity-registration-broken.xml",
+   "one-question-entity-registration-editable.xml",
+   "one-question-entity-registration-id.xml",
+   "one-question-entity-registration-v2020.1.xml",
+   "one-question-entity-registration-v2023.1.xml",
+   "one-question-entity-registration.xml",
+   "one-question-entity-update-editable.xml",
+   "one-question-entity-update.xml",
+   "one-question-entity-upsert.xml",
+   "one-question-last-saved-updated.xml",
+   "one-question-last-saved.xml",
+   "one-question-partial.xml",
+   "one-question-relevance.xml",
+   "one-question-repeat.xml",
+   "one-question-translation.xml",
+   "one-question-updated.xml",
+   "one-question-uuid-instance-name.xml",
+   "one-question-with-constraint.xml",
+   "one-question.xml",
+   "people.csv",
+   "pull_data.xml",
+   "ranking_widget.xml",
+   "repeat_group_form.xml",
+   "repeat_group_new.xml",
+   "repeat_group_wrapped_with_a_regular_group.xml",
+   "repeat_groups.xml",
+   "repeat_in_field_list.xml",
+   "repeat_without_label.xml",
+   "requiredQuestionInFieldList.xml",
+   "required_question_with_audio.xml",
+   "required_question_with_custom_error_message.xml",
+   "sampleAudio.wav",
+   "sampleVideo.mp4",
+   "search-with-last-saved.xml",
+   "search_and_select.xml",
+   "selectOneExternal.xml",
+   "select_one_external.xml",
+   "setgeopoint-action.xml",
+   "simple-search-external-csv-fruits.csv",
+   "simple-search-external-csv.xml",
+   "single-geopoint.xml",
+   "start-geopoint.xml",
+   "string_widgets_in_field_list.xml",
+   "test.m4a",
+   "track-changes-reason-on-edit.xml",
+   "two-question-audit-track-changes.xml",
+   "two-question-audit.xml",
+   "two-question-external.xml",
+   "two-question-required.xml",
+   "two-question-save-incomplete-required.xml",
+   "two-question-save-incomplete.xml",
+   "two-question-updated.xml",
+   "two-question.xml",
+   "two-questions-in-group.xml",
+   "updated-people.csv",
+   "validate.xml"
+  ],
+  "collect/rects_v1": [
+   "rect.jpg",
+   "rect.svg"
+  ],
+  "collect/rects_v2": [
+   "rect.jpg",
+   "rect.svg"
+  ],
+  "collect/selectOneExternal-media": [
+   "itemsets.csv"
+  ],
+  "dartrosa": [
+   "basics.xml"
+  ],
+  "dartrosa/dag": [
+   "chain.xml",
+   "constraints.xml",
+   "cycle.xml",
+   "nested-relevance.xml",
+   "relevance-cycle.xml",
+   "repeat.xml",
+   "self-cycle.xml"
+  ],
+  "javarosa": [
+   "ImageSelectTester.xhtml",
+   "SOURCE.txt",
+   "Simpler_Cascading_Select_Form.xml",
+   "bad-range-form.xml",
+   "body-before-model.xml",
+   "countNonEmptyForm.xml",
+   "default_test.xml",
+   "eIMCI-by-D-Tree.xml",
+   "form-with-setvalue-action.xml",
+   "form2.xml",
+   "form_with_additional_attributes.xml",
+   "form_with_bind_attributes.xml",
+   "formindex-serialization.xml",
+   "group-with-nodeset-attr.xml",
+   "group-with-ref-attr.xml",
+   "hhplotdetails.csv",
+   "lgas.xml",
+   "meta-namespace-form.xml",
+   "nigeria_wards_external.xml",
+   "nigeria_wards_external_combined.xml",
+   "populate-nodes-attributes-instance.xml",
+   "populate-nodes-attributes.xml",
+   "range-form-itemset.xml",
+   "range-form.xml",
+   "rank-form.xml",
+   "repeat-secondary-instance.xml",
+   "simple-form.xml",
+   "sms_form.xml",
+   "submission-element.xml",
+   "template-repeat.xml",
+   "two-models.xml",
+   "two-secondary-instances.xml",
+   "wards.xml"
+  ],
+  "javarosa/org/javarosa/core/model/actions": [
+   "event-odk-new-repeat-model.xml",
+   "event-odk-new-repeat.xml",
+   "invalid-events.xml",
+   "multiple-events.xml",
+   "setgeopoint-action-bad-namespace.xml",
+   "setgeopoint-action-instance-load.xml",
+   "setgeopoint-action-value-changed.xml"
+  ],
+  "javarosa/org/javarosa/core/model/condition": [
+   "calculate-now.xml"
+  ],
+  "javarosa/org/javarosa/core/model/instance": [
+   "external-secondary-comma-complex.csv",
+   "external-secondary-csv-bom.csv",
+   "external-secondary-semicolon-complex.csv"
+  ],
+  "javarosa/org/javarosa/core/model/instance/geojson": [
+   "bad-feature-not-feature.geojson",
+   "bad-features-not-array.geojson",
+   "bad-futures-collection.geojson",
+   "feature-collection-extra-feature-toplevel.geojson",
+   "feature-collection-extra-toplevel.geojson",
+   "feature-collection-id-toplevel.geojson",
+   "feature-collection-id-twice.geojson",
+   "feature-collection-integer-id.geojson",
+   "feature-collection-no-properties.geojson",
+   "feature-collection-toplevel-order.geojson",
+   "feature-collection-with-null.geojson",
+   "feature-collection-with-unsupported-type.geojson",
+   "feature-collection.geojson",
+   "invalid-type.geojson",
+   "not-object.geojson",
+   "spaces-in-names.geojson"
+  ],
+  "javarosa/org/javarosa/core/model": [
+   "jr-choice-name.xml",
+   "three-level-cascading-multi-select.xml",
+   "three-level-cascading-select.xml"
+  ],
+  "javarosa/org/javarosa/form/api": [
+   "constraint-message-error.xml"
+  ],
+  "javarosa/org/javarosa/form/api/navigation": [
+   "repeatGroupWithQuestionAndRegularGroupInside.xml",
+   "repeatGroupWithTwoQuestions.xml",
+   "simpleFormWithThreeQuestions.xml",
+   "twoNestedRegularGroups.xml",
+   "twoNestedRepeatGroups.xml"
+  ],
+  "javarosa/org/javarosa/xform/parse": [
+   "external-data.csv",
+   "external-data.geojson",
+   "external-data.xml",
+   "external-secondary-instance-large.xml",
+   "external-secondary-instance.xml",
+   "external-select-csv.xml",
+   "external-select-geojson.xml",
+   "external-select-xml-dummy-nodes.xml",
+   "external-select-xml.xml",
+   "header_only.csv",
+   "internal_empty_select.xml",
+   "internal_select_10.xml",
+   "last-saved-blank.xml",
+   "last-saved-filled.xml",
+   "secondary-instance.xml",
+   "unused-secondary-instance.xml",
+   "whitespace.csv"
+  ],
+  "javarosa/org/javarosa/xml": [
+   "primary-instance-with-id.xml"
+  ],
+  "javarosa/org/javarosa/xpath/expr": [
+   "randomize.xml",
+   "relative-current-ref-field-ref.xml",
+   "relative-current-ref-group-count-ref.xml",
+   "relative-current-ref.xml"
+  ],
+  "javarosa/regression": [
+   "issue_449.xml",
+   "issue_449_last_saved.xml"
+  ],
+  "javarosa/smoketests": [
+   "child_vaccination_VOL_tool_v12.xml",
+   "whova_form.xml"
+  ]
+ }
+}

@@ -1,117 +1,49 @@
-// Fills an XForm with dartrosa_flutter. Add platforms with
-// `flutter create .` in this directory, then `flutter run`.
-import 'package:dartrosa_flutter/dartrosa_flutter.dart';
+// Fills, saves, resumes, edits, finalizes, encrypts and exports the
+// DartRosa conformance corpus. Bundle the corpus with
+// `dart run tool/bundle_corpus.dart`, add platforms with `flutter create .`
+// in this directory, then `flutter run`.
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
-const _form = '''<?xml version="1.0"?>
-<h:html xmlns="http://www.w3.org/2002/xforms"
-    xmlns:h="http://www.w3.org/1999/xhtml"
-    xmlns:jr="http://openrosa.org/javarosa">
-  <h:head>
-    <h:title>Household survey</h:title>
-    <model>
-      <instance>
-        <data id="household">
-          <name/><age/><adult/><members/>
-          <member><mname/><mage/></member>
-          <meta><instanceID/></meta>
-        </data>
-      </instance>
-      <bind nodeset="/data/name" type="string" required="true()"/>
-      <bind nodeset="/data/age" type="int" constraint=". &gt;= 0 and . &lt; 130"
-          jr:constraintMsg="Enter an age between 0 and 129"/>
-      <bind nodeset="/data/adult" type="string" relevant="/data/age &gt;= 18"/>
-      <bind nodeset="/data/members" type="int"
-          calculate="count(/data/member)"/>
-      <bind nodeset="/data/member/mname" type="string"/>
-      <bind nodeset="/data/member/mage" type="int"/>
-      <bind nodeset="/data/meta/instanceID" type="string" readonly="true()"
-          jr:preload="uid"/>
-    </model>
-  </h:head>
-  <h:body>
-    <input ref="/data/name"><label>Your name</label></input>
-    <input ref="/data/age"><label>Your age</label></input>
-    <select1 ref="/data/adult"><label>Do you vote?</label>
-      <item><label>Yes</label><value>yes</value></item>
-      <item><label>No</label><value>no</value></item>
-    </select1>
-    <group><label>Household members</label>
-      <repeat nodeset="/data/member">
-        <input ref="/data/member/mname"><label>Member name</label></input>
-        <input ref="/data/member/mage"><label>Member age</label></input>
-      </repeat>
-    </group>
-  </h:body>
-</h:html>''';
+import 'src/corpus.dart';
+import 'src/home.dart';
+import 'src/workspace.dart';
 
 void main() => runApp(const ExampleApp());
 
 /// The example app.
-class ExampleApp extends StatelessWidget {
+class ExampleApp extends StatefulWidget {
   /// Creates the app.
   const ExampleApp({super.key});
+
+  @override
+  State<ExampleApp> createState() => _ExampleAppState();
+}
+
+class _ExampleAppState extends State<ExampleApp> {
+  final Future<Workspace> _workspace = Corpus.load(
+    rootBundle,
+  ).then(Workspace.new);
 
   @override
   Widget build(BuildContext context) => MaterialApp(
     title: 'DartRosa',
     theme: ThemeData(colorSchemeSeed: Colors.teal),
-    home: const FormScreen(),
-  );
-}
-
-/// Loads the form and shows it.
-class FormScreen extends StatefulWidget {
-  /// Creates the screen.
-  const FormScreen({super.key});
-
-  @override
-  State<FormScreen> createState() => _FormScreenState();
-}
-
-class _FormScreenState extends State<FormScreen> {
-  late final Future<FormSession> _session = FormDefinition.parse(
-    _form,
-  ).then((definition) => definition.createSession());
-  var _mode = XFormMode.pager;
-
-  @override
-  Widget build(BuildContext context) => Scaffold(
-    appBar: AppBar(
-      title: const Text('Household survey'),
-      actions: [
-        IconButton(
-          tooltip: 'Switch layout',
-          icon: Icon(
-            _mode == XFormMode.pager ? Icons.view_agenda : Icons.view_carousel,
-          ),
-          onPressed: () => setState(
-            () => _mode = _mode == XFormMode.pager
-                ? XFormMode.scroll
-                : XFormMode.pager,
+    darkTheme: ThemeData(
+      colorSchemeSeed: Colors.teal,
+      brightness: Brightness.dark,
+    ),
+    home: FutureBuilder(
+      future: _workspace,
+      builder: (context, snapshot) => switch (snapshot.data) {
+        final workspace? => HomeScreen(workspace: workspace),
+        null => Scaffold(
+          body: Center(
+            child: snapshot.hasError
+                ? Text('Run tool/bundle_corpus.dart: ${snapshot.error}')
+                : const CircularProgressIndicator(),
           ),
         ),
-      ],
-    ),
-    body: FutureBuilder(
-      future: _session,
-      builder: (context, snapshot) {
-        final session = snapshot.data;
-        if (session == null) {
-          return const Center(child: CircularProgressIndicator());
-        }
-        return XFormView(
-          key: ValueKey(_mode),
-          session: session,
-          mode: _mode,
-          onFinalized: (submission) => showDialog<void>(
-            context: context,
-            builder: (context) => AlertDialog(
-              title: const Text('Submission'),
-              content: SingleChildScrollView(child: Text(submission.xml)),
-            ),
-          ),
-        );
       },
     ),
   );

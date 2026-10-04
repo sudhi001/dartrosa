@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa">
+  <h:head>
+    <h:title>DAG constraints</h:title>
+    <model>
+      <instance><data id="dag-constraints"><min>10</min><age/><name/><free/></data></instance>
+      <bind nodeset="/data/min" type="int"/>
+      <bind nodeset="/data/age" type="int" constraint=". &gt;= /data/min and . &lt; 150" jr:constraintMsg="Age out of range"/>
+      <bind nodeset="/data/name" type="string" constraint="string-length(.) &gt; 3"/>
+      <bind nodeset="/data/free" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input ref="/data/age"><label>Age</label></input>
+    <input ref="/data/name"><label>Name</label></input>
+    <input ref="/data/free"><label>Free</label></input>
+  </h:body>
+</h:html>
