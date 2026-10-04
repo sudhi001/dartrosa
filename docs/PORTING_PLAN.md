@@ -291,7 +291,7 @@ Disposition: **PORT** = behaviour ported 1:1 (idiomatic structure) · **REDESIGN
 - [x] `nodeset`, `type` (§7.4), `readonly`, `required`, `relevant`, `constraint`, `calculate`
 - [x] `jr:constraintMsg` (literal or `jr:itext('id')`), `jr:requiredMsg`
 - [x] `jr:preload`, `jr:preloadParams` (§7.8)
-- [ ] `saveIncomplete` (ODK spec: triggers save on change — exposed as flag to app)
+- [x] `saveIncomplete` (ODK spec: triggers save on change — exposed as flag to app: `QuestionNode.saveIncomplete`)
 - [x] Unknown/namespaced bind attributes kept (`getBindAttributes`) — e.g. `orx:max-pixels`, `odk:length`, `entities:saveto`, `odk:allow-mock-accuracy`
 - [x] Attribute-node binds (`/data/item/@id`)
 - [x] Inheritance: non-relevant and readonly propagate to descendants

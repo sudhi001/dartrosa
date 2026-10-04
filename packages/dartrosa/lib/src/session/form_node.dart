@@ -232,6 +232,17 @@ final class QuestionNode extends FormNode {
       .firstOrNull
       ?.attributeValue;
 
+  /// Whether the form asks for a save whenever this question is answered
+  /// (`saveIncomplete="true()"` on its bind, ODK XForms spec); apps such as
+  /// ODK Collect then save the instance as a draft.
+  bool get saveIncomplete =>
+      _prompt.treeElement.bindAttributes
+          .where((a) => a.name == 'saveIncomplete')
+          .firstOrNull
+          ?.attributeValue
+          ?.trim() ==
+      'true()';
+
   /// The choices of a select (re-evaluated for itemsets).
   List<SelectChoice> get choices => _prompt.selectChoices;
 
