@@ -51,13 +51,13 @@ void main() {
   });
 
   test('date-time values', () {
-    final value = DateTimeValue.cast(
-      const UncastValue('2020-03-04T05:06:07.000Z'),
-    );
+    // Display and serialization use the device's local zone (as in
+    // JavaRosa), so build the value from a local time.
+    final value = DateTimeValue(DateTime(2020, 3, 4, 5, 6, 7));
     expect(value.displayText, '04/03/20 05:06');
-    expect(value.uncast().string, '2020-03-04T05:06:07.000Z');
+    expect(DateTimeValue.cast(value.uncast()), value);
     expect(
-      value,
+      DateTimeValue.cast(const UncastValue('2020-03-04T05:06:07.000Z')),
       DateTimeValue.cast(const UncastValue('2020-03-04T05:06:07.000Z')),
     );
     expect(
@@ -67,10 +67,16 @@ void main() {
   });
 
   test('time values', () {
-    final value = TimeValue.cast(const UncastValue('13:45:10.000Z'));
+    // Local zone, as for date-times. Parsed times are re-based on today's
+    // date (JavaRosa's TimeDataLimitationsTest), so build it on today.
+    final now = DateTime.now();
+    final value = TimeValue(DateTime(now.year, now.month, now.day, 13, 45, 10));
     expect(value.displayText, '13:45');
-    expect(value.uncast().string, '13:45:10.000Z');
-    expect(value, TimeValue.cast(const UncastValue('13:45:10.000Z')));
+    expect(TimeValue.cast(value.uncast()).displayText, '13:45');
+    expect(
+      TimeValue.cast(const UncastValue('13:45:10.000Z')),
+      TimeValue.cast(const UncastValue('13:45:10.000Z')),
+    );
     expect(value.hashCode, TimeValue(value.time).hashCode);
     expect(
       () => TimeValue.cast(const UncastValue('25:99')),
@@ -79,8 +85,9 @@ void main() {
   });
 
   test('date values compare by day', () {
-    final a = DateValue(DateTime.utc(2020, 1, 2, 10));
-    final b = DateValue(DateTime.utc(2020, 1, 2, 20));
+    // Local times on the same local day.
+    final a = DateValue(DateTime(2020, 1, 2, 10));
+    final b = DateValue(DateTime(2020, 1, 2, 20));
     expect(a, b);
     expect(a.hashCode, b.hashCode);
   });
