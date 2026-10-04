@@ -191,6 +191,27 @@ class FormInstance extends DataInstance {
     }
   }
 
+  /// Whether [a] and [b] have the same (non-repeat) structure.
+  ///
+  /// Port of `FormInstance.isHomogeneous`.
+  static bool isHomogeneous(TreeElement a, TreeElement b) {
+    if (a.isLeaf && b.isLeaf) return true;
+    if (!a.isChildable || !b.isChildable) return false;
+    for (final (n1, n2) in [(a, b), (b, a)]) {
+      for (final child1 in n1.children) {
+        if (child1.isRepeatable) continue;
+        final child2 = n2.getChild(child1.name!, 0);
+        if (child2 == null) return false;
+        if (child2.isRepeatable) throw StateError("shouldn't happen");
+      }
+    }
+    for (final childA in a.children) {
+      if (childA.isRepeatable) continue;
+      if (!isHomogeneous(childA, b.getChild(childA.name!, 0)!)) return false;
+    }
+    return true;
+  }
+
   /// Copies the element at [from] to [to] (a new repeat instance); returns
   /// the new element's reference.
   TreeReference copyNodeAt(TreeReference from, TreeReference to) {

@@ -107,6 +107,7 @@ public final class Oracle {
             Map<String, Object> trace = walkTrace(form.toFile(), "forms/" + rel);
             if (!(boolean) ((Map<?, ?>) trace.get("parse")).get("ok")) failed++; else ok++;
             write(traces.resolve("walk").resolve(rel + ".json"), trace);
+            write(traces.resolve("structure").resolve(rel + ".json"), structureTrace(form.toFile(), "forms/" + rel));
         }
         for (Path scenario : list(scenarios, ".scenario.json")) {
             String rel = scenarios.relativize(scenario).toString();
@@ -144,6 +145,21 @@ public final class Oracle {
         Map<String, Object> scenario = new LinkedHashMap<>();
         scenario.put("steps", List.of(Map.of("op", "walk"), Map.of("op", "validate")));
         return run(form, displayPath, JSON.valueToTree(scenario));
+    }
+
+    static Map<String, Object> structureTrace(File form, String displayPath) {
+        Map<String, Object> trace = new LinkedHashMap<>();
+        trace.put("traceVersion", TRACE_VERSION);
+        trace.put("form", displayPath);
+        try {
+            setUpReferences(form.getAbsoluteFile().getParentFile());
+            FormDef def = Scenario.createFormDef(form);
+            trace.put("parse", Map.of("ok", true));
+            trace.put("structure", Structure.of(def));
+        } catch (Throwable t) {
+            trace.put("parse", Map.of("ok", false, "error", error(t)));
+        }
+        return trace;
     }
 
     static Map<String, Object> scenarioTrace(File scenarioFile, File conformanceRoot) throws Exception {

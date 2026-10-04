@@ -75,4 +75,12 @@ Recorded so that nothing in JavaRosa disappears silently.
 | `TreeElement.accept(ITreeVisitor)` | `TreeElement.selfAndDescendants` iterable | Idiomatic Dart. |
 | Mutable `IAnswerData` (`setValue`, `clone`) | immutable `AnswerValue` | JavaRosa never compares or shares-and-mutates answers. |
 | Mutable `TreeReference` | immutable `TreeReference` | Safe as map keys; same operations return new references. |
-| `TreeElement.populate` / `populateTemplate` | ported with the XForm parser and instance loading (P2/P6) | Need `FormDef`. |
+| `TreeElement.populate` / `populateTemplate` | ported with instance loading (P6) | Need the engine. |
+| Static `Localization` singleton | not ported | Global state; apps create their own `Localizer`. |
+| `ResourceFileDataSource`, `ReferenceDataSource` (classpath / jr:// locale files) | not ported; `parseLocaleInput` + `ResourceResolver` cover the use | JVM-specific / global `ReferenceManager`. |
+| `Localizer.equals`, `TableLocaleSource.equals` | not ported | Only used by JavaRosa's serialization tests. |
+| Global `ReferenceManager`, static `ExternalInstanceParser` registries, static `XFormParser` action handlers / processors | `ResourceResolver`, per-parser `ExternalInstanceParser`, `XFormParser.registerActionHandler` / `addProcessor` | No global state. |
+| `XFormParser.parse` is synchronous | `Future<FormDef>` | External secondary instances are read through an async `ResourceResolver`. |
+| `XPathReference` / `IDataReference` wrappers | plain `TreeReference` | The wrapper added nothing. |
+| `RecordAudioActions` static listener | `FormDef.recordAudioListener` | No global state. |
+| `XFormParseException` for malformed `jr:itext` refs etc. | same messages, `XFormParseException` type | JavaRosa throws a plain `RuntimeException` in a few places; both fail the parse. |

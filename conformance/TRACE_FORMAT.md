@@ -75,6 +75,24 @@ Step results always echo `op`; on failure they carry
 | `choices` | select one / multiple / rank | `[{ "value", "label" }]` in display order |
 | `choicesOrder` | unseeded `randomize()` | `"unseededRandom"`; `choices` are then sorted by value |
 
+## Structure traces (`traces/structure/`)
+
+For every form the oracle also dumps the parsed form itself, before any
+engine work (`Structure.java`; DartRosa: `test/conformance/structure_dump.dart`,
+checked by `test/conformance/structure_test.dart`):
+
+- `title`, `name`, `languages`, `defaultLanguage`;
+- `elements`: the control tree (kind, ref, control type, appearance,
+  label/textId, hint fields, static choices, itemset references and filter,
+  repeat count/noAddRemove, additional attributes, children);
+- `instance` and `secondaryInstances`: every node's name, multiplicity,
+  data type, value, relevant/required/enabled/repeatable flags, namespace
+  and prefix, preload, constraint, attributes and bind attributes;
+- `triggerables`: kind, expression, contexts, sorted targets and triggers
+  (sorted by kind/expression/context, because JavaRosa keeps them in a
+  `HashSet`);
+- `outputs`, default `submission`, and parse `warnings`.
+
 ## Normalization (both sides must apply it)
 
 So that traces are byte-identical across runs and machines:

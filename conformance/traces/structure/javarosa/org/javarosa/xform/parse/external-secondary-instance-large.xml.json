@@ -1,0 +1,80 @@
+{
+  "form" : "forms/javarosa/org/javarosa/xform/parse/external-secondary-instance-large.xml",
+  "parse" : {
+    "ok" : true
+  },
+  "structure" : {
+    "defaultLanguage" : null,
+    "elements" : [ ],
+    "instance" : {
+      "attributes" : [ [ "", "id", "a" ] ],
+      "bindAttributes" : [ ],
+      "children" : [ {
+        "attributes" : [ ],
+        "bindAttributes" : [ ],
+        "children" : [ ],
+        "constraint" : null,
+        "enabled" : true,
+        "mult" : 0,
+        "name" : "data_set_used",
+        "namespace" : null,
+        "prefix" : null,
+        "preload" : null,
+        "preloadParams" : null,
+        "relevant" : true,
+        "repeatable" : false,
+        "required" : false,
+        "type" : "null",
+        "value" : null
+      } ],
+      "constraint" : null,
+      "enabled" : true,
+      "mult" : 0,
+      "name" : "data",
+      "namespace" : null,
+      "prefix" : null,
+      "preload" : null,
+      "preloadParams" : null,
+      "relevant" : true,
+      "repeatable" : false,
+      "required" : false,
+      "type" : "null",
+      "value" : null
+    },
+    "languages" : null,
+    "name" : "Form with external secondary instance",
+    "outputs" : [ ],
+    "secondaryInstances" : {
+      "towns" : {
+        "attributes" : [ ],
+        "bindAttributes" : [ ],
+        "children" : [ ],
+        "constraint" : null,
+        "enabled" : true,
+        "mult" : 0,
+        "name" : "missing file",
+        "namespace" : null,
+        "prefix" : null,
+        "preload" : null,
+        "preloadParams" : null,
+        "relevant" : true,
+        "repeatable" : false,
+        "required" : false,
+        "type" : "null",
+        "value" : null
+      }
+    },
+    "submission" : null,
+    "title" : "Form with external secondary instance",
+    "triggerables" : [ {
+      "context" : "/data/data_set_used",
+      "expr" : "{path-expr:{filt-expr:{func-expr:instance,{{str:'towns'}}},{}},{{step:child,towndata},{step:child,data_set}}}",
+      "kind" : "recalculate",
+      "originalContext" : "/data/data_set_used",
+      "targets" : [ "/data/data_set_used" ],
+      "triggers" : [ "instance(towns)/towndata/data_set" ]
+    } ],
+    "warnings" : [ ]
+  },
+  "traceVersion" : 1
+}

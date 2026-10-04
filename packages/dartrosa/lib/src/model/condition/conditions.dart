@@ -25,6 +25,10 @@ final class XPathConditional {
   /// Wraps an already parsed [expr].
   XPathConditional(this.expr) : xpath = null, hasNow = false;
 
+  /// Wraps [expr], already parsed from [xpath].
+  XPathConditional.fromParsed(this.expr, String this.xpath)
+    : hasNow = xpath.contains('now()');
+
   /// The expression.
   final XPathExpression expr;
 
