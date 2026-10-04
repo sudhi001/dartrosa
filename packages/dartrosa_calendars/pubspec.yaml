@@ -1,0 +1,19 @@
+name: dartrosa_calendars
+description: >-
+  The non-Gregorian date appearances of ODK Collect (ethiopian, coptic,
+  islamic, bikram-sambat, myanmar, persian, buddhist): conversions to and
+  from the Gregorian dates ODK stores, the month names and ranges Collect's
+  pickers show, and Collect's date labels. Ports of ODK Collect's date
+  picker logic and of the calendar libraries it uses.
+version: 0.0.1
+publish_to: none
+resolution: workspace
+
+environment:
+  sdk: ^3.10.0
+
+dependencies:
+  meta: ^1.16.0
+
+dev_dependencies:
+  test: ^1.25.0

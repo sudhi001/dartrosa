@@ -4,6 +4,7 @@ import 'dart:io';
 
 const corePackages = [
   'dartrosa',
+  'dartrosa_calendars',
   'dartrosa_collect',
   'dartrosa_encryption',
   'dartrosa_entities',

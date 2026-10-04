@@ -1,13 +1,19 @@
 import 'package:dartrosa/dartrosa.dart';
+import 'package:dartrosa_calendars/dartrosa_calendars.dart';
 import 'package:flutter/material.dart';
 
 import '../appearance.dart';
 import '../localizations.dart';
+import 'calendar_date_picker_dialog.dart';
 import 'common.dart';
 
 /// Dates and times: pickers. Dates support `no-calendar` (typed date),
 /// `month-year` and `year` (saved as the first day of the month or
-/// year).
+/// year), and ODK Collect's calendar appearances (`ethiopian`, `coptic`,
+/// `islamic`, `bikram-sambat`, `myanmar`, `persian`, `buddhist`): the
+/// answer is shown in that calendar, as Collect labels it, and picked
+/// with that calendar's spinners ([CustomCalendarDatePickerDialog]); the
+/// Gregorian date is stored.
 class DateTimeInput extends StatelessWidget {
   /// Creates the input for [node].
   const DateTimeInput(this.node, {super.key});
@@ -28,9 +34,30 @@ class DateTimeInput extends StatelessWidget {
     _ => null,
   };
 
+  /// The calendar picker of a date question, if it has a calendar
+  /// appearance.
+  DatePickerDetails? get _calendar {
+    if (node.dataType != DataType.date) return null;
+    final details = DatePickerDetails.fromAppearance(node.appearance);
+    return details.isCustomCalendar ? details : null;
+  }
+
   Future<void> _pick(BuildContext context, Appearance appearance) async {
     final current = _value ?? DateTime.now();
     DateTime? picked = current;
+    final calendar = _calendar;
+    if (calendar != null) {
+      picked = await showDialog<DateTime>(
+        context: context,
+        builder: (context) => CustomCalendarDatePickerDialog(
+          details: calendar,
+          initialDate: current,
+        ),
+      );
+      if (picked == null || !context.mounted) return;
+      answerQuestion(context, node, DateValue(picked));
+      return;
+    }
     if (node.dataType == DataType.date &&
         (appearance.has('month-year') || appearance.has('year'))) {
       picked = await showDialog<DateTime>(
@@ -80,6 +107,8 @@ class DateTimeInput extends StatelessWidget {
   String _display(BuildContext context, Appearance appearance) {
     final value = _value;
     if (value == null) return '—';
+    final calendar = _calendar;
+    if (calendar != null) return dateTimeLabel(value, calendar);
     if (node.dataType == DataType.date) {
       if (appearance.has('year')) return '${value.year}';
       if (appearance.has('month-year')) {
