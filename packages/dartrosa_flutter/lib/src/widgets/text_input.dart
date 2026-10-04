@@ -1,6 +1,7 @@
 import 'package:dartrosa/dartrosa.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:intl/intl.dart';
 
 import '../appearance.dart';
 import 'common.dart';
@@ -32,9 +33,11 @@ class _TextQuestionInputState extends State<TextQuestionInput> {
 
   bool get _grouped => _isNumber && _appearance.has('thousands-sep');
 
+  String get _separator => thousandsSeparatorOf(context);
+
   String _display() {
     final text = widget.node.value?.displayText ?? '';
-    return _grouped ? groupThousands(text) : text;
+    return _grouped ? groupThousands(text, _separator) : text;
   }
 
   @override
@@ -52,7 +55,7 @@ class _TextQuestionInputState extends State<TextQuestionInput> {
   }
 
   AnswerValue? _parse(String input) {
-    final text = _grouped ? input.replaceAll(thousandsSeparator, '') : input;
+    final text = _grouped ? input.replaceAll(_separator, '') : input;
     if (text.isEmpty) return null;
     return switch (widget.node.dataType) {
       DataType.integer => switch (int.tryParse(text)) {
@@ -98,7 +101,7 @@ class _TextQuestionInputState extends State<TextQuestionInput> {
           : TextInputType.text,
       inputFormatters: [
         if (_grouped)
-          ThousandsSeparatorFormatter(decimal: !integral)
+          ThousandsSeparatorFormatter(decimal: !integral, separator: _separator)
         else if (integral)
           FilteringTextInputFormatter.allow(RegExp(r'^-?\d*')),
       ],
@@ -118,22 +121,40 @@ String? numberDisplay(BuildContext context, QuestionNode node) {
     _ => false,
   };
   return number && Appearance.parse(node.appearance).has('thousands-sep')
-      ? groupThousands(text)
+      ? groupThousands(text, thousandsSeparatorOf(context))
       : text;
 }
 
-/// The grouping separator of `thousands-sep`.
+/// The default grouping separator of `thousands-sep`.
 const thousandsSeparator = ',';
 
+/// The grouping separator of `thousands-sep` in [locale] (intl's number
+/// symbols), as ODK Collect's `ThousandsSeparatorTextWatcher` picks it:
+/// a space where it would be `.`, which is always the decimal marker.
+String thousandsSeparatorFor(String? locale) {
+  String separator;
+  try {
+    separator = NumberFormat.decimalPattern(locale).symbols.GROUP_SEP;
+  } on ArgumentError {
+    separator = thousandsSeparator;
+  }
+  return separator == '.' ? ' ' : separator;
+}
+
+/// The grouping separator of `thousands-sep` in [context]'s locale (see
+/// [thousandsSeparatorFor]).
+String thousandsSeparatorOf(BuildContext context) =>
+    thousandsSeparatorFor(Localizations.maybeLocaleOf(context)?.toString());
+
 /// [number] (digits, optional sign and `.` decimals) with its integer
-/// digits grouped in threes.
-String groupThousands(String number) {
+/// digits grouped in threes by [separator].
+String groupThousands(String number, [String separator = thousandsSeparator]) {
   final match = RegExp(r'^(-?)(\d+)(.*)$').firstMatch(number);
   if (match == null) return number;
   final digits = match[2]!;
   final buffer = StringBuffer(match[1]!);
   for (var i = 0; i < digits.length; i++) {
-    if (i > 0 && (digits.length - i) % 3 == 0) buffer.write(thousandsSeparator);
+    if (i > 0 && (digits.length - i) % 3 == 0) buffer.write(separator);
     buffer.write(digits[i]);
   }
   return '$buffer${match[3]}';
@@ -142,30 +163,37 @@ String groupThousands(String number) {
 /// Keeps a number's digits grouped while typing (`thousands-sep`); only
 /// the display changes, the answer is parsed without separators.
 class ThousandsSeparatorFormatter extends TextInputFormatter {
-  /// Creates a formatter allowing decimals if [decimal].
-  ThousandsSeparatorFormatter({required this.decimal});
+  /// Creates a formatter allowing decimals if [decimal], grouping with
+  /// [separator].
+  ThousandsSeparatorFormatter({
+    required this.decimal,
+    this.separator = thousandsSeparator,
+  });
 
   /// Whether a `.` and decimals are allowed.
   final bool decimal;
+
+  /// The grouping separator.
+  final String separator;
 
   @override
   TextEditingValue formatEditUpdate(
     TextEditingValue oldValue,
     TextEditingValue newValue,
   ) {
-    final raw = newValue.text.replaceAll(thousandsSeparator, '');
+    final raw = newValue.text.replaceAll(separator, '');
     final allowed = decimal ? RegExp(r'^-?\d*\.?\d*$') : RegExp(r'^-?\d*$');
     if (!allowed.hasMatch(raw)) return oldValue;
-    final formatted = groupThousands(raw);
+    final formatted = groupThousands(raw, separator);
     // Keep the cursor after the same number of non-separator characters.
     final end = newValue.selection.end.clamp(0, newValue.text.length);
     final before = newValue.text
         .substring(0, end)
-        .replaceAll(thousandsSeparator, '')
+        .replaceAll(separator, '')
         .length;
     var offset = 0;
     for (var seen = 0; offset < formatted.length && seen < before; offset++) {
-      if (formatted[offset] != thousandsSeparator) seen++;
+      if (formatted[offset] != separator) seen++;
     }
     return TextEditingValue(
       text: formatted,

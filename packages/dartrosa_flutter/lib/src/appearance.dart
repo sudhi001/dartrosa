@@ -72,7 +72,7 @@ class Appearance {
     'year', 'vertical', 'picker', 'rating', 'no-ticks', 'field-list',
     'table-list', 'quickcompact', 'compact', 'horizontal',
     'horizontal-compact', 'image-map', 'map', 'maps', 'placement-map',
-    'hidden-answer', 'search', 'ex:', 'printer',
+    'hidden-answer', 'search', 'ex:', 'printer', 'url', 'bearing', 'counter',
   };
 
   static final RegExp _knownPattern = RegExp(

@@ -113,6 +113,24 @@ class XFormLocalizations {
   /// Prints the answer of a `printer` question.
   String get print => 'Print';
 
+  /// Opens the link of a `url` question.
+  String get openUrl => 'Open Url';
+
+  /// Shown when a `url` question has no link.
+  String get noUrl => 'No URL set';
+
+  /// Reads the compass for a `bearing` question without an answer.
+  String get getBearing => 'Record Bearing';
+
+  /// Reads the compass for a `bearing` question with an answer.
+  String get replaceBearing => 'Replace Bearing';
+
+  /// Increases a `counter` question.
+  String get increment => 'Increase';
+
+  /// Decreases a `counter` question.
+  String get decrement => 'Decrease';
+
   /// Opens the map of a `map` select.
   String get selectPlace => 'Select place';
 

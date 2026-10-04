@@ -85,6 +85,11 @@ abstract class XFormDelegates {
   /// `<barcode>` elements). Used when [canPrint].
   Future<void> print(BuildContext context, String content) async {}
 
+  /// The device's compass heading in degrees (0-360), for decimal
+  /// questions with the `bearing` appearance, or `null` if cancelled.
+  /// Used when [canReadBearing].
+  Future<double?> compassBearing(BuildContext context) async => null;
+
   /// Whether [captureMedia] is implemented.
   bool get canCaptureMedia => false;
 
@@ -93,6 +98,10 @@ abstract class XFormDelegates {
 
   /// Whether [scanBarcode] is implemented.
   bool get canScanBarcode => false;
+
+  /// Whether [compassBearing] is implemented; otherwise `bearing`
+  /// questions are typed.
+  bool get canReadBearing => false;
 
   /// Whether [launchExternalApp] is implemented; otherwise `ex:`
   /// questions and intent groups get their default widgets.

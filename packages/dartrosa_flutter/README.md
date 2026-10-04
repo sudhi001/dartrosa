@@ -31,8 +31,8 @@ XFormView(
 
 | Control | Appearances |
 |---|---|
-| text | `multiline`, `numbers`, `masked` (also `secret`), `ex:` (external app), `printer` (also `printer:...`) |
-| integer / decimal / long | `thousands-sep` (display only; the answer has no separators), `ex:` |
+| text | `multiline`, `numbers`, `masked` (also `secret`), `ex:` (external app), `printer` (also `printer:...`), `url` (opened with `XFormDelegates.openLink`) |
+| integer / decimal / long | `thousands-sep` (the locale's grouping separator, a space where it is `.`; display only, the answer has no separators), `ex:`, `counter` (integer), `bearing` (decimal, from `XFormDelegates.compassBearing`; typed otherwise) |
 | date | `no-calendar` (typed date), `month-year`, `year` (saved as the 1st) |
 | time / dateTime | pickers |
 | select one | radio list, `minimal` (drop-down), `quick` (auto-advance in pager mode), `autocomplete`, `columns`, `columns-N`, `columns-pack`, `no-buttons`, `likert`, `label`, `list-nolabel`, `list`; Collect's old names `compact`, `quickcompact`, `compact-N`, `horizontal`, `horizontal-compact`; `image-map`; `map` (through `XFormDelegates.selectFromMap`) |

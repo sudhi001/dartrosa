@@ -22,6 +22,7 @@ export 'src/widgets/node_widgets.dart';
 export 'src/widgets/question_widget.dart';
 export 'src/widgets/range_input.dart';
 export 'src/widgets/select_widgets.dart';
+export 'src/widgets/special_inputs.dart';
 export 'src/widgets/text_input.dart';
 export 'src/xform_controller.dart';
 export 'src/xform_scope.dart';
