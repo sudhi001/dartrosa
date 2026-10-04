@@ -7,6 +7,7 @@ import 'dart:typed_data';
 import 'package:dartrosa/src/model/form_def.dart';
 import 'package:dartrosa/src/reference/resource_resolver.dart';
 import 'package:dartrosa/src/xform/xform_parser.dart';
+import 'package:dartrosa/testing.dart';
 
 /// The repository's `conformance/` directory.
 Directory conformanceDir() {
@@ -70,3 +71,9 @@ String? get skipUnlessUtc =>
         DateTime(2018, 7).timeZoneOffset == Duration.zero
     ? null
     : 'oracle traces are recorded with TZ=UTC';
+
+/// A [Scenario] for the conformance form [name] (JavaRosa's
+/// `Scenario.init(String formFileName)`), resolving `jr://` files next to
+/// it.
+Future<Scenario> scenarioFor(String name) async =>
+    Scenario.fromFormDef(await parseForm(name));
