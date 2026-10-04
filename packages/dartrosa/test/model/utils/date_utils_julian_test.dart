@@ -7,7 +7,6 @@
 library;
 
 import 'package:dartrosa/javarosa.dart';
-import 'package:dartrosa/src/util/java_double.dart';
 import 'package:test/test.dart';
 
 import '../../support/forms.dart';

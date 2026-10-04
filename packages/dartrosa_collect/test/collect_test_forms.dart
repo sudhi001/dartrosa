@@ -4,6 +4,35 @@
 
 /// Forms by file name.
 const forms = <String, String>{
+  'one-question-editable.xml': r'''<?xml version="1.0"?>
+<h:html
+    xmlns="http://www.w3.org/2002/xforms"
+    xmlns:h="http://www.w3.org/1999/xhtml"
+    xmlns:jr="http://openrosa.org/javarosa"
+    xmlns:orx="http://openrosa.org/xforms"
+    xmlns:odk="http://www.opendatakit.org/xforms">
+    <h:head>
+        <h:title>One Question Editable</h:title>
+        <model>
+            <instance>
+                <data id="one_question_editable" orx:version="1">
+                    <age/>
+                    <meta>
+                        <instanceID/>
+                    </meta>
+                </data>
+            </instance>
+            <submission odk:client-editable="true" />
+            <bind nodeset="age" type="int"/>
+            <bind nodeset="/data/meta/instanceID" type="string" readonly="true()" jr:preload="uid"/>
+        </model>
+    </h:head>
+    <h:body>
+        <input ref="/data/age">
+            <label>what is your age</label>
+        </input>
+    </h:body>
+</h:html>''',
   'selectOneExternal.xml': r'''<?xml version="1.0" encoding="UTF-8"?>
 <h:html xmlns:h="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:jr="http://openrosa.org/javarosa" xmlns:odk="http://www.opendatakit.org/xforms" xmlns:orx="http://openrosa.org/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <h:head>
