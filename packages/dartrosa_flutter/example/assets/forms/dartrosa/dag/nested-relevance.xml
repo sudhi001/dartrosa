@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:odk="http://www.opendatakit.org/xforms" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>DAG nested relevance</h:title>
+    <model>
+      <instance>
+        <data id="dag-nested-relevance">
+          <show>no</show>
+          <outer><mid><leaf>v</leaf><calc/></mid><other/></outer>
+          <uses/>
+        </data>
+      </instance>
+      <bind nodeset="/data/outer" relevant="/data/show = 'yes'"/>
+      <bind nodeset="/data/outer/mid/calc" type="string" calculate="concat(../leaf, ../leaf)"/>
+      <bind nodeset="/data/outer/other" relevant="../mid/leaf = 'v'"/>
+      <bind nodeset="/data/uses" type="string" calculate="/data/outer/mid/calc"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input ref="/data/show"><label>Show</label></input>
+    <group ref="/data/outer"><input ref="/data/outer/mid/leaf"><label>Leaf</label></input></group>
+  </h:body>
+</h:html>
