@@ -27,6 +27,7 @@ export 'src/model/itemset_binding.dart';
 export 'src/model/triggerable_dag.dart';
 export 'src/model/utils/question_preloader.dart';
 export 'src/util/extras.dart';
+export 'src/util/java_double.dart' show javaDoubleToString;
 export 'src/util/java_lang.dart' show javaParseDouble, javaParseInt, javaTrim;
 export 'src/xform/bind_attributes.dart';
 export 'src/xform/instance_loading.dart';
