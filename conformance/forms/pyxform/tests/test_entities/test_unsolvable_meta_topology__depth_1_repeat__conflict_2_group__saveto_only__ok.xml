@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:odk="http://www.opendatakit.org/xforms" xmlns:entities="http://www.opendatakit.org/xforms/entities">
+  <h:head>
+    <h:title>data</h:title>
+    <model odk:xforms-version="1.0.0" entities:entities-version="2025.1.0">
+      <instance>
+        <test_name id="data">
+          <r1 jr:template="">
+            <q1/>
+            <g1>
+              <q2/>
+              <g2>
+                <g3>
+                  <q3/>
+                </g3>
+                <g4>
+                  <q4/>
+                </g4>
+                <meta>
+                  <entity dataset="e2" create="1" id="">
+                    <label/>
+                  </entity>
+                </meta>
+              </g2>
+            </g1>
+            <meta>
+              <entity dataset="e1" create="1" id="">
+                <label/>
+              </entity>
+            </meta>
+          </r1>
+          <r1>
+            <q1/>
+            <g1>
+              <q2/>
+              <g2>
+                <g3>
+                  <q3/>
+                </g3>
+                <g4>
+                  <q4/>
+                </g4>
+                <meta>
+                  <entity dataset="e2" create="1" id="">
+                    <label/>
+                  </entity>
+                </meta>
+              </g2>
+            </g1>
+            <meta>
+              <entity dataset="e1" create="1" id="">
+                <label/>
+              </entity>
+            </meta>
+          </r1>
+          <meta>
+            <instanceID/>
+          </meta>
+        </test_name>
+      </instance>
+      <bind nodeset="/test_name/r1/q1" type="string" entities:saveto="e1p1"/>
+      <bind nodeset="/test_name/r1/g1/q2" type="string" entities:saveto="e1p2"/>
+      <bind nodeset="/test_name/r1/g1/g2/g3/q3" type="string" entities:saveto="e2p1"/>
+      <bind nodeset="/test_name/r1/g1/g2/g4/q4" type="string" entities:saveto="e2p2"/>
+      <bind nodeset="/test_name/r1/g1/g2/meta/entity/@id" readonly="true()" type="string"/>
+      <setvalue ref="/test_name/r1/g1/g2/meta/entity/@id" event="odk-instance-first-load" value="uuid()"/>
+      <bind nodeset="/test_name/r1/g1/g2/meta/entity/label" calculate="E2" readonly="true()" type="string"/>
+      <bind nodeset="/test_name/r1/meta/entity/@id" readonly="true()" type="string"/>
+      <setvalue ref="/test_name/r1/meta/entity/@id" event="odk-instance-first-load" value="uuid()"/>
+      <bind nodeset="/test_name/r1/meta/entity/label" calculate="E1" readonly="true()" type="string"/>
+      <bind nodeset="/test_name/meta/instanceID" type="string" readonly="true()" jr:preload="uid"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="/test_name/r1">
+      <label>R1</label>
+      <repeat nodeset="/test_name/r1">
+        <input ref="/test_name/r1/q1">
+          <label>Q1</label>
+        </input>
+        <group ref="/test_name/r1/g1">
+          <label>G1</label>
+          <input ref="/test_name/r1/g1/q2">
+            <label>Q2</label>
+          </input>
+          <group ref="/test_name/r1/g1/g2">
+            <label>G2</label>
+            <group ref="/test_name/r1/g1/g2/g3">
+              <label>G3</label>
+              <input ref="/test_name/r1/g1/g2/g3/q3">
+                <label>Q3</label>
+              </input>
+            </group>
+            <group ref="/test_name/r1/g1/g2/g4">
+              <label>G4</label>
+              <input ref="/test_name/r1/g1/g2/g4/q4">
+                <label>Q4</label>
+              </input>
+            </group>
+          </group>
+        </group>
+        <setvalue ref="/test_name/r1/g1/g2/meta/entity/@id" event="odk-new-repeat" value="uuid()"/>
+        <setvalue ref="/test_name/r1/meta/entity/@id" event="odk-new-repeat" value="uuid()"/>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

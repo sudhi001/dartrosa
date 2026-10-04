@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:odk="http://www.opendatakit.org/xforms">
+  <h:head>
+    <h:title>data</h:title>
+    <model odk:xforms-version="1.0.0">
+      <instance>
+        <test_name id="data">
+          <item-repeat jr:template="">
+            <item-counter/>
+            <item/>
+            <item-info>
+              <item-note/>
+              <stock-item/>
+            </item-info>
+          </item-repeat>
+          <item-repeat>
+            <item-counter/>
+            <item/>
+            <item-info>
+              <item-note/>
+              <stock-item/>
+            </item-info>
+          </item-repeat>
+          <meta>
+            <instanceID/>
+          </meta>
+        </test_name>
+      </instance>
+      <instance id="item">
+        <root>
+          <item>
+            <name>gasoline-regular</name>
+            <label>Gasoline, Regular</label>
+            <itemindex>1</itemindex>
+          </item>
+          <item>
+            <name>gasoline-premium</name>
+            <label>Gasoline, Premium</label>
+            <itemindex>2</itemindex>
+          </item>
+          <item>
+            <name>gasoline-diesel</name>
+            <label>Gasoline, Diesel</label>
+            <itemindex>3</itemindex>
+          </item>
+        </root>
+      </instance>
+      <bind nodeset="/test_name/item-repeat/item-counter" type="string" calculate="position(..)"/>
+      <bind nodeset="/test_name/item-repeat/item" type="string" calculate="instance('item')/root/item[itemindex= current()/../item-counter ]/label"/>
+      <bind nodeset="/test_name/item-repeat/item-info/item-note" readonly="true()" type="string"/>
+      <bind nodeset="/test_name/item-repeat/item-info/stock-item" type="string"/>
+      <bind nodeset="/test_name/meta/instanceID" type="string" readonly="true()" jr:preload="uid"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="/test_name/item-repeat">
+      <label>Item</label>
+      <repeat nodeset="/test_name/item-repeat">
+        <group ref="/test_name/item-repeat/item-info">
+          <label>Item info</label>
+          <input ref="/test_name/item-repeat/item-info/item-note">
+            <label> All the following questions are about <output value=" ../../item "/>. </label>
+          </input>
+          <select1 ref="/test_name/item-repeat/item-info/stock-item">
+            <label>Do you stock this item?</label>
+            <itemset nodeset="instance('item')/root/item[true()]">
+              <value ref="name"/>
+              <label ref="label"/>
+            </itemset>
+          </select1>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

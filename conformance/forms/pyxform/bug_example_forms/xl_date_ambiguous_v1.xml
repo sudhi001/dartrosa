@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:odk="http://www.opendatakit.org/xforms">
+  <h:head>
+    <h:title>XLDateAmbiguous-v1</h:title>
+    <model odk:xforms-version="1.0.0">
+      <itext>
+        <translation lang="English" default="true()">
+          <text id="names_list-0">
+            <value>
+              <output value=" /data/name1 "/>
+            </value>
+          </text>
+          <text id="names_list-1">
+            <value>
+              <output value=" /data/name2 "/>
+            </value>
+          </text>
+          <text id="names_list-2">
+            <value>
+              <output value=" /data/name3 "/>
+            </value>
+          </text>
+          <text id="/data/name1:label">
+            <value>name1</value>
+          </text>
+          <text id="/data/name2:label">
+            <value>name2</value>
+          </text>
+          <text id="/data/name3:label">
+            <value>name3</value>
+          </text>
+          <text id="/data/names:label">
+            <value>names</value>
+          </text>
+          <text id="/data/current_date:label">
+            <value>date_now</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <data id="XLDateAmbiguous-v1">
+          <name1/>
+          <name2/>
+          <name3/>
+          <names/>
+          <current_date>1900-01-01 00:00:00</current_date>
+          <meta>
+            <instanceID/>
+            <instanceName/>
+          </meta>
+        </data>
+      </instance>
+      <instance id="names_list">
+        <root>
+          <item>
+            <itextId>names_list-0</itextId>
+            <name>name1</name>
+          </item>
+          <item>
+            <itextId>names_list-1</itextId>
+            <name>name2</name>
+          </item>
+          <item>
+            <itextId>names_list-2</itextId>
+            <name>name3</name>
+          </item>
+        </root>
+      </instance>
+      <bind nodeset="/data/name1" type="string"/>
+      <bind nodeset="/data/name2" type="string"/>
+      <bind nodeset="/data/name3" type="string"/>
+      <bind nodeset="/data/names" type="string"/>
+      <bind nodeset="/data/current_date" type="date"/>
+      <bind nodeset="/data/meta/instanceID" type="string" readonly="true()" jr:preload="uid"/>
+      <bind nodeset="/data/meta/instanceName" type="string" calculate="XLDateAmbiguous-v1"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input ref="/data/name1">
+      <label ref="jr:itext('/data/name1:label')"/>
+    </input>
+    <input ref="/data/name2">
+      <label ref="jr:itext('/data/name2:label')"/>
+    </input>
+    <input ref="/data/name3">
+      <label ref="jr:itext('/data/name3:label')"/>
+    </input>
+    <select1 ref="/data/names">
+      <label ref="jr:itext('/data/names:label')"/>
+      <itemset nodeset="instance('names_list')/root/item">
+        <value ref="name"/>
+        <label ref="jr:itext(itextId)"/>
+      </itemset>
+    </select1>
+    <input ref="/data/current_date">
+      <label ref="jr:itext('/data/current_date:label')"/>
+    </input>
+  </h:body>
+</h:html>

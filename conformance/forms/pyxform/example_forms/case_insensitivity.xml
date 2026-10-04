@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:odk="http://www.opendatakit.org/xforms" xmlns:entities="http://www.opendatakit.org/xforms/entities">
+  <h:head>
+    <h:title>Yes or no</h:title>
+    <model odk:xforms-version="1.0.0" entities:entities-version="2024.1.0">
+      <itext>
+        <translation lang="EN" default="true()">
+          <text id="c1-0">
+            <value>l1-c</value>
+          </text>
+          <text id="c1-1">
+            <value>l2-c</value>
+          </text>
+          <text id="/data/q1:label">
+            <value>Are you good?</value>
+          </text>
+          <text id="/data/q2:label">
+            <value>Where are you?</value>
+          </text>
+          <text id="/data/q3:label">
+            <value>Where exactly?</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <data id="YesNo">
+          <q1/>
+          <q2/>
+          <q3/>
+          <meta>
+            <entity dataset="e1" create="1" id="">
+              <label/>
+            </entity>
+            <instanceID/>
+          </meta>
+        </data>
+      </instance>
+      <instance id="c1">
+        <root>
+          <item>
+            <itextId>c1-0</itextId>
+            <name>n1-c</name>
+          </item>
+          <item>
+            <itextId>c1-1</itextId>
+            <name>n2-c</name>
+          </item>
+        </root>
+      </instance>
+      <bind nodeset="/data/q1" type="string"/>
+      <bind nodeset="/data/q2" type="string"/>
+      <bind nodeset="/data/q3" type="binary"/>
+      <bind nodeset="/data/meta/entity/@id" readonly="true()" type="string"/>
+      <setvalue ref="/data/meta/entity/@id" event="odk-instance-first-load" value="uuid()"/>
+      <bind nodeset="/data/meta/entity/label" calculate="l1" readonly="true()" type="string"/>
+      <bind nodeset="/data/meta/instanceID" type="string" readonly="true()" jr:preload="uid"/>
+    </model>
+  </h:head>
+  <h:body>
+    <select1 ref="/data/q1">
+      <label ref="jr:itext('/data/q1:label')"/>
+      <itemset nodeset="instance('c1')/root/item">
+        <value ref="name"/>
+        <label ref="jr:itext(itextId)"/>
+      </itemset>
+    </select1>
+    <input ref="/data/q2" query="instance('c1')/root/item[YES_NO= /data/q1 ]">
+      <label ref="jr:itext('/data/q2:label')"/>
+    </input>
+    <upload ref="/data/q3" mediatype="osm/*">
+      <label ref="jr:itext('/data/q3:label')"/>
+      <tag key="n1-o">
+        <label>l1-o</label>
+      </tag>
+      <tag key="n2-o">
+        <label>l2-o</label>
+      </tag>
+    </upload>
+  </h:body>
+</h:html>

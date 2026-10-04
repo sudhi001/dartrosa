@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:odk="http://www.opendatakit.org/xforms">
+  <h:head>
+    <h:title>data</h:title>
+    <model odk:xforms-version="1.0.0">
+      <instance>
+        <geos id="data">
+          <repeat jr:template="">
+            <point/>
+            <point_note/>
+            <trace/>
+            <trace_note/>
+            <shape/>
+            <shape_note/>
+          </repeat>
+          <repeat>
+            <point/>
+            <point_note/>
+            <trace/>
+            <trace_note/>
+            <shape/>
+            <shape_note/>
+          </repeat>
+          <meta>
+            <instanceID/>
+          </meta>
+        </geos>
+      </instance>
+      <bind nodeset="/geos/repeat/point" type="geopoint"/>
+      <bind nodeset="/geos/repeat/point_note" readonly="true()" type="string"/>
+      <bind nodeset="/geos/repeat/trace" type="geotrace"/>
+      <bind nodeset="/geos/repeat/trace_note" readonly="true()" type="string"/>
+      <bind nodeset="/geos/repeat/shape" type="geoshape"/>
+      <bind nodeset="/geos/repeat/shape_note" readonly="true()" type="string"/>
+      <bind nodeset="/geos/meta/instanceID" type="string" readonly="true()" jr:preload="uid"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="/geos/repeat">
+      <label/>
+      <repeat nodeset="/geos/repeat">
+        <input ref="/geos/repeat/point">
+          <label>Record Geopoint</label>
+        </input>
+        <input ref="/geos/repeat/point_note">
+          <label> Point <output value=" ../point "/> </label>
+        </input>
+        <input ref="/geos/repeat/trace">
+          <label>Record a Geotrace</label>
+        </input>
+        <input ref="/geos/repeat/trace_note">
+          <label> Trace: <output value=" ../trace "/> </label>
+        </input>
+        <input ref="/geos/repeat/shape">
+          <label>Record a Geoshape</label>
+        </input>
+        <input ref="/geos/repeat/shape_note">
+          <label> Shape: <output value=" ../shape "/> </label>
+        </input>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

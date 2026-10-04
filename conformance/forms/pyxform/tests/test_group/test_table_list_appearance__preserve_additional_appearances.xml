@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:odk="http://www.opendatakit.org/xforms">
+  <h:head>
+    <h:title>data</h:title>
+    <model odk:xforms-version="1.0.0">
+      <instance>
+        <test_name id="data">
+          <g1>
+            <generated_table_list_label_2/>
+            <reserved_name_for_field_list_labels_3/>
+            <q1/>
+            <q2/>
+          </g1>
+          <meta>
+            <instanceID/>
+          </meta>
+        </test_name>
+      </instance>
+      <instance id="c1">
+        <root>
+          <item>
+            <name>n1</name>
+            <label>N1</label>
+          </item>
+        </root>
+      </instance>
+      <bind nodeset="/test_name/g1/generated_table_list_label_2" readonly="true()" type="string"/>
+      <bind nodeset="/test_name/g1/reserved_name_for_field_list_labels_3" type="string"/>
+      <bind nodeset="/test_name/g1/q1" type="string"/>
+      <bind nodeset="/test_name/g1/q2" type="string"/>
+      <bind nodeset="/test_name/meta/instanceID" type="string" readonly="true()" jr:preload="uid"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group appearance="field-list fake" ref="/test_name/g1">
+      <input ref="/test_name/g1/generated_table_list_label_2">
+        <label>G1</label>
+      </input>
+      <select1 ref="/test_name/g1/reserved_name_for_field_list_labels_3" appearance="label">
+        <label> </label>
+        <itemset nodeset="instance('c1')/root/item">
+          <value ref="name"/>
+          <label ref="label"/>
+        </itemset>
+      </select1>
+      <select1 ref="/test_name/g1/q1" appearance="list-nolabel">
+        <label>Q1</label>
+        <hint>first row!</hint>
+        <itemset nodeset="instance('c1')/root/item">
+          <value ref="name"/>
+          <label ref="label"/>
+        </itemset>
+      </select1>
+      <select1 ref="/test_name/g1/q2" appearance="list-nolabel">
+        <label>Q2</label>
+        <itemset nodeset="instance('c1')/root/item">
+          <value ref="name"/>
+          <label ref="label"/>
+        </itemset>
+      </select1>
+    </group>
+  </h:body>
+</h:html>

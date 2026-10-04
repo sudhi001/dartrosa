@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:odk="http://www.opendatakit.org/xforms">
+  <h:head>
+    <h:title>data</h:title>
+    <model odk:xforms-version="1.0.0">
+      <instance>
+        <last-saved id="data">
+          <my-repeat jr:template="">
+            <foo/>
+            <bar/>
+          </my-repeat>
+          <my-repeat>
+            <foo/>
+            <bar/>
+          </my-repeat>
+          <baz/>
+          <meta>
+            <instanceID/>
+          </meta>
+        </last-saved>
+      </instance>
+      <instance id="__last-saved" src="jr://instance/last-saved"/>
+      <bind nodeset="/last-saved/my-repeat/foo" type="int"/>
+      <bind nodeset="/last-saved/my-repeat/bar" type="string" calculate=" ../foo  +  instance('__last-saved')/last-saved/my-repeat/foo "/>
+      <bind nodeset="/last-saved/baz" type="string" calculate=" /last-saved/my-repeat/foo  +  instance('__last-saved')/last-saved/my-repeat/foo "/>
+      <bind nodeset="/last-saved/meta/instanceID" type="string" readonly="true()" jr:preload="uid"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="/last-saved/my-repeat">
+      <label/>
+      <repeat nodeset="/last-saved/my-repeat">
+        <input ref="/last-saved/my-repeat/foo">
+          <label>Foo</label>
+        </input>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

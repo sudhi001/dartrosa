@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:odk="http://www.opendatakit.org/xforms">
+  <h:head>
+    <h:title>data</h:title>
+    <model odk:xforms-version="1.0.0">
+      <instance>
+        <test_name id="data">
+          <q1/>
+          <q2/>
+          <q3/>
+          <meta>
+            <instanceID/>
+          </meta>
+        </test_name>
+      </instance>
+      <instance id="c1">
+        <root>
+          <item>
+            <name>a  b</name>
+            <label>c  1</label>
+          </item>
+        </root>
+      </instance>
+      <instance id="c2">
+        <root>
+          <item>
+            <name>b</name>
+            <label>c  2</label>
+          </item>
+        </root>
+      </instance>
+      <bind nodeset="/test_name/q1" type="int" calculate="string-length('abc  def')"/>
+      <bind nodeset="/test_name/q2" type="string"/>
+      <bind nodeset="/test_name/q3" type="string"/>
+      <bind nodeset="/test_name/meta/instanceID" type="string" readonly="true()" jr:preload="uid"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input ref="/test_name/q1">
+      <label>Q1</label>
+    </input>
+    <select1 ref="/test_name/q2">
+      <label>Q2</label>
+      <itemset nodeset="instance('c1')/root/item">
+        <value ref="name"/>
+        <label ref="label"/>
+      </itemset>
+    </select1>
+    <select ref="/test_name/q3">
+      <label>Q3</label>
+      <itemset nodeset="instance('c2')/root/item">
+        <value ref="name"/>
+        <label ref="label"/>
+      </itemset>
+    </select>
+  </h:body>
+</h:html>

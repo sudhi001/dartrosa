@@ -1,0 +1,808 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:odk="http://www.opendatakit.org/xforms">
+  <h:head>
+    <h:title>Spec test</h:title>
+    <model odk:xforms-version="1.0.0">
+      <submission action="https://example-odk-aggregate.appspot.com/submission" method="post" base64RsaPublicKey="MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAo93+Dgn3iDleC9XMTDH7ez1MOm/BOt287DgkldNkdvrtdC4oUegx3N8Say9tq47k2EOzeLYkezVnKdtserx+g/+R6pDIOS66bwbH+HoslDEUaZRZ47EipSGC1JhtOp/nQGQCsdVc5q/fPvw8d2rLLi+PQUZPBOiBxUo9h/CFc41hl/quUELmylSdL4O06OAP8OCEDA+tl0C2Ik+uCYMDJLD4m7YVbkV7jJXjtILj+GW+noLriFMRsgg7WKQe2j9fw5+v46nzhokOnDnHh+yGwQMfs/B0jfFAgXllLNjIPlXQf2UVzuxEax6wLCyqUXMIjCPSNfnzDRgFB4Qw3QbJCwIDAQAB"/>
+      <itext>
+        <translation lang="default" default="true()">
+          <text id="yes_no-0">
+            <value>Yes</value>
+          </text>
+          <text id="yes_no-1">
+            <value>No</value>
+          </text>
+          <text id="a_b-0">
+            <value form="image">jr://images/a.jpg</value>
+          </text>
+          <text id="a_b-1">
+            <value form="image">jr://images/b.jpg</value>
+          </text>
+          <text id="/data/everything/number_label:hint">
+            <value>a note</value>
+          </text>
+          <text id="/data/everything/text_image_audio_video_test:hint">
+            <value>The goal of this test is to try out all the different media types in many languages to see if there are any bugs inserting media.</value>
+          </text>
+          <text id="/data/everything/text_image_audio_video_test:label">
+            <value form="image">jr://images/img_test.jpg</value>
+            <value form="audio">jr://audio/audio_test.wav</value>
+            <value form="video">jr://video/test.mov</value>
+            <value>-</value>
+          </text>
+          <text id="/data/everything/display_image_test:label">
+            <value form="image">jr://images/img_test.jpg</value>
+          </text>
+          <text id="/data/everything/address:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/address:hint">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/number_label:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/repeat_test/group_test/select_multiple_test:jr:constraintMsg">
+            <value>-</value>
+          </text>
+          <text id="/data/skip_to_end:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/my_name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/invalid_variable:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/email_note:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/autocomplete_test:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/autocomplete_chars_test:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/a_integer:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/a_decimal:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/repeat_test:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/repeat_test/group_test/required_text:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/repeat_test/group_test/select_multiple_test:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/repeat_test/labeled_select_group:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/repeat_test/labeled_select_group/label-test:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/repeat_test/labeled_select_group/list-nolabel-test:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/repeat_test/name/table_list_question:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/repeat_test/compact-test:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/repeat_test/compact-2-test:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/acknowledge_test:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/date_test:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/time_test:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/datetime_test:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/geopoint_test:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/barcode_test:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/image_test:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/audio_test:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/video_test:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/note_test:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/calculate_test_output:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/start_test_output:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/end_test_output:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/today_test_output:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/deviceid_test_output:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/uri_deviceid_test_output:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/simserial_test_output:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/phonenumber_test_output:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/_1:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/FALSE:label">
+            <value>-</value>
+          </text>
+          <text id="/data/launch:label">
+            <value>-</value>
+          </text>
+        </translation>
+        <translation lang="chinese">
+          <text id="yes_no-0">
+            <value>是</value>
+          </text>
+          <text id="yes_no-1">
+            <value>没有</value>
+          </text>
+          <text id="/data/everything/address:label">
+            <value>您好</value>
+          </text>
+          <text id="/data/everything/address:hint">
+            <value>ni hao</value>
+          </text>
+          <text id="/data/everything/number_label:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/number_label:hint">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/text_image_audio_video_test:label">
+            <value>您好</value>
+            <value form="audio">jr://audio/chinese_audio.wav</value>
+          </text>
+          <text id="/data/everything/text_image_audio_video_test:hint">
+            <value>ni hao</value>
+          </text>
+          <text id="/data/everything/repeat_test/group_test/select_multiple_test:jr:constraintMsg">
+            <value> 對不起 <output value=" /data/everything/my_name "/>，你可以不選擇"是"和"否"。 </value>
+          </text>
+          <text id="a_b-0"/>
+          <text id="a_b-1"/>
+          <text id="/data/everything/display_image_test:label"/>
+          <text id="/data/skip_to_end:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/my_name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/invalid_variable:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/email_note:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/autocomplete_test:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/autocomplete_chars_test:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/a_integer:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/a_decimal:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/repeat_test:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/repeat_test/group_test/required_text:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/repeat_test/group_test/select_multiple_test:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/repeat_test/labeled_select_group:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/repeat_test/labeled_select_group/label-test:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/repeat_test/labeled_select_group/list-nolabel-test:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/repeat_test/name/table_list_question:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/repeat_test/compact-test:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/repeat_test/compact-2-test:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/acknowledge_test:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/date_test:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/time_test:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/datetime_test:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/geopoint_test:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/barcode_test:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/image_test:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/audio_test:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/video_test:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/note_test:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/calculate_test_output:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/start_test_output:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/end_test_output:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/today_test_output:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/deviceid_test_output:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/uri_deviceid_test_output:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/simserial_test_output:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/phonenumber_test_output:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/_1:label">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/FALSE:label">
+            <value>-</value>
+          </text>
+          <text id="/data/launch:label">
+            <value>-</value>
+          </text>
+        </translation>
+        <translation lang="english">
+          <text id="/data/skip_to_end:label">
+            <value>Skip to end</value>
+          </text>
+          <text id="/data/everything/my_name:label">
+            <value>Enter your name</value>
+          </text>
+          <text id="/data/everything/invalid_variable:label">
+            <value> Your name is <output value=" /data/everything/my_name "/> </value>
+          </text>
+          <text id="/data/everything/address:label">
+            <value>Enter an address</value>
+          </text>
+          <text id="/data/everything/email_note:label">
+            <value>You entered an email address</value>
+          </text>
+          <text id="/data/everything/number_label:label">
+            <value>1</value>
+          </text>
+          <text id="/data/everything/text_image_audio_video_test:label">
+            <value>text_image_audio_video_test</value>
+            <value form="image">jr://images/img_test_2.jpg</value>
+          </text>
+          <text id="/data/everything/autocomplete_test:label">
+            <value>autocomplete_test</value>
+          </text>
+          <text id="/data/everything/autocomplete_chars_test:label">
+            <value>autocomplete_chars_test</value>
+          </text>
+          <text id="/data/everything/a_integer:label">
+            <value>a integer</value>
+          </text>
+          <text id="/data/everything/a_decimal:label">
+            <value>constrained decimal</value>
+          </text>
+          <text id="/data/everything/repeat_test:label">
+            <value>repeat_test</value>
+          </text>
+          <text id="/data/everything/repeat_test/group_test/required_text:label">
+            <value>required_text</value>
+          </text>
+          <text id="/data/everything/repeat_test/group_test/select_multiple_test:jr:constraintMsg">
+            <value> Sorry <output value=" /data/everything/my_name "/>, you can't select yes and no. </value>
+          </text>
+          <text id="/data/everything/repeat_test/group_test/select_multiple_test:label">
+            <value>select multiple test</value>
+          </text>
+          <text id="/data/everything/repeat_test/labeled_select_group:label">
+            <value>labeled select group test</value>
+          </text>
+          <text id="/data/everything/repeat_test/labeled_select_group/label-test:label">
+            <value>label-test</value>
+          </text>
+          <text id="/data/everything/repeat_test/labeled_select_group/list-nolabel-test:label">
+            <value>list-nolabel-test</value>
+          </text>
+          <text id="/data/everything/repeat_test/name/table_list_question:label">
+            <value>table list question</value>
+          </text>
+          <text id="/data/everything/repeat_test/compact-test:label">
+            <value>compact-test</value>
+          </text>
+          <text id="/data/everything/repeat_test/compact-2-test:label">
+            <value>compact-2-test</value>
+          </text>
+          <text id="/data/everything/acknowledge_test:label">
+            <value>acknowledge_test</value>
+          </text>
+          <text id="/data/everything/date_test:label">
+            <value>date_test</value>
+          </text>
+          <text id="/data/everything/time_test:label">
+            <value>time_test</value>
+          </text>
+          <text id="/data/everything/datetime_test:label">
+            <value>datetime_test</value>
+          </text>
+          <text id="/data/everything/geopoint_test:label">
+            <value>geopoint_test</value>
+          </text>
+          <text id="/data/everything/barcode_test:label">
+            <value>barcode_test</value>
+          </text>
+          <text id="/data/everything/image_test:label">
+            <value>image_test</value>
+          </text>
+          <text id="/data/everything/audio_test:label">
+            <value>audio_test</value>
+          </text>
+          <text id="/data/everything/video_test:label">
+            <value>video_test</value>
+          </text>
+          <text id="/data/everything/note_test:label">
+            <value>note_test</value>
+          </text>
+          <text id="/data/everything/calculate_test_output:label">
+            <value>
+              <output value=" /data/everything/calculate_test "/>
+            </value>
+          </text>
+          <text id="/data/everything/start_test_output:label">
+            <value> start test output: <output value=" /data/everything/start "/> </value>
+          </text>
+          <text id="/data/everything/end_test_output:label">
+            <value> end test output: <output value=" /data/everything/end "/> </value>
+          </text>
+          <text id="/data/everything/today_test_output:label">
+            <value> today_test_output: <output value=" /data/everything/today "/> </value>
+          </text>
+          <text id="/data/everything/deviceid_test_output:label">
+            <value> deviceid_test_output: <output value=" /data/everything/deviceid "/> </value>
+          </text>
+          <text id="/data/everything/uri_deviceid_test_output:label">
+            <value> deviceid_test_output: <output value=" /data/everything/uri_deviceid "/> </value>
+          </text>
+          <text id="/data/everything/simserial_test_output:label">
+            <value> simserial_test_output: <output value=" /data/everything/simserial "/> </value>
+          </text>
+          <text id="/data/everything/phonenumber_test_output:label">
+            <value> phonenumber_test_output: <output value=" /data/everything/phonenumber "/> </value>
+          </text>
+          <text id="/data/everything/_1:label">
+            <value>numerical name test</value>
+          </text>
+          <text id="/data/everything/FALSE:label">
+            <value>boolean name test</value>
+          </text>
+          <text id="/data/launch:label">
+            <value>This launches a fictional application to get an integer result.</value>
+          </text>
+          <text id="yes_no-0">
+            <value>-</value>
+          </text>
+          <text id="yes_no-1">
+            <value>-</value>
+          </text>
+          <text id="a_b-0"/>
+          <text id="a_b-1"/>
+          <text id="/data/everything/number_label:hint">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/text_image_audio_video_test:hint">
+            <value>-</value>
+          </text>
+          <text id="/data/everything/display_image_test:label"/>
+          <text id="/data/everything/address:hint">
+            <value>-</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <data id="Spec test">
+          <skip_to_end testAttribute="test"/>
+          <everything testAttribute="test">
+            <my_name/>
+            <invalid_variable/>
+            <address testAttribute=" /data/everything/my_name "/>
+            <email_note/>
+            <number_label/>
+            <text_image_audio_video_test/>
+            <display_image_test/>
+            <autocomplete_test/>
+            <autocomplete_chars_test/>
+            <a_integer/>
+            <a_decimal/>
+            <repeat_test_count/>
+            <repeat_test jr:template="">
+              <group_test>
+                <required_text/>
+                <select_multiple_test/>
+              </group_test>
+              <labeled_select_group>
+                <label-test/>
+                <list-nolabel-test/>
+              </labeled_select_group>
+              <name>
+                <reserved_name_for_field_list_labels_25/>
+                <table_list_question/>
+              </name>
+              <compact-test/>
+              <compact-2-test/>
+            </repeat_test>
+            <repeat_test testAttribute="test">
+              <group_test>
+                <required_text/>
+                <select_multiple_test/>
+              </group_test>
+              <labeled_select_group>
+                <label-test/>
+                <list-nolabel-test/>
+              </labeled_select_group>
+              <name>
+                <reserved_name_for_field_list_labels_25/>
+                <table_list_question/>
+              </name>
+              <compact-test/>
+              <compact-2-test/>
+            </repeat_test>
+            <acknowledge_test testAttribute="test"/>
+            <date_test testAttribute="test"/>
+            <time_test testAttribute="test"/>
+            <datetime_test testAttribute="test"/>
+            <geopoint_test testAttribute="test"/>
+            <barcode_test testAttribute="test"/>
+            <image_test testAttribute="test"/>
+            <audio_test testAttribute="test"/>
+            <video_test testAttribute="test"/>
+            <note_test/>
+            <calculate_test testAttribute="test"/>
+            <calculate_test_output/>
+            <start/>
+            <start_test_output/>
+            <end/>
+            <end_test_output/>
+            <today/>
+            <today_test_output/>
+            <deviceid testAttribute="test"/>
+            <deviceid_test_output/>
+            <uri_deviceid/>
+            <uri_deviceid_test_output/>
+            <simserial/>
+            <simserial_test_output/>
+            <phonenumber/>
+            <phonenumber_test_output/>
+            <_1/>
+            <FALSE/>
+          </everything>
+          <launch/>
+          <meta>
+            <instanceID/>
+            <instanceName/>
+          </meta>
+        </data>
+      </instance>
+      <instance id="yes_no">
+        <root>
+          <item>
+            <itextId>yes_no-0</itextId>
+            <name>yes</name>
+          </item>
+          <item>
+            <itextId>yes_no-1</itextId>
+            <name>no</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="a_b">
+        <root>
+          <item>
+            <itextId>a_b-0</itextId>
+            <name>a</name>
+          </item>
+          <item>
+            <itextId>a_b-1</itextId>
+            <name>b</name>
+          </item>
+        </root>
+      </instance>
+      <bind nodeset="/data/skip_to_end" type="string" saveIncomplete="true()"/>
+      <bind nodeset="/data/everything" relevant="not(selected( /data/skip_to_end , 'yes'))"/>
+      <bind nodeset="/data/everything/my_name" type="string"/>
+      <bind nodeset="/data/everything/invalid_variable" readonly="true()" type="string" bindAttribute="test"/>
+      <bind nodeset="/data/everything/address" type="string" bindAttribute=" /data/everything/my_name "/>
+      <bind nodeset="/data/everything/email_note" readonly="true()" type="string" relevant="regex( /data/everything/address , '[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}')"/>
+      <bind nodeset="/data/everything/number_label" readonly="true()" type="string"/>
+      <bind nodeset="/data/everything/text_image_audio_video_test" type="string"/>
+      <bind nodeset="/data/everything/display_image_test" readonly="true()" type="string"/>
+      <bind nodeset="/data/everything/autocomplete_test" type="string"/>
+      <bind nodeset="/data/everything/autocomplete_chars_test" type="string"/>
+      <bind nodeset="/data/everything/a_integer" type="int"/>
+      <bind nodeset="/data/everything/a_decimal" type="decimal" constraint=". &lt;=  /data/everything/a_integer "/>
+      <bind nodeset="/data/everything/repeat_test_count" type="string" readonly="true()" calculate="2"/>
+      <bind nodeset="/data/everything/repeat_test" bindAttribute="test"/>
+      <bind nodeset="/data/everything/repeat_test/group_test/required_text" type="string" jr:requiredMsg="Custom required message." required="true()"/>
+      <bind nodeset="/data/everything/repeat_test/group_test/select_multiple_test" type="string" constraint="not(selected(., 'yes') and selected (., 'no'))" jr:constraintMsg="jr:itext('/data/everything/repeat_test/group_test/select_multiple_test:jr:constraintMsg')" required="false()"/>
+      <bind nodeset="/data/everything/repeat_test/labeled_select_group/label-test" type="string"/>
+      <bind nodeset="/data/everything/repeat_test/labeled_select_group/list-nolabel-test" type="string" required="true()"/>
+      <bind nodeset="/data/everything/repeat_test/name/reserved_name_for_field_list_labels_25" type="string"/>
+      <bind nodeset="/data/everything/repeat_test/name/table_list_question" type="string"/>
+      <bind nodeset="/data/everything/repeat_test/compact-test" type="string"/>
+      <bind nodeset="/data/everything/repeat_test/compact-2-test" type="string"/>
+      <bind nodeset="/data/everything/acknowledge_test" type="string" bindAttribute="test"/>
+      <bind nodeset="/data/everything/date_test" type="date" bindAttribute="test"/>
+      <bind nodeset="/data/everything/time_test" type="time" bindAttribute="test"/>
+      <bind nodeset="/data/everything/datetime_test" type="dateTime" bindAttribute="test"/>
+      <bind nodeset="/data/everything/geopoint_test" type="geopoint" bindAttribute="test"/>
+      <bind nodeset="/data/everything/barcode_test" type="barcode" bindAttribute="test"/>
+      <bind nodeset="/data/everything/image_test" type="binary" bindAttribute="test"/>
+      <bind nodeset="/data/everything/audio_test" type="binary" bindAttribute="test"/>
+      <bind nodeset="/data/everything/video_test" type="binary" bindAttribute="test"/>
+      <bind nodeset="/data/everything/note_test" readonly="true()" type="string"/>
+      <bind nodeset="/data/everything/calculate_test" type="string" calculate="2+2" bindAttribute="test"/>
+      <bind nodeset="/data/everything/calculate_test_output" readonly="true()" type="string"/>
+      <bind nodeset="/data/everything/start" jr:preload="timestamp" type="dateTime" jr:preloadParams="start"/>
+      <bind nodeset="/data/everything/start_test_output" readonly="true()" type="string"/>
+      <bind nodeset="/data/everything/end" jr:preload="timestamp" type="dateTime" jr:preloadParams="end"/>
+      <bind nodeset="/data/everything/end_test_output" readonly="true()" type="string"/>
+      <bind nodeset="/data/everything/today" jr:preload="date" type="date" jr:preloadParams="today"/>
+      <bind nodeset="/data/everything/today_test_output" readonly="true()" type="string"/>
+      <bind nodeset="/data/everything/deviceid" jr:preload="property" type="string" jr:preloadParams="deviceid" bindAttribute="test"/>
+      <bind nodeset="/data/everything/deviceid_test_output" readonly="true()" type="string"/>
+      <bind nodeset="/data/everything/uri_deviceid" jr:preload="property" type="string" jr:preloadParams="uri:deviceid"/>
+      <bind nodeset="/data/everything/uri_deviceid_test_output" readonly="true()" type="string"/>
+      <bind nodeset="/data/everything/simserial" jr:preload="property" type="string" jr:preloadParams="simserial"/>
+      <bind nodeset="/data/everything/simserial_test_output" readonly="true()" type="string"/>
+      <bind nodeset="/data/everything/phonenumber" jr:preload="property" type="string" jr:preloadParams="phonenumber"/>
+      <bind nodeset="/data/everything/phonenumber_test_output" readonly="true()" type="string"/>
+      <bind nodeset="/data/everything/_1" type="string"/>
+      <bind nodeset="/data/everything/FALSE" type="string"/>
+      <bind nodeset="/data/launch" type="int" jr:noAppErrorString="Sorry, app does not exist."/>
+      <bind nodeset="/data/meta/instanceID" type="string" readonly="true()" jr:preload="uid"/>
+      <bind nodeset="/data/meta/instanceName" type="string" calculate=" /data/everything/my_name "/>
+    </model>
+  </h:head>
+  <h:body>
+    <select1 ref="/data/skip_to_end" bodyAttribute="42">
+      <label ref="jr:itext('/data/skip_to_end:label')"/>
+      <itemset nodeset="instance('yes_no')/root/item">
+        <value ref="name"/>
+        <label ref="jr:itext(itextId)"/>
+      </itemset>
+    </select1>
+    <group bodyAttribute2="test" ref="/data/everything">
+      <input ref="/data/everything/my_name" rows="12">
+        <label ref="jr:itext('/data/everything/my_name:label')"/>
+      </input>
+      <input ref="/data/everything/invalid_variable">
+        <label ref="jr:itext('/data/everything/invalid_variable:label')"/>
+        <hint>Try replacing my_name with a invalid variable</hint>
+      </input>
+      <input ref="/data/everything/address" bodyAttribute=" /data/everything/my_name ">
+        <label ref="jr:itext('/data/everything/address:label')"/>
+        <hint ref="jr:itext('/data/everything/address:hint')"/>
+      </input>
+      <input ref="/data/everything/email_note">
+        <label ref="jr:itext('/data/everything/email_note:label')"/>
+      </input>
+      <input ref="/data/everything/number_label">
+        <label ref="jr:itext('/data/everything/number_label:label')"/>
+        <hint ref="jr:itext('/data/everything/number_label:hint')"/>
+      </input>
+      <input ref="/data/everything/text_image_audio_video_test" autoplay="audio">
+        <label ref="jr:itext('/data/everything/text_image_audio_video_test:label')"/>
+        <hint ref="jr:itext('/data/everything/text_image_audio_video_test:hint')"/>
+      </input>
+      <input ref="/data/everything/display_image_test">
+        <label ref="jr:itext('/data/everything/display_image_test:label')"/>
+      </input>
+      <select1 ref="/data/everything/autocomplete_test" appearance="autocomplete">
+        <label ref="jr:itext('/data/everything/autocomplete_test:label')"/>
+        <itemset nodeset="instance('yes_no')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+      <select1 ref="/data/everything/autocomplete_chars_test" appearance="autocomplete_chars">
+        <label ref="jr:itext('/data/everything/autocomplete_chars_test:label')"/>
+        <itemset nodeset="instance('yes_no')/root/item">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+      <input ref="/data/everything/a_integer">
+        <label ref="jr:itext('/data/everything/a_integer:label')"/>
+      </input>
+      <input ref="/data/everything/a_decimal">
+        <label ref="jr:itext('/data/everything/a_decimal:label')"/>
+      </input>
+      <group ref="/data/everything/repeat_test">
+        <label ref="jr:itext('/data/everything/repeat_test:label')"/>
+        <repeat nodeset="/data/everything/repeat_test" jr:count=" /data/everything/repeat_test_count " bodyAttribute="test" bodyAttribute2="test">
+          <group appearance="field-list" ref="/data/everything/repeat_test/group_test">
+            <input ref="/data/everything/repeat_test/group_test/required_text">
+              <label ref="jr:itext('/data/everything/repeat_test/group_test/required_text:label')"/>
+            </input>
+            <select ref="/data/everything/repeat_test/group_test/select_multiple_test" appearance="minimal">
+              <label ref="jr:itext('/data/everything/repeat_test/group_test/select_multiple_test:label')"/>
+              <itemset nodeset="instance('yes_no')/root/item">
+                <value ref="name"/>
+                <label ref="jr:itext(itextId)"/>
+              </itemset>
+            </select>
+          </group>
+          <group appearance="field-list" ref="/data/everything/repeat_test/labeled_select_group">
+            <label ref="jr:itext('/data/everything/repeat_test/labeled_select_group:label')"/>
+            <select1 ref="/data/everything/repeat_test/labeled_select_group/label-test" appearance="label">
+              <label ref="jr:itext('/data/everything/repeat_test/labeled_select_group/label-test:label')"/>
+              <itemset nodeset="instance('yes_no')/root/item">
+                <value ref="name"/>
+                <label ref="jr:itext(itextId)"/>
+              </itemset>
+            </select1>
+            <select1 ref="/data/everything/repeat_test/labeled_select_group/list-nolabel-test" appearance="list-nolabel">
+              <label ref="jr:itext('/data/everything/repeat_test/labeled_select_group/list-nolabel-test:label')"/>
+              <itemset nodeset="instance('yes_no')/root/item">
+                <value ref="name"/>
+                <label ref="jr:itext(itextId)"/>
+              </itemset>
+            </select1>
+          </group>
+          <group appearance="field-list" ref="/data/everything/repeat_test/name">
+            <select1 ref="/data/everything/repeat_test/name/reserved_name_for_field_list_labels_25" appearance="label">
+              <label> </label>
+              <itemset nodeset="instance('yes_no')/root/item">
+                <value ref="name"/>
+                <label ref="jr:itext(itextId)"/>
+              </itemset>
+            </select1>
+            <select1 ref="/data/everything/repeat_test/name/table_list_question" appearance="list-nolabel">
+              <label ref="jr:itext('/data/everything/repeat_test/name/table_list_question:label')"/>
+              <hint>hint</hint>
+              <itemset nodeset="instance('yes_no')/root/item">
+                <value ref="name"/>
+                <label ref="jr:itext(itextId)"/>
+              </itemset>
+            </select1>
+          </group>
+          <select1 ref="/data/everything/repeat_test/compact-test" appearance="compact">
+            <label ref="jr:itext('/data/everything/repeat_test/compact-test:label')"/>
+            <itemset nodeset="instance('a_b')/root/item">
+              <value ref="name"/>
+              <label ref="jr:itext(itextId)"/>
+            </itemset>
+          </select1>
+          <select1 ref="/data/everything/repeat_test/compact-2-test" appearance="compact-2">
+            <label ref="jr:itext('/data/everything/repeat_test/compact-2-test:label')"/>
+            <itemset nodeset="instance('a_b')/root/item">
+              <value ref="name"/>
+              <label ref="jr:itext(itextId)"/>
+            </itemset>
+          </select1>
+        </repeat>
+      </group>
+      <trigger ref="/data/everything/acknowledge_test" bodyAttribute="test" bodyAttribute2="test">
+        <label ref="jr:itext('/data/everything/acknowledge_test:label')"/>
+      </trigger>
+      <input ref="/data/everything/date_test" bodyAttribute="test" bodyAttribute2="test">
+        <label ref="jr:itext('/data/everything/date_test:label')"/>
+      </input>
+      <input ref="/data/everything/time_test" bodyAttribute="test" bodyAttribute2="test">
+        <label ref="jr:itext('/data/everything/time_test:label')"/>
+      </input>
+      <input ref="/data/everything/datetime_test" bodyAttribute="test" bodyAttribute2="test">
+        <label ref="jr:itext('/data/everything/datetime_test:label')"/>
+      </input>
+      <input ref="/data/everything/geopoint_test" bodyAttribute="test" bodyAttribute2="test">
+        <label ref="jr:itext('/data/everything/geopoint_test:label')"/>
+      </input>
+      <input ref="/data/everything/barcode_test" bodyAttribute="test" bodyAttribute2="test">
+        <label ref="jr:itext('/data/everything/barcode_test:label')"/>
+      </input>
+      <upload ref="/data/everything/image_test" mediatype="image/*" bodyAttribute="test" bodyAttribute2="test">
+        <label ref="jr:itext('/data/everything/image_test:label')"/>
+      </upload>
+      <upload ref="/data/everything/audio_test" mediatype="audio/*" bodyAttribute="test" bodyAttribute2="test">
+        <label ref="jr:itext('/data/everything/audio_test:label')"/>
+      </upload>
+      <upload ref="/data/everything/video_test" mediatype="video/*" bodyAttribute="test" bodyAttribute2="test">
+        <label ref="jr:itext('/data/everything/video_test:label')"/>
+      </upload>
+      <input ref="/data/everything/note_test">
+        <label ref="jr:itext('/data/everything/note_test:label')"/>
+      </input>
+      <input ref="/data/everything/calculate_test_output">
+        <label ref="jr:itext('/data/everything/calculate_test_output:label')"/>
+      </input>
+      <input ref="/data/everything/start_test_output">
+        <label ref="jr:itext('/data/everything/start_test_output:label')"/>
+      </input>
+      <input ref="/data/everything/end_test_output">
+        <label ref="jr:itext('/data/everything/end_test_output:label')"/>
+      </input>
+      <input ref="/data/everything/today_test_output">
+        <label ref="jr:itext('/data/everything/today_test_output:label')"/>
+      </input>
+      <input ref="/data/everything/deviceid_test_output">
+        <label ref="jr:itext('/data/everything/deviceid_test_output:label')"/>
+      </input>
+      <input ref="/data/everything/uri_deviceid_test_output">
+        <label ref="jr:itext('/data/everything/uri_deviceid_test_output:label')"/>
+      </input>
+      <input ref="/data/everything/simserial_test_output">
+        <label ref="jr:itext('/data/everything/simserial_test_output:label')"/>
+      </input>
+      <input ref="/data/everything/phonenumber_test_output">
+        <label ref="jr:itext('/data/everything/phonenumber_test_output:label')"/>
+      </input>
+      <input ref="/data/everything/_1">
+        <label ref="jr:itext('/data/everything/_1:label')"/>
+      </input>
+      <input ref="/data/everything/FALSE">
+        <label ref="jr:itext('/data/everything/FALSE:label')"/>
+      </input>
+    </group>
+    <input ref="/data/launch" appearance="ex:org.thirdparty.app.ActivityName">
+      <label ref="jr:itext('/data/launch:label')"/>
+    </input>
+  </h:body>
+</h:html>

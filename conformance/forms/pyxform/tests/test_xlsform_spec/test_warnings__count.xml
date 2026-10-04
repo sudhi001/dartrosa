@@ -1,0 +1,258 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:odk="http://www.opendatakit.org/xforms">
+  <h:head>
+    <h:title>spec_test</h:title>
+    <model odk:xforms-version="1.0.0">
+      <itext>
+        <translation lang="default" default="true()">
+          <text id="a_b-0">
+            <value form="image">jr://images/a.jpg</value>
+          </text>
+          <text id="a_b-1">
+            <value form="image">jr://images/b.jpg</value>
+          </text>
+          <text id="/test_name/display_image_test:label">
+            <value form="image">jr://images/img_test.jpg</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <test_name id="spec_test">
+          <some_text/>
+          <number_label/>
+          <display_image_test/>
+          <autocomplete_test/>
+          <autocomplete_chars_test/>
+          <a_integer/>
+          <a_decimal/>
+          <repeat_test jr:template="">
+            <group_test>
+              <required_text/>
+              <select_multiple_test/>
+            </group_test>
+            <labeled_select_group>
+              <inside/>
+            </labeled_select_group>
+            <name>
+              <reserved_name_for_field_list_labels_18/>
+              <table_list_question/>
+            </name>
+            <compact-test/>
+          </repeat_test>
+          <repeat_test>
+            <group_test>
+              <required_text/>
+              <select_multiple_test/>
+            </group_test>
+            <labeled_select_group>
+              <inside/>
+            </labeled_select_group>
+            <name>
+              <reserved_name_for_field_list_labels_18/>
+              <table_list_question/>
+            </name>
+            <compact-test/>
+          </repeat_test>
+          <acknowledge_test/>
+          <date_test/>
+          <time_test/>
+          <datetime_test/>
+          <geopoint_test/>
+          <barcode_test/>
+          <image_test/>
+          <audio_test/>
+          <video_test/>
+          <start/>
+          <end/>
+          <today/>
+          <deviceid/>
+          <phonenumber/>
+          <meta>
+            <instanceID/>
+          </meta>
+        </test_name>
+      </instance>
+      <instance id="yes_no">
+        <root>
+          <item>
+            <name>yes</name>
+            <label>yes</label>
+          </item>
+          <item>
+            <name>no</name>
+            <label>no</label>
+          </item>
+        </root>
+      </instance>
+      <instance id="a_b">
+        <root>
+          <item>
+            <itextId>a_b-0</itextId>
+            <name>a</name>
+          </item>
+          <item>
+            <itextId>a_b-1</itextId>
+            <name>b</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="animals">
+        <root>
+          <item>
+            <name>zebra</name>
+          </item>
+          <item>
+            <name>buffalo</name>
+          </item>
+        </root>
+      </instance>
+      <bind nodeset="/test_name/some_text" type="string"/>
+      <bind nodeset="/test_name/number_label" readonly="true()" type="string"/>
+      <bind nodeset="/test_name/display_image_test" readonly="true()" type="string"/>
+      <bind nodeset="/test_name/autocomplete_test" type="string"/>
+      <bind nodeset="/test_name/autocomplete_chars_test" type="string"/>
+      <bind nodeset="/test_name/a_integer" type="int"/>
+      <bind nodeset="/test_name/a_decimal" type="decimal"/>
+      <bind nodeset="/test_name/repeat_test/group_test/required_text" type="string"/>
+      <bind nodeset="/test_name/repeat_test/group_test/select_multiple_test" type="string"/>
+      <bind nodeset="/test_name/repeat_test/labeled_select_group/inside" type="string"/>
+      <bind nodeset="/test_name/repeat_test/name/reserved_name_for_field_list_labels_18" type="string"/>
+      <bind nodeset="/test_name/repeat_test/name/table_list_question" type="string"/>
+      <bind nodeset="/test_name/repeat_test/compact-test" type="string"/>
+      <bind nodeset="/test_name/acknowledge_test" type="string"/>
+      <bind nodeset="/test_name/date_test" type="date"/>
+      <bind nodeset="/test_name/time_test" type="time"/>
+      <bind nodeset="/test_name/datetime_test" type="dateTime"/>
+      <bind nodeset="/test_name/geopoint_test" type="geopoint"/>
+      <bind nodeset="/test_name/barcode_test" type="barcode"/>
+      <bind nodeset="/test_name/image_test" type="binary"/>
+      <bind nodeset="/test_name/audio_test" type="binary"/>
+      <bind nodeset="/test_name/video_test" type="binary"/>
+      <bind nodeset="/test_name/start" jr:preload="timestamp" type="dateTime" jr:preloadParams="start"/>
+      <bind nodeset="/test_name/end" jr:preload="timestamp" type="dateTime" jr:preloadParams="end"/>
+      <bind nodeset="/test_name/today" jr:preload="date" type="date" jr:preloadParams="today"/>
+      <bind nodeset="/test_name/deviceid" jr:preload="property" type="string" jr:preloadParams="deviceid"/>
+      <bind nodeset="/test_name/phonenumber" jr:preload="property" type="string" jr:preloadParams="phonenumber"/>
+      <bind nodeset="/test_name/meta/instanceID" type="string" readonly="true()" jr:preload="uid"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input ref="/test_name/some_text">
+      <label/>
+      <hint>a hint</hint>
+    </input>
+    <input ref="/test_name/number_label">
+      <label/>
+      <hint>a note</hint>
+    </input>
+    <input ref="/test_name/display_image_test">
+      <label ref="jr:itext('/test_name/display_image_test:label')"/>
+    </input>
+    <select1 ref="/test_name/autocomplete_test" appearance="autocomplete">
+      <label>autocomplete_test</label>
+      <itemset nodeset="instance('yes_no')/root/item">
+        <value ref="name"/>
+        <label ref="label"/>
+      </itemset>
+    </select1>
+    <select1 ref="/test_name/autocomplete_chars_test" appearance="autocomplete_chars">
+      <label>autocomplete_chars_test</label>
+      <itemset nodeset="instance('yes_no')/root/item">
+        <value ref="name"/>
+        <label ref="label"/>
+      </itemset>
+    </select1>
+    <input ref="/test_name/a_integer">
+      <label/>
+      <hint>integer</hint>
+    </input>
+    <input ref="/test_name/a_decimal">
+      <label/>
+      <hint>decimal</hint>
+    </input>
+    <group ref="/test_name/repeat_test">
+      <label/>
+      <repeat nodeset="/test_name/repeat_test">
+        <group ref="/test_name/repeat_test/group_test">
+          <input ref="/test_name/repeat_test/group_test/required_text">
+            <label>required_text</label>
+          </input>
+          <select ref="/test_name/repeat_test/group_test/select_multiple_test" appearance="minimal">
+            <label>select multiple test</label>
+            <itemset nodeset="instance('yes_no')/root/item">
+              <value ref="name"/>
+              <label ref="label"/>
+            </itemset>
+          </select>
+        </group>
+        <group appearance="field-list" ref="/test_name/repeat_test/labeled_select_group">
+          <label>labeled select group test</label>
+          <input ref="/test_name/repeat_test/labeled_select_group/inside">
+            <label>Inside</label>
+          </input>
+        </group>
+        <group appearance="field-list" ref="/test_name/repeat_test/name">
+          <select1 ref="/test_name/repeat_test/name/reserved_name_for_field_list_labels_18" appearance="label">
+            <label> </label>
+            <itemset nodeset="instance('yes_no')/root/item">
+              <value ref="name"/>
+              <label ref="label"/>
+            </itemset>
+          </select1>
+          <select1 ref="/test_name/repeat_test/name/table_list_question" appearance="list-nolabel">
+            <label>table list question</label>
+            <hint>hint</hint>
+            <itemset nodeset="instance('yes_no')/root/item">
+              <value ref="name"/>
+              <label ref="label"/>
+            </itemset>
+          </select1>
+        </group>
+        <select1 ref="/test_name/repeat_test/compact-test" appearance="compact">
+          <label/>
+          <hint>hint</hint>
+          <itemset nodeset="instance('a_b')/root/item">
+            <value ref="name"/>
+            <label ref="jr:itext(itextId)"/>
+          </itemset>
+        </select1>
+      </repeat>
+    </group>
+    <trigger ref="/test_name/acknowledge_test">
+      <label/>
+      <hint>hint</hint>
+    </trigger>
+    <input ref="/test_name/date_test">
+      <label/>
+      <hint>hint</hint>
+    </input>
+    <input ref="/test_name/time_test">
+      <label/>
+      <hint>hint</hint>
+    </input>
+    <input ref="/test_name/datetime_test">
+      <label/>
+      <hint>hint</hint>
+    </input>
+    <input ref="/test_name/geopoint_test">
+      <label/>
+      <hint>hint</hint>
+    </input>
+    <input ref="/test_name/barcode_test">
+      <label/>
+      <hint>hint</hint>
+    </input>
+    <upload ref="/test_name/image_test" mediatype="image/*">
+      <label/>
+      <hint>hint</hint>
+    </upload>
+    <upload ref="/test_name/audio_test" mediatype="audio/*">
+      <label/>
+      <hint>hint</hint>
+    </upload>
+    <upload ref="/test_name/video_test" mediatype="video/*">
+      <label/>
+      <hint>hint</hint>
+    </upload>
+  </h:body>
+</h:html>

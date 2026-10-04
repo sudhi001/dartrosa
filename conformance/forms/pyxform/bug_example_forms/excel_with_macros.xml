@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:odk="http://www.opendatakit.org/xforms">
+  <h:head>
+    <h:title>WTP Survey v1101</h:title>
+    <model odk:xforms-version="1.0.0">
+      <itext>
+        <translation lang="English (en)">
+          <text id="y_n-0">
+            <value>Yes</value>
+          </text>
+          <text id="y_n-1">
+            <value>No</value>
+          </text>
+          <text id="y_n_dn-0">
+            <value>Yes</value>
+          </text>
+          <text id="y_n_dn-1">
+            <value>No</value>
+          </text>
+          <text id="y_n_dn-2">
+            <value>Don't know</value>
+          </text>
+          <text id="/data/permission:label">
+            <value>Module - This survey will cover approximately XXXX randomly selected premises inlcuding households, 
+Do I have your permission to start the interview?</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <data id="wtp11" version="1101">
+          <permission/>
+          <deviceid/>
+          <meta>
+            <instanceID/>
+          </meta>
+        </data>
+      </instance>
+      <instance id="y_n">
+        <root>
+          <item>
+            <itextId>y_n-0</itextId>
+            <name>yes</name>
+            <tr_id>10</tr_id>
+          </item>
+          <item>
+            <itextId>y_n-1</itextId>
+            <name>no</name>
+            <tr_id>20</tr_id>
+          </item>
+        </root>
+      </instance>
+      <instance id="y_n_dn">
+        <root>
+          <item>
+            <itextId>y_n_dn-0</itextId>
+            <name>yes</name>
+            <tr_id>30</tr_id>
+          </item>
+          <item>
+            <itextId>y_n_dn-1</itextId>
+            <name>no</name>
+            <tr_id>40</tr_id>
+          </item>
+          <item>
+            <itextId>y_n_dn-2</itextId>
+            <name>dn</name>
+            <tr_id>50</tr_id>
+          </item>
+        </root>
+      </instance>
+      <bind nodeset="/data/permission" type="string" saveIncomplete="true()"/>
+      <bind nodeset="/data/deviceid" jr:preload="property" type="string" jr:preloadParams="deviceid"/>
+      <bind nodeset="/data/meta/instanceID" type="string" readonly="true()" jr:preload="uid"/>
+    </model>
+  </h:head>
+  <h:body class="theme-grid">
+    <select1 ref="/data/permission">
+      <label ref="jr:itext('/data/permission:label')"/>
+      <itemset nodeset="instance('y_n')/root/item">
+        <value ref="name"/>
+        <label ref="jr:itext(itextId)"/>
+      </itemset>
+    </select1>
+  </h:body>
+</h:html>

@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:odk="http://www.opendatakit.org/xforms">
+  <h:head>
+    <h:title>data</h:title>
+    <model odk:xforms-version="1.0.0">
+      <itext>
+        <translation lang="default" default="true()">
+          <text id="c1-0">
+            <value>la</value>
+          </text>
+          <text id="c1-1">
+            <value>lb</value>
+          </text>
+          <text id="c1-2">
+            <value>Other</value>
+          </text>
+          <text id="/test_name/r1:label">
+            <value>Repeat 1</value>
+          </text>
+          <text id="/test_name/r1/q1:label">
+            <value>Question 1</value>
+          </text>
+        </translation>
+        <translation lang="eng">
+          <text id="c1-0">
+            <value>la-e</value>
+          </text>
+          <text id="c1-1">
+            <value>lb-e</value>
+          </text>
+          <text id="c1-2">
+            <value>Other</value>
+          </text>
+          <text id="/test_name/r1:label">
+            <value>Repeat 1</value>
+          </text>
+          <text id="/test_name/r1/q1:label">
+            <value>Question A</value>
+          </text>
+        </translation>
+        <translation lang="fr">
+          <text id="c1-0">
+            <value>la-f</value>
+          </text>
+          <text id="c1-2">
+            <value>Other</value>
+          </text>
+          <text id="c1-1">
+            <value>-</value>
+          </text>
+          <text id="/test_name/r1:label">
+            <value>-</value>
+          </text>
+          <text id="/test_name/r1/q1:label">
+            <value>-</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <test_name id="data">
+          <r1 jr:template="">
+            <q1/>
+            <q1_other/>
+          </r1>
+          <r1>
+            <q1/>
+            <q1_other/>
+          </r1>
+          <meta>
+            <instanceID/>
+          </meta>
+        </test_name>
+      </instance>
+      <instance id="c1">
+        <root>
+          <item>
+            <itextId>c1-0</itextId>
+            <name>na</name>
+          </item>
+          <item>
+            <itextId>c1-1</itextId>
+            <name>nb</name>
+          </item>
+          <item>
+            <itextId>c1-2</itextId>
+            <name>other</name>
+          </item>
+        </root>
+      </instance>
+      <bind nodeset="/test_name/r1/q1" type="string"/>
+      <bind nodeset="/test_name/r1/q1_other" type="string" relevant="selected(../q1, 'other')"/>
+      <bind nodeset="/test_name/meta/instanceID" type="string" readonly="true()" jr:preload="uid"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="/test_name/r1">
+      <label ref="jr:itext('/test_name/r1:label')"/>
+      <repeat nodeset="/test_name/r1">
+        <select1 ref="/test_name/r1/q1">
+          <label ref="jr:itext('/test_name/r1/q1:label')"/>
+          <itemset nodeset="instance('c1')/root/item">
+            <value ref="name"/>
+            <label ref="jr:itext(itextId)"/>
+          </itemset>
+        </select1>
+        <input ref="/test_name/r1/q1_other">
+          <label>Specify other.</label>
+        </input>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

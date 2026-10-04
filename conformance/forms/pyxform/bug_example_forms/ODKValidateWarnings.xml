@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:odk="http://www.opendatakit.org/xforms">
+  <h:head>
+    <h:title>ODKValidateWarnings</h:title>
+    <model odk:xforms-version="1.0.0">
+      <itext>
+        <translation lang="English">
+          <text id="/data/family_name:label">
+            <value>What's your family name?</value>
+          </text>
+          <text id="/data/phone_number:label">
+            <value>What's your father's phone number?</value>
+          </text>
+          <text id="/data/age:label">
+            <value>asdf</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <data id="ODKValidateWarnings">
+          <family_name/>
+          <phone_number/>
+          <age/>
+          <meta>
+            <instanceID/>
+          </meta>
+        </data>
+      </instance>
+      <instance id="a">
+        <root>
+          <item>
+            <name>b</name>
+          </item>
+        </root>
+      </instance>
+      <bind nodeset="/data/family_name" type="string"/>
+      <bind nodeset="/data/phone_number" type="string" constraint="regex(., '^\d*$')"/>
+      <bind nodeset="/data/age" type="int"/>
+      <bind nodeset="/data/meta/instanceID" type="string" readonly="true()" jr:preload="uid"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input ref="/data/family_name">
+      <label ref="jr:itext('/data/family_name:label')"/>
+    </input>
+    <input ref="/data/phone_number">
+      <label ref="jr:itext('/data/phone_number:label')"/>
+      <hint>Enter numbers only.</hint>
+    </input>
+    <input ref="/data/age">
+      <label ref="jr:itext('/data/age:label')"/>
+    </input>
+  </h:body>
+</h:html>

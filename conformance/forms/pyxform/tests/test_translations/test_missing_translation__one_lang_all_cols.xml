@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:odk="http://www.opendatakit.org/xforms">
+  <h:head>
+    <h:title>data</h:title>
+    <model odk:xforms-version="1.0.0">
+      <itext>
+        <translation lang="default" default="true()">
+          <text id="c1-0">
+            <value>la-d</value>
+          </text>
+          <text id="c1-1">
+            <value>lb-d</value>
+          </text>
+          <text id="/test_name/q1:label">
+            <value>hello</value>
+          </text>
+          <text id="/test_name/q1:jr:constraintMsg">
+            <value>-</value>
+          </text>
+          <text id="/test_name/q1:jr:requiredMsg">
+            <value>-</value>
+          </text>
+          <text id="/test_name/q1:hint">
+            <value>-</value>
+            <value form="guidance">-</value>
+          </text>
+        </translation>
+        <translation lang="eng">
+          <text id="c1-0">
+            <value>la-e</value>
+            <value form="audio">jr://audio/la-d.mp3</value>
+            <value form="image">jr://images/la-d.jpg</value>
+            <value form="video">jr://video/la-d.mkv</value>
+          </text>
+          <text id="c1-1">
+            <value>lb-e</value>
+            <value form="audio">jr://audio/lb-d.mp3</value>
+            <value form="image">jr://images/lb-d.jpg</value>
+            <value form="video">jr://video/lb-d.mkv</value>
+          </text>
+          <text id="/test_name/q1:jr:constraintMsg">
+            <value>check me</value>
+          </text>
+          <text id="/test_name/q1:jr:requiredMsg">
+            <value>mandatory</value>
+          </text>
+          <text id="/test_name/q1:label">
+            <value>hi there</value>
+            <value form="image">jr://images/greeting.jpg</value>
+            <value form="video">jr://video/greeting.mkv</value>
+            <value form="audio">jr://audio/greeting.mp3</value>
+          </text>
+          <text id="/test_name/q1:hint">
+            <value>salutation</value>
+            <value form="guidance">greeting</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <test_name id="data">
+          <q1/>
+          <meta>
+            <instanceID/>
+          </meta>
+        </test_name>
+      </instance>
+      <instance id="c1">
+        <root>
+          <item>
+            <itextId>c1-0</itextId>
+            <name>na</name>
+          </item>
+          <item>
+            <itextId>c1-1</itextId>
+            <name>nb</name>
+          </item>
+        </root>
+      </instance>
+      <bind nodeset="/test_name/q1" type="string" jr:constraintMsg="jr:itext('/test_name/q1:jr:constraintMsg')" jr:requiredMsg="jr:itext('/test_name/q1:jr:requiredMsg')"/>
+      <bind nodeset="/test_name/meta/instanceID" type="string" readonly="true()" jr:preload="uid"/>
+    </model>
+  </h:head>
+  <h:body>
+    <select1 ref="/test_name/q1">
+      <label ref="jr:itext('/test_name/q1:label')"/>
+      <hint ref="jr:itext('/test_name/q1:hint')"/>
+      <itemset nodeset="instance('c1')/root/item">
+        <value ref="name"/>
+        <label ref="jr:itext(itextId)"/>
+      </itemset>
+    </select1>
+  </h:body>
+</h:html>

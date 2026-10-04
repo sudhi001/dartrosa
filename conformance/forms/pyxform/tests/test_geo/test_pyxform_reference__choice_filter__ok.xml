@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:odk="http://www.opendatakit.org/xforms">
+  <h:head>
+    <h:title>data</h:title>
+    <model odk:xforms-version="1.0.0">
+      <instance>
+        <test_name id="data">
+          <_c1A jr:template="">
+            <geometry/>
+            <q2/>
+          </_c1A>
+          <_c1A>
+            <geometry/>
+            <q2/>
+          </_c1A>
+          <q3/>
+          <meta>
+            <instanceID/>
+          </meta>
+        </test_name>
+      </instance>
+      <bind nodeset="/test_name/_c1A/geometry" type="geopoint"/>
+      <bind nodeset="/test_name/_c1A/q2" type="string"/>
+      <bind nodeset="/test_name/q3" type="geotrace"/>
+      <bind nodeset="/test_name/meta/instanceID" type="string" readonly="true()" jr:preload="uid"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="/test_name/_c1A">
+      <label>R1</label>
+      <repeat nodeset="/test_name/_c1A">
+        <input ref="/test_name/_c1A/geometry">
+          <label>Q1</label>
+        </input>
+        <input ref="/test_name/_c1A/q2">
+          <label>Q2</label>
+        </input>
+      </repeat>
+    </group>
+    <input ref="/test_name/q3">
+      <label>Q3</label>
+      <itemset nodeset="/test_name/_c1A[ ./q2  = 1]">
+        <value ref="geometry"/>
+        <label ref="geometry"/>
+      </itemset>
+    </input>
+  </h:body>
+</h:html>

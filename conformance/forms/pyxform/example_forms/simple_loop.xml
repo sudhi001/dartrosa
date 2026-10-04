@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:odk="http://www.opendatakit.org/xforms">
+  <h:head>
+    <h:title>simple_loop</h:title>
+    <model odk:xforms-version="1.0.0">
+      <itext>
+        <translation lang="English">
+          <text id="my_columns-0">
+            <value>Column 1</value>
+          </text>
+          <text id="my_columns-1">
+            <value>Column 2</value>
+          </text>
+          <text id="/data/my_table:label">
+            <value>My Table</value>
+          </text>
+          <text id="/data/my_table/col1:label">
+            <value>Column 1</value>
+          </text>
+          <text id="/data/my_table/col1/count:label">
+            <value>How many are there in this group?</value>
+          </text>
+          <text id="/data/my_table/col2:label">
+            <value>Column 2</value>
+          </text>
+          <text id="/data/my_table/col2/count:label">
+            <value>How many are there in this group?</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <data id="simple_loop">
+          <my_table>
+            <col1>
+              <count/>
+            </col1>
+            <col2>
+              <count/>
+            </col2>
+          </my_table>
+          <meta>
+            <instanceID/>
+          </meta>
+        </data>
+      </instance>
+      <instance id="my_columns">
+        <root>
+          <item>
+            <itextId>my_columns-0</itextId>
+            <name>col1</name>
+          </item>
+          <item>
+            <itextId>my_columns-1</itextId>
+            <name>col2</name>
+          </item>
+        </root>
+      </instance>
+      <bind nodeset="/data/my_table/col1/count" type="int"/>
+      <bind nodeset="/data/my_table/col2/count" type="int"/>
+      <bind nodeset="/data/meta/instanceID" type="string" readonly="true()" jr:preload="uid"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="/data/my_table">
+      <label ref="jr:itext('/data/my_table:label')"/>
+      <group ref="/data/my_table/col1">
+        <label ref="jr:itext('/data/my_table/col1:label')"/>
+        <input ref="/data/my_table/col1/count">
+          <label ref="jr:itext('/data/my_table/col1/count:label')"/>
+        </input>
+      </group>
+      <group ref="/data/my_table/col2">
+        <label ref="jr:itext('/data/my_table/col2:label')"/>
+        <input ref="/data/my_table/col2/count">
+          <label ref="jr:itext('/data/my_table/col2/count:label')"/>
+        </input>
+      </group>
+    </group>
+  </h:body>
+</h:html>

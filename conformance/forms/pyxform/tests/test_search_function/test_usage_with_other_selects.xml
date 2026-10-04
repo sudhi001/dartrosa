@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:odk="http://www.opendatakit.org/xforms">
+  <h:head>
+    <h:title>data</h:title>
+    <model odk:xforms-version="1.0.0">
+      <itext>
+        <translation lang="en">
+          <text id="c1-0">
+            <value>label_en</value>
+          </text>
+          <text id="c2-0">
+            <value>la-e</value>
+          </text>
+          <text id="c2-1">
+            <value>lb-e</value>
+          </text>
+          <text id="/test_name/q1:label">
+            <value>Question 1</value>
+          </text>
+          <text id="/test_name/q2:label">
+            <value>Question 2</value>
+          </text>
+        </translation>
+        <translation lang="fr">
+          <text id="c1-0">
+            <value>label_fr</value>
+          </text>
+          <text id="c2-0">
+            <value>la-f</value>
+          </text>
+          <text id="c2-1">
+            <value>lb-f</value>
+          </text>
+          <text id="/test_name/q1:label">
+            <value>Chose 1</value>
+          </text>
+          <text id="/test_name/q2:label">
+            <value>Chose 2</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <test_name id="data">
+          <q1/>
+          <q2/>
+          <meta>
+            <instanceID/>
+          </meta>
+        </test_name>
+      </instance>
+      <instance id="c2">
+        <root>
+          <item>
+            <itextId>c2-0</itextId>
+            <name>na</name>
+          </item>
+          <item>
+            <itextId>c2-1</itextId>
+            <name>nb</name>
+          </item>
+        </root>
+      </instance>
+      <bind nodeset="/test_name/q1" type="string"/>
+      <bind nodeset="/test_name/q2" type="string"/>
+      <bind nodeset="/test_name/meta/instanceID" type="string" readonly="true()" jr:preload="uid"/>
+    </model>
+  </h:head>
+  <h:body>
+    <select1 ref="/test_name/q1" appearance="search('my_file')">
+      <label ref="jr:itext('/test_name/q1:label')"/>
+      <item>
+        <label ref="jr:itext('c1-0')"/>
+        <value>id</value>
+      </item>
+    </select1>
+    <select1 ref="/test_name/q2">
+      <label ref="jr:itext('/test_name/q2:label')"/>
+      <itemset nodeset="instance('c2')/root/item">
+        <value ref="name"/>
+        <label ref="jr:itext(itextId)"/>
+      </itemset>
+    </select1>
+  </h:body>
+</h:html>

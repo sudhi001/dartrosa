@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:odk="http://www.opendatakit.org/xforms">
+  <h:head>
+    <h:title>data</h:title>
+    <model odk:xforms-version="1.0.0">
+      <instance>
+        <last-saved id="data">
+          <repeat jr:template="">
+            <foo/>
+            <bar/>
+          </repeat>
+          <repeat>
+            <foo/>
+            <bar/>
+          </repeat>
+          <meta>
+            <instanceID/>
+          </meta>
+        </last-saved>
+      </instance>
+      <instance id="__last-saved" src="jr://instance/last-saved"/>
+      <instance id="foo">
+        <root>
+          <item>
+            <name>a</name>
+            <label>A</label>
+          </item>
+        </root>
+      </instance>
+      <bind nodeset="/last-saved/repeat/foo" type="string"/>
+      <bind nodeset="/last-saved/repeat/bar" type="string"/>
+      <bind nodeset="/last-saved/meta/instanceID" type="string" readonly="true()" jr:preload="uid"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="/last-saved/repeat">
+      <label/>
+      <repeat nodeset="/last-saved/repeat">
+        <select1 ref="/last-saved/repeat/foo">
+          <label>Foo</label>
+          <itemset nodeset="instance('foo')/root/item[not(selected( instance('__last-saved')/last-saved/repeat/foo , name))]">
+            <value ref="name"/>
+            <label ref="label"/>
+          </itemset>
+        </select1>
+        <select1 ref="/last-saved/repeat/bar">
+          <label>Bar</label>
+          <itemset nodeset="instance('foo')/root/item[not(selected( current()/../foo , name))]">
+            <value ref="name"/>
+            <label ref="label"/>
+          </itemset>
+        </select1>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

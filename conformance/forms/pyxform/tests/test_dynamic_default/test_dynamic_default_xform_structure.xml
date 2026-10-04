@@ -1,0 +1,307 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:odk="http://www.opendatakit.org/xforms">
+  <h:head>
+    <h:title>data</h:title>
+    <model odk:xforms-version="1.0.0">
+      <itext>
+        <translation lang="default" default="true()">
+          <text id="/test_name/ref_text:label">
+            <value>RefText</value>
+          </text>
+        </translation>
+        <translation lang="French (fr)">
+          <text id="/test_name/ref_text:label">
+            <value>Oui</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <test_name id="data">
+          <ref_text/>
+          <ref_int/>
+          <q0>foo</q0>
+          <q1>123</q1>
+          <q2>bar123</q2>
+          <q3>https://my-site.com</q3>
+          <q4>(https://mysite.com)</q4>
+          <q5>go to https://mysite.com</q5>
+          <q6>Repeat after me: '~!@#$%^&amp;()_</q6>
+          <q7>not_func$</q7>
+          <q8>f-g</q8>
+          <q9>f-4</q9>
+          <q10>./f-4</q10>
+          <q11>f-g</q11>
+          <q12>f-4</q12>
+          <q13>2022-03-14</q13>
+          <q14>-2022-03-14</q14>
+          <q15>01:02:55</q15>
+          <q16>01:02:55Z</q16>
+          <q17>01:02:55+00:00</q17>
+          <q18>01:02:55+10:00</q18>
+          <q19>01:02:55-07:00</q19>
+          <q20>2022-03-14T01:02:55</q20>
+          <q21>2022-03-14T01:02:55Z</q21>
+          <q22>2022-03-14T01:02:55+00:00</q22>
+          <q23>2022-03-14T01:02:55+10:00</q23>
+          <q24>2022-03-14T01:02:55-07:00</q24>
+          <q25>32.7377112 -117.1288399 14 5.01</q25>
+          <q26>32.7377112 -117.1288399 14 5.01;32.7897897 -117.9876543 14 5.01</q26>
+          <q27>32.7377112 -117.1288399 14 5.01;32.7897897 -117.9876543 14 5.01;32.1231231 -117.1145877 14 5.01</q27>
+          <q28/>
+          <q29/>
+          <q30/>
+          <q31/>
+          <q32/>
+          <q33/>
+          <q34/>
+          <q35/>
+          <q36/>
+          <q37/>
+          <q38/>
+          <q39/>
+          <q40/>
+          <q41/>
+          <q42/>
+          <q43/>
+          <q44/>
+          <q45/>
+          <q46/>
+          <q47/>
+          <q48/>
+          <meta>
+            <instanceID/>
+          </meta>
+        </test_name>
+      </instance>
+      <instance id="__last-saved" src="jr://instance/last-saved"/>
+      <bind nodeset="/test_name/ref_text" type="string"/>
+      <bind nodeset="/test_name/ref_int" type="int"/>
+      <bind nodeset="/test_name/q0" type="int"/>
+      <bind nodeset="/test_name/q1" type="int"/>
+      <bind nodeset="/test_name/q2" type="string"/>
+      <bind nodeset="/test_name/q3" type="string"/>
+      <bind nodeset="/test_name/q4" type="string"/>
+      <bind nodeset="/test_name/q5" type="string"/>
+      <bind nodeset="/test_name/q6" type="string"/>
+      <bind nodeset="/test_name/q7" type="string"/>
+      <bind nodeset="/test_name/q8" type="string"/>
+      <bind nodeset="/test_name/q9" type="string"/>
+      <bind nodeset="/test_name/q10" type="string"/>
+      <bind nodeset="/test_name/q11" type="int"/>
+      <bind nodeset="/test_name/q12" type="int"/>
+      <bind nodeset="/test_name/q13" type="date"/>
+      <bind nodeset="/test_name/q14" type="date"/>
+      <bind nodeset="/test_name/q15" type="time"/>
+      <bind nodeset="/test_name/q16" type="time"/>
+      <bind nodeset="/test_name/q17" type="time"/>
+      <bind nodeset="/test_name/q18" type="time"/>
+      <bind nodeset="/test_name/q19" type="time"/>
+      <bind nodeset="/test_name/q20" type="date"/>
+      <bind nodeset="/test_name/q21" type="dateTime"/>
+      <bind nodeset="/test_name/q22" type="dateTime"/>
+      <bind nodeset="/test_name/q23" type="dateTime"/>
+      <bind nodeset="/test_name/q24" type="dateTime"/>
+      <bind nodeset="/test_name/q25" type="geopoint"/>
+      <bind nodeset="/test_name/q26" type="geotrace"/>
+      <bind nodeset="/test_name/q27" type="geoshape"/>
+      <bind nodeset="/test_name/q28" type="int"/>
+      <setvalue ref="/test_name/q28" event="odk-instance-first-load" value="random()"/>
+      <bind nodeset="/test_name/q29" type="string"/>
+      <setvalue ref="/test_name/q29" event="odk-instance-first-load" value="ends-with('mystr', &quot;str&quot;)"/>
+      <bind nodeset="/test_name/q30" type="string"/>
+      <setvalue ref="/test_name/q30" event="odk-instance-first-load" value="ends-with(../t2, ./t4)"/>
+      <bind nodeset="/test_name/q31" type="string"/>
+      <setvalue ref="/test_name/q31" event="odk-instance-first-load" value="jr:itext('/test/ref_text:label')"/>
+      <bind nodeset="/test_name/q32" type="string"/>
+      <setvalue ref="/test_name/q32" event="odk-instance-first-load" value="if(../t2 = 'test', 1, 2) + 15 - int(1.2)"/>
+      <bind nodeset="/test_name/q33" type="string"/>
+      <setvalue ref="/test_name/q33" event="odk-instance-first-load" value="1 + decimal-date-time(now())"/>
+      <bind nodeset="/test_name/q34" type="string"/>
+      <setvalue ref="/test_name/q34" event="odk-instance-first-load" value="concat(if(../t1 = &quot;this&quot;, 'go', &quot;to&quot;), &quot;https://mysite.com&quot;)"/>
+      <bind nodeset="/test_name/q35" type="int"/>
+      <setvalue ref="/test_name/q35" event="odk-instance-first-load" value="7 - 4"/>
+      <bind nodeset="/test_name/q36" type="string"/>
+      <setvalue ref="/test_name/q36" event="odk-instance-first-load" value="3 mod 3"/>
+      <bind nodeset="/test_name/q37" type="string"/>
+      <setvalue ref="/test_name/q37" event="odk-instance-first-load" value="5 div 5"/>
+      <bind nodeset="/test_name/q38" type="string"/>
+      <setvalue ref="/test_name/q38" event="odk-instance-first-load" value="2 + 3 * 4"/>
+      <bind nodeset="/test_name/q39" type="string"/>
+      <setvalue ref="/test_name/q39" event="odk-instance-first-load" value="5 div 5 - 5"/>
+      <bind nodeset="/test_name/q40" type="int"/>
+      <setvalue ref="/test_name/q40" event="odk-instance-first-load" value="random() + 2 * 5"/>
+      <bind nodeset="/test_name/q41" type="string"/>
+      <setvalue ref="/test_name/q41" event="odk-instance-first-load" value="./f - 4"/>
+      <bind nodeset="/test_name/q42" type="string"/>
+      <setvalue ref="/test_name/q42" event="odk-instance-first-load" value="../t2 - ./t4"/>
+      <bind nodeset="/test_name/q43" type="string"/>
+      <setvalue ref="/test_name/q43" event="odk-instance-first-load" value="1 + 2 - 3 * 4 div 5 mod 6"/>
+      <bind nodeset="/test_name/q44" type="date"/>
+      <setvalue ref="/test_name/q44" event="odk-instance-first-load" value="concat('2022-03', '-14')"/>
+      <bind nodeset="/test_name/q45" type="string"/>
+      <setvalue ref="/test_name/q45" event="odk-instance-first-load" value=" /test_name/ref_text "/>
+      <bind nodeset="/test_name/q46" type="int"/>
+      <setvalue ref="/test_name/q46" event="odk-instance-first-load" value=" /test_name/ref_int "/>
+      <bind nodeset="/test_name/q47" type="string"/>
+      <setvalue ref="/test_name/q47" event="odk-instance-first-load" value=" instance('__last-saved')/test_name/ref_text "/>
+      <bind nodeset="/test_name/q48" type="int"/>
+      <setvalue ref="/test_name/q48" event="odk-instance-first-load" value="if( instance('__last-saved')/test_name/ref_int  = '', 0,  instance('__last-saved')/test_name/ref_int  + 1)"/>
+      <bind nodeset="/test_name/meta/instanceID" type="string" readonly="true()" jr:preload="uid"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input ref="/test_name/ref_text">
+      <label ref="jr:itext('/test_name/ref_text:label')"/>
+    </input>
+    <input ref="/test_name/ref_int">
+      <label>RefInt</label>
+    </input>
+    <input ref="/test_name/q0">
+      <label>Q0</label>
+    </input>
+    <input ref="/test_name/q1">
+      <label>Q1</label>
+    </input>
+    <input ref="/test_name/q2">
+      <label>Q2</label>
+    </input>
+    <input ref="/test_name/q3">
+      <label>Q3</label>
+    </input>
+    <input ref="/test_name/q4">
+      <label>Q4</label>
+    </input>
+    <input ref="/test_name/q5">
+      <label>Q5</label>
+    </input>
+    <input ref="/test_name/q6">
+      <label>Q6</label>
+    </input>
+    <input ref="/test_name/q7">
+      <label>Q7</label>
+    </input>
+    <input ref="/test_name/q8">
+      <label>Q8</label>
+    </input>
+    <input ref="/test_name/q9">
+      <label>Q9</label>
+    </input>
+    <input ref="/test_name/q10">
+      <label>Q10</label>
+    </input>
+    <input ref="/test_name/q11">
+      <label>Q11</label>
+    </input>
+    <input ref="/test_name/q12">
+      <label>Q12</label>
+    </input>
+    <input ref="/test_name/q13">
+      <label>Q13</label>
+    </input>
+    <input ref="/test_name/q14">
+      <label>Q14</label>
+    </input>
+    <input ref="/test_name/q15">
+      <label>Q15</label>
+    </input>
+    <input ref="/test_name/q16">
+      <label>Q16</label>
+    </input>
+    <input ref="/test_name/q17">
+      <label>Q17</label>
+    </input>
+    <input ref="/test_name/q18">
+      <label>Q18</label>
+    </input>
+    <input ref="/test_name/q19">
+      <label>Q19</label>
+    </input>
+    <input ref="/test_name/q20">
+      <label>Q20</label>
+    </input>
+    <input ref="/test_name/q21">
+      <label>Q21</label>
+    </input>
+    <input ref="/test_name/q22">
+      <label>Q22</label>
+    </input>
+    <input ref="/test_name/q23">
+      <label>Q23</label>
+    </input>
+    <input ref="/test_name/q24">
+      <label>Q24</label>
+    </input>
+    <input ref="/test_name/q25">
+      <label>Q25</label>
+    </input>
+    <input ref="/test_name/q26">
+      <label>Q26</label>
+    </input>
+    <input ref="/test_name/q27">
+      <label>Q27</label>
+    </input>
+    <input ref="/test_name/q28">
+      <label>Q28</label>
+    </input>
+    <input ref="/test_name/q29">
+      <label>Q29</label>
+    </input>
+    <input ref="/test_name/q30">
+      <label>Q30</label>
+    </input>
+    <input ref="/test_name/q31">
+      <label>Q31</label>
+    </input>
+    <input ref="/test_name/q32">
+      <label>Q32</label>
+    </input>
+    <input ref="/test_name/q33">
+      <label>Q33</label>
+    </input>
+    <input ref="/test_name/q34">
+      <label>Q34</label>
+    </input>
+    <input ref="/test_name/q35">
+      <label>Q35</label>
+    </input>
+    <input ref="/test_name/q36">
+      <label>Q36</label>
+    </input>
+    <input ref="/test_name/q37">
+      <label>Q37</label>
+    </input>
+    <input ref="/test_name/q38">
+      <label>Q38</label>
+    </input>
+    <input ref="/test_name/q39">
+      <label>Q39</label>
+    </input>
+    <input ref="/test_name/q40">
+      <label>Q40</label>
+    </input>
+    <input ref="/test_name/q41">
+      <label>Q41</label>
+    </input>
+    <input ref="/test_name/q42">
+      <label>Q42</label>
+    </input>
+    <input ref="/test_name/q43">
+      <label>Q43</label>
+    </input>
+    <input ref="/test_name/q44">
+      <label>Q44</label>
+    </input>
+    <input ref="/test_name/q45">
+      <label>Q45</label>
+    </input>
+    <input ref="/test_name/q46">
+      <label>Q46</label>
+    </input>
+    <input ref="/test_name/q47">
+      <label>Q47</label>
+    </input>
+    <input ref="/test_name/q48">
+      <label>Q48</label>
+    </input>
+  </h:body>
+</h:html>

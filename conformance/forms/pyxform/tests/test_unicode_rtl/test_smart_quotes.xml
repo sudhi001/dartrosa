@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:odk="http://www.opendatakit.org/xforms">
+  <h:head>
+    <h:title>data</h:title>
+    <model odk:xforms-version="1.0.0">
+      <instance>
+        <quoth id="data" version="q('-')p">
+          <smart_single_quoted/>
+          <smart_double_quoted/>
+          <my_default_is_123>123</my_default_is_123>
+          <meta>
+            <instanceID/>
+          </meta>
+        </quoth>
+      </instance>
+      <instance id="xyz">
+        <root>
+          <item>
+            <name>xxx</name>
+            <label>'Xxx'</label>
+          </item>
+          <item>
+            <name>yyy</name>
+            <label>"Yyy"</label>
+          </item>
+        </root>
+      </instance>
+      <bind nodeset="/quoth/smart_single_quoted" type="string"/>
+      <bind nodeset="/quoth/smart_double_quoted" type="string" relevant="selected( /quoth/smart_single_quoted , 'xxx')"/>
+      <bind nodeset="/quoth/my_default_is_123" type="int"/>
+      <bind nodeset="/quoth/meta/instanceID" type="string" readonly="true()" jr:preload="uid"/>
+    </model>
+  </h:head>
+  <h:body>
+    <select1 ref="/quoth/smart_single_quoted">
+      <label>'single-quoted'</label>
+      <itemset nodeset="instance('xyz')/root/item">
+        <value ref="name"/>
+        <label ref="label"/>
+      </itemset>
+    </select1>
+    <input ref="/quoth/smart_double_quoted">
+      <label>"double-quoted"</label>
+    </input>
+    <input ref="/quoth/my_default_is_123">
+      <label>my default is 123</label>
+    </input>
+  </h:body>
+</h:html>
