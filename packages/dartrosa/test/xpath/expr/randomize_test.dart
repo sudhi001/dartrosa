@@ -2,6 +2,7 @@
 @TestOn('vm')
 library;
 
+import 'package:dartrosa/src/codec/form_def_codec.dart';
 import 'package:dartrosa/src/form_api/form_entry_prompt.dart';
 import 'package:dartrosa/src/model/form_def.dart';
 import 'package:dartrosa/src/model/form_index.dart';
@@ -11,6 +12,11 @@ import 'package:dartrosa/testing.dart';
 import 'package:test/test.dart';
 
 import '../../support/forms.dart';
+
+/// JavaRosa's `writeExternal`/`readExternal` round trip, as a
+/// [FormDefCodec] round trip.
+Future<FormDef> serializeAndDeserializeForm(FormDef formDef) =>
+    FormDefCodec.decode(FormDefCodec.encode(formDef));
 
 void initializeNewInstance(FormDef formDef) =>
     formDef.initialize(newInstance: true);
@@ -94,8 +100,22 @@ void main() {
 
   test(
     'the_same_seeded_field_in_different_instances_from_deserialized_forms_gets_the_same_order_of_choices',
-    () {},
-    skip: 'instance/form serialization (P6)',
+    () async {
+      initializeNewInstance(formDef);
+      final choices1 = getSelectChoices(formDef, '/data/static-seed-fruit2');
+
+      final formDefAfterSerialization = await serializeAndDeserializeForm(
+        formDef,
+      );
+
+      initializeNewInstance(formDefAfterSerialization);
+      final choices2 = getSelectChoices(
+        formDefAfterSerialization,
+        '/data/static-seed-fruit2',
+      );
+
+      expect(nodesEqualInOrder(choices1, choices2), isTrue);
+    },
   );
 
   test(
@@ -125,9 +145,33 @@ void main() {
     expect(getAnswerValue(formDef, '/data/nodeset-seed-random-value'), 6);
   });
 
-  test(
-    'fields_can_take_their_randomize_seeds_from_a_nodeset',
-    () {},
-    skip: 'instance/form serialization (P6)',
-  );
+  test('fields_can_take_their_randomize_seeds_from_a_nodeset', () async {
+    initializeNewInstance(formDef);
+    final choices1a = getSelectChoices(formDef, '/data/nodeset-seed-fruit1');
+    final choices2a = getSelectChoices(formDef, '/data/nodeset-seed-fruit2');
+
+    initializeNewInstance(formDef);
+    final choices1b = getSelectChoices(formDef, '/data/nodeset-seed-fruit1');
+    final choices2b = getSelectChoices(formDef, '/data/nodeset-seed-fruit2');
+
+    final formDefAfterSerialization = await serializeAndDeserializeForm(
+      formDef,
+    );
+
+    initializeNewInstance(formDef);
+    final choices1c = getSelectChoices(
+      formDefAfterSerialization,
+      '/data/nodeset-seed-fruit1',
+    );
+    final choices2c = getSelectChoices(
+      formDefAfterSerialization,
+      '/data/nodeset-seed-fruit2',
+    );
+
+    expect(nodesEqualInOrder(choices1a, choices2a), isTrue);
+    expect(nodesEqualInOrder(choices1a, choices1b), isTrue);
+    expect(nodesEqualInOrder(choices1a, choices1c), isTrue);
+    expect(nodesEqualInOrder(choices2a, choices2b), isTrue);
+    expect(nodesEqualInOrder(choices2a, choices2c), isTrue);
+  });
 }
