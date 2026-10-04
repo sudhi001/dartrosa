@@ -1,9 +1,9 @@
-include: package:lints/recommended.yaml
+include: package:flutter_lints/flutter.yaml
 
 analyzer:
   exclude:
-    # Flutter packages are analyzed by the Flutter CI job.
-    - packages/dartrosa_flutter/**
+    - build/**
+    - example/build/**
   language:
     strict-casts: true
     strict-inference: true
@@ -28,7 +28,6 @@ linter:
     - prefer_final_in_for_each
     - prefer_final_locals
     - prefer_single_quotes
-    - public_member_api_docs
     - sort_constructors_first
     - throw_in_finally
     - type_annotate_public_apis

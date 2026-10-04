@@ -30,6 +30,26 @@ jobs:
             (cd packages/$p && dart test -p chrome && dart test -p chrome --compiler dart2wasm)
           done
 
+  flutter:
+    name: Flutter renderer (analyze, widget tests)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+      - name: Analyze and test dartrosa_flutter
+        working-directory: packages/dartrosa_flutter
+        run: |
+          flutter pub get
+          flutter analyze --fatal-infos
+          flutter test
+      - name: Analyze the example
+        working-directory: packages/dartrosa_flutter/example
+        run: |
+          flutter pub get
+          flutter analyze --fatal-infos
+
   oracle:
     name: JavaRosa oracle traces are up to date
     runs-on: ubuntu-latest
