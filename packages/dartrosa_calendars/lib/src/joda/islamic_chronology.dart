@@ -36,10 +36,14 @@ final class IslamicChronology extends BasicChronology {
     final cycles = millisIslamic ~/ _millisPerCycle;
     var cycleRemainder = millisIslamic.remainder(_millisPerCycle);
     var year = cycles * _cycle + 1;
-    var yearMillis = isLeapYear(year) ? _millisPerLongYear : _millisPerShortYear;
+    var yearMillis = isLeapYear(year)
+        ? _millisPerLongYear
+        : _millisPerShortYear;
     while (cycleRemainder >= yearMillis) {
       cycleRemainder -= yearMillis;
-      yearMillis = isLeapYear(++year) ? _millisPerLongYear : _millisPerShortYear;
+      yearMillis = isLeapYear(++year)
+          ? _millisPerLongYear
+          : _millisPerShortYear;
     }
     return year;
   }

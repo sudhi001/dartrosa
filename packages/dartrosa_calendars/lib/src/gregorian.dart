@@ -48,7 +48,8 @@ int epochDayOf(int year, int month, int day) {
 
 /// Days since 1970-01-01 of the calendar date of [date] (its year, month
 /// and day fields, whatever its time zone).
-int epochDayOfDate(DateTime date) => epochDayOf(date.year, date.month, date.day);
+int epochDayOfDate(DateTime date) =>
+    epochDayOf(date.year, date.month, date.day);
 
 /// Local midnight of [epochDay], the way ODK stores a date.
 DateTime localDateOf(int epochDay) {

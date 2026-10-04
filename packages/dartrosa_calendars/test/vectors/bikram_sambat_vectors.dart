@@ -3174,5 +3174,4 @@ const bikramSambatPicker = <List<int>>[
   [2100, 12, -1, 0],
 ];
 
-const bikramSambatPickerIrregular = <List<int>>[
-];
+const bikramSambatPickerIrregular = <List<int>>[];

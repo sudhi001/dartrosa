@@ -5757,5 +5757,4 @@ const copticPicker = <List<int>>[
 ];
 
 /// Picker [year, month, day, gregorianDay] not following the above.
-const copticPickerIrregular = <List<int>>[
-];
+const copticPickerIrregular = <List<int>>[];

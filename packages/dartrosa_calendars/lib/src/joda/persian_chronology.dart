@@ -73,7 +73,8 @@ final class PersianChronologyKhayyamBorkowski extends BasicChronology {
   int get averageMillisPerYearDividedByTwo => _averageMillisPerYear ~/ 2;
 
   @override
-  int get approxMillisAtEpochDividedByTwo => (1348 * _averageMillisPerYear) ~/ 2;
+  int get approxMillisAtEpochDividedByTwo =>
+      (1348 * _averageMillisPerYear) ~/ 2;
 
   @override
   int daysInYearMonth(int year, int month) {

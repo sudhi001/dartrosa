@@ -289,7 +289,9 @@ double myanmarNewYearDay(int myear) {
       names.add(_myanmarMonthNames[0]);
     }
     months.add(i);
-    names.add(i == 4 && m1.yearType != 0 ? _myanmarSecondWaso : _myanmarMonthNames[i]);
+    names.add(
+      i == 4 && m1.yearType != 0 ? _myanmarSecondWaso : _myanmarMonthNames[i],
+    );
   }
   return (months: months, names: names);
 }
@@ -305,7 +307,8 @@ double westernToJulian(int year, int month, int day) {
       day + ((153 * m + 2) / 5.0).floor() + 365 * y + (y / 4.0).floor() + 0.0;
   jd = jd - (y / 100.0).floor() + (y / 400.0).floor() - 32045;
   if (jd < _sg) {
-    jd = day +
+    jd =
+        day +
         ((153.0 * m + 2) / 5).floorToDouble() +
         365 * y +
         (y / 4.0).floor() -

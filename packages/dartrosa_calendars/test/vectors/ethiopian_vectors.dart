@@ -5757,5 +5757,4 @@ const ethiopianPicker = <List<int>>[
 ];
 
 /// Picker [year, month, day, gregorianDay] not following the above.
-const ethiopianPickerIrregular = <List<int>>[
-];
+const ethiopianPickerIrregular = <List<int>>[];

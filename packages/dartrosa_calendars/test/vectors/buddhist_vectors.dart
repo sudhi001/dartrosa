@@ -5314,5 +5314,4 @@ const buddhistPicker = <List<int>>[
 ];
 
 /// Picker [year, month, day, gregorianDay] not following the above.
-const buddhistPickerIrregular = <List<int>>[
-];
+const buddhistPickerIrregular = <List<int>>[];

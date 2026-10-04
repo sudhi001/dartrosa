@@ -5476,5 +5476,4 @@ const islamicPicker = <List<int>>[
 ];
 
 /// Picker [year, month, day, gregorianDay] not following the above.
-const islamicPickerIrregular = <List<int>>[
-];
+const islamicPickerIrregular = <List<int>>[];

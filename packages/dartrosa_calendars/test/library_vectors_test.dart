@@ -51,16 +51,21 @@ void main() {
     expect(civilOf(0), (year: 1970, month: 1, day: 1));
   });
 
-  final jodaCases = <String, (BasicChronology, List<List<int>>, List<List<int>>)>{
-    'Ethiopic': (const EthiopicChronology(), ethiopianForward, ethiopianPicker),
-    'Coptic': (const CopticChronology(), copticForward, copticPicker),
-    'Islamic': (const IslamicChronology(), islamicForward, islamicPicker),
-    'Persian': (
-      const PersianChronologyKhayyamBorkowski(),
-      persianForward,
-      persianPicker,
-    ),
-  };
+  final jodaCases =
+      <String, (BasicChronology, List<List<int>>, List<List<int>>)>{
+        'Ethiopic': (
+          const EthiopicChronology(),
+          ethiopianForward,
+          ethiopianPicker,
+        ),
+        'Coptic': (const CopticChronology(), copticForward, copticPicker),
+        'Islamic': (const IslamicChronology(), islamicForward, islamicPicker),
+        'Persian': (
+          const PersianChronologyKhayyamBorkowski(),
+          persianForward,
+          persianPicker,
+        ),
+      };
   jodaCases.forEach((name, c) {
     final (chrono, forward, picker) = c;
     test('$name: Gregorian to calendar matches Joda for every day', () {
@@ -103,7 +108,10 @@ void main() {
     test('daysInMonth and toGreg match the jar', () {
       for (final [year, month, days, start] in bikramSambatPicker) {
         if (days == -1) {
-          expect(() => bs.daysInMonth(year, month), throwsA(isA<BsException>()));
+          expect(
+            () => bs.daysInMonth(year, month),
+            throwsA(isA<BsException>()),
+          );
           continue;
         }
         expect(bs.daysInMonth(year, month), days);
@@ -114,7 +122,8 @@ void main() {
           );
         }
         expect(
-          () => bs.toGregorianEpochDay((year: year, month: month, day: days + 1)),
+          () =>
+              bs.toGregorianEpochDay((year: year, month: month, day: days + 1)),
           throwsA(isA<BsException>()),
         );
       }
@@ -130,7 +139,11 @@ void main() {
         final names = [
           for (var i = 2; i < row.length; i += 2) myanmarNames[row[i]],
         ];
-        expect(MyanmarDateUtils.getMonthIndexes(year), indexes, reason: '$year');
+        expect(
+          MyanmarDateUtils.getMonthIndexes(year),
+          indexes,
+          reason: '$year',
+        );
         expect(MyanmarDateUtils.getMyanmarMonthsArray(year), names);
       }
     });
@@ -155,15 +168,19 @@ void main() {
       );
       for (var day = first; day <= last; day++) {
         final md = MyanmarDateUtils.gregorianDateToMyanmarDate(day);
-        expect([
-          md.year,
-          md.month,
-          myanmarNames.indexOf(md.monthName),
-          MyanmarDateUtils.getMonthId(md),
-          md.dayOfMonth,
-          MyanmarDateUtils.getFirstMonthDay(md),
-          MyanmarDateUtils.getMonthLength(md),
-        ], expected[day], reason: 'day $day');
+        expect(
+          [
+            md.year,
+            md.month,
+            myanmarNames.indexOf(md.monthName),
+            MyanmarDateUtils.getMonthId(md),
+            md.dayOfMonth,
+            MyanmarDateUtils.getFirstMonthDay(md),
+            MyanmarDateUtils.getMonthLength(md),
+          ],
+          expected[day],
+          reason: 'day $day',
+        );
       }
     });
   });

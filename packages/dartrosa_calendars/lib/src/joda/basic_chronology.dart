@@ -54,7 +54,9 @@ abstract class BasicChronology {
       year--;
     } else if (diff >= millisPerDay * 365) {
       // One year may need to be added to fix estimate.
-      final oneYear = isLeapYear(year) ? millisPerDay * 366 : millisPerDay * 365;
+      final oneYear = isLeapYear(year)
+          ? millisPerDay * 366
+          : millisPerDay * 365;
       yearStart += oneYear;
       if (yearStart <= instant) year++;
     }
