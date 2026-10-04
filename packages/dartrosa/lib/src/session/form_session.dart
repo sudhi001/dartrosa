@@ -40,7 +40,7 @@ final class FormDefinition {
     for (final plugin in config.plugins) {
       plugin.createParseProcessors().forEach(parser.addProcessor);
     }
-    final form = await parser.parse(xml);
+    final form = await parser.parse(xml, lastSavedSrc: config.lastSavedSrc);
     final resolver = config.resolver ?? MapResourceResolver(const {});
     for (final plugin in config.plugins) {
       await plugin.prepareForm(form, resolver);

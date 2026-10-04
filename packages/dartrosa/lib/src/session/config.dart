@@ -23,6 +23,7 @@ final class DartRosaConfig {
     this.setGeopointAction,
     this.properties,
     this.plugins = const [],
+    this.lastSavedSrc,
   });
 
   /// Reads `jr://` resources (media, CSV/XML/GeoJSON instances, last-saved).
@@ -57,6 +58,11 @@ final class DartRosaConfig {
   /// Feature plugins taking part in loading every form (e.g. ODK Collect's
   /// external data); see [FormLoadPlugin].
   final List<FormLoadPlugin> plugins;
+
+  /// The `src` that `jr://instance/last-saved` secondary instances are read
+  /// from (read through [resolver]), e.g. ODK Collect's
+  /// `jr://file/last-saved.xml`. Without it those instances are empty.
+  final String? lastSavedSrc;
 }
 
 /// A feature that takes part in loading every form parsed with a

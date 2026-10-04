@@ -1,4 +1,6 @@
 // DartRosa's session facade (FormDefinition / FormSession / FormNavigator).
+import 'dart:convert';
+
 import 'package:dartrosa/dartrosa.dart';
 import 'package:dartrosa/testing.dart';
 import 'package:test/test.dart';
@@ -160,5 +162,32 @@ void main() {
     final definition = session.definition;
     final again = definition.createSession();
     expect((again.root.children[0] as QuestionNode).value, isNull);
+  });
+
+  test('DartRosaConfig.lastSavedSrc feeds jr://instance/last-saved', () async {
+    const xml = '''
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml">
+<h:head><h:title>Last saved</h:title><model>
+<instance><data id="ls"><age/></data></instance>
+<instance id="__last-saved" src="jr://instance/last-saved"/>
+<bind nodeset="/data/age" type="int"/>
+<setvalue event="odk-instance-first-load" ref="/data/age"
+  value=" instance('__last-saved')/data/age "/>
+</model></h:head>
+<h:body><input ref="/data/age"><label>Age</label></input></h:body></h:html>
+''';
+    final definition = await FormDefinition.parse(
+      xml,
+      config: DartRosaConfig(
+        lastSavedSrc: 'jr://file/last-saved.xml',
+        resolver: MapResourceResolver({
+          'jr://file/last-saved.xml': utf8.encode(
+            '<data id="ls"><age>32</age></data>',
+          ),
+        }),
+      ),
+    );
+    final session = definition.createSession();
+    expect((session.root.children[0] as QuestionNode).value?.displayText, '32');
   });
 }
