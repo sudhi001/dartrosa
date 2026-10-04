@@ -2,7 +2,6 @@
 // audit tests of Collect's FormSaveViewModelTest and
 // IdentityPromptViewModelTest.
 import 'package:dartrosa/dartrosa.dart';
-import 'package:dartrosa/javarosa.dart';
 import 'package:dartrosa_collect/dartrosa_collect.dart';
 import 'package:test/test.dart';
 

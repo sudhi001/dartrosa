@@ -6,7 +6,7 @@ import 'package:dartrosa_collect/dartrosa_collect.dart';
 /// `getTestFormIndex` in Collect's `AsyncTaskAuditEventWriterTest`.
 FormIndex getTestFormIndex(String xpathPath) {
   final nodes = xpathPath.split('/').skip(1).toList(); // leading /
-  var treeReference = TreeReference.root();
+  var treeReference = const TreeReference.root();
   final positions = <int>[];
   for (final node in nodes) {
     final parts = node.split('[');
@@ -37,7 +37,7 @@ FormIndex getTestFormIndex(String xpathPath) {
 /// `AuditEventCSVLineTest.getTestFormIndex`.
 FormIndex text1Index() => FormIndex(
   0,
-  reference: TreeReference.root().extend('data', 0).extend('text1', 0),
+  reference: const TreeReference.root().extend('data', 0).extend('text1', 0),
 );
 
 /// A clock that only moves when told to.
