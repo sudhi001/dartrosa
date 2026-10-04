@@ -599,7 +599,7 @@ corpora) cover them; open items are left unticked.
 
 - [ ] Every checklist item in §7 and §8 ticked with linked tests
 - [ ] 100 % of JavaRosa test classes ported (§10.5) and green on VM, Chrome, WASM
-- [ ] Oracle diff = 0 on full conformance corpus (≥ 300 forms + random walks)
+- [x] Oracle diff = 0 on full conformance corpus (≥ 300 forms + random walks): 401 forms (JavaRosa, DartRosa, ODK Collect, ODK Web Forms, pyxform), 397 traced (4 random by design)
 - [ ] `dart analyze` clean with strict config; `dart format` clean; public API 100 % documented; pana score 160/160
 - [x] No global mutable state; no `dart:io`/Flutter imports in core (enforced by a CI import-lint)
 - [ ] Benchmarks within targets (§1)
