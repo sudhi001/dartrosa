@@ -25,16 +25,31 @@ void main() {
     );
   });
 
-  test(
-    'serializedAndDeserializedNestedFirstLoadEvent_setsValue',
-    () {},
-    skip: 'instance/form serialization (P6)',
-  );
+  test('serializedAndDeserializedNestedFirstLoadEvent_setsValue', () async {
+    final scenario = await scenarioFor('multiple-events.xml');
+
+    final deserializedScenario = await scenario.serializeAndDeserializeForm();
+    deserializedScenario.newInstance();
+    expect(
+      deserializedScenario.answerOf('/data/nested-first-load')!.displayText,
+      'cheese',
+    );
+  });
 
   test(
     'serializedAndDeserializedNestedFirstLoadEventInGroup_setsValue',
-    () {},
-    skip: 'instance/form serialization (P6)',
+    () async {
+      final scenario = await scenarioFor('multiple-events.xml');
+
+      final deserializedScenario = await scenario.serializeAndDeserializeForm();
+      deserializedScenario.newInstance();
+      expect(
+        deserializedScenario
+            .answerOf('/data/my-group/nested-first-load-in-group')!
+            .displayText,
+        'more cheese',
+      );
+    },
   );
 
   test('nestedFirstLoadAndValueChangedEvents_setValue', () async {
@@ -47,8 +62,21 @@ void main() {
 
   test(
     'serializedAndDeserializedNestedFirstLoadAndValueChangedEvents_setValue',
-    () {},
-    skip: 'instance/form serialization (P6)',
+    () async {
+      final scenario = await scenarioFor('multiple-events.xml');
+
+      final deserializedScenario = await scenario.serializeAndDeserializeForm();
+      deserializedScenario.newInstance();
+      expect(
+        deserializedScenario.answerOf('/data/my-calculated-value')!.displayText,
+        '10',
+      );
+      deserializedScenario.answer('/data/my-value', '15');
+      expect(
+        deserializedScenario.answerOf('/data/my-calculated-value')!.displayText,
+        '30',
+      );
+    },
   );
 
   test('invalidEventNames_throwException', () async {

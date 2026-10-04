@@ -3,6 +3,7 @@
 // JavaRosa's listener is static (`RecordAudioActions`); DartRosa's is
 // `FormDef.recordAudioListener`, so it is set between parsing and
 // initializing the form.
+import 'package:dartrosa/src/codec/form_def_codec.dart';
 import 'package:dartrosa/src/model/form_def.dart';
 import 'package:dartrosa/src/model/instance/tree_reference.dart';
 import 'package:dartrosa/src/xform/xform_parser.dart';
@@ -109,9 +110,36 @@ void main() {
     expect(listener.absoluteTargetRef, getRef('/data/repeat[1]/recording'));
   });
 
-  test(
-    'serializationAndDeserialization_maintainsFields',
-    () {},
-    skip: 'instance/form serialization (P6)',
-  );
+  test('serializationAndDeserialization_maintainsFields', () async {
+    final scenario = await Scenario.init(
+      html(
+        head([
+          title('Record audio form'),
+          model([
+            mainInstance([
+              t('data id="record-audio-form"', [t('recording'), t('q1')]),
+            ]),
+            t(
+              'odk:recordaudio event="odk-instance-load" '
+              'ref="/data/recording" odk:quality="foo"',
+            ),
+          ]),
+        ]),
+        body([input('/data/q1')]),
+      ),
+    );
+
+    final listener = CapturingRecordAudioActionListener();
+
+    // scenario.serializeAndDeserializeForm(), with the listener set on the
+    // restored form before it is initialized.
+    final restored = await FormDefCodec.decode(
+      FormDefCodec.encode(scenario.formDef),
+    );
+    restored.recordAudioListener = listener.call;
+    Scenario.fromFormDef(restored, newInstance: false);
+
+    expect(listener.absoluteTargetRef, getRef('/data/recording'));
+    expect(listener.quality, 'foo');
+  });
 }

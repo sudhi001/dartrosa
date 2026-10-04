@@ -32,8 +32,13 @@ final class FormInstanceParser {
     this._itemsets,
     this._selectOnes,
     this._selectMultis,
-    this._actionTargets,
-  );
+    this._actionTargets, {
+    this.verifyExternalItemsets = true,
+  });
+
+  /// Whether itemset label and value nodes in external secondary instances
+  /// are verified (not when restoring a cached form).
+  final bool verifyExternalItemsets;
 
   final FormDef _formDef;
   final String? _defaultNamespace;
@@ -286,7 +291,8 @@ final class FormInstanceParser {
         secondary = instance;
       }
       final usesPlaceholder =
-          secondary is ExternalDataInstance && secondary.isUsingPlaceholder;
+          secondary is ExternalDataInstance &&
+          (secondary.isUsingPlaceholder || !verifyExternalItemsets);
       if (!usesPlaceholder) {
         if (secondary.getTemplatePath(label) == null) {
           throw XFormParseException(

@@ -211,6 +211,73 @@ final class FormIndex implements Comparable<FormIndex> {
     nextLevel,
   );
 
+  /// This index as a string that [FormIndex.parse] reads back (the
+  /// replacement for JavaRosa's Java serialization of `FormIndex`):
+  /// `BEGINNING`, `END`, or the levels as `local[_instance][=ref]` joined
+  /// by `,`, where `ref` is the level's absolute reference written as
+  /// `/name#multiplicity` steps (`/` for the root).
+  String toPathString() {
+    if (isBeginningOfFormIndex) return 'BEGINNING';
+    if (isEndOfFormIndex) return 'END';
+    final levels = <String>[];
+    for (FormIndex? level = this; level != null; level = level.nextLevel) {
+      final b = StringBuffer('${level.localIndex}');
+      if (level.instanceIndex != -1) b.write('_${level.instanceIndex}');
+      final ref = level._reference;
+      if (ref != null) b.write('=${_refToPathString(ref)}');
+      levels.add('$b');
+    }
+    return levels.join(',');
+  }
+
+  /// Reads an index written by [toPathString].
+  static FormIndex parse(String path) {
+    if (path == 'BEGINNING') return FormIndex.beginningOfForm();
+    if (path == 'END') return FormIndex.endOfForm();
+    FormIndex? index;
+    for (final level in path.split(',').reversed) {
+      final eq = level.indexOf('=');
+      final indices = (eq == -1 ? level : level.substring(0, eq)).split('_');
+      if (indices.length > 2) throw FormatException('Bad level', path);
+      index = FormIndex(
+        int.parse(indices[0]),
+        instanceIndex: indices.length == 2 ? int.parse(indices[1]) : -1,
+        nextLevel: index,
+        reference: eq == -1
+            ? null
+            : _refFromPathString(level.substring(eq + 1)),
+      );
+    }
+    return index!;
+  }
+
+  static String _refToPathString(TreeReference ref) {
+    if (!ref.isAbsolute ||
+        ref.instanceName != null ||
+        ref.contextType != ReferenceContext.absolute ||
+        ref.hasPredicates) {
+      throw ArgumentError.value(ref, 'ref', 'not a plain absolute reference');
+    }
+    if (ref.size == 0) return '/';
+    return [
+      for (var i = 0; i < ref.size; i++)
+        '/${ref.nameAt(i)}#${ref.multiplicityAt(i)}',
+    ].join();
+  }
+
+  static TreeReference _refFromPathString(String path) {
+    var ref = const TreeReference.root();
+    if (path == '/') return ref;
+    for (final step in path.substring(1).split('/')) {
+      final hash = step.lastIndexOf('#');
+      ref = ref.extend(
+        step.substring(0, hash),
+        int.parse(step.substring(hash + 1)),
+      );
+    }
+    return ref;
+  }
+
   /// Levels as `local[_instance], `, e.g. `0, 1_2, 0, `.
   @override
   String toString() {

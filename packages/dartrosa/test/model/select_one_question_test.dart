@@ -48,8 +48,18 @@ void main() {
 
   test(
     'choiceIsSelectedWhenLiteralIntegerValueMatchesChoiceValue_afterDeserialization',
-    () {},
-    skip: 'instance/form serialization (P6)',
+    () async {
+      final scenario = await (await Scenario.init(
+        _form('Integer calculate', 'integer-calculate', 'if(1=2, 1, 0)'),
+      )).serializeAndDeserializeForm();
+
+      scenario.choicesOf('/data/select'); // Populate choices
+      expect(
+        scenario.answerOf('/data/select')!.value,
+        Selection.ofChoice(scenario.choicesOf('/data/select')[0]),
+      );
+      expect(scenario.answerOf('/data/select'), isA<SelectOneValue>());
+    },
   );
 
   test('selectQuestionValueBlankWhenValueNotInChoices', () async {

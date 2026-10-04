@@ -40,6 +40,7 @@ void main() {
   test(
     'testSerializationAndDeserialization',
     () {},
-    skip: 'instance/form serialization (P6)',
+    skip:
+        'Externalizable binary format is not ported (FormDefCodec replaces it)',
   );
 }

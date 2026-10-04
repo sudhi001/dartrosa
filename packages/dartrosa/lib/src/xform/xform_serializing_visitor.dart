@@ -6,7 +6,7 @@ import '../model/instance/data_instance.dart';
 import '../model/instance/tree_element.dart';
 import '../model/instance/tree_reference.dart';
 import '../util/java_lang.dart';
-import 'kdom.dart';
+import 'kxml_writer.dart';
 import 'xform_answer_data_serializer.dart';
 
 /// Serializes a form instance to XForms submission XML, exactly as
@@ -59,17 +59,17 @@ final class XFormSerializingVisitor {
           ..namespace = schema
           ..declarations.add(('', schema));
       }
-      _Writer(out).write(top);
+      KxmlWriter(out).write(top);
     }
     return out.toString();
   }
 
-  _Node? _serializeNode(TreeElement node) {
+  KxmlElement? _serializeNode(TreeElement node) {
     if ((respectRelevance && !node.isRelevant) ||
         node.multiplicity == TreeReference.indexTemplate) {
       return null;
     }
-    var e = _Node();
+    var e = KxmlElement();
     final value = node.value;
     if (value != null) {
       final Object? serialized;
@@ -81,10 +81,10 @@ final class XFormSerializingVisitor {
       switch (serialized) {
         case final List<Object?> names:
           // Several attachments: one <data> child each.
-          e = _Node();
+          e = KxmlElement();
           for (final name in names) {
             e.children.add(
-              _Node()
+              KxmlElement()
                 ..name = 'data'
                 ..children.add('$name'),
             );
@@ -124,92 +124,5 @@ final class XFormSerializingVisitor {
     final namespace = node.namespace;
     if (namespace != null) e.namespace = namespace;
     return e;
-  }
-}
-
-/// An output element: kdom's `Element` as JavaRosa builds it (a `null`
-/// namespace writes the bare name).
-final class _Node {
-  String? name;
-  String? namespace;
-  final List<(String?, String, String)> attributes = [];
-  final List<(String, String)> declarations = [];
-  final List<Object> children = [];
-}
-
-/// kXML's `KXmlSerializer` writing a kdom document in UTF-8.
-final class _Writer {
-  _Writer(this._out);
-
-  final StringBuffer _out;
-  final List<Map<String, String>> _scopes = [{}];
-  var _auto = 0;
-
-  String? _boundPrefix(String namespace) {
-    for (final scope in _scopes.reversed) {
-      final prefix = scope[namespace];
-      if (prefix != null) return prefix;
-    }
-    return null;
-  }
-
-  String _prefixFor(String namespace, List<(String, String)> declare) {
-    final bound = _boundPrefix(namespace);
-    if (bound != null) return bound;
-    final prefix = 'n${_auto++}';
-    _scopes.last[namespace] = prefix;
-    declare.add((prefix, namespace));
-    return prefix;
-  }
-
-  String _qualified(
-    String? namespace,
-    String name,
-    List<(String, String)> declare,
-  ) {
-    if (namespace == null) return name;
-    final prefix = _prefixFor(namespace, declare);
-    return prefix.isEmpty ? name : '$prefix:$name';
-  }
-
-  void write(_Node node) {
-    final scope = <String, String>{};
-    _scopes.add(scope);
-    final declare = <(String, String)>[];
-    for (final (prefix, uri) in node.declarations) {
-      scope[uri] = prefix;
-      declare.add((prefix, uri));
-    }
-    final name = _qualified(node.namespace, node.name ?? '', declare);
-    _out.write('<$name');
-    for (final (namespace, attrName, value) in node.attributes) {
-      final qualified = namespace == null || namespace.isEmpty
-          ? attrName
-          : _qualified(namespace, attrName, declare);
-      final quote = value.contains('"') ? "'" : '"';
-      _out.write(' $qualified=$quote');
-      kxmlEscape(_out, value, quote, unicode: true);
-      _out.write(quote);
-    }
-    for (final (prefix, uri) in declare) {
-      _out.write(prefix.isEmpty ? ' xmlns="' : ' xmlns:$prefix="');
-      kxmlEscape(_out, uri, '"', unicode: true);
-      _out.write('"');
-    }
-    if (node.children.isEmpty) {
-      _out.write(' />');
-    } else {
-      _out.write('>');
-      for (final child in node.children) {
-        switch (child) {
-          case final _Node element:
-            write(element);
-          case final String text:
-            kxmlEscape(_out, text, null, unicode: true);
-        }
-      }
-      _out.write('</$name>');
-    }
-    _scopes.removeLast();
   }
 }

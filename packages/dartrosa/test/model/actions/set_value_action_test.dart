@@ -116,17 +116,70 @@ void main() {
     },
   );
 
-  test(
-    'setvalue_isSerializedAndDeserialized',
-    () {},
-    skip: 'instance/form serialization (P6)',
-  );
+  test('setvalue_isSerializedAndDeserialized', () async {
+    final scenario = await Scenario.init(
+      html(
+        head([
+          title('Nested setvalue action'),
+          model([
+            mainInstance([
+              t('data id="nested-setvalue"', [t('source'), t('destination')]),
+            ]),
+            bind('/data/destination')..type('int'),
+          ]),
+        ]),
+        body([
+          input('/data/source', [
+            setvalue('xforms-value-changed', '/data/destination', '4*4'),
+          ]),
+        ]),
+      ),
+    );
 
-  test(
-    'setvalueWithNoValue_isSerializedAndDeserialized',
-    () {},
-    skip: 'instance/form serialization (P6)',
-  );
+    await scenario.serializeAndDeserializeForm();
+
+    expect(scenario.answerOf('/data/destination'), isNull);
+
+    scenario
+      ..next()
+      ..answerCurrent(22);
+
+    expect(scenario.answerOf('/data/destination'), intAnswer(16));
+  });
+
+  test('setvalueWithNoValue_isSerializedAndDeserialized', () async {
+    final scenario = await Scenario.init(
+      html(
+        head([
+          title('Setvalue action'),
+          model([
+            mainInstance([
+              t('data id="setvalue"', [
+                t('source'),
+                tText('destination', '10'),
+              ]),
+            ]),
+            bind('/data/destination')..type('int'),
+          ]),
+        ]),
+        body([
+          input('/data/source', [
+            setvalue('xforms-value-changed', '/data/destination'),
+          ]),
+        ]),
+      ),
+    );
+
+    await scenario.serializeAndDeserializeForm();
+
+    expect(scenario.answerOf('/data/destination'), intAnswer(10));
+
+    scenario
+      ..next()
+      ..answerCurrent(5);
+
+    expect(scenario.answerOf('/data/destination'), isNull);
+  });
 
   // region groups
   test('setvalueInGroup_setsValueOutsideOfGroup', () async {
@@ -560,9 +613,27 @@ void main() {
     expect(scenario.answerOf('/data/element/@attr')!.displayText, '7');
   });
 
-  test(
-    'setvalue_setsValueOfAttribute_afterDeserialization',
-    () {},
-    skip: 'instance/form serialization (P6)',
-  );
+  test('setvalue_setsValueOfAttribute_afterDeserialization', () async {
+    final scenario = await Scenario.init(
+      html(
+        head([
+          title('Setvalue attribute'),
+          model([
+            mainInstance([
+              t('data id="setvalue-attribute"', [t('element attr=""')]),
+            ]),
+            setvalue('odk-instance-first-load', '/data/element/@attr', '7'),
+          ]),
+        ]),
+        body([input('/data/element')]),
+      ),
+    );
+
+    expect(scenario.answerOf('/data/element/@attr')!.displayText, '7');
+
+    final cached = await scenario.serializeAndDeserializeForm();
+
+    cached.newInstance();
+    expect(cached.answerOf('/data/element/@attr')!.displayText, '7');
+  });
 }

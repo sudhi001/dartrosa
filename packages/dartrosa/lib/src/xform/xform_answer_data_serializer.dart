@@ -29,3 +29,12 @@ Object? serializeAnswerData(AnswerValue? data) => switch (data) {
   GeoPointValue() || GeoTraceValue() || GeoShapeValue() => data.displayText,
   BooleanValue(:final b) => b ? '1' : '0',
 };
+
+/// Whether [serializeAnswerData] supports [data] (every answer type but
+/// [BooleanValue], as in JavaRosa).
+///
+/// Port of `XFormAnswerDataSerializer.canSerialize`.
+bool canSerializeAnswerData(AnswerValue? data) => switch (data) {
+  null || BooleanValue() => false,
+  _ => true,
+};

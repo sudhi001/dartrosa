@@ -4,6 +4,9 @@ library;
 // Port of JavaRosa v6.0.0 ExternalSecondaryInstanceParseTest.
 import 'dart:io';
 
+import 'package:dartrosa/src/codec/form_def_codec.dart';
+import 'package:dartrosa/src/model/data/answer_value.dart';
+import 'package:dartrosa/src/reference/resource_resolver.dart';
 import 'package:dartrosa/src/xform/xform_parse_exception.dart';
 import 'package:dartrosa/src/xpath/parser.dart';
 import 'package:dartrosa/testing.dart';
@@ -97,12 +100,31 @@ void main() {
     },
   );
 
-  for (final name in [
+  test(
     'form with external secondary XML instance serializes and deserializes',
-    'deserialized FormDef contains the external instance',
-  ]) {
-    test(name, () {}, skip: 'instance/form serialization (P6)');
-  }
+    () async {
+      final originalFormDef = await parseForm('external-select-xml.xml');
+
+      final deserializedFormDef = await FormDefCodec.decode(
+        FormDefCodec.encode(originalFormDef),
+        resolver: _configuredCorrectly(),
+      );
+
+      expect(originalFormDef.title, deserializedFormDef.title);
+    },
+  );
+
+  test('deserialized FormDef contains the external instance', () async {
+    final formPath = formFile('external-select-xml.xml');
+    final originalFormDef = await parseForm('external-select-xml.xml')
+      ..formXmlPath = formPath.path;
+
+    final deserializedFormDef = await FormDefCodec.decode(
+      FormDefCodec.encode(originalFormDef),
+      resolver: _configuredCorrectly(),
+    );
+    expect(deserializedFormDef.nonMainInstance('external-xml'), isNotNull);
+  });
 
   test(
     'external instance declaration is ignored when not referenced',
@@ -146,16 +168,60 @@ void main() {
     },
   );
 
-  for (final name in [
-    'real instance is resolved when form is deserialized after placeholder '
-        'instance used and file now exists',
-    'FileNotFoundException when form is deserialized after placeholder '
-        'instance used and file still missing',
-    'exception from choice selection when form is deserialized after '
-        'placeholder instance used and file missing columns',
-  ]) {
-    test(name, () {}, skip: 'instance/form serialization (P6)');
-  }
+  test('real instance is resolved when form is deserialized after placeholder '
+      'instance used and file now exists', () async {
+    var scenario = await Scenario.fromXml(
+      formFile('external-select-csv.xml').readAsStringSync(),
+      resolver: _configuredIncorrectly(),
+    );
+
+    scenario = await scenario.serializeAndDeserializeForm(
+      resolver: _configuredCorrectly(),
+    );
+
+    scenario
+      ..next()
+      ..answerCurrent(scenario.choicesOf('/data/first')[2]);
+    expect((scenario.answerOf('/data/first')!.value as Selection).value, 'c');
+  });
+
+  // Clients would typically catch this exception and try parsing the form
+  // again which would succeed by using the placeholder.
+  test('FileNotFoundException when form is deserialized after placeholder '
+      'instance used and file still missing', () async {
+    final scenario = await Scenario.fromXml(
+      formFile('external-select-csv.xml').readAsStringSync(),
+      resolver: _configuredIncorrectly(),
+    );
+
+    await expectLater(
+      scenario.serializeAndDeserializeForm(resolver: _configuredIncorrectly()),
+      throwsA(isA<ResourceNotFoundException>()),
+    );
+  });
+
+  // It would be possible for a formdef to be serialized without access to
+  // the external secondary instance and then deserialized with access. In
+  // that case, there's nothing to validate that the value and label
+  // references for a dynamic select correspond to real nodes in the
+  // secondary instance so there's a runtime exception when making a choice.
+  test('exception from choice selection when form is deserialized after '
+      'placeholder instance used and file missing columns', () async {
+    var scenario = await Scenario.init(
+      _externalCsvForm('external-data.csv', valueRef: 'foo', labelRef: 'bar'),
+      resolver: _configuredIncorrectly(),
+    );
+
+    scenario = await scenario.serializeAndDeserializeForm(
+      resolver: _configuredCorrectly(),
+    );
+
+    scenario.next();
+    expect(
+      () => scenario.answerCurrent(scenario.choicesOf('/data/first')[0]),
+      throwsA(anything),
+    );
+  });
   // endregion
 }
 

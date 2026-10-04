@@ -175,12 +175,20 @@ final class XFormParser {
   /// Parses [formXml]. [lastSavedSrc] is the `src` to use for
   /// `jr://instance/last-saved`. With [instanceXml] (a saved instance),
   /// its answers replace the blank instance (typed by [answerResolver]).
+  ///
+  /// [restoringCachedForm] re-parses a form that parsed before (see
+  /// `FormDefCodec`) the way JavaRosa's `readExternal` restores one: a
+  /// missing external secondary instance file throws
+  /// [ResourceNotFoundException] instead of being replaced by a
+  /// placeholder, and itemset label and value nodes in external instances
+  /// are not verified (deserialization does no parse-time verification).
   Future<FormDef> parse(
     String formXml, {
     String? formXmlSrc,
     String? lastSavedSrc,
     String? instanceXml,
     AnswerResolver answerResolver = defaultAnswerResolver,
+    bool restoringCachedForm = false,
   }) async {
     final KElement root;
     try {
@@ -193,7 +201,12 @@ final class XFormParser {
       throw XFormParseException('Unhandled Exception while Parsing XForm');
     }
     consolidateText(root);
-    await _parseDoc(root, formXmlSrc, lastSavedSrc);
+    await _parseDoc(
+      root,
+      formXmlSrc,
+      lastSavedSrc,
+      restoringCachedForm: restoringCachedForm,
+    );
     _f
       ..sourceXml = formXml
       ..lastSavedSrc = lastSavedSrc;
@@ -228,8 +241,9 @@ final class XFormParser {
   Future<void> _parseDoc(
     KElement root,
     String? formXmlSrc,
-    String? lastSavedSrc,
-  ) async {
+    String? lastSavedSrc, {
+    required bool restoringCachedForm,
+  }) async {
     _f = FormDef()..formXmlPath = formXmlSrc;
     _initState();
     final defaultNamespace = root.namespaceDeclarations
@@ -248,6 +262,7 @@ final class XFormParser {
       _selectOnes,
       _multipleItems,
       _actionTargets,
+      verifyExternalItemsets: !restoringCachedForm,
     );
 
     // Secondary instances first; they shouldn't reference the main one.
@@ -265,10 +280,13 @@ final class XFormParser {
             src,
             instanceId!,
             parser: _externalInstanceParser,
+            placeholderIfMissing: !restoringCachedForm,
           );
           for (final processor in _externalInstanceProcessors) {
             processor.processInstance(external);
           }
+        } on ResourceNotFoundException {
+          rethrow;
         } on Exception catch (e) {
           throw XFormParseException(
             'Unable to parse external secondary instance: $e',

@@ -1,17 +1,21 @@
 @TestOn('vm')
 library;
 
-// Port of JavaRosa v6.0.0 XFormParserTest. Tests that need the form runner
-// (Phase 4) or instance serialization (Phase 6) are skipped with a note.
+// Port of JavaRosa v6.0.0 XFormParserTest.
+import 'package:dartrosa/src/codec/form_def_codec.dart';
 import 'package:dartrosa/src/form_api/form_entry_controller.dart';
 import 'package:dartrosa/src/form_api/form_entry_model.dart';
 import 'package:dartrosa/src/model/actions/actions.dart';
 import 'package:dartrosa/src/model/control_type.dart';
+import 'package:dartrosa/src/model/data/answer_value.dart';
 import 'package:dartrosa/src/model/form_def.dart';
 import 'package:dartrosa/src/model/form_element.dart';
 import 'package:dartrosa/src/model/instance/tree_element.dart';
 import 'package:dartrosa/src/model/instance/tree_reference.dart';
+import 'package:dartrosa/src/xform/instance_structure.dart';
+import 'package:dartrosa/src/xform/kdom.dart';
 import 'package:dartrosa/src/xform/xform_parse_exception.dart';
+import 'package:dartrosa/src/xform/xform_serializing_visitor.dart';
 import 'package:dartrosa/testing.dart';
 import 'package:test/test.dart';
 
@@ -110,17 +114,43 @@ void main() {
     expect(item.value!.displayText, 'Foo');
   });
 
-  for (final name in [
-    'multiple instances form saves and restores',
-    'range form saves and restores',
-    'itemset range form saves and restores',
-  ]) {
-    test(
-      name,
-      () {},
-      skip: 'Externalizable FormDef caching is replaced by a codec (P6)',
+  // JavaRosa's Externalizable round trips, as FormDefCodec round trips.
+  Future<FormDef> serializeAndDeserialize(FormDef form) =>
+      FormDefCodec.decode(FormDefCodec.encode(form));
+
+  test('multiple instances form saves and restores', () async {
+    final originalFormDef = await parseForm(
+      'Simpler_Cascading_Select_Form.xml',
     );
-  }
+
+    final deserializedFormDef = await serializeAndDeserialize(originalFormDef);
+
+    expect(originalFormDef.title, deserializedFormDef.title);
+  });
+
+  // ensure serializing and deserializing a range form is done without errors
+  // see https://github.com/getodk/javarosa/issues/245 why this is needed
+  test('range form saves and restores', () async {
+    final originalFormDef = await parseForm('range-form.xml');
+
+    final deserializedFormDef = await serializeAndDeserialize(originalFormDef);
+
+    expect(originalFormDef.title, deserializedFormDef.title);
+
+    final question = deserializedFormDef.childAt(0)! as RangeQuestion;
+    expect(question.dynamicChoices, isNull);
+  });
+
+  test('itemset range form saves and restores', () async {
+    final originalFormDef = await parseForm('range-form-itemset.xml');
+
+    final deserializedFormDef = await serializeAndDeserialize(originalFormDef);
+
+    expect(originalFormDef.title, deserializedFormDef.title);
+
+    final question = deserializedFormDef.childAt(0)! as RangeQuestion;
+    expect(question.dynamicChoices, isNotNull);
+  });
 
   test('parses rank form', () async {
     final form = await parseForm('rank-form.xml');
@@ -190,19 +220,61 @@ void main() {
     assertNoParseErrors(form);
   });
 
-  test('meta namespace form keeps instance namespaces', () async {
-    final form = await parseForm('meta-namespace-form.xml');
-    final root = form.mainInstance.root;
-    final audit = findDepthFirst(root, 'audit')!;
-    final audit2 = findDepthFirst(root, 'audit2')!;
-    final audit3 = findDepthFirst(root, 'audit3')!;
-    expect(audit.namespacePrefix, 'orx2');
+  test('serialize and restore meta namespace form instance', () async {
+    // Given
+    final formDef = await parseForm('meta-namespace-form.xml');
+    expect(formDef.title, 'Namespace for Metadata');
+    assertNoParseErrors(formDef);
+
+    var audit = findDepthFirst(formDef.mainInstance.root, 'audit');
+    var audit2 = findDepthFirst(formDef.mainInstance.root, 'audit2');
+    var audit3 = findDepthFirst(formDef.mainInstance.root, 'audit3');
+
+    expect(audit, isNotNull);
+    expect(audit!.namespacePrefix, 'orx2');
     expect(audit.namespace, 'http://openrosa.org/xforms');
-    expect(audit2.namespacePrefix, 'orx2');
+
+    expect(audit2, isNotNull);
+    expect(audit2!.namespacePrefix, 'orx2');
     expect(audit2.namespace, 'http://openrosa.org/xforms');
-    expect(audit3.namespacePrefix, isNull);
+
+    expect(audit3, isNotNull);
+    expect(audit3!.namespacePrefix, isNull);
     expect(audit3.namespace, isNull);
-    // Serializing and restoring the instance is tested with P6.
+
+    audit.setAnswer(const StringValue('audit111.csv'));
+    audit2.setAnswer(const StringValue('audit222.csv'));
+    audit3.setAnswer(const StringValue('audit333.csv'));
+
+    // When
+
+    // serialize the form instance
+    final xml = XFormSerializingVisitor().serializeInstanceToString(
+      formDef.mainInstance,
+    );
+
+    // restore (deserialize) the form instance
+    final formInstance = restoreDataModel(parseKDocument(xml));
+
+    // Then
+    audit = findDepthFirst(formInstance.root, 'audit');
+    audit2 = findDepthFirst(formInstance.root, 'audit2');
+    audit3 = findDepthFirst(formInstance.root, 'audit3');
+
+    expect(audit, isNotNull);
+    expect(audit!.namespacePrefix, 'orx2');
+    expect(audit.namespace, 'http://openrosa.org/xforms');
+    expect(audit.value!.value, 'audit111.csv');
+
+    expect(audit2, isNotNull);
+    expect(audit2!.namespacePrefix, 'orx2');
+    expect(audit2.namespace, 'http://openrosa.org/xforms');
+    expect(audit2.value!.value, 'audit222.csv');
+
+    expect(audit3, isNotNull);
+    expect(audit3!.namespacePrefix, isNull);
+    expect(audit3.namespace, isNull);
+    expect(audit3.value!.value, 'audit333.csv');
   });
 
   test('parses form with template repeat', () async {

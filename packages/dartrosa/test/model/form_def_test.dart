@@ -9,6 +9,7 @@ import 'package:dartrosa/testing.dart';
 import 'package:test/test.dart';
 
 import '../support/forms.dart';
+import '../support/matchers.dart';
 
 final class _CustomFunc extends XPathFunctionHandler {
   @override
@@ -32,11 +33,39 @@ void main() {
     expect(scenario.answerCurrent('13'), AnswerResult.ok);
   });
 
-  test(
-    'enforcesConstraints_whenInstanceIsDeserialized',
-    () {},
-    skip: 'instance/form serialization (P6)',
-  );
+  test('enforcesConstraints_whenInstanceIsDeserialized', () async {
+    final formDef = html(
+      head([
+        title('Some form'),
+        model([
+          mainInstance([
+            t('data id="some-form"', [t('a')]),
+          ]),
+          bind('/data/a')
+            ..type('string')
+            ..constraint("regex(.,'[0-9]{10}')"),
+        ]),
+      ]),
+      body([input('/data/a')]),
+    );
+
+    final scenario = await Scenario.init(formDef);
+
+    scenario.next();
+    var result = scenario.answerCurrent('00000');
+    expect(result, AnswerResult.constraintViolated);
+
+    scenario
+      ..answerCurrent('0000000000')
+      ..next();
+    expect(scenario.currentIndex.isEndOfFormIndex, isTrue);
+
+    final restored = await scenario.serializeAndDeserializeInstance(formDef);
+    restored.next();
+    expect(restored.answerOf('/data/a'), stringAnswer('0000000000'));
+    result = restored.answerCurrent('00000');
+    expect(result, AnswerResult.constraintViolated);
+  });
 
   // region Repeat relevance
   test(

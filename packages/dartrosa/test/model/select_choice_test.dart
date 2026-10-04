@@ -53,8 +53,38 @@ XFormsElement _staticSelectForm() => html(
 void main() {
   test(
     'value_should_continue_being_an_empty_string_after_deserialization',
-    () {},
-    skip: 'instance/form serialization (P6)',
+    () async {
+      final scenario = await Scenario.init(
+        html(
+          head([
+            title('SelectChoice.getValue() regression test form'),
+            model([
+              mainInstance([
+                t('data id="some-form"', [t('the-choice')]),
+              ]),
+              bind('/data/the-choice')
+                ..type('string')
+                ..required(),
+            ]),
+          ]),
+          body([
+            select1('/data/the-choice', [
+              label('Select one choice'),
+              item('', 'Empty value'),
+            ]),
+          ]),
+        ),
+      );
+
+      scenario.next();
+      expect(scenario.questionAtIndex.choiceAt(0).value, '');
+
+      final deserializedScenario = await scenario.serializeAndDeserializeForm();
+      deserializedScenario
+        ..newInstance()
+        ..next();
+      expect(deserializedScenario.questionAtIndex.choiceAt(0).value, '');
+    },
   );
 
   test('value_should_be_trimmed_when_select_choice_object_constructed', () {

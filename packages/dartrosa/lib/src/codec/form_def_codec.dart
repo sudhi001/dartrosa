@@ -51,7 +51,10 @@ abstract final class FormDefCodec {
   }
 
   /// Restores a form encoded by [encode], reading external secondary
-  /// instances through [resolver] (or a configured [parser]).
+  /// instances through [resolver] (or a configured [parser]). As in
+  /// JavaRosa's `ExternalDataInstance.readExternal`, external instances are
+  /// read again, and a missing file throws [ResourceNotFoundException]
+  /// (a client would then parse the form again, using a placeholder).
   static Future<FormDef> decode(
     Uint8List bytes, {
     ResourceResolver? resolver,
@@ -68,6 +71,7 @@ abstract final class FormDefCodec {
       formXmlSrc: data['formXmlPath'] as String?,
       lastSavedSrc: data['lastSavedSrc'] as String?,
       instanceXml: data['instance']! as String,
+      restoringCachedForm: true,
     );
     final language = data['language'] as String?;
     if (language != null) form.localizer?.locale = language;

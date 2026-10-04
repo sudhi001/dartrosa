@@ -25,17 +25,27 @@ void main() {
     expect(scenario.answerOf('/data/q1'), intAnswer(16));
   });
 
-  test(
-    'instanceLoadEvent_firesOnSecondLoad',
-    () {},
-    skip: 'instance/form serialization (P6)',
-  );
+  test('instanceLoadEvent_firesOnSecondLoad', () async {
+    final scenario = await Scenario.init(instanceLoadForm('odk-instance-load'));
 
-  test(
-    'instanceFirstLoadEvent_doesNotfireOnSecondLoad',
-    () {},
-    skip: 'instance/form serialization (P6)',
-  );
+    expect(scenario.answerOf('/data/q1'), intAnswer(16));
+    scenario.answer('/data/q1', 555);
+
+    final restored = await scenario.serializeAndDeserializeForm();
+    expect(restored.answerOf('/data/q1'), intAnswer(16));
+  });
+
+  test('instanceFirstLoadEvent_doesNotfireOnSecondLoad', () async {
+    final scenario = await Scenario.init(
+      instanceLoadForm('odk-instance-first-load'),
+    );
+
+    expect(scenario.answerOf('/data/q1'), intAnswer(16));
+    scenario.answer('/data/q1', 555);
+
+    final restored = await scenario.serializeAndDeserializeForm();
+    expect(restored.answerOf('/data/q1'), intAnswer(555));
+  });
 
   XFormsElement nestedForm(int repeats) => html(
     head([
