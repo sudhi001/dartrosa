@@ -35,11 +35,12 @@ XFormView(
 | integer / decimal / long | `thousands-sep` (display only; the answer has no separators) |
 | date | `no-calendar` (typed date), `month-year`, `year` (saved as the 1st) |
 | time / dateTime | pickers |
-| select one | radio list, `minimal` (drop-down), `quick` (auto-advance in pager mode), `autocomplete`, `columns`, `columns-N`, `columns-pack`, `no-buttons`, `likert`, `label`, `list-nolabel`, `list`; Collect's old names `compact`, `quickcompact`, `compact-N`, `horizontal`, `horizontal-compact`; `image-map` |
+| select one | radio list, `minimal` (drop-down), `quick` (auto-advance in pager mode), `autocomplete`, `columns`, `columns-N`, `columns-pack`, `no-buttons`, `likert`, `label`, `list-nolabel`, `list`; Collect's old names `compact`, `quickcompact`, `compact-N`, `horizontal`, `horizontal-compact`; `image-map`; `map` (through `XFormDelegates.selectFromMap`) |
 | select multiple | check boxes, `minimal` (dialog), `autocomplete`, `columns*`, `no-buttons`, `label`, `list-nolabel`, `list`, `image-map` |
 | rank, trigger, note | reorderable list, acknowledge, read-only text |
 | range | slider, `vertical`, `picker`, `rating`, `no-ticks` |
 | geopoint, barcode, image / audio / video / file | through `XFormDelegates` (typed value otherwise) |
+| geopoint `maps` / `placement-map`, geotrace, geoshape | on the app's map through `XFormDelegates.geoFromMap` when `canShowMaps` (default widget otherwise); `hidden-answer` |
 | group | card, `field-list` (one pager screen), `table-list` (one grid: choice labels as header, a row of buttons per select) |
 | repeat | add / remove, "add another?" prompt in pager mode, `noAddRemove` |
 

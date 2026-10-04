@@ -9,6 +9,7 @@ import '../theme.dart';
 import '../xform_scope.dart';
 import 'date_input.dart';
 import 'label.dart';
+import 'map_inputs.dart';
 import 'range_input.dart';
 import 'select_widgets.dart';
 import 'text_input.dart';
@@ -309,6 +310,13 @@ class _Geo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final delegates = XFormScope.of(context).delegates;
+    final appearance = Appearance.parse(node.appearance);
+    if (delegates.canShowMaps &&
+        (node.dataType != DataType.geopoint ||
+            appearance.has('maps') ||
+            appearance.has('placement-map'))) {
+      return GeoMapInput(node);
+    }
     return _Captured(
       node: node,
       available: delegates.canLocate && node.dataType == DataType.geopoint,

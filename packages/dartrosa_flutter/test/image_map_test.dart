@@ -138,6 +138,6 @@ void main() {
   testWidgets('missing SVG shows a message', (tester) async {
     final s = await _form('select1', image: 'missing.svg');
     await _pump(tester, s);
-    expect(find.text('SVG file does not exist'), findsOneWidget);
+    expect(find.text('SVG file does not exist!'), findsOneWidget);
   });
 }

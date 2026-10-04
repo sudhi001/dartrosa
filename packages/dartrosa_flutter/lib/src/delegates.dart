@@ -1,6 +1,9 @@
 import 'dart:typed_data';
 
+import 'package:dartrosa/dartrosa.dart';
 import 'package:flutter/widgets.dart';
+
+import 'widgets/map_inputs.dart';
 
 /// Captures data the renderer can't get on its own: photos, recordings,
 /// files, locations, barcodes. Apps implement the ones their forms need
@@ -36,6 +39,27 @@ abstract class XFormDelegates {
   /// Opens a link tapped in a label or hint (e.g. with url_launcher).
   Future<void> openLink(BuildContext context, Uri uri) async {}
 
+  /// Lets the user pick one of [features] (the choices of [node] with a
+  /// geometry) on a map, [selected] being the current answer; returns the
+  /// picked choice, or `null` if cancelled. Used by select one questions
+  /// with the `map` appearance when [canShowMaps].
+  Future<SelectChoice?> selectFromMap(
+    BuildContext context, {
+    required QuestionNode node,
+    required List<MapFeature> features,
+    SelectChoice? selected,
+  }) async => null;
+
+  /// Lets the user capture [node]'s geopoint (`maps` or `placement-map`
+  /// appearance), geotrace or geoshape on a map, starting from its
+  /// current value; returns the ODK geo value (`lat lon alt acc`, `;`
+  /// separated for traces and shapes), `''` to clear it, or `null` if
+  /// cancelled. Used when [canShowMaps].
+  Future<String?> geoFromMap(
+    BuildContext context, {
+    required QuestionNode node,
+  }) async => null;
+
   /// Whether [captureMedia] is implemented.
   bool get canCaptureMedia => false;
 
@@ -44,6 +68,10 @@ abstract class XFormDelegates {
 
   /// Whether [scanBarcode] is implemented.
   bool get canScanBarcode => false;
+
+  /// Whether [selectFromMap] and [geoFromMap] are implemented; otherwise
+  /// `map` selects and geo questions get their default widgets.
+  bool get canShowMaps => false;
 }
 
 /// No platform features: every capture falls back to manual entry.

@@ -132,6 +132,10 @@ final class FormSession {
   Stream<FormChange> get changes => _changes.stream;
 
   void _onEvaluation(EvaluationEvent event) {
+    // Itemsets announce each (re-)evaluation of their choices, which
+    // happens while reading a question (e.g. while a UI builds); it
+    // changes nothing.
+    if (event.message == 'Dynamic choices') return;
     if (event.results.isEmpty || !_changes.hasListener) return;
     _changes.add(
       FormChange(event.message == 'Recalculate' ? 'value' : 'condition', [

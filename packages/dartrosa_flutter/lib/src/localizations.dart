@@ -1,3 +1,4 @@
+import 'package:dartrosa/dartrosa.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 
@@ -88,7 +89,19 @@ class XFormLocalizations {
   String get required => 'required';
 
   /// Shown when an `image-map` select's SVG can't be read.
-  String get svgFileMissing => 'SVG file does not exist';
+  String get svgFileMissing => 'SVG file does not exist!';
+
+  /// Opens the map of a `map` select.
+  String get selectPlace => 'Select place';
+
+  /// Opens the map of a geo question of [dataType] (geopoint, geotrace or
+  /// geoshape), which [hasValue] or not.
+  String geoMapButton(DataType dataType, {required bool hasValue}) =>
+      switch (dataType) {
+        DataType.geotrace => hasValue ? 'View or change line' : 'Get line',
+        DataType.geoshape => hasValue ? 'View or change shape' : 'Get shape',
+        _ => hasValue ? 'Change point' : 'Get point',
+      };
 
   /// Precedes the selected choices of an `image-map` select.
   String get selected => 'Selected:';

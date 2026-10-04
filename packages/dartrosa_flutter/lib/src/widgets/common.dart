@@ -13,6 +13,17 @@ AnswerResult answerQuestion(
   AnswerValue? value,
 ) => XFormScope.of(context).controller.answer(node.index, value);
 
+/// [text] as an answer of [node]'s data type (kept as text if it doesn't
+/// parse, so the engine can reject it).
+AnswerValue typedAnswer(QuestionNode node, String text) {
+  final uncast = UncastValue(text);
+  try {
+    return castToDataType(uncast, node.dataType);
+  } on Object {
+    return uncast;
+  }
+}
+
 /// The values of [node]'s selected choices.
 Set<String> selectedValues(QuestionNode node) => switch (node.value) {
   MultipleItemsValue(:final selections) => {

@@ -15,6 +15,7 @@ export 'src/widgets/common.dart' show XFormPagerScope;
 export 'src/widgets/date_input.dart';
 export 'src/widgets/image_map.dart';
 export 'src/widgets/label.dart';
+export 'src/widgets/map_inputs.dart';
 export 'src/widgets/node_widgets.dart';
 export 'src/widgets/question_widget.dart';
 export 'src/widgets/range_input.dart';

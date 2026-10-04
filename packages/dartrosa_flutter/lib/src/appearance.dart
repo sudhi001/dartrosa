@@ -65,7 +65,8 @@ class Appearance {
     'numbers', 'thousands-sep', 'masked', 'no-calendar', 'month-year',
     'year', 'vertical', 'picker', 'rating', 'no-ticks', 'field-list',
     'table-list', 'quickcompact', 'compact', 'horizontal',
-    'horizontal-compact', 'image-map',
+    'horizontal-compact', 'image-map', 'map', 'maps', 'placement-map',
+    'hidden-answer',
   };
 
   static final RegExp _knownPattern = RegExp(
