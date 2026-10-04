@@ -1,3 +1,4 @@
+import '../../util/measure.dart';
 import '../../xpath/expression.dart';
 import '../../xpath/nodeset.dart';
 import '../data/answer_value.dart';
@@ -109,12 +110,17 @@ final class RawFilterStrategy implements FilterStrategy {
     List<TreeReference> children,
     EvaluationContext context,
     List<TreeReference> Function() next,
-  ) => [
-    for (var i = 0; i < children.length; i++)
-      if (predicate.eval(sourceInstance, context.rescope(children[i], i)) ==
-          true)
-        children[i],
-  ];
+  ) {
+    final passed = <TreeReference>[];
+    for (var i = 0; i < children.length; i++) {
+      final childContext = context.rescope(children[i], i);
+      Measure.log('PredicateEvaluation');
+      if (predicate.eval(sourceInstance, childContext) == true) {
+        passed.add(children[i]);
+      }
+    }
+    return passed;
+  }
 }
 
 const List<FilterStrategy> _defaultFilterChain = [RawFilterStrategy()];

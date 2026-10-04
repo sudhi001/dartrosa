@@ -1,10 +1,12 @@
 @TestOn('vm')
 library;
 
-// Port of JavaRosa v6.0.0 ExternalSecondaryInstanceParseTest (the parse-only
-// tests). Tests selecting choices or using placeholder instances need the
-// form runner (P4/P5); serialization tests the codec (P6).
+// Port of JavaRosa v6.0.0 ExternalSecondaryInstanceParseTest.
+import 'dart:io';
+
+import 'package:dartrosa/src/xform/xform_parse_exception.dart';
 import 'package:dartrosa/src/xpath/parser.dart';
+import 'package:dartrosa/testing.dart';
 import 'package:test/test.dart';
 
 import '../support/forms.dart';
@@ -54,20 +56,52 @@ void main() {
     });
   }
 
-  for (final name in [
+  test(
     'items from external GeoJSON instance with integer ids can be selected',
+    () async {
+      final scenario = await scenarioFor('external-select-geojson.xml');
+      final choiceWithIntId = scenario.choicesOf('/data/q')[1];
+      scenario
+        ..next()
+        ..answerCurrent(choiceWithIntId);
+      expect(scenario.answerOf('/data/q')!.displayText, '67');
+    },
+  );
+
+  test(
     'XFormParseException when itemset value or label not in external instance',
+    () async {
+      await expectLater(
+        Scenario.init(
+          _externalCsvForm(
+            'external-data.csv',
+            valueRef: 'foo',
+            labelRef: 'bar',
+          ),
+          resolver: _configuredCorrectly(),
+        ),
+        throwsA(isA<XFormParseException>()),
+      );
+    },
+  );
+
+  test(
     'CSV secondary instance with header only parses without error',
-    'empty placeholder instance is used when external instance not found',
-    'real instance is resolved when form is deserialized after placeholder',
-  ]) {
-    test(name, () {}, skip: 'needs the form runner (P4/P5)');
-  }
+    () async {
+      final scenario = await Scenario.init(
+        _externalCsvForm('header_only.csv'),
+        resolver: _configuredCorrectly(),
+      );
+
+      expect(scenario.choicesOf('/data/first'), hasLength(0));
+    },
+  );
+
   for (final name in [
     'form with external secondary XML instance serializes and deserializes',
     'deserialized FormDef contains the external instance',
   ]) {
-    test(name, () {}, skip: 'Externalizable FormDef caching is a codec (P6)');
+    test(name, () {}, skip: 'instance/form serialization (P6)');
   }
 
   test(
@@ -98,4 +132,67 @@ void main() {
     ).toTreeReference();
     expect(formDef.evaluationContext.expandReference(ref), hasLength(12));
   });
+
+  // region Missing external file
+  test(
+    'empty placeholder instance is used when external instance not found',
+    () async {
+      final scenario = await Scenario.fromXml(
+        formFile('external-select-csv.xml').readAsStringSync(),
+        resolver: _configuredIncorrectly(),
+      );
+
+      expect(scenario.choicesOf('/data/first'), hasLength(0));
+    },
+  );
+
+  for (final name in [
+    'real instance is resolved when form is deserialized after placeholder '
+        'instance used and file now exists',
+    'FileNotFoundException when form is deserialized after placeholder '
+        'instance used and file still missing',
+    'exception from choice selection when form is deserialized after '
+        'placeholder instance used and file missing columns',
+  ]) {
+    test(name, () {}, skip: 'instance/form serialization (P6)');
+  }
+  // endregion
 }
+
+/// Resolves `jr://` URIs to the folder holding the external instances.
+/// Port of `configureReferenceManagerCorrectly`.
+DirectoryResolver _configuredCorrectly() =>
+    DirectoryResolver(formFile('external-select-csv.xml').parent);
+
+/// Resolves `jr://` URIs to a folder that does not exist. Port of
+/// `configureReferenceManagerIncorrectly`.
+DirectoryResolver _configuredIncorrectly() =>
+    DirectoryResolver(Directory(formFile('external-select-csv.xml').path));
+
+/// A form with a select from `jr://file-csv/[csv]`.
+XFormsElement _externalCsvForm(
+  String csv, {
+  String valueRef = 'value',
+  String labelRef = 'label',
+}) => html(
+  head([
+    title('Some form'),
+    model([
+      mainInstance([
+        t('data id="some-form"', [t('first')]),
+      ]),
+      t('instance id="external-csv" src="jr://file-csv/$csv"'),
+      bind('/data/first')..type('string'),
+    ]),
+  ]),
+  body([
+    // Define a select using value and label references that don't exist in
+    // the secondary instance
+    select1Dynamic(
+      '/data/first',
+      "instance('external-csv')/root/item",
+      valueRef: valueRef,
+      labelRef: labelRef,
+    ),
+  ]),
+);
