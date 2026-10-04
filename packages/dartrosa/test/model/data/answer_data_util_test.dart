@@ -50,7 +50,9 @@ void main() {
       test(
         name,
         () {},
-        skip: 'Externalizable wire format; DartRosa uses a codec (P6)',
+        skip:
+            'Externalizable binary format is not ported '
+            '(FormDefCodec replaces it)',
       );
     }
   });

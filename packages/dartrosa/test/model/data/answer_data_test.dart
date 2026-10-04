@@ -10,6 +10,8 @@
 // value, null is rejected at compile time, and the copy checks become
 // checks that the lists can't be modified.
 import 'package:dartrosa/src/model/data/answer_value.dart';
+import 'package:dartrosa/src/model/data_type.dart';
+import 'package:dartrosa/src/model/data_type_classes.dart';
 import 'package:dartrosa/src/model/form_element.dart';
 import 'package:dartrosa/src/model/select_choice.dart';
 import 'package:dartrosa/src/model/utils/date_utils.dart';
@@ -176,11 +178,9 @@ void main() {
     });
   });
 
-  test(
-    'DataTypeClassesTest: correct class is returned',
-    () {},
-    skip: 'DataTypeClasses only serves CompactInstanceWrapper (codec, P6)',
-  );
+  test('DataTypeClassesTest: correct class is returned', () {
+    expect(DataTypeClasses.classForType(DataType.choice), SelectOneValue);
+  });
 
   for (final (name, make) in [
     ('GeoShapeDataTest', GeoShapeValue.new),
