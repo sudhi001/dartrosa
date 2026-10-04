@@ -4,7 +4,6 @@ import 'dart:math' as math;
 
 import 'package:dartrosa/dartrosa.dart';
 import 'package:dartrosa/src/model/condition/evaluation_context.dart';
-import 'package:dartrosa/src/model/data/answer_value.dart';
 import 'package:dartrosa/src/model/instance/data_instance.dart';
 import 'package:dartrosa/src/model/instance/tree_element.dart';
 import 'package:dartrosa/src/model/utils/date_utils.dart' as date_utils;

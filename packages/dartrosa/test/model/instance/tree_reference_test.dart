@@ -1,7 +1,6 @@
 // Port of JavaRosa v6.0.0 TreeReference{Parent,Equals,Genericize,
 // AnchorHarness,Anchor,Contextualize,IsAncestorOf}Test.
 import 'package:dartrosa/dartrosa.dart';
-import 'package:dartrosa/src/model/instance/tree_reference.dart';
 import 'package:dartrosa/src/xpath/expression.dart';
 import 'package:dartrosa/testing.dart';
 import 'package:test/test.dart';
