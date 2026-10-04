@@ -1,8 +1,8 @@
 // DartRosa tests (not ports) of FormLoadPlugin, DartRosaConfig.plugins and
 // FormDef.extras (a port of JavaRosa's FormDef.getExtras()).
-import 'package:dartrosa/dartrosa.dart';
 import 'dart:typed_data';
 
+import 'package:dartrosa/dartrosa.dart';
 import 'package:dartrosa/javarosa.dart';
 import 'package:test/test.dart';
 
@@ -48,7 +48,7 @@ final class _Answer extends XPathFunctionHandler {
 final class _Plugin extends FormLoadPlugin {
   final processors = <_CountingProcessor>[];
   final resolvedBytes = <int>[];
-  var resolvedValues = <String>[];
+  final resolvedValues = <String>[];
 
   @override
   List<Object> createParseProcessors() {
@@ -85,7 +85,7 @@ void main() {
     expect(plugin.processors, hasLength(2));
     expect(plugin.processors.first.expressions, greaterThan(0));
     expect(plugin.resolvedBytes, [1, 2, 1, 2]);
-    final session = definition.createSession();
+    definition.createSession();
     expect(
       definition.formDef.mainInstance.root.getChild('c', 0)!.value!.displayText,
       'from plugin',
@@ -101,7 +101,7 @@ void main() {
         functions: [_Answer('from app')],
       ),
     );
-    final session = definition.createSession();
+    definition.createSession();
     expect(
       definition.formDef.mainInstance.root.getChild('c', 0)!.value!.displayText,
       'from app',
@@ -114,7 +114,7 @@ void main() {
       _formXml,
       config: DartRosaConfig(resolver: resolver, plugins: [plugin]),
     );
-    final session = definition.createSession(
+    definition.createSession(
       existingInstance:
           '<data id="plugin"><q>x</q><c/><s>not-a-choice</s></data>',
     );
