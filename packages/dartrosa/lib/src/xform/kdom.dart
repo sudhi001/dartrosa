@@ -184,6 +184,15 @@ void _appendText(KElement element, String text) {
   }
 }
 
+/// Parses [source] and consolidates its text, as JavaRosa's
+/// `XFormParser.getXMLDocument` does: the document element of the result.
+/// Throws [xml.XmlException] for malformed XML.
+KElement getXmlDocument(String source) {
+  final root = parseKDocument(source);
+  consolidateText(root);
+  return root;
+}
+
 /// Merges adjacent text children and removes whitespace-only text, in the
 /// whole tree. Port of `XmlTextConsolidator.consolidateText`.
 void consolidateText(KElement root) {

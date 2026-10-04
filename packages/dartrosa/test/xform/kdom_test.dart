@@ -141,4 +141,16 @@ void main() {
       expect(await label('a<b>bold</b>c'), 'ac');
     });
   });
+
+  group('getXmlDocument', () {
+    test('consolidates text and keeps the empty child of <a></a>', () {
+      final root = getXmlDocument(
+        '<r>\n  <a>x<!--c-->y</a>\n  <b></b><c/></r>',
+      );
+      expect(root.childCount, 3);
+      expect(xmlText(root.elementAt(0)!, trim: true), 'x');
+      expect(xmlText(root.elementAt(1)!, trim: true), '');
+      expect(xmlText(root.elementAt(2)!, trim: true), isNull);
+    });
+  });
 }
