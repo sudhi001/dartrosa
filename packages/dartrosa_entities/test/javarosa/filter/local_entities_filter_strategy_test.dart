@@ -357,7 +357,7 @@ void main() {
     expect(instanceProvider.fullParsePerformed, isFalse);
   });
 
-  test("works correctly but not in the optimized way with unanswered "
+  test('works correctly but not in the optimized way with unanswered '
       "question = ''", () async {
     entitiesRepository.save('things', [NewEntity('thing1', 'Thing1')]);
 
@@ -390,7 +390,7 @@ void main() {
     expect(fallthroughFilterStrategy.fellThrough, isTrue);
   });
 
-  test("works correctly but not in the optimized way with non existing "
+  test('works correctly but not in the optimized way with non existing '
       "property = ''", () async {
     entitiesRepository.save('things', [NewEntity('thing1', 'Thing1')]);
 
