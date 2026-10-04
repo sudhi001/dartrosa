@@ -1,6 +1,8 @@
 import '../i18n/localizer.dart';
+import '../xpath/exceptions.dart';
 import 'actions/actions.dart';
 import 'control_type.dart';
+import 'data/answer_value.dart';
 import 'instance/tree_element.dart';
 import 'instance/tree_reference.dart';
 import 'itemset_binding.dart';
@@ -260,6 +262,29 @@ class QuestionDef extends FormElement {
       if (choiceAt(i).value == value) return choiceAt(i);
     }
     return null;
+  }
+
+  /// [selection] bound to its static choice (by index, else by value).
+  /// Dynamic (itemset) choices can't be attached and return [selection]
+  /// unchanged. Port of `Selection.attachChoice(QuestionDef)`, returning a
+  /// new selection because DartRosa's are immutable.
+  Selection attachChoice(Selection selection) {
+    if (dynamicChoices != null) return selection;
+    SelectChoice? choice;
+    final index = selection.index;
+    final xmlValue = selection.xmlValue;
+    if (index != -1 && index < numChoices) {
+      choice = choiceAt(index);
+    } else if (xmlValue != null && xmlValue.isNotEmpty) {
+      choice = choiceForValue(xmlValue);
+    }
+    if (choice == null) {
+      throw XPathTypeMismatchException(
+        'value $xmlValue could not be loaded into question $textId.  Check '
+        'to see if value $xmlValue is a valid option for question $textId.',
+      );
+    }
+    return Selection.ofChoice(choice);
   }
 
   /// Whether this question copies subtrees from its itemset (deprecated

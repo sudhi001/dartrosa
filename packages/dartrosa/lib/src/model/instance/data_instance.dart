@@ -159,6 +159,15 @@ class FormInstance extends DataInstance {
 
   TreeElement _base = TreeElement();
 
+  /// A deep copy (templates included) with the same schema, versions and
+  /// namespaces. Port of `FormInstance.clone` (storage fields aren't
+  /// ported).
+  FormInstance clone() => FormInstance(root.deepCopy(includeTemplates: true))
+    ..schema = schema
+    ..formVersion = formVersion
+    ..uiVersion = uiVersion
+    ..namespaces.addAll(namespaces);
+
   /// Names this secondary instance [instanceId] when the form starts.
   /// Port of `FormInstance.initialize`.
   void initialize(String instanceId) {

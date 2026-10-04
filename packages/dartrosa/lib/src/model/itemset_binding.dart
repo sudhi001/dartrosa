@@ -244,6 +244,16 @@ final class ItemsetBinding implements Localizable {
     _updateAnswer(form, questionRef, answerMap);
   }
 
+  /// The value expression relative to a copied node (deprecated `<copy>`
+  /// mode), else the absolute value reference. Port of `getRelativeValue`.
+  XPathConditional? get relativeValue {
+    final copyRef = this.copyRef;
+    final relRef = copyRef == null ? valueRef : valueRef?.relativize(copyRef);
+    return relRef == null
+        ? null
+        : XPathConditional(XPathPathExpr.fromRef(relRef));
+  }
+
   /// Computes the absolute references once the instance exists; with
   /// [question] (on the second pass) also the destination reference.
   void initReferences(QuestionDef? question) {

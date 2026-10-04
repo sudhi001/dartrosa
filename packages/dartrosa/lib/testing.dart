@@ -5,4 +5,5 @@
 library;
 
 export 'src/testing/references.dart';
+export 'src/testing/scenario.dart';
 export 'src/testing/xforms_element.dart';

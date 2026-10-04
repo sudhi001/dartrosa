@@ -1,6 +1,7 @@
 import 'package:collection/collection.dart';
 
 import '../i18n/localizer.dart';
+import '../xform/xform_answer_data_parser.dart';
 import '../xform/xform_answer_data_serializer.dart';
 import '../xpath/conversions.dart';
 import '../xpath/exceptions.dart';
@@ -11,7 +12,9 @@ import 'condition/evaluation_context.dart';
 import 'condition/filter_strategies.dart';
 import 'control_type.dart';
 import 'data/answer_value.dart';
+import 'data_type.dart';
 import 'form_element.dart';
+import 'form_index.dart';
 import 'instance/data_instance.dart';
 import 'instance/tree_element.dart';
 import 'instance/tree_reference.dart';
@@ -317,6 +320,171 @@ final class FormDef extends FormElement {
   void setAnswer(AnswerValue? value, TreeReference ref) =>
       mainInstance.resolveReference(ref)!.setAnswer(value);
 
+  // ------------------------------------------------------------ indices
+
+  /// The element at [index] (the form itself outside the form).
+  FormElement elementAt(FormIndex? index) {
+    FormElement element = this;
+    for (var level = index; level != null && level.isInForm;) {
+      element = element.children[level.localIndex];
+      level = level.nextLevel;
+    }
+    return element;
+  }
+
+  /// The elements along [index], top level first.
+  List<FormElement> explodeIndex(FormIndex index) {
+    final elements = <FormElement>[];
+    collapseIndex(index, [], [], elements);
+    return elements;
+  }
+
+  /// The instance reference of the element at [index].
+  TreeReference? childInstanceRef(FormIndex index) {
+    final multiplicities = <int>[];
+    final elements = <FormElement>[];
+    collapseIndex(index, [], multiplicities, elements);
+    return childInstanceRefOf(elements, multiplicities);
+  }
+
+  /// The instance reference of the last of [elements], with the repeat
+  /// instances given by [multiplicities] (other steps at multiplicity 0);
+  /// `null` if the controls and binds are inconsistent.
+  TreeReference? childInstanceRefOf(
+    List<FormElement> elements,
+    List<int> multiplicities,
+  ) {
+    if (elements.isEmpty) return null;
+    var ref = elements.last.bind!;
+    for (var i = 0; i < ref.size; i++) {
+      if (ref.multiplicityAt(i) != TreeReference.indexAttribute) {
+        ref = ref.withMultiplicity(i, 0);
+      }
+    }
+    for (var i = 0; i < elements.length; i++) {
+      final element = elements[i];
+      if (element is GroupDef && element.isRepeat) {
+        final repeatRef = element.bind!;
+        if (!repeatRef.isAncestorOf(ref)) return null;
+        ref = ref.withMultiplicity(repeatRef.size - 1, multiplicities[i]);
+      }
+    }
+    return ref;
+  }
+
+  /// Appends the child indices, multiplicities (0 outside repeats) and
+  /// elements along [index] to the lists.
+  void collapseIndex(
+    FormIndex index,
+    List<int> indexes,
+    List<int> multiplicities,
+    List<FormElement> elements,
+  ) {
+    if (!index.isInForm) return;
+    FormElement element = this;
+    for (FormIndex? level = index; level != null; level = level.nextLevel) {
+      final i = level.localIndex;
+      element = element.children[i];
+      indexes.add(i);
+      multiplicities.add(level.instanceIndex == -1 ? 0 : level.instanceIndex);
+      elements.add(element);
+    }
+  }
+
+  /// The index for the given path (multiplicities are kept for repeats
+  /// only).
+  FormIndex? buildIndex(
+    List<int> indexes,
+    List<int> multiplicities,
+    List<FormElement> elements,
+  ) {
+    FormIndex? cur;
+    final curMultiplicities = [...multiplicities];
+    final curElements = [...elements];
+    for (var i = indexes.length - 1; i >= 0; i--) {
+      final element = elements[i];
+      final mult = element is GroupDef && element.isRepeat
+          ? multiplicities[i]
+          : -1;
+      cur = FormIndex(
+        indexes[i],
+        instanceIndex: mult,
+        nextLevel: cur,
+        reference: childInstanceRefOf(curElements, curMultiplicities),
+      );
+      curMultiplicities.removeLast();
+      curElements.removeLast();
+    }
+    return cur;
+  }
+
+  /// The number of instances of the repeat at [index].
+  int numRepetitions(FormIndex index) {
+    if (!index.isInForm) throw StateError('not an in-form index');
+    final elements = explodeIndex(index);
+    final last = elements.last;
+    if (last is! GroupDef || !last.isRepeat) {
+      throw StateError('current element not a repeat');
+    }
+    final template = mainInstance.getTemplate(index.reference!)!;
+    final parentPath = template.parent!.ref.genericize();
+    final parentNode = mainInstance.resolveReference(
+      parentPath.contextualize(index.reference!)!,
+    )!;
+    return parentNode.childMultiplicity(template.name!);
+  }
+
+  /// The index of instance [repIndex] of the repeat at [index]; -1 means
+  /// the instance about to be created.
+  FormIndex descendIntoRepeat(FormIndex index, int repIndex) {
+    final count = numRepetitions(index);
+    final indexes = <int>[];
+    final multiplicities = <int>[];
+    final elements = <FormElement>[];
+    collapseIndex(index, indexes, multiplicities, elements);
+    if (repIndex == -1) {
+      repIndex = count;
+    } else if (repIndex < 0 || repIndex >= count) {
+      throw StateError('selection exceeds current number of repetitions');
+    }
+    multiplicities[multiplicities.length - 1] = repIndex;
+    return buildIndex(indexes, multiplicities, elements)!;
+  }
+
+  /// Adds the repeat instance at [index]. Port of `createNewRepeat`.
+  void createNewRepeat(FormIndex index) {
+    final repeatRef = childInstanceRef(index)!;
+    _createRepeatInstance(repeatRef, elementAt(index));
+  }
+
+  /// Deletes the repeat instance containing [index]; returns the index of
+  /// the deleted instance. Port of `deleteRepeat(FormIndex)`.
+  FormIndex deleteRepeat(FormIndex index) {
+    final indexes = <int>[];
+    final multiplicities = <int>[];
+    final elements = <FormElement>[];
+    collapseIndex(index, indexes, multiplicities, elements);
+    for (var i = elements.length - 1; i >= 0; i--) {
+      final element = elements[i];
+      if (element is GroupDef && element.isRepeat) break;
+      indexes.removeAt(i);
+      multiplicities.removeAt(i);
+      elements.removeAt(i);
+    }
+    final newIndex = buildIndex(indexes, multiplicities, elements)!;
+    deleteRepeatInstance(childInstanceRef(newIndex)!);
+    return newIndex;
+  }
+
+  /// Whether a new instance of the repeat at [repeatIndex] can be added.
+  /// Port of `canCreateRepeat(TreeReference, FormIndex)`.
+  bool canCreateRepeatAt(TreeReference repeatRef, FormIndex repeatIndex) =>
+      canCreateRepeat(
+        repeatRef,
+        elementAt(repeatIndex) as GroupDef,
+        repeatIndex.elementMultiplicity,
+      );
+
   // ------------------------------------------------------------ repeats
 
   /// Adds a repeat instance at [repeatRef] (fully qualified, with the new
@@ -325,7 +493,13 @@ final class FormDef extends FormElement {
   /// affects.
   ///
   /// The reference-based core of JavaRosa's `createNewRepeat(FormIndex)`.
-  TreeElement createRepeatInstance(TreeReference repeatRef) {
+  TreeElement createRepeatInstance(TreeReference repeatRef) =>
+      _createRepeatInstance(repeatRef, _repeatDefFor(repeatRef));
+
+  TreeElement _createRepeatInstance(
+    TreeReference repeatRef,
+    FormElement? repeat,
+  ) {
     final template = mainInstance.getTemplate(repeatRef);
     if (template == null) {
       throw InvalidReferenceException(
@@ -339,7 +513,7 @@ final class FormDef extends FormElement {
     actionController
       ..triggerActionsFromEvent(FormEvents.jrInsert, this, repeatRef, null)
       ..triggerActionsFromEvent(FormEvents.odkNewRepeat, this, repeatRef, null);
-    _repeatDefFor(repeatRef)?.actionController.triggerActionsFromEvent(
+    repeat?.actionController.triggerActionsFromEvent(
       FormEvents.odkNewRepeat,
       this,
       repeatRef,
@@ -441,6 +615,141 @@ final class FormDef extends FormElement {
     if (countNode == null) return false;
     return answerDataToInt(countNode.value) > currentMultiplicity;
   }
+
+  /// Deprecated `<copy>` itemsets: replaces the copies under [targetNode]
+  /// with the subtrees of the selected choices (reusing existing copies of
+  /// still-selected values). Port of `copyItemsetAnswer`.
+  void copyItemsetAnswer(
+    QuestionDef question,
+    TreeElement targetNode,
+    AnswerValue? data,
+  ) {
+    final itemset = question.dynamicChoices!;
+    final targetRef = targetNode.ref;
+    final destRef = itemset.destRef!.contextualize(targetRef)!;
+    final selections = switch (data) {
+      MultipleItemsValue(:final selections) => selections,
+      SelectOneValue(:final selection) => [selection],
+      // JavaRosa fails with a NullPointerException.
+      _ => throw ArgumentError.value(data, 'data', 'not a selection'),
+    };
+    final selectedValues = itemset.valueRef != null
+        ? [for (final s in selections) s.choice!.value]
+        : const <String>[];
+    final existingValues = <String, TreeElement>{};
+    for (final existing in evaluationContext.expandReference(destRef)!) {
+      final node = mainInstance.resolveReference(existing)!;
+      if (itemset.valueRef != null) {
+        final value = itemset.relativeValue!.evalReadable(
+          mainInstance,
+          EvaluationContext.withContext(evaluationContext, node.ref),
+        );
+        if (selectedValues.contains(value)) existingValues[value] = node;
+      }
+      targetNode.removeChild(node);
+    }
+    for (final (i, selection) in selections.indexed) {
+      final choice = selection.choice!;
+      final cached = itemset.valueRef != null
+          ? existingValues[choice.value]
+          : null;
+      if (cached != null) {
+        cached.multiplicity = i;
+        targetNode.addChild(cached);
+      } else {
+        final template = mainInstance.getTemplate(destRef)!;
+        final newNode = mainInstance.copyNode(template, destRef);
+        _populateTemplate(newNode, choice.copyNode!);
+      }
+    }
+    _dag.copyItemsetAnswer(
+      mainInstance,
+      evaluationContext,
+      destRef,
+      targetNode,
+    );
+  }
+
+  /// Fills [node] (a fresh template copy) from [incoming]. Port of
+  /// `TreeElement.populateTemplate`.
+  void _populateTemplate(TreeElement node, TreeElement incoming) {
+    if (node.isLeaf) {
+      final value = incoming.value;
+      if (value == null) {
+        node.value = null;
+      } else if (!_answerTypeSupported(node.dataType)) {
+        throw StateError(
+          'data type [${value.runtimeType}] not supported inside itemset',
+        );
+      } else if (_answerTypeMatches(node.dataType, value) &&
+          value is! SelectOneValue &&
+          value is! MultipleItemsValue) {
+        node.value = value;
+      } else {
+        node.value = parseAnswerData(
+          '${serializeAnswerData(value)}',
+          node.dataType,
+          findQuestionByRef(node.ref, this),
+        );
+      }
+      return;
+    }
+    for (var i = 0; i < node.numChildren; i++) {
+      final child = node.childAt(i);
+      final newChildren = incoming.childrenWithName(child.name!);
+      if (child.isRepeatable) {
+        for (var k = 0; k < newChildren.length; k++) {
+          final template = mainInstance.getTemplate(child.ref)!;
+          final newChild = template.deepCopy(includeTemplates: false)
+            ..multiplicity = k;
+          node.insertChildAt(i + k + 1, newChild);
+          _populateTemplate(newChild, newChildren[k]);
+        }
+        i += newChildren.length;
+      } else {
+        _populateTemplate(child, newChildren.first);
+      }
+    }
+  }
+
+  /// Whether JavaRosa's `DataTypeClasses` has a class for [type].
+  static bool _answerTypeSupported(DataType type) => switch (type) {
+    DataType.nullType ||
+    DataType.text ||
+    DataType.integer ||
+    DataType.long ||
+    DataType.decimal ||
+    DataType.boolean ||
+    DataType.date ||
+    DataType.time ||
+    DataType.dateTime ||
+    DataType.choice ||
+    DataType.multipleItems ||
+    DataType.geopoint ||
+    DataType.geoshape ||
+    DataType.geotrace => true,
+    _ => false,
+  };
+
+  /// Whether [value] is an instance of `DataTypeClasses`' class for
+  /// [type].
+  static bool _answerTypeMatches(DataType type, AnswerValue value) =>
+      switch (type) {
+        DataType.nullType || DataType.text => value is StringValue,
+        DataType.integer => value is IntegerValue,
+        DataType.long => value is LongValue,
+        DataType.decimal => value is DecimalValue,
+        DataType.boolean => value is BooleanValue,
+        DataType.date => value is DateValue,
+        DataType.time => value is TimeValue,
+        DataType.dateTime => value is DateTimeValue,
+        DataType.choice => value is SelectOneValue,
+        DataType.multipleItems => value is SelectMultiValue,
+        DataType.geopoint => value is GeoPointValue,
+        DataType.geoshape => value is GeoShapeValue,
+        DataType.geotrace => value is GeoTraceValue,
+        _ => false,
+      };
 
   // ------------------------------------------------------------ validation
 
