@@ -13,10 +13,10 @@ import 'xform_answer_data_serializer.dart';
 /// space by default; values are not escaped).
 ///
 /// Port of `org.javarosa.model.xform.SMSSerializingVisitor`, deprecated in
-/// JavaRosa in favour of [CompactSerializingVisitor]-style output. As in
-/// JavaRosa the node defaults to the instance's base (`/`), above the
-/// root element.
-@Deprecated('Use CompactSerializingVisitor')
+/// JavaRosa. As in JavaRosa the node defaults to `/`, which resolves to no
+/// node, so serializing fails (a [StateError]; a `NullPointerException` in
+/// JavaRosa) unless a `root` reference such as `/data` is given.
+@Deprecated('Deprecated in JavaRosa; use CompactSerializingVisitor')
 final class SMSSerializingVisitor {
   /// Creates a serializer.
   SMSSerializingVisitor();
@@ -56,7 +56,9 @@ final class SMSSerializingVisitor {
   }
 
   void _visit(FormInstance tree, TreeReference rootRef) {
-    final root = tree.resolveReference(rootRef)!;
+    final root =
+        tree.resolveReference(rootRef) ??
+        (throw StateError('No node at $rootRef to serialize'));
     final delimiter =
         root.getAttributeValue('', 'delimiter') ??
         // for the spelling-impaired...
