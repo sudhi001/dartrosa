@@ -210,6 +210,16 @@ final class QuestionNode extends FormNode {
   /// The hint.
   String? get hint => _prompt.helpText;
 
+  /// The guidance hint: the `guidance` form of the hint's itext, as ODK
+  /// Collect reads it (`LocalizedText.guidance` is the label's).
+  String? get guidanceHint => switch (question.helpTextId) {
+    final id? when id.isNotEmpty => _prompt.specialFormQuestionText(
+      'guidance',
+      id,
+    ),
+    _ => null,
+  };
+
   /// Whether an answer is required.
   bool get isRequired => _prompt.isRequired;
 

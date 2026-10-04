@@ -7,6 +7,18 @@ import 'xform_controller.dart';
 typedef QuestionWidgetBuilder =
     Widget Function(BuildContext context, Object node);
 
+/// When guidance hints are shown, like ODK Collect's setting.
+enum GuidanceHintMode {
+  /// Never.
+  no,
+
+  /// Always, under the hint.
+  yes,
+
+  /// Behind a "guidance" expander.
+  collapsed,
+}
+
 /// Gives descendants access to the form's controller, delegates and
 /// widget overrides.
 class XFormScope extends InheritedNotifier<XFormController> {
@@ -16,8 +28,12 @@ class XFormScope extends InheritedNotifier<XFormController> {
     required this.delegates,
     required this.overrides,
     required super.child,
+    this.guidanceHints = GuidanceHintMode.yes,
     super.key,
   }) : super(notifier: controller);
+
+  /// When guidance hints are shown.
+  final GuidanceHintMode guidanceHints;
 
   /// Platform features (camera, location, ...).
   final XFormDelegates delegates;
@@ -28,6 +44,10 @@ class XFormScope extends InheritedNotifier<XFormController> {
 
   /// The controller of the nearest form.
   XFormController get controller => notifier!;
+
+  /// The nearest scope, if any.
+  static XFormScope? maybeOf(BuildContext context) =>
+      context.getInheritedWidgetOfExactType<XFormScope>();
 
   /// The nearest scope.
   static XFormScope of(BuildContext context) {

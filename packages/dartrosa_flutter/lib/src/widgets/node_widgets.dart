@@ -1,9 +1,12 @@
 import 'package:dartrosa/dartrosa.dart';
 import 'package:flutter/material.dart';
 
+import '../localizations.dart';
+import '../theme.dart';
 import '../xform_scope.dart';
 import 'label.dart';
 import 'question_widget.dart';
+import 'select_widgets.dart';
 
 /// The widget for any [node]: a question, group, repeat or repeat
 /// instance.
@@ -32,29 +35,58 @@ class GroupWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final label = node.label;
-    final children = [
-      for (final child in node.visibleChildren) nodeWidget(child),
-    ];
+    final children =
+        (node.appearance?.toLowerCase().contains('table-list') ?? false)
+        ? _tableList(context)
+        : [for (final child in node.visibleChildren) nodeWidget(child)];
     if (label.text == null || label.text!.isEmpty) {
       return Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: children,
       );
     }
-    return Card(
-      margin: const EdgeInsets.symmetric(vertical: 8),
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            XFormLabel(label, style: Theme.of(context).textTheme.titleLarge),
-            ...children,
-          ],
-        ),
+    return XFormCard(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          XFormLabel(label, style: Theme.of(context).textTheme.titleLarge),
+          ...children,
+        ],
       ),
     );
   }
+
+  /// The rows of a `table-list` group: a header of the first select's
+  /// choice labels, then one row of buttons per select.
+  List<Widget> _tableList(BuildContext context) {
+    final children = node.visibleChildren;
+    final header = children
+        .whereType<QuestionNode>()
+        .where(_isSelect)
+        .firstOrNull;
+    return [
+      if (header != null)
+        ChoiceRowInput(
+          header,
+          showLabels: true,
+          showButtons: false,
+          leading: const SizedBox.shrink(),
+        ),
+      for (final child in children)
+        if (child is QuestionNode && _isSelect(child))
+          QuestionWidget(
+            child,
+            inTableList: true,
+            key: ValueKey('q:${child.ref}'),
+          )
+        else
+          nodeWidget(child),
+    ];
+  }
+
+  static bool _isSelect(QuestionNode q) =>
+      q.controlType == ControlType.selectOne ||
+      q.controlType == ControlType.selectMulti;
 }
 
 /// A repeat: its instances and an "add" button while instances can be
@@ -80,7 +112,9 @@ class RepeatWidget extends StatelessWidget {
             alignment: AlignmentDirectional.centerStart,
             child: OutlinedButton.icon(
               icon: const Icon(Icons.add),
-              label: Text('Add ${node.label.text ?? 'another'}'.trim()),
+              label: Text(
+                XFormLocalizations.of(context).addRepeat(node.label.text),
+              ),
               onPressed: () => controller.addRepeatInstance(node),
             ),
           ),
@@ -101,32 +135,28 @@ class RepeatInstanceWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = XFormScope.of(context).controller;
     final repeat = node.element as GroupDef;
-    return Card(
-      margin: const EdgeInsets.symmetric(vertical: 8),
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Row(
-              children: [
-                Expanded(
-                  child: Text(
-                    node.header ?? '${node.position + 1}',
-                    style: Theme.of(context).textTheme.titleMedium,
-                  ),
+    return XFormCard(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Row(
+            children: [
+              Expanded(
+                child: Text(
+                  node.header ?? '${node.position + 1}',
+                  style: Theme.of(context).textTheme.titleMedium,
                 ),
-                if (!repeat.noAddRemove)
-                  IconButton(
-                    tooltip: 'Remove',
-                    icon: const Icon(Icons.delete_outline),
-                    onPressed: () => controller.removeRepeatInstance(node),
-                  ),
-              ],
-            ),
-            for (final child in node.visibleChildren) nodeWidget(child),
-          ],
-        ),
+              ),
+              if (!repeat.noAddRemove)
+                IconButton(
+                  tooltip: XFormLocalizations.of(context).remove,
+                  icon: const Icon(Icons.delete_outline),
+                  onPressed: () => controller.removeRepeatInstance(node),
+                ),
+            ],
+          ),
+          for (final child in node.visibleChildren) nodeWidget(child),
+        ],
       ),
     );
   }

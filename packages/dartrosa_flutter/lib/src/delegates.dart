@@ -27,6 +27,9 @@ abstract class XFormDelegates {
   /// An image for a `jr://images/...` (or other `jr://`) URI in labels.
   ImageProvider? image(String uri) => null;
 
+  /// Opens a link tapped in a label or hint (e.g. with url_launcher).
+  Future<void> openLink(BuildContext context, Uri uri) async {}
+
   /// Whether [captureMedia] is implemented.
   bool get canCaptureMedia => false;
 
