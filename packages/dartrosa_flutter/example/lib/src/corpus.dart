@@ -10,7 +10,12 @@ const corpusRoot = 'assets/forms';
 /// A bundled conformance form.
 class CorpusForm {
   /// Creates an entry for the form at [path] (relative to [corpusRoot]).
-  const CorpusForm(this.path, {this.title, this.javarosaParses = true});
+  const CorpusForm(
+    this.path, {
+    this.title,
+    this.javarosaParses = true,
+    this.javarosaInitializes = true,
+  });
 
   /// The form's path, e.g. `collect/basic.xml`.
   final String path;
@@ -18,8 +23,13 @@ class CorpusForm {
   /// Its `<h:title>`, if any.
   final String? title;
 
-  /// Whether JavaRosa loads it (the oracle's `parse.ok`).
+  /// Whether JavaRosa parses it (the oracle's `parse.ok`).
   final bool javarosaParses;
+
+  /// Whether JavaRosa starts a new instance of it (the oracle's
+  /// `initialize.ok`; plain JavaRosa lacks Collect's `pulldata()` and
+  /// location, so some forms only start with the Collect services).
+  final bool javarosaInitializes;
 
   /// The folder it and its media are in, e.g. `collect`.
   String get folder => path.substring(0, path.lastIndexOf('/'));
@@ -47,6 +57,7 @@ class Corpus {
             f['path']! as String,
             title: f['title'] as String?,
             javarosaParses: f['javarosaParses']! as bool,
+            javarosaInitializes: f['javarosaInitializes']! as bool,
           ),
       ],
       {

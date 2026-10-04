@@ -3,952 +3,1142 @@
   {
    "path": "collect/Empty First Repeat.xml",
    "title": "Empty First Repeat",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/RepeatGroupAndGroup.xml",
    "title": "RepeatGroupAndGroup",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/RepeatTitles_1648.xml",
    "title": "Repeat titles 1648",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/TestRepeat.xml",
    "title": "TestRepeat",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/all-widgets.xml",
    "title": "All widgets",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/audio-question.xml",
    "title": "Audio Question",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/basic.xml",
    "title": "basic",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/create-or-update-entities-from-repeats.xml",
    "title": "Create or update entities from repeats",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/different-search-appearances.xml",
    "title": "different-search-appearances",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/dynamic_and_static_choices.xml",
    "title": "dynamic_and_static_choices",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/dynamic_required_question.xml",
    "title": "dynamic_required_question",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/emptyGroupFieldList.xml",
    "title": "emptyGroupFieldList",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/encrypted-no-instanceID.xml",
    "title": "encrypted-no-instanceID",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/encrypted.xml",
    "title": "encrypted",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/entity-update-pulldata.xml",
    "title": "Entity Update Pull Data",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": false
   },
   {
    "path": "collect/external-audio-question.xml",
    "title": "External Audio Question",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/external-csv-search-broken.xml",
    "title": "external-csv-search",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/external-csv-search.xml",
    "title": "external-csv-search",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/external-csv-select.xml",
    "title": "External Csv Select",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/external_csv_form.xml",
    "title": "Form with external CSV files",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/external_data_questions.xml",
    "title": "externalDataQuestions",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/external_select.xml",
    "title": "external select",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/external_select_10.xml",
    "title": "external select 10",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/external_select_csv.xml",
    "title": "external select",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/field-list-repeat.xml",
    "title": "Field-List Repeat",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/fieldlist-updates.xml",
    "title": "fieldlist-updates",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/fixed-count-repeat.xml",
    "title": "Fixed Count Repeat",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/form1.xml",
    "title": "form1",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/form2.xml",
    "title": "form2",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/form3.xml",
    "title": "form3",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/form4.xml",
    "title": "form4",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/form5.xml",
    "title": "form5",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/form6.xml",
    "title": "form6",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/form7.xml",
    "title": "form7",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/form8.xml",
    "title": "form8",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/form9.xml",
    "title": "form9",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/formHierarchy1.xml",
    "title": "formHierarchy1",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/formHierarchy2.xml",
    "title": "formHierarchy2",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/formHierarchy3.xml",
    "title": "formHierarchy3",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/form_design_error.xml",
    "title": "Relevance and calculate loop",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/form_styling.xml",
    "title": "Form styling",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/form_with_images.xml",
    "title": "form_with_images",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/g6Error.xml",
    "title": "g6Error",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/hints_textq.xml",
    "title": "hints textq",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/identify-user-audit-false.xml",
    "title": "Identify User False",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/identify-user-audit.xml",
    "title": "Identify User",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/image-compression.xml",
    "title": "image-compression",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/intent-group.xml",
    "title": "intent-group",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/internal-audio-question.xml",
    "title": "Audio Question",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/invalid-form.xml",
    "title": "invalid-form",
-   "javarosaParses": false
+   "javarosaParses": false,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/likert_test.xml",
    "title": "All widgets likert icon",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/location-audit.xml",
    "title": "Audit with Location",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/longListOfQuestionsWithRequiredOneAtTheEnd.xml",
    "title": "longListOfQuestionsWithRequiredOneAtTheEnd",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/manyQ.xml",
    "title": "manyQ",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/metadata.xml",
    "title": "Metadata",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/nested-intent-group.xml",
    "title": "nested-intent-group",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/numberInCSV.xml",
    "title": "numberInCSV",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/one-question-audit.xml",
    "title": "One Question Audit",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/one-question-autoplay.xml",
    "title": "One Question Autoplay",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/one-question-autosend-disabled.xml",
    "title": "One Question Autosend Disabled",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/one-question-autosend.xml",
    "title": "One Question Autosend",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/one-question-background-audio-audit.xml",
    "title": "One Question Background Audio And Audit",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/one-question-background-audio-multiple.xml",
    "title": "One Question",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/one-question-background-audio.xml",
    "title": "One Question",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/one-question-editable.xml",
    "title": "One Question Editable",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/one-question-encrypted-unicode.xml",
    "title": "One Question Encrypted Unicode",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/one-question-entity-follow-up.xml",
    "title": "One Question Entity Follow Up",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/one-question-entity-registration-broken.xml",
    "title": "One Question Entity Registration Broken",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/one-question-entity-registration-editable.xml",
    "title": "One Question Entity Registration Editable",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/one-question-entity-registration-id.xml",
    "title": "One Question Entity Registration",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/one-question-entity-registration-v2020.1.xml",
    "title": "One Question Entity Registration",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/one-question-entity-registration-v2023.1.xml",
    "title": "One Question Entity Registration",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/one-question-entity-registration.xml",
    "title": "One Question Entity Registration",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/one-question-entity-update-editable.xml",
    "title": "One Question Entity Update Editable",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/one-question-entity-update.xml",
    "title": "One Question Entity Update",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/one-question-entity-upsert.xml",
    "title": "One Question Entity Upsert",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/one-question-last-saved-updated.xml",
    "title": "One Question Last Saved",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/one-question-last-saved.xml",
    "title": "One Question Last Saved",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/one-question-partial.xml",
    "title": "One Question",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/one-question-relevance.xml",
    "title": "One Question Relevance",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/one-question-repeat.xml",
    "title": "One Question Repeat",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/one-question-translation.xml",
    "title": "One Question",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/one-question-updated.xml",
    "title": "One Question Updated",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/one-question-uuid-instance-name.xml",
    "title": "One Question",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/one-question-with-constraint.xml",
    "title": "One Question With Constraint",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/one-question.xml",
    "title": "One Question",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/pull_data.xml",
    "title": "pull_data",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": false
   },
   {
    "path": "collect/ranking_widget.xml",
    "title": "ranking_widget",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/repeat_group_form.xml",
    "title": "Repeat Group",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/repeat_group_new.xml",
    "title": "RepeatGroupNew",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/repeat_group_wrapped_with_a_regular_group.xml",
    "title": "Repeat group wrapped with a regular group",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/repeat_groups.xml",
    "title": "repeatGroups",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/repeat_in_field_list.xml",
    "title": "repeat_in_field_list",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/repeat_without_label.xml",
    "title": "Repeat without label",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/requiredQuestionInFieldList.xml",
    "title": "requiredQuestionInFieldList",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/required_question_with_audio.xml",
    "title": "required_question_with_audio",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/required_question_with_custom_error_message.xml",
    "title": "required_question_with_custom_error_message",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/search-with-last-saved.xml",
    "title": "Search with last-saved",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/search_and_select.xml",
    "title": "search_and_select",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/selectOneExternal.xml",
    "title": "selectOneExternal",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/select_one_external.xml",
    "title": "cascading select test",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/setgeopoint-action.xml",
    "title": "setgeopoint-action-instance-load",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/simple-search-external-csv.xml",
    "title": "simple-search-external-csv",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/single-geopoint.xml",
    "title": "Single geopoint",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/start-geopoint.xml",
    "title": "start-geopoint",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": false
   },
   {
    "path": "collect/string_widgets_in_field_list.xml",
    "title": "fl",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/track-changes-reason-on-edit.xml",
    "title": "Track Changes Reason",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/two-question-audit-track-changes.xml",
    "title": "One Question Audit Track Changes",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/two-question-audit.xml",
    "title": "Two Question",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/two-question-external.xml",
    "title": "Two Question",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/two-question-required.xml",
    "title": "Two Question Required",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/two-question-save-incomplete-required.xml",
    "title": "Two Question Save Incomplete Required",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/two-question-save-incomplete.xml",
    "title": "Two Question Save Incomplete",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/two-question-updated.xml",
    "title": "Two Question Updated",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/two-question.xml",
    "title": "Two Question",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/two-questions-in-group.xml",
    "title": "two-questions-in-group",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "collect/validate.xml",
    "title": "validate",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "dartrosa/basics.xml",
    "title": "Basics",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "dartrosa/dag/chain.xml",
    "title": "DAG chain",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "dartrosa/dag/constraints.xml",
    "title": "DAG constraints",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "dartrosa/dag/cycle.xml",
    "title": "DAG cycle",
-   "javarosaParses": false
+   "javarosaParses": false,
+   "javarosaInitializes": true
   },
   {
    "path": "dartrosa/dag/nested-relevance.xml",
    "title": "DAG nested relevance",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "dartrosa/dag/relevance-cycle.xml",
    "title": "DAG relevance cycle",
-   "javarosaParses": false
+   "javarosaParses": false,
+   "javarosaInitializes": true
   },
   {
    "path": "dartrosa/dag/repeat.xml",
    "title": "DAG repeat",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "dartrosa/dag/self-cycle.xml",
    "title": "DAG self cycle",
-   "javarosaParses": false
+   "javarosaParses": false,
+   "javarosaInitializes": true
   },
   {
    "path": "javarosa/ImageSelectTester.xhtml",
    "title": "RichMedia testing Images",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "javarosa/Simpler_Cascading_Select_Form.xml",
    "title": "Simpler Cascading Select Form",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "javarosa/bad-range-form.xml",
    "title": "Form with a bad Range",
-   "javarosaParses": false
+   "javarosaParses": false,
+   "javarosaInitializes": true
   },
   {
    "path": "javarosa/body-before-model.xml",
    "title": "Body Before Model",
-   "javarosaParses": false
+   "javarosaParses": false,
+   "javarosaInitializes": true
   },
   {
    "path": "javarosa/countNonEmptyForm.xml",
    "title": "CountNonEmpty",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "javarosa/default_test.xml",
    "title": "Sum_test",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "javarosa/eIMCI-by-D-Tree.xml",
    "title": "eIMCI by D-Tree",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "javarosa/form-with-setvalue-action.xml",
    "title": "SetValue action",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "javarosa/form2.xml",
    "title": "My Survey",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "javarosa/form_with_additional_attributes.xml",
    "title": "form_with_additional_attributes",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "javarosa/form_with_bind_attributes.xml",
    "title": "form_with_bind_attributes",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "javarosa/formindex-serialization.xml",
    "title": "FormIndex Serialization",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "javarosa/group-with-nodeset-attr.xml",
    "title": "group with nodeset attribute",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "javarosa/group-with-ref-attr.xml",
    "title": "group with ref attribute",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "javarosa/meta-namespace-form.xml",
    "title": "Namespace for Metadata",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "javarosa/nigeria_wards_external.xml",
    "title": "Nigeria Wards External",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "javarosa/nigeria_wards_external_combined.xml",
    "title": "Nigeria Wards External",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": false
   },
   {
    "path": "javarosa/org/javarosa/core/model/actions/event-odk-new-repeat-model.xml",
    "title": "Event: odk-new-repeat in model",
-   "javarosaParses": false
+   "javarosaParses": false,
+   "javarosaInitializes": true
   },
   {
    "path": "javarosa/org/javarosa/core/model/actions/event-odk-new-repeat.xml",
    "title": "Event: odk-new-repeat",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "javarosa/org/javarosa/core/model/actions/invalid-events.xml",
    "title": "Invalid events",
-   "javarosaParses": false
+   "javarosaParses": false,
+   "javarosaInitializes": true
   },
   {
    "path": "javarosa/org/javarosa/core/model/actions/multiple-events.xml",
    "title": "Space-separated event list",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "javarosa/org/javarosa/core/model/actions/setgeopoint-action-bad-namespace.xml",
    "title": "setgeopoint-action-bad-namespace",
-   "javarosaParses": false
+   "javarosaParses": false,
+   "javarosaInitializes": true
   },
   {
    "path": "javarosa/org/javarosa/core/model/actions/setgeopoint-action-instance-load.xml",
    "title": "setgeopoint-action-instance-load",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "javarosa/org/javarosa/core/model/actions/setgeopoint-action-value-changed.xml",
    "title": "setgeopoint-action-value-changed",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "javarosa/org/javarosa/core/model/condition/calculate-now.xml",
    "title": "data",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "javarosa/org/javarosa/core/model/jr-choice-name.xml",
    "title": "jr-choice-name",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "javarosa/org/javarosa/core/model/three-level-cascading-multi-select.xml",
    "title": "Three level cascading multi select",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "javarosa/org/javarosa/core/model/three-level-cascading-select.xml",
    "title": "Three level cascading select",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "javarosa/org/javarosa/form/api/constraint-message-error.xml",
    "title": "Constraint",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "javarosa/org/javarosa/form/api/navigation/repeatGroupWithQuestionAndRegularGroupInside.xml",
    "title": "repeatGroupWithQuestionAndRegularGroupInside",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "javarosa/org/javarosa/form/api/navigation/repeatGroupWithTwoQuestions.xml",
    "title": "repeatGroupWithTwoQuestions",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "javarosa/org/javarosa/form/api/navigation/simpleFormWithThreeQuestions.xml",
    "title": "simpleFormWithThreeQuestions",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "javarosa/org/javarosa/form/api/navigation/twoNestedRegularGroups.xml",
    "title": "twoNestedRegularGroups",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "javarosa/org/javarosa/form/api/navigation/twoNestedRepeatGroups.xml",
    "title": "twoNestedRepeatGroups",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "javarosa/org/javarosa/xform/parse/external-secondary-instance-large.xml",
    "title": "Form with external secondary instance",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "javarosa/org/javarosa/xform/parse/external-secondary-instance.xml",
    "title": "Form with external secondary instance",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "javarosa/org/javarosa/xform/parse/external-select-csv.xml",
    "title": "CSV External Secondary Instance",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "javarosa/org/javarosa/xform/parse/external-select-geojson.xml",
    "title": "GeoJSON External Secondary Instance",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "javarosa/org/javarosa/xform/parse/external-select-xml-dummy-nodes.xml",
    "title": "XML External Secondary Instance With Dummy Nodes",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "javarosa/org/javarosa/xform/parse/external-select-xml.xml",
    "title": "XML External Secondary Instance",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "javarosa/org/javarosa/xform/parse/internal_empty_select.xml",
    "title": "internal empty select",
-   "javarosaParses": false
+   "javarosaParses": false,
+   "javarosaInitializes": true
   },
   {
    "path": "javarosa/org/javarosa/xform/parse/internal_select_10.xml",
    "title": "internal select 10",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "javarosa/org/javarosa/xform/parse/last-saved-blank.xml",
    "title": "Form with last-saved instance (blank)",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "javarosa/org/javarosa/xform/parse/last-saved-filled.xml",
    "title": "Form with last-saved instance (filled)",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "javarosa/org/javarosa/xform/parse/secondary-instance.xml",
    "title": "Form with secondary instance",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "javarosa/org/javarosa/xform/parse/unused-secondary-instance.xml",
    "title": "unused-secondary-instance",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "javarosa/org/javarosa/xml/primary-instance-with-id.xml",
    "title": "My Survey",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "javarosa/org/javarosa/xpath/expr/randomize.xml",
    "title": "Randomize Test",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "javarosa/org/javarosa/xpath/expr/relative-current-ref-field-ref.xml",
    "title": "relative-current-ref",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "javarosa/org/javarosa/xpath/expr/relative-current-ref-group-count-ref.xml",
    "title": "relative-current-ref",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "javarosa/org/javarosa/xpath/expr/relative-current-ref.xml",
    "title": "relative-current-ref",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "javarosa/populate-nodes-attributes.xml",
    "title": "populate nodes attributes test",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "javarosa/range-form-itemset.xml",
    "title": "Form with a Range",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "javarosa/range-form.xml",
    "title": "Form with a Range",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "javarosa/rank-form.xml",
    "title": "Rank Form",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "javarosa/regression/issue_449.xml",
    "title": "Form title",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "javarosa/repeat-secondary-instance.xml",
    "title": "Repeat Secondary Instance",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "javarosa/simple-form.xml",
    "title": "Simple Form",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "javarosa/smoketests/child_vaccination_VOL_tool_v12.xml",
    "title": "child_vaccination_VOL_tool_v12",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "javarosa/smoketests/whova_form.xml",
    "title": "2016 WHO Verbal Autopsy Form 1.5.2",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "javarosa/sms_form.xml",
    "title": "SMS Tester Form",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "javarosa/submission-element.xml",
    "title": "Single Submission Element",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "javarosa/template-repeat.xml",
    "title": "Repeat with template",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "javarosa/two-models.xml",
    "title": "Two Models",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   },
   {
    "path": "javarosa/two-secondary-instances.xml",
    "title": "Two Secondary Instances",
-   "javarosaParses": true
+   "javarosaParses": true,
+   "javarosaInitializes": true
   }
  ],
  "files": {

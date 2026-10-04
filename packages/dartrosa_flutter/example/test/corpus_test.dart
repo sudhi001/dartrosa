@@ -21,6 +21,25 @@ const _maxScreens = 300;
 /// reason (each reproduced in test/known_issues/).
 const _knownIssues = <String, String>{};
 
+/// Forms ODK Collect can't load either, though plain JavaRosa parses them.
+const _collectRejects = {
+  'collect/external-csv-search-broken.xml':
+      'external_data_broken.csv is malformed (Collect: "Could not import '
+      'data")',
+  'collect/one-question-entity-registration-broken.xml':
+      'unknown entities version 2452.2.0',
+  'collect/one-question-entity-registration-v2020.1.xml':
+      'entities version 2020.1.0 predates the supported 2022.1.0',
+};
+
+/// Forms whose drafts can't be resumed, as in JavaRosa.
+const _unresumable = {
+  'javarosa/sms_form.xml':
+      'the model repeats non-repeat elements (child_full_name) inside the '
+      "repeat /data/children: JavaRosa's TreeElement.populate fails its "
+      '"sanity check" loading any instance of it',
+};
+
 void main() {
   final corpus = Corpus.fromJson(
     File('$corpusRoot/index.json').readAsStringSync(),
@@ -47,23 +66,25 @@ void main() {
     testWidgets(form.path, skip: _knownIssues.containsKey(form.path), (
       tester,
     ) async {
-      // Report the renderer's known setState-during-build assertion
-      // (test/known_issues/itemset_build_test.dart) instead of failing.
-      var knownErrors = 0;
+      // Report the renderer's known bugs (test/known_issues/) instead of
+      // failing; errors after a duplicate key are its consequences.
+      final known = <String>{};
       final onError = FlutterError.onError;
       FlutterError.onError = (details) {
-        if ('${details.stack}'.contains('FormEntryPrompt.selectChoices') &&
-            '${details.exception}'.contains('called during build')) {
-          knownErrors++;
-        } else {
+        final issue =
+            _knownError(details) ??
+            (known.contains(_duplicateKeys) ? _duplicateKeys : null);
+        if (issue == null) {
           onError?.call(details);
+        } else {
+          known.add(issue);
         }
       };
       try {
         final outcome = await _fill(tester, Workspace(corpus), form);
-        outcomes[form.path] = knownErrors == 0
+        outcomes[form.path] = known.isEmpty
             ? outcome
-            : '$outcome [itemset setState during build]';
+            : '$outcome [known: ${known.join(', ')}]';
       } finally {
         FlutterError.onError = onError;
       }
@@ -71,8 +92,42 @@ void main() {
   }
 }
 
-Future<FormDefinition?> _load(WidgetTester tester, Workspace w, CorpusForm f) =>
-    tester.runAsync(() => w.load(f));
+const _duplicateKeys = 'duplicate group keys';
+
+/// The known renderer bug [details] reports, if it is one.
+String? _knownError(FlutterErrorDetails details) {
+  final message = '${details.exception}';
+  if (message.contains('called during build') &&
+      '${details.stack}'.contains('FormEntryPrompt.selectChoices')) {
+    return 'itemset setState during build';
+  }
+  if (message.contains('Duplicate keys found') && message.contains("'g:")) {
+    return _duplicateKeys;
+  }
+  return null;
+}
+
+/// Loads [f], or returns why it can't be loaded.
+Future<(FormDefinition?, Object?)> _try(
+  WidgetTester tester,
+  Workspace w,
+  CorpusForm f,
+) async => (await tester.runAsync(() async {
+  try {
+    return (await w.load(f), null);
+  } on Object catch (e) {
+    return (null, e);
+  }
+}))!;
+
+Future<FormDefinition> _load(
+  WidgetTester tester,
+  Workspace w,
+  CorpusForm f,
+) async => switch (await _try(tester, w, f)) {
+  (final definition?, _) => definition,
+  (_, final error) => throw StateError('reload failed: $error'),
+};
 
 /// Shows [session] in a pager.
 Future<void> _show(
@@ -116,18 +171,26 @@ Future<String> _fill(
   Workspace workspace,
   CorpusForm form,
 ) async {
-  final FormDefinition definition;
-  try {
-    definition = (await _load(tester, workspace, form))!;
-  } on Object catch (e) {
-    expect(form.javarosaParses, isFalse, reason: 'JavaRosa loads it: $e');
+  final (definition, error) = await _try(tester, workspace, form);
+  if (definition == null) {
+    if (_collectRejects[form.path] case final reason?) {
+      return 'rejected (as by Collect: $reason)';
+    }
+    expect(form.javarosaParses, isFalse, reason: 'JavaRosa loads it: $error');
     return 'rejected (as by JavaRosa)';
   }
   expect(form.javarosaParses, isTrue, reason: 'JavaRosa rejects it');
+  expect(_collectRejects[form.path], isNull, reason: 'Collect rejects it');
 
   // Walk the pager, answering every question.
   final instance = workspace.newInstance(form);
-  final session = workspace.open(definition, instance);
+  final FormSession session;
+  try {
+    session = workspace.open(definition, instance);
+  } on Object catch (e) {
+    expect(form.javarosaInitializes, isFalse, reason: 'JavaRosa starts it: $e');
+    return 'rejected (as by JavaRosa: new instance fails: $e)';
+  }
   final rng = Rng(seedOf(form.path));
   Submission? submission;
   await _show(
@@ -194,10 +257,13 @@ Future<String> _fill(
 
   // Resume the draft: same instance, same validity.
   final resumedRecord = workspace.newInstance(form)..xml = draft;
-  final resumed = workspace.open(
-    (await _load(tester, workspace, form))!,
-    resumedRecord,
-  );
+  final reloaded = await _load(tester, workspace, form);
+  if (_unresumable[form.path] case final reason?) {
+    expect(() => workspace.open(reloaded, resumedRecord), throwsStateError);
+    notes.add('draft not resumable, as in JavaRosa: $reason');
+    return _outcome(blocked, invalid, notes);
+  }
+  final resumed = workspace.open(reloaded, resumedRecord);
   if (resumed.saveDraft() != draft) notes.add('resumed draft differs');
   await _show(tester, workspace, resumed, form);
   if ((resumed.finalize() is FinalizeSuccess) != (invalid == null)) {
@@ -207,10 +273,7 @@ Future<String> _fill(
   // Edit the finalized instance (edits need a meta/instanceID).
   if (exported != null && submission?.instanceId != null) {
     final edit = workspace.newInstance(form, editOf: exported.instance);
-    final editing = workspace.open(
-      (await _load(tester, workspace, form))!,
-      edit,
-    );
+    final editing = workspace.open(await _load(tester, workspace, form), edit);
     await _show(tester, workspace, editing, form);
     switch (editing.finalize()) {
       case FinalizeSuccess(submission: final s):
@@ -229,6 +292,14 @@ Future<String> _fill(
     }
   }
 
+  return _outcome(blocked, invalid, notes);
+}
+
+String _outcome(
+  String? blocked,
+  ValidationFailure? invalid,
+  List<String> notes,
+) {
   final suffix = notes.isEmpty ? '' : ' (${notes.join(', ')})';
   if (invalid != null) {
     return '${blocked != null ? 'blocked' : 'invalid'}: ${_describe(invalid)}$suffix';

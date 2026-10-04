@@ -43,18 +43,24 @@ void main() {
         .add(path.substring(slash + 1));
 
     // Forms are the files the oracle recorded a structure trace for.
-    final trace = File('${conformance.path}/traces/structure/$path.json');
-    if (!trace.existsSync()) continue;
-    final parse =
-        (jsonDecode(trace.readAsStringSync()) as Map<String, Object?>)['parse']
-            as Map<String, Object?>?;
+    if (!File('${conformance.path}/traces/structure/$path.json').existsSync()) {
+      continue;
+    }
+    Object? ok(String kind, String key) =>
+        switch (File('${conformance.path}/traces/$kind/$path.json')) {
+          final f when f.existsSync() =>
+            ((jsonDecode(f.readAsStringSync()) as Map<String, Object?>)[key]
+                as Map<String, Object?>?)?['ok'],
+          _ => null,
+        };
     final title = RegExp(
       r'<(?:h:)?title>([^<]*)</(?:h:)?title>',
     ).firstMatch(file.readAsStringSync())?.group(1)?.trim();
     forms.add({
       'path': path,
       'title': (title == null || title.isEmpty) ? null : title,
-      'javarosaParses': parse?['ok'] ?? true,
+      'javarosaParses': ok('structure', 'parse') ?? true,
+      'javarosaInitializes': ok('init', 'initialize') ?? true,
     });
   }
 

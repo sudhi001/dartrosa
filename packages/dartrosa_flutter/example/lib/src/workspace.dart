@@ -125,7 +125,14 @@ class Workspace extends ChangeNotifier {
       externalInstanceParser: withLists.externalInstanceParser,
       plugins: [
         ExternalDataPlugin(
-          listMedia: (_) => corpus.mediaOf(form),
+          // Collect imports every CSV of the form's media folder; corpus
+          // forms share folders, so only the CSVs a form names count.
+          listMedia: (_) => [
+            for (final name in corpus.mediaOf(form))
+              if (name.endsWith('.csv') &&
+                  xml.contains(name.substring(0, name.length - 4)))
+                name,
+          ],
           instanceAdapter: _EntityLists(entities),
         ),
       ],
