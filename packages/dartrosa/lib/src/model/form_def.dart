@@ -1,6 +1,7 @@
 import 'package:collection/collection.dart';
 
 import '../i18n/localizer.dart';
+import '../util/extras.dart';
 import '../xform/xform_answer_data_parser.dart';
 import '../xform/xform_answer_data_serializer.dart';
 import '../xpath/conversions.dart';
@@ -53,6 +54,10 @@ final class FormDef extends FormElement {
   // don't change), across evaluation-context resets.
   final _equalityIndexStrategy = EqualityExpressionIndexFilterStrategy();
   final _comparisonCacheStrategy = ComparisonExpressionCacheFilterStrategy();
+
+  /// Objects plugins attach to the form, e.g. markers set by parse
+  /// processors. Port of `getExtras()`.
+  final Extras<Object> extras = Extras();
 
   /// The form title (`<h:title>`).
   String? title;
