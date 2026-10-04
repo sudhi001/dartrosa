@@ -330,11 +330,7 @@ String? androidUriHost(String url) {
 
 /// `java.net.URI.create(url)` (`null` where it throws), as a Dart [Uri].
 Uri? _createUri(String url) {
-  // Characters java.net.URI rejects.
-  if (RegExp(r'[\x00-\x20"<>\\^`{|}\x7F]').hasMatch(url) ||
-      RegExp(r'%(?![0-9A-Fa-f]{2})').hasMatch(url)) {
-    return null;
-  }
+  if (!hasValidJavaUriCharacters(url)) return null;
   return Uri.tryParse(url);
 }
 

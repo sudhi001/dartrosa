@@ -65,6 +65,10 @@ final class OpenRosaXmlFetcher {
   /// [OpenRosaHttpException] for one without a host name.
   Future<HttpGetResult> fetch(String downloadUrl, String? contentType) {
     // assume the downloadUrl is escaped properly
+    // java.net.URL(...).toURI()
+    if (!hasValidJavaUriCharacters(downloadUrl)) {
+      throw FormatException('Illegal character in URL: $downloadUrl');
+    }
     final uri = Uri.parse(downloadUrl);
     if (!uri.hasScheme) {
       // java.net.URL needs a protocol.
