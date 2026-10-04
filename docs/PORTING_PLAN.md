@@ -300,7 +300,7 @@ Disposition: **PORT** = behaviour ported 1:1 (idiomatic structure) · **REDESIGN
 - [x] string, int/integer, long, decimal/double/float, boolean, date, time, dateTime, gYear/gMonth/gDay/gYearMonth/gMonthDay (map as JavaRosa does), base64Binary/hexBinary/anyURI/binary (→ binary), select1/select (listItem/listItems → choice/choice-list), geopoint, geotrace, geoshape, barcode, unsupported/null
 - [x] AnswerValue types: `StringValue`, `IntegerValue`, `LongValue`, `DecimalValue`, `BooleanValue`, `DateValue`, `TimeValue`, `DateTimeValue`, `SelectOneValue`, `SelectMultiValue`, `MultipleItemsValue`, `GeoPointValue` (lat, lon, alt, accuracy), `GeoTraceValue`, `GeoShapeValue`, `AttachmentValue` (pointer), `UncastValue`
 - [x] `AnswerDataFactory` rules (control+type → value class), cast/uncast round-trip exactly as `XFormAnswerDataParser`/`XFormAnswerDataSerializer`
-- [ ] Invalid-data handling (`InvalidDataException` → `AnswerRejected` result)
+- [x] Invalid-data handling (`InvalidDataException` → `AnswerRejected` result): `FormSession.answer` reads text as the question type and rejects unreadable text, wrong-typed values and unknown choices
 
 ### 7.5 XPath language
 - [x] Lexer/parser for full XPath 1.0 syntax used by ODK: absolute/relative location paths, `.`/`..`, `*`, `@attr`, predicates (multiple, nested), filter expressions, unions `|`, variables, numeric/string literals, all operators (`or and = != < <= > >= + - * div mod` unary `-`)

@@ -59,6 +59,7 @@ class XFormController extends ChangeNotifier {
     AnswerRequired(:final message) => message ?? strings.requiredDefault,
     AnswerConstraintViolated(:final message) =>
       message ?? strings.constraintDefault,
+    AnswerRejected() => strings.constraintDefault,
     AnswerAccepted() || null => null,
   };
 

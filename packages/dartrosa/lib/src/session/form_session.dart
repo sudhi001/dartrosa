@@ -2,7 +2,9 @@ import 'dart:async';
 
 import '../form_api/form_entry_controller.dart';
 import '../form_api/form_entry_model.dart';
+import '../form_api/form_entry_prompt.dart';
 import '../model/data/answer_value.dart';
+import '../model/data_type.dart';
 import '../model/form_def.dart';
 import '../model/form_index.dart';
 import '../model/instance/data_instance.dart';
@@ -11,6 +13,7 @@ import '../model/triggerable_dag.dart';
 import '../model/utils/question_preloader.dart';
 import '../reference/resource_resolver.dart';
 import '../xform/instance_loading.dart';
+import '../xform/xform_answer_data_parser.dart';
 import '../xform/xform_parser.dart';
 import '../xform/xform_serializing_visitor.dart';
 import 'answer_result.dart';
@@ -160,11 +163,22 @@ final class FormSession {
 
   /// Answers the question at [index] after checking `required` and the
   /// constraint (unless not [validate]).
+  ///
+  /// Text ([UncastValue]) is read as the question's data type (as ODK
+  /// Collect's widgets do); values that can't be read, values of another
+  /// type, and choices the question doesn't offer give [AnswerRejected]
+  /// (even when not [validate]) and are not saved.
   AnswerResult answer(
     FormIndex index,
     AnswerValue? value, {
     bool validate = true,
   }) {
+    final (typed, problem) = _typed(
+      _controller.model.questionPrompt(index),
+      value,
+    );
+    if (problem != null) return AnswerRejected(problem);
+    value = typed;
     if (!validate) {
       _controller.saveAnswer(value, index: index, midSurvey: true);
       _changes.add(FormChange('answer', [index.reference!]));
@@ -192,6 +206,71 @@ final class FormSession {
           prompt.constraintText(attemptedValue: value),
         );
     }
+  }
+
+  /// [value] fitted to [prompt]'s question: text parsed, typed values
+  /// checked; `(value, null)` or `(null, problem)`.
+  static (AnswerValue?, String?) _typed(
+    FormEntryPrompt prompt,
+    AnswerValue? value,
+  ) {
+    if (value == null) return (null, null);
+    final dataType = prompt.dataType;
+    if (value is UncastValue) {
+      if (value.string.trim().isEmpty) return (null, null);
+      final parsed = parseAnswerData(value.string, dataType, prompt.question);
+      if (parsed == null) {
+        return (
+          null,
+          '"${value.string}" is not a valid ${dataType.name} answer',
+        );
+      }
+      // The (JavaRosa) parser drops unknown values of a multi-select.
+      final given = value.string.trim().split(RegExp(' +')).toSet().length;
+      if (parsed is MultipleItemsValue && parsed.selections.length < given) {
+        return (null, '"${value.string}" has values that are not choices');
+      }
+      value = parsed;
+    }
+    final fits = switch (dataType) {
+      DataType.integer => value is IntegerValue,
+      DataType.long => value is LongValue || value is IntegerValue,
+      DataType.decimal =>
+        value is DecimalValue || value is IntegerValue || value is LongValue,
+      DataType.boolean => value is BooleanValue,
+      DataType.date => value is DateValue,
+      DataType.time => value is TimeValue,
+      DataType.dateTime => value is DateTimeValue,
+      DataType.choice => value is SelectOneValue,
+      DataType.multipleItems => value is MultipleItemsValue,
+      DataType.geopoint => value is GeoPointValue,
+      DataType.geotrace => value is GeoTraceValue,
+      DataType.geoshape => value is GeoShapeValue,
+      DataType.text || DataType.barcode => value is StringValue,
+      DataType.binary => value is StringValue || value is PointerValue,
+      _ => true,
+    };
+    if (!fits) {
+      return (
+        null,
+        'a ${value.runtimeType} does not fit a ${dataType.name} question',
+      );
+    }
+    final selections = switch (value) {
+      SelectOneValue(:final selection) => [selection],
+      MultipleItemsValue(:final selections) => selections,
+      _ => null,
+    };
+    if (selections != null) {
+      final offered = {for (final c in prompt.selectChoices) c.value};
+      for (final s in selections) {
+        final choice = s.choice?.value ?? s.xmlValue;
+        if (!offered.contains(choice)) {
+          return (null, '"$choice" is not one of the choices');
+        }
+      }
+    }
+    return (value, null);
   }
 
   /// Adds an instance to the repeat at [repeat] (a [RepeatNode]'s index);

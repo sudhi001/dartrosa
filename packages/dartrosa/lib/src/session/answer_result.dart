@@ -29,6 +29,17 @@ final class AnswerConstraintViolated extends AnswerResult {
   final String? message;
 }
 
+/// Not saved: the value doesn't fit the question — text that can't be
+/// read as the question's data type, a value of another type, or a
+/// choice the question doesn't offer.
+final class AnswerRejected extends AnswerResult {
+  /// Creates the result explaining why in [message].
+  const AnswerRejected(this.message);
+
+  /// Why the value was rejected (English, for developers and logs).
+  final String message;
+}
+
 /// Why finalizing failed: the first question that doesn't validate.
 final class ValidationFailure {
   /// Creates the failure.
