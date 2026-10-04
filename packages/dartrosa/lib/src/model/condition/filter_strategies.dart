@@ -1,4 +1,5 @@
 import '../../util/java_double.dart';
+import '../../util/measure.dart';
 import '../../xpath/conversions.dart';
 import '../../xpath/expression.dart';
 import '../instance/data_instance.dart';
@@ -109,6 +110,7 @@ final class EqualityExpressionIndexFilterStrategy implements FilterStrategy {
     final sectionIndex = _index.putIfAbsent(section, () {
       final built = <String, List<TreeReference>>{};
       for (var i = 0; i < children.length; i++) {
+        Measure.log('IndexEvaluation');
         final value = _javaToString(
           candidate.evalNodeSide(sourceInstance, context, children[i], i),
         );
