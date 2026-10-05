@@ -35,41 +35,14 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+import 'support.dart';
+
 /// The phone screen, in logical pixels, and its pixel ratio.
 const _phone = Size(360, 720);
 const _pixelRatio = 2.0;
 
-final _enabled =
-    Platform.environment.containsKey('DARTROSA_SCREENSHOTS') ||
-    const bool.fromEnvironment('DARTROSA_SCREENSHOTS');
-
 final _corpus = Directory('../../conformance/forms');
-final _out = Directory('../../docs/images/screenshots');
-
-/// The Flutter SDK's font cache (`bin/cache/artifacts/material_fonts`).
-Directory _materialFonts() {
-  final root =
-      Platform.environment['FLUTTER_ROOT'] ??
-      File(
-        Platform.resolvedExecutable,
-      ).parent.parent.parent.parent.parent.parent.path;
-  return Directory('$root/bin/cache/artifacts/material_fonts');
-}
-
-Future<void> _loadFonts() async {
-  final fonts = _materialFonts();
-  Future<ByteData> read(String name) async =>
-      ByteData.sublistView(await File('${fonts.path}/$name').readAsBytes());
-  await (FontLoader('Roboto')
-        ..addFont(read('Roboto-Regular.ttf'))
-        ..addFont(read('Roboto-Medium.ttf'))
-        ..addFont(read('Roboto-Bold.ttf'))
-        ..addFont(read('Roboto-Italic.ttf')))
-      .load();
-  await (FontLoader(
-    'MaterialIcons',
-  )..addFont(read('MaterialIcons-Regular.otf'))).load();
-}
+final _out = Directory('${docsImages.path}/screenshots');
 
 /// Serves `jr://images/<name>` from the form's folder.
 class _CorpusImages extends XFormDelegates {
@@ -277,11 +250,7 @@ Future<void> _render(
       key: boundary,
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          brightness: brightness,
-          colorSchemeSeed: const Color(0xFF1A73E8),
-          fontFamily: 'Roboto',
-        ),
+        theme: screenshotTheme(brightness),
         builder: (context, child) => MediaQuery(
           data: MediaQuery.of(
             context,
@@ -326,7 +295,7 @@ Future<void> _render(
 
 void main() {
   setUpAll(() async {
-    if (_enabled) await _loadFonts();
+    if (screenshotsEnabled) await loadScreenshotFonts();
   });
 
   for (final shot in _shots) {
@@ -340,7 +309,7 @@ void main() {
           size: shot.size,
           pixelRatio: shot.pixelRatio,
         ),
-        skip: !_enabled,
+        skip: !screenshotsEnabled,
       );
     }
   }
@@ -361,7 +330,7 @@ void main() {
           fileName: '${window.name}_${shot.name}',
           out: Directory(_matrixOut ?? ''),
         ),
-        skip: !_enabled || _matrixOut == null,
+        skip: !screenshotsEnabled || _matrixOut == null,
       );
     }
   }

@@ -12,6 +12,27 @@ topics:
   - data-collection
   - widget
 
+# Rendered by test/screenshots (see docs/widgets in the repository).
+screenshots:
+  - description: Pager mode, like ODK Collect - one question per screen, progress bar, Back and Next.
+    path: doc/screenshots/pager_navigation.gif
+  - description: The form outline as a side panel on a desktop window, beside a field-list screen.
+    path: doc/screenshots/outline_panel.png
+  - description: Relevance - answering a select shows or hides the follow-up questions.
+    path: doc/screenshots/relevance.gif
+  - description: Errors after Next - every missing answer on the screen is marked and the first is focused.
+    path: doc/screenshots/validation_next.png
+  - description: A table-list group - one row of radio buttons per question.
+    path: doc/screenshots/table_list_pager.png
+  - description: Non-Gregorian dates - the Ethiopian calendar picker.
+    path: doc/screenshots/date_ethiopian.png
+  - description: The form outline as a bottom sheet on a phone - jump to any question.
+    path: doc/screenshots/outline_sheet.png
+  - description: Adaptive layout - the same form from phone to tablet to desktop width.
+    path: doc/screenshots/adaptive_resize.gif
+  - description: A question with a hint and the pager's bottom bar.
+    path: doc/screenshots/pager.png
+
 environment:
   sdk: ^3.10.0
   flutter: ">=3.35.0"

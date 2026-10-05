@@ -3,6 +3,48 @@
 Flutter renderer for [DartRosa](https://github.com/sudhi001/dartrosa/tree/main/packages/dartrosa), the pure-Dart ODK XForms
 engine.
 
+<p>
+<img src="doc/screenshots/pager_navigation.gif" width="240" alt="Filling a form in the pager: typing answers, Next, the progress bar filling">
+<img src="doc/screenshots/relevance.gif" width="240" alt="Answering a select shows the follow-up questions">
+<img src="doc/screenshots/validation_next.png" width="240" alt="Errors after Next on a field-list screen">
+</p>
+
+<img src="doc/screenshots/outline_panel.png" width="720" alt="A desktop window: the form outline beside the form">
+
+## Visual tour
+
+Every control type and appearance, with its XLSForm, XForm, states,
+platform needs and theming, is in the
+[widget catalog](https://github.com/sudhi001/dartrosa/blob/main/docs/widgets/README.md).
+
+<table>
+<tr>
+<td align="center"><a href="https://github.com/sudhi001/dartrosa/blob/main/docs/widgets/text-and-numbers.md"><img src="https://raw.githubusercontent.com/sudhi001/dartrosa/main/docs/images/screenshots/widgets/text.png" width="200" alt="Text questions"><br>Text and numbers</a></td>
+<td align="center"><a href="https://github.com/sudhi001/dartrosa/blob/main/docs/widgets/date-and-time.md"><img src="https://raw.githubusercontent.com/sudhi001/dartrosa/main/docs/images/screenshots/widgets/date_calendars.png" width="200" alt="Dates in seven calendars"><br>Dates and times</a></td>
+<td align="center"><a href="https://github.com/sudhi001/dartrosa/blob/main/docs/widgets/select-one.md"><img src="https://raw.githubusercontent.com/sudhi001/dartrosa/main/docs/images/screenshots/widgets/select_one_no_buttons.png" width="200" alt="Image choices"><br>Select one</a></td>
+</tr>
+<tr>
+<td align="center"><a href="https://github.com/sudhi001/dartrosa/blob/main/docs/widgets/select-multiple.md"><img src="https://raw.githubusercontent.com/sudhi001/dartrosa/main/docs/images/screenshots/widgets/select_multiple.png" width="200" alt="Check boxes"><br>Select multiple</a></td>
+<td align="center"><a href="https://github.com/sudhi001/dartrosa/blob/main/docs/widgets/image-maps-maps-and-csv.md"><img src="https://raw.githubusercontent.com/sudhi001/dartrosa/main/docs/images/screenshots/widgets/image_map.png" width="200" alt="Image map"><br>Image maps, maps, CSV</a></td>
+<td align="center"><a href="https://github.com/sudhi001/dartrosa/blob/main/docs/widgets/range-and-rank.md"><img src="https://raw.githubusercontent.com/sudhi001/dartrosa/main/docs/images/screenshots/widgets/rank.png" width="200" alt="Rank"><br>Range and rank</a></td>
+</tr>
+<tr>
+<td align="center"><a href="https://github.com/sudhi001/dartrosa/blob/main/docs/widgets/location.md"><img src="https://raw.githubusercontent.com/sudhi001/dartrosa/main/docs/images/screenshots/widgets/geopoint.png" width="200" alt="Geopoint"><br>Location</a></td>
+<td align="center"><a href="https://github.com/sudhi001/dartrosa/blob/main/docs/widgets/media-and-barcodes.md"><img src="https://raw.githubusercontent.com/sudhi001/dartrosa/main/docs/images/screenshots/widgets/media_image.png" width="200" alt="Media capture"><br>Media and barcodes</a></td>
+<td align="center"><a href="https://github.com/sudhi001/dartrosa/blob/main/docs/widgets/special-inputs.md"><img src="https://raw.githubusercontent.com/sudhi001/dartrosa/main/docs/images/screenshots/widgets/counter.png" width="200" alt="Counter"><br>Counter, bearing, url, ex:, printer</a></td>
+</tr>
+<tr>
+<td align="center"><a href="https://github.com/sudhi001/dartrosa/blob/main/docs/widgets/notes-labels-and-triggers.md"><img src="https://raw.githubusercontent.com/sudhi001/dartrosa/main/docs/images/screenshots/widgets/note_markdown.png" width="200" alt="Markdown note"><br>Notes, labels, triggers</a></td>
+<td align="center"><a href="https://github.com/sudhi001/dartrosa/blob/main/docs/widgets/groups.md"><img src="https://raw.githubusercontent.com/sudhi001/dartrosa/main/docs/images/screenshots/widgets/table_list.png" width="200" alt="Table list"><br>Groups</a></td>
+<td align="center"><a href="https://github.com/sudhi001/dartrosa/blob/main/docs/widgets/repeats.md"><img src="https://raw.githubusercontent.com/sudhi001/dartrosa/main/docs/images/screenshots/widgets/repeat.png" width="200" alt="Repeat"><br>Repeats</a></td>
+</tr>
+<tr>
+<td align="center"><a href="https://github.com/sudhi001/dartrosa/blob/main/docs/widgets/navigation-and-layout.md"><img src="https://raw.githubusercontent.com/sudhi001/dartrosa/main/docs/images/screenshots/widgets/outline_sheet.png" width="200" alt="Outline sheet"><br>Pager, outline, layout</a></td>
+<td align="center"><a href="https://github.com/sudhi001/dartrosa/blob/main/docs/widgets/validation.md"><img src="https://raw.githubusercontent.com/sudhi001/dartrosa/main/docs/images/screenshots/widgets/validation_messages.png" width="200" alt="Validation messages"><br>Validation</a></td>
+<td align="center"><a href="https://github.com/sudhi001/dartrosa/blob/main/docs/widgets/navigation-and-layout.md#adaptive-layout"><img src="doc/screenshots/adaptive_resize.gif" width="200" alt="Phone to desktop"><br>Adaptive layout</a></td>
+</tr>
+</table>
+
 ## Install
 
 ```sh
@@ -124,11 +166,15 @@ Golden tests (`test/golden_test.dart`, light/dark, LTR/RTL) use the
 default test font; refresh them with `flutter test --update-goldens`.
 `test/adaptive_test.dart` checks every size class (320 to 1920dp, text
 at 100% and 200%) for overflow and layout.
+The screenshots and GIFs of the widget catalog are rendered by
+`test/screenshots/` from the forms in `test/screenshots/forms/` (opt-in
+with `DARTROSA_SCREENSHOTS=1`, macOS only).
 
 Run the example: `cd example && flutter create . && flutter run`.
 
 ## Documentation
 
+- [Widget catalog](https://github.com/sudhi001/dartrosa/blob/main/docs/widgets/README.md): every control, appearance and state, with screenshots
 - [Documentation index](https://github.com/sudhi001/dartrosa/blob/main/docs/README.md)
 - [Show a form in a Flutter app](https://github.com/sudhi001/dartrosa/blob/main/docs/guides/render-a-form-in-flutter.md)
 - [Use non-Gregorian calendars](https://github.com/sudhi001/dartrosa/blob/main/docs/guides/non-gregorian-calendars.md)

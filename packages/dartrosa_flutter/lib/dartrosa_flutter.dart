@@ -5,6 +5,11 @@
 ///
 /// Parse a form with `FormDefinition.parse`, start a session with
 /// `createSession()`, and show it with [XFormView].
+///
+/// The widget catalog shows every control type and appearance with
+/// screenshots, the XLSForm and XForm that produce it, its states and the
+/// [XFormDelegates] it needs:
+/// <https://github.com/sudhi001/dartrosa/blob/main/docs/widgets/README.md>.
 library;
 
 export 'package:dartrosa/dartrosa.dart';
