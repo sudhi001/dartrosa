@@ -108,9 +108,7 @@ extension XFormInstanceLoading on FormDef {
     String instanceXml, {
     AnswerResolver resolver = defaultAnswerResolver,
   }) {
-    final root = parseKDocument(instanceXml);
-    consolidateText(root);
-    final savedRoot = restoreDataModel(root).root;
+    final savedRoot = restoreDataModel(getXmlDocument(instanceXml)).root;
     final templateRoot = mainInstance.root.deepCopy(includeTemplates: true);
     // A weak check that the instance belongs to the form.
     if (savedRoot.name != templateRoot.name || savedRoot.multiplicity != 0) {

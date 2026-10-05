@@ -140,7 +140,7 @@ void loadInstanceData(KElement node, TreeElement current, FormDef? form) {
     }
   } else {
     final text = xmlText(node, trim: true);
-    if (text != null && javaTrim(text).isNotEmpty) {
+    if (text != null && text.isNotEmpty) {
       current.value = parseAnswerData(
         text,
         current.dataType,

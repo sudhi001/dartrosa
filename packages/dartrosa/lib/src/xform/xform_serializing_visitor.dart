@@ -69,7 +69,7 @@ final class XFormSerializingVisitor {
         node.multiplicity == TreeReference.indexTemplate) {
       return null;
     }
-    var e = KxmlElement();
+    final e = KxmlElement();
     final value = node.value;
     if (value != null) {
       final Object? serialized;
@@ -81,7 +81,6 @@ final class XFormSerializingVisitor {
       switch (serialized) {
         case final List<Object?> names:
           // Several attachments: one <data> child each.
-          e = KxmlElement();
           for (final name in names) {
             e.children.add(
               KxmlElement()

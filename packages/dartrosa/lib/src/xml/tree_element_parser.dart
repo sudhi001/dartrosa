@@ -17,7 +17,6 @@ import '../model/data/answer_value.dart';
 import '../model/instance/data_instance.dart';
 import '../model/instance/tree_element.dart';
 import '../util/java_lang.dart';
-import 'xml_exceptions.dart';
 
 const _xmlNamespace = 'http://www.w3.org/XML/1998/namespace';
 
@@ -185,13 +184,3 @@ Map<String, DataInstance> buildInternalInstances(String xml) {
   }
   return instances;
 }
-
-/// Thrown by JavaRosa's tree parser for events other than tags and text;
-/// with a DOM this can only happen for malformed input, which
-/// `package:xml` rejects first. Kept for API parity.
-InvalidStructureException unexpectedEvent(String position) =>
-    InvalidStructureException.atPosition(
-      'Exception while trying to parse an XML Tree, got something other than '
-      'tags and text',
-      position,
-    );

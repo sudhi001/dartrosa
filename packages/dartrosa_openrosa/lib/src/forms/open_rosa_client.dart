@@ -82,28 +82,11 @@ final class OpenRosaClient implements FormSource, EntitySource {
   }
 
   @override
-  Future<Stream<List<int>>> fetchForm(String formUrl) async {
-    final result = await _mapException(
-      () => _openRosaXmlFetcher.fetch(formUrl, null),
-    );
-    final stream = result.inputStream;
-    if (stream == null) {
-      throw FormSourceServerError(result.statusCode, serverUrl);
-    }
-    return stream;
-  }
+  Future<Stream<List<int>>> fetchForm(String formUrl) => _fetchStream(formUrl);
 
   @override
-  Future<Stream<List<int>>> fetchMediaFile(String mediaFileUrl) async {
-    final result = await _mapException(
-      () => _openRosaXmlFetcher.fetch(mediaFileUrl, null),
-    );
-    final stream = result.inputStream;
-    if (stream == null) {
-      throw FormSourceServerError(result.statusCode, serverUrl);
-    }
-    return stream;
-  }
+  Future<Stream<List<int>>> fetchMediaFile(String mediaFileUrl) =>
+      _fetchStream(mediaFileUrl);
 
   /// Changes the credentials provider (Collect's
   /// `updateWebCredentialsUtils`).
@@ -127,6 +110,17 @@ final class OpenRosaClient implements FormSource, EntitySource {
       return [for (final e in parsedResponse) (e.id, e.deleted)];
     }
     throw FormSourceParseError(serverUrl);
+  }
+
+  Future<Stream<List<int>>> _fetchStream(String url) async {
+    final result = await _mapException(
+      () => _openRosaXmlFetcher.fetch(url, null),
+    );
+    final stream = result.inputStream;
+    if (stream == null) {
+      throw FormSourceServerError(result.statusCode, serverUrl);
+    }
+    return stream;
   }
 
   Future<T> _mapException<T>(Future<T> Function() callable) async {

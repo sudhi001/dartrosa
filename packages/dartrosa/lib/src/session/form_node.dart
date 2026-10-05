@@ -227,21 +227,13 @@ final class QuestionNode extends FormNode {
   String? get constraintMessage => _prompt.constraintText();
 
   /// The required message (`jr:requiredMsg`), if any.
-  String? get requiredMessage => _prompt.treeElement.bindAttributes
-      .where((a) => a.name == 'requiredMsg')
-      .firstOrNull
-      ?.attributeValue;
+  String? get requiredMessage => bindAttributeValue(_prompt, 'requiredMsg');
 
   /// Whether the form asks for a save whenever this question is answered
   /// (`saveIncomplete="true()"` on its bind, ODK XForms spec); apps such as
   /// ODK Collect then save the instance as a draft.
   bool get saveIncomplete =>
-      _prompt.treeElement.bindAttributes
-          .where((a) => a.name == 'saveIncomplete')
-          .firstOrNull
-          ?.attributeValue
-          ?.trim() ==
-      'true()';
+      bindAttributeValue(_prompt, 'saveIncomplete')?.trim() == 'true()';
 
   /// The choices of a select (re-evaluated for itemsets).
   List<SelectChoice> get choices => _prompt.selectChoices;
@@ -290,18 +282,34 @@ List<FormNode> _childrenOf(
   if (parent != null) {
     form.collapseIndex(parent, indexes, multiplicities, elements);
   }
-  return [
-    for (final (i, child) in element.children.indexed)
-      () {
-        final index = form.buildIndex([...indexes, i], [...multiplicities, 0], [
-          ...elements,
-          child,
-        ])!;
-        return child is GroupDef && child.isRepeat
-            ? RepeatNode._(model, index)
-            : _nodeAt(model, index);
-      }(),
-  ];
+  final children = element.children;
+  final nodes = <FormNode>[];
+  // buildIndex copies its arguments, so the path lists are reused: each
+  // child is appended, indexed and removed again.
+  multiplicities.add(0);
+  for (var i = 0; i < children.length; i++) {
+    final child = children[i];
+    indexes.add(i);
+    elements.add(child);
+    final index = form.buildIndex(indexes, multiplicities, elements)!;
+    nodes.add(
+      child is GroupDef && child.isRepeat
+          ? RepeatNode._(model, index)
+          : _nodeAt(model, index),
+    );
+    indexes.removeLast();
+    elements.removeLast();
+  }
+  return nodes;
+}
+
+/// The value of [prompt]'s first bind attribute named [name], if any. Used
+/// by the session.
+String? bindAttributeValue(FormEntryPrompt prompt, String name) {
+  for (final attribute in prompt.bindAttributes) {
+    if (attribute.name == name) return attribute.attributeValue;
+  }
+  return null;
 }
 
 /// The node at [index] in [model]'s form. Used by the session.

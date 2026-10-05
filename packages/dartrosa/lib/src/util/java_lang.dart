@@ -58,21 +58,15 @@ final _javaDecimal = RegExp(
 final _javaHex = RegExp(
   r'^([+-]?)0[xX]([0-9a-fA-F]*)\.?([0-9a-fA-F]*)[pP]([+-]?\d+)[fFdD]?$',
 );
+final _trailingPoint = RegExp(r'\.$');
+final _leadingZeros = RegExp('^0+(?=.)');
 
 /// Java `Double.parseDouble`: trims characters `<= ' '`, accepts an
 /// optional sign, `NaN`, `Infinity`, decimal and exponent notation, a
 /// trailing `f`/`F`/`d`/`D`, and hexadecimal floating point. Returns `null`
 /// where Java throws `NumberFormatException`.
 double? javaParseDouble(String input) {
-  var start = 0;
-  var end = input.length;
-  while (start < end && input.codeUnitAt(start) <= 0x20) {
-    start++;
-  }
-  while (end > start && input.codeUnitAt(end - 1) <= 0x20) {
-    end--;
-  }
-  final s = input.substring(start, end);
+  final s = javaTrim(input);
   final decimal = _javaDecimal.firstMatch(s);
   if (decimal != null) {
     final negative = decimal.group(1) == '-';
@@ -81,7 +75,7 @@ double? javaParseDouble(String input) {
       'Infinity' => double.infinity,
       // Dart rejects a trailing '.', so append a zero ("1." -> "1.0").
       _ => double.parse(
-        decimal.group(4)!.replaceFirst(RegExp(r'\.$'), '.0') +
+        decimal.group(4)!.replaceFirst(_trailingPoint, '.0') +
             (decimal.group(5) ?? ''),
       ),
     };
@@ -93,7 +87,7 @@ double? javaParseDouble(String input) {
     final fracPart = hex.group(3)!;
     if (intPart.isEmpty && fracPart.isEmpty) return null;
     final mantissa = BigInt.parse(
-      '0$intPart$fracPart'.replaceFirst(RegExp('^0+(?=.)'), ''),
+      '0$intPart$fracPart'.replaceFirst(_leadingZeros, ''),
       radix: 16,
     );
     final exponent = int.parse(hex.group(4)!) - 4 * fracPart.length;

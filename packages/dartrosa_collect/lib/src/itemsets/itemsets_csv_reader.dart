@@ -1,3 +1,5 @@
+import '../util/read_lines.dart';
+
 /// Thrown for a CSV that can't be read (an unterminated quoted field).
 final class ItemsetsCsvException implements Exception {
   /// Creates the exception.
@@ -20,7 +22,7 @@ final class ItemsetsCsvException implements Exception {
 /// (whose import uses the escape `\0`).
 final class ItemsetsCsvReader {
   /// Creates a reader over the decoded file [text].
-  ItemsetsCsvReader(String text) : _lines = _readLines(text);
+  ItemsetsCsvReader(String text) : _lines = readLines(text);
 
   static const _separator = 0x2C; // ,
   static const _quote = 0x22; // "
@@ -48,7 +50,7 @@ final class ItemsetsCsvReader {
         return record;
       }
       final tokens = _parseLine(_lines[_nextLine++]);
-      if (tokens.isNotEmpty) record = [...?record, ...tokens];
+      if (tokens.isNotEmpty) (record ??= []).addAll(tokens);
     } while (_pending != null);
     return record;
   }
@@ -147,25 +149,5 @@ final class ItemsetsCsvReader {
       if (!isJavaWhitespace) return false;
     }
     return true;
-  }
-
-  /// `BufferedReader.readLine` over the whole input.
-  static List<String> _readLines(String text) {
-    final lines = <String>[];
-    var start = 0;
-    var i = 0;
-    while (i < text.length) {
-      final c = text.codeUnitAt(i);
-      if (c == 0x0A || c == 0x0D) {
-        lines.add(text.substring(start, i));
-        i++;
-        if (c == 0x0D && i < text.length && text.codeUnitAt(i) == 0x0A) i++;
-        start = i;
-      } else {
-        i++;
-      }
-    }
-    if (start < text.length) lines.add(text.substring(start));
-    return lines;
   }
 }

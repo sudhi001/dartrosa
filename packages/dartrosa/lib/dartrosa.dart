@@ -7,6 +7,8 @@
 ///
 /// The JavaRosa-compatible API (`FormDef`, `FormEntryController`, ...) is
 /// available from `package:dartrosa/javarosa.dart`.
+///
+/// @docImport 'src/session/form_session.dart';
 library;
 
 export 'src/form_api/form_entry_model.dart' show FormEntryEvent;
@@ -24,7 +26,8 @@ export 'src/reference/reference_manager.dart';
 export 'src/reference/resource_resolver.dart';
 export 'src/session/answer_result.dart';
 export 'src/session/config.dart';
-export 'src/session/form_node.dart' hide nodeAtIndex, rootNode;
+export 'src/session/form_node.dart'
+    hide bindAttributeValue, nodeAtIndex, rootNode;
 export 'src/session/form_session.dart';
 export 'src/xform/xform_parse_exception.dart';
 export 'src/xpath/exceptions.dart';

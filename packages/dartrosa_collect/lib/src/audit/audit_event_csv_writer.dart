@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import '../util/read_lines.dart';
 import 'audit_event.dart';
 import 'audit_event_csv_line.dart';
 import 'audit_event_logger.dart';
@@ -132,7 +133,7 @@ final class AuditEventCsvWriter implements AuditEventWriter {
   }
 
   Future<void> _updateHeaderIfNeeded(String existing) async {
-    final lines = _readLines(existing);
+    final lines = readLines(existing);
     if (!_shouldHeaderBeUpdated(lines.isEmpty ? null : lines.first)) return;
     final updated = StringBuffer('${_getHeader()}\n');
     for (final line in lines.skip(1)) {
@@ -154,24 +155,4 @@ final class AuditEventCsvWriter implements AuditEventWriter {
     if (isUserRequired) _userColumns,
     if (isTrackChangesReasonEnabled) _changeReasonColumns,
   ].join();
-
-  /// `BufferedReader.readLine` over the whole log.
-  static List<String> _readLines(String text) {
-    final lines = <String>[];
-    var start = 0;
-    var i = 0;
-    while (i < text.length) {
-      final c = text.codeUnitAt(i);
-      if (c == 0x0A || c == 0x0D) {
-        lines.add(text.substring(start, i));
-        i++;
-        if (c == 0x0D && i < text.length && text.codeUnitAt(i) == 0x0A) i++;
-        start = i;
-      } else {
-        i++;
-      }
-    }
-    if (start < text.length) lines.add(text.substring(start));
-    return lines;
-  }
 }

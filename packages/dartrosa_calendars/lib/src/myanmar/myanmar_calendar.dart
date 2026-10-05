@@ -7,8 +7,6 @@
 /// `%` is the truncating remainder and integer `/` truncates.
 library;
 
-import '../gregorian.dart';
-
 /// `Constants.SY`: solar year (days).
 const _sy = 365.2587564814815;
 
@@ -98,46 +96,46 @@ final class MyanmarDate {
     eraId = 3;
     watatOffset = -0.5;
     numberOfMonths = 8;
-    fme = [
+    fme = const [
       [1377, 1],
     ];
-    wte = [1344, 1345];
+    wte = const [1344, 1345];
   } else if (my >= 1217) {
     eraId = 2;
     watatOffset = -1;
     numberOfMonths = 4;
-    fme = [
+    fme = const [
       [1234, 1],
       [1261, -1],
     ];
-    wte = [1263, 1264];
+    wte = const [1263, 1264];
   } else if (my >= 1100) {
     eraId = 1.3;
     watatOffset = -0.85;
     numberOfMonths = -1;
-    fme = [
+    fme = const [
       [1120, 1],
       [1126, -1],
       [1150, 1],
       [1172, -1],
       [1207, 1],
     ];
-    wte = [1201, 1202];
+    wte = const [1201, 1202];
   } else if (my >= 798) {
     eraId = 1.2;
     watatOffset = -1.1;
     numberOfMonths = -1;
-    fme = [
-      for (final y in [813, 849, 851, 854, 927, 933, 936, 938, 949, 952])
-        [y, -1],
-      for (final y in [963, 968, 1039]) [y, -1],
+    fme = const [
+      [813, -1], [849, -1], [851, -1], [854, -1], [927, -1], [933, -1], //
+      [936, -1], [938, -1], [949, -1], [952, -1], [963, -1], [968, -1],
+      [1039, -1],
     ];
-    wte = [];
+    wte = const [];
   } else {
     eraId = 1.1;
     watatOffset = -1.1;
     numberOfMonths = -1;
-    fme = [
+    fme = const [
       [205, 1],
       [246, 1],
       [471, 1],
@@ -149,7 +147,7 @@ final class MyanmarDate {
       [729, 1],
       [767, -1],
     ];
-    wte = [];
+    wte = const [];
   }
   for (final e in fme) {
     if (e[0] == my) watatOffset += e[1];
@@ -358,9 +356,3 @@ double westernToJulian(int year, int month, int day) {
 MyanmarDate myanmarDateOfWestern(int year, int month, int day) =>
     // westernToJulian(...) + (0 - 12) / 24 at midnight.
     julianToMyanmarDate(westernToJulian(year, month, day) - 0.5);
-
-/// The Julian day number of the Gregorian day [epochDay].
-double julianDayOfEpochDay(int epochDay) {
-  final c = civilOf(epochDay);
-  return westernToJulian(c.year, c.month, c.day);
-}

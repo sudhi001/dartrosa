@@ -151,10 +151,7 @@ final class FormSession {
   RootNode get root => rootNode(_controller.model);
 
   /// The node at [index].
-  FormNode nodeAt(FormIndex index) => _nodeAt(_controller.model, index);
-
-  static FormNode _nodeAt(FormEntryModel model, FormIndex index) =>
-      nodeAtIndex(model, index);
+  FormNode nodeAt(FormIndex index) => nodeAtIndex(_controller.model, index);
 
   /// The current language.
   String? get language => _form.localizer?.locale;
@@ -199,12 +196,7 @@ final class FormSession {
         _changes.add(FormChange('answer', [index.reference!]));
         return const AnswerAccepted();
       case AnswerStatus.requiredButEmpty:
-        return AnswerRequired(
-          prompt.bindAttributes
-              .where((a) => a.name == 'requiredMsg')
-              .firstOrNull
-              ?.attributeValue,
-        );
+        return AnswerRequired(bindAttributeValue(prompt, 'requiredMsg'));
       case AnswerStatus.constraintViolated:
         return AnswerConstraintViolated(
           prompt.constraintText(attemptedValue: value),
@@ -311,12 +303,7 @@ final class FormSession {
     if (outcome != null) {
       final prompt = _controller.model.questionPrompt(outcome.failedPrompt);
       final result = outcome.outcome == AnswerStatus.requiredButEmpty
-          ? AnswerRequired(
-              prompt.bindAttributes
-                  .where((a) => a.name == 'requiredMsg')
-                  .firstOrNull
-                  ?.attributeValue,
-            )
+          ? AnswerRequired(bindAttributeValue(prompt, 'requiredMsg'))
           : AnswerConstraintViolated(prompt.constraintText());
       return FinalizeFailure(ValidationFailure(outcome.failedPrompt, result));
     }
