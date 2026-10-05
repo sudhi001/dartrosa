@@ -12,7 +12,11 @@ import '../../storage/query.dart';
 
 /// Converts XPath predicates to [Query]s.
 extension XPathExpressionExt on XPathExpression {
-  /// Converts this XPath expression to a [Query]. For example:
+  /// Converts this XPath expression to a [Query], or returns `null` if it
+  /// can't be converted.
+  ///
+  /// For example:
+  ///
   /// - `label = 'blah'` will be converted to `StringEqQuery("label",
   ///   "blah")`
   /// - `label = /some/string/ref` will be converted to
@@ -20,8 +24,7 @@ extension XPathExpressionExt on XPathExpression {
   ///   evaluates to `"blah"` within the context of the passed
   ///   [DataInstance] and [EvaluationContext])
   ///
-  /// `and`, `or`, `=` and `!=` are all supported. If an expression cannot
-  /// be converted to a [Query], `null` will be returned.
+  /// `and`, `or`, `=` and `!=` are all supported.
   Query? toQuery(DataInstance sourceInstance, EvaluationContext context) =>
       switch (this) {
         final XPathBoolExpr e => _boolExprToQuery(e, sourceInstance, context),

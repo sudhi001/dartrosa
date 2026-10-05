@@ -35,9 +35,10 @@ sealed class XPathExpression {
   Object eval(DataInstance? model, EvaluationContext context);
 
   /// Pivots this expression around [sentinel] (the validated node's
-  /// reference), adding [CmpPivot]s to [pivots]. Returns [sentinel] when
-  /// the value *is* the node, `null` when it depends on it in a supported
-  /// way, otherwise the evaluated value. Throws
+  /// reference), adding [CmpPivot]s to [pivots].
+  ///
+  /// Returns [sentinel] when the value *is* the node, `null` when it
+  /// depends on it in a supported way, otherwise the evaluated value. Throws
   /// [UnpivotableExpressionException] when the dependency can't be
   /// expressed as pivots.
   ///

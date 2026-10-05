@@ -25,8 +25,11 @@ import 'pull_data_function_handler.dart';
 ///   plugins: [ExternalDataPlugin(listMedia: (form) => mediaFileNames)],
 /// );
 /// final definition = await FormDefinition.parse(xml, config: config);
+/// final select = definition.createSession().root.children.single;
 /// // Choices of a select with a search() appearance:
-/// final choices = loadSelectChoices(prompt);
+/// final choices = loadSelectChoices(
+///   FormEntryPrompt(definition.formDef, select.index),
+/// );
 /// ```
 ///
 /// Ports what Collect wires in `DynamicPreloadXFormParserFactory` (the

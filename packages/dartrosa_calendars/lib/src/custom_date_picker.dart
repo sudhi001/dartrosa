@@ -16,6 +16,9 @@ import 'myanmar/myanmar_date_utils.dart';
 /// setting a value outside the bounds wraps it around when the wheel
 /// wraps (more than three values) or clamps it otherwise.
 final class NumberPickerState {
+  /// Creates a picker whose bounds and value are 0.
+  NumberPickerState();
+
   int _min = 0;
   int _max = 0;
   int _value = 0;

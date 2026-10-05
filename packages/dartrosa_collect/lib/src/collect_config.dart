@@ -8,8 +8,10 @@ import 'finalization/edited_form_finalization_processor.dart';
 import 'itemsets/fast_external_itemsets_plugin.dart';
 import 'last_saved/last_saved.dart';
 
-/// A [DartRosaConfig] for loading one form the way ODK Collect does, with
-/// this package's services wired in:
+/// Returns a [DartRosaConfig] for loading one form the way ODK Collect
+/// does, with this package's services wired in.
+///
+/// The services are:
 ///
 /// * [lastSaved]: `jr://instance/last-saved` reads the form's last-saved
 ///   instance (call [LastSaved.instanceSaved] after each save);
@@ -24,6 +26,15 @@ import 'last_saved/last_saved.dart';
 /// are passed through to [DartRosaConfig] (the Collect plugins and
 /// processors come after the given ones). Audits are per session: create
 /// a `FormAudit` for each session.
+///
+/// ```dart
+/// final lastSaved = LastSaved(InMemoryLastSavedStore(), 'visit-v1');
+/// final config = collectFormConfig(
+///   media: MapResourceResolver(const {}), // the form's media files
+///   lastSaved: lastSaved,
+/// );
+/// final definition = await FormDefinition.parse(xform, config: config);
+/// ```
 ///
 /// DartRosa's counterpart of the wiring in Collect's `FormLoaderTask`,
 /// `FormEntryUseCases` and `CollectFormEntryControllerFactory`.

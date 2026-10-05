@@ -4,6 +4,20 @@
 import '../model/form_index.dart';
 
 /// The outcome of answering a question.
+///
+/// A sealed class, so a `switch` over it handles every case:
+///
+/// ```dart
+/// switch (session.answer(age.index, const IntegerValue(-3))) {
+///   case AnswerAccepted():
+///     break;
+///   case AnswerRequired(:final message) ||
+///       AnswerConstraintViolated(:final message):
+///     print(message ?? 'Invalid answer');
+///   case AnswerRejected(:final message):
+///     print('Not a valid value: $message');
+/// }
+/// ```
 sealed class AnswerResult {
   const AnswerResult();
 }

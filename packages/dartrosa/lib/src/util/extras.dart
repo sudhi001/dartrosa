@@ -9,6 +9,9 @@
 /// name; here by runtime type). Plugins use it to mark parsed forms, e.g.
 /// ODK Collect's `DynamicPreloadExtra`.
 final class Extras<T extends Object> {
+  /// Creates an empty set of extras.
+  Extras();
+
   final Map<Type, T> _map = {};
 
   /// Stores [extra], replacing any extra of the same runtime type.

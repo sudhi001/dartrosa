@@ -65,10 +65,13 @@ final class EmptyXFormsElement extends XFormsElement {
   String asXml() => '<$name$_attributesString/>';
 }
 
-/// Builder for a `<bind>` element, configured with cascades:
+/// A builder for a `<bind>` element, configured with cascades.
 ///
 /// ```dart
-/// bind('/data/age')..type('int')..required()..constraint('. > 0')
+/// final element = bind('/data/age')
+///   ..type('int')
+///   ..required()
+///   ..constraint('. > 0');
 /// ```
 ///
 /// Port of `org.javarosa.test.BindBuilderXFormsElement`.

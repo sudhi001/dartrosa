@@ -54,13 +54,13 @@ enum TokenType {
   /// `<=`
   lte,
 
-  /// binary `-`
+  /// Binary `-`.
   minus,
 
   /// `mod`
   mod,
 
-  /// `*` as multiplication
+  /// `*` as multiplication.
   mult,
 
   /// `!=`
@@ -69,7 +69,7 @@ enum TokenType {
   /// `prefix:*`
   nsWildcard,
 
-  /// a number literal
+  /// A number literal.
   num,
 
   /// `or`
@@ -78,7 +78,7 @@ enum TokenType {
   /// `+`
   plus,
 
-  /// a (qualified) name
+  /// A (qualified) name.
   qname,
 
   /// `]`
@@ -90,10 +90,10 @@ enum TokenType {
   /// `/`
   slash,
 
-  /// a string literal
+  /// A string literal.
   str,
 
-  /// unary `-`
+  /// Unary `-`.
   uminus,
 
   /// `|`
@@ -102,7 +102,7 @@ enum TokenType {
   /// `$name`
   variable,
 
-  /// `*` as a name test
+  /// `*` as a name test.
   wildcard,
 }
 

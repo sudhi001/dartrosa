@@ -24,6 +24,9 @@ import 'triggerable_dag.dart';
 ///
 /// Port of `org.javarosa.core.model.ItemsetBinding`.
 final class ItemsetBinding implements Localizable {
+  /// Creates an empty binding, filled in by the parser.
+  ItemsetBinding();
+
   /// Absolute reference of the source nodes.
   TreeReference? nodesetRef;
 

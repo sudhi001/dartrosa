@@ -118,7 +118,9 @@ final class ItemsetDao {
   );
 
   /// Parses the predicate like Collect, which builds the SQL selection
-  /// `list_name=? and "col1"=? and "col2"=? or ...`. Can't just split on
+  /// `list_name=? and "col1"=? and "col2"=? or ...`.
+  ///
+  /// Can't just split on
   /// `and` or `or` because they have different behavior, so the loop
   /// breaks them off until there aren't any more (the spaces are included
   /// so that words like "land" don't match). Like Collect, an `and` is

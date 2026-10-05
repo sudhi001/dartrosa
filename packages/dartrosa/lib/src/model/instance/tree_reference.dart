@@ -134,7 +134,7 @@ final class TreeReference {
   /// Default multiplicity: the first node with a given name.
   static const defaultMultiplicity = 0;
 
-  /// All nodes with a given name, e.g. `/data/b` meaning `b[1]`, `b[2]`, …
+  /// All nodes with a given name, e.g. `/data/b` meaning `b[1]`, `b[2]`, ….
   static const indexUnbound = -1;
 
   /// The template of a repeat, which is never serialized.

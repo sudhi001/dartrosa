@@ -80,3 +80,40 @@ void expectSnippetsTested(String docPath) {
     }
   });
 }
+
+/// The pure-Dart packages whose API docs and READMEs are checked by
+/// api_docs_test.dart.
+const pureDartPackages = [
+  'dartrosa',
+  'dartrosa_calendars',
+  'dartrosa_collect',
+  'dartrosa_encryption',
+  'dartrosa_entities',
+  'dartrosa_external_data',
+  'dartrosa_openrosa',
+];
+
+/// Whether [code] is in [sources], ignoring indentation and blank lines.
+bool containsSnippet(String sources, String code) =>
+    _normalize(sources).contains(_normalize(code));
+
+/// The `///` doc comments of the Dart [source], without their `///`
+/// prefixes, each with the line that follows it (the documented
+/// declaration).
+List<({String comment, String declaration})> docComments(String source) {
+  final comments = <({String comment, String declaration})>[];
+  final lines = source.split('\n');
+  for (var i = 0; i < lines.length; i++) {
+    if (!lines[i].trimLeft().startsWith('///')) continue;
+    final comment = StringBuffer();
+    for (; i < lines.length && lines[i].trimLeft().startsWith('///'); i++) {
+      final text = lines[i].trimLeft().substring(3);
+      comment.writeln(text.startsWith(' ') ? text.substring(1) : text);
+    }
+    comments.add((
+      comment: comment.toString(),
+      declaration: i < lines.length ? lines[i].trim() : '',
+    ));
+  }
+  return comments;
+}

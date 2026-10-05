@@ -86,6 +86,9 @@ abstract interface class ConstraintHint {
 /// Port of `RangeHint`. Up to two comparisons are supported, e.g.
 /// `. >= 1 and . < 10`.
 abstract class RangeHint<T extends AnswerValue> implements ConstraintHint {
+  /// Creates a hint with no bounds yet.
+  RangeHint();
+
   double? _min;
   double? _max;
   T? _minCast;
@@ -156,6 +159,9 @@ abstract class RangeHint<T extends AnswerValue> implements ConstraintHint {
 
 /// Integer bounds. Port of `IntegerRangeHint`.
 final class IntegerRangeHint extends RangeHint<IntegerValue> {
+  /// Creates a hint with no bounds yet.
+  IntegerRangeHint();
+
   @override
   IntegerValue castToValue(double value) =>
       IntegerValue(javaIntCast(value.floorToDouble()));
@@ -169,6 +175,9 @@ final class IntegerRangeHint extends RangeHint<IntegerValue> {
 /// JavaRosa probes with `Double.MIN_VALUE`, which is lost in rounding for
 /// most values, so this rarely finds bounds; ported as is.
 final class DecimalRangeHint extends RangeHint<DecimalValue> {
+  /// Creates a hint with no bounds yet.
+  DecimalRangeHint();
+
   @override
   DecimalValue castToValue(double value) => DecimalValue(value);
 
@@ -178,6 +187,9 @@ final class DecimalRangeHint extends RangeHint<DecimalValue> {
 
 /// Date bounds (days since the epoch). Port of `DateRangeHint`.
 final class DateRangeHint extends RangeHint<DateValue> {
+  /// Creates a hint with no bounds yet.
+  DateRangeHint();
+
   @override
   DateValue castToValue(double value) =>
       DateValue(toDate(value.floorToDouble(), preserveTime: false) as DateTime);
@@ -189,6 +201,9 @@ final class DateRangeHint extends RangeHint<DateValue> {
 /// String length bounds, e.g. from `string-length(.) <= 10`. Port of
 /// `StringLengthRangeHint`.
 final class StringLengthRangeHint extends RangeHint<StringValue> {
+  /// Creates a hint with no bounds yet.
+  StringLengthRangeHint();
+
   @override
   StringValue castToValue(double value) =>
       StringValue('X' * javaIntCast(value).clamp(0, 1 << 30));

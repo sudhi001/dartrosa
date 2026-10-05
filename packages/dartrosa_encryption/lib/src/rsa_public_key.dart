@@ -62,7 +62,7 @@ final class RsaPublicKey {
   static const _bitString = 0x03;
   static const _objectIdentifier = 0x06;
 
-  /// 1.2.840.113549.1.1.1
+  /// The `rsaEncryption` object identifier, 1.2.840.113549.1.1.1.
   static const _rsaEncryption = [
     0x2A, 0x86, 0x48, 0x86, 0xF7, 0x0D, 0x01, 0x01, 0x01, //
   ];

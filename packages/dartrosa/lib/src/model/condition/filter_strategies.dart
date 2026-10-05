@@ -100,6 +100,9 @@ String _javaToString(Object value) => switch (value) {
 /// indexed under its unpacked value, and only string context values use
 /// the index.
 final class EqualityExpressionIndexFilterStrategy implements FilterStrategy {
+  /// Creates a strategy with an empty index.
+  EqualityExpressionIndexFilterStrategy();
+
   final Map<String, Map<String, List<TreeReference>>> _index = {};
 
   @override
@@ -143,6 +146,9 @@ final class EqualityExpressionIndexFilterStrategy implements FilterStrategy {
 /// this one keeps the [maxEntries] most recently used results (secondary
 /// instances don't change, so a dropped result is recomputed the same).
 final class ComparisonExpressionCacheFilterStrategy implements FilterStrategy {
+  /// Creates a strategy with an empty cache.
+  ComparisonExpressionCacheFilterStrategy();
+
   /// How many results are kept at most.
   static const maxEntries = 1000;
 
@@ -209,6 +215,9 @@ final class ComparisonExpressionCacheFilterStrategy implements FilterStrategy {
 /// Port of `IdempotentExpressionCacheFilterStrategy`; the dependency graph
 /// uses a fresh one per batch when predicate caching is on.
 final class IdempotentExpressionCacheFilterStrategy implements FilterStrategy {
+  /// Creates a strategy with an empty cache.
+  IdempotentExpressionCacheFilterStrategy();
+
   final Map<String, List<TreeReference>> _cache = {};
 
   @override

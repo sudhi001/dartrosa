@@ -63,6 +63,9 @@ final class XPathArgType {
 /// declared types; if none matches and [rawArgs] is set, the unconverted
 /// arguments are passed instead.
 abstract class XPathFunctionHandler {
+  /// Creates a function handler.
+  XPathFunctionHandler();
+
   /// The function name as written in XPath, e.g. `pulldata`.
   String get name;
 

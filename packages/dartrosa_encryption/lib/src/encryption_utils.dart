@@ -103,12 +103,24 @@ EncryptedSubmission generateEncryptedSubmission(
 }
 
 /// Encrypts a submission of [form] if the form asks for encryption: its
-/// [submissionXml] and [attachments] (name → content). Returns `null` if
-/// the form isn't encrypted.
+/// [submissionXml] and [attachments] (name → content).
+///
+/// Returns `null` if the form isn't encrypted.
 ///
 /// Uses [getEncryptedFormInformation] (with [instanceId] and [random]) and
 /// [generateEncryptedSubmission]; throws an `EncryptionException` if the
 /// form is encrypted but the submission can't be.
+///
+/// ```dart
+/// final encrypted = encryptSubmission(
+///   utf8.encode(submission.xml),
+///   {'photo.jpg': photoBytes}, // attachments: file name -> bytes
+///   definition.formDef,
+/// );
+/// if (encrypted != null) {
+///   print(encrypted.mediaFileNames); // [photo.jpg]
+/// }
+/// ```
 EncryptedSubmission? encryptSubmission(
   Uint8List submissionXml,
   Map<String, Uint8List> attachments,

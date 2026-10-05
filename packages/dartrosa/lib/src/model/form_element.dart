@@ -190,6 +190,9 @@ final class GroupDef extends FormElement {
 ///
 /// Port of `org.javarosa.core.model.osm.OSMTag`.
 final class OsmTag {
+  /// Creates a tag with no key, label or items.
+  OsmTag();
+
   /// The tag key.
   String? key;
 
@@ -202,6 +205,9 @@ final class OsmTag {
 
 /// One choice of an [OsmTag]. Port of `OSMTagItem`.
 final class OsmTagItem {
+  /// Creates an item with no label or value.
+  OsmTagItem();
+
   /// The item label.
   String? label;
 
@@ -270,7 +276,9 @@ class QuestionDef extends FormElement {
     return null;
   }
 
-  /// [selection] bound to its static choice (by index, else by value).
+  /// Returns [selection] bound to its static choice (by index, else by
+  /// value).
+  ///
   /// Dynamic (itemset) choices can't be attached and return [selection]
   /// unchanged. Port of `Selection.attachChoice(QuestionDef)`, returning a
   /// new selection because DartRosa's are immutable.

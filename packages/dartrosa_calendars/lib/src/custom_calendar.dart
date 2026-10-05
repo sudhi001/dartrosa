@@ -56,6 +56,13 @@ final class CalendarDate {
 /// Collect's spinners offer, and the text Collect shows (ports of
 /// `DateTimeWidgetUtils.getDateTimeLabel` and of the `*DatePickerDialog`
 /// classes' constants).
+///
+/// ```dart
+/// final calendar = CustomCalendar.of(DatePickerType.persian);
+/// print(calendar.fromGregorian(DateTime(2024, 3, 20))); // 1 Farvardin 1403
+/// print(calendar.monthNames(1403).first); // Farvardin
+/// print('${calendar.minYear}-${calendar.maxYear}'); // 1278-1478
+/// ```
 sealed class CustomCalendar {
   const CustomCalendar._();
 

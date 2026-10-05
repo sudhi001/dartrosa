@@ -38,6 +38,9 @@ abstract interface class ExternalDataRepository {
 
 /// An [ExternalDataRepository] in memory.
 final class InMemoryExternalDataRepository implements ExternalDataRepository {
+  /// Creates an empty repository.
+  InMemoryExternalDataRepository();
+
   final Map<String, (ExternalDataTable, String, String)> _dataSets = {};
 
   @override

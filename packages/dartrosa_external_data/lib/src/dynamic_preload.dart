@@ -33,6 +33,9 @@ final class DynamicPreloadExtra {
 /// by `DynamicPreloadXFormParserFactory`).
 final class DynamicPreloadParseProcessor
     implements XPathProcessor, QuestionProcessor, FormDefProcessor {
+  /// Creates a processor for one parse.
+  DynamicPreloadParseProcessor();
+
   var _containsPullData = false;
   var _containsSearch = false;
   final Set<String> _dataSets = {};

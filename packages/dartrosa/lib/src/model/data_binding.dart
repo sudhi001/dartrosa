@@ -12,6 +12,9 @@ import 'instance/tree_reference.dart';
 ///
 /// Port of `org.javarosa.core.model.DataBinding`.
 final class DataBinding {
+  /// Creates an empty binding, filled in by the parser.
+  DataBinding();
+
   /// The bind's `id`, if any.
   String? id;
 
