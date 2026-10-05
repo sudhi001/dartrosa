@@ -2,10 +2,12 @@
 
 **Audience:** maintainers publishing DartRosa to pub.dev. **Type:** task.
 
-The packages are not on pub.dev yet; until then apps depend on them from
-Git (`path: packages/<name>`) or with `path:` dependencies. The
-workspace packages already name their siblings with version constraints
-(`^0.0.1`); inside the workspace they resolve to the local copies.
+All eight packages are on pub.dev; the first release was 0.1.0. The workspace packages name their
+siblings with caret version constraints (`^0.1.0`); inside the workspace
+they resolve to the local copies, and `dartrosa_flutter` uses its
+`pubspec_overrides.yaml` for the same purpose. Packages are versioned
+independently: release only the packages that changed, and raise a
+sibling constraint only when a package needs a newer sibling.
 
 ## Before publishing
 
@@ -29,9 +31,10 @@ Publish in dependency order, running `dart pub publish` in each package
    `dartrosa_openrosa` (needs `dartrosa_encryption`);
 4. `dartrosa_collect` (its dev dependencies, used by a docs test, include
    `dartrosa_entities`, and publishing resolves dev dependencies too);
-5. `dartrosa_flutter`: first replace its `path:` dependencies (and its
-   `dependency_overrides`) with version constraints and remove its
-   `publish_to: none`; pub.dev rejects packages with path dependencies.
+5. `dartrosa_flutter` (`flutter pub publish`). Its `pubspec_overrides.yaml`
+   points at the local siblings for development and is kept out of the
+   archive by `.pubignore`; publish it only after the sibling versions it
+   needs are live on pub.dev.
 
 The dependency graph is drawn in [ARCHITECTURE.md](../ARCHITECTURE.md#packages).
 

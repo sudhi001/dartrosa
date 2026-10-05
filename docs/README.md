@@ -98,6 +98,7 @@ things up. Each document states its audience at the top.
 |---|---|---|
 | [development/COMPETITIVE_ANALYSIS.md](development/COMPETITIVE_ANALYSIS.md) | Maintainers | How comparable libraries and platforms work and document themselves; what this documentation took from them and what is left |
 | [development/RELEASING.md](development/RELEASING.md) | Maintainers | Publishing the packages |
+| [development/STANDARDS_AUDIT.md](development/STANDARDS_AUDIT.md) | Maintainers | Effective Dart, `dart doc` and pub.dev standards: checklist with evidence |
 | [development/PORTING_PLAN.md](development/PORTING_PLAN.md) | Maintainers | The original porting plan: design decisions, the JavaRosa inventory, compatibility traps. Historical; not kept in step with the code |
 
 ## Keeping the documentation correct
