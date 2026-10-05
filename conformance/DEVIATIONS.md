@@ -31,6 +31,16 @@ keep this list as short as possible.
 - **Traces affected:** `body-before-model.xml` (parse failures compare `ok`
   only).
 
+## `jr:itext()` references in a form without `<itext>`
+
+- **JavaRosa:** a label, hint or item label referencing `jr:itext('id')`
+  in a form with no `<itext>` block crashes `XFormParser.parse` with an
+  unchecked `NullPointerException` (on the missing localizer).
+- **DartRosa:** throws `XFormParseException("Question <label> 'id': the
+  form has no <itext> translations")`.
+- **Why:** both reject the form; DartRosa reports a typed parse error.
+- **Traces affected:** none.
+
 ## Default locale for date names and week numbers
 
 - **JavaRosa:** `format-date` (`%b`, `%a`) and `%W` use the JVM default
