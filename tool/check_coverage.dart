@@ -1,5 +1,5 @@
 // Fails when line coverage of packages/dartrosa/lib (from an lcov file)
-// is below the minimum (PORTING_PLAN §10.2).
+// is below the minimum (docs/development/PORTING_PLAN.md §10.2).
 //
 //   dart run tool/check_coverage.dart coverage/lcov.info [minimumPercent]
 import 'dart:io';

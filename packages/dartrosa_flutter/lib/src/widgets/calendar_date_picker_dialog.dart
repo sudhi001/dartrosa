@@ -4,16 +4,22 @@ import 'package:flutter/material.dart';
 import '../localizations.dart';
 
 /// One spinner of the dialog, a drop-down of [picker]'s values.
+///
+/// It fills the width it is given when [expand] is set (the month, whose
+/// names vary in length); otherwise it is as wide as its widest value
+/// (day and year numbers).
 class _Spinner extends StatelessWidget {
   const _Spinner({
     required this.name,
     required this.picker,
     required this.onChanged,
+    this.expand = false,
   });
 
   final String name;
   final NumberPickerState picker;
   final ValueChanged<int> onChanged;
+  final bool expand;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +28,7 @@ class _Spinner extends StatelessWidget {
     final max = picker.maxValue < min ? min : picker.maxValue;
     return DropdownButton<int>(
       key: ValueKey('calendar-$name'),
-      isExpanded: true,
+      isExpanded: expand,
       value: picker.value.clamp(min, max),
       items: [
         for (var v = min; v <= max; v++)
@@ -95,33 +101,31 @@ class _CustomCalendarDatePickerDialogState
           Row(
             children: [
               if (_model.showsDay) ...[
-                Expanded(
-                  child: _Spinner(
-                    name: 'day',
-                    picker: _model.dayPicker,
-                    onChanged: (v) => setState(() => _model.setDay(v)),
-                  ),
+                _Spinner(
+                  name: 'day',
+                  picker: _model.dayPicker,
+                  onChanged: (v) => setState(() => _model.setDay(v)),
                 ),
                 const SizedBox(width: 8),
               ],
               if (_model.showsMonth) ...[
                 Expanded(
-                  flex: 2,
                   child: _Spinner(
                     name: 'month',
                     picker: _model.monthPicker,
                     onChanged: (v) => setState(() => _model.setMonth(v)),
+                    expand: true,
                   ),
                 ),
                 const SizedBox(width: 8),
               ],
-              Expanded(
-                child: _Spinner(
-                  name: 'year',
-                  picker: _model.yearPicker,
-                  onChanged: (v) => setState(() => _model.setYear(v)),
-                ),
+              _Spinner(
+                name: 'year',
+                picker: _model.yearPicker,
+                onChanged: (v) => setState(() => _model.setYear(v)),
               ),
+              // In year mode the year is alone; keep it at the start.
+              if (!_model.showsMonth) const Spacer(),
             ],
           ),
           const SizedBox(height: 16),

@@ -1,5 +1,5 @@
 // Fails if a pure-Dart core package imports something that would stop it
-// running on every platform (web, server, Flutter). See PORTING_PLAN.md §3.
+// running on every platform (web, server, Flutter). See docs/development/PORTING_PLAN.md §3.
 import 'dart:io';
 
 const corePackages = [
