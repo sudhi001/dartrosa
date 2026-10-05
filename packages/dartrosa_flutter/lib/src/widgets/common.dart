@@ -94,6 +94,39 @@ void answerSelections(
         ]),
 );
 
+/// Selects or deselects the choice [value] of a select-multiple [node].
+void toggleSelection(BuildContext context, QuestionNode node, String value) {
+  final selected = selectedValues(node);
+  answerSelections(
+    context,
+    node,
+    selected.contains(value)
+        ? ({...selected}..remove(value))
+        : {...selected, value},
+  );
+}
+
+/// Answers a select-one [node] with [choice] (`null` clears it) unless it
+/// is read-only; with the `quick` appearance an accepted choice moves to
+/// the next pager screen.
+void selectChoice(
+  BuildContext context,
+  QuestionNode node,
+  SelectChoice? choice,
+) {
+  if (node.isReadonly) return;
+  final result = answerQuestion(
+    context,
+    node,
+    choice == null ? null : SelectOneValue(Selection.ofChoice(choice)),
+  );
+  if (choice != null &&
+      result is AnswerAccepted &&
+      Appearance.parse(node.appearance).has('quick')) {
+    XFormPagerScope.advanceOf(context)?.call();
+  }
+}
+
 /// Gives the questions of a pager screen showing a single question a way
 /// to move to the next screen (used by `quick` selects).
 class XFormPagerScope extends InheritedWidget {

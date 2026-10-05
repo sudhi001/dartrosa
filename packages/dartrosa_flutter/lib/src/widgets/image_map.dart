@@ -9,7 +9,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:path_parsing/path_parsing.dart';
 import 'package:xml/xml.dart';
 
-import '../appearance.dart';
 import '../localizations.dart';
 import '../xform_scope.dart';
 import 'common.dart';
@@ -323,22 +322,9 @@ class _ImageMapInputState extends State<ImageMapInput> {
     ).where((c) => c.value == id).firstOrNull;
     if (choice == null) return;
     if (node.controlType == ControlType.selectMulti) {
-      final selected = selectedValues(node);
-      answerSelections(
-        context,
-        node,
-        selected.contains(id) ? ({...selected}..remove(id)) : {...selected, id},
-      );
-      return;
-    }
-    final result = answerQuestion(
-      context,
-      node,
-      SelectOneValue(Selection.ofChoice(choice)),
-    );
-    if (result is AnswerAccepted &&
-        Appearance.parse(node.appearance).has('quick')) {
-      XFormPagerScope.advanceOf(context)?.call();
+      toggleSelection(context, node, id);
+    } else {
+      selectChoice(context, node, choice);
     }
   }
 

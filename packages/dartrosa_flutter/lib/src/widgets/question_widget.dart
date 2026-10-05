@@ -217,9 +217,6 @@ class _Error extends StatelessWidget {
   );
 }
 
-void _answer(BuildContext context, QuestionNode node, AnswerValue? value) =>
-    XFormScope.of(context).controller.answer(node.index, value);
-
 /// Rank: a reorderable list.
 class _Rank extends StatelessWidget {
   const _Rank(this.node);
@@ -243,7 +240,7 @@ class _Rank extends StatelessWidget {
         final list = [...order];
         final moved = list.removeAt(from);
         list.insert(to, moved);
-        _answer(
+        answerQuestion(
           context,
           node,
           MultipleItemsValue([for (final c in list) Selection.ofChoice(c)]),
@@ -274,7 +271,7 @@ class _Trigger extends StatelessWidget {
     controlAffinity: ListTileControlAffinity.leading,
     title: Text(XFormLocalizations.of(context).acknowledge),
     onChanged: (on) =>
-        _answer(context, node, on! ? const StringValue('OK') : null),
+        answerQuestion(context, node, on! ? const StringValue('OK') : null),
   );
 }
 
@@ -307,7 +304,7 @@ class _Captured extends StatelessWidget {
             onPressed: () async {
               final text = await capture();
               if (text == null || !context.mounted) return;
-              _answer(context, node, UncastValue(text));
+              answerQuestion(context, node, UncastValue(text));
             },
           ),
       ],
