@@ -6,6 +6,11 @@ XFormsElement choicesInstance([int count = 8]) => instance('choices', [
   for (final v in 'abcdefgh'.split('').take(count)) item(v, v.toUpperCase()),
 ]);
 
+/// The values of the choices of the select at [ref], in display order.
+List<String> choiceValues(Scenario scenario, String ref) => [
+  for (final choice in scenario.choicesOf(ref)) choice.value,
+];
+
 void main() {
   test('stringNumberSeedConvertsWhenUsedInNodesetExpression', () async {
     final scenario = await Scenario.init(
@@ -41,10 +46,8 @@ void main() {
       '/data/choices_numeric_seed',
       '/data/choices_stringified_numeric_seed',
     ];
-    for (var i = 0; i < shuffled.length; i++) {
-      for (final node in nodes) {
-        expect(scenario.choicesOf(node)[i].value, shuffled[i]);
-      }
+    for (final node in nodes) {
+      expect(choiceValues(scenario, node), shuffled);
     }
   });
 
@@ -113,9 +116,7 @@ void main() {
       ),
     );
     const shuffled = ['e', 'a', 'd', 'b', 'h', 'g', 'c', 'f'];
-    for (var i = 0; i < shuffled.length; i++) {
-      expect(scenario.choicesOf('/data/choice')[i].value, shuffled[i]);
-    }
+    expect(choiceValues(scenario, '/data/choice'), shuffled);
   });
 
   test('stringTextSeedConvertsWhenUsedInCalculate', () async {
@@ -207,9 +208,7 @@ void main() {
           )
           ..answer('/data/input', '-6.8137120026589315 39.29392995851879');
     const shuffled = ['h', 'b', 'd', 'f', 'a', 'g', 'c', 'e'];
-    for (var i = 0; i < shuffled.length; i++) {
-      expect(scenario.choicesOf('/data/choice')[i].value, shuffled[i]);
-    }
+    expect(choiceValues(scenario, '/data/choice'), shuffled);
   });
 
   test('seed0FromNaNs', () async {
@@ -270,16 +269,12 @@ void main() {
           'expected order',
     );
     const shuffledFields = ['/data/choice_emptystring', '/data/choice_int'];
-    for (var i = 0; i < shuffledNaNOr0.length; i++) {
-      for (final shuffledField in shuffledFields) {
-        expect(scenario.choicesOf(shuffledField)[i].value, shuffledNaNOr0[i]);
-      }
+    for (final shuffledField in shuffledFields) {
+      expect(choiceValues(scenario, shuffledField), shuffledNaNOr0);
     }
-    for (var i = 0; i < shuffledSomestring.length; i++) {
-      expect(
-        scenario.choicesOf('/data/choice_somestring')[i].value,
-        shuffledSomestring[i],
-      );
-    }
+    expect(
+      choiceValues(scenario, '/data/choice_somestring'),
+      shuffledSomestring,
+    );
   });
 }

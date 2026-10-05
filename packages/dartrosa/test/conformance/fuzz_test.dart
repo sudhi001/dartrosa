@@ -15,8 +15,8 @@ import 'package:test/test.dart';
 
 import '../support/forms.dart';
 import 'describe.dart';
-import 'init_test.dart' show diff, exceptionMessage;
 import 'structure_dump.dart';
+import 'trace_support.dart';
 
 const _maxSteps = 400;
 
@@ -27,15 +27,7 @@ const _maxSteps = 400;
 /// `FuzzWalk.java` exactly.
 void main() {
   final root = conformanceDir();
-  final goldens =
-      Directory('${root.path}/traces/fuzz')
-          .listSync(recursive: true)
-          .whereType<File>()
-          .where((f) => f.path.endsWith('.json'))
-          .toList()
-        ..sort((a, b) => a.path.compareTo(b.path));
-
-  for (final golden in goldens) {
+  for (final golden in goldenTraces(['fuzz'])) {
     final trace = jsonDecode(golden.readAsStringSync()) as Map<String, Object?>;
     final name = golden.path.substring(golden.path.indexOf('/traces/') + 8);
     test(name, skip: skipUnlessUtc, () async {
@@ -56,7 +48,7 @@ void main() {
         diff(
           '.$key',
           _withoutJavaTypes(trace[key]),
-          jsonDecode(jsonEncode(actual[key])),
+          asJson(actual[key]),
           differences,
         );
       }

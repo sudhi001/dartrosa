@@ -122,12 +122,8 @@ void main() {
       fep = FormEntryPrompt(fpi.formDef, fpi.formEntryModel.formIndex);
     });
 
-    test('constructors', () {
-      expect(QuestionDef().id, -1);
-      final q = QuestionDef(id: 17, controlType: ControlType.range);
-      expect(q.id, 17);
-      expect(q.controlType, ControlType.range);
-    });
+    // JavaRosa's TextFormTests.testConstructors repeats
+    // QuestionDefTest.testConstructors verbatim; it runs once, above.
 
     /// Test that the long and short text forms work as expected (fallback
     /// to default for example). Test being able to retrieve other exotic

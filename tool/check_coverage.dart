@@ -2,7 +2,6 @@
 // is below the minimum (PORTING_PLAN §10.2).
 //
 //   dart run tool/check_coverage.dart coverage/lcov.info [minimumPercent]
-// ignore_for_file: avoid_print
 import 'dart:io';
 
 void main(List<String> args) {
@@ -16,7 +15,7 @@ void main(List<String> args) {
     if (int.parse(line.split(',')[1]) > 0) hit++;
   }
   final percent = found == 0 ? 0 : 100 * hit / found;
-  print(
+  stdout.writeln(
     'Line coverage: $hit/$found = ${percent.toStringAsFixed(2)}% '
     '(minimum $minimum%)',
   );

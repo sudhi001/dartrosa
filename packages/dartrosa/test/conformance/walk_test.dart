@@ -13,8 +13,8 @@ import 'package:test/test.dart';
 
 import '../support/forms.dart';
 import 'describe.dart';
-import 'init_test.dart' show diff, exceptionMessage;
 import 'structure_dump.dart';
+import 'trace_support.dart';
 
 const _maxEvents = 2000;
 
@@ -24,15 +24,7 @@ const _maxEvents = 2000;
 /// final serialized instance.
 void main() {
   final root = conformanceDir();
-  final goldens = [
-    for (final kind in ['walk', 'scenarios'])
-      ...Directory('${root.path}/traces/$kind')
-          .listSync(recursive: true)
-          .whereType<File>()
-          .where((f) => f.path.endsWith('.json')),
-  ]..sort((a, b) => a.path.compareTo(b.path));
-
-  for (final golden in goldens) {
+  for (final golden in goldenTraces(['walk', 'scenarios'])) {
     final trace = jsonDecode(golden.readAsStringSync()) as Map<String, Object?>;
     final name = golden.path.substring(golden.path.indexOf('/traces/') + 8);
     test(name, skip: skipUnlessUtc, () async {
@@ -75,7 +67,7 @@ void main() {
           expected.remove('error');
           actual.remove('error');
         }
-        diff('.steps[$i]', expected, _json(actual), differences);
+        diff('.steps[$i]', expected, asJson(actual), differences);
       }
       final expectedInstance = trace['instance'];
       String? actualInstance;
@@ -95,8 +87,6 @@ void main() {
     });
   }
 }
-
-Object? _json(Object? o) => jsonDecode(jsonEncode(o));
 
 /// The ops of [trace]: walk traces are `walk` then `validate`; scenario
 /// traces replay their scenario file.

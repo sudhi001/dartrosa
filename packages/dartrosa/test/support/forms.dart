@@ -56,12 +56,8 @@ Future<FormDef> parseFile(File file, {String? lastSavedSrc}) => XFormParser(
 ).parse(file.readAsStringSync(), lastSavedSrc: lastSavedSrc);
 
 /// Parses the conformance form [name].
-Future<FormDef> parseForm(String name, {String? lastSavedSrc}) {
-  final file = formFile(name);
-  return XFormParser(
-    resolver: DirectoryResolver(file.parent),
-  ).parse(file.readAsStringSync(), lastSavedSrc: lastSavedSrc);
-}
+Future<FormDef> parseForm(String name, {String? lastSavedSrc}) =>
+    parseFile(formFile(name), lastSavedSrc: lastSavedSrc);
 
 /// Parses form XML [xml] (e.g. built with the testing DSL).
 Future<FormDef> parseXml(String xml) => XFormParser().parse(xml);

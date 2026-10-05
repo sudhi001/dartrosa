@@ -10,8 +10,8 @@ import 'package:dartrosa/testing.dart';
 import 'package:test/test.dart';
 
 import '../support/forms.dart';
-import 'init_test.dart' show diff, exceptionMessage;
 import 'structure_dump.dart';
+import 'trace_support.dart';
 
 /// Replays the `scenarios/**.dag.json` scripts (value changes, repeat
 /// insertion and deletion, constraints, post-processing, driven on the
@@ -19,16 +19,7 @@ import 'structure_dump.dart';
 /// JavaRosa oracle's `traces/dag` golden.
 void main() {
   final root = conformanceDir();
-  final traces = Directory('${root.path}/traces/dag');
-  final goldens =
-      traces
-          .listSync(recursive: true)
-          .whereType<File>()
-          .where((f) => f.path.endsWith('.dag.json'))
-          .toList()
-        ..sort((a, b) => a.path.compareTo(b.path));
-
-  for (final golden in goldens) {
+  for (final golden in goldenTraces(['dag'], suffix: '.dag.json')) {
     final trace = jsonDecode(golden.readAsStringSync()) as Map<String, Object?>;
     test(golden.uri.pathSegments.last, skip: skipUnlessUtc, () async {
       final form = await parseFile(File('${root.path}/${trace['form']}'))
@@ -54,7 +45,7 @@ void main() {
         diff(
           '$at.instance',
           expected['instance'],
-          jsonDecode(jsonEncode(structureOf(form)['instance'])),
+          asJson(structureOf(form)['instance']),
           differences,
         );
       }

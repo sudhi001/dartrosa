@@ -31,16 +31,14 @@ final class FormParseInit {
   QuestionDef? get firstQuestionDef {
     formEntryController.jumpToIndex(FormIndex.beginningOfForm());
     do {
-      final element = formEntryModel.captionPrompt().formElement;
-      if (element is QuestionDef) return element;
+      if (currentQuestion case final question?) return question;
     } while (formEntryController.stepToNextEvent() != FormEntryEvent.endOfForm);
     return null;
   }
 
   /// The question at the current index, if any.
   QuestionDef? get currentQuestion {
-    final caption = formEntryModel.captionPrompt();
-    final element = caption.formElement;
+    final element = formEntryModel.captionPrompt().formElement;
     return element is QuestionDef ? element : null;
   }
 
@@ -49,11 +47,8 @@ final class FormParseInit {
     if (formEntryController.stepToNextEvent() == FormEntryEvent.endOfForm) {
       return null;
     }
-    final caption = formEntryModel.captionPrompt();
     do {
-      if (caption.formElement is QuestionDef) {
-        return caption.formElement as QuestionDef;
-      }
+      if (currentQuestion case final question?) return question;
     } while (formEntryController.stepToNextEvent() != FormEntryEvent.endOfForm);
     return null;
   }

@@ -22,11 +22,10 @@ FormInstance buildInstance() {
     ..addChild(TreeElement('age')..value = const IntegerValue(36))
     ..addChild(TreeElement('score')..value = const DecimalValue(2.5))
     ..addChild(TreeElement('hidden')..value = const StringValue('secret'));
-  final ids = ['a', 'b', 'c'];
-  for (var i = 0; i < 3; i++) {
+  for (final (i, id) in const ['a', 'b', 'c'].indexed) {
     data.addChild(
       TreeElement('item', i)
-        ..setAttribute(null, 'id', ids[i])
+        ..setAttribute(null, 'id', id)
         ..addChild(TreeElement('v')..value = IntegerValue(i + 1)),
     );
   }

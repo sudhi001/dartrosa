@@ -183,7 +183,10 @@ void main() {
         false,
       ),
     ]) {
-      test(name, () => expect(getRef(a) == getRef(b), equal));
+      test(name, () {
+        expect(getRef(a) == getRef(b), equal);
+        if (equal) expect(getRef(a).hashCode, getRef(b).hashCode);
+      });
     }
   });
 
