@@ -120,6 +120,11 @@ class MyDelegates extends XFormDelegates {
 The other methods are `currentLocation`, `scanBarcode`, `openLink`,
 `selectFromMap`, `geoFromMap` (with `canShowMaps`), `launchExternalApp`,
 `print` and `compassBearing`; see their API documentation.
+Each capture feature is turned on by a getter (`canCaptureMedia`,
+`canLocate`, `canScanBarcode`, ...): override it to return `true` once
+the method does something, or the question keeps its typed fallback.
+[Connect the camera, location and barcode scanner](../cookbook/device-features.md)
+shows a complete subclass.
 
 ## 4. Show the form
 

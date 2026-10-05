@@ -116,7 +116,7 @@ tools; DartRosa works with them.
 ## Where to go next
 
 * Developers: [Getting started](GETTING_STARTED.md), then the
-  [guides](README.md#guides-how-to).
+  [guides](README.md#how-to-guides-and-recipes).
 * How it is built: [Architecture](ARCHITECTURE.md).
 * What it supports and how that is verified: [Compatibility](COMPATIBILITY.md)
   and [Standards](STANDARDS.md).

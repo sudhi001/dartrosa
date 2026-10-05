@@ -348,10 +348,14 @@ resumes and finalizes every form of the conformance corpus.
 
 `package:dartrosa/testing.dart` has JavaRosa's `Scenario` and its XForm
 builder DSL (`html`, `head`, `model`, `bind`, `input`, ...), so you can
-test your own forms the way the engine is tested.
+test your own forms the way the engine is tested; see
+[Test your forms](cookbook/test-your-forms.md).
 
 ## Next steps
 
+- [Concepts](CONCEPTS.md): the form model in one page.
+- [Tutorial: build a data-collection app](tutorials/build-a-data-collection-app.md).
+- [Cookbook](cookbook/README.md) and [FAQ](FAQ.md).
 - [Show a form in a Flutter app](guides/render-a-form-in-flutter.md):
   media files, device features, theming and translations.
 - [Save and resume drafts](guides/save-and-resume-drafts.md).

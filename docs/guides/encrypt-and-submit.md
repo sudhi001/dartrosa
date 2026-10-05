@@ -19,8 +19,8 @@ Every Dart snippet below is run against a fake server by
 ## Before you start
 
 * Add `dartrosa_openrosa` (it brings `dartrosa_encryption`) and
-  `package:http` to your app, from Git as in
-  [Getting started](../GETTING_STARTED.md#1-install).
+  `package:http` to your app: `dart pub add dartrosa_openrosa http` (or
+  `flutter pub add`).
 * The server URL. For ODK Central, create an App User in the project and
   use the URL from its QR code, shaped like
   `https://central.example.org/v1/key/<token>/projects/<id>`. For servers
@@ -107,7 +107,11 @@ if (session.finalize() case FinalizeSuccess(:final submission)) {
 ```
 
 `attachments` holds the files the submission refers to (photos,
-recordings, signatures); `submission.attachments` lists their names.
+recordings, signatures). `submission.attachments` lists the names of
+answers given as `PointerValue`s; the Flutter renderer stores captured
+files' names as text, so keep track of the files your delegates save
+(the [tutorial](../tutorials/build-a-data-collection-app.md#8-finalize-and-encrypt)
+attaches every saved file the submission names).
 `uploadOneSubmission` returns the server's message, if it sent one, and
 posts to the form's own submission URL when the form names one.
 
