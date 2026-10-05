@@ -138,13 +138,19 @@ class _ScrollForm extends StatelessWidget {
   Widget build(BuildContext context) {
     final scope = XFormScope.of(context);
     return ListenableBuilder(
-      listenable: scope.controller,
+      // Structural changes and the relevance of top-level nodes.
+      listenable: scope.controller.listenableFor(null),
       builder: (context, _) {
         final nodes = scope.controller.session.root.visibleChildren;
+        Map<Key, int>? positions;
         // Built lazily: forms can have hundreds of questions.
         return ListView.builder(
           padding: XFormTheme.of(context).pagePadding,
           itemCount: nodes.length + 1,
+          // Questions shown or hidden above keep the others' elements.
+          findChildIndexCallback: (key) => (positions ??= {
+            for (var i = 0; i < nodes.length; i++) nodeKey(nodes[i]): i,
+          })[key],
           itemBuilder: (context, i) => i < nodes.length
               ? nodeWidget(nodes[i])
               : Padding(

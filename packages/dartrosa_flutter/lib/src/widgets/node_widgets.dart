@@ -13,16 +13,22 @@ import 'label.dart';
 import 'question_widget.dart';
 import 'select_widgets.dart';
 
+/// The key of [node]'s widget (see [nodeWidget]).
+Key nodeKey(FormNode node) => ValueKey(switch (node) {
+  QuestionNode() => 'q:${node.index}',
+  GroupNode() => 'g:${node.index}',
+  RepeatNode() => 'r:${node.index}',
+  RepeatInstanceNode() => 'i:${node.index}',
+  RootNode() => 'root',
+});
+
 /// The widget for any [node]: a question, group, repeat or repeat
 /// instance.
 Widget nodeWidget(FormNode node) => switch (node) {
-  QuestionNode() => QuestionWidget(node, key: ValueKey('q:${node.index}')),
-  GroupNode() => GroupWidget(node, key: ValueKey('g:${node.index}')),
-  RepeatNode() => RepeatWidget(node, key: ValueKey('r:${node.index}')),
-  RepeatInstanceNode() => RepeatInstanceWidget(
-    node,
-    key: ValueKey('i:${node.index}'),
-  ),
+  QuestionNode() => QuestionWidget(node, key: nodeKey(node)),
+  GroupNode() => GroupWidget(node, key: nodeKey(node)),
+  RepeatNode() => RepeatWidget(node, key: nodeKey(node)),
+  RepeatInstanceNode() => RepeatInstanceWidget(node, key: nodeKey(node)),
   RootNode() => Column(
     crossAxisAlignment: CrossAxisAlignment.stretch,
     children: [for (final child in node.visibleChildren) nodeWidget(child)],
@@ -38,7 +44,12 @@ class GroupWidget extends StatelessWidget {
   final GroupNode node;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) => ListenableBuilder(
+    listenable: XFormScope.of(context).controller.listenableFor(node.ref),
+    builder: (context, _) => _build(context),
+  );
+
+  Widget _build(BuildContext context) {
     final label = node.label;
     var children = isTableList(node)
         ? _tableList(context)
@@ -90,11 +101,7 @@ class GroupWidget extends StatelessWidget {
         ),
       for (final child in children)
         if (child is QuestionNode && _isSelect(child))
-          QuestionWidget(
-            child,
-            inTableList: true,
-            key: ValueKey('q:${child.index}'),
-          )
+          QuestionWidget(child, inTableList: true, key: nodeKey(child))
         else
           nodeWidget(child),
     ];
@@ -115,7 +122,14 @@ class RepeatWidget extends StatelessWidget {
   final RepeatNode node;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) => ListenableBuilder(
+    listenable: XFormScope.of(
+      context,
+    ).controller.listenableFor(node.ref?.genericize()),
+    builder: (context, _) => _build(context),
+  );
+
+  Widget _build(BuildContext context) {
     final controller = XFormScope.of(context).controller;
     final instances = node.instances;
     return Column(
@@ -148,7 +162,12 @@ class RepeatInstanceWidget extends StatelessWidget {
   final RepeatInstanceNode node;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) => ListenableBuilder(
+    listenable: XFormScope.of(context).controller.listenableFor(node.ref),
+    builder: (context, _) => _build(context),
+  );
+
+  Widget _build(BuildContext context) {
     final controller = XFormScope.of(context).controller;
     final repeat = node.element as GroupDef;
     return XFormCard(

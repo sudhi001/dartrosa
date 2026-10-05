@@ -21,9 +21,12 @@ import 'special_inputs.dart';
 import 'text_input.dart';
 
 /// A question: label, hint, the input widget for its control type and
-/// appearance, and the error of a rejected answer. Rebuilds only when its
-/// node changes.
-class QuestionWidget extends StatelessWidget {
+/// appearance, and the error of a rejected answer.
+///
+/// Rebuilds only when its node changes (see
+/// `XFormController.listenableFor`): when the group or list around it
+/// rebuilds, the question keeps what it built.
+class QuestionWidget extends StatefulWidget {
   /// Creates the widget for [node].
   const QuestionWidget(this.node, {this.inTableList = false, super.key});
 
@@ -52,43 +55,97 @@ class QuestionWidget extends StatelessWidget {
   }
 
   @override
-  Widget build(BuildContext context) {
+  State<QuestionWidget> createState() => _QuestionWidgetState();
+}
+
+class _QuestionWidgetState extends State<QuestionWidget> {
+  /// The form's scope the question was built in.
+  XFormScope? _scope;
+
+  /// What the node notifies.
+  Listenable? _listenable;
+
+  /// The last build, reused until the node, its scope or a dependency
+  /// changes.
+  Widget? _built;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _built = null;
+    _subscribe();
+  }
+
+  @override
+  void didUpdateWidget(covariant QuestionWidget oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    // Parents rebuild with new node objects for the same nodes.
+    if (oldWidget.node.index != widget.node.index ||
+        oldWidget.inTableList != widget.inTableList) {
+      _built = null;
+    }
+    _subscribe();
+  }
+
+  @override
+  void dispose() {
+    _listenable?.removeListener(_changed);
+    super.dispose();
+  }
+
+  /// Listens to the node in the current scope; forgets the last build if
+  /// the scope changed.
+  void _subscribe() {
     final scope = XFormScope.of(context);
-    final controller = scope.controller;
-    return ListenableBuilder(
-      listenable: controller.listenableFor(node.ref),
-      builder: (context, _) {
-        final override = overrideFor(node, scope.overrides);
-        if (override != null) return override(context, node);
-        final appearance = Appearance.parse(node.appearance)..warnUnknown();
-        final error = controller.errorFor(
-          node.index,
-          XFormLocalizations.of(context),
-        );
-        final isSelect =
-            node.controlType == ControlType.selectOne ||
-            node.controlType == ControlType.selectMulti;
-        final inRow =
-            isSelect &&
-            (inTableList ||
-                appearance.has('label') ||
-                appearance.has('list-nolabel'));
-        return _QuestionSemantics(
-          node: node,
-          invalid: error != null,
-          child: inRow
-              ? _ChoiceRowQuestion(
-                  node: node,
-                  error: error,
-                  labelsOnly: !inTableList && appearance.has('label'),
-                )
-              : _StackedQuestion(
-                  node: node,
-                  appearance: appearance,
-                  error: error,
-                ),
-        );
-      },
+    final previous = _scope;
+    if (previous == null ||
+        !identical(previous.controller, scope.controller) ||
+        !identical(previous.delegates, scope.delegates) ||
+        !identical(previous.overrides, scope.overrides) ||
+        previous.guidanceHints != scope.guidanceHints) {
+      _built = null;
+    }
+    _scope = scope;
+    final listenable = scope.controller.listenableFor(widget.node.ref);
+    if (identical(listenable, _listenable)) return;
+    _listenable?.removeListener(_changed);
+    _listenable = listenable..addListener(_changed);
+    _built = null;
+  }
+
+  void _changed() => setState(() => _built = null);
+
+  @override
+  Widget build(BuildContext context) => _built ??= _build(context);
+
+  Widget _build(BuildContext context) {
+    final node = widget.node;
+    final scope = _scope!;
+    final override = QuestionWidget.overrideFor(node, scope.overrides);
+    if (override != null) return override(context, node);
+    final appearance = Appearance.parse(node.appearance)..warnUnknown();
+    final error = scope.controller.errorFor(
+      node.index,
+      XFormLocalizations.of(context),
+    );
+    final isSelect =
+        node.controlType == ControlType.selectOne ||
+        node.controlType == ControlType.selectMulti;
+    final inRow =
+        isSelect &&
+        (widget.inTableList ||
+            appearance.has('label') ||
+            appearance.has('list-nolabel'));
+    return _QuestionSemantics(
+      node: node,
+      invalid: error != null,
+      child: inRow
+          ? _ChoiceRowQuestion(
+              node: node,
+              error: error,
+              labelsOnly: !widget.inTableList && appearance.has('label'),
+            )
+          : _StackedQuestion(node: node, appearance: appearance, error: error),
     );
   }
 }

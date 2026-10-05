@@ -31,7 +31,9 @@ class _ExampleAppState extends State<ExampleApp> {
   @override
   void dispose() {
     // The workspace is a ChangeNotifier owned by the app.
-    _workspace.then((workspace) => workspace.dispose(), onError: (_) {}).ignore();
+    _workspace
+        .then((workspace) => workspace.dispose(), onError: (_) {})
+        .ignore();
     super.dispose();
   }
 
