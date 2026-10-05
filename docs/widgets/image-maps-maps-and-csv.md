@@ -146,7 +146,9 @@ final definition = await FormDefinition.parse(
   xml,
   config: DartRosaConfig(
     resolver: MapResourceResolver({'jr://file/fruits.csv': csvBytes}),
-    plugins: [ExternalDataPlugin(listMedia: (_) => ['fruits.csv'])],
+    plugins: [
+      ExternalDataPlugin(listMedia: (_) => ['fruits.csv']),
+    ],
   ),
 );
 ```

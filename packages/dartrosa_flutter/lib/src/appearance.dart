@@ -84,6 +84,8 @@ class Appearance {
     'hidden-answer', 'search', 'ex:', 'printer', 'url', 'bearing', 'counter',
     'ethiopian', 'coptic', 'islamic', 'bikram-sambat', 'myanmar', 'persian',
     'buddhist',
+    // Passed to XFormDelegates.captureMedia, which handles them.
+    'signature', 'draw', 'annotate', 'new',
   };
 
   static final RegExp _knownPattern = RegExp(

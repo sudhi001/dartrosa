@@ -27,3 +27,4 @@ migrate_working_dir/
 example/assets/
 example/pubspec.lock
 pubspec_overrides.yaml
+test/failures/

@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 // Keeps the code in the documentation compiling (docs/*.md and the guides,
-// tutorials and cookbook folders under docs/): every
+// tutorials, cookbook and widgets folders under docs/): every
 // ```dart block of a guide must appear, line for line (ignoring indentation
 // and blank lines), in one of the doc test files under packages/*/test/docs/,
 // which run the code. all_docs_test.dart checks every guide.
@@ -49,7 +49,13 @@ String docTestSources() {
 
 /// The documentation folders whose Markdown files must have tested Dart
 /// code.
-const docFolders = ['docs', 'docs/guides', 'docs/tutorials', 'docs/cookbook'];
+const docFolders = [
+  'docs',
+  'docs/guides',
+  'docs/tutorials',
+  'docs/cookbook',
+  'docs/widgets',
+];
 
 /// The guides (relative to the repository root) that contain Dart code:
 /// the Markdown files of [docFolders].

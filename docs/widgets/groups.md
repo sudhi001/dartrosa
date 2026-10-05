@@ -95,10 +95,7 @@ line uses `outlineVariant`.
 ```dart
 ThemeData(
   extensions: const [
-    XFormTheme(
-      cardElevation: 1,
-      cardPadding: EdgeInsets.all(12),
-    ),
+    XFormTheme(cardElevation: 1, cardPadding: EdgeInsets.all(12)),
   ],
 )
 ```

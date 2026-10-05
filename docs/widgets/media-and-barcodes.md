@@ -105,11 +105,10 @@ camera only, as in Collect).
 bool get canScanBarcode => true;
 
 @override
-Future<String?> scanBarcode(BuildContext context) =>
-    Navigator.push<String>(
-      context,
-      MaterialPageRoute(builder: (_) => const MyScannerPage()),
-    );
+Future<String?> scanBarcode(BuildContext context) => Navigator.push<String>(
+  context,
+  MaterialPageRoute(builder: (_) => const MyScannerPage()),
+);
 ```
 
 ## States
