@@ -1,73 +1,106 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="760" height="468" viewBox="0 0 760 468" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="660" viewBox="0 0 760 660" role="img" aria-labelledby="title desc">
 <title id="title">DartRosa engine benchmark: median time per case against its target</title>
-<desc id="desc">Parse a 1,000-question form: median 73 ms, target 300 ms; Answer -&gt; recompute (1,000 questions): median 0.06 ms, target 16 ms; Start a session (1,000 questions): median 12 ms; Filter a 100,000-row CSV choice list: median 8.3 ms, target 50 ms; Grow a repeat to 1,000 instances: median 1.02 s, JavaRosa 3.00 s.</desc>
+<desc id="desc">Parse a 1,000-question form: median 40 ms, target 300 ms; Answer -&gt; recompute (1,000 questions): median 0.02 ms, target 16 ms; Start a session (1,000 questions): median 2.0 ms; Filter a 100,000-row CSV choice list: median 3.0 ms, target 50 ms; Grow a repeat to 1,000 instances: median 1.62 s, JavaRosa 3.00 s; Parse bench9.xml (370 KB real form): median 29 ms; Load a form with a 2.2 MB external instance: median 329 ms; Serialize an instance (1,000 answers): median 0.90 ms.</desc>
 <style>
   .bg{fill:#fcfcfb}.t1{fill:#0b0b0b}.t2{fill:#52514e}.grid{stroke:#d9d8d3}.bar{fill:#2a78d6}.whisker{stroke:#0b0b0b}.target{stroke:#b3261e}.ttext{fill:#b3261e}
   @media (prefers-color-scheme: dark){.bg{fill:#1a1a19}.t1{fill:#fff}.t2{fill:#c3c2b7}.grid{stroke:#3a3a37}.bar{fill:#3987e5}.whisker{stroke:#fff}.target{stroke:#f2b8b5}.ttext{fill:#f2b8b5}}
   text{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 </style>
-<rect class="bg" x="0" y="0" width="760" height="468" rx="8"/>
+<rect class="bg" x="0" y="0" width="760" height="660" rx="8"/>
 <text class="t1" x="24" y="34" font-size="18" font-weight="600">DartRosa engine benchmark</text>
 <text class="t2" x="24" y="56" font-size="13">Median of N runs (bar), 90th percentile (whisker), target or JavaRosa 6.0.0 (red line). Each row has its own scale.</text>
 <g>
-<title>Parse a 1,000-question form: median 73 ms, p90 95 ms over 15 runs</title>
+<title>Parse a 1,000-question form: median 40 ms, p90 54 ms over 15 runs</title>
 <text class="t1" x="24" y="118" font-size="14">Parse a 1,000-question form</text>
 <text class="t2" x="24" y="136" font-size="12">15 runs</text>
 <line class="grid" x1="330" y1="100" x2="330" y2="128" stroke-width="1"/>
-<rect class="bar" x="330" y="106" width="84.8" height="16" rx="4"/>
-<line class="whisker" x1="414.8" y1="114.0" x2="440.6" y2="114.0" stroke-width="1.5"/>
-<line class="whisker" x1="440.6" y1="109" x2="440.6" y2="119" stroke-width="1.5"/>
-<text class="t1" x="330" y="144" font-size="12"><tspan font-weight="600">73 ms</tspan><tspan class="t2"> median, p90 95 ms</tspan></text>
+<rect class="bar" x="330" y="106" width="46.6" height="16" rx="4"/>
+<line class="whisker" x1="376.6" y1="114.0" x2="392.7" y2="114.0" stroke-width="1.5"/>
+<line class="whisker" x1="392.7" y1="109" x2="392.7" y2="119" stroke-width="1.5"/>
+<text class="t1" x="330" y="144" font-size="12"><tspan font-weight="600">40 ms</tspan><tspan class="t2"> median, p90 54 ms</tspan></text>
 <line class="target" x1="678.2" y1="98" x2="678.2" y2="130" stroke-width="2" stroke-dasharray="4 3"/>
 <text class="ttext" x="678.2" y="144" font-size="12" text-anchor="end">target 300 ms</text>
 </g>
 <g>
-<title>Answer -&gt; recompute (1,000 questions): median 0.06 ms, p90 0.10 ms over 200 runs</title>
+<title>Answer -&gt; recompute (1,000 questions): median 0.02 ms, p90 0.03 ms over 200 runs</title>
 <text class="t1" x="24" y="182" font-size="14">Answer -&gt; recompute (1,000 questions)</text>
 <text class="t2" x="24" y="200" font-size="12">200 runs</text>
 <line class="grid" x1="330" y1="164" x2="330" y2="192" stroke-width="1"/>
 <rect class="bar" x="330" y="170" width="2.0" height="16" rx="4"/>
-<line class="whisker" x1="331.3" y1="178.0" x2="332.1" y2="178.0" stroke-width="1.5"/>
-<line class="whisker" x1="332.1" y1="173" x2="332.1" y2="183" stroke-width="1.5"/>
-<text class="t1" x="330" y="208" font-size="12"><tspan font-weight="600">0.06 ms</tspan><tspan class="t2"> median, p90 0.10 ms</tspan></text>
+<line class="whisker" x1="330.4" y1="178.0" x2="330.6" y2="178.0" stroke-width="1.5"/>
+<line class="whisker" x1="330.6" y1="173" x2="330.6" y2="183" stroke-width="1.5"/>
+<text class="t1" x="330" y="208" font-size="12"><tspan font-weight="600">0.02 ms</tspan><tspan class="t2"> median, p90 0.03 ms</tspan></text>
 <line class="target" x1="678.2" y1="162" x2="678.2" y2="194" stroke-width="2" stroke-dasharray="4 3"/>
 <text class="ttext" x="678.2" y="208" font-size="12" text-anchor="end">target 16 ms</text>
 </g>
 <g>
-<title>Start a session (1,000 questions): median 12 ms, p90 16 ms over 15 runs</title>
+<title>Start a session (1,000 questions): median 2.0 ms, p90 2.3 ms over 15 runs</title>
 <text class="t1" x="24" y="246" font-size="14">Start a session (1,000 questions)</text>
 <text class="t2" x="24" y="264" font-size="12">15 runs</text>
 <line class="grid" x1="330" y1="228" x2="330" y2="256" stroke-width="1"/>
-<rect class="bar" x="330" y="234" width="253.5" height="16" rx="4"/>
-<line class="whisker" x1="583.5" y1="242.0" x2="678.2" y2="242.0" stroke-width="1.5"/>
+<rect class="bar" x="330" y="234" width="303.9" height="16" rx="4"/>
+<line class="whisker" x1="633.9" y1="242.0" x2="678.2" y2="242.0" stroke-width="1.5"/>
 <line class="whisker" x1="678.2" y1="237" x2="678.2" y2="247" stroke-width="1.5"/>
-<text class="t1" x="330" y="272" font-size="12"><tspan font-weight="600">12 ms</tspan><tspan class="t2"> median, p90 16 ms</tspan></text>
+<text class="t1" x="330" y="272" font-size="12"><tspan font-weight="600">2.0 ms</tspan><tspan class="t2"> median, p90 2.3 ms</tspan></text>
 <text class="t2" x="720" y="272" font-size="12" text-anchor="end">no target set</text>
 </g>
 <g>
-<title>Filter a 100,000-row CSV choice list: median 8.3 ms, p90 14 ms over 50 runs</title>
+<title>Filter a 100,000-row CSV choice list: median 3.0 ms, p90 9.6 ms over 50 runs</title>
 <text class="t1" x="24" y="310" font-size="14">Filter a 100,000-row CSV choice list</text>
 <text class="t2" x="24" y="328" font-size="12">50 runs</text>
 <line class="grid" x1="330" y1="292" x2="330" y2="320" stroke-width="1"/>
-<rect class="bar" x="330" y="298" width="57.7" height="16" rx="4"/>
-<line class="whisker" x1="387.7" y1="306.0" x2="424.4" y2="306.0" stroke-width="1.5"/>
-<line class="whisker" x1="424.4" y1="301" x2="424.4" y2="311" stroke-width="1.5"/>
-<text class="t1" x="330" y="336" font-size="12"><tspan font-weight="600">8.3 ms</tspan><tspan class="t2"> median, p90 14 ms</tspan></text>
+<rect class="bar" x="330" y="298" width="20.7" height="16" rx="4"/>
+<line class="whisker" x1="350.7" y1="306.0" x2="397.0" y2="306.0" stroke-width="1.5"/>
+<line class="whisker" x1="397.0" y1="301" x2="397.0" y2="311" stroke-width="1.5"/>
+<text class="t1" x="330" y="336" font-size="12"><tspan font-weight="600">3.0 ms</tspan><tspan class="t2"> median, p90 9.6 ms</tspan></text>
 <line class="target" x1="678.2" y1="290" x2="678.2" y2="322" stroke-width="2" stroke-dasharray="4 3"/>
 <text class="ttext" x="678.2" y="336" font-size="12" text-anchor="end">target 50 ms</text>
 </g>
 <g>
-<title>Grow a repeat to 1,000 instances: median 1.02 s, p90 1.39 s over 5 runs</title>
+<title>Grow a repeat to 1,000 instances: median 1.62 s, p90 1.71 s over 5 runs</title>
 <text class="t1" x="24" y="374" font-size="14">Grow a repeat to 1,000 instances</text>
 <text class="t2" x="24" y="392" font-size="12">5 runs</text>
 <line class="grid" x1="330" y1="356" x2="330" y2="384" stroke-width="1"/>
-<rect class="bar" x="330" y="362" width="118.8" height="16" rx="4"/>
-<line class="whisker" x1="448.8" y1="370.0" x2="491.3" y2="370.0" stroke-width="1.5"/>
-<line class="whisker" x1="491.3" y1="365" x2="491.3" y2="375" stroke-width="1.5"/>
-<text class="t1" x="330" y="400" font-size="12"><tspan font-weight="600">1.02 s</tspan><tspan class="t2"> median, p90 1.39 s</tspan></text>
+<rect class="bar" x="330" y="362" width="187.5" height="16" rx="4"/>
+<line class="whisker" x1="517.5" y1="370.0" x2="528.2" y2="370.0" stroke-width="1.5"/>
+<line class="whisker" x1="528.2" y1="365" x2="528.2" y2="375" stroke-width="1.5"/>
+<text class="t1" x="330" y="400" font-size="12"><tspan font-weight="600">1.62 s</tspan><tspan class="t2"> median, p90 1.71 s</tspan></text>
 <line class="target" x1="678.2" y1="354" x2="678.2" y2="386" stroke-width="2" stroke-dasharray="4 3"/>
 <text class="ttext" x="678.2" y="400" font-size="12" text-anchor="end">JavaRosa 3.00 s</text>
 </g>
-<text class="t2" x="24" y="436" font-size="12">Apple M4 · macos Version 27.0.1 · Dart 3.13.4 AOT · load 6.46 7.52 9.43 · 2026-10-05</text>
-<text class="t2" x="24" y="454" font-size="12">Desktop numbers; phones are several times slower. Targets are for a mid-range Android phone.</text>
+<g>
+<title>Parse bench9.xml (370 KB real form): median 29 ms, p90 37 ms over 15 runs</title>
+<text class="t1" x="24" y="438" font-size="14">Parse bench9.xml (370 KB real form)</text>
+<text class="t2" x="24" y="456" font-size="12">15 runs</text>
+<line class="grid" x1="330" y1="420" x2="330" y2="448" stroke-width="1"/>
+<rect class="bar" x="330" y="426" width="272.1" height="16" rx="4"/>
+<line class="whisker" x1="602.1" y1="434.0" x2="678.2" y2="434.0" stroke-width="1.5"/>
+<line class="whisker" x1="678.2" y1="429" x2="678.2" y2="439" stroke-width="1.5"/>
+<text class="t1" x="330" y="464" font-size="12"><tspan font-weight="600">29 ms</tspan><tspan class="t2"> median, p90 37 ms</tspan></text>
+<text class="t2" x="720" y="464" font-size="12" text-anchor="end">no target set</text>
+</g>
+<g>
+<title>Load a form with a 2.2 MB external instance: median 329 ms, p90 394 ms over 10 runs</title>
+<text class="t1" x="24" y="502" font-size="14">Load a form with a 2.2 MB external instance</text>
+<text class="t2" x="24" y="520" font-size="12">10 runs</text>
+<line class="grid" x1="330" y1="484" x2="330" y2="512" stroke-width="1"/>
+<rect class="bar" x="330" y="490" width="290.8" height="16" rx="4"/>
+<line class="whisker" x1="620.8" y1="498.0" x2="678.2" y2="498.0" stroke-width="1.5"/>
+<line class="whisker" x1="678.2" y1="493" x2="678.2" y2="503" stroke-width="1.5"/>
+<text class="t1" x="330" y="528" font-size="12"><tspan font-weight="600">329 ms</tspan><tspan class="t2"> median, p90 394 ms</tspan></text>
+<text class="t2" x="720" y="528" font-size="12" text-anchor="end">no target set</text>
+</g>
+<g>
+<title>Serialize an instance (1,000 answers): median 0.90 ms, p90 1.2 ms over 100 runs</title>
+<text class="t1" x="24" y="566" font-size="14">Serialize an instance (1,000 answers)</text>
+<text class="t2" x="24" y="584" font-size="12">100 runs</text>
+<line class="grid" x1="330" y1="548" x2="330" y2="576" stroke-width="1"/>
+<rect class="bar" x="330" y="554" width="260.3" height="16" rx="4"/>
+<line class="whisker" x1="590.3" y1="562.0" x2="678.2" y2="562.0" stroke-width="1.5"/>
+<line class="whisker" x1="678.2" y1="557" x2="678.2" y2="567" stroke-width="1.5"/>
+<text class="t1" x="330" y="592" font-size="12"><tspan font-weight="600">0.90 ms</tspan><tspan class="t2"> median, p90 1.2 ms</tspan></text>
+<text class="t2" x="720" y="592" font-size="12" text-anchor="end">no target set</text>
+</g>
+<text class="t2" x="24" y="628" font-size="12">Apple M4 · macos Version 27.0.1 · Dart 3.13.4 AOT · load 11.05 27.78 25.61 · 2026-10-05</text>
+<text class="t2" x="24" y="646" font-size="12">Desktop numbers; phones are several times slower. Targets are for a mid-range Android phone.</text>
 </svg>
