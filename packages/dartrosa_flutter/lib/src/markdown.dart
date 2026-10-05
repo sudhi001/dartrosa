@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
@@ -35,6 +37,18 @@ class OdkMarkdownStyles {
   final TextStyle link;
 }
 
+final _header = RegExp(r'^(#{1,6})\s+(.*)$');
+final _markup = RegExp(r'[*_#\[<\\&]');
+final _linkPattern = RegExp(r'\[([^\[\]]*)\]\(([^()\s]+)\)');
+final _spanOpen = RegExp(
+  r'''<span\s+style\s*=\s*(?:"([^"]*)"|'([^']*)')\s*>''',
+  caseSensitive: false,
+);
+final _spanTag = RegExp(r'<(/?)span\b[^>]*>', caseSensitive: false);
+final _br = RegExp(r'<br\s*/?>', caseSensitive: false);
+final _quotes = RegExp('["\']');
+final _rgb = RegExp(r'^rgb\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)$');
+
 /// Parses ODK Collect's markdown subset into spans: `*em*`/`_em_`,
 /// `**strong**`/`__strong__`, `#` headers (at line start), `[text](url)`
 /// links, `<span style="color: ...; font-family: ...">` and backslash
@@ -50,7 +64,7 @@ List<InlineSpan> parseOdkMarkdown(
   for (var i = 0; i < lines.length; i++) {
     if (i > 0) spans.add(const TextSpan(text: '\n'));
     final line = lines[i];
-    final header = RegExp(r'^(#{1,6})\s+(.*)$').firstMatch(line);
+    final header = _header.firstMatch(line);
     if (header != null && styles.headers.isNotEmpty) {
       final level = header[1]!.length.clamp(1, styles.headers.length);
       spans.add(
@@ -77,7 +91,7 @@ String odkMarkdownToPlainText(String text) => hasOdkMarkdown(text)
     : text;
 
 /// Whether [text] has anything [parseOdkMarkdown] would format.
-bool hasOdkMarkdown(String text) => RegExp(r'[*_#\[<\\&]').hasMatch(text);
+bool hasOdkMarkdown(String text) => _markup.hasMatch(text);
 
 class _Inline {
   _Inline(this.text, this.styles, this.onLink);
@@ -127,9 +141,7 @@ class _Inline {
         }
       }
       if (c == '[') {
-        final link = RegExp(
-          r'\[([^\[\]]*)\]\(([^()\s]+)\)',
-        ).matchAsPrefix(text.substring(0, end), i);
+        final link = _linkPattern.matchAsPrefix(text.substring(0, end), i);
         if (link != null) {
           flush();
           final url = link[2]!;
@@ -147,10 +159,7 @@ class _Inline {
         }
       }
       if (c == '<') {
-        final open = RegExp(
-          r'''<span\s+style\s*=\s*(?:"([^"]*)"|'([^']*)')\s*>''',
-          caseSensitive: false,
-        ).matchAsPrefix(text.substring(0, end), i);
+        final open = _spanOpen.matchAsPrefix(text.substring(0, end), i);
         final close = open == null ? null : _spanEnd(open.end, end);
         if (open != null && close != null) {
           flush();
@@ -163,10 +172,7 @@ class _Inline {
           i = close + '</span>'.length;
           continue;
         }
-        final br = RegExp(
-          r'<br\s*/?>',
-          caseSensitive: false,
-        ).matchAsPrefix(text.substring(0, end), i);
+        final br = _br.matchAsPrefix(text.substring(0, end), i);
         if (br != null) {
           plain.write('\n');
           i = br.end;
@@ -235,8 +241,7 @@ class _Inline {
   /// The index of the `</span>` matching a span opened before [from].
   int? _spanEnd(int from, int end) {
     var depth = 1;
-    final tag = RegExp(r'<(/?)span\b[^>]*>', caseSensitive: false);
-    for (final m in tag.allMatches(text.substring(0, end), from)) {
+    for (final m in _spanTag.allMatches(text.substring(0, end), from)) {
       depth += m[1]!.isEmpty ? 1 : -1;
       if (depth == 0) return m.start;
     }
@@ -255,11 +260,7 @@ class _Inline {
         case 'color':
           color = parseCssColor(value);
         case 'font-family':
-          family = value
-              .split(',')
-              .first
-              .trim()
-              .replaceAll(RegExp('["\']'), '');
+          family = value.split(',').first.trim().replaceAll(_quotes, '');
       }
     }
     return TextStyle(color: color, fontFamily: family);
@@ -288,8 +289,7 @@ Color? parseCssColor(String value) {
     if (hex.length == 8) return Color(((n & 0xFF) << 24) | (n >> 8));
     return null;
   }
-  final rgb = RegExp(r'^rgb\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)$');
-  if (rgb.firstMatch(v) case final m?) {
+  if (_rgb.firstMatch(v) case final m?) {
     return Color.fromARGB(
       255,
       int.parse(m[1]!).clamp(0, 255),
@@ -353,12 +353,18 @@ class XFormMarkdown extends StatefulWidget {
 
 class _XFormMarkdownState extends State<XFormMarkdown> {
   final List<GestureRecognizer> _recognizers = [];
+  List<InlineSpan> _spans = const [];
 
-  void _disposeRecognizers() {
-    for (final r in _recognizers) {
-      r.dispose();
-    }
-    _recognizers.clear();
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _parse();
+  }
+
+  @override
+  void didUpdateWidget(covariant XFormMarkdown oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.data != widget.data) _parse();
   }
 
   @override
@@ -367,32 +373,42 @@ class _XFormMarkdownState extends State<XFormMarkdown> {
     super.dispose();
   }
 
-  GestureRecognizer _link(String url) {
-    final recognizer = TapGestureRecognizer()
-      ..onTap = () {
-        final uri = Uri.tryParse(url);
-        if (uri == null) return;
-        XFormScope.maybeOf(context)?.delegates.openLink(context, uri);
-      };
-    _recognizers.add(recognizer);
-    return recognizer;
-  }
-
-  @override
-  Widget build(BuildContext context) {
+  /// Parses the markdown once per text and theme rather than per build.
+  void _parse() {
     _disposeRecognizers();
     final data = widget.data;
-    final children = hasOdkMarkdown(data)
+    _spans = hasOdkMarkdown(data)
         ? parseOdkMarkdown(
             data,
             OdkMarkdownStyles.of(Theme.of(context)),
             onLink: _link,
           )
         : [TextSpan(text: data)];
-    return Text.rich(
-      TextSpan(children: [?widget.prefix, ...children]),
-      style: widget.style,
-      textAlign: widget.textAlign,
-    );
   }
+
+  void _disposeRecognizers() {
+    for (final r in _recognizers) {
+      r.dispose();
+    }
+    _recognizers.clear();
+  }
+
+  GestureRecognizer _link(String url) {
+    final recognizer = TapGestureRecognizer()
+      ..onTap = () {
+        final uri = Uri.tryParse(url);
+        if (uri == null) return;
+        final delegates = XFormScope.maybeOf(context)?.delegates;
+        if (delegates != null) unawaited(delegates.openLink(context, uri));
+      };
+    _recognizers.add(recognizer);
+    return recognizer;
+  }
+
+  @override
+  Widget build(BuildContext context) => Text.rich(
+    TextSpan(children: [?widget.prefix, ..._spans]),
+    style: widget.style,
+    textAlign: widget.textAlign,
+  );
 }

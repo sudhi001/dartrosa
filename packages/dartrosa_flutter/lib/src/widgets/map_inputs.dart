@@ -230,9 +230,9 @@ class GeoMapInput extends StatelessWidget {
     final value = node.value?.displayText;
     final hasValue = value != null && value.isNotEmpty;
     final hidden = Appearance.parse(node.appearance).has('hidden-answer');
-    return Row(
-      children: [
-        Expanded(child: hidden ? const SizedBox() : Text(value ?? '—')),
+    return AnswerWithActions(
+      answer: hidden ? const SizedBox.shrink() : Text(value ?? '—'),
+      actions: [
         FilledButton.tonalIcon(
           icon: const Icon(Icons.map_outlined),
           label: Text(strings.geoMapButton(node.dataType, hasValue: hasValue)),

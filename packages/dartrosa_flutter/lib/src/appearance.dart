@@ -8,15 +8,14 @@ class Appearance {
   /// Parses [raw] (case-insensitively).
   factory Appearance.parse(String? raw) {
     final tokens = <String>{};
-    // `search(...)` (external data) may contain spaces.
     // `search(...)` (external data) and `ex:app(...)` (external apps)
     // may contain spaces.
     final text = (raw ?? '')
         .toLowerCase()
-        .replaceAll(RegExp(r'search\([^)]*\)?'), ' search() ')
-        .replaceAll(RegExp(r'ex:[^\s(]*(?:\(.*\)|\(.*)?'), ' ex: ')
-        .replaceAll(RegExp(r'printer:\S*'), ' printer ');
-    for (final token in text.split(RegExp(r'\s+'))) {
+        .replaceAll(_search, ' search() ')
+        .replaceAll(_externalApp, ' ex: ')
+        .replaceAll(_printer, ' printer ');
+    for (final token in text.split(_whitespace)) {
       if (token.isEmpty) continue;
       tokens.add(token);
       switch (token) {
@@ -32,7 +31,7 @@ class Appearance {
           // Collect's deprecated name of `autocomplete`.
           tokens.add('autocomplete');
       }
-      final compactN = RegExp(r'^(?:quick)?compact-(\d+)$').firstMatch(token);
+      final compactN = _compactN.firstMatch(token);
       if (compactN != null) {
         tokens.addAll(['no-buttons', 'columns-${compactN[1]}']);
         if (token.startsWith('quick')) tokens.add('quick');
@@ -52,7 +51,7 @@ class Appearance {
   /// The column count of `columns-N`, if any.
   int? get columnCount {
     for (final token in tokens) {
-      final match = RegExp(r'^columns-(\d+)$').firstMatch(token);
+      final match = _columnsN.firstMatch(token);
       if (match != null) return int.parse(match[1]!).clamp(1, 20);
     }
     return null;
@@ -62,6 +61,13 @@ class Appearance {
   /// `columns-pack`).
   bool get hasColumns =>
       has('columns') || has('columns-pack') || columnCount != null;
+
+  static final _search = RegExp(r'search\([^)]*\)?');
+  static final _externalApp = RegExp(r'ex:[^\s(]*(?:\(.*\)|\(.*)?');
+  static final _printer = RegExp(r'printer:\S*');
+  static final _whitespace = RegExp(r'\s+');
+  static final _compactN = RegExp(r'^(?:quick)?compact-(\d+)$');
+  static final _columnsN = RegExp(r'^columns-(\d+)$');
 
   /// Tokens the renderer handles (or that only matter to the engine or
   /// to group layout).

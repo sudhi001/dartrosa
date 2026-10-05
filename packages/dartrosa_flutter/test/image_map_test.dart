@@ -135,6 +135,27 @@ void main() {
     expect(question(s, 0).value!.displayText, 'b');
   });
 
+  testWidgets('screen readers see and select areas', (tester) async {
+    final handle = tester.ensureSemantics();
+    final s = await _form('select1');
+    await _pump(tester, s);
+    final area = find.semantics.byLabel('B');
+    expect(area, findsOne);
+    final map = tester.getRect(find.byKey(const ValueKey('image-map')));
+    final node = area.evaluate().single;
+    // The right half of the map (b is 100..200 of a 200-wide space).
+    expect(node.rect.width, closeTo(map.width / 2, 0.01));
+    expect(node, isSemantics(isSelected: false, hasTapAction: true));
+    tester.semantics.tap(area);
+    await tester.pumpAndSettle();
+    expect(question(s, 0).value!.displayText, 'b');
+    expect(
+      find.semantics.byLabel('B').evaluate().single,
+      isSemantics(isSelected: true),
+    );
+    handle.dispose();
+  });
+
   testWidgets('missing SVG shows a message', (tester) async {
     final s = await _form('select1', image: 'missing.svg');
     await _pump(tester, s);

@@ -24,15 +24,16 @@ class XFormLabel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final image = text.image == null
-        ? null
-        : XFormScope.maybeOf(context)?.delegates.image(text.image!);
+    final image = switch (text.image) {
+      final uri? => XFormScope.maybeOf(context)?.delegates.image(uri),
+      null => null,
+    };
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        if (text.text != null && text.text!.isNotEmpty)
+        if (text.text case final label? when label.isNotEmpty)
           XFormMarkdown(
-            text.text!,
+            label,
             prefix: required
                 ? TextSpan(
                     text: '* ',

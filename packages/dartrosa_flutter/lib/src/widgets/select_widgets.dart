@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../appearance.dart';
 import '../markdown.dart';
+import '../theme.dart';
 import '../xform_scope.dart';
 import 'common.dart';
 import 'image_map.dart';
@@ -266,12 +267,62 @@ class _Likert extends StatelessWidget {
   );
 }
 
-/// Shows [builder]'s choices filtered by a search field
-/// (`autocomplete`).
-class _Filtered extends StatefulWidget {
-  const _Filtered({required this.node, required this.builder});
+/// The choices of a select laid out for [appearance]: tiles with radio
+/// buttons or check boxes, or without them (`no-buttons`).
+class _ChoiceTiles extends StatelessWidget {
+  const _ChoiceTiles({
+    required this.node,
+    required this.appearance,
+    required this.choices,
+    required this.selected,
+    required this.onTap,
+  });
 
   final QuestionNode node;
+  final Appearance appearance;
+  final List<SelectChoice> choices;
+  final Set<String> selected;
+  final ValueChanged<SelectChoice> onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final multi = node.controlType == ControlType.selectMulti;
+    final noButtons = appearance.has('no-buttons');
+    return ChoiceLayout(
+      appearance: appearance,
+      children: [
+        for (final c in choices)
+          noButtons
+              ? _ButtonlessTile(
+                  node: node,
+                  choice: c,
+                  selected: selected.contains(c.value),
+                  multi: multi,
+                  onTap: () => onTap(c),
+                )
+              : _ChoiceTile(
+                  node: node,
+                  choice: c,
+                  selected: selected.contains(c.value),
+                  multi: multi,
+                  onTap: () => onTap(c),
+                ),
+      ],
+    );
+  }
+}
+
+/// Shows [builder]'s choices among [choices] filtered by a search field
+/// (`autocomplete`).
+class _Filtered extends StatefulWidget {
+  const _Filtered({
+    required this.node,
+    required this.choices,
+    required this.builder,
+  });
+
+  final QuestionNode node;
+  final List<SelectChoice> choices;
   final Widget Function(List<SelectChoice> choices) builder;
 
   @override
@@ -286,7 +337,7 @@ class _FilteredState extends State<_Filtered> {
     final node = widget.node;
     final query = _query.trim().toLowerCase();
     final choices = [
-      for (final c in choicesOf(context, node))
+      for (final c in widget.choices)
         if (query.isEmpty ||
             (node.choiceLabel(c) ?? c.value).toLowerCase().contains(query))
           c,
@@ -336,21 +387,16 @@ class ChoiceRowInput extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final multi = node.controlType == ControlType.selectMulti;
+    final choices = choicesOf(context, node);
     final selected = selectedValues(node);
     final enabled = showButtons && !node.isReadonly;
     void tap(SelectChoice c) => multi
-        ? answerSelections(
-            context,
-            node,
-            selected.contains(c.value)
-                ? ({...selected}..remove(c.value))
-                : {...selected, c.value},
-          )
-        : _selectOne(context, node, selected.contains(c.value) ? null : c);
+        ? toggleSelection(context, node, c.value)
+        : selectChoice(context, node, selected.contains(c.value) ? null : c);
     final row = Row(
       children: [
-        if (leading != null) Expanded(flex: 2, child: leading!),
-        for (final c in choicesOf(context, node))
+        if (leading case final leading?) Expanded(flex: 2, child: leading),
+        for (final c in choices)
           Expanded(
             child: MergeSemantics(
               child: InkWell(
@@ -384,54 +430,62 @@ class ChoiceRowInput extends StatelessWidget {
       ],
     );
     if (multi || !showButtons) return row;
-    return RadioGroup<String>(
-      groupValue: selected.firstOrNull,
-      onChanged: (value) => _selectOne(
-        context,
-        node,
-        choicesOf(context, node).where((c) => c.value == value).firstOrNull,
-      ),
+    return _SelectOneGroup(
+      node: node,
+      choices: choices,
+      selected: selected.firstOrNull,
       child: row,
     );
   }
 }
 
-/// [child] after the warning of [node]'s choices failing to load, if
-/// any.
-class _WithWarning extends StatelessWidget {
-  const _WithWarning({required this.node, required this.child});
+/// The [RadioGroup] of a select one's radio buttons in [child].
+class _SelectOneGroup extends StatelessWidget {
+  const _SelectOneGroup({
+    required this.node,
+    required this.choices,
+    required this.selected,
+    required this.child,
+  });
 
   final QuestionNode node;
+  final List<SelectChoice> choices;
+  final String? selected;
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) => RadioGroup<String>(
+    groupValue: selected,
+    onChanged: (value) => selectChoice(
+      context,
+      node,
+      choices.where((c) => c.value == value).firstOrNull,
+    ),
+    child: child,
+  );
+}
+
+/// [child] after [warning] (the choices failed to load), if any.
+class _WithWarning extends StatelessWidget {
+  const _WithWarning({required this.warning, required this.child});
+
+  final String? warning;
   final Widget child;
 
   @override
   Widget build(BuildContext context) {
-    final warning = loadChoices(context, node).warning;
+    final warning = this.warning;
     if (warning == null) return child;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Text(
           warning,
-          style: TextStyle(color: Theme.of(context).colorScheme.error),
+          style: TextStyle(color: XFormTheme.of(context).errorColorOf(context)),
         ),
         child,
       ],
     );
-  }
-}
-
-void _selectOne(BuildContext context, QuestionNode node, SelectChoice? c) {
-  if (node.isReadonly) return;
-  final result = answerQuestion(
-    context,
-    node,
-    c == null ? null : SelectOneValue(Selection.ofChoice(c)),
-  );
-  if (c != null &&
-      result is AnswerAccepted &&
-      Appearance.parse(node.appearance).has('quick')) {
-    XFormPagerScope.advanceOf(context)?.call();
   }
 }
 
@@ -446,10 +500,12 @@ class SelectOneInput extends StatelessWidget {
   final QuestionNode node;
 
   @override
-  Widget build(BuildContext context) =>
-      _WithWarning(node: node, child: _input(context));
+  Widget build(BuildContext context) {
+    final (:choices, :warning) = loadChoices(context, node);
+    return _WithWarning(warning: warning, child: _input(context, choices));
+  }
 
-  Widget _input(BuildContext context) {
+  Widget _input(BuildContext context, List<SelectChoice> choices) {
     final appearance = Appearance.parse(node.appearance);
     if (appearance.has('image-map')) return ImageMapInput(node);
     if (appearance.has('map') && XFormScope.of(context).delegates.canShowMaps) {
@@ -458,103 +514,115 @@ class SelectOneInput extends StatelessWidget {
     if (appearance.has('autocomplete')) {
       return _Filtered(
         node: node,
-        builder: (choices) => _body(context, appearance, choices),
+        choices: choices,
+        builder: (filtered) => _SelectOneChoices(
+          node: node,
+          appearance: appearance,
+          choices: filtered,
+        ),
       );
     }
-    if (appearance.has('minimal')) return _dropdown(context);
+    if (appearance.has('minimal')) {
+      return _SelectOneDropdown(node: node, choices: choices);
+    }
     if (appearance.has('list')) {
       return ChoiceRowInput(node, showLabels: true, showButtons: true);
     }
-    return _body(context, appearance, choicesOf(context, node));
+    return _SelectOneChoices(
+      node: node,
+      appearance: appearance,
+      choices: choices,
+    );
   }
+}
 
-  Widget _dropdown(BuildContext context) {
+/// The choices of a select one as tiles or a Likert scale; tapping the
+/// selected choice clears it.
+class _SelectOneChoices extends StatelessWidget {
+  const _SelectOneChoices({
+    required this.node,
+    required this.appearance,
+    required this.choices,
+  });
+
+  final QuestionNode node;
+  final Appearance appearance;
+  final List<SelectChoice> choices;
+
+  @override
+  Widget build(BuildContext context) {
     final selected = selectedValues(node).firstOrNull;
-    final choices = choicesOf(context, node);
-    final scope = XFormScope.of(context);
-    return DropdownButtonFormField<String>(
-      key: ValueKey(selected),
-      initialValue: selected,
-      isExpanded: true,
-      // Items with images are taller than the default height; the field
-      // shows the selected label only.
-      itemHeight: null,
-      selectedItemBuilder: (context) => [
-        for (final c in choices)
-          Align(
-            alignment: AlignmentDirectional.centerStart,
-            child: Text(
-              odkMarkdownToPlainText(node.choiceLabel(c) ?? c.value),
-              overflow: TextOverflow.ellipsis,
-            ),
-          ),
-      ],
-      items: [
-        for (final c in choices)
-          DropdownMenuItem(
-            value: c.value,
-            // The menu is a route outside the form's scope.
-            child: XFormScope(
-              controller: scope.controller,
-              delegates: scope.delegates,
-              overrides: scope.overrides,
-              child: ChoiceContent(node, c),
-            ),
-          ),
-      ],
-      onChanged: node.isReadonly
-          ? null
-          : (value) => _selectOne(
-              context,
-              node,
-              choices.where((c) => c.value == value).firstOrNull,
+    void tap(SelectChoice c) =>
+        selectChoice(context, node, c.value == selected ? null : c);
+    return _SelectOneGroup(
+      node: node,
+      choices: choices,
+      selected: selected,
+      child: appearance.has('likert')
+          ? _Likert(node: node, choices: choices, onTap: tap)
+          : _ChoiceTiles(
+              node: node,
+              appearance: appearance,
+              choices: choices,
+              selected: {?selected},
+              onTap: tap,
             ),
     );
   }
+}
 
-  Widget _body(
-    BuildContext context,
-    Appearance appearance,
-    List<SelectChoice> choices,
-  ) {
+/// A drop-down of a select one's choices (`minimal`).
+class _SelectOneDropdown extends StatelessWidget {
+  const _SelectOneDropdown({required this.node, required this.choices});
+
+  final QuestionNode node;
+  final List<SelectChoice> choices;
+
+  @override
+  Widget build(BuildContext context) {
     final selected = selectedValues(node).firstOrNull;
-    void tap(SelectChoice c) =>
-        _selectOne(context, node, c.value == selected ? null : c);
-    final Widget body;
-    if (appearance.has('likert')) {
-      body = _Likert(node: node, choices: choices, onTap: tap);
-    } else {
-      final noButtons = appearance.has('no-buttons');
-      body = ChoiceLayout(
-        appearance: appearance,
-        children: [
+    final scope = XFormScope.of(context);
+    // Named by the question for screen readers while nothing is selected.
+    return Semantics(
+      label: odkMarkdownToPlainText(node.label.text ?? ''),
+      child: DropdownButtonFormField<String>(
+        key: ValueKey(selected),
+        initialValue: selected,
+        isExpanded: true,
+        // Items with images are taller than the default height; the field
+        // shows the selected label only.
+        itemHeight: null,
+        selectedItemBuilder: (context) => [
           for (final c in choices)
-            noButtons
-                ? _ButtonlessTile(
-                    node: node,
-                    choice: c,
-                    selected: c.value == selected,
-                    multi: false,
-                    onTap: () => tap(c),
-                  )
-                : _ChoiceTile(
-                    node: node,
-                    choice: c,
-                    selected: c.value == selected,
-                    multi: false,
-                    onTap: () => tap(c),
-                  ),
+            Align(
+              alignment: AlignmentDirectional.centerStart,
+              child: Text(
+                odkMarkdownToPlainText(node.choiceLabel(c) ?? c.value),
+                overflow: TextOverflow.ellipsis,
+              ),
+            ),
         ],
-      );
-    }
-    return RadioGroup<String>(
-      groupValue: selected,
-      onChanged: (value) => _selectOne(
-        context,
-        node,
-        choicesOf(context, node).where((c) => c.value == value).firstOrNull,
+        items: [
+          for (final c in choices)
+            DropdownMenuItem(
+              value: c.value,
+              // The menu is a route outside the form's scope.
+              child: XFormScope(
+                controller: scope.controller,
+                delegates: scope.delegates,
+                overrides: scope.overrides,
+                child: ChoiceContent(node, c),
+              ),
+            ),
+        ],
+        onChanged: node.isReadonly
+            ? null
+            : (value) => selectChoice(
+                context,
+                node,
+                choices.where((c) => c.value == value).firstOrNull,
+              ),
       ),
-      child: body,
     );
   }
 }
@@ -569,102 +637,110 @@ class SelectMultiInput extends StatelessWidget {
   final QuestionNode node;
 
   @override
-  Widget build(BuildContext context) =>
-      _WithWarning(node: node, child: _input(context));
+  Widget build(BuildContext context) {
+    final (:choices, :warning) = loadChoices(context, node);
+    return _WithWarning(warning: warning, child: _input(choices));
+  }
 
-  Widget _input(BuildContext context) {
+  Widget _input(List<SelectChoice> choices) {
     final appearance = Appearance.parse(node.appearance);
     if (appearance.has('image-map')) return ImageMapInput(node);
-    if (appearance.has('minimal')) return _minimal(context, appearance);
+    if (appearance.has('minimal')) {
+      return _SelectMultiDialogField(node: node, choices: choices);
+    }
     if (appearance.has('autocomplete')) {
       return _Filtered(
         node: node,
-        builder: (choices) => _body(context, appearance, choices),
+        choices: choices,
+        builder: (filtered) => _SelectMultiChoices(
+          node: node,
+          appearance: appearance,
+          choices: filtered,
+        ),
       );
     }
     if (appearance.has('list')) {
       return ChoiceRowInput(node, showLabels: true, showButtons: true);
     }
-    return _body(context, appearance, choicesOf(context, node));
-  }
-
-  Widget _body(
-    BuildContext context,
-    Appearance appearance,
-    List<SelectChoice> choices,
-  ) {
-    final selected = selectedValues(node);
-    final noButtons = appearance.has('no-buttons');
-    void tap(SelectChoice c) => answerSelections(
-      context,
-      node,
-      selected.contains(c.value)
-          ? ({...selected}..remove(c.value))
-          : {...selected, c.value},
-    );
-    return ChoiceLayout(
+    return _SelectMultiChoices(
+      node: node,
       appearance: appearance,
-      children: [
-        for (final c in choices)
-          noButtons
-              ? _ButtonlessTile(
-                  node: node,
-                  choice: c,
-                  selected: selected.contains(c.value),
-                  multi: true,
-                  onTap: () => tap(c),
-                )
-              : _ChoiceTile(
-                  node: node,
-                  choice: c,
-                  selected: selected.contains(c.value),
-                  multi: true,
-                  onTap: () => tap(c),
-                ),
-      ],
+      choices: choices,
+    );
+  }
+}
+
+/// The choices of a select multiple as tiles.
+class _SelectMultiChoices extends StatelessWidget {
+  const _SelectMultiChoices({
+    required this.node,
+    required this.appearance,
+    required this.choices,
+  });
+
+  final QuestionNode node;
+  final Appearance appearance;
+  final List<SelectChoice> choices;
+
+  @override
+  Widget build(BuildContext context) => _ChoiceTiles(
+    node: node,
+    appearance: appearance,
+    choices: choices,
+    selected: selectedValues(node),
+    onTap: (c) => toggleSelection(context, node, c.value),
+  );
+}
+
+/// A field listing a select multiple's selected labels that opens a
+/// dialog of check boxes (`minimal`).
+class _SelectMultiDialogField extends StatelessWidget {
+  const _SelectMultiDialogField({required this.node, required this.choices});
+
+  final QuestionNode node;
+  final List<SelectChoice> choices;
+
+  Future<void> _openDialog(BuildContext context) {
+    final scope = XFormScope.of(context);
+    return showDialog<void>(
+      context: context,
+      builder: (dialogContext) => XFormScope(
+        controller: scope.controller,
+        delegates: scope.delegates,
+        overrides: scope.overrides,
+        child: AlertDialog(
+          content: SingleChildScrollView(
+            child: ListenableBuilder(
+              listenable: scope.controller.listenableFor(node.ref),
+              builder: (context, _) => _SelectMultiChoices(
+                node: node,
+                appearance: Appearance.parse(null),
+                choices: choicesOf(context, node),
+              ),
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(dialogContext),
+              child: Text(
+                MaterialLocalizations.of(dialogContext).okButtonLabel,
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 
-  /// A field listing the selected labels that opens a dialog of check
-  /// boxes.
-  Widget _minimal(BuildContext context, Appearance appearance) {
-    final scope = XFormScope.of(context);
+  @override
+  Widget build(BuildContext context) {
     final selected = selectedValues(node);
     final text = [
-      for (final c in choicesOf(context, node))
+      for (final c in choices)
         if (selected.contains(c.value)) node.choiceLabel(c) ?? c.value,
     ].join(', ');
     return InkWell(
-      onTap: node.isReadonly
-          ? null
-          : () => showDialog<void>(
-              context: context,
-              builder: (dialogContext) => XFormScope(
-                controller: scope.controller,
-                delegates: scope.delegates,
-                overrides: scope.overrides,
-                child: AlertDialog(
-                  content: SingleChildScrollView(
-                    child: ListenableBuilder(
-                      listenable: scope.controller.listenableFor(node.ref),
-                      builder: (context, _) => _body(
-                        context,
-                        Appearance.parse(null),
-                        choicesOf(context, node),
-                      ),
-                    ),
-                  ),
-                  actions: [
-                    TextButton(
-                      onPressed: () => Navigator.pop(dialogContext),
-                      child: Text(
-                        MaterialLocalizations.of(dialogContext).okButtonLabel,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
+      onTap: node.isReadonly ? null : () => _openDialog(context),
       child: InputDecorator(
         decoration: const InputDecoration(
           suffixIcon: Icon(Icons.arrow_drop_down),

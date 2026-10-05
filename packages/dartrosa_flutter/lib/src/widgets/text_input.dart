@@ -26,12 +26,8 @@ class _TextQuestionInputState extends State<TextQuestionInput> {
 
   Appearance get _appearance => Appearance.parse(widget.node.appearance);
 
-  bool get _isNumber => switch (widget.node.dataType) {
-    DataType.integer || DataType.long || DataType.decimal => true,
-    _ => false,
-  };
-
-  bool get _grouped => _isNumber && _appearance.has('thousands-sep');
+  bool get _grouped =>
+      _isNumeric(widget.node) && _appearance.has('thousands-sep');
 
   String get _separator => thousandsSeparatorOf(context);
 
@@ -44,8 +40,9 @@ class _TextQuestionInputState extends State<TextQuestionInput> {
   void didUpdateWidget(covariant TextQuestionInput oldWidget) {
     super.didUpdateWidget(oldWidget);
     // Recalculated (or read-only) values replace the text.
+    if (!widget.node.isReadonly) return;
     final value = _display();
-    if (widget.node.isReadonly && _text.text != value) _text.text = value;
+    if (_text.text != value) _text.text = value;
   }
 
   @override
@@ -80,7 +77,7 @@ class _TextQuestionInputState extends State<TextQuestionInput> {
     final appearance = _appearance;
     final integral =
         node.dataType == DataType.integer || node.dataType == DataType.long;
-    final numeric = _isNumber || appearance.has('numbers');
+    final numeric = _isNumeric(node) || appearance.has('numbers');
     final masked =
         node.controlType == ControlType.secret || appearance.has('masked');
     return TextField(
@@ -116,14 +113,16 @@ class _TextQuestionInputState extends State<TextQuestionInput> {
 String? numberDisplay(BuildContext context, QuestionNode node) {
   final text = node.value?.displayText;
   if (text == null) return null;
-  final number = switch (node.dataType) {
-    DataType.integer || DataType.long || DataType.decimal => true,
-    _ => false,
-  };
-  return number && Appearance.parse(node.appearance).has('thousands-sep')
+  return _isNumeric(node) &&
+          Appearance.parse(node.appearance).has('thousands-sep')
       ? groupThousands(text, thousandsSeparatorOf(context))
       : text;
 }
+
+bool _isNumeric(QuestionNode node) => switch (node.dataType) {
+  DataType.integer || DataType.long || DataType.decimal => true,
+  _ => false,
+};
 
 /// The default grouping separator of `thousands-sep`.
 const thousandsSeparator = ',';

@@ -3,8 +3,8 @@ import 'dart:async';
 import 'package:dartrosa/dartrosa.dart';
 import 'package:dartrosa/javarosa.dart' show FormEntryPrompt;
 import 'package:dartrosa_external_data/dartrosa_external_data.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/semantics.dart';
-import 'package:flutter/widgets.dart';
 
 import '../appearance.dart';
 import '../localizations.dart';
@@ -94,6 +94,44 @@ void answerSelections(
         ]),
 );
 
+/// Whether [group] has the `table-list` appearance: its selects form one
+/// grid, on one screen.
+bool isTableList(GroupNode group) =>
+    group.appearance?.toLowerCase().contains('table-list') ?? false;
+
+/// Selects or deselects the choice [value] of a select-multiple [node].
+void toggleSelection(BuildContext context, QuestionNode node, String value) {
+  final selected = selectedValues(node);
+  answerSelections(
+    context,
+    node,
+    selected.contains(value)
+        ? ({...selected}..remove(value))
+        : {...selected, value},
+  );
+}
+
+/// Answers a select-one [node] with [choice] (`null` clears it) unless it
+/// is read-only; with the `quick` appearance an accepted choice moves to
+/// the next pager screen.
+void selectChoice(
+  BuildContext context,
+  QuestionNode node,
+  SelectChoice? choice,
+) {
+  if (node.isReadonly) return;
+  final result = answerQuestion(
+    context,
+    node,
+    choice == null ? null : SelectOneValue(Selection.ofChoice(choice)),
+  );
+  if (choice != null &&
+      result is AnswerAccepted &&
+      Appearance.parse(node.appearance).has('quick')) {
+    XFormPagerScope.advanceOf(context)?.call();
+  }
+}
+
 /// Gives the questions of a pager screen showing a single question a way
 /// to move to the next screen (used by `quick` selects).
 class XFormPagerScope extends InheritedWidget {
@@ -126,3 +164,38 @@ void announceError(BuildContext context, String message) => unawaited(
     assertiveness: Assertiveness.assertive,
   ),
 );
+
+/// A question's answer next to the buttons acting on it (capture, pick,
+/// launch, ...); the buttons move under the answer when both don't fit
+/// on one line (narrow screens, large text).
+class AnswerWithActions extends StatelessWidget {
+  /// Creates the row of [answer] and [actions].
+  const AnswerWithActions({
+    required this.answer,
+    required this.actions,
+    super.key,
+  });
+
+  /// The answer, usually a [Text].
+  final Widget answer;
+
+  /// The buttons; none for read-only questions.
+  final List<Widget> actions;
+
+  @override
+  Widget build(BuildContext context) => OverflowBar(
+    alignment: MainAxisAlignment.spaceBetween,
+    spacing: 8,
+    overflowSpacing: 8,
+    children: [
+      answer,
+      if (actions.isNotEmpty)
+        Wrap(
+          spacing: 8,
+          runSpacing: 8,
+          crossAxisAlignment: WrapCrossAlignment.center,
+          children: actions,
+        ),
+    ],
+  );
+}

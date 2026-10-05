@@ -145,45 +145,56 @@ class InstancesPage extends StatelessWidget {
     }
     return ListView.builder(
       itemCount: instances.length,
-      itemBuilder: (context, i) {
-        final instance = instances[i];
-        final status = [
-          if (instance.finalized) 'Finalized' else 'Draft',
-          if (instance.editOf case final original?)
-            'edit ${instance.editNumber} of #${original.id}',
-          TimeOfDay.fromDateTime(instance.saved).format(context),
-        ].join(' · ');
-        return ListTile(
-          leading: Icon(instance.finalized ? Icons.task_alt : Icons.edit_note),
-          title: Text('#${instance.id} ${instance.form.displayTitle}'),
-          subtitle: Text(status),
-          onTap: instance.finalized
-              ? () =>
-                    showText(context, 'Instance #${instance.id}', instance.xml)
-              : () => fill(context, workspace, instance),
-          trailing: PopupMenuButton<String>(
-            onSelected: (action) => switch (action) {
-              'edit' => fill(
-                context,
-                workspace,
-                workspace.newInstance(instance.form, editOf: instance),
-              ),
-              'audit' => Navigator.of(context).push(
-                MaterialPageRoute<void>(
-                  builder: (_) => AuditScreen(instance: instance),
-                ),
-              ),
-              _ => showText(context, 'Instance #${instance.id}', instance.xml),
-            },
-            itemBuilder: (context) => [
-              if (instance.finalized && instance.instanceId != null)
-                const PopupMenuItem(value: 'edit', child: Text('Edit')),
-              const PopupMenuItem(value: 'xml', child: Text('View XML')),
-              const PopupMenuItem(value: 'audit', child: Text('Audit log')),
-            ],
+      itemBuilder: (context, i) =>
+          _InstanceTile(workspace: workspace, instance: instances[i]),
+    );
+  }
+}
+
+/// A saved instance: tap to resume a draft or view a finalized one; its
+/// menu edits, shows the XML or the audit log.
+class _InstanceTile extends StatelessWidget {
+  const _InstanceTile({required this.workspace, required this.instance});
+
+  final Workspace workspace;
+  final SavedInstance instance;
+
+  @override
+  Widget build(BuildContext context) {
+    final status = [
+      if (instance.finalized) 'Finalized' else 'Draft',
+      if (instance.editOf case final original?)
+        'edit ${instance.editNumber} of #${original.id}',
+      TimeOfDay.fromDateTime(instance.saved).format(context),
+    ].join(' · ');
+    return ListTile(
+      leading: Icon(instance.finalized ? Icons.task_alt : Icons.edit_note),
+      title: Text('#${instance.id} ${instance.form.displayTitle}'),
+      subtitle: Text(status),
+      onTap: instance.finalized
+          ? () => showText(context, 'Instance #${instance.id}', instance.xml)
+          : () => fill(context, workspace, instance),
+      trailing: PopupMenuButton<String>(
+        onSelected: (action) => switch (action) {
+          'edit' => fill(
+            context,
+            workspace,
+            workspace.newInstance(instance.form, editOf: instance),
           ),
-        );
-      },
+          'audit' => Navigator.of(context).push(
+            MaterialPageRoute<void>(
+              builder: (_) => AuditScreen(instance: instance),
+            ),
+          ),
+          _ => showText(context, 'Instance #${instance.id}', instance.xml),
+        },
+        itemBuilder: (context) => [
+          if (instance.finalized && instance.instanceId != null)
+            const PopupMenuItem(value: 'edit', child: Text('Edit')),
+          const PopupMenuItem(value: 'xml', child: Text('View XML')),
+          const PopupMenuItem(value: 'audit', child: Text('Audit log')),
+        ],
+      ),
     );
   }
 }
@@ -202,43 +213,48 @@ class OutboxPage extends StatelessWidget {
     if (outbox.isEmpty) {
       return const Center(child: Text('Finalized forms are exported here.'));
     }
-    return ListView(
-      children: [
-        for (final entry in outbox)
-          ExpansionTile(
-            leading: Icon(
-              entry.encrypted ? Icons.lock_outline : Icons.upload_file,
-            ),
-            title: Text(
-              '#${entry.instance.id} ${entry.instance.form.displayTitle}',
-            ),
-            subtitle: Text(
-              [
-                if (entry.encrypted) 'Encrypted',
-                '${entry.files.length} file(s)',
-                if (entry.entities > 0) '${entry.entities} entit(ies)',
-              ].join(' · '),
-            ),
-            children: [
-              for (final MapEntry(key: name, value: bytes)
-                  in entry.files.entries)
-                ListTile(
-                  dense: true,
-                  title: Text(name),
-                  subtitle: Text('${bytes.length} bytes'),
-                  onTap: () => showText(
-                    context,
-                    name,
-                    name.endsWith('.enc')
-                        ? base64.encode(bytes)
-                        : utf8.decode(bytes, allowMalformed: true),
-                  ),
-                ),
-            ],
-          ),
-      ],
+    return ListView.builder(
+      itemCount: outbox.length,
+      // Keyed: new entries go first, expansion follows its entry.
+      itemBuilder: (context, i) =>
+          _OutboxTile(outbox[i], key: ObjectKey(outbox[i])),
     );
   }
+}
+
+/// An exported submission, expanding to its files.
+class _OutboxTile extends StatelessWidget {
+  const _OutboxTile(this.entry, {super.key});
+
+  final OutboxEntry entry;
+
+  @override
+  Widget build(BuildContext context) => ExpansionTile(
+    leading: Icon(entry.encrypted ? Icons.lock_outline : Icons.upload_file),
+    title: Text('#${entry.instance.id} ${entry.instance.form.displayTitle}'),
+    subtitle: Text(
+      [
+        if (entry.encrypted) 'Encrypted',
+        '${entry.files.length} file(s)',
+        if (entry.entities > 0) '${entry.entities} entit(ies)',
+      ].join(' · '),
+    ),
+    children: [
+      for (final MapEntry(key: name, value: bytes) in entry.files.entries)
+        ListTile(
+          dense: true,
+          title: Text(name),
+          subtitle: Text('${bytes.length} bytes'),
+          onTap: () => showText(
+            context,
+            name,
+            name.endsWith('.enc')
+                ? base64.encode(bytes)
+                : utf8.decode(bytes, allowMalformed: true),
+          ),
+        ),
+    ],
+  );
 }
 
 /// Shows [text] in a dialog that can copy it.

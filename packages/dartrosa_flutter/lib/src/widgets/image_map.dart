@@ -9,7 +9,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:path_parsing/path_parsing.dart';
 import 'package:xml/xml.dart';
 
-import '../appearance.dart';
 import '../localizations.dart';
 import '../xform_scope.dart';
 import 'common.dart';
@@ -86,6 +85,10 @@ class SvgImageMap {
 
   /// The ids of the areas found.
   Iterable<String> get areaIds => _order;
+
+  /// The bounds of the area [id] in user space, or `null` if there is no
+  /// such area.
+  Rect? areaBounds(String id) => _areas[id]?.getBounds();
 
   /// The topmost area at [point] (in user space), if any.
   String? areaAt(Offset point) {
@@ -323,22 +326,9 @@ class _ImageMapInputState extends State<ImageMapInput> {
     ).where((c) => c.value == id).firstOrNull;
     if (choice == null) return;
     if (node.controlType == ControlType.selectMulti) {
-      final selected = selectedValues(node);
-      answerSelections(
-        context,
-        node,
-        selected.contains(id) ? ({...selected}..remove(id)) : {...selected, id},
-      );
-      return;
-    }
-    final result = answerQuestion(
-      context,
-      node,
-      SelectOneValue(Selection.ofChoice(choice)),
-    );
-    if (result is AnswerAccepted &&
-        Appearance.parse(node.appearance).has('quick')) {
-      XFormPagerScope.advanceOf(context)?.call();
+      toggleSelection(context, node, id);
+    } else {
+      selectChoice(context, node, choice);
     }
   }
 
@@ -355,8 +345,9 @@ class _ImageMapInputState extends State<ImageMapInput> {
         final map = snapshot.data;
         if (map == null) return Text(strings.svgFileMissing);
         final selected = selectedValues(node);
+        final choices = choicesOf(context, node);
         final labels = [
-          for (final c in choicesOf(context, node))
+          for (final c in choices)
             if (selected.contains(c.value)) node.choiceLabel(c) ?? c.value,
         ];
         final box = map.viewBox;
@@ -370,25 +361,60 @@ class _ImageMapInputState extends State<ImageMapInput> {
               child: AspectRatio(
                 aspectRatio: box.width / box.height,
                 child: LayoutBuilder(
-                  builder: (context, constraints) => GestureDetector(
-                    key: const ValueKey('image-map'),
-                    behavior: HitTestBehavior.opaque,
-                    onTapUp: (details) {
-                      final p = details.localPosition;
-                      final id = map.areaAt(
-                        Offset(
-                          box.left + p.dx / constraints.maxWidth * box.width,
-                          box.top + p.dy / constraints.maxHeight * box.height,
+                  builder: (context, constraints) {
+                    final scaleX = constraints.maxWidth / box.width;
+                    final scaleY = constraints.maxHeight / box.height;
+                    return Stack(
+                      fit: StackFit.expand,
+                      children: [
+                        GestureDetector(
+                          key: const ValueKey('image-map'),
+                          behavior: HitTestBehavior.opaque,
+                          onTapUp: (details) {
+                            final p = details.localPosition;
+                            final id = map.areaAt(
+                              Offset(
+                                box.left + p.dx / scaleX,
+                                box.top + p.dy / scaleY,
+                              ),
+                            );
+                            if (id != null) _tap(id);
+                          },
+                          child: SvgPicture.string(
+                            map.highlighted(selected),
+                            fit: BoxFit.fill,
+                            excludeFromSemantics: true,
+                          ),
                         ),
-                      );
-                      if (id != null) _tap(id);
-                    },
-                    child: SvgPicture.string(
-                      map.highlighted(selected),
-                      fit: BoxFit.fill,
-                      excludeFromSemantics: true,
-                    ),
-                  ),
+                        // Screen readers see each area as a choice over
+                        // its bounds; taps fall through to the detector.
+                        for (final c in choices)
+                          if (map.areaBounds(c.value) case final bounds?)
+                            Positioned.fromRect(
+                              rect: Rect.fromLTRB(
+                                (bounds.left - box.left) * scaleX,
+                                (bounds.top - box.top) * scaleY,
+                                (bounds.right - box.left) * scaleX,
+                                (bounds.bottom - box.top) * scaleY,
+                              ),
+                              child: Semantics(
+                                label: node.choiceLabel(c) ?? c.value,
+                                selected: selected.contains(c.value),
+                                checked:
+                                    node.controlType == ControlType.selectMulti
+                                    ? selected.contains(c.value)
+                                    : null,
+                                inMutuallyExclusiveGroup:
+                                    node.controlType == ControlType.selectOne,
+                                onTap: node.isReadonly
+                                    ? null
+                                    : () => _tap(c.value),
+                                child: const SizedBox.expand(),
+                              ),
+                            ),
+                      ],
+                    );
+                  },
                 ),
               ),
             ),

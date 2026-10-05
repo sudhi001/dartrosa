@@ -81,8 +81,7 @@ class _XFormViewState extends State<XFormView> {
         widget.onFinalized?.call(submission);
       case FinalizeFailure(:final failure):
         if (widget.mode == XFormMode.pager) {
-          widget.session.navigator.jumpTo(failure.index);
-          setState(() {});
+          setState(() => widget.session.navigator.jumpTo(failure.index));
         }
         final strings = XFormLocalizations.of(context);
         announceError(
@@ -138,17 +137,20 @@ class _ScrollForm extends StatelessWidget {
     return ListenableBuilder(
       listenable: scope.controller,
       builder: (context, _) {
-        final root = scope.controller.session.root;
-        return ListView(
+        final nodes = scope.controller.session.root.visibleChildren;
+        // Built lazily: forms can have hundreds of questions.
+        return ListView.builder(
           padding: XFormTheme.of(context).pagePadding,
-          children: [
-            for (final child in root.visibleChildren) nodeWidget(child),
-            const SizedBox(height: 16),
-            FilledButton(
-              onPressed: onFinalize,
-              child: Text(XFormLocalizations.of(context).finish),
-            ),
-          ],
+          itemCount: nodes.length + 1,
+          itemBuilder: (context, i) => i < nodes.length
+              ? nodeWidget(nodes[i])
+              : Padding(
+                  padding: const EdgeInsets.only(top: 16),
+                  child: FilledButton(
+                    onPressed: onFinalize,
+                    child: Text(XFormLocalizations.of(context).finish),
+                  ),
+                ),
         );
       },
     );
@@ -176,9 +178,7 @@ class _PagerFormState extends State<_PagerForm> {
   /// Whether [node] is a group shown as one screen (`field-list`, or
   /// `table-list`, which implies it).
   static bool _isScreen(FormNode node) =>
-      node is GroupNode &&
-      (node.isFieldList ||
-          (node.appearance?.toLowerCase().contains('table-list') ?? false));
+      node is GroupNode && (node.isFieldList || isTableList(node));
 
   /// The field-list group containing the current position, if any.
   FormIndex? _fieldList() {
@@ -338,7 +338,7 @@ class _NewRepeatPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Center(
-    child: Padding(
+    child: SingleChildScrollView(
       padding: const EdgeInsets.all(24),
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -380,7 +380,7 @@ class _EndPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final session = XFormScope.of(context).controller.session;
     return Center(
-      child: Padding(
+      child: SingleChildScrollView(
         padding: const EdgeInsets.all(24),
         child: Column(
           mainAxisSize: MainAxisSize.min,
