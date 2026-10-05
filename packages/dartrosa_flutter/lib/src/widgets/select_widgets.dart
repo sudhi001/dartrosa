@@ -614,6 +614,7 @@ class _SelectOneDropdown extends StatelessWidget {
                 controller: scope.controller,
                 delegates: scope.delegates,
                 overrides: scope.overrides,
+                guidanceHints: scope.guidanceHints,
                 child: ChoiceContent(node, c),
               ),
             ),
@@ -711,6 +712,7 @@ class _SelectMultiDialogField extends StatelessWidget {
         controller: scope.controller,
         delegates: scope.delegates,
         overrides: scope.overrides,
+        guidanceHints: scope.guidanceHints,
         child: AlertDialog(
           content: SingleChildScrollView(
             child: ListenableBuilder(

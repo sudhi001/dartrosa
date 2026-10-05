@@ -94,6 +94,9 @@ void main() {
           ),
         ),
       );
+      // Rebuilds with the same selection reuse the text.
+      expect(map.highlighted({'b'}), same(svg));
+      expect(map.highlighted({'a'}), isNot(svg));
     });
 
     test('default size, other shapes', () {

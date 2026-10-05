@@ -103,7 +103,20 @@ class SvgImageMap {
 
   /// The SVG text with the areas in [selected] filled with
   /// [imageMapSelectedColor].
+  ///
+  /// The last result is kept: rebuilds and layout changes with the same
+  /// selection get the same text, which the SVG renderer has cached.
   String highlighted(Set<String> selected) {
+    final last = _highlighted;
+    if (last != null && setEquals(last.$1, selected)) return last.$2;
+    final svg = _highlight(selected);
+    _highlighted = ({...selected}, svg);
+    return svg;
+  }
+
+  (Set<String>, String)? _highlighted;
+
+  String _highlight(Set<String> selected) {
     if (selected.isEmpty) return _document.toXmlString();
     final copy = _document.copy();
     for (final element in copy.descendantElements) {
