@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa">
+  <h:head>
+    <h:title>Image maps, maps and CSV choices</h:title>
+    <model>
+      <itext>
+        <translation lang="English" default="true()">
+          <text id="region">
+            <value>Which region do you live in?</value>
+            <value form="image">jr://images/regions.svg</value>
+          </text>
+          <text id="regions">
+            <value>Which regions have you worked in?</value>
+            <value form="image">jr://images/regions.svg</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <data id="catalog-select-advanced">
+          <region>east</region>
+          <regions>north south</regions>
+          <site>b</site>
+          <fruit>mango</fruit>
+          <fruit_search/>
+          <fruit_minimal>papaya</fruit_minimal>
+          <missing/>
+        </data>
+      </instance>
+      <instance id="sites">
+        <root>
+          <item><name>a</name><label>Water point A</label><geometry>-1.2864 36.8172 0 0</geometry></item>
+          <item><name>b</name><label>Water point B</label><geometry>-1.2921 36.8219 0 0</geometry></item>
+          <item><name>c</name><label>Grazing area</label><geometry>-1.28 36.81 0 0;-1.28 36.83 0 0;-1.30 36.83 0 0;-1.28 36.81 0 0</geometry></item>
+        </root>
+      </instance>
+      <bind nodeset="/data/region" type="string"/>
+      <bind nodeset="/data/regions" type="string"/>
+      <bind nodeset="/data/site" type="string"/>
+      <bind nodeset="/data/fruit" type="string"/>
+      <bind nodeset="/data/fruit_search" type="string"/>
+      <bind nodeset="/data/fruit_minimal" type="string"/>
+      <bind nodeset="/data/missing" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <select1 ref="/data/region" appearance="image-map">
+      <label ref="jr:itext('region')"/>
+      <hint>select_one, appearance: image-map</hint>
+      <item><label>North</label><value>north</value></item>
+      <item><label>East</label><value>east</value></item>
+      <item><label>South</label><value>south</value></item>
+      <item><label>West</label><value>west</value></item>
+      <item><label>Centre</label><value>centre</value></item>
+    </select1>
+    <select ref="/data/regions" appearance="image-map">
+      <label ref="jr:itext('regions')"/>
+      <hint>select_multiple, appearance: image-map</hint>
+      <item><label>North</label><value>north</value></item>
+      <item><label>East</label><value>east</value></item>
+      <item><label>South</label><value>south</value></item>
+      <item><label>West</label><value>west</value></item>
+      <item><label>Centre</label><value>centre</value></item>
+    </select>
+    <select1 ref="/data/site" appearance="map">
+      <label>Which site did you visit?</label>
+      <hint>appearance: map (choices with a geometry)</hint>
+      <itemset nodeset="instance('sites')/root/item">
+        <value ref="name"/>
+        <label ref="label"/>
+      </itemset>
+    </select1>
+    <select1 ref="/data/fruit" appearance="search('fruits')">
+      <label>Favourite fruit</label>
+      <hint>appearance: search('fruits'), choices from fruits.csv</hint>
+      <item><label>label</label><value>name</value></item>
+    </select1>
+    <select1 ref="/data/fruit_search" appearance="autocomplete search('fruits')">
+      <label>Favourite fruit</label>
+      <hint>appearance: autocomplete search('fruits')</hint>
+      <item><label>label</label><value>name</value></item>
+    </select1>
+    <select1 ref="/data/fruit_minimal" appearance="minimal search('fruits')">
+      <label>Favourite fruit</label>
+      <hint>appearance: minimal search('fruits')</hint>
+      <item><label>label</label><value>name</value></item>
+    </select1>
+    <select1 ref="/data/missing" appearance="search('vegetables')">
+      <label>Favourite vegetable</label>
+      <hint>search('vegetables') without vegetables.csv</hint>
+      <item><label>label</label><value>name</value></item>
+    </select1>
+  </h:body>
+</h:html>

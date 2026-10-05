@@ -1,0 +1,198 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa">
+  <h:head>
+    <h:title>Select one</h:title>
+    <model>
+      <itext>
+        <translation lang="English" default="true()">
+          <text id="walk"><value>Walk</value><value form="image">jr://images/walk.png</value></text>
+          <text id="bike"><value>Bicycle</value><value form="image">jr://images/bike.png</value></text>
+          <text id="bus"><value>Bus</value><value form="image">jr://images/bus.png</value></text>
+          <text id="car"><value>Car</value><value form="image">jr://images/car.png</value></text>
+        </translation>
+      </itext>
+      <instance>
+        <data id="catalog-select-one">
+          <transport>bike</transport>
+          <minimal>bus</minimal>
+          <quick/>
+          <country/>
+          <columns>bus</columns>
+          <pack>walk</pack>
+          <columns_n>4</columns_n>
+          <images>bike</images>
+          <nobuttons>bus</nobuttons>
+          <likert>4</likert>
+          <list>no</list>
+          <ratings>
+            <header/>
+            <water>3</water>
+            <clinic>2</clinic>
+          </ratings>
+          <s_readonly>car</s_readonly>
+          <s_required/>
+        </data>
+      </instance>
+      <instance id="countries">
+        <root>
+          <item><name>ke</name><label>Kenya</label></item>
+          <item><name>tz</name><label>Tanzania</label></item>
+          <item><name>ug</name><label>Uganda</label></item>
+          <item><name>rw</name><label>Rwanda</label></item>
+          <item><name>et</name><label>Ethiopia</label></item>
+          <item><name>gh</name><label>Ghana</label></item>
+          <item><name>np</name><label>Nepal</label></item>
+          <item><name>pe</name><label>Peru</label></item>
+        </root>
+      </instance>
+      <instance id="scale">
+        <root>
+          <item><name>1</name><label>Very poor</label></item>
+          <item><name>2</name><label>Poor</label></item>
+          <item><name>3</name><label>Fair</label></item>
+          <item><name>4</name><label>Good</label></item>
+          <item><name>5</name><label>Very good</label></item>
+        </root>
+      </instance>
+      <bind nodeset="/data/transport" type="string"/>
+      <bind nodeset="/data/minimal" type="string"/>
+      <bind nodeset="/data/quick" type="string"/>
+      <bind nodeset="/data/country" type="string"/>
+      <bind nodeset="/data/columns" type="string"/>
+      <bind nodeset="/data/pack" type="string"/>
+      <bind nodeset="/data/columns_n" type="string"/>
+      <bind nodeset="/data/images" type="string"/>
+      <bind nodeset="/data/nobuttons" type="string"/>
+      <bind nodeset="/data/likert" type="string"/>
+      <bind nodeset="/data/list" type="string"/>
+      <bind nodeset="/data/ratings/header" type="string"/>
+      <bind nodeset="/data/ratings/water" type="string"/>
+      <bind nodeset="/data/ratings/clinic" type="string"/>
+      <bind nodeset="/data/s_readonly" type="string" readonly="true()"/>
+      <bind nodeset="/data/s_required" type="string" required="true()" jr:requiredMsg="Choose how the household travels."/>
+    </model>
+  </h:head>
+  <h:body>
+    <select1 ref="/data/transport">
+      <label>How do you usually get to market?</label>
+      <hint>select_one (radio buttons)</hint>
+      <item><label>Walk</label><value>walk</value></item>
+      <item><label>Bicycle</label><value>bike</value></item>
+      <item><label>Bus</label><value>bus</value></item>
+      <item><label>Car</label><value>car</value></item>
+    </select1>
+    <select1 ref="/data/minimal" appearance="minimal">
+      <label>How do you usually get to market?</label>
+      <hint>appearance: minimal</hint>
+      <item><label>Walk</label><value>walk</value></item>
+      <item><label>Bicycle</label><value>bike</value></item>
+      <item><label>Bus</label><value>bus</value></item>
+      <item><label>Car</label><value>car</value></item>
+    </select1>
+    <select1 ref="/data/quick" appearance="quick">
+      <label>How do you usually get to market?</label>
+      <hint>appearance: quick (moves to the next screen when tapped)</hint>
+      <item><label>Walk</label><value>walk</value></item>
+      <item><label>Bicycle</label><value>bike</value></item>
+      <item><label>Bus</label><value>bus</value></item>
+      <item><label>Car</label><value>car</value></item>
+    </select1>
+    <select1 ref="/data/country" appearance="autocomplete">
+      <label>Country</label>
+      <hint>appearance: autocomplete</hint>
+      <itemset nodeset="instance('countries')/root/item">
+        <value ref="name"/>
+        <label ref="label"/>
+      </itemset>
+    </select1>
+    <select1 ref="/data/columns" appearance="columns">
+      <label>How do you usually get to market?</label>
+      <hint>appearance: columns</hint>
+      <item><label>Walk</label><value>walk</value></item>
+      <item><label>Bicycle</label><value>bike</value></item>
+      <item><label>Bus</label><value>bus</value></item>
+      <item><label>Car</label><value>car</value></item>
+    </select1>
+    <select1 ref="/data/pack" appearance="columns-pack">
+      <label>How do you usually get to market?</label>
+      <hint>appearance: columns-pack</hint>
+      <item><label>Walk</label><value>walk</value></item>
+      <item><label>Bicycle</label><value>bike</value></item>
+      <item><label>Bus</label><value>bus</value></item>
+      <item><label>Car</label><value>car</value></item>
+    </select1>
+    <select1 ref="/data/columns_n" appearance="columns-3">
+      <label>How is the road to the market?</label>
+      <hint>appearance: columns-3</hint>
+      <itemset nodeset="instance('scale')/root/item">
+        <value ref="name"/>
+        <label ref="label"/>
+      </itemset>
+    </select1>
+    <select1 ref="/data/images">
+      <label>How do you usually get to market?</label>
+      <hint>choices with images</hint>
+      <item><label ref="jr:itext('walk')"/><value>walk</value></item>
+      <item><label ref="jr:itext('bike')"/><value>bike</value></item>
+      <item><label ref="jr:itext('bus')"/><value>bus</value></item>
+      <item><label ref="jr:itext('car')"/><value>car</value></item>
+    </select1>
+    <select1 ref="/data/nobuttons" appearance="columns-4 no-buttons">
+      <label>How do you usually get to market?</label>
+      <hint>appearance: columns-4 no-buttons</hint>
+      <item><label ref="jr:itext('walk')"/><value>walk</value></item>
+      <item><label ref="jr:itext('bike')"/><value>bike</value></item>
+      <item><label ref="jr:itext('bus')"/><value>bus</value></item>
+      <item><label ref="jr:itext('car')"/><value>car</value></item>
+    </select1>
+    <select1 ref="/data/likert" appearance="likert">
+      <label>How is the road to the market?</label>
+      <hint>appearance: likert</hint>
+      <itemset nodeset="instance('scale')/root/item">
+        <value ref="name"/>
+        <label ref="label"/>
+      </itemset>
+    </select1>
+    <select1 ref="/data/list" appearance="list">
+      <label>Is the market open every day?</label>
+      <hint>appearance: list</hint>
+      <item><label>Yes</label><value>yes</value></item>
+      <item><label>No</label><value>no</value></item>
+      <item><label>Don't know</label><value>dk</value></item>
+    </select1>
+    <group ref="/data/ratings" appearance="field-list">
+      <select1 ref="/data/ratings/header" appearance="label">
+        <label>Rate each service</label>
+        <itemset nodeset="instance('scale')/root/item[name &lt; 4]">
+          <value ref="name"/>
+          <label ref="label"/>
+        </itemset>
+      </select1>
+      <select1 ref="/data/ratings/water" appearance="list-nolabel">
+        <label>Water point</label>
+        <itemset nodeset="instance('scale')/root/item[name &lt; 4]">
+          <value ref="name"/>
+          <label ref="label"/>
+        </itemset>
+      </select1>
+      <select1 ref="/data/ratings/clinic" appearance="list-nolabel">
+        <label>Clinic</label>
+        <itemset nodeset="instance('scale')/root/item[name &lt; 4]">
+          <value ref="name"/>
+          <label ref="label"/>
+        </itemset>
+      </select1>
+    </group>
+    <select1 ref="/data/s_readonly">
+      <label>Read-only</label>
+      <hint>readonly: true()</hint>
+      <item><label>Walk</label><value>walk</value></item>
+      <item><label>Car</label><value>car</value></item>
+    </select1>
+    <select1 ref="/data/s_required">
+      <label>Required, left empty</label>
+      <item><label>Walk</label><value>walk</value></item>
+      <item><label>Car</label><value>car</value></item>
+    </select1>
+  </h:body>
+</h:html>

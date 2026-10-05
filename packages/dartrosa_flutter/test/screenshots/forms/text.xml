@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa">
+  <h:head>
+    <h:title>Text and numbers</h:title>
+    <model>
+      <instance>
+        <data id="catalog-text">
+          <name>Amina Mohamed</name>
+          <village/>
+          <notes>Lives with two children.
+Prefers interviews in the morning.</notes>
+          <phone>0712345678</phone>
+          <pin>4821</pin>
+          <age>34</age>
+          <weight>72.5</weight>
+          <income>1250000</income>
+          <area>48210.75</area>
+          <s_empty/>
+          <s_answered>Amina Mohamed</s_answered>
+          <s_readonly>42</s_readonly>
+          <s_required/>
+          <s_invalid/>
+        </data>
+      </instance>
+      <bind nodeset="/data/name" type="string"/>
+      <bind nodeset="/data/village" type="string"/>
+      <bind nodeset="/data/notes" type="string"/>
+      <bind nodeset="/data/phone" type="string"/>
+      <bind nodeset="/data/pin" type="string"/>
+      <bind nodeset="/data/age" type="int"/>
+      <bind nodeset="/data/weight" type="decimal"/>
+      <bind nodeset="/data/income" type="int"/>
+      <bind nodeset="/data/area" type="decimal"/>
+      <bind nodeset="/data/s_empty" type="string"/>
+      <bind nodeset="/data/s_answered" type="string"/>
+      <bind nodeset="/data/s_readonly" type="int" readonly="true()"/>
+      <bind nodeset="/data/s_required" type="string" required="true()" jr:requiredMsg="Please enter the respondent's name."/>
+      <bind nodeset="/data/s_invalid" type="int" constraint=". &gt;= 0 and . &lt;= 120" jr:constraintMsg="Age must be between 0 and 120."/>
+    </model>
+  </h:head>
+  <h:body>
+    <input ref="/data/name">
+      <label>Respondent's name</label>
+      <hint>text</hint>
+    </input>
+    <input ref="/data/village">
+      <label>Village</label>
+      <hint>text, not answered yet</hint>
+    </input>
+    <input ref="/data/notes" appearance="multiline">
+      <label>Notes</label>
+      <hint>appearance: multiline</hint>
+    </input>
+    <input ref="/data/phone" appearance="numbers">
+      <label>Phone number</label>
+      <hint>appearance: numbers (number keyboard, saved as text)</hint>
+    </input>
+    <input ref="/data/pin" appearance="masked">
+      <label>Household PIN</label>
+      <hint>appearance: masked</hint>
+    </input>
+    <input ref="/data/age">
+      <label>Age in years</label>
+      <hint>integer</hint>
+    </input>
+    <input ref="/data/weight">
+      <label>Weight (kg)</label>
+      <hint>decimal</hint>
+    </input>
+    <input ref="/data/income" appearance="thousands-sep">
+      <label>Yearly income</label>
+      <hint>integer, appearance: thousands-sep</hint>
+    </input>
+    <input ref="/data/area" appearance="thousands-sep">
+      <label>Farm area (m²)</label>
+      <hint>decimal, appearance: thousands-sep</hint>
+    </input>
+    <input ref="/data/s_empty">
+      <label>Empty</label>
+    </input>
+    <input ref="/data/s_answered">
+      <label>Answered</label>
+    </input>
+    <input ref="/data/s_readonly">
+      <label>Read-only</label>
+      <hint>integer, readonly: true()</hint>
+    </input>
+    <input ref="/data/s_required">
+      <label>Required, left empty</label>
+    </input>
+    <input ref="/data/s_invalid">
+      <label>Constraint failed</label>
+      <hint>constraint: . &gt;= 0 and . &lt;= 120</hint>
+    </input>
+  </h:body>
+</h:html>

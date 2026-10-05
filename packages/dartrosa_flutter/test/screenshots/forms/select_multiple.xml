@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa">
+  <h:head>
+    <h:title>Select multiple</h:title>
+    <model>
+      <itext>
+        <translation lang="English" default="true()">
+          <text id="walk"><value>Walk</value><value form="image">jr://images/walk.png</value></text>
+          <text id="bike"><value>Bicycle</value><value form="image">jr://images/bike.png</value></text>
+          <text id="bus"><value>Bus</value><value form="image">jr://images/bus.png</value></text>
+          <text id="car"><value>Car</value><value form="image">jr://images/car.png</value></text>
+        </translation>
+      </itext>
+      <instance>
+        <data id="catalog-select-multiple">
+          <symptoms>fever cough</symptoms>
+          <minimal>fever headache</minimal>
+          <crops/>
+          <columns>maize beans</columns>
+          <nobuttons>walk bus</nobuttons>
+          <list>radio</list>
+          <s_readonly>fever</s_readonly>
+          <s_required/>
+          <s_invalid>maize beans</s_invalid>
+        </data>
+      </instance>
+      <instance id="crops">
+        <root>
+          <item><name>maize</name><label>Maize</label></item>
+          <item><name>beans</name><label>Beans</label></item>
+          <item><name>cassava</name><label>Cassava</label></item>
+          <item><name>sorghum</name><label>Sorghum</label></item>
+          <item><name>millet</name><label>Millet</label></item>
+          <item><name>coffee</name><label>Coffee</label></item>
+        </root>
+      </instance>
+      <bind nodeset="/data/symptoms" type="string"/>
+      <bind nodeset="/data/minimal" type="string"/>
+      <bind nodeset="/data/crops" type="string"/>
+      <bind nodeset="/data/columns" type="string"/>
+      <bind nodeset="/data/nobuttons" type="string"/>
+      <bind nodeset="/data/list" type="string"/>
+      <bind nodeset="/data/s_readonly" type="string" readonly="true()"/>
+      <bind nodeset="/data/s_required" type="string" required="true()" jr:requiredMsg="Choose at least one symptom."/>
+      <bind nodeset="/data/s_invalid" type="string" constraint="count-selected(.) &lt;= 2" jr:constraintMsg="Choose at most two crops."/>
+    </model>
+  </h:head>
+  <h:body>
+    <select ref="/data/symptoms">
+      <label>Which symptoms does the child have?</label>
+      <hint>select_multiple (check boxes)</hint>
+      <item><label>Fever</label><value>fever</value></item>
+      <item><label>Cough</label><value>cough</value></item>
+      <item><label>Headache</label><value>headache</value></item>
+      <item><label>Diarrhoea</label><value>diarrhoea</value></item>
+    </select>
+    <select ref="/data/minimal" appearance="minimal">
+      <label>Which symptoms does the child have?</label>
+      <hint>appearance: minimal (opens a dialog)</hint>
+      <item><label>Fever</label><value>fever</value></item>
+      <item><label>Cough</label><value>cough</value></item>
+      <item><label>Headache</label><value>headache</value></item>
+      <item><label>Diarrhoea</label><value>diarrhoea</value></item>
+    </select>
+    <select ref="/data/crops" appearance="autocomplete">
+      <label>Which crops do you grow?</label>
+      <hint>appearance: autocomplete</hint>
+      <itemset nodeset="instance('crops')/root/item">
+        <value ref="name"/>
+        <label ref="label"/>
+      </itemset>
+    </select>
+    <select ref="/data/columns" appearance="columns-2">
+      <label>Which crops do you grow?</label>
+      <hint>appearance: columns-2</hint>
+      <itemset nodeset="instance('crops')/root/item">
+        <value ref="name"/>
+        <label ref="label"/>
+      </itemset>
+    </select>
+    <select ref="/data/nobuttons" appearance="columns-4 no-buttons">
+      <label>Which ways do you travel to market?</label>
+      <hint>appearance: columns-4 no-buttons</hint>
+      <item><label ref="jr:itext('walk')"/><value>walk</value></item>
+      <item><label ref="jr:itext('bike')"/><value>bike</value></item>
+      <item><label ref="jr:itext('bus')"/><value>bus</value></item>
+      <item><label ref="jr:itext('car')"/><value>car</value></item>
+    </select>
+    <select ref="/data/list" appearance="list">
+      <label>Which do you own?</label>
+      <hint>appearance: list</hint>
+      <item><label>Radio</label><value>radio</value></item>
+      <item><label>Phone</label><value>phone</value></item>
+      <item><label>Bicycle</label><value>bicycle</value></item>
+    </select>
+    <select ref="/data/s_readonly">
+      <label>Read-only</label>
+      <hint>readonly: true()</hint>
+      <item><label>Fever</label><value>fever</value></item>
+      <item><label>Cough</label><value>cough</value></item>
+    </select>
+    <select ref="/data/s_required">
+      <label>Required, left empty</label>
+      <item><label>Fever</label><value>fever</value></item>
+      <item><label>Cough</label><value>cough</value></item>
+    </select>
+    <select ref="/data/s_invalid">
+      <label>Constraint failed (a third crop tapped)</label>
+      <hint>constraint: count-selected(.) &lt;= 2</hint>
+      <itemset nodeset="instance('crops')/root/item[position() &lt;= 3]">
+        <value ref="name"/>
+        <label ref="label"/>
+      </itemset>
+    </select>
+  </h:body>
+</h:html>

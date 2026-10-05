@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa">
+  <h:head>
+    <h:title>Groups</h:title>
+    <model>
+      <instance>
+        <data id="catalog-groups">
+          <household>
+            <head>Amina Mohamed</head>
+            <size>5</size>
+            <dwelling>
+              <roof>metal</roof>
+              <rooms>3</rooms>
+            </dwelling>
+          </household>
+          <contact>
+            <phone>0712345678</phone>
+            <best_time>evening</best_time>
+            <consent>yes</consent>
+          </contact>
+          <assets>
+            <radio>yes</radio>
+            <phone_owned>yes</phone_owned>
+            <bicycle>no</bicycle>
+            <solar/>
+          </assets>
+          <plain>
+            <a>Kisumu</a>
+          </plain>
+        </data>
+      </instance>
+      <bind nodeset="/data/household/head" type="string"/>
+      <bind nodeset="/data/household/size" type="int"/>
+      <bind nodeset="/data/household/dwelling/roof" type="string"/>
+      <bind nodeset="/data/household/dwelling/rooms" type="int"/>
+      <bind nodeset="/data/contact/phone" type="string"/>
+      <bind nodeset="/data/contact/best_time" type="string"/>
+      <bind nodeset="/data/contact/consent" type="string"/>
+      <bind nodeset="/data/assets/radio" type="string"/>
+      <bind nodeset="/data/assets/phone_owned" type="string"/>
+      <bind nodeset="/data/assets/bicycle" type="string"/>
+      <bind nodeset="/data/assets/solar" type="string"/>
+      <bind nodeset="/data/plain/a" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="/data/household">
+      <label>Household</label>
+      <input ref="/data/household/head">
+        <label>Head of household</label>
+      </input>
+      <input ref="/data/household/size">
+        <label>Household size</label>
+      </input>
+      <group ref="/data/household/dwelling">
+        <label>Dwelling</label>
+        <select1 ref="/data/household/dwelling/roof" appearance="columns-pack">
+          <label>Roof material</label>
+          <item><label>Metal</label><value>metal</value></item>
+          <item><label>Thatch</label><value>thatch</value></item>
+          <item><label>Tiles</label><value>tiles</value></item>
+        </select1>
+        <input ref="/data/household/dwelling/rooms">
+          <label>Number of rooms</label>
+        </input>
+      </group>
+    </group>
+    <group ref="/data/contact" appearance="field-list">
+      <label>Contact details</label>
+      <input ref="/data/contact/phone" appearance="numbers">
+        <label>Phone number</label>
+      </input>
+      <select1 ref="/data/contact/best_time" appearance="minimal">
+        <label>Best time to call</label>
+        <item><label>Morning</label><value>morning</value></item>
+        <item><label>Afternoon</label><value>afternoon</value></item>
+        <item><label>Evening</label><value>evening</value></item>
+      </select1>
+      <select1 ref="/data/contact/consent" appearance="columns-pack">
+        <label>May we call back?</label>
+        <item><label>Yes</label><value>yes</value></item>
+        <item><label>No</label><value>no</value></item>
+      </select1>
+    </group>
+    <group ref="/data/assets" appearance="table-list">
+      <label>Which of these does the household own?</label>
+      <select1 ref="/data/assets/radio">
+        <label>Radio</label>
+        <item><label>Yes</label><value>yes</value></item>
+        <item><label>No</label><value>no</value></item>
+        <item><label>Don't know</label><value>dk</value></item>
+      </select1>
+      <select1 ref="/data/assets/phone_owned">
+        <label>Mobile phone</label>
+        <item><label>Yes</label><value>yes</value></item>
+        <item><label>No</label><value>no</value></item>
+        <item><label>Don't know</label><value>dk</value></item>
+      </select1>
+      <select1 ref="/data/assets/bicycle">
+        <label>Bicycle</label>
+        <item><label>Yes</label><value>yes</value></item>
+        <item><label>No</label><value>no</value></item>
+        <item><label>Don't know</label><value>dk</value></item>
+      </select1>
+      <select1 ref="/data/assets/solar">
+        <label>Solar panel</label>
+        <item><label>Yes</label><value>yes</value></item>
+        <item><label>No</label><value>no</value></item>
+        <item><label>Don't know</label><value>dk</value></item>
+      </select1>
+    </group>
+    <group ref="/data/plain">
+      <input ref="/data/plain/a">
+        <label>Town (a group without a label adds no card)</label>
+      </input>
+    </group>
+  </h:body>
+</h:html>

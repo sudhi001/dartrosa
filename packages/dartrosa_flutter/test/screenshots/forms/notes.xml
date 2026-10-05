@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa">
+  <h:head>
+    <h:title>Notes, labels and triggers</h:title>
+    <model>
+      <itext>
+        <translation lang="English" default="true()">
+          <text id="water">
+            <value>Is this the household's main water source?</value>
+            <value form="image">jr://images/water.png</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <data id="catalog-notes">
+          <name>Amina</name>
+          <welcome/>
+          <markdown/>
+          <hinted/>
+          <guided/>
+          <water/>
+          <consent/>
+          <consented>OK</consented>
+          <t_required/>
+        </data>
+      </instance>
+      <bind nodeset="/data/name" type="string"/>
+      <bind nodeset="/data/welcome" type="string" readonly="true()"/>
+      <bind nodeset="/data/markdown" type="string" readonly="true()"/>
+      <bind nodeset="/data/hinted" type="int"/>
+      <bind nodeset="/data/guided" type="int" jr:guidanceHint="Count babies too. Don't count visitors who sleep elsewhere."/>
+      <bind nodeset="/data/water" type="string"/>
+      <bind nodeset="/data/consent" type="string"/>
+      <bind nodeset="/data/consented" type="string"/>
+      <bind nodeset="/data/t_required" type="string" required="true()" jr:requiredMsg="Please confirm before continuing."/>
+    </model>
+  </h:head>
+  <h:body>
+    <input ref="/data/name">
+      <label>Respondent's first name</label>
+    </input>
+    <input ref="/data/welcome">
+      <label>Thank you, <output value="/data/name"/>. The next questions are about your household.</label>
+      <hint>note (read-only text, label only), with ${name}</hint>
+    </input>
+    <input ref="/data/markdown">
+      <label># Section B
+Labels support *emphasis*, **bold**, [links](https://getodk.org) and &lt;span style="color: #c62828"&gt;colored text&lt;/span&gt;.</label>
+      <hint>note with ODK markdown</hint>
+    </input>
+    <input ref="/data/hinted">
+      <label>How many people slept here last night?</label>
+      <hint>A hint sits under the label, in a lighter color.</hint>
+    </input>
+    <input ref="/data/guided">
+      <label>How many people slept here last night?</label>
+      <hint>guidance_hint, shown with guidanceHints: yes</hint>
+    </input>
+    <select1 ref="/data/water">
+      <label ref="jr:itext('water')"/>
+      <hint>label with an image (media::image)</hint>
+      <item><label>Yes</label><value>yes</value></item>
+      <item><label>No</label><value>no</value></item>
+    </select1>
+    <trigger ref="/data/consent">
+      <label>I have read the consent statement to the respondent.</label>
+      <hint>trigger (acknowledge)</hint>
+    </trigger>
+    <trigger ref="/data/consented">
+      <label>I have read the consent statement to the respondent.</label>
+      <hint>trigger, acknowledged</hint>
+    </trigger>
+    <trigger ref="/data/t_required">
+      <label>Required, left empty</label>
+    </trigger>
+  </h:body>
+</h:html>

@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa">
+  <h:head>
+    <h:title>Location</h:title>
+    <model>
+      <instance>
+        <data id="catalog-geo">
+          <home>-1.2864 36.8172 1661 4.5</home>
+          <home_empty/>
+          <point_map>-1.2864 36.8172 1661 4.5</point_map>
+          <placement/>
+          <path>-1.2864 36.8172 0 0;-1.2870 36.8190 0 0;-1.2881 36.8204 0 0</path>
+          <field/>
+          <hidden>-1.2864 36.8172 1661 4.5</hidden>
+          <g_required/>
+        </data>
+      </instance>
+      <bind nodeset="/data/home" type="geopoint"/>
+      <bind nodeset="/data/home_empty" type="geopoint"/>
+      <bind nodeset="/data/point_map" type="geopoint"/>
+      <bind nodeset="/data/placement" type="geopoint"/>
+      <bind nodeset="/data/path" type="geotrace"/>
+      <bind nodeset="/data/field" type="geoshape"/>
+      <bind nodeset="/data/hidden" type="geopoint"/>
+      <bind nodeset="/data/g_required" type="geopoint" required="true()" jr:requiredMsg="Record the household's location."/>
+    </model>
+  </h:head>
+  <h:body>
+    <input ref="/data/home">
+      <label>Household location</label>
+      <hint>geopoint</hint>
+    </input>
+    <input ref="/data/home_empty">
+      <label>Household location</label>
+      <hint>geopoint, not recorded yet</hint>
+    </input>
+    <input ref="/data/point_map" appearance="maps">
+      <label>Household location</label>
+      <hint>geopoint, appearance: maps</hint>
+    </input>
+    <input ref="/data/placement" appearance="placement-map">
+      <label>Where is the water point?</label>
+      <hint>geopoint, appearance: placement-map</hint>
+    </input>
+    <input ref="/data/path">
+      <label>Walk the path to the river</label>
+      <hint>geotrace</hint>
+    </input>
+    <input ref="/data/field">
+      <label>Walk around the field</label>
+      <hint>geoshape</hint>
+    </input>
+    <input ref="/data/hidden" appearance="maps hidden-answer">
+      <label>Household location</label>
+      <hint>appearance: maps hidden-answer</hint>
+    </input>
+    <input ref="/data/g_required">
+      <label>Required, left empty</label>
+    </input>
+  </h:body>
+</h:html>

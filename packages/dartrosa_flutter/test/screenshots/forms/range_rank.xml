@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:odk="http://www.opendatakit.org/xforms">
+  <h:head>
+    <h:title>Range and rank</h:title>
+    <model>
+      <instance>
+        <data id="catalog-range-rank">
+          <pain>6</pain>
+          <temperature>37.5</temperature>
+          <water>40</water>
+          <picker>3</picker>
+          <rating>4</rating>
+          <noticks>65</noticks>
+          <priorities>water school clinic road</priorities>
+          <rank_empty/>
+          <r_readonly>7</r_readonly>
+          <r_required/>
+          <rank_readonly>clinic water road school</rank_readonly>
+        </data>
+      </instance>
+      <bind nodeset="/data/pain" type="int"/>
+      <bind nodeset="/data/temperature" type="decimal"/>
+      <bind nodeset="/data/water" type="int"/>
+      <bind nodeset="/data/picker" type="int"/>
+      <bind nodeset="/data/rating" type="int"/>
+      <bind nodeset="/data/noticks" type="int"/>
+      <bind nodeset="/data/priorities" type="odk:rank"/>
+      <bind nodeset="/data/rank_empty" type="odk:rank"/>
+      <bind nodeset="/data/r_readonly" type="int" readonly="true()"/>
+      <bind nodeset="/data/r_required" type="int" required="true()" jr:requiredMsg="Move the slider to answer."/>
+      <bind nodeset="/data/rank_readonly" type="odk:rank" readonly="true()"/>
+    </model>
+  </h:head>
+  <h:body>
+    <range ref="/data/pain" start="0" end="10" step="1">
+      <label>Pain level</label>
+      <hint>range 0 to 10, step 1</hint>
+    </range>
+    <range ref="/data/temperature" start="35" end="42" step="0.5">
+      <label>Body temperature (°C)</label>
+      <hint>decimal range 35 to 42, step 0.5</hint>
+    </range>
+    <range ref="/data/water" start="0" end="100" step="10" appearance="vertical">
+      <label>Tank level (%)</label>
+      <hint>appearance: vertical</hint>
+    </range>
+    <range ref="/data/picker" start="1" end="10" step="1" appearance="picker">
+      <label>Household size</label>
+      <hint>appearance: picker</hint>
+    </range>
+    <range ref="/data/rating" start="1" end="5" step="1" appearance="rating">
+      <label>How was the service?</label>
+      <hint>appearance: rating</hint>
+    </range>
+    <range ref="/data/noticks" start="0" end="100" step="1" appearance="no-ticks">
+      <label>Share of land farmed (%)</label>
+      <hint>appearance: no-ticks</hint>
+    </range>
+    <odk:rank ref="/data/priorities">
+      <label>Rank these needs, most urgent first</label>
+      <hint>rank</hint>
+      <item><label>Clean water</label><value>water</value></item>
+      <item><label>School</label><value>school</value></item>
+      <item><label>Clinic</label><value>clinic</value></item>
+      <item><label>Road</label><value>road</value></item>
+    </odk:rank>
+    <odk:rank ref="/data/rank_empty">
+      <label>Rank these needs, most urgent first</label>
+      <hint>rank, not answered yet (choices in form order)</hint>
+      <item><label>Clean water</label><value>water</value></item>
+      <item><label>School</label><value>school</value></item>
+      <item><label>Clinic</label><value>clinic</value></item>
+      <item><label>Road</label><value>road</value></item>
+    </odk:rank>
+    <range ref="/data/r_readonly" start="0" end="10" step="1">
+      <label>Read-only</label>
+      <hint>readonly: true()</hint>
+    </range>
+    <range ref="/data/r_required" start="0" end="10" step="1">
+      <label>Required, left empty</label>
+    </range>
+    <odk:rank ref="/data/rank_readonly">
+      <label>Read-only rank</label>
+      <hint>readonly: true()</hint>
+      <item><label>Clean water</label><value>water</value></item>
+      <item><label>School</label><value>school</value></item>
+      <item><label>Clinic</label><value>clinic</value></item>
+      <item><label>Road</label><value>road</value></item>
+    </odk:rank>
+  </h:body>
+</h:html>

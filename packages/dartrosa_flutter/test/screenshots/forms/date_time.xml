@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa">
+  <h:head>
+    <h:title>Dates and times</h:title>
+    <model>
+      <instance>
+        <data id="catalog-date-time">
+          <visit>2024-03-20</visit>
+          <birth/>
+          <start>14:30:00</start>
+          <arrived>2024-03-20T09:15:00</arrived>
+          <typed>2024-03-20</typed>
+          <harvest>2024-03-01</harvest>
+          <built>2024-01-01</built>
+          <ethiopian>2024-03-20</ethiopian>
+          <coptic>2024-03-20</coptic>
+          <islamic>2024-03-20</islamic>
+          <bikram>2024-03-20</bikram>
+          <myanmar>2024-03-20</myanmar>
+          <persian>2024-03-20</persian>
+          <buddhist>2024-03-20</buddhist>
+          <s_readonly>2024-03-20</s_readonly>
+          <s_required/>
+          <s_invalid/>
+        </data>
+      </instance>
+      <bind nodeset="/data/visit" type="date"/>
+      <bind nodeset="/data/birth" type="date"/>
+      <bind nodeset="/data/start" type="time"/>
+      <bind nodeset="/data/arrived" type="dateTime"/>
+      <bind nodeset="/data/typed" type="date"/>
+      <bind nodeset="/data/harvest" type="date"/>
+      <bind nodeset="/data/built" type="date"/>
+      <bind nodeset="/data/ethiopian" type="date"/>
+      <bind nodeset="/data/coptic" type="date"/>
+      <bind nodeset="/data/islamic" type="date"/>
+      <bind nodeset="/data/bikram" type="date"/>
+      <bind nodeset="/data/myanmar" type="date"/>
+      <bind nodeset="/data/persian" type="date"/>
+      <bind nodeset="/data/buddhist" type="date"/>
+      <bind nodeset="/data/s_readonly" type="date" readonly="true()"/>
+      <bind nodeset="/data/s_required" type="date" required="true()" jr:requiredMsg="Enter the date of the visit."/>
+      <bind nodeset="/data/s_invalid" type="date" constraint=". &lt;= today()" jr:constraintMsg="The visit can't be in the future."/>
+    </model>
+  </h:head>
+  <h:body>
+    <input ref="/data/visit">
+      <label>Date of visit</label>
+      <hint>date</hint>
+    </input>
+    <input ref="/data/birth">
+      <label>Date of birth</label>
+      <hint>date, not answered yet</hint>
+    </input>
+    <input ref="/data/start">
+      <label>Interview start</label>
+      <hint>time</hint>
+    </input>
+    <input ref="/data/arrived">
+      <label>Arrival</label>
+      <hint>dateTime</hint>
+    </input>
+    <input ref="/data/typed" appearance="no-calendar">
+      <label>Date of visit</label>
+      <hint>appearance: no-calendar (typed)</hint>
+    </input>
+    <input ref="/data/harvest" appearance="month-year">
+      <label>Month of the last harvest</label>
+      <hint>appearance: month-year</hint>
+    </input>
+    <input ref="/data/built" appearance="year">
+      <label>Year the house was built</label>
+      <hint>appearance: year</hint>
+    </input>
+    <input ref="/data/ethiopian" appearance="ethiopian">
+      <label>Date of visit</label>
+      <hint>appearance: ethiopian</hint>
+    </input>
+    <input ref="/data/coptic" appearance="coptic">
+      <label>Date of visit</label>
+      <hint>appearance: coptic</hint>
+    </input>
+    <input ref="/data/islamic" appearance="islamic">
+      <label>Date of visit</label>
+      <hint>appearance: islamic</hint>
+    </input>
+    <input ref="/data/bikram" appearance="bikram-sambat">
+      <label>Date of visit</label>
+      <hint>appearance: bikram-sambat</hint>
+    </input>
+    <input ref="/data/myanmar" appearance="myanmar">
+      <label>Date of visit</label>
+      <hint>appearance: myanmar</hint>
+    </input>
+    <input ref="/data/persian" appearance="persian">
+      <label>Date of visit</label>
+      <hint>appearance: persian</hint>
+    </input>
+    <input ref="/data/buddhist" appearance="buddhist">
+      <label>Date of visit</label>
+      <hint>appearance: buddhist</hint>
+    </input>
+    <input ref="/data/s_readonly">
+      <label>Read-only</label>
+      <hint>readonly: true()</hint>
+    </input>
+    <input ref="/data/s_required">
+      <label>Required, left empty</label>
+    </input>
+    <input ref="/data/s_invalid">
+      <label>Constraint failed (a date next year picked)</label>
+      <hint>constraint: . &lt;= today()</hint>
+    </input>
+  </h:body>
+</h:html>
