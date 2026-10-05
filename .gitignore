@@ -9,3 +9,4 @@ pubspec.lock
 conformance/jvm_oracle/lib/
 conformance/jvm_oracle/out/
 __pycache__/
+.claude/
