@@ -1,5 +1,14 @@
 # DartRosa — Detailed Porting Plan
 
+> **Historical document.** This is the internal plan the port was built
+> from, kept for maintainers as a record of the design decisions (§2),
+> the JavaRosa-to-Dart inventory (§6 to §8) and the compatibility traps
+> (§9). It is not user documentation and its checklists are not kept in
+> step with the code. For what DartRosa does today, see
+> [COMPATIBILITY.md](../COMPATIBILITY.md); for measured performance,
+> [BENCHMARKS.md](../BENCHMARKS.md); for an index of the documentation,
+> [docs/README.md](../README.md).
+
 > Port of [getodk/javarosa](https://github.com/getodk/javarosa) (ODK XForms engine, Java, Apache-2.0) to idiomatic Dart,
 > plus a Flutter renderer and the Collect-layer features needed for full ODK Collect form parity.
 
@@ -604,4 +613,4 @@ corpora) cover them; open items are left unticked.
 - [x] No global mutable state; no `dart:io`/Flutter imports in core (enforced by a CI import-lint)
 - [ ] Benchmarks within targets (§1)
 - [x] Example app fills, saves, resumes, edits, finalizes, encrypts and exports every corpus form (`packages/dartrosa_flutter/example/test/corpus_test.dart`, run in CI; forms that JavaRosa or Collect reject, or that can't be completed by design, are reported with the reason)
-- [x] Docs: getting started, API reference, JavaRosa → DartRosa migration guide, compatibility matrix, plugin guide (`docs/GETTING_STARTED.md`, `MIGRATING_FROM_JAVAROSA.md`, `COMPATIBILITY.md`, `PLUGINS.md`; snippets run by `packages/*/test/docs/`; API reference via `dart doc`, 0 warnings)
+- [x] Docs: getting started, API reference, JavaRosa → DartRosa migration guide, compatibility matrix, plugin guide (`docs/GETTING_STARTED.md`, `docs/MIGRATING_FROM_JAVAROSA.md`, `COMPATIBILITY.md`, `PLUGINS.md`; snippets run by `packages/*/test/docs/`; API reference via `dart doc`, 0 warnings)
