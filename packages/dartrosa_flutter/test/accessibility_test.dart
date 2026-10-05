@@ -71,6 +71,44 @@ void main() {
     handle.dispose();
   });
 
+  for (final brightness in Brightness.values) {
+    testWidgets('more widgets meet the guidelines: ${brightness.name}', (
+      tester,
+    ) async {
+      final handle = tester.ensureSemantics();
+      final s = await formSession(
+        '<c>3</c><d/><m/><s/><g/>',
+        '<bind nodeset="/data/c" type="int"/>'
+            '<bind nodeset="/data/d" type="date"/>'
+            '<bind nodeset="/data/m" type="string"/>'
+            '<bind nodeset="/data/s" type="string"/>'
+            '<bind nodeset="/data/g" type="string"/>',
+        '<input ref="/data/c" appearance="counter"><label>C</label></input>'
+            '<input ref="/data/d"><label>D</label></input>'
+            '<select1 ref="/data/m" appearance="minimal"><label>M</label>'
+            '${items(['X', 'Y'])}</select1>'
+            '<select ref="/data/s" appearance="list"><label>S</label>'
+            '${items(['X', 'Y'])}</select>'
+            '<input ref="/data/g"><label>G</label>'
+            '<hint form="guidance">More help</hint></input>',
+      );
+      await tester.pumpWidget(
+        app(
+          XFormView(
+            session: s,
+            mode: XFormMode.scroll,
+            guidanceHints: GuidanceHintMode.collapsed,
+          ),
+          theme: ThemeData(brightness: brightness),
+        ),
+      );
+      await expectLater(tester, meetsGuideline(androidTapTargetGuideline));
+      await expectLater(tester, meetsGuideline(labeledTapTargetGuideline));
+      await expectLater(tester, meetsGuideline(textContrastGuideline));
+      handle.dispose();
+    });
+  }
+
   testWidgets('focus follows form order', (tester) async {
     final s = await _form();
     await tester.pumpWidget(app(XFormView(session: s, mode: XFormMode.scroll)));

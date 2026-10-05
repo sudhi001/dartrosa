@@ -582,43 +582,47 @@ class _SelectOneDropdown extends StatelessWidget {
   Widget build(BuildContext context) {
     final selected = selectedValues(node).firstOrNull;
     final scope = XFormScope.of(context);
-    return DropdownButtonFormField<String>(
-      key: ValueKey(selected),
-      initialValue: selected,
-      isExpanded: true,
-      // Items with images are taller than the default height; the field
-      // shows the selected label only.
-      itemHeight: null,
-      selectedItemBuilder: (context) => [
-        for (final c in choices)
-          Align(
-            alignment: AlignmentDirectional.centerStart,
-            child: Text(
-              odkMarkdownToPlainText(node.choiceLabel(c) ?? c.value),
-              overflow: TextOverflow.ellipsis,
+    // Named by the question for screen readers while nothing is selected.
+    return Semantics(
+      label: odkMarkdownToPlainText(node.label.text ?? ''),
+      child: DropdownButtonFormField<String>(
+        key: ValueKey(selected),
+        initialValue: selected,
+        isExpanded: true,
+        // Items with images are taller than the default height; the field
+        // shows the selected label only.
+        itemHeight: null,
+        selectedItemBuilder: (context) => [
+          for (final c in choices)
+            Align(
+              alignment: AlignmentDirectional.centerStart,
+              child: Text(
+                odkMarkdownToPlainText(node.choiceLabel(c) ?? c.value),
+                overflow: TextOverflow.ellipsis,
+              ),
             ),
-          ),
-      ],
-      items: [
-        for (final c in choices)
-          DropdownMenuItem(
-            value: c.value,
-            // The menu is a route outside the form's scope.
-            child: XFormScope(
-              controller: scope.controller,
-              delegates: scope.delegates,
-              overrides: scope.overrides,
-              child: ChoiceContent(node, c),
+        ],
+        items: [
+          for (final c in choices)
+            DropdownMenuItem(
+              value: c.value,
+              // The menu is a route outside the form's scope.
+              child: XFormScope(
+                controller: scope.controller,
+                delegates: scope.delegates,
+                overrides: scope.overrides,
+                child: ChoiceContent(node, c),
+              ),
             ),
-          ),
-      ],
-      onChanged: node.isReadonly
-          ? null
-          : (value) => selectChoice(
-              context,
-              node,
-              choices.where((c) => c.value == value).firstOrNull,
-            ),
+        ],
+        onChanged: node.isReadonly
+            ? null
+            : (value) => selectChoice(
+                context,
+                node,
+                choices.where((c) => c.value == value).firstOrNull,
+              ),
+      ),
     );
   }
 }
