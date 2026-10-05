@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="560" viewBox="0 0 980 560" role="img" aria-labelledby="title desc">
+  <title id="title">The life of a form, from spreadsheet to submission</title>
+  <desc id="desc">Three stages. Design: a form designer writes an XLSForm spreadsheet, pyxform converts it to an XForm XML file, and a server such as ODK Central publishes it. Fill in: the device downloads the form over OpenRosa, DartRosa parses it and starts a session, the person answers questions while rules recompute, and drafts can be saved and resumed at any time. Send: finalizing validates the answers and builds the submission XML, which is encrypted if the form has a public key, then uploaded over OpenRosa to the server.</desc>
+  <style>
+    .bg { fill: #ffffff; }
+    .text { fill: #1f2328; }
+    .muted { fill: #59636e; }
+    .edge { stroke: #59636e; fill: none; }
+    .head { fill: #59636e; }
+    .design { fill: #fff1e5; stroke: #bc4c00; }
+    .fill { fill: #ddf4ff; stroke: #0969da; }
+    .send { fill: #dafbe1; stroke: #1a7f37; }
+    .stage { fill: #59636e; }
+    text { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #0d1117; }
+      .text { fill: #e6edf3; }
+      .muted { fill: #9198a1; }
+      .edge { stroke: #9198a1; }
+      .head { fill: #9198a1; }
+      .design { fill: #3d1d00; stroke: #f0883e; }
+      .fill { fill: #0c2d6b; stroke: #4493f8; }
+      .send { fill: #0f3d1f; stroke: #3fb950; }
+      .stage { fill: #9198a1; }
+    }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path class="head" d="M 0 0 L 10 5 L 0 10 z"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="980" height="560" rx="8"/>
+
+  <!-- Stage 1: design -->
+  <text class="stage" x="40" y="40" font-size="13" font-weight="700" letter-spacing="0.5">1 · DESIGN THE FORM (on a computer)</text>
+  <rect class="design" x="40" y="56" width="200" height="88" rx="8" stroke-width="1.5"/>
+  <text class="text" x="140" y="84" font-size="15" font-weight="600" text-anchor="middle">XLSForm</text>
+  <text class="muted" x="140" y="106" font-size="12" text-anchor="middle">a spreadsheet: survey,</text>
+  <text class="muted" x="140" y="123" font-size="12" text-anchor="middle">choices and settings sheets</text>
+
+  <rect class="design" x="280" y="56" width="200" height="88" rx="8" stroke-width="1.5"/>
+  <text class="text" x="380" y="84" font-size="15" font-weight="600" text-anchor="middle">pyxform</text>
+  <text class="muted" x="380" y="106" font-size="12" text-anchor="middle">converts it (also built into</text>
+  <text class="muted" x="380" y="123" font-size="12" text-anchor="middle">ODK Central, XLSForm Online)</text>
+
+  <rect class="design" x="520" y="56" width="200" height="88" rx="8" stroke-width="1.5"/>
+  <text class="text" x="620" y="84" font-size="15" font-weight="600" text-anchor="middle">XForm</text>
+  <text class="muted" x="620" y="106" font-size="12" text-anchor="middle">an XML file: questions,</text>
+  <text class="muted" x="620" y="123" font-size="12" text-anchor="middle">rules and translations</text>
+
+  <rect class="design" x="760" y="56" width="200" height="88" rx="8" stroke-width="1.5"/>
+  <text class="text" x="860" y="84" font-size="15" font-weight="600" text-anchor="middle">Server</text>
+  <text class="muted" x="860" y="106" font-size="12" text-anchor="middle">ODK Central publishes the</text>
+  <text class="muted" x="860" y="123" font-size="12" text-anchor="middle">form and its media files</text>
+
+  <line class="edge" x1="240" y1="100" x2="278" y2="100" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line class="edge" x1="480" y1="100" x2="518" y2="100" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line class="edge" x1="720" y1="100" x2="758" y2="100" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path class="edge" d="M 860 144 V 176 H 18 V 268 H 38" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Stage 2: fill in -->
+  <text class="stage" x="40" y="214" font-size="13" font-weight="700" letter-spacing="0.5">2 · FILL IT IN (DartRosa, on the device)</text>
+  <rect class="fill" x="40" y="224" width="200" height="88" rx="8" stroke-width="1.5"/>
+  <text class="text" x="140" y="252" font-size="15" font-weight="600" text-anchor="middle">Download</text>
+  <text class="muted" x="140" y="274" font-size="12" text-anchor="middle">OpenRosa form list and</text>
+  <text class="muted" x="140" y="291" font-size="12" text-anchor="middle">media · dartrosa_openrosa</text>
+
+  <rect class="fill" x="280" y="224" width="200" height="88" rx="8" stroke-width="1.5"/>
+  <text class="text" x="380" y="252" font-size="15" font-weight="600" text-anchor="middle">Parse</text>
+  <text class="muted" x="380" y="274" font-size="12" text-anchor="middle">FormDefinition.parse()</text>
+  <text class="muted" x="380" y="291" font-size="12" text-anchor="middle">reads the XForm · dartrosa</text>
+
+  <rect class="fill" x="520" y="224" width="200" height="88" rx="8" stroke-width="1.5"/>
+  <text class="text" x="620" y="252" font-size="15" font-weight="600" text-anchor="middle">Answer questions</text>
+  <text class="muted" x="620" y="274" font-size="12" text-anchor="middle">createSession(), answer();</text>
+  <text class="muted" x="620" y="291" font-size="12" text-anchor="middle">rules recompute at once</text>
+
+  <rect class="fill" x="760" y="224" width="200" height="88" rx="8" stroke-width="1.5"/>
+  <text class="text" x="860" y="252" font-size="15" font-weight="600" text-anchor="middle">Draft</text>
+  <text class="muted" x="860" y="274" font-size="12" text-anchor="middle">saveDraft(); later resume</text>
+  <text class="muted" x="860" y="291" font-size="12" text-anchor="middle">with existingInstance</text>
+
+  <line class="edge" x1="240" y1="268" x2="278" y2="268" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line class="edge" x1="480" y1="268" x2="518" y2="268" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line class="edge" x1="722" y1="268" x2="758" y2="268" stroke-width="1.5" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <path class="edge" d="M 620 312 V 346 H 18 V 438 H 38" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Stage 3: send -->
+  <text class="stage" x="40" y="384" font-size="13" font-weight="700" letter-spacing="0.5">3 · SEND IT (when every answer is valid)</text>
+  <rect class="send" x="40" y="394" width="200" height="88" rx="8" stroke-width="1.5"/>
+  <text class="text" x="140" y="422" font-size="15" font-weight="600" text-anchor="middle">Finalize</text>
+  <text class="muted" x="140" y="444" font-size="12" text-anchor="middle">finalize() validates and</text>
+  <text class="muted" x="140" y="461" font-size="12" text-anchor="middle">builds the submission XML</text>
+
+  <rect class="send" x="280" y="394" width="200" height="88" rx="8" stroke-width="1.5"/>
+  <text class="text" x="380" y="422" font-size="15" font-weight="600" text-anchor="middle">Encrypt (optional)</text>
+  <text class="muted" x="380" y="444" font-size="12" text-anchor="middle">if the form has a public key</text>
+  <text class="muted" x="380" y="461" font-size="12" text-anchor="middle">dartrosa_encryption</text>
+
+  <rect class="send" x="520" y="394" width="200" height="88" rx="8" stroke-width="1.5"/>
+  <text class="text" x="620" y="422" font-size="15" font-weight="600" text-anchor="middle">Submit</text>
+  <text class="muted" x="620" y="444" font-size="12" text-anchor="middle">OpenRosa multipart upload</text>
+  <text class="muted" x="620" y="461" font-size="12" text-anchor="middle">dartrosa_openrosa</text>
+
+  <rect class="send" x="760" y="394" width="200" height="88" rx="8" stroke-width="1.5"/>
+  <text class="text" x="860" y="422" font-size="15" font-weight="600" text-anchor="middle">Server</text>
+  <text class="muted" x="860" y="444" font-size="12" text-anchor="middle">ODK Central stores (and</text>
+  <text class="muted" x="860" y="461" font-size="12" text-anchor="middle">decrypts) the submission</text>
+
+  <line class="edge" x1="240" y1="438" x2="278" y2="438" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line class="edge" x1="480" y1="438" x2="518" y2="438" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line class="edge" x1="720" y1="438" x2="758" y2="438" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <text class="muted" x="40" y="524" font-size="12.5">DartRosa does stages 2 and 3. Stage 1 happens before the app runs: DartRosa reads the XForm XML that pyxform produces.</text>
+  <text class="muted" x="40" y="544" font-size="12.5">The Flutter renderer (dartrosa_flutter) draws the questions; your app stores drafts and submissions where it likes.</text>
+</svg>

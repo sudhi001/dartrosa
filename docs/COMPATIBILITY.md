@@ -23,7 +23,7 @@ typed); **app** = the engine exposes it and the app decides what to do;
 
 | | |
 |---|---|
-| Conformance corpus | 401 XForms in `conformance/forms` (JavaRosa 69, ODK Collect 121, ODK Web Forms 78, pyxform 132, DartRosa 8 — counted by `.xml` files that contain an `h:html` root; the rest of the 408 `.xml` files are secondary instances) |
+| Conformance corpus | 401 XForms in `conformance/forms` (JavaRosa 65, ODK Collect 119, ODK Web Forms 77, pyxform 132, DartRosa 8), counted as the `.xml` and `.xhtml` files with an `h:html` root; the other `.xml` files are secondary instances |
 | Oracle traces | 397 forms traced by real JavaRosa 6.0.0 (`conformance/jvm_oracle`): structure, initialization and full walks, 397 each; 1,191 seeded random-answer (fuzz) walks; DAG scenario traces. The other 4 forms are listed in `conformance/nondeterministic.txt` (unseeded `random()`, `decimal-date-time(now())`, and a JavaRosa error message that depends on Java identity-hash order) |
 | Result | 0 diffs: the Dart replay (`packages/dartrosa/test/conformance`) matches every trace, including byte-identical submission XML. CI regenerates the traces with JavaRosa and fails if they change |
 | JavaRosa unit tests | Every JavaRosa 6.0.0 test class in the port map (PORTING_PLAN §10.5) is ported (`packages/dartrosa/test`, 133 test files; each ported file says "Port of JavaRosa v6.0.0 \<Class\>"). Tests of dropped subjects (`ExternalizableTest`, `BufferedInputStreamTests`) are replaced by tests of the replacement (`FormDefCodec`) |
