@@ -295,6 +295,11 @@ void main() {
   });
 
   for (final MapEntry(key: name, value: record) in _recordings.entries) {
-    testWidgets(name, record, skip: !screenshotsEnabled);
+    testWidgets(
+      name,
+      record,
+      skip: !screenshotsEnabled,
+      experimentalLeakTesting: screenshotLeakTesting,
+    );
   }
 }

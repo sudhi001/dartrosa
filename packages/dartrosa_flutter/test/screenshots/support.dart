@@ -16,6 +16,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:leak_tracker_flutter_testing/leak_tracker_flutter_testing.dart';
 
 /// The phone window, in logical pixels, and the docs' pixel ratio.
 const phone = Size(360, 720);
@@ -419,3 +420,10 @@ Rect spanOf(Iterable<Rect> rects, {required double width, double padding = 8}) {
   }
   return Rect.fromLTRB(0, math.max(0, top - padding), width, bottom + padding);
 }
+
+/// Leak tracking for the image tests: images decoded with
+/// [precacheScreenImages] outside the fake-async zone may still be
+/// referenced by the image cache when a test ends.
+final LeakTesting screenshotLeakTesting = LeakTesting.settings.withIgnored(
+  classes: ['Image', 'ImageInfo', 'ImageStreamCompleterHandle'],
+);

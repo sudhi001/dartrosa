@@ -20,9 +20,9 @@
           <region>east</region>
           <regions>north south</regions>
           <site>b</site>
-          <fruit>mango</fruit>
+          <fruit/>
           <fruit_search/>
-          <fruit_minimal>papaya</fruit_minimal>
+          <fruit_minimal/>
           <missing/>
         </data>
       </instance>

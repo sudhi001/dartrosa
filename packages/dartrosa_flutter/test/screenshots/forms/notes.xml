@@ -9,6 +9,10 @@
             <value>Is this the household's main water source?</value>
             <value form="image">jr://images/water.png</value>
           </text>
+          <text id="guided">
+            <value>How many people slept here last night?</value>
+            <value form="guidance">Count babies too. Don't count visitors who sleep elsewhere.</value>
+          </text>
         </translation>
       </itext>
       <instance>
@@ -28,7 +32,7 @@
       <bind nodeset="/data/welcome" type="string" readonly="true()"/>
       <bind nodeset="/data/markdown" type="string" readonly="true()"/>
       <bind nodeset="/data/hinted" type="int"/>
-      <bind nodeset="/data/guided" type="int" jr:guidanceHint="Count babies too. Don't count visitors who sleep elsewhere."/>
+      <bind nodeset="/data/guided" type="int"/>
       <bind nodeset="/data/water" type="string"/>
       <bind nodeset="/data/consent" type="string"/>
       <bind nodeset="/data/consented" type="string"/>
@@ -53,7 +57,7 @@ Labels support *emphasis*, **bold**, [links](https://getodk.org) and &lt;span st
       <hint>A hint sits under the label, in a lighter color.</hint>
     </input>
     <input ref="/data/guided">
-      <label>How many people slept here last night?</label>
+      <label ref="jr:itext('guided')"/>
       <hint>guidance_hint, shown with guidanceHints: yes</hint>
     </input>
     <select1 ref="/data/water">

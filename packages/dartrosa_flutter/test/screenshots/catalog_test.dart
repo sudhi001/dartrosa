@@ -379,9 +379,9 @@ final List<_Crops> _crops = [
     act: (tester, session) =>
         tapIn(tester, session, 's_invalid', find.text('Cassava')),
   ),
-  const _Crops(
+  _Crops(
     'select_advanced',
-    crops: {
+    crops: const {
       'image_map': ['region'],
       'image_map_multiple': ['regions'],
       'select_map': ['site'],
@@ -390,7 +390,17 @@ final List<_Crops> _crops = [
       'search_minimal': ['fruit_minimal'],
       'search_missing': ['missing'],
     },
-    dark: {'image_map'},
+    dark: const {'image_map'},
+    typed: const {'fruit_search': 'pa'},
+    // Choices from a CSV have no default answer: answer as a person would.
+    act: (tester, session) async {
+      await tapIn(tester, session, 'fruit', find.text('Mango'));
+      final minimal = nodeNamed<QuestionNode>(session.root, 'fruit_minimal');
+      _controller(
+        tester,
+      ).answer(minimal.index, const SelectOneValue(Selection('papaya')));
+      await tester.pump();
+    },
   ),
   const _Crops(
     'select_advanced',
@@ -735,6 +745,7 @@ void main() {
         'crops ${spec.form}${spec.suffix} ${brightness.name}',
         (tester) => _renderCrops(tester, spec, brightness),
         skip: !screenshotsEnabled,
+        experimentalLeakTesting: screenshotLeakTesting,
       );
     }
   }
@@ -745,6 +756,7 @@ void main() {
         'screen ${spec.name} ${brightness.name}',
         (tester) => _renderScreen(tester, spec, brightness),
         skip: !screenshotsEnabled,
+        experimentalLeakTesting: screenshotLeakTesting,
       );
     }
   }
