@@ -107,11 +107,13 @@ if (session.finalize() case FinalizeSuccess(:final submission)) {
 ```
 
 `attachments` holds the files the submission refers to (photos,
-recordings, signatures). `submission.attachments` lists the names of
-answers given as `PointerValue`s; the Flutter renderer stores captured
-files' names as text, so keep track of the files your delegates save
+recordings, signatures). `submission.attachments` lists their names: the
+file names answered to media questions (as the Flutter renderer stores
+captured files), in form order, leaving out answers to hidden questions.
+Look up each name among the files your delegates saved
 (the [tutorial](../tutorials/build-a-data-collection-app.md#8-finalize-and-encrypt)
-attaches every saved file the submission names).
+does). Every file you pass is uploaded, as Collect uploads every file of
+an instance's folder, so pass only those.
 `uploadOneSubmission` returns the server's message, if it sent one, and
 posts to the form's own submission URL when the form names one.
 

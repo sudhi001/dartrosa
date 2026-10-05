@@ -86,7 +86,14 @@ final class Submission {
   /// the form has one.
   final String? instanceId;
 
-  /// The attached files' names (for multipart submission).
+  /// The names of the files the submission refers to, to send with it
+  /// (for multipart submission and encryption).
+  ///
+  /// These are the answers to `binary` questions (image, audio, video,
+  /// file, signature, drawing, annotation: the file name a media widget
+  /// stored) and `PointerValue` answers that are in [xml], in document
+  /// order and without duplicates. Answers to non-relevant questions are
+  /// left out, as they are from [xml].
   final List<String> attachments;
 }
 

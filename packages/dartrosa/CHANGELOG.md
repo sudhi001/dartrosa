@@ -1,3 +1,10 @@
+## 0.1.2
+
+- `Submission.attachments` lists the file names answered to `binary` questions (image, audio, video, file, signature, drawing, annotation), as the Flutter renderer stores them, in addition to `PointerValue` answers: relevant answers only, in document order, without duplicates. It used to be empty for forms filled with text answers.
+- `FormDefinition.parse` throws `XFormParseException` for a form without a main instance (no `<model>`, no `<instance>`, or the body before the head) and for a `jr:itext()` reference in a form without `<itext>`, instead of a `TypeError` (JavaRosa crashes with a `NullPointerException`; see `conformance/DEVIATIONS.md`).
+- `package:dartrosa/dartrosa.dart` exports `TriggerableEvaluationException` and `UnregisteredLocaleException`, and the docs of `FormDefinition.parse`, `createSession`, `FormSession.answer`, `finalize`, `language` and `addRepeatInstance` say what they throw.
+- `createSession(existingInstance:)` and `getXmlDocument` throw `XFormParseException` for malformed XML, as JavaRosa's `getXMLDocument` does, instead of `package:xml` exceptions.
+
 ## 0.1.1
 
 - API docs: tested code examples for the library and for `FormDefinition`, `FormSession`, `FormNavigator`, `DartRosaConfig` and `AnswerResult`.

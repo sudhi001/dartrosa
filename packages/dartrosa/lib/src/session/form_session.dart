@@ -412,9 +412,7 @@ final class FormSession {
     final serializer = XFormSerializingVisitor();
     final xml = serializer.serializeInstanceToString(_form.mainInstance);
     return FinalizeSuccess(
-      Submission(xml, _instanceId(), [
-        for (final pointer in serializer.dataPointers) pointer.displayText,
-      ]),
+      Submission(xml, _instanceId(), serializer.attachmentNames),
     );
   }
 

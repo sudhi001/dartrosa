@@ -127,7 +127,7 @@ data types:
 | `select_one` | `select1` | `SelectOneValue(Selection('value'))` |
 | `select_multiple` | `select` | `SelectMultiValue` / `MultipleItemsValue` |
 | `geopoint`, `geotrace`, `geoshape` | `geopoint`, ... | `GeoPointValue`, `GeoTraceValue`, `GeoShapeValue` |
-| `image`, `audio`, `file`, ... | `binary` | `PointerValue` (the file name) |
+| `image`, `audio`, `file`, ... | `binary` | `StringValue` (the file name) or `PointerValue` |
 
 When you have text from a text field, wrap it in `UncastValue`: it is
 read as the question's type, the way Collect's widgets do, and gives

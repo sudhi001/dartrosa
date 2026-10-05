@@ -3,10 +3,12 @@
 //  (C) 2009 JavaRosa; modified: translated to Dart.
 // SPDX-License-Identifier: Apache-2.0
 
+import 'dart:collection';
 import 'dart:convert';
 import 'dart:typed_data';
 
 import '../model/data/answer_value.dart';
+import '../model/data_type.dart';
 import '../model/instance/data_instance.dart';
 import '../model/instance/tree_element.dart';
 import '../model/instance/tree_reference.dart';
@@ -33,6 +35,15 @@ final class XFormSerializingVisitor {
   /// The attachments referenced by the last serialized instance.
   List<DataPointer> get dataPointers => List.unmodifiable(_dataPointers);
 
+  final List<String> _attachmentNames = [];
+
+  /// The file names of the last serialized instance's attachments, in
+  /// document order, without duplicates: the [dataPointers]' names and
+  /// the (non-empty) answers of `binary` nodes, as ODK Collect's media
+  /// widgets store a captured file's name. Not part of JavaRosa.
+  List<String> get attachmentNames =>
+      List.unmodifiable(LinkedHashSet<String>.of(_attachmentNames));
+
   /// [instance] as UTF-8 XML, from the node at [root] (the instance root
   /// by default).
   Uint8List serializeInstance(FormInstance instance, {TreeReference? root}) =>
@@ -47,6 +58,7 @@ final class XFormSerializingVisitor {
     TreeReference? root,
   }) {
     _dataPointers.clear();
+    _attachmentNames.clear();
     final rootNode =
         (root == null ? null : instance.resolveReference(root)) ??
         instance.root;
@@ -103,10 +115,16 @@ final class XFormSerializingVisitor {
       switch (value) {
         case PointerValue(:final pointer):
           _dataPointers.add(pointer);
+          _attachmentNames.add(pointer.displayText);
         case MultiPointerValue(:final pointers):
           _dataPointers.addAll(pointers);
+          _attachmentNames.addAll([for (final p in pointers) p.displayText]);
         default:
-          break;
+          if (node.dataType == DataType.binary &&
+              serialized is String &&
+              serialized.isNotEmpty) {
+            _attachmentNames.add(serialized);
+          }
       }
     } else {
       // Distinct names in order of first appearance.

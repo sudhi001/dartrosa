@@ -145,11 +145,12 @@ Check, in this order:
 
 * **My photo isn't in the upload.** The renderer stores a captured
   file's *name* as the answer; the file itself is yours. Keep the files
-  your delegates save and pass them as `attachments` to
-  `InstanceUpload.forForm`; the
+  your delegates save, and pass the ones `submission.attachments` names
+  as `attachments` to `InstanceUpload.forForm`, as the
   [tutorial](tutorials/build-a-data-collection-app.md#8-finalize-and-encrypt)
-  attaches every saved file the submission names. (`Submission.attachments`
-  lists only answers given as `PointerValue`.)
+  does. `Submission.attachments` lists the file names answered to media
+  questions (image, audio, video, file, signature, drawing) that are in
+  the submission; answers to hidden questions are left out.
 * **My capture button is missing.** Override the matching `can...`
   getter of your `XFormDelegates` (`canCaptureMedia`, `canLocate`, ...)
   to return `true`; see the

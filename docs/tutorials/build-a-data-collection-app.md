@@ -377,8 +377,7 @@ Future<InstanceUpload> prepareUpload(
     submission,
     attachments: {
       // The files your delegates saved that this submission names.
-      for (final MapEntry(key: name, value: bytes) in store.files.entries)
-        if (submission.xml.contains('>$name<')) name: bytes,
+      for (final name in submission.attachments) name: ?store.files[name],
     },
   );
 }
