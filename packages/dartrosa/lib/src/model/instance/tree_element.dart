@@ -765,8 +765,7 @@ final class _TreeElementChildren extends Iterable<TreeElement> {
       results?.addAll(_list);
       return _list.length;
     }
-    if (_list.length >= _indexThreshold &&
-        name != TreeReference.nameWildcard) {
+    if (_list.length >= _indexThreshold && name != TreeReference.nameWildcard) {
       final tables = _indexed();
       if (tables != null) {
         final matching = tables.matching(_list)[name];

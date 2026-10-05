@@ -17,7 +17,9 @@
 // Options: `--json` prints JSON instead of a table; `--out=FILE` prints the
 // table and also writes the JSON to FILE; `--runs=N` multiplies
 // the number of timed runs of every case (default 1, i.e. the counts below);
-// `--quick` runs each case a few times only (a smoke test).
+// `--quick` runs each case a few times only (a smoke test); `--only=ID,...`
+// runs only the cases with these ids (`parse`, `answer`, `session`, `csv`,
+// `repeat`, `corpus`, `external`, `serialize`).
 // ignore_for_file: avoid_print
 library;
 
@@ -423,17 +425,25 @@ Future<void> main(List<String> arguments) async {
   int runs(int n) => quick ? 3 : n * factor;
 
   final machine = machineInfo();
+  final only = arguments
+      .where((a) => a.startsWith('--only='))
+      .map((a) => a.substring('--only='.length).split(','))
+      .firstOrNull;
+  final cases = <String, Future<CaseResult> Function()>{
+    'parse': () => parseCase(runs(15)),
+    'answer': () => answerCase(runs(200)),
+    'session': () => sessionCase(runs(15)),
+    'csv': () => csvCase(runs(50)),
+    'repeat': () => repeatCase(runs(5)),
+    'corpus': () => corpusParseCase(runs(15)),
+    'external': () => externalCase(runs(10)),
+    'serialize': () => serializeCase(runs(100)),
+  };
   // Each case runs in its own function so its data can be collected before
   // the next one starts.
   final results = <CaseResult>[
-    await parseCase(runs(15)),
-    await answerCase(runs(200)),
-    await sessionCase(runs(15)),
-    await csvCase(runs(50)),
-    await repeatCase(runs(5)),
-    await corpusParseCase(runs(15)),
-    await externalCase(runs(10)),
-    await serializeCase(runs(100)),
+    for (final MapEntry(key: id, value: run) in cases.entries)
+      if (only == null || only.contains(id)) await run(),
   ];
   // The load at the end covers the whole run.
   machine['loadAverageAfter'] = machineInfo()['loadAverage'];

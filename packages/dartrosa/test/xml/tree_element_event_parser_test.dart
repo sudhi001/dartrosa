@@ -52,20 +52,20 @@ String viaEvents(String xml) => outcome(
 
 void main() {
   const documents = {
-    'items': '<?xml version="1.0"?><!-- c --><root><item><name>a</name>'
+    'items':
+        '<?xml version="1.0"?><!-- c --><root><item><name>a</name>'
         '<label> A </label></item><item><name>b</name><label>B</label>'
         '</item><other/><item><name>c</name></item></root>',
     'attributes and namespaces':
         '<r xmlns="urn:d" xmlns:x="urn:x" x:a="1" b="2"><x:c x:d="3"/>'
         '<e xmlns:y="urn:y" y:f="4"><y:g xml:lang="en">t</y:g></e></r>',
-    'text forms': '<r><a>one &amp; <![CDATA[<two>]]><!-- c --> three</a>'
+    'text forms':
+        '<r><a>one &amp; <![CDATA[<two>]]><!-- c --> three</a>'
         '<b>  </b><c></c><d><?pi x?></d><e>&#65;&lt;</e></r>',
-    'doctype and trailing comment':
-        '<!DOCTYPE r><r><a>1</a></r><!-- after -->',
+    'doctype and trailing comment': '<!DOCTYPE r><r><a>1</a></r><!-- after -->',
     'undeclared element prefix': '<r><p:a/></r>',
     'undeclared attribute prefix': '<r><a p:b="1"/></r>',
-    'prefix declared on a sibling only':
-        '<r><a xmlns:p="urn:p"/><p:b/></r>',
+    'prefix declared on a sibling only': '<r><a xmlns:p="urn:p"/><p:b/></r>',
     'text before a child': '<r><a>x<b/></a></r>',
     'text after a child': '<r><a><b/>x</a></r>',
     'mismatched tags': '<r><a></b></r>',
