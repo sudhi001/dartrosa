@@ -71,7 +71,7 @@ packages:
       path: "../../dartrosa"
       relative: true
     source: path
-    version: "0.1.1"
+    version: "0.1.2"
   dartrosa_calendars:
     dependency: "direct overridden"
     description:

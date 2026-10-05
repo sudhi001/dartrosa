@@ -3,9 +3,9 @@
   "dataLicense": "CC0-1.0",
   "SPDXID": "SPDXRef-DOCUMENT",
   "name": "dartrosa",
-  "documentNamespace": "https://github.com/sudhi001/dartrosa/spdx/dartrosa-4dc893c4f07701f4",
+  "documentNamespace": "https://github.com/sudhi001/dartrosa/spdx/dartrosa-6cb3ea06cedefba8",
   "creationInfo": {
-    "created": "2026-10-05T09:32:20Z",
+    "created": "2026-10-05T11:37:06Z",
     "creators": [
       "Tool: dartrosa-tool/generate_sbom.dart",
       "Organization: The DartRosa Authors"
@@ -16,7 +16,7 @@
     {
       "SPDXID": "SPDXRef-Package-pub-dartrosa",
       "name": "dartrosa",
-      "versionInfo": "0.1.1",
+      "versionInfo": "0.1.2",
       "supplier": "Organization: The DartRosa Authors",
       "downloadLocation": "git+https://github.com/sudhi001/dartrosa.git#packages/dartrosa",
       "filesAnalyzed": false,
@@ -27,7 +27,7 @@
         {
           "referenceCategory": "PACKAGE-MANAGER",
           "referenceType": "purl",
-          "referenceLocator": "pkg:pub/dartrosa@0.1.1"
+          "referenceLocator": "pkg:pub/dartrosa@0.1.2"
         }
       ]
     },
