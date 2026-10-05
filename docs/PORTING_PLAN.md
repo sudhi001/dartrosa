@@ -604,4 +604,4 @@ corpora) cover them; open items are left unticked.
 - [x] No global mutable state; no `dart:io`/Flutter imports in core (enforced by a CI import-lint)
 - [ ] Benchmarks within targets (§1)
 - [x] Example app fills, saves, resumes, edits, finalizes, encrypts and exports every corpus form (`packages/dartrosa_flutter/example/test/corpus_test.dart`, run in CI; forms that JavaRosa or Collect reject, or that can't be completed by design, are reported with the reason)
-- [ ] Docs: getting started, API reference, JavaRosa → DartRosa migration guide, compatibility matrix, plugin guide
+- [x] Docs: getting started, API reference, JavaRosa → DartRosa migration guide, compatibility matrix, plugin guide (`docs/GETTING_STARTED.md`, `MIGRATING_FROM_JAVAROSA.md`, `COMPATIBILITY.md`, `PLUGINS.md`; snippets run by `packages/*/test/docs/`; API reference via `dart doc`, 0 warnings)
