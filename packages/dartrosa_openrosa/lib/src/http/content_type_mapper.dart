@@ -11,8 +11,8 @@ typedef ExtensionContentTypes = String? Function(String extension);
 /// `application/octet-stream`.
 ///
 /// Port of Collect's `CollectThenSystemContentTypeMapper`. Android's
-/// `MimeTypeMap` is replaced by [systemTypes], which defaults to
-/// `package:mime`'s table.
+/// `MimeTypeMap` is replaced by the [ExtensionContentTypes] lookup given
+/// to the constructor, which defaults to `package:mime`'s table.
 final class CollectThenSystemContentTypeMapper
     implements FileToContentTypeMapper {
   /// Creates a mapper falling back on [systemTypes].

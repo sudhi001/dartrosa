@@ -14,6 +14,11 @@
 /// Ports of ODK Collect's date widget logic and of the calendar libraries
 /// it uses (Joda-Time, persianjodatime, bikram-sambat, myanmar-calendar);
 /// conversions match those libraries day for day from 1880 to 2120.
+///
+/// @docImport 'src/custom_calendar.dart';
+/// @docImport 'src/custom_date_picker.dart';
+/// @docImport 'src/date_picker_details.dart';
+/// @docImport 'src/date_time_label.dart';
 library;
 
 export 'src/custom_calendar.dart';

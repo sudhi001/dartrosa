@@ -14,8 +14,9 @@ void _addProcessor(Scenario scenario) => scenario.formEntryController
 List<FormEntity> _entities(Scenario scenario) =>
     entitiesExtraOf(scenario)!.entities;
 
-/// Two groups (or repeats when [repeats]) `people` and `cars`, each with
-/// an entity of [action] (Collect's multiple-groups forms).
+/// Two groups `people` and `cars`, each with an entity that is updated
+/// when [updates], else created (Collect's multiple-groups forms); [action]
+/// names the form.
 XFormsElement _multipleGroupsForm(String action, {required bool updates}) {
   String entity(String dataset) => updates
       ? 'entity dataset="$dataset" update="1" id="123" baseVersion="1"'

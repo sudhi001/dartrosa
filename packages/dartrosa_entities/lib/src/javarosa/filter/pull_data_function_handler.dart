@@ -9,8 +9,8 @@ import '../instance/local_entities_instance_adapter.dart';
 
 /// `pulldata(instance, child, filterChild, filterValue)` on local entity
 /// lists: the `child` value of the first entity whose `filterChild` is
-/// `filterValue` (`''` if none). Other instances go to [fallback] (e.g.
-/// the app's CSV `pulldata`), or give `''`.
+/// `filterValue` (`''` if none). Other instances go to the fallback
+/// handler, if any (e.g. the app's CSV `pulldata`), or give `''`.
 ///
 /// Port of
 /// `org.odk.collect.entities.javarosa.filter.PullDataFunctionHandler`.

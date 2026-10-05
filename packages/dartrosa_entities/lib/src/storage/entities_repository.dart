@@ -1,3 +1,7 @@
+/// @docImport 'in_mem_entities_repository.dart';
+/// @docImport 'query_exception.dart';
+library;
+
 import '../javarosa/parse/entity_schema.dart';
 import 'entity.dart';
 import 'entity_list.dart';

@@ -98,8 +98,8 @@ abstract interface class AuditEventWriter {
 ///    changed.
 final class AuditEventLogger {
   /// Creates a logger for [auditConfig] (`null`: the form has no audit and
-  /// nothing is logged) writing with [writer]. [formState] gives the new
-  /// answers of question events.
+  /// nothing is logged) that passes events to the given writer; the form
+  /// state gives the new answers of question events.
   AuditEventLogger(
     this.auditConfig,
     this._writer,

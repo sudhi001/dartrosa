@@ -33,8 +33,8 @@ final class FormDataPart {
 /// A `multipart/form-data` POST laid out byte for byte as OkHttp's
 /// `MultipartBody` writes it (parts in order, each with
 /// `Content-Disposition`, then `Content-Type` if any), whose
-/// file content stops with an [UploadCancelledException] as soon as
-/// [isCancelled] returns `true`.
+/// file content stops with an [UploadCancelledException] as soon as the
+/// request's cancellation check returns `true`.
 ///
 /// Port of the request body Collect's `OkHttpConnection` builds (with its
 /// `cancellableRequestBody`). Unlike `package:http`'s

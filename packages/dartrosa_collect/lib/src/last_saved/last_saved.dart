@@ -6,8 +6,8 @@ import 'package:dartrosa/dartrosa.dart';
 /// Stores the last-saved instance of each form: the most recently saved
 /// instance XML, which forms read through `jr://instance/last-saved`.
 ///
-/// Collect keeps it as `last-saved.xml` in each form's media folder;
-/// [formKey] identifies that folder (a form version). Apps implement it
+/// Collect keeps it as `last-saved.xml` in each form's media folder; a
+/// form key identifies that folder (a form version). Apps implement it
 /// over files; [InMemoryLastSavedStore] serves tests.
 abstract interface class LastSavedStore {
   /// The last-saved instance of [formKey], or `null` if there is none.

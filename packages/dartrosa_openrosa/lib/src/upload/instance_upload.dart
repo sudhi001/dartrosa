@@ -1,3 +1,6 @@
+/// @docImport 'open_rosa_instance_uploader.dart';
+library;
+
 import 'dart:convert';
 import 'dart:math';
 import 'dart:typed_data';

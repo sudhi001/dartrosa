@@ -1,3 +1,6 @@
+/// @docImport '../condition/evaluation_context.dart';
+library;
+
 import 'tree_element.dart';
 import 'tree_reference.dart';
 

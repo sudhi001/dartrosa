@@ -93,8 +93,9 @@ List<String> _header(List<String> record) {
 /// empty lines skipped, no comments, no trimming.
 final class CsvReader {
   /// Reads [input] with [delimiter] (a single character).
-  CsvReader(this._input, String delimiter)
-    : _delimiter = delimiter.codeUnitAt(0);
+  CsvReader(String input, String delimiter)
+    : _input = input,
+      _delimiter = delimiter.codeUnitAt(0);
 
   final String _input;
   final int _delimiter;

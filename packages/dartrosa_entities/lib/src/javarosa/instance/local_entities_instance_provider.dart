@@ -11,9 +11,9 @@ import 'local_entities_instance_adapter.dart';
 /// Port of
 /// `org.odk.collect.entities.javarosa.intance.LocalEntitiesInstanceProvider`.
 final class LocalEntitiesInstanceProvider implements InstanceProvider {
-  /// Creates a provider reading [entitiesRepositoryProvider]'s lists;
-  /// [mediaFileRepository] tells whether the form has the instance's file
-  /// attached.
+  /// Creates a provider reading the lists of the repository the given
+  /// function provides; the media file repository tells whether the form
+  /// has the instance's file attached.
   LocalEntitiesInstanceProvider(
     this._entitiesRepositoryProvider,
     this._mediaFileRepository,

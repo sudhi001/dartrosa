@@ -1,3 +1,6 @@
+/// @docImport 'query.dart';
+library;
+
 /// A [Query] can't be run, e.g. because it names a column the list
 /// doesn't have.
 ///

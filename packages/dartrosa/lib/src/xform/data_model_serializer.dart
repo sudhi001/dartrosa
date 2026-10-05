@@ -19,12 +19,10 @@ final class DataModelSerializer {
     final root = base == null
         ? instance.root!
         : instance.resolveReference(base)!;
-    // write root
     final element = KxmlElement()
       ..name = root.name
       ..namespace = root.namespace;
     for (var i = 0; i < root.numChildren; i++) {
-      // write children
       final child = serializeNode(root.childAt(i));
       if (child != null) element.children.add(child);
     }

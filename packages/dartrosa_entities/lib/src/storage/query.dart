@@ -1,4 +1,6 @@
 /// Port of `org.odk.collect.shared.Query`.
+///
+/// @docImport 'entities_repository.dart';
 library;
 
 import 'package:meta/meta.dart';

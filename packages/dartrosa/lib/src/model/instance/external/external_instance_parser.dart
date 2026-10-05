@@ -4,6 +4,8 @@
 /// `XmlExternalInstance`. JavaRosa's global parser factory
 /// (`XFormUtils.setExternalInstanceParserFactory`) is replaced by passing an
 /// [ExternalInstanceParser] instance.
+///
+/// @docImport '../external_data_instance.dart';
 library;
 
 import 'dart:typed_data';

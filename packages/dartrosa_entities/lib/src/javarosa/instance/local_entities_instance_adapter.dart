@@ -14,7 +14,7 @@ import '../parse/entity_schema.dart';
 /// `org.odk.collect.entities.javarosa.intance.LocalEntitiesInstanceAdapter`.
 /// The list names are read once, when the adapter is created.
 final class LocalEntitiesInstanceAdapter {
-  /// Creates an adapter for [entitiesRepository].
+  /// Creates an adapter for the lists of the given repository.
   LocalEntitiesInstanceAdapter(this._entitiesRepository)
     : _lists = _entitiesRepository.getListNames();
 

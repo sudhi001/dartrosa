@@ -19,7 +19,7 @@ import 'uuid.dart';
 /// Updates local entity lists from finalized forms and from the server.
 ///
 /// Port of `org.odk.collect.entities.LocalEntityUseCases`. Branch ids are
-/// random v4 UUIDs unless [newBranchId] functions are passed (for
+/// random v4 UUIDs unless a `newBranchId` function is passed (for
 /// deterministic tests).
 abstract final class LocalEntityUseCases {
   /// Saves the entities a finalized form created or updated

@@ -5,6 +5,9 @@
 /// choices of selects with a `search()` appearance with
 /// [loadSelectChoices]. A port of Collect's `dynamicpreload` package and
 /// the entities module's `PullDataFunctionHandler`.
+///
+/// @docImport 'src/external_data_plugin.dart';
+/// @docImport 'src/select_choice_utils.dart';
 library;
 
 export 'src/csv_reader.dart';

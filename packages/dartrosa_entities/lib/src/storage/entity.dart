@@ -1,3 +1,6 @@
+/// @docImport 'entities_repository.dart';
+library;
+
 import 'package:collection/collection.dart';
 import 'package:meta/meta.dart';
 

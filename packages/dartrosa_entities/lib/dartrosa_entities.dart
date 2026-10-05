@@ -9,6 +9,16 @@
 ///   [EntityFormFinalizationProcessor], [LocalEntitiesInstanceProvider],
 ///   [LocalEntitiesFilterStrategy], [PullDataFunctionHandler]) can also be
 ///   wired by hand.
+///
+/// @docImport 'src/entities_config.dart';
+/// @docImport 'src/javarosa/filter/local_entities_filter_strategy.dart';
+/// @docImport 'src/javarosa/filter/pull_data_function_handler.dart';
+/// @docImport 'src/javarosa/finalization/entity_form_finalization_processor.dart';
+/// @docImport 'src/javarosa/instance/local_entities_instance_provider.dart';
+/// @docImport 'src/javarosa/parse/entity_form_parse_processor.dart';
+/// @docImport 'src/local_entity_use_cases.dart';
+/// @docImport 'src/storage/entities_repository.dart';
+/// @docImport 'src/storage/in_mem_entities_repository.dart';
 library;
 
 export 'src/debug/debug_logger.dart';

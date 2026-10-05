@@ -36,6 +36,11 @@
 ///   deviceId: 'collect:abc',
 /// );
 /// ```
+///
+/// @docImport 'src/forms/open_rosa_client.dart';
+/// @docImport 'src/http/client/http_client_connection.dart';
+/// @docImport 'src/upload/instance_upload.dart';
+/// @docImport 'src/upload/open_rosa_instance_uploader.dart';
 library;
 
 export 'src/forms/document_fetch_result.dart';
