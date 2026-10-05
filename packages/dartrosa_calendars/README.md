@@ -19,14 +19,8 @@ bikram-sambat, myanmar-calendar); conversions match them day for day from
 
 ## Install
 
-Not on pub.dev yet; depend on it from Git:
-
-```yaml
-dependencies:
-  dartrosa_calendars:
-    git:
-      url: https://github.com/sudhi001/dartrosa
-      path: packages/dartrosa_calendars
+```sh
+dart pub add dartrosa_calendars
 ```
 
 ## Example

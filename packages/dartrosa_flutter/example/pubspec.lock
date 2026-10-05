@@ -71,49 +71,49 @@ packages:
       path: "../../dartrosa"
       relative: true
     source: path
-    version: "0.0.1"
+    version: "0.1.0"
   dartrosa_calendars:
     dependency: "direct overridden"
     description:
       path: "../../dartrosa_calendars"
       relative: true
     source: path
-    version: "0.0.1"
+    version: "0.1.0"
   dartrosa_collect:
     dependency: "direct main"
     description:
       path: "../../dartrosa_collect"
       relative: true
     source: path
-    version: "0.0.1"
+    version: "0.1.0"
   dartrosa_encryption:
     dependency: "direct main"
     description:
       path: "../../dartrosa_encryption"
       relative: true
     source: path
-    version: "0.0.1"
+    version: "0.1.0"
   dartrosa_entities:
     dependency: "direct main"
     description:
       path: "../../dartrosa_entities"
       relative: true
     source: path
-    version: "0.0.1"
+    version: "0.1.0"
   dartrosa_external_data:
     dependency: "direct main"
     description:
       path: "../../dartrosa_external_data"
       relative: true
     source: path
-    version: "0.0.1"
+    version: "0.1.0"
   dartrosa_flutter:
     dependency: "direct main"
     description:
       path: ".."
       relative: true
     source: path
-    version: "0.0.1"
+    version: "0.1.0"
   fake_async:
     dependency: transitive
     description:

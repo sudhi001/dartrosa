@@ -18,18 +18,8 @@ ODK Collect's external data ("dynamic preload") for
 
 ## Install
 
-Not on pub.dev yet; depend on it from Git, overriding its DartRosa
-siblings to the same source:
-
-```yaml
-dependencies:
-  dartrosa:
-    git: {url: https://github.com/sudhi001/dartrosa, path: packages/dartrosa}
-  dartrosa_external_data:
-    git: {url: https://github.com/sudhi001/dartrosa, path: packages/dartrosa_external_data}
-dependency_overrides:
-  dartrosa:
-    git: {url: https://github.com/sudhi001/dartrosa, path: packages/dartrosa}
+```sh
+dart pub add dartrosa_external_data
 ```
 
 ## Example

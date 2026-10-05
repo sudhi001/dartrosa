@@ -42,9 +42,9 @@ Future<void> main() async {
 ```
 
 In Flutter, `XFormView(session: session)` shows the form with one
-question per screen, as in ODK Collect. The packages are not on pub.dev
-yet; [Getting started](docs/GETTING_STARTED.md) shows how to depend on
-them from Git and walks through the API.
+question per screen, as in ODK Collect. Install with `dart pub add
+dartrosa` (or `flutter pub add dartrosa_flutter`);
+[Getting started](docs/GETTING_STARTED.md) walks through the API.
 
 ## Packages
 

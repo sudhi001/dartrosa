@@ -1,4 +1,4 @@
-## 0.0.1
+## 0.1.0
 
 - Initial release: ports of ODK Collect form-filling services.
 - Audit log (`FormAudit`, `AuditEventLogger`, CSV writer, location and change tracking).

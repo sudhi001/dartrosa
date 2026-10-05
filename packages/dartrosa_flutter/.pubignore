@@ -1,0 +1,29 @@
+# Publishing ignores .gitignore when .pubignore exists: its rules are repeated
+# here, plus files package users don't need.
+
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.buildlog/
+.history
+.svn/
+migrate_working_dir/
+*.iml
+*.ipr
+*.iws
+.idea/
+/pubspec.lock
+**/doc/api/
+.dart_tool/
+.flutter-plugins-dependencies
+/build/
+/coverage/
+
+# The example app's copy of the conformance corpus (9 MB); run the example
+# from the repository (see example/tool/bundle_corpus.dart).
+example/assets/
+example/pubspec.lock
+pubspec_overrides.yaml

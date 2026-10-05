@@ -1,4 +1,4 @@
-## 0.0.1
+## 0.1.0
 
 - Initial release: Flutter renderer for DartRosa.
 - `XFormView` in pager (Collect-like) and scroll modes, widgets for every ODK control type and the Collect appearances listed in the README.

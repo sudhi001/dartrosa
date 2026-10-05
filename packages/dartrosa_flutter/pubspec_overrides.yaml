@@ -1,0 +1,10 @@
+# Local development: use the checked-out DartRosa packages instead of the
+# published versions. Pub applies this file in this directory only; it is
+# not part of the published package.
+dependency_overrides:
+  dartrosa:
+    path: ../dartrosa
+  dartrosa_calendars:
+    path: ../dartrosa_calendars
+  dartrosa_external_data:
+    path: ../dartrosa_external_data

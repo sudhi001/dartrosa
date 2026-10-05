@@ -5,22 +5,12 @@ engine.
 
 ## Install
 
-DartRosa is not on pub.dev yet; depend on it from Git (or a local path):
-
-```yaml
-dependencies:
-  dartrosa_flutter:
-    git:
-      url: https://github.com/sudhi001/dartrosa
-      path: packages/dartrosa_flutter
+```sh
+flutter pub add dartrosa_flutter
 ```
 
-`dartrosa_flutter` re-exports `package:dartrosa/dartrosa.dart`. The
-DartRosa packages name each other by version, so until they are
-published an app using them from Git or a path also needs
-`dependency_overrides` pointing `dartrosa`, `dartrosa_calendars` and
-`dartrosa_external_data` (and any other DartRosa package it uses) at the
-same source, as `example/pubspec.yaml` does.
+`dartrosa_flutter` re-exports `package:dartrosa/dartrosa.dart`, so most
+apps need only this package.
 
 ## Usage
 

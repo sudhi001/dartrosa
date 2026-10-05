@@ -1,7 +1,7 @@
 name: dartrosa_calendars
 description: >-
   ODK Collect's non-Gregorian date appearances for DartRosa: Ethiopian, Coptic, Islamic, Bikram Sambat, Myanmar, Persian and Buddhist calendars.
-version: 0.0.1
+version: 0.1.0
 homepage: https://github.com/sudhi001/dartrosa
 repository: https://github.com/sudhi001/dartrosa/tree/main/packages/dartrosa_calendars
 issue_tracker: https://github.com/sudhi001/dartrosa/issues

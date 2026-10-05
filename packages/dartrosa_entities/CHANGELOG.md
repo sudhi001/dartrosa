@@ -1,4 +1,4 @@
-## 0.0.1
+## 0.1.0
 
 - Initial release: a port of ODK Collect's entities module.
 - Entity forms (create, update, upsert, `entities:saveto`), local entity lists as secondary instances, entity filter strategy and `pulldata()`.

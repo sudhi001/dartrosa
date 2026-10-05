@@ -23,25 +23,9 @@ Every Dart snippet below is run by
 
 ## 1. Add the dependency
 
-The packages are not on pub.dev yet. Depend on them from Git, and point
-the DartRosa packages that `dartrosa_flutter` uses at the same source:
-
-```yaml
-dependencies:
-  dartrosa_flutter:
-    git:
-      url: https://github.com/sudhi001/dartrosa
-      path: packages/dartrosa_flutter
-  flutter_localizations:
-    sdk: flutter
-
-dependency_overrides:
-  dartrosa:
-    git: {url: https://github.com/sudhi001/dartrosa, path: packages/dartrosa}
-  dartrosa_calendars:
-    git: {url: https://github.com/sudhi001/dartrosa, path: packages/dartrosa_calendars}
-  dartrosa_external_data:
-    git: {url: https://github.com/sudhi001/dartrosa, path: packages/dartrosa_external_data}
+```sh
+flutter pub add dartrosa_flutter
+flutter pub add flutter_localizations --sdk=flutter
 ```
 
 `dartrosa_flutter` re-exports the engine (`package:dartrosa/dartrosa.dart`),

@@ -1,7 +1,7 @@
 name: dartrosa_entities
 description: >-
   ODK entities for DartRosa: entity forms, entity lists as secondary instances, offline entity updates and storage. A port of Collect's entities module.
-version: 0.0.1
+version: 0.1.0
 homepage: https://github.com/sudhi001/dartrosa
 repository: https://github.com/sudhi001/dartrosa/tree/main/packages/dartrosa_entities
 issue_tracker: https://github.com/sudhi001/dartrosa/issues
@@ -18,8 +18,8 @@ environment:
 
 dependencies:
   collection: ^1.19.0
-  dartrosa: ^0.0.1
-  dartrosa_external_data: ^0.0.1
+  dartrosa: ^0.1.0
+  dartrosa_external_data: ^0.1.0
   meta: ^1.16.0
 
 dev_dependencies:

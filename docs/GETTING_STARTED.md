@@ -21,19 +21,12 @@ compiles and does what it says.
 
 ## 1. Install
 
-The packages are not on pub.dev yet; depend on them from Git (or a local
-checkout with `path:`):
-
-```yaml
-dependencies:
-  dartrosa:
-    git:
-      url: https://github.com/sudhi001/dartrosa
-      path: packages/dartrosa
+```sh
+dart pub add dartrosa
 ```
 
-For Flutter, add `dartrosa_flutter` the same way
-(`path: packages/dartrosa_flutter`); it re-exports `dartrosa`. The engine
+For Flutter, run `flutter pub add dartrosa_flutter` instead; it
+re-exports `dartrosa`. The engine
 needs Dart 3.10 or later and has no Flutter or `dart:io` dependency, so
 it also runs on servers, the command line and the web (dart2js and
 dart2wasm).

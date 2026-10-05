@@ -23,14 +23,8 @@ Collect and serializes submissions byte-for-byte as JavaRosa does.
 
 ## Install
 
-DartRosa is not on pub.dev yet; depend on it from Git:
-
-```yaml
-dependencies:
-  dartrosa:
-    git:
-      url: https://github.com/sudhi001/dartrosa
-      path: packages/dartrosa
+```sh
+dart pub add dartrosa
 ```
 
 ## Example

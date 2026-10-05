@@ -19,20 +19,8 @@ entities module.
 
 ## Install
 
-Not on pub.dev yet; depend on it from Git, overriding its DartRosa
-siblings to the same source:
-
-```yaml
-dependencies:
-  dartrosa:
-    git: {url: https://github.com/sudhi001/dartrosa, path: packages/dartrosa}
-  dartrosa_entities:
-    git: {url: https://github.com/sudhi001/dartrosa, path: packages/dartrosa_entities}
-dependency_overrides:
-  dartrosa:
-    git: {url: https://github.com/sudhi001/dartrosa, path: packages/dartrosa}
-  dartrosa_external_data:
-    git: {url: https://github.com/sudhi001/dartrosa, path: packages/dartrosa_external_data}
+```sh
+dart pub add dartrosa_entities
 ```
 
 ## Example

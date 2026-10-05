@@ -3,7 +3,6 @@
 
 // Forcing a full garbage collection from a test, to check that objects
 // can be collected (VM only).
-// ignore_for_file: depend_on_referenced_packages
 library;
 
 import 'dart:developer';

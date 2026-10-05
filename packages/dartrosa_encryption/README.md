@@ -12,18 +12,8 @@ Briefcase decrypt it. Pure Dart (`pointycastle`), works on the web.
 
 ## Install
 
-Not on pub.dev yet; depend on it from Git, overriding its DartRosa
-siblings to the same source:
-
-```yaml
-dependencies:
-  dartrosa:
-    git: {url: https://github.com/sudhi001/dartrosa, path: packages/dartrosa}
-  dartrosa_encryption:
-    git: {url: https://github.com/sudhi001/dartrosa, path: packages/dartrosa_encryption}
-dependency_overrides:
-  dartrosa:
-    git: {url: https://github.com/sudhi001/dartrosa, path: packages/dartrosa}
+```sh
+dart pub add dartrosa_encryption
 ```
 
 ## Example

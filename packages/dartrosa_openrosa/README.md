@@ -18,18 +18,8 @@ the VM, in Flutter and on the web.
 
 ## Install
 
-Not on pub.dev yet; depend on it from Git, overriding its DartRosa
-siblings to the same source:
-
-```yaml
-dependencies:
-  dartrosa_openrosa:
-    git: {url: https://github.com/sudhi001/dartrosa, path: packages/dartrosa_openrosa}
-dependency_overrides:
-  dartrosa:
-    git: {url: https://github.com/sudhi001/dartrosa, path: packages/dartrosa}
-  dartrosa_encryption:
-    git: {url: https://github.com/sudhi001/dartrosa, path: packages/dartrosa_encryption}
+```sh
+dart pub add dartrosa_openrosa
 ```
 
 ## Example
