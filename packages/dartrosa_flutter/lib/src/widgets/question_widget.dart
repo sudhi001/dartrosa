@@ -62,80 +62,49 @@ class QuestionWidget extends StatelessWidget {
           node.index,
           XFormLocalizations.of(context),
         );
-        final formTheme = XFormTheme.of(context);
-        final errorColor = formTheme.errorColorOf(context);
         final isSelect =
             node.controlType == ControlType.selectOne ||
             node.controlType == ControlType.selectMulti;
-        if (isSelect &&
+        final inRow =
+            isSelect &&
             (inTableList ||
                 appearance.has('label') ||
-                appearance.has('list-nolabel'))) {
-          final labelsOnly = !inTableList && appearance.has('label');
-          return _semantics(
-            context,
-            error,
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 4),
-              child: ChoiceRowInput(
-                node,
-                showLabels: labelsOnly,
-                showButtons: !labelsOnly,
-                leading: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    ExcludeSemantics(
-                      child: XFormLabel(node.label, required: node.isRequired),
-                    ),
-                    if (error != null) _Error(error, color: errorColor),
-                  ],
+                appearance.has('list-nolabel'));
+        return _QuestionSemantics(
+          node: node,
+          invalid: error != null,
+          child: inRow
+              ? _ChoiceRowQuestion(
+                  node: node,
+                  error: error,
+                  labelsOnly: !inTableList && appearance.has('label'),
+                )
+              : _StackedQuestion(
+                  node: node,
+                  appearance: appearance,
+                  error: error,
                 ),
-              ),
-            ),
-          );
-        }
-        return _semantics(
-          context,
-          error,
-          Padding(
-            padding: EdgeInsets.symmetric(vertical: formTheme.questionSpacing),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                ExcludeSemantics(
-                  child: XFormLabel(node.label, required: node.isRequired),
-                ),
-                XFormHint(node),
-                if (!_isNote(context, appearance))
-                  Padding(
-                    padding: const EdgeInsets.only(top: 8),
-                    child: _input(context),
-                  ),
-                if (error != null)
-                  Padding(
-                    padding: const EdgeInsets.only(top: 4),
-                    child: _Error(error, color: errorColor),
-                  ),
-              ],
-            ),
-          ),
         );
       },
     );
   }
+}
 
-  /// Whether [node] is a note: read-only text without an appearance
-  /// that shows a widget anyway (`printer` when printing is available,
-  /// `url`).
-  bool _isNote(BuildContext context, Appearance appearance) =>
-      node.isNote &&
-      !(appearance.has('printer') &&
-          XFormScope.of(context).delegates.canPrint) &&
-      !appearance.has('url');
+/// A semantics container labelled with the question label and whether
+/// it is required, marked invalid while its answer is rejected.
+class _QuestionSemantics extends StatelessWidget {
+  const _QuestionSemantics({
+    required this.node,
+    required this.invalid,
+    required this.child,
+  });
 
-  /// A semantics container labelled with the question label, whether it
-  /// is required, and whether its answer is invalid.
-  Widget _semantics(BuildContext context, String? error, Widget child) {
+  final QuestionNode node;
+  final bool invalid;
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
     final label = odkMarkdownToPlainText(node.label.text ?? '');
     return Semantics(
       container: true,
@@ -143,44 +112,142 @@ class QuestionWidget extends StatelessWidget {
       label: node.isRequired
           ? '$label, ${XFormLocalizations.of(context).required}'
           : label,
-      validationResult: error == null
-          ? SemanticsValidationResult.none
-          : SemanticsValidationResult.invalid,
+      validationResult: invalid
+          ? SemanticsValidationResult.invalid
+          : SemanticsValidationResult.none,
       child: child,
     );
   }
+}
 
-  Widget _input(BuildContext context) => switch (node.controlType) {
-    ControlType.selectOne => SelectOneInput(node),
-    ControlType.selectMulti => SelectMultiInput(node),
-    ControlType.rank => _Rank(node),
-    ControlType.trigger => _Trigger(node),
-    ControlType.range => RangeInput(node),
-    ControlType.imageChoose ||
-    ControlType.audioCapture ||
-    ControlType.videoCapture ||
-    ControlType.fileCapture ||
-    ControlType.upload ||
-    ControlType.osmCapture => _Media(node),
-    _ => switch (node.dataType) {
-      DataType.date ||
-      DataType.time ||
-      DataType.dateTime => DateTimeInput(node),
-      DataType.geopoint || DataType.geotrace || DataType.geoshape => _Geo(node),
-      DataType.barcode => _Barcode(node),
-      _ => _textInput(context),
-    },
-  };
+/// A select shown as one row: label and error, then its choices
+/// (`label`, `list-nolabel`, `table-list` rows).
+class _ChoiceRowQuestion extends StatelessWidget {
+  const _ChoiceRowQuestion({
+    required this.node,
+    required this.error,
+    required this.labelsOnly,
+  });
 
-  /// A text or number question: the widget for its appearance, in ODK
-  /// Collect's order (integer: `counter`, `ex:`; decimal: `ex:`,
-  /// `bearing`; text: `printer`, `ex:`, `numbers`, `url`), or a text
-  /// field.
-  Widget _textInput(BuildContext context) {
+  final QuestionNode node;
+  final String? error;
+  final bool labelsOnly;
+
+  @override
+  Widget build(BuildContext context) {
+    final error = this.error;
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 4),
+      child: ChoiceRowInput(
+        node,
+        showLabels: labelsOnly,
+        showButtons: !labelsOnly,
+        leading: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            ExcludeSemantics(
+              child: XFormLabel(node.label, required: node.isRequired),
+            ),
+            if (error != null) _Error(error),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+/// Label, hints, input and error, one under the other.
+class _StackedQuestion extends StatelessWidget {
+  const _StackedQuestion({
+    required this.node,
+    required this.appearance,
+    required this.error,
+  });
+
+  final QuestionNode node;
+  final Appearance appearance;
+  final String? error;
+
+  /// Whether [node] is a note: read-only text without an appearance
+  /// that shows a widget anyway (`printer` when printing is available,
+  /// `url`).
+  bool _isNote(BuildContext context) =>
+      node.isNote &&
+      !(appearance.has('printer') &&
+          XFormScope.of(context).delegates.canPrint) &&
+      !appearance.has('url');
+
+  @override
+  Widget build(BuildContext context) {
+    final error = this.error;
+    return Padding(
+      padding: EdgeInsets.symmetric(
+        vertical: XFormTheme.of(context).questionSpacing,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          ExcludeSemantics(
+            child: XFormLabel(node.label, required: node.isRequired),
+          ),
+          XFormHint(node),
+          if (!_isNote(context))
+            Padding(
+              padding: const EdgeInsets.only(top: 8),
+              child: _QuestionInput(node: node, appearance: appearance),
+            ),
+          if (error != null)
+            Padding(
+              padding: const EdgeInsets.only(top: 4),
+              child: _Error(error),
+            ),
+        ],
+      ),
+    );
+  }
+}
+
+/// The input widget for [node]'s control type, data type and appearance.
+class _QuestionInput extends StatelessWidget {
+  const _QuestionInput({required this.node, required this.appearance});
+
+  final QuestionNode node;
+  final Appearance appearance;
+
+  @override
+  Widget build(BuildContext context) {
+    switch (node.controlType) {
+      case ControlType.selectOne:
+        return SelectOneInput(node);
+      case ControlType.selectMulti:
+        return SelectMultiInput(node);
+      case ControlType.rank:
+        return _Rank(node);
+      case ControlType.trigger:
+        return _Trigger(node);
+      case ControlType.range:
+        return RangeInput(node);
+      case ControlType.imageChoose ||
+          ControlType.audioCapture ||
+          ControlType.videoCapture ||
+          ControlType.fileCapture ||
+          ControlType.upload ||
+          ControlType.osmCapture:
+        return _Media(node);
+      default:
+    }
     final delegates = XFormScope.of(context).delegates;
-    final appearance = Appearance.parse(node.appearance);
     final ex = appearance.has('ex:') && delegates.canLaunchExternalApps;
+    // Text and numbers: the widget for the appearance, in ODK Collect's
+    // order (integer: `counter`, `ex:`; decimal: `ex:`, `bearing`; text:
+    // `printer`, `ex:`, `numbers`, `url`), else a text field.
     switch (node.dataType) {
+      case DataType.date || DataType.time || DataType.dateTime:
+        return DateTimeInput(node);
+      case DataType.geopoint || DataType.geotrace || DataType.geoshape:
+        return _Geo(node, appearance: appearance);
+      case DataType.barcode:
+        return _Barcode(node);
       case DataType.integer || DataType.long:
         if (appearance.has('counter')) return CounterInput(node);
         if (ex) return ExternalAppInput(node);
@@ -205,15 +272,17 @@ class QuestionWidget extends StatelessWidget {
 
 /// A validation error, read out by screen readers when it appears.
 class _Error extends StatelessWidget {
-  const _Error(this.message, {required this.color});
+  const _Error(this.message);
 
   final String message;
-  final Color color;
 
   @override
   Widget build(BuildContext context) => Semantics(
     liveRegion: true,
-    child: Text(message, style: TextStyle(color: color)),
+    child: Text(
+      message,
+      style: TextStyle(color: XFormTheme.of(context).errorColorOf(context)),
+    ),
   );
 }
 
@@ -342,14 +411,14 @@ class _Media extends StatelessWidget {
 }
 
 class _Geo extends StatelessWidget {
-  const _Geo(this.node);
+  const _Geo(this.node, {required this.appearance});
 
   final QuestionNode node;
+  final Appearance appearance;
 
   @override
   Widget build(BuildContext context) {
     final delegates = XFormScope.of(context).delegates;
-    final appearance = Appearance.parse(node.appearance);
     if (delegates.canShowMaps &&
         (node.dataType != DataType.geopoint ||
             appearance.has('maps') ||
