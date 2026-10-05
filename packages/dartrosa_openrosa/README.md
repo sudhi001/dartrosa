@@ -1,5 +1,10 @@
 # dartrosa_openrosa
 
+[![pub package](https://img.shields.io/pub/v/dartrosa_openrosa.svg)](https://pub.dev/packages/dartrosa_openrosa)
+[![pub points](https://img.shields.io/pub/points/dartrosa_openrosa)](https://pub.dev/packages/dartrosa_openrosa/score)
+[![CI](https://github.com/sudhi001/dartrosa/actions/workflows/ci.yml/badge.svg)](https://github.com/sudhi001/dartrosa/actions/workflows/ci.yml)
+[![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
+
 An [OpenRosa](https://docs.getodk.org/openrosa/) server client for
 [DartRosa](https://github.com/sudhi001/dartrosa) (ODK Central, KoboToolbox
 and other OpenRosa servers). A port of ODK Collect's `open-rosa` module
@@ -63,6 +68,7 @@ against a mock server.
 
 ## Documentation
 
+- [API reference](https://pub.dev/documentation/dartrosa_openrosa/latest/)
 - [Documentation index](https://github.com/sudhi001/dartrosa/blob/main/docs/README.md)
 - [Download forms, encrypt and submit](https://github.com/sudhi001/dartrosa/blob/main/docs/guides/encrypt-and-submit.md)
 - [Getting started](https://github.com/sudhi001/dartrosa/blob/main/docs/GETTING_STARTED.md)

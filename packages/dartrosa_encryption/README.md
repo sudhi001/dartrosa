@@ -1,5 +1,10 @@
 # dartrosa_encryption
 
+[![pub package](https://img.shields.io/pub/v/dartrosa_encryption.svg)](https://pub.dev/packages/dartrosa_encryption)
+[![pub points](https://img.shields.io/pub/points/dartrosa_encryption)](https://pub.dev/packages/dartrosa_encryption/score)
+[![CI](https://github.com/sudhi001/dartrosa/actions/workflows/ci.yml/badge.svg)](https://github.com/sudhi001/dartrosa/actions/workflows/ci.yml)
+[![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
+
 Encrypted ODK submissions for [DartRosa](https://github.com/sudhi001/dartrosa):
 a port of ODK Collect's `EncryptionUtils`.
 
@@ -49,6 +54,7 @@ when uploading.
 
 ## Documentation
 
+- [API reference](https://pub.dev/documentation/dartrosa_encryption/latest/)
 - [Documentation index](https://github.com/sudhi001/dartrosa/blob/main/docs/README.md)
 - [Download forms, encrypt and submit](https://github.com/sudhi001/dartrosa/blob/main/docs/guides/encrypt-and-submit.md)
 - [Getting started](https://github.com/sudhi001/dartrosa/blob/main/docs/GETTING_STARTED.md)

@@ -1,5 +1,10 @@
 # dartrosa_entities
 
+[![pub package](https://img.shields.io/pub/v/dartrosa_entities.svg)](https://pub.dev/packages/dartrosa_entities)
+[![pub points](https://img.shields.io/pub/points/dartrosa_entities)](https://pub.dev/packages/dartrosa_entities/score)
+[![CI](https://github.com/sudhi001/dartrosa/actions/workflows/ci.yml/badge.svg)](https://github.com/sudhi001/dartrosa/actions/workflows/ci.yml)
+[![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
+
 [ODK entities](https://getodk.github.io/xforms-spec/entities) for
 [DartRosa](https://github.com/sudhi001/dartrosa): a port of ODK Collect's
 entities module.
@@ -54,6 +59,7 @@ with its form.
 
 ## Documentation
 
+- [API reference](https://pub.dev/documentation/dartrosa_entities/latest/)
 - [Documentation index](https://github.com/sudhi001/dartrosa/blob/main/docs/README.md)
 - [Use CSV data and entities](https://github.com/sudhi001/dartrosa/blob/main/docs/guides/external-data-and-entities.md)
 - [Plugins and extension points](https://github.com/sudhi001/dartrosa/blob/main/docs/PLUGINS.md)
