@@ -29,6 +29,13 @@ class _ExampleAppState extends State<ExampleApp> {
   ).then(Workspace.new);
 
   @override
+  void dispose() {
+    // The workspace is a ChangeNotifier owned by the app.
+    _workspace.then((workspace) => workspace.dispose(), onError: (_) {}).ignore();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) => MaterialApp(
     title: 'DartRosa',
     theme: ThemeData(colorSchemeSeed: Colors.teal),

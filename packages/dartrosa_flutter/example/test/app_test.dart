@@ -16,6 +16,7 @@ Future<Workspace> _app(WidgetTester tester) async {
   final workspace = Workspace(
     Corpus.fromJson(File('$corpusRoot/index.json').readAsStringSync()),
   );
+  addTearDown(workspace.dispose);
   await tester.pumpWidget(MaterialApp(home: HomeScreen(workspace: workspace)));
   return workspace;
 }
