@@ -109,10 +109,10 @@ final class XFormSerializingVisitor {
           break;
       }
     } else {
-      final childNames = <String>[];
-      for (final child in node.children) {
-        if (!childNames.contains(child.name)) childNames.add(child.name!);
-      }
+      // Distinct names in order of first appearance.
+      final childNames = <String>{
+        for (var i = 0; i < node.numChildren; i++) node.childAt(i).name!,
+      };
       for (final childName in childNames) {
         final count = node.childMultiplicity(childName);
         for (var j = 0; j < count; j++) {

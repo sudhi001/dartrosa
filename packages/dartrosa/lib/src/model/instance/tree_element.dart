@@ -93,7 +93,14 @@ final class TreeElement {
   String? namespace;
 
   /// Namespace prefix, used to match names such as `orx:meta`.
-  String? namespacePrefix;
+  String? get namespacePrefix => _namespacePrefix;
+
+  set namespacePrefix(String? namespacePrefix) {
+    _identityEpoch++;
+    _namespacePrefix = namespacePrefix;
+  }
+
+  String? _namespacePrefix;
 
   var _bindAttributes = <TreeElement>[];
 
@@ -558,11 +565,36 @@ final class TreeElement {
   String toString() => '${_name ?? 'NULL'} - Children: ${_children.length}';
 }
 
-/// Bumped whenever any element's name or multiplicity changes, so
-/// [_TreeElementChildren] lookup tables built before are rebuilt (an
-/// element can be in a children list other than its parent's, e.g. after
-/// [TreeElement.shallowCopy]).
+/// Bumped whenever any element's name, multiplicity or namespace prefix
+/// changes, so [_TreeElementChildren] lookup tables built before are
+/// rebuilt (an element can be in a children list other than its parent's,
+/// e.g. after [TreeElement.shallowCopy]).
 int _identityEpoch = 0;
+
+/// Lookup tables over a long children list (see [_TreeElementChildren]).
+final class _ChildIndex {
+  /// The first index of each name and multiplicity (templates included),
+  /// for [_TreeElementChildren.find]: JavaRosa's exact-name search.
+  final Map<String, Map<int, int>> first = {};
+
+  /// The indexes, in order, of the non-template children matching each
+  /// name as [elementMatchesName] does (the name itself, or
+  /// `prefix:name`), for [_TreeElementChildren.withName].
+  final Map<String, List<int>> matching = {};
+
+  void add(TreeElement child, int i) {
+    final name = child.name;
+    final multiplicity = child.multiplicity;
+    if (name != null) (first[name] ??= {}).putIfAbsent(multiplicity, () => i);
+    if (multiplicity == TreeReference.indexTemplate) return;
+    if (name != null) (matching[name] ??= []).add(i);
+    final prefix = child.namespacePrefix;
+    if (prefix != null) {
+      final prefixed = '$prefix:$name';
+      if (prefixed != name) (matching[prefixed] ??= []).add(i);
+    }
+  }
+}
 
 /// Child list with JavaRosa's fast paths for the common case of a repeat
 /// whose children all share one name and have normal multiplicities.
@@ -573,11 +605,12 @@ final class _TreeElementChildren extends Iterable<TreeElement> {
   final _list = <TreeElement>[];
   bool _allSameNameAndNormalMultiplicity = true;
 
-  /// Added: for long lists (repeats), the first index of each name and
-  /// multiplicity, so lookups don't scan every sibling. Same result as
-  /// JavaRosa's linear search; dropped on any change.
-  Map<String, Map<int, int>>? _firstIndex;
-  int _firstIndexEpoch = -1;
+  /// Added: for long lists (repeats, or a form root with many questions),
+  /// lookup tables by name and multiplicity, so lookups don't scan every
+  /// sibling. Same results as JavaRosa's linear searches; kept up to date
+  /// by appends, dropped on any other change.
+  _ChildIndex? _index;
+  int _indexEpoch = -1;
 
   static const _indexThreshold = 32;
   static const _scansBeforeIndex = 4;
@@ -595,16 +628,14 @@ final class _TreeElementChildren extends Iterable<TreeElement> {
   TreeElement operator [](int i) => _list[i];
 
   void insert(int index, TreeElement child) {
-    _changed();
     _check(child.name, child.multiplicity);
-    _list.insert(index, child);
+    _insert(index, child);
   }
 
   void addAll(Iterable<TreeElement> children) {
-    _changed();
     for (final child in children) {
       _check(child.name, child.multiplicity);
-      _list.add(child);
+      _insert(_list.length, child);
     }
   }
 
@@ -623,8 +654,7 @@ final class _TreeElementChildren extends Iterable<TreeElement> {
     }
     final index = _indexOf(child.name!, searchMultiplicity);
     _check(child.name, child.multiplicity);
-    _list.insert(index == -1 ? _list.length : index + adjustment, child);
-    _changed();
+    _insert(index == -1 ? _list.length : index + adjustment, child);
   }
 
   TreeElement? find(String name, int multiplicity) {
@@ -655,8 +685,24 @@ final class _TreeElementChildren extends Iterable<TreeElement> {
     _list.clear();
   }
 
+  /// Inserts [child] at [index]; an append keeps the lookup tables.
+  void _insert(int index, TreeElement child) {
+    if (index == _list.length) {
+      final tables = _current();
+      if (tables == null) {
+        _scans = 0;
+      } else {
+        tables.add(child, index);
+      }
+      _list.add(child);
+    } else {
+      _changed();
+      _list.insert(index, child);
+    }
+  }
+
   void _changed() {
-    _firstIndex = null;
+    _index = null;
     _scans = 0;
   }
 
@@ -673,6 +719,20 @@ final class _TreeElementChildren extends Iterable<TreeElement> {
     if (_sameNameAndNormal(name, TreeReference.defaultMultiplicity)) {
       results?.addAll(_list);
       return _list.length;
+    }
+    if (_list.length >= _indexThreshold &&
+        name != TreeReference.nameWildcard) {
+      final tables = _indexed();
+      if (tables != null) {
+        final matching = tables.matching[name];
+        if (matching == null) return 0;
+        if (results != null) {
+          for (final i in matching) {
+            results.add(_list[i]);
+          }
+        }
+        return matching.length;
+      }
     }
     var count = 0;
     for (final child in _list) {
@@ -697,8 +757,8 @@ final class _TreeElementChildren extends Iterable<TreeElement> {
       if (_list[multiplicity].multiplicity == multiplicity) return multiplicity;
     }
     if (_list.length >= _indexThreshold) {
-      final index = _indexed();
-      if (index != null) return index[name]?[multiplicity] ?? -1;
+      final tables = _indexed();
+      if (tables != null) return tables.first[name]?[multiplicity] ?? -1;
     }
     for (var i = 0; i < _list.length; i++) {
       final child = _list[i];
@@ -707,24 +767,25 @@ final class _TreeElementChildren extends Iterable<TreeElement> {
     return -1;
   }
 
-  /// The lookup table, built once lookups outnumber changes (building it
-  /// on every insert while a form is parsed would cost more than scanning).
-  Map<String, Map<int, int>>? _indexed() {
-    if (_firstIndexEpoch != _identityEpoch) {
+  /// The lookup tables, if built and still valid.
+  _ChildIndex? _current() {
+    if (_indexEpoch != _identityEpoch) {
       _changed();
-      _firstIndexEpoch = _identityEpoch;
+      _indexEpoch = _identityEpoch;
     }
-    if (_firstIndex case final index?) return index;
+    return _index;
+  }
+
+  /// The lookup tables, built once lookups outnumber changes (building them
+  /// on every insert while a form is parsed would cost more than scanning).
+  _ChildIndex? _indexed() {
+    if (_current() case final tables?) return tables;
     if (++_scans < _scansBeforeIndex) return null;
-    final built = <String, Map<int, int>>{};
+    final built = _ChildIndex();
     for (var i = 0; i < _list.length; i++) {
-      final child = _list[i];
-      final name = child.name;
-      if (name != null) {
-        (built[name] ??= {}).putIfAbsent(child.multiplicity, () => i);
-      }
+      built.add(_list[i], i);
     }
-    return _firstIndex = built;
+    return _index = built;
   }
 }
 
