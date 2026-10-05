@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+# Copyright 2026 The DartRosa Authors
+# SPDX-License-Identifier: Apache-2.0
+
 """Regenerates test/src/golden_fixtures.dart.
 
 Runs Golden.java (ODK Collect's EncryptionUtils logic on the JVM with

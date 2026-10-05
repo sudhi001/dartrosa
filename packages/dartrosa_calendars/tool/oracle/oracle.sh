@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+# Copyright 2026 The DartRosa Authors
+# SPDX-License-Identifier: Apache-2.0
+
 # Regenerates test/vectors/*.dart by running the original JVM calendar
 # libraries ODK Collect uses (see deps.txt).
 #

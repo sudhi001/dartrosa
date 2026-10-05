@@ -1,10 +1,15 @@
 .dart_tool/
 build/
 coverage/
+# Lock files: library packages (the workspace) don't commit theirs, the
+# example app does (https://dart.dev/tools/pub/private-files; see
+# docs/legal/README.md, "Dependency lock files").
 pubspec.lock
-!/pubspec.lock
+!/packages/dartrosa_flutter/example/pubspec.lock
 .DS_Store
 .idea/
+.vscode/
+*.swp
 *.iml
 conformance/jvm_oracle/lib/
 conformance/jvm_oracle/out/

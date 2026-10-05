@@ -1,3 +1,6 @@
+# Copyright 2026 The DartRosa Authors
+# SPDX-License-Identifier: Apache-2.0
+
 """Regenerates conformance/forms/pyxform/tests from pyxform's test suite.
 
 Usage (pyxform checkout with `pip install -e .[dev] pytest` in a venv):

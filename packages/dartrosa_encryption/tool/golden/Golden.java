@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from ODK Collect (EncryptionUtils), Copyright (C) 2011 University of
+//  Washington; modified: Android removed, randomness made deterministic.
+// SPDX-License-Identifier: Apache-2.0
+
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.*;
