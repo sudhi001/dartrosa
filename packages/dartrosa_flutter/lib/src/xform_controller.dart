@@ -22,15 +22,17 @@ class XFormController extends ChangeNotifier {
 
   late final StreamSubscription<FormChange> _subscription;
   final Map<String, _RefNotifier> _byRef = {};
+  final Map<String, Listenable> _merged = {};
   final Map<String, AnswerResult> _errors = {};
 
   /// Notified on changes of the node at [ref] (or anything structural:
-  /// repeats, language). Use with `ListenableBuilder`.
+  /// repeats, language). Use with `ListenableBuilder`; the same
+  /// listenable is returned for a ref, so rebuilds don't resubscribe.
   Listenable listenableFor(TreeReference? ref) =>
-      Listenable.merge([this, _notifierFor(ref)]);
-
-  _RefNotifier _notifierFor(TreeReference? ref) =>
-      _byRef.putIfAbsent('$ref', _RefNotifier.new);
+      _merged.putIfAbsent('$ref', () {
+        final notifier = _byRef.putIfAbsent('$ref', _RefNotifier.new);
+        return Listenable.merge([this, notifier]);
+      });
 
   void _onChange(FormChange change) {
     switch (change.kind) {
