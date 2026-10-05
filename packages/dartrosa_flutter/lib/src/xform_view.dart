@@ -1,6 +1,7 @@
 // Copyright 2026 The DartRosa Authors
 // SPDX-License-Identifier: Apache-2.0
 
+import 'dart:async';
 import 'dart:math' as math;
 
 import 'package:dartrosa/dartrosa.dart';
@@ -133,12 +134,48 @@ class XFormViewState extends State<XFormView> {
       widget.outline == XFormOutlineMode.adaptive && _wide && !_panelHidden;
 
   @override
+  void initState() {
+    super.initState();
+    _watchCounts();
+  }
+
+  @override
   void didUpdateWidget(covariant XFormView oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (!identical(oldWidget.session, widget.session)) {
       _controller.dispose();
       _controller = XFormController(widget.session);
       _currentScreen.value = null;
+      _watchCounts();
+    } else if (oldWidget.mode != widget.mode) {
+      _createCountedInstances();
+    }
+  }
+
+  /// Creates the `jr:count` instances in scroll mode now and whenever
+  /// the form changes (counts answered, groups becoming relevant), as the
+  /// pager creates them on its way through the form.
+  void _watchCounts() {
+    _controller.formChanges.addListener(_scheduleCountedInstances);
+    _createCountedInstances();
+  }
+
+  var _countedInstancesScheduled = false;
+
+  /// Creates the instances once the change being reported is done (the
+  /// session reports one change at a time).
+  void _scheduleCountedInstances() {
+    if (_countedInstancesScheduled || widget.mode != XFormMode.scroll) return;
+    _countedInstancesScheduled = true;
+    scheduleMicrotask(() {
+      _countedInstancesScheduled = false;
+      if (mounted) _createCountedInstances();
+    });
+  }
+
+  void _createCountedInstances() {
+    if (widget.mode == XFormMode.scroll) {
+      _controller.createCountedRepeatInstances();
     }
   }
 

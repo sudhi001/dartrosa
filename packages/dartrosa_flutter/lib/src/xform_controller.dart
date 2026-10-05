@@ -195,6 +195,39 @@ class XFormController extends ChangeNotifier {
   void addRepeatInstance(RepeatNode repeat) =>
       session.addRepeatInstance(repeat.index);
 
+  /// Creates the missing instances of the `jr:count` repeats in the
+  /// relevant part of the form, up to each repeat's count; whether any
+  /// was created.
+  ///
+  /// The pager creates them as it moves into a counted repeat (JavaRosa's
+  /// `FormEntryModel`, one instance at a time, with the same
+  /// `createNewRepeat`); views showing the whole form at once call this
+  /// when the form changes, as `XFormView`'s scroll mode does. Instances
+  /// beyond a count that went down stay, as in the pager.
+  bool createCountedRepeatInstances() {
+    var created = false;
+    void visit(FormNode node) {
+      switch (node) {
+        case RepeatNode():
+          if (node.repeat.count != null) {
+            while (node.canAddInstance) {
+              session.addRepeatInstance(node.index);
+              created = true;
+            }
+          }
+          for (final instance in node.instances) {
+            if (instance.isRelevant) visit(instance);
+          }
+        case ContainerNode():
+          node.visibleChildren.forEach(visit);
+        case QuestionNode():
+      }
+    }
+
+    visit(session.root);
+    return created;
+  }
+
   /// Removes [instance].
   void removeRepeatInstance(RepeatInstanceNode instance) =>
       session.removeRepeatInstance(instance.index);
