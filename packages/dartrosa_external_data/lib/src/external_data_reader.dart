@@ -62,7 +62,9 @@ final class ExternalDataReader {
   final ExternalDataProgress _onProgress;
 
   /// Imports [externalDataMap] (data set name → file; `null` for a missing
-  /// file, which is skipped). Returns `false` if the import was cancelled:
+  /// file, which is skipped).
+  ///
+  /// Returns `false` if the import was cancelled:
   /// the partly imported data set is dropped and the remaining files are
   /// not processed. Throws [ExternalDataException] if a file can't be
   /// imported.

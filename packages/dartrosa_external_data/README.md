@@ -1,5 +1,10 @@
 # dartrosa_external_data
 
+[![pub package](https://img.shields.io/pub/v/dartrosa_external_data.svg)](https://pub.dev/packages/dartrosa_external_data)
+[![pub points](https://img.shields.io/pub/points/dartrosa_external_data)](https://pub.dev/packages/dartrosa_external_data/score)
+[![CI](https://github.com/sudhi001/dartrosa/actions/workflows/ci.yml/badge.svg)](https://github.com/sudhi001/dartrosa/actions/workflows/ci.yml)
+[![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
+
 ODK Collect's external data ("dynamic preload") for
 [DartRosa](https://github.com/sudhi001/dartrosa): `pulldata()` and
 `search()` appearances over CSV form media. A port of Collect's
@@ -36,7 +41,9 @@ Future<void> main() async {
     resolver: MapResourceResolver({
       'jr://file/fruits.csv': utf8.encode('name,price\nmango,1.5\n'),
     }),
-    plugins: [ExternalDataPlugin(listMedia: (_) => ['fruits.csv'])],
+    plugins: [
+      ExternalDataPlugin(listMedia: (_) => ['fruits.csv']),
+    ],
   );
   // The form calculates pulldata('fruits', 'price', 'name', /data/fruit).
   final definition = await FormDefinition.parse(xform, config: config);
@@ -51,6 +58,7 @@ See [example/example.dart](example/example.dart) for the complete program.
 
 ## Documentation
 
+- [API reference](https://pub.dev/documentation/dartrosa_external_data/latest/)
 - [Documentation index](https://github.com/sudhi001/dartrosa/blob/main/docs/README.md)
 - [Use CSV data and entities](https://github.com/sudhi001/dartrosa/blob/main/docs/guides/external-data-and-entities.md)
 - [Plugins and extension points](https://github.com/sudhi001/dartrosa/blob/main/docs/PLUGINS.md)

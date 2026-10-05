@@ -14,6 +14,19 @@ import 'open_rosa_xml_fetcher.dart';
 /// A [FormSource] and [EntitySource] backed by an OpenRosa server.
 ///
 /// Port of Collect's `org.odk.collect.openrosa.forms.OpenRosaClient`.
+///
+/// ```dart
+/// final client = OpenRosaClient(
+///   serverUrl,
+///   connection,
+///   credentials,
+///   deviceId: 'my-app:device-1',
+/// );
+/// for (final form in await client.fetchFormList()) {
+///   final manifest = await client.fetchManifest(form.manifestUrl);
+///   print('${form.formId}: ${manifest?.mediaFiles.length} media files');
+/// }
+/// ```
 final class OpenRosaClient implements FormSource, EntitySource {
   /// Creates a client for the server at [serverUrl] sending through
   /// [openRosaHttpInterface] as device [deviceId].

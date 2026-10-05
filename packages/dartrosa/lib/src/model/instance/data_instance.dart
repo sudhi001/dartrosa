@@ -12,7 +12,10 @@ import 'tree_reference.dart';
 
 /// Thrown when resolving a reference reaches an element whose content has
 /// not been loaded yet. Port of `PartialElementEncounteredException`.
-final class PartialElementEncounteredException implements Exception {}
+final class PartialElementEncounteredException implements Exception {
+  /// Creates the exception.
+  PartialElementEncounteredException();
+}
 
 /// An instance: a tree of [TreeElement]s under a hidden [base] node.
 ///

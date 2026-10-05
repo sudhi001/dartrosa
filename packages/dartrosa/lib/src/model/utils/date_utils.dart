@@ -119,9 +119,11 @@ final class DateFields {
   /// Week of year, 1–53.
   final int week;
 
-  /// Day of week. Not used to specify a date. Note JavaRosa's two
-  /// conventions: [getFields] gives Sunday = 1 … Saturday = 7 (Java
-  /// `Calendar`), [DateFields.of] gives Sunday = 0 … Saturday = 6.
+  /// The day of the week, which is not used to specify a date.
+  ///
+  /// JavaRosa has two conventions: [getFields] gives Sunday = 1 …
+  /// Saturday = 7 (Java `Calendar`), [DateFields.of] gives Sunday = 0 …
+  /// Saturday = 6.
   final int dow;
 
   /// Whether every field is in range.

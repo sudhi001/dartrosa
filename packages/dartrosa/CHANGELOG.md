@@ -1,3 +1,10 @@
+## 0.1.1
+
+- API docs: tested code examples for the library and for `FormDefinition`, `FormSession`, `FormNavigator`, `DartRosaConfig` and `AnswerResult`.
+- API docs: the default constructors of 17 classes (`ReferenceManager`, the filter strategies, the range hints, ...) are documented; no API change.
+- API docs: one-sentence summaries where a summary ran on, and no reference to the internal roadmap in `FormDefinition`.
+- README: pub.dev, CI and license badges and a link to the API reference.
+
 ## 0.1.0
 
 - Initial release: a pure-Dart port of JavaRosa 6.0.0.

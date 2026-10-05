@@ -30,15 +30,19 @@
 ///     password: 'pass',
 ///   ),
 /// );
-/// final client = OpenRosaClient(serverUrl, connection, credentials,
-///     deviceId: 'collect:abc');
+/// final client = OpenRosaClient(
+///   serverUrl,
+///   connection,
+///   credentials,
+///   deviceId: 'my-app:device-1',
+/// );
 /// final forms = await client.fetchFormList();
 ///
 /// final uploader = OpenRosaInstanceUploader(connection, credentials);
 /// final message = await uploader.uploadOneSubmission(
 ///   InstanceUpload.forForm(form, submission, attachments: files),
 ///   serverUrl: serverUrl,
-///   deviceId: 'collect:abc',
+///   deviceId: 'my-app:device-1',
 /// );
 /// ```
 ///

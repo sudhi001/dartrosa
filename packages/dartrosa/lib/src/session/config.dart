@@ -11,8 +11,19 @@ import '../model/utils/question_preloader.dart';
 import '../reference/resource_resolver.dart';
 import '../xform/instance_loading.dart';
 
-/// Everything that configures how forms are parsed and filled. Immutable;
-/// create one per app (or per form source) and reuse it.
+/// Everything that configures how forms are parsed and filled.
+///
+/// Immutable; create one per app (or per form source) and reuse it.
+///
+/// ```dart
+/// final config = DartRosaConfig(
+///   resolver: MapResourceResolver({
+///     'jr://file/towns.csv': utf8.encode('name,label\nnbo,Nairobi\n'),
+///   }),
+///   properties: MapPropertyManager({'deviceid': 'my-app:device-1'}),
+/// );
+/// final definition = await FormDefinition.parse(xform, config: config);
+/// ```
 final class DartRosaConfig {
   /// Creates a configuration.
   const DartRosaConfig({
@@ -94,7 +105,9 @@ final class DartRosaConfig {
 
   /// The `src` that `jr://instance/last-saved` secondary instances are read
   /// from (read through [resolver]), e.g. ODK Collect's
-  /// `jr://file/last-saved.xml`. Without it those instances are empty.
+  /// `jr://file/last-saved.xml`.
+  ///
+  /// Without it those instances are empty.
   final String? lastSavedSrc;
 }
 

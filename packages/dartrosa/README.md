@@ -1,5 +1,10 @@
 # dartrosa
 
+[![pub package](https://img.shields.io/pub/v/dartrosa.svg)](https://pub.dev/packages/dartrosa)
+[![pub points](https://img.shields.io/pub/points/dartrosa)](https://pub.dev/packages/dartrosa/score)
+[![CI](https://github.com/sudhi001/dartrosa/actions/workflows/ci.yml/badge.svg)](https://github.com/sudhi001/dartrosa/actions/workflows/ci.yml)
+[![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
+
 A pure-Dart ODK XForms engine: a faithful port of
 [JavaRosa](https://github.com/getodk/javarosa) 6.0.0, the engine behind
 ODK Collect. It parses XForms, evaluates XPath, recalculates, validates,
@@ -60,6 +65,7 @@ The complete program, with its form, is in
 
 ## Documentation
 
+- [API reference](https://pub.dev/documentation/dartrosa/latest/)
 - [Documentation index](https://github.com/sudhi001/dartrosa/blob/main/docs/README.md)
 - [Overview: what DartRosa is](https://github.com/sudhi001/dartrosa/blob/main/docs/OVERVIEW.md)
 - [Save and resume drafts](https://github.com/sudhi001/dartrosa/blob/main/docs/guides/save-and-resume-drafts.md)

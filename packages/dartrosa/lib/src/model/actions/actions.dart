@@ -88,6 +88,9 @@ typedef ActionResultProcessor =
 ///
 /// Port of `org.javarosa.core.model.actions.ActionController`.
 final class ActionController {
+  /// Creates a controller with no actions registered.
+  ActionController();
+
   final Map<String, List<Action>> _listeners = {};
 
   /// The actions registered for [event].

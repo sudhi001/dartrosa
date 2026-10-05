@@ -18,8 +18,10 @@ import 'javarosa/parse/entity_form_parse_processor.dart';
 import 'local_entity_use_cases.dart';
 import 'storage/entities_repository.dart';
 
-/// [base] with ODK entities enabled, the way Collect wires them when it
-/// loads a form:
+/// Returns [base] with ODK entities enabled, the way Collect wires them
+/// when it loads a form.
+///
+/// It adds:
 ///
 /// * an [EntityFormParseProcessor] (entity forms, `entities:saveto`);
 /// * a [LocalEntitiesInstanceProvider] so local entity lists are
@@ -40,6 +42,24 @@ import 'storage/entities_repository.dart';
 /// handler read the repository's list names when created. [base] must
 /// not have an `externalInstanceParser` (a parser can't be copied); pass
 /// [externalInstanceParserFactory] to customize the parser instead.
+///
+/// ```dart
+/// final repository = InMemEntitiesRepository()..addList('people');
+/// final config = withEntities(
+///   const DartRosaConfig(),
+///   entitiesRepository: () => repository,
+/// );
+/// final definition = await FormDefinition.parse(
+///   entityFormXml,
+///   config: config,
+/// );
+/// final session = definition.createSession();
+/// final name = session.root.children.whereType<QuestionNode>().first;
+/// session.answer(name.index, const StringValue('Kendall Roy'));
+/// if (session.finalize() is FinalizeSuccess) {
+///   saveFormEntities(session, repository); // the new person joins 'people'
+/// }
+/// ```
 DartRosaConfig withEntities(
   DartRosaConfig base, {
   required EntitiesRepository Function() entitiesRepository,

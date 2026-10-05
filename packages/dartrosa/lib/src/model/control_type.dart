@@ -28,13 +28,13 @@ enum ControlType {
   /// `<range>`
   range(6),
 
-  /// `<upload>` without a recognized media type
+  /// `<upload>` without a recognized media type.
   upload(7),
 
   /// `<submit>`
   submit(8),
 
-  /// `<trigger>` (acknowledge)
+  /// `<trigger>` (acknowledge).
   trigger(9),
 
   /// `<upload mediatype="image/*">`
@@ -52,7 +52,7 @@ enum ControlType {
   /// `<upload mediatype="osm/*">`
   osmCapture(14),
 
-  /// `<upload>` with any other media type
+  /// `<upload>` with any other media type.
   fileCapture(15),
 
   /// `<odk:rank>`

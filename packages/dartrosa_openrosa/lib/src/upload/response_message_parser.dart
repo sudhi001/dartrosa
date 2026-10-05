@@ -12,6 +12,9 @@ final _log = Logger('dartrosa_openrosa');
 ///
 /// Port of Collect's `org.odk.collect.android.utilities.ResponseMessageParser`.
 final class ResponseMessageParser {
+  /// Creates a parser that has read no response yet.
+  ResponseMessageParser();
+
   static const _messageXmlTag = 'message';
 
   bool _isValid = false;

@@ -47,7 +47,7 @@ enum DataType {
   /// `barcode`
   barcode(11),
 
-  /// `binary` (attachments)
+  /// `binary` (attachments).
   binary(12),
 
   /// `long`

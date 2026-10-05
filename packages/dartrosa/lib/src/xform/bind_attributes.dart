@@ -19,7 +19,9 @@ import 'xform_parse_exception.dart';
 final _log = Logger('dartrosa.xform');
 
 /// Handles bind attributes it declares (e.g. ODK Collect's entities
-/// `saveto`). Port of `XFormParser.BindAttributeProcessor`.
+/// `saveto`).
+///
+/// Port of `XFormParser.BindAttributeProcessor`.
 abstract interface class BindAttributeProcessor {
   /// The (namespace, name) pairs this processor handles.
   Set<(String, String)> get bindAttributes;

@@ -1,7 +1,7 @@
 name: dartrosa_external_data
 description: >-
   ODK Collect's external data for DartRosa: pulldata() and search() appearances over CSV form media. A port of Collect's dynamicpreload package.
-version: 0.1.0
+version: 0.1.1
 homepage: https://github.com/sudhi001/dartrosa
 repository: https://github.com/sudhi001/dartrosa/tree/main/packages/dartrosa_external_data
 issue_tracker: https://github.com/sudhi001/dartrosa/issues
@@ -17,7 +17,6 @@ environment:
   sdk: ^3.10.0
 
 dependencies:
-  collection: ^1.19.0
   crypto: ^3.0.0
   dartrosa: ^0.1.0
   logging: ^1.2.0

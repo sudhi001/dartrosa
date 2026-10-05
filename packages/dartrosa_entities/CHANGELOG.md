@@ -1,3 +1,8 @@
+## 0.1.1
+
+- API docs: a tested code example for `withEntities`.
+- README: pub.dev, CI and license badges and a link to the API reference.
+
 ## 0.1.0
 
 - Initial release: a port of ODK Collect's entities module.

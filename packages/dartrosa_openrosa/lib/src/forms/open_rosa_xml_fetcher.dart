@@ -39,7 +39,7 @@ final class OpenRosaXmlFetcher {
   WebCredentialsProvider _webCredentialsProvider;
   final String? _deviceId;
 
-  /// Gets the XML document at [urlString].
+  /// Fetches the XML document at [urlString].
   Future<DocumentFetchResult> getXml(String urlString) async {
     final inputStreamResult = await fetch(urlString, _httpContentTypeTextXml);
 

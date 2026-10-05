@@ -1,5 +1,10 @@
 # dartrosa_collect
 
+[![pub package](https://img.shields.io/pub/v/dartrosa_collect.svg)](https://pub.dev/packages/dartrosa_collect)
+[![pub points](https://img.shields.io/pub/points/dartrosa_collect)](https://pub.dev/packages/dartrosa_collect/score)
+[![CI](https://github.com/sudhi001/dartrosa/actions/workflows/ci.yml/badge.svg)](https://github.com/sudhi001/dartrosa/actions/workflows/ci.yml)
+[![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
+
 ODK Collect's form-filling services for
 [DartRosa](https://github.com/sudhi001/dartrosa), ported from ODK Collect:
 
@@ -37,15 +42,19 @@ Future<void> main() async {
     lastSaved: lastSaved,
   );
 
-  final session = (await FormDefinition.parse(xform, config: config))
-      .createSession();
+  final session = (await FormDefinition.parse(
+    xform,
+    config: config,
+  )).createSession();
   // ... answer questions ...
   final submission = (session.finalize() as FinalizeSuccess).submission;
   await lastSaved.instanceSaved(session); // pre-fills the next instance
 
   // Editing a finalized submission gives it a new instanceID.
-  final edit = (await FormDefinition.parse(xform, config: config))
-      .createSession(existingInstance: submission.xml);
+  final edit = (await FormDefinition.parse(
+    xform,
+    config: config,
+  )).createSession(existingInstance: submission.xml);
   const InstanceEdit(editOf: 1).markSession(edit);
   print((edit.finalize() as FinalizeSuccess).submission.xml); // deprecatedID
 }
@@ -55,6 +64,7 @@ See [example/example.dart](example/example.dart) for the complete program.
 
 ## Documentation
 
+- [API reference](https://pub.dev/documentation/dartrosa_collect/latest/)
 - [Documentation index](https://github.com/sudhi001/dartrosa/blob/main/docs/README.md)
 - [Save and resume drafts](https://github.com/sudhi001/dartrosa/blob/main/docs/guides/save-and-resume-drafts.md)
 - [Use CSV data and entities](https://github.com/sudhi001/dartrosa/blob/main/docs/guides/external-data-and-entities.md)

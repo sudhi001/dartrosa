@@ -186,6 +186,9 @@ final class RootTranslator implements ReferenceFactory {
 /// object instead of a global singleton: an app (such as ODK Collect)
 /// creates one, registers its media folders and passes it on.
 final class ReferenceManager {
+  /// Creates a manager with no translators or factories.
+  ReferenceManager();
+
   final List<RootTranslator> _translators = [];
   final List<ReferenceFactory> _factories = [];
   final List<RootTranslator> _sessionTranslators = [];

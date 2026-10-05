@@ -25,9 +25,19 @@ import 'form_node.dart';
 
 /// A parsed form, ready to be filled.
 ///
-/// Until definitions can be cached and copied (Phase 6), a definition
-/// backs one session at a time: [createSession] resets it and closes the
-/// session created before (see [FormSession.close]).
+/// A definition backs one session at a time: [createSession] resets it
+/// and closes the session created before (see [FormSession.close]).
+///
+/// ```dart
+/// final definition = await FormDefinition.parse(xform);
+/// print(definition.title); // Household
+/// final session = definition.createSession();
+/// // ... answer questions, then keep a draft ...
+/// final draft = session.saveDraft();
+///
+/// // Later: continue the draft (this closes `session`).
+/// final resumed = definition.createSession(existingInstance: draft);
+/// ```
 final class FormDefinition {
   FormDefinition._(this.formDef, this.config)
     : _blankInstance = formDef.mainInstance.clone();
@@ -121,6 +131,22 @@ final class FormChange {
 
 /// Filling one instance of a form: a tree of nodes to read and answer,
 /// and a cursor ([navigator]) with JavaRosa's navigation semantics.
+///
+/// ```dart
+/// final session = definition.createSession();
+/// final changes = session.changes.listen((change) => print(change.kind));
+/// final [name, age] = session.root.visibleChildren.cast<QuestionNode>();
+/// session.answer(name.index, const StringValue('Ada'));
+/// session.answer(age.index, const UncastValue('42')); // text is parsed
+/// switch (session.finalize()) {
+///   case FinalizeSuccess(:final submission):
+///     print(submission.xml);
+///   case FinalizeFailure(:final failure):
+///     print('Fix the question at ${failure.index}');
+/// }
+/// await changes.cancel();
+/// await session.close();
+/// ```
 final class FormSession {
   FormSession._(this.definition, {required bool newInstance})
     : _controller = FormEntryController(FormEntryModel(definition.formDef)) {
@@ -356,10 +382,12 @@ final class FormSession {
     return meta?.getChild('instanceID', 0)?.value?.displayText;
   }
 
-  /// Stops reporting changes: [changes] is done and the session no longer
-  /// listens to its form, so it can be garbage collected. Call it when the
-  /// session is no longer needed (e.g. when its screen is disposed).
-  /// Calling it again does nothing.
+  /// Stops reporting changes and detaches the session from its form.
+  ///
+  /// Afterwards [changes] is done and the session no longer listens to its
+  /// form, so it can be garbage collected. Call it when the session is no
+  /// longer needed (e.g. when its screen is disposed). Calling it again
+  /// does nothing.
   ///
   /// The session can still be read and answered afterwards, without
   /// change events, until the [definition] starts another session.
@@ -375,6 +403,15 @@ final class FormSession {
 /// A cursor over the form with JavaRosa's navigation: questions, groups,
 /// repeat instances and "add another?" prompts, skipping non-relevant
 /// nodes.
+///
+/// ```dart
+/// final navigator = session.navigator;
+/// while (navigator.next() != FormEntryEvent.endOfForm) {
+///   if (navigator.current case QuestionNode(:final label)) {
+///     print(label);
+///   }
+/// }
+/// ```
 final class FormNavigator {
   FormNavigator._(this._session);
 

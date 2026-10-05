@@ -10,6 +10,17 @@
 /// ([FormSession.root]) or step through it with its [FormNavigator], and
 /// answer questions with [FormSession.answer].
 ///
+/// ```dart
+/// final definition = await FormDefinition.parse(xform);
+/// final session = definition.createSession();
+/// final [name, age] = session.root.visibleChildren.cast<QuestionNode>();
+/// session.answer(name.index, const StringValue('Ada'));
+/// session.answer(age.index, const IntegerValue(42));
+/// if (session.finalize() case FinalizeSuccess(:final submission)) {
+///   print(submission.xml);
+/// }
+/// ```
+///
 /// The JavaRosa-compatible API (`FormDef`, `FormEntryController`, ...) is
 /// available from `package:dartrosa/javarosa.dart`.
 ///

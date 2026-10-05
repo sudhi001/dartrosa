@@ -64,8 +64,9 @@ final class FormDef extends FormElement {
   final _comparisonCacheStrategy = ComparisonExpressionCacheFilterStrategy();
 
   /// Objects plugins attach to the form, at most one per type (e.g. ODK
-  /// Collect's `DynamicPreloadExtra` and entities `EntityFormExtra`). Port
-  /// of `getExtras()`; like other parse results, they are rebuilt by the
+  /// Collect's `DynamicPreloadExtra` and entities `EntityFormExtra`).
+  ///
+  /// Port of `getExtras()`; like other parse results, they are rebuilt by the
   /// processors when a form is restored by `FormDefCodec`.
   final Extras<Object> extras = Extras();
 

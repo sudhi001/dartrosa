@@ -1,5 +1,10 @@
 # dartrosa_calendars
 
+[![pub package](https://img.shields.io/pub/v/dartrosa_calendars.svg)](https://pub.dev/packages/dartrosa_calendars)
+[![pub points](https://img.shields.io/pub/points/dartrosa_calendars)](https://pub.dev/packages/dartrosa_calendars/score)
+[![CI](https://github.com/sudhi001/dartrosa/actions/workflows/ci.yml/badge.svg)](https://github.com/sudhi001/dartrosa/actions/workflows/ci.yml)
+[![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
+
 The non-Gregorian date appearances of ODK Collect for
 [DartRosa](https://github.com/sudhi001/dartrosa): `ethiopian`, `coptic`,
 `islamic`, `bikram-sambat`, `myanmar`, `persian` and `buddhist`.
@@ -41,6 +46,7 @@ See [example/example.dart](example/example.dart).
 
 ## Documentation
 
+- [API reference](https://pub.dev/documentation/dartrosa_calendars/latest/)
 - [Documentation index](https://github.com/sudhi001/dartrosa/blob/main/docs/README.md)
 - [Use non-Gregorian calendars](https://github.com/sudhi001/dartrosa/blob/main/docs/guides/non-gregorian-calendars.md)
 - [Getting started](https://github.com/sudhi001/dartrosa/blob/main/docs/GETTING_STARTED.md)
