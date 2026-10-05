@@ -5,6 +5,10 @@
 /// parsed form, matching the JVM oracle's Structure.java.
 library;
 
+import 'dart:convert';
+import 'dart:typed_data';
+
+import 'package:crypto/crypto.dart';
 import 'package:dartrosa/src/model/condition/conditions.dart';
 import 'package:dartrosa/src/model/data_type.dart';
 import 'package:dartrosa/src/model/form_def.dart';
@@ -12,6 +16,8 @@ import 'package:dartrosa/src/model/form_element.dart';
 import 'package:dartrosa/src/model/instance/tree_element.dart';
 import 'package:dartrosa/src/model/instance/tree_reference.dart';
 import 'package:dartrosa/src/model/select_choice.dart';
+
+import 'trace_support.dart' show asJson;
 
 final _uuid = RegExp(
   '[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}',
@@ -62,7 +68,8 @@ Map<String, Object?> structureOf(FormDef f) {
     'elements': _elements(f),
     'instance': _tree(f.mainInstance.root),
     'secondaryInstances': {
-      for (final e in f.nonMainInstances.entries) e.key: _tree(e.value.root),
+      for (final e in f.nonMainInstances.entries)
+        e.key: _secondaryTree(e.value.root),
     },
     'triggerables': triggerables,
     'outputs': [for (final o in f.outputFragments) o.expr.toString()],
@@ -148,6 +155,61 @@ List<Object?> _elements(FormElement parent) => [
       'children': _elements(e),
     },
 ];
+
+/// Secondary instances with at least this many nodes are recorded as a
+/// digest (as `Structure.DIGEST_MIN_NODES` in the oracle).
+const _digestMinNodes = 10000;
+
+/// The tree of a secondary instance, or for a very large one its node
+/// count and the SHA-256 of the tree's canonical encoding (see
+/// conformance/TRACE_FORMAT.md), as the oracle records it.
+Object? _secondaryTree(TreeElement? root) {
+  final tree = asJson(_tree(root))! as Map<String, Object?>;
+  final nodes = _countNodes(tree);
+  if (nodes < _digestMinNodes) return tree;
+  final bytes = BytesBuilder(copy: false);
+  _encode(tree, bytes);
+  return {'nodeCount': nodes, 'sha256': '${sha256.convert(bytes.takeBytes())}'};
+}
+
+int _countNodes(Map<String, Object?> tree) {
+  var n = 1;
+  for (final child in tree['children']! as List<Object?>) {
+    n += _countNodes(child! as Map<String, Object?>);
+  }
+  return n;
+}
+
+/// The oracle's canonical encoding: `n`, `t`, `f`, `i<int>;`,
+/// `s<utf8 length>:<utf8>`, `l<n>:<items>`, `m<n>:<sorted key, value>`.
+void _encode(Object? value, BytesBuilder out) {
+  void tag(String s) => out.add(ascii.encode(s));
+  switch (value) {
+    case null:
+      tag('n');
+    case final bool b:
+      tag(b ? 't' : 'f');
+    case final int i:
+      tag('i$i;');
+    case final String s:
+      final bytes = utf8.encode(s);
+      tag('s${bytes.length}:');
+      out.add(bytes);
+    case final List<Object?> list:
+      tag('l${list.length}:');
+      for (final item in list) {
+        _encode(item, out);
+      }
+    case final Map<String, Object?> map:
+      tag('m${map.length}:');
+      for (final key in map.keys.toList()..sort()) {
+        _encode(key, out);
+        _encode(map[key], out);
+      }
+    default:
+      throw ArgumentError.value(value, 'value', 'not encodable');
+  }
+}
 
 Map<String, Object?> _tree(TreeElement? t) {
   if (t == null) return {};

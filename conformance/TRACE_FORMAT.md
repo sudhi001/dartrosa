@@ -94,7 +94,15 @@ checked by `test/conformance/structure_test.dart`):
   repeat count/noAddRemove, additional attributes, children);
 - `instance` and `secondaryInstances`: every node's name, multiplicity,
   data type, value, relevant/required/enabled/repeatable flags, namespace
-  and prefix, preload, constraint, attributes and bind attributes;
+  and prefix, preload, constraint, attributes and bind attributes. A
+  secondary instance with 10,000 nodes or more (such as a large external
+  list) is recorded instead as `{"nodeCount": n, "sha256": "…"}`: the
+  SHA-256 of its tree in a canonical encoding, so every node is still
+  compared without storing tens of megabytes. The encoding is `n` (null),
+  `t`/`f`, `i<integer>;`, `s<UTF-8 byte length>:<UTF-8 bytes>`,
+  `l<count>:<items>` and `m<count>:<key, value>…` with keys sorted
+  (`Structure.secondaryTree` in the oracle, `_secondaryTree` in
+  `structure_dump.dart`);
 - `triggerables`: kind, expression, contexts, sorted targets and triggers
   (sorted by kind/expression/context, because JavaRosa keeps them in a
   `HashSet`);

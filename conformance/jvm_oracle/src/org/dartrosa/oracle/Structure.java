@@ -4,7 +4,11 @@
 package org.dartrosa.oracle;
 
 import java.lang.reflect.Field;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
+import java.util.HexFormat;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -43,7 +47,7 @@ final class Structure {
         s.put("instance", tree(f.getMainInstance().getRoot()));
         Map<String, Object> secondary = new LinkedHashMap<>();
         for (Map.Entry<String, DataInstance> e : f.getFormInstances().entrySet()) {
-            secondary.put(e.getKey(), tree((TreeElement) e.getValue().getRoot()));
+            secondary.put(e.getKey(), secondaryTree((TreeElement) e.getValue().getRoot()));
         }
         s.put("secondaryInstances", secondary);
         List<Object> triggerables = new ArrayList<>();
@@ -119,6 +123,75 @@ final class Structure {
             out.add(m);
         }
         return out;
+    }
+
+    /** Secondary instances with more nodes than this are recorded as a digest. */
+    static final int DIGEST_MIN_NODES = 10000;
+
+    /**
+     * The tree of a secondary instance, or for a very large one (e.g. a
+     * 59,000-node external list) its node count and the SHA-256 of the
+     * tree's canonical encoding, which keeps the trace small while every
+     * node is still compared. TRACE_FORMAT.md describes the encoding.
+     */
+    static Object secondaryTree(TreeElement root) {
+        Map<String, Object> tree = tree(root);
+        int nodes = countNodes(tree);
+        if (nodes < DIGEST_MIN_NODES) return tree;
+        Map<String, Object> digest = new LinkedHashMap<>();
+        digest.put("nodeCount", nodes);
+        digest.put("sha256", sha256(tree));
+        return digest;
+    }
+
+    @SuppressWarnings("unchecked")
+    static int countNodes(Map<String, Object> tree) {
+        int n = 1;
+        for (Object child : (List<Object>) tree.get("children")) n += countNodes((Map<String, Object>) child);
+        return n;
+    }
+
+    static String sha256(Object value) {
+        try {
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+            encode(value, md);
+            return HexFormat.of().formatHex(md.digest());
+        } catch (NoSuchAlgorithmException e) {
+            throw new IllegalStateException(e);
+        }
+    }
+
+    /** Canonical encoding: n, t, f, i<int>;, s<utf8 length>:<utf8>, l<n>:..., m<n>:<sorted key, value>... */
+    @SuppressWarnings("unchecked")
+    static void encode(Object v, MessageDigest md) {
+        if (v == null) {
+            ascii(md, "n");
+        } else if (v instanceof Boolean b) {
+            ascii(md, b ? "t" : "f");
+        } else if (v instanceof Integer || v instanceof Long) {
+            ascii(md, "i" + v + ";");
+        } else if (v instanceof String str) {
+            byte[] bytes = str.getBytes(StandardCharsets.UTF_8);
+            ascii(md, "s" + bytes.length + ":");
+            md.update(bytes);
+        } else if (v instanceof List<?> list) {
+            ascii(md, "l" + list.size() + ":");
+            for (Object item : list) encode(item, md);
+        } else if (v instanceof Map<?, ?> map) {
+            ascii(md, "m" + map.size() + ":");
+            List<String> keys = new ArrayList<>((java.util.Set<String>) map.keySet());
+            java.util.Collections.sort(keys);
+            for (String key : keys) {
+                encode(key, md);
+                encode(map.get(key), md);
+            }
+        } else {
+            throw new IllegalArgumentException("not encodable: " + v.getClass());
+        }
+    }
+
+    private static void ascii(MessageDigest md, String s) {
+        md.update(s.getBytes(StandardCharsets.US_ASCII));
     }
 
     static Map<String, Object> tree(TreeElement t) {
