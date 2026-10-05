@@ -25,6 +25,7 @@ import 'package:meta/meta.dart';
 import 'package:xml/xml.dart' as xml;
 import 'package:xml/xml_events.dart' as xmlevents;
 import '../util/java_lang.dart';
+import 'xform_parse_exception.dart';
 
 /// Kinds of non-element child.
 enum KNodeType {
@@ -346,9 +347,20 @@ void _appendText(KElement element, String text) {
 
 /// Parses [source] and consolidates its text, as JavaRosa's
 /// `XFormParser.getXMLDocument` does: the document element of the result.
-/// Throws [xml.XmlException] for malformed XML.
+///
+/// Throws [XFormParseException] for malformed XML, with JavaRosa's
+/// message (`XML Syntax Error at Line: 1, Column: 7!`).
 KElement getXmlDocument(String source) {
-  final root = parseKDocument(source);
+  final KElement root;
+  try {
+    root = parseKDocument(source);
+  } on xml.XmlParserException catch (e) {
+    throw XFormParseException(
+      'XML Syntax Error at Line: ${e.line}, Column: ${e.column}!',
+    );
+  } on xml.XmlException {
+    throw XFormParseException('Unhandled Exception while Parsing XForm');
+  }
   consolidateText(root);
   return root;
 }

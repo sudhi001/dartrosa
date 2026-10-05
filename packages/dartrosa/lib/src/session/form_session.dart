@@ -6,6 +6,7 @@ import 'dart:async';
 import '../form_api/form_entry_controller.dart';
 import '../form_api/form_entry_model.dart';
 import '../form_api/form_entry_prompt.dart';
+import '../i18n/locale_exceptions.dart';
 import '../model/data/answer_value.dart';
 import '../model/data_type.dart';
 import '../model/form_def.dart';
@@ -17,8 +18,10 @@ import '../model/utils/question_preloader.dart';
 import '../reference/resource_resolver.dart';
 import '../xform/instance_loading.dart';
 import '../xform/xform_answer_data_parser.dart';
+import '../xform/xform_parse_exception.dart';
 import '../xform/xform_parser.dart';
 import '../xform/xform_serializing_visitor.dart';
+import '../xpath/exceptions.dart';
 import 'answer_result.dart';
 import 'config.dart';
 import 'form_node.dart';
@@ -44,6 +47,12 @@ final class FormDefinition {
 
   /// Parses the XForm [xml] with [config] (secondary instances are read
   /// through its resolver, hence asynchronous).
+  ///
+  /// Throws [XFormParseException] when [xml] is not well-formed XML or not
+  /// a valid XForm (for example without a `<model>` and `<instance>`), and
+  /// an [XPathException] for some invalid references (for example a
+  /// repeat's `jr:count` that is not a path). Exceptions thrown by
+  /// [DartRosaConfig.plugins] while preparing the form are passed on.
   static Future<FormDefinition> parse(
     String xml, {
     DartRosaConfig config = const DartRosaConfig(),
@@ -93,6 +102,14 @@ final class FormDefinition {
   /// closed first (its [FormSession.changes] stream is done and it stops
   /// receiving the form's events), so the definition doesn't keep every
   /// session it ever created.
+  ///
+  /// Throws [TriggerableEvaluationException] when a calculation or
+  /// condition can't be evaluated (for example an unknown function), an
+  /// [XPathException] when another expression evaluated on load (such as
+  /// a `setvalue` action) fails, [XFormParseException] when
+  /// [existingInstance] is not well-formed XML, a [StateError] when it is
+  /// an instance of another form (its root element doesn't match), and
+  /// [UnregisteredLocaleException] when the form has no [language].
   FormSession createSession({String? existingInstance, String? language}) {
     if (_session case final previous?) unawaited(previous._detach());
     formDef.mainInstance = _blankInstance.clone();
@@ -108,7 +125,15 @@ final class FormDefinition {
       this,
       newInstance: existingInstance == null,
     );
-    if (language != null) session.language = language;
+    if (language != null) {
+      try {
+        session.language = language;
+      } catch (_) {
+        // The session is never returned: don't leave it listening.
+        unawaited(session._detach());
+        rethrow;
+      }
+    }
     return session;
   }
 }
@@ -216,6 +241,9 @@ final class FormSession {
   String? get language => _form.localizer?.locale;
 
   /// Changes the language.
+  ///
+  /// Throws [UnregisteredLocaleException] when the form has no such
+  /// language (see [FormDefinition.languages]).
   set language(String? language) {
     _controller.language = language;
     _emit(const FormChange('language', []));
@@ -228,6 +256,11 @@ final class FormSession {
   /// Collect's widgets do); values that can't be read, values of another
   /// type, and choices the question doesn't offer give [AnswerRejected]
   /// (even when not [validate]) and are not saved.
+  ///
+  /// Throws [TriggerableEvaluationException] when a calculation or
+  /// condition depending on the answer can't be evaluated, and an
+  /// [XPathException] (or a [FormatException] for an invalid `regex()`
+  /// pattern) when the question's constraint can't be evaluated.
   AnswerResult answer(
     FormIndex index,
     AnswerValue? value, {
@@ -334,6 +367,9 @@ final class FormSession {
 
   /// Adds an instance to the repeat at [repeat] (a [RepeatNode]'s index);
   /// returns the new instance's index.
+  ///
+  /// Throws [TriggerableEvaluationException] when a calculation or
+  /// condition of the new instance can't be evaluated.
   FormIndex addRepeatInstance(FormIndex repeat) {
     final index = _form.descendIntoRepeat(repeat, -1);
     _form.createNewRepeat(index);
@@ -357,6 +393,12 @@ final class FormSession {
 
   /// Validates the whole form and, when valid, finalizes it (end
   /// timestamps, finalization processors) and serializes the submission.
+  ///
+  /// Throws an [XPathException] (or a [FormatException] for an invalid
+  /// `regex()` pattern) when a constraint can't be evaluated, and
+  /// [TriggerableEvaluationException] when a calculation run on
+  /// finalization can't be evaluated. Exceptions thrown by
+  /// [DartRosaConfig.finalizationProcessors] are passed on.
   FinalizeResult finalize() {
     final outcome = _form.validate();
     if (outcome != null) {

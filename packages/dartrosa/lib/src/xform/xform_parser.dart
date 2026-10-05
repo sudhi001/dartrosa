@@ -4,7 +4,6 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import 'package:logging/logging.dart';
-import 'package:xml/xml.dart' as xml;
 
 import '../i18n/locale_source.dart';
 import '../i18n/localizer.dart';
@@ -195,17 +194,7 @@ final class XFormParser {
     AnswerResolver answerResolver = defaultAnswerResolver,
     bool restoringCachedForm = false,
   }) async {
-    final KElement root;
-    try {
-      root = parseKDocument(formXml);
-    } on xml.XmlParserException catch (e) {
-      throw XFormParseException(
-        'XML Syntax Error at Line: ${e.line}, Column: ${e.column}!',
-      );
-    } on xml.XmlException {
-      throw XFormParseException('Unhandled Exception while Parsing XForm');
-    }
-    consolidateText(root);
+    final root = getXmlDocument(formXml);
     await _parseDoc(
       root,
       formXmlSrc,
@@ -1364,7 +1353,13 @@ final class XFormParser {
     String type, {
     required bool allowSubforms,
   }) {
-    final localizer = _localizer!;
+    // JavaRosa crashes with a NullPointerException without <itext>; see
+    // conformance/DEVIATIONS.md.
+    final localizer =
+        _localizer ??
+        (throw XFormParseException(
+          "$type '$textId': the form has no <itext> translations",
+        ));
     for (final locale in localizer.availableLocales) {
       if (_hasITextMapping(textId, locale) ||
           (allowSubforms && _hasSpecialFormMapping(textId, locale))) {

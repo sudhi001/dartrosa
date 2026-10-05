@@ -28,6 +28,7 @@
 library;
 
 export 'src/form_api/form_entry_model.dart' show FormEntryEvent;
+export 'src/i18n/locale_exceptions.dart' show UnregisteredLocaleException;
 export 'src/model/control_type.dart';
 export 'src/model/data/answer_value.dart';
 export 'src/model/data_type.dart';
@@ -36,6 +37,7 @@ export 'src/model/form_element.dart'
 export 'src/model/form_index.dart';
 export 'src/model/instance/tree_reference.dart' show TreeReference;
 export 'src/model/select_choice.dart';
+export 'src/model/triggerable_dag.dart' show TriggerableEvaluationException;
 export 'src/model/utils/question_preloader.dart'
     show MapPropertyManager, PreloadHandler, PropertyManager;
 export 'src/reference/reference_manager.dart';
