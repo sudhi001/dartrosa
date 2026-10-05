@@ -38,7 +38,12 @@ class RangeInput extends StatelessWidget {
           : DecimalValue(v),
     );
     if (appearance.has('picker')) {
-      return _picker(values, value, set);
+      return _RangePicker(
+        values: values,
+        value: value,
+        format: _format,
+        onChanged: node.isReadonly ? null : set,
+      );
     }
     if (appearance.has('rating')) {
       return _Rating(
@@ -114,24 +119,6 @@ class RangeInput extends StatelessWidget {
     );
   }
 
-  Widget _picker(
-    List<double> values,
-    double? value,
-    ValueChanged<double?> onChanged,
-  ) {
-    final selected = values.where((v) => v == value).firstOrNull;
-    return DropdownButtonFormField<double>(
-      key: ValueKey(selected),
-      initialValue: selected,
-      isExpanded: true,
-      items: [
-        for (final v in values)
-          DropdownMenuItem(value: v, child: Text(_format(v))),
-      ],
-      onChanged: node.isReadonly ? null : onChanged,
-    );
-  }
-
   /// The values from [start] to [end] (either direction) by [step].
   static List<double> _values(double start, double end, double step) {
     if (step <= 0) return [start];
@@ -144,6 +131,36 @@ class RangeInput extends StatelessWidget {
   String _format(double v) => node.dataType == DataType.integer
       ? '${v.round()}'
       : (v == v.roundToDouble() ? '${v.round()}' : '$v');
+}
+
+/// A drop-down of a range's [values] (`picker`).
+class _RangePicker extends StatelessWidget {
+  const _RangePicker({
+    required this.values,
+    required this.value,
+    required this.format,
+    required this.onChanged,
+  });
+
+  final List<double> values;
+  final double? value;
+  final String Function(double value) format;
+  final ValueChanged<double?>? onChanged;
+
+  @override
+  Widget build(BuildContext context) {
+    final selected = values.where((v) => v == value).firstOrNull;
+    return DropdownButtonFormField<double>(
+      key: ValueKey(selected),
+      initialValue: selected,
+      isExpanded: true,
+      items: [
+        for (final v in values)
+          DropdownMenuItem(value: v, child: Text(format(v))),
+      ],
+      onChanged: onChanged,
+    );
+  }
 }
 
 /// Stars for a `rating` range: tapping the n-th star selects the n-th

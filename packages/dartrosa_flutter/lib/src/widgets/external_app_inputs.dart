@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import '../appearance.dart';
 import '../external_apps.dart';
 import '../localizations.dart';
+import '../theme.dart';
 import '../xform_scope.dart';
 import 'common.dart';
 import 'text_input.dart';
@@ -92,7 +93,9 @@ class _ExternalAppInputState extends State<ExternalAppInput> {
         children: [
           Text(
             error,
-            style: TextStyle(color: Theme.of(context).colorScheme.error),
+            style: TextStyle(
+              color: XFormTheme.of(context).errorColorOf(context),
+            ),
           ),
           const SizedBox(height: 8),
           TextQuestionInput(node),
@@ -304,7 +307,9 @@ class _IntentGroupState extends State<IntentGroup> {
         if (error != null)
           Text(
             error,
-            style: TextStyle(color: Theme.of(context).colorScheme.error),
+            style: TextStyle(
+              color: XFormTheme.of(context).errorColorOf(context),
+            ),
           ),
         // Answers come from the app.
         ExcludeFocus(child: AbsorbPointer(child: widget.child)),

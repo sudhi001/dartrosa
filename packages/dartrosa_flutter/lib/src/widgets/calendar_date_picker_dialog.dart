@@ -3,6 +3,42 @@ import 'package:flutter/material.dart';
 
 import '../localizations.dart';
 
+/// One spinner of the dialog, a drop-down of [picker]'s values.
+class _Spinner extends StatelessWidget {
+  const _Spinner({
+    required this.name,
+    required this.picker,
+    required this.onChanged,
+  });
+
+  final String name;
+  final NumberPickerState picker;
+  final ValueChanged<int> onChanged;
+
+  @override
+  Widget build(BuildContext context) {
+    final labels = picker.displayedValues;
+    final min = picker.minValue;
+    final max = picker.maxValue < min ? min : picker.maxValue;
+    return DropdownButton<int>(
+      key: ValueKey('calendar-$name'),
+      isExpanded: true,
+      value: picker.value.clamp(min, max),
+      items: [
+        for (var v = min; v <= max; v++)
+          DropdownMenuItem(
+            value: v,
+            child: Text(
+              labels != null && v < labels.length ? labels[v] : '$v',
+              overflow: TextOverflow.ellipsis,
+            ),
+          ),
+      ],
+      onChanged: (v) => onChanged(v!),
+    );
+  }
+}
+
 /// The spinner dialog ODK Collect shows for a date question with a
 /// non-Gregorian calendar appearance (`ethiopian`, `coptic`, `islamic`,
 /// `bikram-sambat`, `myanmar`, `persian`, `buddhist`): day, month and year
@@ -47,37 +83,6 @@ class _CustomCalendarDatePickerDialogState
     return date.year < 1970 ? DateTime(1913, 4, 13) : DateTime(2034, 4, 13);
   }
 
-  Widget _spinner({
-    required String name,
-    required NumberPickerState picker,
-    required ValueChanged<int> onChanged,
-    int flex = 1,
-  }) {
-    final labels = picker.displayedValues;
-    final min = picker.minValue;
-    final max = picker.maxValue < min ? min : picker.maxValue;
-    final value = picker.value.clamp(min, max);
-    return Expanded(
-      flex: flex,
-      child: DropdownButton<int>(
-        key: ValueKey('calendar-$name'),
-        isExpanded: true,
-        value: value,
-        items: [
-          for (var v = min; v <= max; v++)
-            DropdownMenuItem(
-              value: v,
-              child: Text(
-                labels != null && v < labels.length ? labels[v] : '$v',
-                overflow: TextOverflow.ellipsis,
-              ),
-            ),
-        ],
-        onChanged: (v) => setState(() => onChanged(v!)),
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     final material = MaterialLocalizations.of(context);
@@ -90,26 +95,32 @@ class _CustomCalendarDatePickerDialogState
           Row(
             children: [
               if (_model.showsDay) ...[
-                _spinner(
-                  name: 'day',
-                  picker: _model.dayPicker,
-                  onChanged: _model.setDay,
+                Expanded(
+                  child: _Spinner(
+                    name: 'day',
+                    picker: _model.dayPicker,
+                    onChanged: (v) => setState(() => _model.setDay(v)),
+                  ),
                 ),
                 const SizedBox(width: 8),
               ],
               if (_model.showsMonth) ...[
-                _spinner(
-                  name: 'month',
-                  picker: _model.monthPicker,
-                  onChanged: _model.setMonth,
+                Expanded(
                   flex: 2,
+                  child: _Spinner(
+                    name: 'month',
+                    picker: _model.monthPicker,
+                    onChanged: (v) => setState(() => _model.setMonth(v)),
+                  ),
                 ),
                 const SizedBox(width: 8),
               ],
-              _spinner(
-                name: 'year',
-                picker: _model.yearPicker,
-                onChanged: _model.setYear,
+              Expanded(
+                child: _Spinner(
+                  name: 'year',
+                  picker: _model.yearPicker,
+                  onChanged: (v) => setState(() => _model.setYear(v)),
+                ),
               ),
             ],
           ),

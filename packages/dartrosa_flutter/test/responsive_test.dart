@@ -170,10 +170,12 @@ void main() {
 
     testWidgets('pager pages lay out: $name', (tester) async {
       final s = await _repeat();
+      // A phone in landscape: little height.
       await _pump(
         tester,
         s,
         width: width,
+        height: 320,
         textScale: scale,
         mode: XFormMode.pager,
       );
