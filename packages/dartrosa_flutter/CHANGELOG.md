@@ -10,6 +10,7 @@
 - Removing a repeat instance asks for confirmation.
 - Non-Gregorian date dialog: the month gets its own line on narrow screens with large text, and the content scrolls.
 - `XFormController.formChanges`: notified on every change, for form-wide summaries.
+- Allows `xml` 7.x (was 6.x only).
 
 ## 0.1.0
 
