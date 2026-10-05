@@ -1,0 +1,1638 @@
+{
+  "spdxVersion": "SPDX-2.3",
+  "dataLicense": "CC0-1.0",
+  "SPDXID": "SPDXRef-DOCUMENT",
+  "name": "dartrosa",
+  "documentNamespace": "https://github.com/sudhi001/dartrosa/spdx/dartrosa-a2b8761965e55879",
+  "creationInfo": {
+    "created": "2026-10-05T03:19:12Z",
+    "creators": [
+      "Tool: dartrosa-tool/generate_sbom.dart",
+      "Organization: The DartRosa Authors"
+    ],
+    "comment": "Runtime dependencies only, as resolved by the pubspec.lock files when this document was generated."
+  },
+  "packages": [
+    {
+      "SPDXID": "SPDXRef-Package-pub-dartrosa",
+      "name": "dartrosa",
+      "versionInfo": "0.0.1",
+      "supplier": "Organization: The DartRosa Authors",
+      "downloadLocation": "git+https://github.com/sudhi001/dartrosa.git#packages/dartrosa",
+      "filesAnalyzed": false,
+      "licenseConcluded": "Apache-2.0",
+      "licenseDeclared": "Apache-2.0",
+      "copyrightText": "Copyright 2026 The DartRosa Authors",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/dartrosa@0.0.1"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-pub-dartrosa-calendars",
+      "name": "dartrosa_calendars",
+      "versionInfo": "0.0.1",
+      "supplier": "Organization: The DartRosa Authors",
+      "downloadLocation": "git+https://github.com/sudhi001/dartrosa.git#packages/dartrosa_calendars",
+      "filesAnalyzed": false,
+      "licenseConcluded": "Apache-2.0 AND MIT",
+      "licenseDeclared": "Apache-2.0 AND MIT",
+      "copyrightText": "Copyright 2026 The DartRosa Authors",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/dartrosa_calendars@0.0.1"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-pub-dartrosa-collect",
+      "name": "dartrosa_collect",
+      "versionInfo": "0.0.1",
+      "supplier": "Organization: The DartRosa Authors",
+      "downloadLocation": "git+https://github.com/sudhi001/dartrosa.git#packages/dartrosa_collect",
+      "filesAnalyzed": false,
+      "licenseConcluded": "Apache-2.0",
+      "licenseDeclared": "Apache-2.0",
+      "copyrightText": "Copyright 2026 The DartRosa Authors",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/dartrosa_collect@0.0.1"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-pub-dartrosa-encryption",
+      "name": "dartrosa_encryption",
+      "versionInfo": "0.0.1",
+      "supplier": "Organization: The DartRosa Authors",
+      "downloadLocation": "git+https://github.com/sudhi001/dartrosa.git#packages/dartrosa_encryption",
+      "filesAnalyzed": false,
+      "licenseConcluded": "Apache-2.0",
+      "licenseDeclared": "Apache-2.0",
+      "copyrightText": "Copyright 2026 The DartRosa Authors",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/dartrosa_encryption@0.0.1"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-pub-dartrosa-entities",
+      "name": "dartrosa_entities",
+      "versionInfo": "0.0.1",
+      "supplier": "Organization: The DartRosa Authors",
+      "downloadLocation": "git+https://github.com/sudhi001/dartrosa.git#packages/dartrosa_entities",
+      "filesAnalyzed": false,
+      "licenseConcluded": "Apache-2.0",
+      "licenseDeclared": "Apache-2.0",
+      "copyrightText": "Copyright 2026 The DartRosa Authors",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/dartrosa_entities@0.0.1"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-pub-dartrosa-external-data",
+      "name": "dartrosa_external_data",
+      "versionInfo": "0.0.1",
+      "supplier": "Organization: The DartRosa Authors",
+      "downloadLocation": "git+https://github.com/sudhi001/dartrosa.git#packages/dartrosa_external_data",
+      "filesAnalyzed": false,
+      "licenseConcluded": "Apache-2.0",
+      "licenseDeclared": "Apache-2.0",
+      "copyrightText": "Copyright 2026 The DartRosa Authors",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/dartrosa_external_data@0.0.1"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-pub-dartrosa-flutter",
+      "name": "dartrosa_flutter",
+      "versionInfo": "0.0.1",
+      "supplier": "Organization: The DartRosa Authors",
+      "downloadLocation": "git+https://github.com/sudhi001/dartrosa.git#packages/dartrosa_flutter",
+      "filesAnalyzed": false,
+      "licenseConcluded": "Apache-2.0",
+      "licenseDeclared": "Apache-2.0",
+      "copyrightText": "Copyright 2026 The DartRosa Authors",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/dartrosa_flutter@0.0.1"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-pub-dartrosa-openrosa",
+      "name": "dartrosa_openrosa",
+      "versionInfo": "0.0.1",
+      "supplier": "Organization: The DartRosa Authors",
+      "downloadLocation": "git+https://github.com/sudhi001/dartrosa.git#packages/dartrosa_openrosa",
+      "filesAnalyzed": false,
+      "licenseConcluded": "Apache-2.0",
+      "licenseDeclared": "Apache-2.0",
+      "copyrightText": "Copyright 2026 The DartRosa Authors",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/dartrosa_openrosa@0.0.1"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-pub-args-2.7.0",
+      "name": "args",
+      "versionInfo": "2.7.0",
+      "supplier": "NOASSERTION",
+      "downloadLocation": "https://pub.dev/api/archives/args-2.7.0.tar.gz",
+      "homepage": "https://pub.dev/packages/args",
+      "filesAnalyzed": false,
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "d0481093c50b1da8910eb0bb301626d4d8eb7284aa739614d2b394ee09e3ea04"
+        }
+      ],
+      "licenseConcluded": "BSD-3-Clause",
+      "licenseDeclared": "BSD-3-Clause",
+      "copyrightText": "Copyright 2013, the Dart project authors.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/args@2.7.0"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-pub-async-2.13.1",
+      "name": "async",
+      "versionInfo": "2.13.1",
+      "supplier": "NOASSERTION",
+      "downloadLocation": "https://pub.dev/api/archives/async-2.13.1.tar.gz",
+      "homepage": "https://pub.dev/packages/async",
+      "filesAnalyzed": false,
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "e2eb0491ba5ddb6177742d2da23904574082139b07c1e33b8503b9f46f3e1a37"
+        }
+      ],
+      "licenseConcluded": "BSD-3-Clause",
+      "licenseDeclared": "BSD-3-Clause",
+      "copyrightText": "Copyright 2015, the Dart project authors.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/async@2.13.1"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-pub-characters-1.4.1",
+      "name": "characters",
+      "versionInfo": "1.4.1",
+      "supplier": "NOASSERTION",
+      "downloadLocation": "https://pub.dev/api/archives/characters-1.4.1.tar.gz",
+      "homepage": "https://pub.dev/packages/characters",
+      "filesAnalyzed": false,
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "faf38497bda5ead2a8c7615f4f7939df04333478bf32e4173fcb06d428b5716b"
+        }
+      ],
+      "licenseConcluded": "BSD-3-Clause",
+      "licenseDeclared": "BSD-3-Clause",
+      "copyrightText": "Copyright 2019, the Dart project authors.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/characters@1.4.1"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-pub-clock-1.1.3",
+      "name": "clock",
+      "versionInfo": "1.1.3",
+      "supplier": "NOASSERTION",
+      "downloadLocation": "https://pub.dev/api/archives/clock-1.1.3.tar.gz",
+      "homepage": "https://pub.dev/packages/clock",
+      "filesAnalyzed": false,
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "e51d50bca3217c9a9fa2b41a30e4a38971133f5f9ec7a3d57bae095007f1d28e"
+        }
+      ],
+      "licenseConcluded": "Apache-2.0",
+      "licenseDeclared": "Apache-2.0",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/clock@1.1.3"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-pub-collection-1.19.1",
+      "name": "collection",
+      "versionInfo": "1.19.1",
+      "supplier": "NOASSERTION",
+      "downloadLocation": "https://pub.dev/api/archives/collection-1.19.1.tar.gz",
+      "homepage": "https://pub.dev/packages/collection",
+      "filesAnalyzed": false,
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "2f5709ae4d3d59dd8f7cd309b4e023046b57d8a6c82130785d2b0e5868084e76"
+        }
+      ],
+      "licenseConcluded": "BSD-3-Clause",
+      "licenseDeclared": "BSD-3-Clause",
+      "copyrightText": "Copyright 2015, the Dart project authors.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/collection@1.19.1"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-pub-convert-3.1.2",
+      "name": "convert",
+      "versionInfo": "3.1.2",
+      "supplier": "NOASSERTION",
+      "downloadLocation": "https://pub.dev/api/archives/convert-3.1.2.tar.gz",
+      "homepage": "https://pub.dev/packages/convert",
+      "filesAnalyzed": false,
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "b30acd5944035672bc15c6b7a8b47d773e41e2f17de064350988c5d02adb1c68"
+        }
+      ],
+      "licenseConcluded": "BSD-3-Clause",
+      "licenseDeclared": "BSD-3-Clause",
+      "copyrightText": "Copyright 2015, the Dart project authors.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/convert@3.1.2"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-pub-crypto-3.0.7",
+      "name": "crypto",
+      "versionInfo": "3.0.7",
+      "supplier": "NOASSERTION",
+      "downloadLocation": "https://pub.dev/api/archives/crypto-3.0.7.tar.gz",
+      "homepage": "https://pub.dev/packages/crypto",
+      "filesAnalyzed": false,
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "c8ea0233063ba03258fbcf2ca4d6dadfefe14f02fab57702265467a19f27fadf"
+        }
+      ],
+      "licenseConcluded": "BSD-3-Clause",
+      "licenseDeclared": "BSD-3-Clause",
+      "copyrightText": "Copyright 2015, the Dart project authors.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/crypto@3.0.7"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-pub-flutter-0.0.0",
+      "name": "flutter",
+      "versionInfo": "0.0.0",
+      "supplier": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "BSD-3-Clause",
+      "licenseDeclared": "BSD-3-Clause",
+      "copyrightText": "Copyright 2014 The Flutter Authors. All rights reserved.",
+      "comment": "Part of the Flutter SDK; see the SDK for its notices."
+    },
+    {
+      "SPDXID": "SPDXRef-Package-pub-flutter-svg-2.3.0",
+      "name": "flutter_svg",
+      "versionInfo": "2.3.0",
+      "supplier": "NOASSERTION",
+      "downloadLocation": "https://pub.dev/api/archives/flutter_svg-2.3.0.tar.gz",
+      "homepage": "https://pub.dev/packages/flutter_svg",
+      "filesAnalyzed": false,
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "35882981abcbfb8c15b286f0cd690ff25bac12d95eff3e25ee207f37d4c42e7f"
+        }
+      ],
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "MIT",
+      "copyrightText": "Copyright (c) 2018 Dan Field",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/flutter_svg@2.3.0"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-pub-http-1.6.0",
+      "name": "http",
+      "versionInfo": "1.6.0",
+      "supplier": "NOASSERTION",
+      "downloadLocation": "https://pub.dev/api/archives/http-1.6.0.tar.gz",
+      "homepage": "https://pub.dev/packages/http",
+      "filesAnalyzed": false,
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "87721a4a50b19c7f1d49001e51409bddc46303966ce89a65af4f4e6004896412"
+        }
+      ],
+      "licenseConcluded": "BSD-3-Clause",
+      "licenseDeclared": "BSD-3-Clause",
+      "copyrightText": "Copyright 2014, the Dart project authors.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/http@1.6.0"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-pub-http-parser-4.1.2",
+      "name": "http_parser",
+      "versionInfo": "4.1.2",
+      "supplier": "NOASSERTION",
+      "downloadLocation": "https://pub.dev/api/archives/http_parser-4.1.2.tar.gz",
+      "homepage": "https://pub.dev/packages/http_parser",
+      "filesAnalyzed": false,
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "178d74305e7866013777bab2c3d8726205dc5a4dd935297175b19a23a2e66571"
+        }
+      ],
+      "licenseConcluded": "BSD-3-Clause",
+      "licenseDeclared": "BSD-3-Clause",
+      "copyrightText": "Copyright 2014, the Dart project authors.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/http_parser@4.1.2"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-pub-intl-0.20.3",
+      "name": "intl",
+      "versionInfo": "0.20.3",
+      "supplier": "NOASSERTION",
+      "downloadLocation": "https://pub.dev/api/archives/intl-0.20.3.tar.gz",
+      "homepage": "https://pub.dev/packages/intl",
+      "filesAnalyzed": false,
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "1ca20c894b1717686a2319b8548763d812bc0aabdac580420a44c5178c57a867"
+        }
+      ],
+      "licenseConcluded": "BSD-3-Clause",
+      "licenseDeclared": "BSD-3-Clause",
+      "copyrightText": "Copyright 2013, the Dart project authors.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/intl@0.20.3"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-pub-logging-1.3.0",
+      "name": "logging",
+      "versionInfo": "1.3.0",
+      "supplier": "NOASSERTION",
+      "downloadLocation": "https://pub.dev/api/archives/logging-1.3.0.tar.gz",
+      "homepage": "https://pub.dev/packages/logging",
+      "filesAnalyzed": false,
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "c8245ada5f1717ed44271ed1c26b8ce85ca3228fd2ffdb75468ab01979309d61"
+        }
+      ],
+      "licenseConcluded": "BSD-3-Clause",
+      "licenseDeclared": "BSD-3-Clause",
+      "copyrightText": "Copyright 2013, the Dart project authors.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/logging@1.3.0"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-pub-material-color-utilities-0.13.0",
+      "name": "material_color_utilities",
+      "versionInfo": "0.13.0",
+      "supplier": "NOASSERTION",
+      "downloadLocation": "https://pub.dev/api/archives/material_color_utilities-0.13.0.tar.gz",
+      "homepage": "https://pub.dev/packages/material_color_utilities",
+      "filesAnalyzed": false,
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "9c337007e82b1889149c82ed242ed1cb24a66044e30979c44912381e9be4c48b"
+        }
+      ],
+      "licenseConcluded": "Apache-2.0",
+      "licenseDeclared": "Apache-2.0",
+      "copyrightText": "Copyright 2021 Google LLC",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/material_color_utilities@0.13.0"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-pub-meta-1.19.0",
+      "name": "meta",
+      "versionInfo": "1.19.0",
+      "supplier": "NOASSERTION",
+      "downloadLocation": "https://pub.dev/api/archives/meta-1.19.0.tar.gz",
+      "homepage": "https://pub.dev/packages/meta",
+      "filesAnalyzed": false,
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "307249ce4ff29d58a18e97f6345f539382eb9c9c29ecda628900f31de0443dd9"
+        }
+      ],
+      "licenseConcluded": "BSD-3-Clause",
+      "licenseDeclared": "BSD-3-Clause",
+      "copyrightText": "Copyright 2016, the Dart project authors.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/meta@1.19.0"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-pub-mime-2.1.0",
+      "name": "mime",
+      "versionInfo": "2.1.0",
+      "supplier": "NOASSERTION",
+      "downloadLocation": "https://pub.dev/api/archives/mime-2.1.0.tar.gz",
+      "homepage": "https://pub.dev/packages/mime",
+      "filesAnalyzed": false,
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "bd47de35f07e27267e69c8c8b22edf9473bfee170a60d60fcc93730c5144b7f6"
+        }
+      ],
+      "licenseConcluded": "BSD-3-Clause",
+      "licenseDeclared": "BSD-3-Clause",
+      "copyrightText": "Copyright 2015, the Dart project authors.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/mime@2.1.0"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-pub-path-1.9.1",
+      "name": "path",
+      "versionInfo": "1.9.1",
+      "supplier": "NOASSERTION",
+      "downloadLocation": "https://pub.dev/api/archives/path-1.9.1.tar.gz",
+      "homepage": "https://pub.dev/packages/path",
+      "filesAnalyzed": false,
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "75cca69d1490965be98c73ceaea117e8a04dd21217b37b292c9ddbec0d955bc5"
+        }
+      ],
+      "licenseConcluded": "BSD-3-Clause",
+      "licenseDeclared": "BSD-3-Clause",
+      "copyrightText": "Copyright 2014, the Dart project authors.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/path@1.9.1"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-pub-path-parsing-1.1.0",
+      "name": "path_parsing",
+      "versionInfo": "1.1.0",
+      "supplier": "NOASSERTION",
+      "downloadLocation": "https://pub.dev/api/archives/path_parsing-1.1.0.tar.gz",
+      "homepage": "https://pub.dev/packages/path_parsing",
+      "filesAnalyzed": false,
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "883402936929eac138ee0a45da5b0f2c80f89913e6dc3bf77eb65b84b409c6ca"
+        }
+      ],
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "MIT",
+      "copyrightText": "Copyright (c) 2018 Dan Field",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/path_parsing@1.1.0"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-pub-petitparser-7.1.0",
+      "name": "petitparser",
+      "versionInfo": "7.1.0",
+      "supplier": "NOASSERTION",
+      "downloadLocation": "https://pub.dev/api/archives/petitparser-7.1.0.tar.gz",
+      "homepage": "https://pub.dev/packages/petitparser",
+      "filesAnalyzed": false,
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "2f1564aadb14215e478563b5406cb80729d022158c01dc50c96013c2f7eb4790"
+        }
+      ],
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "MIT",
+      "copyrightText": "Copyright (c) 2006-2026 Lukas Renggli.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/petitparser@7.1.0"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-pub-pinenacl-0.6.0",
+      "name": "pinenacl",
+      "versionInfo": "0.6.0",
+      "supplier": "NOASSERTION",
+      "downloadLocation": "https://pub.dev/api/archives/pinenacl-0.6.0.tar.gz",
+      "homepage": "https://pub.dev/packages/pinenacl",
+      "filesAnalyzed": false,
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "57e907beaacbc3c024a098910b6240758e899674de07d6949a67b52fd984cbdf"
+        }
+      ],
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "MIT",
+      "copyrightText": "Copyright (c) 2018 Pal Dorogi <pal.dorogi@gmail.com>",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/pinenacl@0.6.0"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-pub-pointycastle-4.0.0",
+      "name": "pointycastle",
+      "versionInfo": "4.0.0",
+      "supplier": "NOASSERTION",
+      "downloadLocation": "https://pub.dev/api/archives/pointycastle-4.0.0.tar.gz",
+      "homepage": "https://pub.dev/packages/pointycastle",
+      "filesAnalyzed": false,
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "92aa3841d083cc4b0f4709b5c74fd6409a3e6ba833ffc7dc6a8fee096366acf5"
+        }
+      ],
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "MIT",
+      "copyrightText": "Copyright (c) 2000 - 2019 The Legion of the Bouncy Castle Inc. (https://www.bouncycastle.org)",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/pointycastle@4.0.0"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-pub-sky-engine-0.0.0",
+      "name": "sky_engine",
+      "versionInfo": "0.0.0",
+      "supplier": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "comment": "Part of the Flutter SDK; see the SDK for its notices."
+    },
+    {
+      "SPDXID": "SPDXRef-Package-pub-source-span-1.10.2",
+      "name": "source_span",
+      "versionInfo": "1.10.2",
+      "supplier": "NOASSERTION",
+      "downloadLocation": "https://pub.dev/api/archives/source_span-1.10.2.tar.gz",
+      "homepage": "https://pub.dev/packages/source_span",
+      "filesAnalyzed": false,
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "56a02f1f4cd1a2d96303c0144c93bd6d909eea6bee6bf5a0e0b685edbd4c47ab"
+        }
+      ],
+      "licenseConcluded": "BSD-3-Clause",
+      "licenseDeclared": "BSD-3-Clause",
+      "copyrightText": "Copyright 2014, the Dart project authors.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/source_span@1.10.2"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-pub-string-scanner-1.4.1",
+      "name": "string_scanner",
+      "versionInfo": "1.4.1",
+      "supplier": "NOASSERTION",
+      "downloadLocation": "https://pub.dev/api/archives/string_scanner-1.4.1.tar.gz",
+      "homepage": "https://pub.dev/packages/string_scanner",
+      "filesAnalyzed": false,
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "921cd31725b72fe181906c6a94d987c78e3b98c2e205b397ea399d4054872b43"
+        }
+      ],
+      "licenseConcluded": "BSD-3-Clause",
+      "licenseDeclared": "BSD-3-Clause",
+      "copyrightText": "Copyright 2014, the Dart project authors.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/string_scanner@1.4.1"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-pub-term-glyph-1.2.2",
+      "name": "term_glyph",
+      "versionInfo": "1.2.2",
+      "supplier": "NOASSERTION",
+      "downloadLocation": "https://pub.dev/api/archives/term_glyph-1.2.2.tar.gz",
+      "homepage": "https://pub.dev/packages/term_glyph",
+      "filesAnalyzed": false,
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "7f554798625ea768a7518313e58f83891c7f5024f88e46e7182a4558850a4b8e"
+        }
+      ],
+      "licenseConcluded": "BSD-3-Clause",
+      "licenseDeclared": "BSD-3-Clause",
+      "copyrightText": "Copyright 2017, the Dart project authors.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/term_glyph@1.2.2"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-pub-typed-data-1.4.0",
+      "name": "typed_data",
+      "versionInfo": "1.4.0",
+      "supplier": "NOASSERTION",
+      "downloadLocation": "https://pub.dev/api/archives/typed_data-1.4.0.tar.gz",
+      "homepage": "https://pub.dev/packages/typed_data",
+      "filesAnalyzed": false,
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "f9049c039ebfeb4cf7a7104a675823cd72dba8297f264b6637062516699fa006"
+        }
+      ],
+      "licenseConcluded": "BSD-3-Clause",
+      "licenseDeclared": "BSD-3-Clause",
+      "copyrightText": "Copyright 2015, the Dart project authors.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/typed_data@1.4.0"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-pub-vector-graphics-1.2.3",
+      "name": "vector_graphics",
+      "versionInfo": "1.2.3",
+      "supplier": "NOASSERTION",
+      "downloadLocation": "https://pub.dev/api/archives/vector_graphics-1.2.3.tar.gz",
+      "homepage": "https://pub.dev/packages/vector_graphics",
+      "filesAnalyzed": false,
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "9d0e3b9cb16542ad660daee871e726a10d13a93b7b5391677c3160e8f5e83935"
+        }
+      ],
+      "licenseConcluded": "BSD-3-Clause",
+      "licenseDeclared": "BSD-3-Clause",
+      "copyrightText": "Copyright 2013 The Flutter Authors",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/vector_graphics@1.2.3"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-pub-vector-graphics-codec-1.1.13",
+      "name": "vector_graphics_codec",
+      "versionInfo": "1.1.13",
+      "supplier": "NOASSERTION",
+      "downloadLocation": "https://pub.dev/api/archives/vector_graphics_codec-1.1.13.tar.gz",
+      "homepage": "https://pub.dev/packages/vector_graphics_codec",
+      "filesAnalyzed": false,
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "99fd9fbd34d9f9a32efd7b6a6aae14125d8237b10403b422a6a6dfeac2806146"
+        }
+      ],
+      "licenseConcluded": "BSD-3-Clause",
+      "licenseDeclared": "BSD-3-Clause",
+      "copyrightText": "Copyright 2013 The Flutter Authors. All rights reserved.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/vector_graphics_codec@1.1.13"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-pub-vector-graphics-compiler-1.3.0",
+      "name": "vector_graphics_compiler",
+      "versionInfo": "1.3.0",
+      "supplier": "NOASSERTION",
+      "downloadLocation": "https://pub.dev/api/archives/vector_graphics_compiler-1.3.0.tar.gz",
+      "homepage": "https://pub.dev/packages/vector_graphics_compiler",
+      "filesAnalyzed": false,
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "4dca4feb77dc3ec7f6e27e49c53241eb8217f55e4f9b12599a27f8903bca5682"
+        }
+      ],
+      "licenseConcluded": "BSD-3-Clause",
+      "licenseDeclared": "BSD-3-Clause",
+      "copyrightText": "Copyright 2013 The Flutter Authors",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/vector_graphics_compiler@1.3.0"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-pub-vector-math-2.4.3",
+      "name": "vector_math",
+      "versionInfo": "2.4.3",
+      "supplier": "NOASSERTION",
+      "downloadLocation": "https://pub.dev/api/archives/vector_math-2.4.3.tar.gz",
+      "homepage": "https://pub.dev/packages/vector_math",
+      "filesAnalyzed": false,
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "92b9910f66ed1057fd4da7b040ae7c74cafacf885bdc81be496928d5049b032d"
+        }
+      ],
+      "licenseConcluded": "BSD-3-Clause",
+      "licenseDeclared": "BSD-3-Clause",
+      "copyrightText": "Copyright 2013 The Flutter Authors",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/vector_math@2.4.3"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-pub-web-1.1.1",
+      "name": "web",
+      "versionInfo": "1.1.1",
+      "supplier": "NOASSERTION",
+      "downloadLocation": "https://pub.dev/api/archives/web-1.1.1.tar.gz",
+      "homepage": "https://pub.dev/packages/web",
+      "filesAnalyzed": false,
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "868d88a33d8a87b18ffc05f9f030ba328ffefba92d6c127917a2ba740f9cfe4a"
+        }
+      ],
+      "licenseConcluded": "BSD-3-Clause",
+      "licenseDeclared": "BSD-3-Clause",
+      "copyrightText": "Copyright 2023, the Dart project authors.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/web@1.1.1"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-pub-xml-6.6.1",
+      "name": "xml",
+      "versionInfo": "6.6.1",
+      "supplier": "NOASSERTION",
+      "downloadLocation": "https://pub.dev/api/archives/xml-6.6.1.tar.gz",
+      "homepage": "https://pub.dev/packages/xml",
+      "filesAnalyzed": false,
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "971043b3a0d3da28727e40ed3e0b5d18b742fa5a68665cca88e74b7876d5e025"
+        }
+      ],
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "MIT",
+      "copyrightText": "Copyright (c) 2006-2025 Lukas Renggli.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/xml@6.6.1"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-pub-xml-7.1.0",
+      "name": "xml",
+      "versionInfo": "7.1.0",
+      "supplier": "NOASSERTION",
+      "downloadLocation": "https://pub.dev/api/archives/xml-7.1.0.tar.gz",
+      "homepage": "https://pub.dev/packages/xml",
+      "filesAnalyzed": false,
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "0fe8cc98946def31cbcbc8734aa4067031e6f65ea3a78a508060bfed2200bfeb"
+        }
+      ],
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "MIT",
+      "copyrightText": "Copyright (c) 2006-2026 Lukas Renggli.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/xml@7.1.0"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Upstream-javarosa",
+      "name": "JavaRosa",
+      "versionInfo": "v6.0.0",
+      "supplier": "NOASSERTION",
+      "downloadLocation": "https://github.com/getodk/javarosa",
+      "homepage": "https://github.com/getodk/javarosa",
+      "filesAnalyzed": false,
+      "licenseConcluded": "Apache-2.0",
+      "licenseDeclared": "Apache-2.0",
+      "copyrightText": "Copyright (C) 2009 JavaRosa; Copyright 2017-2019 Nafundi; Copyright 2022 ODK; and contributors",
+      "comment": "Not a dependency: DartRosa code is a Dart translation of parts of this project."
+    },
+    {
+      "SPDXID": "SPDXRef-Upstream-collect",
+      "name": "ODK Collect",
+      "versionInfo": "NOASSERTION",
+      "supplier": "NOASSERTION",
+      "downloadLocation": "https://github.com/getodk/collect",
+      "homepage": "https://github.com/getodk/collect",
+      "filesAnalyzed": false,
+      "licenseConcluded": "Apache-2.0",
+      "licenseDeclared": "Apache-2.0",
+      "copyrightText": "Copyright University of Washington; Copyright Nafundi; and contributors",
+      "comment": "Not a dependency: DartRosa code is a Dart translation of parts of this project."
+    },
+    {
+      "SPDXID": "SPDXRef-Upstream-opencsv",
+      "name": "opencsv",
+      "versionInfo": "5.12.0",
+      "supplier": "NOASSERTION",
+      "downloadLocation": "https://opencsv.sourceforge.net/",
+      "homepage": "https://opencsv.sourceforge.net/",
+      "filesAnalyzed": false,
+      "licenseConcluded": "Apache-2.0",
+      "licenseDeclared": "Apache-2.0",
+      "copyrightText": "Copyright 2005 Bytecode Pty Ltd.",
+      "comment": "Not a dependency: DartRosa code is a Dart translation of parts of this project."
+    },
+    {
+      "SPDXID": "SPDXRef-Upstream-joda-time",
+      "name": "Joda-Time",
+      "versionInfo": "2.14.0",
+      "supplier": "NOASSERTION",
+      "downloadLocation": "https://www.joda.org/joda-time/",
+      "homepage": "https://www.joda.org/joda-time/",
+      "filesAnalyzed": false,
+      "licenseConcluded": "Apache-2.0",
+      "licenseDeclared": "Apache-2.0",
+      "copyrightText": "Copyright 2001-2015 Stephen Colebourne",
+      "comment": "Not a dependency: DartRosa code is a Dart translation of parts of this project."
+    },
+    {
+      "SPDXID": "SPDXRef-Upstream-persianjodatime",
+      "name": "persianjodatime",
+      "versionInfo": "1.2",
+      "supplier": "NOASSERTION",
+      "downloadLocation": "https://github.com/mohamadian/persianjodatime",
+      "homepage": "https://github.com/mohamadian/persianjodatime",
+      "filesAnalyzed": false,
+      "licenseConcluded": "Apache-2.0",
+      "licenseDeclared": "Apache-2.0",
+      "copyrightText": "NOASSERTION",
+      "comment": "Not a dependency: DartRosa code is a Dart translation of parts of this project."
+    },
+    {
+      "SPDXID": "SPDXRef-Upstream-bikram-sambat",
+      "name": "bikram-sambat",
+      "versionInfo": "1.8.1",
+      "supplier": "NOASSERTION",
+      "downloadLocation": "https://github.com/medic/bikram-sambat",
+      "homepage": "https://github.com/medic/bikram-sambat",
+      "filesAnalyzed": false,
+      "licenseConcluded": "Apache-2.0",
+      "licenseDeclared": "Apache-2.0",
+      "copyrightText": "NOASSERTION",
+      "comment": "Not a dependency: DartRosa code is a Dart translation of parts of this project."
+    },
+    {
+      "SPDXID": "SPDXRef-Upstream-myanmar-calendar",
+      "name": "myanmar-calendar (mmcalendar)",
+      "versionInfo": "1.1.1.RELEASE",
+      "supplier": "NOASSERTION",
+      "downloadLocation": "https://github.com/chanmratekoko/mmcalendar",
+      "homepage": "https://github.com/chanmratekoko/mmcalendar",
+      "filesAnalyzed": false,
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "MIT",
+      "copyrightText": "Copyright (c) 2017 Chan Mrate Ko Ko; Copyright (c) 2018 Yan Naing Aye",
+      "comment": "Not a dependency: DartRosa code is a Dart translation of parts of this project."
+    }
+  ],
+  "relationships": [
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relationshipType": "DESCRIBES",
+      "relatedSpdxElement": "SPDXRef-Package-pub-dartrosa"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relationshipType": "DESCRIBES",
+      "relatedSpdxElement": "SPDXRef-Package-pub-dartrosa-calendars"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relationshipType": "DESCRIBES",
+      "relatedSpdxElement": "SPDXRef-Package-pub-dartrosa-collect"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relationshipType": "DESCRIBES",
+      "relatedSpdxElement": "SPDXRef-Package-pub-dartrosa-encryption"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relationshipType": "DESCRIBES",
+      "relatedSpdxElement": "SPDXRef-Package-pub-dartrosa-entities"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relationshipType": "DESCRIBES",
+      "relatedSpdxElement": "SPDXRef-Package-pub-dartrosa-external-data"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relationshipType": "DESCRIBES",
+      "relatedSpdxElement": "SPDXRef-Package-pub-dartrosa-flutter"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relationshipType": "DESCRIBES",
+      "relatedSpdxElement": "SPDXRef-Package-pub-dartrosa-openrosa"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-dartrosa",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-clock-1.1.3"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-dartrosa",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-collection-1.19.1"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-dartrosa",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-crypto-3.0.7"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-dartrosa",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-intl-0.20.3"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-dartrosa",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-logging-1.3.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-dartrosa",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-meta-1.19.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-dartrosa",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-pinenacl-0.6.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-dartrosa",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-xml-7.1.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-dartrosa-calendars",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-meta-1.19.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-dartrosa-collect",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-crypto-3.0.7"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-dartrosa-collect",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-dartrosa"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-dartrosa-encryption",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-crypto-3.0.7"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-dartrosa-encryption",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-dartrosa"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-dartrosa-encryption",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-meta-1.19.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-dartrosa-encryption",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-pointycastle-4.0.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-dartrosa-entities",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-collection-1.19.1"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-dartrosa-entities",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-dartrosa"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-dartrosa-entities",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-dartrosa-external-data"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-dartrosa-entities",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-meta-1.19.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-dartrosa-external-data",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-collection-1.19.1"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-dartrosa-external-data",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-crypto-3.0.7"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-dartrosa-external-data",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-dartrosa"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-dartrosa-external-data",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-logging-1.3.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-dartrosa-flutter",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-dartrosa"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-dartrosa-flutter",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-dartrosa-calendars"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-dartrosa-flutter",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-dartrosa-external-data"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-dartrosa-flutter",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-flutter-0.0.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-dartrosa-flutter",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-flutter-svg-2.3.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-dartrosa-flutter",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-intl-0.20.3"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-dartrosa-flutter",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-path-parsing-1.1.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-dartrosa-flutter",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-xml-6.6.1"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-dartrosa-openrosa",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-clock-1.1.3"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-dartrosa-openrosa",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-collection-1.19.1"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-dartrosa-openrosa",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-crypto-3.0.7"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-dartrosa-openrosa",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-dartrosa"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-dartrosa-openrosa",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-dartrosa-encryption"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-dartrosa-openrosa",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-http-1.6.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-dartrosa-openrosa",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-logging-1.3.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-dartrosa-openrosa",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-meta-1.19.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-dartrosa-openrosa",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-mime-2.1.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-dartrosa-openrosa",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-xml-7.1.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-async-2.13.1",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-collection-1.19.1"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-async-2.13.1",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-meta-1.19.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-convert-3.1.2",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-typed-data-1.4.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-crypto-3.0.7",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-typed-data-1.4.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-flutter-0.0.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-characters-1.4.1"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-flutter-0.0.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-collection-1.19.1"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-flutter-0.0.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-material-color-utilities-0.13.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-flutter-0.0.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-meta-1.19.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-flutter-0.0.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-sky-engine-0.0.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-flutter-0.0.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-vector-math-2.4.3"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-flutter-svg-2.3.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-flutter-0.0.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-flutter-svg-2.3.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-http-1.6.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-flutter-svg-2.3.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-vector-graphics-1.2.3"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-flutter-svg-2.3.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-vector-graphics-codec-1.1.13"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-flutter-svg-2.3.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-vector-graphics-compiler-1.3.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-http-1.6.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-async-2.13.1"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-http-1.6.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-http-parser-4.1.2"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-http-1.6.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-meta-1.19.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-http-1.6.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-web-1.1.1"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-http-parser-4.1.2",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-collection-1.19.1"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-http-parser-4.1.2",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-source-span-1.10.2"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-http-parser-4.1.2",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-string-scanner-1.4.1"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-http-parser-4.1.2",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-typed-data-1.4.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-intl-0.20.3",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-clock-1.1.3"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-intl-0.20.3",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-meta-1.19.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-intl-0.20.3",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-path-1.9.1"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-material-color-utilities-0.13.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-collection-1.19.1"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-path-parsing-1.1.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-meta-1.19.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-path-parsing-1.1.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-vector-math-2.4.3"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-petitparser-7.1.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-collection-1.19.1"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-petitparser-7.1.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-meta-1.19.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-pointycastle-4.0.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-collection-1.19.1"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-pointycastle-4.0.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-convert-3.1.2"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-source-span-1.10.2",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-collection-1.19.1"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-source-span-1.10.2",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-path-1.9.1"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-source-span-1.10.2",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-term-glyph-1.2.2"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-string-scanner-1.4.1",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-source-span-1.10.2"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-typed-data-1.4.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-collection-1.19.1"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-vector-graphics-1.2.3",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-flutter-0.0.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-vector-graphics-1.2.3",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-http-1.6.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-vector-graphics-1.2.3",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-vector-graphics-codec-1.1.13"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-vector-graphics-compiler-1.3.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-args-2.7.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-vector-graphics-compiler-1.3.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-meta-1.19.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-vector-graphics-compiler-1.3.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-path-1.9.1"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-vector-graphics-compiler-1.3.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-path-parsing-1.1.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-vector-graphics-compiler-1.3.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-vector-graphics-codec-1.1.13"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-vector-graphics-compiler-1.3.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-xml-6.6.1"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-xml-6.6.1",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-collection-1.19.1"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-xml-6.6.1",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-meta-1.19.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-xml-6.6.1",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-petitparser-7.1.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-xml-7.1.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-args-2.7.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-xml-7.1.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-collection-1.19.1"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-xml-7.1.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-meta-1.19.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-xml-7.1.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-petitparser-7.1.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-dartrosa",
+      "relationshipType": "DESCENDANT_OF",
+      "relatedSpdxElement": "SPDXRef-Upstream-javarosa"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-dartrosa-calendars",
+      "relationshipType": "DESCENDANT_OF",
+      "relatedSpdxElement": "SPDXRef-Upstream-collect"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-dartrosa-collect",
+      "relationshipType": "DESCENDANT_OF",
+      "relatedSpdxElement": "SPDXRef-Upstream-collect"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-dartrosa-encryption",
+      "relationshipType": "DESCENDANT_OF",
+      "relatedSpdxElement": "SPDXRef-Upstream-collect"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-dartrosa-entities",
+      "relationshipType": "DESCENDANT_OF",
+      "relatedSpdxElement": "SPDXRef-Upstream-collect"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-dartrosa-external-data",
+      "relationshipType": "DESCENDANT_OF",
+      "relatedSpdxElement": "SPDXRef-Upstream-collect"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-dartrosa-openrosa",
+      "relationshipType": "DESCENDANT_OF",
+      "relatedSpdxElement": "SPDXRef-Upstream-collect"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-dartrosa-flutter",
+      "relationshipType": "DESCENDANT_OF",
+      "relatedSpdxElement": "SPDXRef-Upstream-collect"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-dartrosa-collect",
+      "relationshipType": "DESCENDANT_OF",
+      "relatedSpdxElement": "SPDXRef-Upstream-opencsv"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-dartrosa-external-data",
+      "relationshipType": "DESCENDANT_OF",
+      "relatedSpdxElement": "SPDXRef-Upstream-opencsv"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-dartrosa-calendars",
+      "relationshipType": "DESCENDANT_OF",
+      "relatedSpdxElement": "SPDXRef-Upstream-joda-time"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-dartrosa-calendars",
+      "relationshipType": "DESCENDANT_OF",
+      "relatedSpdxElement": "SPDXRef-Upstream-persianjodatime"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-dartrosa-calendars",
+      "relationshipType": "DESCENDANT_OF",
+      "relatedSpdxElement": "SPDXRef-Upstream-bikram-sambat"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-dartrosa-calendars",
+      "relationshipType": "DESCENDANT_OF",
+      "relatedSpdxElement": "SPDXRef-Upstream-myanmar-calendar"
+    }
+  ]
+}
