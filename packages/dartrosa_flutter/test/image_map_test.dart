@@ -145,13 +145,13 @@ void main() {
     final node = area.evaluate().single;
     // The right half of the map (b is 100..200 of a 200-wide space).
     expect(node.rect.width, closeTo(map.width / 2, 0.01));
-    expect(node, containsSemantics(isSelected: false, hasTapAction: true));
+    expect(node, isSemantics(isSelected: false, hasTapAction: true));
     tester.semantics.tap(area);
     await tester.pumpAndSettle();
     expect(question(s, 0).value!.displayText, 'b');
     expect(
       find.semantics.byLabel('B').evaluate().single,
-      containsSemantics(isSelected: true),
+      isSemantics(isSelected: true),
     );
     handle.dispose();
   });

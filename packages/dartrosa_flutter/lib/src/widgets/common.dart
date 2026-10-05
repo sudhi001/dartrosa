@@ -94,6 +94,11 @@ void answerSelections(
         ]),
 );
 
+/// Whether [group] has the `table-list` appearance: its selects form one
+/// grid, on one screen.
+bool isTableList(GroupNode group) =>
+    group.appearance?.toLowerCase().contains('table-list') ?? false;
+
 /// Selects or deselects the choice [value] of a select-multiple [node].
 void toggleSelection(BuildContext context, QuestionNode node, String value) {
   final selected = selectedValues(node);

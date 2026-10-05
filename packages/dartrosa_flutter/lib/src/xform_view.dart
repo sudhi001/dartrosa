@@ -176,9 +176,7 @@ class _PagerFormState extends State<_PagerForm> {
   /// Whether [node] is a group shown as one screen (`field-list`, or
   /// `table-list`, which implies it).
   static bool _isScreen(FormNode node) =>
-      node is GroupNode &&
-      (node.isFieldList ||
-          (node.appearance?.toLowerCase().contains('table-list') ?? false));
+      node is GroupNode && (node.isFieldList || isTableList(node));
 
   /// The field-list group containing the current position, if any.
   FormIndex? _fieldList() {
