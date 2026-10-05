@@ -709,6 +709,9 @@ final class _TreeElementChildren extends Iterable<TreeElement> {
   }
 
   List<TreeElement> withName(String name) {
+    if (_sameNameAndNormal(name, TreeReference.defaultMultiplicity)) {
+      return _list.toList(); // sized up front (the fast path of the search)
+    }
     final results = <TreeElement>[];
     _findWithName(name, results);
     return results;

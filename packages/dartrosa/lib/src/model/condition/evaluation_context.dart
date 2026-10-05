@@ -310,12 +310,13 @@ final class EvaluationContext {
     if (node.numChildren > 0) {
       if (multiplicity == TreeReference.indexUnbound) {
         final children = node.childrenWithName(name);
-        for (var i = 0; i < children.length; i++) {
+        // Sized up front: a secondary instance can have 100,000 items.
+        matches = List.generate(children.length, (i) {
           if (children[i].multiplicity != i) {
             throw StateError('Unexpected multiplicity mismatch');
           }
-          matches.add(children[i].ref);
-        }
+          return children[i].ref;
+        });
         if (includeTemplates) {
           final template = node.getChild(name, TreeReference.indexTemplate);
           if (template != null) matches.add(template.ref);
