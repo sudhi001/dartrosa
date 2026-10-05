@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:dartrosa/javarosa.dart' show FormDef;
@@ -144,6 +145,11 @@ class Workspace extends ChangeNotifier {
     return session;
   }
 
+  /// Opens [instance] for filling: loads its form, starts a session and
+  /// its audit log.
+  Future<Filling> startFilling(SavedInstance instance) async =>
+      Filling._(open(await load(instance.form), instance), instance);
+
   /// A new instance of [form], or an edit of the finalized [editOf].
   SavedInstance newInstance(CorpusForm form, {SavedInstance? editOf}) =>
       SavedInstance._(
@@ -226,3 +232,37 @@ bool isEncrypted(FormDef form) =>
         ?.attribute(base64RsaPublicKeyAttribute)
         ?.isNotEmpty ??
     false;
+
+/// A session filling a [SavedInstance] and its audit log.
+class Filling {
+  Filling._(this.session, SavedInstance instance)
+    : audit = FormAudit(
+        session,
+        store: instance.audit,
+        isEditing: instance.editOf != null,
+      ) {
+    // The pager moves without telling the app: log a new screen when an
+    // answer is given somewhere else.
+    var position = session.navigator.position;
+    _changes = session.changes.listen((_) {
+      if (session.navigator.position != position) {
+        position = session.navigator.position;
+        audit.screenChanged();
+      }
+    });
+  }
+
+  /// The form being filled.
+  final FormSession session;
+
+  /// Its audit log.
+  final FormAudit audit;
+
+  late final StreamSubscription<FormChange> _changes;
+
+  /// Stops logging and closes the audit.
+  Future<void> close() async {
+    await _changes.cancel();
+    await audit.close();
+  }
+}

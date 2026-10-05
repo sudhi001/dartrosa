@@ -47,53 +47,22 @@ class FillScreen extends StatefulWidget {
   State<FillScreen> createState() => _FillScreenState();
 }
 
-class _Filling {
-  _Filling(this.session, this.audit);
-
-  final FormSession session;
-  final FormAudit audit;
-  StreamSubscription<FormChange>? changes;
-
-  Future<void> close() async {
-    await changes?.cancel();
-    await audit.close();
-  }
-}
-
 class _FillScreenState extends State<FillScreen> {
-  late final Future<_Filling> _filling = _open();
-  _Filling? _opened;
+  late final Future<Filling> _filling = _open();
+  Filling? _opened;
   var _mode = XFormMode.pager;
   var _closed = false;
 
   SavedInstance get _instance => widget.instance;
 
-  Future<_Filling> _open() async {
-    final definition = await widget.workspace.load(_instance.form);
-    final session = widget.workspace.open(definition, _instance);
-    final filling = _Filling(
-      session,
-      FormAudit(
-        session,
-        store: _instance.audit,
-        isEditing: _instance.editOf != null,
-      ),
-    );
-    // The pager moves without telling the app: log a new screen when an
-    // answer is given somewhere else.
-    var position = session.navigator.position;
-    filling.changes = session.changes.listen((_) {
-      if (session.navigator.position != position) {
-        position = session.navigator.position;
-        filling.audit.screenChanged();
-      }
-    });
+  Future<Filling> _open() async {
+    final filling = await widget.workspace.startFilling(_instance);
     _opened = filling;
     WidgetsBinding.instance.addPostFrameCallback((_) => _start(filling));
     return filling;
   }
 
-  Future<void> _start(_Filling filling) async {
+  Future<void> _start(Filling filling) async {
     final audit = filling.audit;
     while (mounted && audit.requiresIdentity) {
       final identity = await _ask('Enter your name', 'Identity');
@@ -112,27 +81,7 @@ class _FillScreenState extends State<FillScreen> {
 
   Future<String?> _ask(String title, String label) => showDialog<String>(
     context: context,
-    builder: (context) {
-      final text = TextEditingController();
-      return AlertDialog(
-        title: Text(title),
-        content: TextField(
-          controller: text,
-          autofocus: true,
-          decoration: InputDecoration(labelText: label),
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: const Text('Cancel'),
-          ),
-          FilledButton(
-            onPressed: () => Navigator.pop(context, text.text),
-            child: const Text('OK'),
-          ),
-        ],
-      );
-    },
+    builder: (context) => _TextPromptDialog(title: title, label: label),
   );
 
   /// Flushes the audit before a save; `false` if a change reason was
@@ -144,14 +93,14 @@ class _FillScreenState extends State<FillScreen> {
     return audit.changeReasonGiven(reason);
   }
 
-  Future<void> _saveDraft(_Filling filling) async {
+  Future<void> _saveDraft(Filling filling) async {
     if (!await _beforeSave(filling.audit)) return;
     await widget.workspace.saveDraft(_instance, filling.session);
     filling.audit.saved(exiting: false, finalized: false);
     if (mounted) _snack('Draft saved');
   }
 
-  Future<void> _finalized(_Filling filling, Submission submission) async {
+  Future<void> _finalized(Filling filling, Submission submission) async {
     if (!await _beforeSave(filling.audit)) return;
     final OutboxEntry entry;
     try {
@@ -270,5 +219,46 @@ class _FillScreenState extends State<FillScreen> {
         },
       );
     },
+  );
+}
+
+/// Asks for a line of text; pops it, or `null` when cancelled.
+class _TextPromptDialog extends StatefulWidget {
+  const _TextPromptDialog({required this.title, required this.label});
+
+  final String title;
+  final String label;
+
+  @override
+  State<_TextPromptDialog> createState() => _TextPromptDialogState();
+}
+
+class _TextPromptDialogState extends State<_TextPromptDialog> {
+  final _text = TextEditingController();
+
+  @override
+  void dispose() {
+    _text.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) => AlertDialog(
+    title: Text(widget.title),
+    content: TextField(
+      controller: _text,
+      autofocus: true,
+      decoration: InputDecoration(labelText: widget.label),
+    ),
+    actions: [
+      TextButton(
+        onPressed: () => Navigator.pop(context),
+        child: const Text('Cancel'),
+      ),
+      FilledButton(
+        onPressed: () => Navigator.pop(context, _text.text),
+        child: const Text('OK'),
+      ),
+    ],
   );
 }
