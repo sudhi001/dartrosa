@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="180" viewBox="0 0 980 180" role="img" aria-labelledby="title desc">
+  <title id="title">The DartRosa learning path</title>
+  <desc id="desc">Six steps from left to right. 1, Quick start: a form on screen in five minutes. 2, Concepts: definitions, sessions, nodes and rules. 3, Tutorial: build a data-collection app, from XLSForm to ODK Central. 4, Cookbook: short recipes for one task each. 5, Reference: the API tour, compatibility and the API documentation on pub.dev. 6, Troubleshooting: the FAQ, parse errors and hidden questions.</desc>
+  <style>
+    .bg { fill: #ffffff; }
+    .text { fill: #1f2328; }
+    .muted { fill: #59636e; }
+    .head { fill: #59636e; }
+    .edge { stroke: #59636e; fill: none; }
+    .learn { fill: #ddf4ff; stroke: #0969da; }
+    .do { fill: #dafbe1; stroke: #1a7f37; }
+    .look { fill: #fff1e5; stroke: #bc4c00; }
+    .stage { fill: #59636e; }
+    text { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #0d1117; }
+      .text { fill: #e6edf3; }
+      .muted { fill: #9198a1; }
+      .head { fill: #9198a1; }
+      .edge { stroke: #9198a1; }
+      .learn { fill: #0c2d6b; stroke: #4493f8; }
+      .do { fill: #0f3d1f; stroke: #3fb950; }
+      .look { fill: #3d1d00; stroke: #f0883e; }
+      .stage { fill: #9198a1; }
+    }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path class="head" d="M 0 0 L 10 5 L 0 10 z"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="980" height="180" rx="8"/>
+
+  <text class="stage" x="20" y="32" font-size="13" font-weight="700" letter-spacing="0.5">LEARN</text>
+  <text class="stage" x="524" y="32" font-size="13" font-weight="700" letter-spacing="0.5">DO</text>
+  <text class="stage" x="692" y="32" font-size="13" font-weight="700" letter-spacing="0.5">LOOK UP</text>
+
+  <rect class="learn" x="20" y="44" width="140" height="112" rx="8" stroke-width="1.5"/>
+  <text class="text" x="90" y="74" font-size="15" font-weight="600" text-anchor="middle">1 Quick start</text>
+  <text class="muted" x="90" y="98" font-size="12" text-anchor="middle">a form on screen</text>
+  <text class="muted" x="90" y="115" font-size="12" text-anchor="middle">in five minutes</text>
+
+  <rect class="learn" x="188" y="44" width="140" height="112" rx="8" stroke-width="1.5"/>
+  <text class="text" x="258" y="74" font-size="15" font-weight="600" text-anchor="middle">2 Concepts</text>
+  <text class="muted" x="258" y="98" font-size="12" text-anchor="middle">definitions, sessions,</text>
+  <text class="muted" x="258" y="115" font-size="12" text-anchor="middle">nodes and rules</text>
+
+  <rect class="learn" x="356" y="44" width="140" height="112" rx="8" stroke-width="1.5"/>
+  <text class="text" x="426" y="74" font-size="15" font-weight="600" text-anchor="middle">3 Tutorial</text>
+  <text class="muted" x="426" y="98" font-size="12" text-anchor="middle">build an app, from</text>
+  <text class="muted" x="426" y="115" font-size="12" text-anchor="middle">XLSForm to Central</text>
+
+  <rect class="do" x="524" y="44" width="140" height="112" rx="8" stroke-width="1.5"/>
+  <text class="text" x="594" y="74" font-size="15" font-weight="600" text-anchor="middle">4 Cookbook</text>
+  <text class="muted" x="594" y="98" font-size="12" text-anchor="middle">short recipes,</text>
+  <text class="muted" x="594" y="115" font-size="12" text-anchor="middle">one task each</text>
+
+  <rect class="look" x="692" y="44" width="140" height="112" rx="8" stroke-width="1.5"/>
+  <text class="text" x="762" y="74" font-size="15" font-weight="600" text-anchor="middle">5 Reference</text>
+  <text class="muted" x="762" y="98" font-size="12" text-anchor="middle">API tour, widgets,</text>
+  <text class="muted" x="762" y="115" font-size="12" text-anchor="middle">compatibility, pub.dev</text>
+
+  <rect class="look" x="860" y="44" width="100" height="112" rx="8" stroke-width="1.5"/>
+  <text class="text" x="910" y="74" font-size="15" font-weight="600" text-anchor="middle">6 FAQ</text>
+  <text class="muted" x="910" y="98" font-size="12" text-anchor="middle">errors and</text>
+  <text class="muted" x="910" y="115" font-size="12" text-anchor="middle">fixes</text>
+
+  <line class="edge" x1="160" y1="100" x2="186" y2="100" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line class="edge" x1="328" y1="100" x2="354" y2="100" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line class="edge" x1="496" y1="100" x2="522" y2="100" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line class="edge" x1="664" y1="100" x2="690" y2="100" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line class="edge" x1="832" y1="100" x2="858" y2="100" stroke-width="1.5" marker-end="url(#arrow)"/>
+</svg>

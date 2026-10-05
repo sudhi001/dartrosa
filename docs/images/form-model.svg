@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="600" viewBox="0 0 980 600" role="img" aria-labelledby="title desc">
+  <title id="title">The form model: a definition, a session and its node tree</title>
+  <desc id="desc">On the left, a FormDefinition, parsed once from the XForm. It holds the body (groups, repeats and questions with their labels and appearances), the model (the main instance and the binds with relevant, required, constraint, calculate and readonly rules), the translations and the secondary instances such as CSV files. An arrow labelled createSession() leads to a FormSession on the right: one filling of the form. The session holds a tree of nodes: a RootNode containing a GroupNode with two QuestionNodes, and a RepeatNode with two RepeatInstanceNodes, each holding a QuestionNode. Every QuestionNode carries its live state: value, relevant, required, read-only and constraint message. Below the session, four arrows show what an app does with it: answer(index, value) returns an AnswerResult; the changes stream emits FormChange events; saveDraft() returns the draft XML; and finalize() returns a Submission with the submission XML.</desc>
+  <style>
+    .bg { fill: #ffffff; }
+    .text { fill: #1f2328; }
+    .muted { fill: #59636e; }
+    .edge { stroke: #59636e; fill: none; }
+    .head { fill: #59636e; }
+    .def { fill: #fff1e5; stroke: #bc4c00; }
+    .ses { fill: #ddf4ff; stroke: #0969da; }
+    .node { fill: #ffffff; stroke: #0969da; }
+    .q { fill: #ffffff; stroke: #8c959f; }
+    .out { fill: #dafbe1; stroke: #1a7f37; }
+    .part { fill: #ffffff; stroke: #bc4c00; }
+    .stage { fill: #59636e; }
+    text { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #0d1117; }
+      .text { fill: #e6edf3; }
+      .muted { fill: #9198a1; }
+      .edge { stroke: #9198a1; }
+      .head { fill: #9198a1; }
+      .def { fill: #3d1d00; stroke: #f0883e; }
+      .ses { fill: #0c2d6b; stroke: #4493f8; }
+      .node { fill: #0d1117; stroke: #4493f8; }
+      .q { fill: #0d1117; stroke: #6e7681; }
+      .out { fill: #0f3d1f; stroke: #3fb950; }
+      .part { fill: #0d1117; stroke: #f0883e; }
+      .stage { fill: #9198a1; }
+    }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path class="head" d="M 0 0 L 10 5 L 0 10 z"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="980" height="600" rx="8"/>
+
+  <!-- Definition -->
+  <text class="stage" x="30" y="36" font-size="13" font-weight="700" letter-spacing="0.5">PARSED ONCE PER FORM VERSION</text>
+  <rect class="def" x="30" y="48" width="290" height="372" rx="8" stroke-width="1.5"/>
+  <text class="text mono" x="50" y="78" font-size="15" font-weight="700">FormDefinition</text>
+  <text class="muted" x="50" y="98" font-size="12">FormDefinition.parse(xform, config:)</text>
+
+  <rect class="part" x="50" y="114" width="250" height="64" rx="6"/>
+  <text class="text" x="64" y="136" font-size="13" font-weight="600">Body</text>
+  <text class="muted" x="64" y="155" font-size="12">groups, repeats, questions, labels,</text>
+  <text class="muted" x="64" y="170" font-size="12">hints, choices, appearances</text>
+
+  <rect class="part" x="50" y="190" width="250" height="80" rx="6"/>
+  <text class="text" x="64" y="212" font-size="13" font-weight="600">Model</text>
+  <text class="muted" x="64" y="231" font-size="12">the main instance (the answers' shape)</text>
+  <text class="muted" x="64" y="246" font-size="12">binds: type, relevant, required,</text>
+  <text class="muted" x="64" y="261" font-size="12">constraint, calculate, readonly</text>
+
+  <rect class="part" x="50" y="282" width="250" height="48" rx="6"/>
+  <text class="text" x="64" y="304" font-size="13" font-weight="600">Translations</text>
+  <text class="muted" x="64" y="321" font-size="12">definition.languages</text>
+
+  <rect class="part" x="50" y="342" width="250" height="62" rx="6"/>
+  <text class="text" x="64" y="364" font-size="13" font-weight="600">Secondary instances</text>
+  <text class="muted" x="64" y="383" font-size="12">CSV, XML, GeoJSON, entity lists,</text>
+  <text class="muted" x="64" y="398" font-size="12">read through the ResourceResolver</text>
+
+  <!-- Arrow -->
+  <line class="edge" x1="320" y1="234" x2="438" y2="234" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text class="text mono" x="379" y="222" font-size="12" text-anchor="middle">createSession()</text>
+
+  <!-- Session -->
+  <text class="stage" x="440" y="36" font-size="13" font-weight="700" letter-spacing="0.5">ONE FILLING (ONE HOUSEHOLD, ONE VISIT)</text>
+  <rect class="ses" x="440" y="48" width="510" height="372" rx="8" stroke-width="1.5"/>
+  <text class="text mono" x="460" y="78" font-size="15" font-weight="700">FormSession</text>
+  <text class="muted" x="460" y="98" font-size="12">session.root: a tree of FormNodes, read again after each answer</text>
+
+  <rect class="node" x="460" y="114" width="120" height="30" rx="6"/>
+  <text class="text mono" x="520" y="134" font-size="12" text-anchor="middle">RootNode</text>
+
+  <path class="edge" d="M 480 144 V 178 H 500" stroke-width="1.2"/>
+  <rect class="node" x="500" y="163" width="120" height="30" rx="6"/>
+  <text class="text mono" x="560" y="183" font-size="12" text-anchor="middle">GroupNode</text>
+  <path class="edge" d="M 520 193 V 222 H 540" stroke-width="1.2"/>
+  <path class="edge" d="M 520 222 V 262 H 540" stroke-width="1.2"/>
+  <rect class="q" x="540" y="207" width="130" height="30" rx="6"/>
+  <text class="text mono" x="605" y="227" font-size="12" text-anchor="middle">QuestionNode</text>
+  <rect class="q" x="540" y="247" width="130" height="30" rx="6"/>
+  <text class="text mono" x="605" y="267" font-size="12" text-anchor="middle">QuestionNode</text>
+
+  <path class="edge" d="M 480 178 V 306 H 500" stroke-width="1.2"/>
+  <rect class="node" x="500" y="291" width="120" height="30" rx="6"/>
+  <text class="text mono" x="560" y="311" font-size="12" text-anchor="middle">RepeatNode</text>
+  <path class="edge" d="M 520 321 V 350 H 540" stroke-width="1.2"/>
+  <path class="edge" d="M 520 350 V 390 H 540" stroke-width="1.2"/>
+  <rect class="node" x="540" y="335" width="170" height="30" rx="6"/>
+  <text class="text mono" x="625" y="355" font-size="12" text-anchor="middle">RepeatInstanceNode 1</text>
+  <rect class="node" x="540" y="375" width="170" height="30" rx="6"/>
+  <text class="text mono" x="625" y="395" font-size="12" text-anchor="middle">RepeatInstanceNode 2</text>
+
+  <!-- State callout -->
+  <line class="edge" x1="670" y1="242" x2="728" y2="242" stroke-width="1.2" stroke-dasharray="4 3"/>
+  <rect class="q" x="730" y="150" width="204" height="200" rx="6"/>
+  <text class="text" x="744" y="174" font-size="13" font-weight="600">A question's live state</text>
+  <text class="text mono" x="744" y="198" font-size="12">value, displayValue</text>
+  <text class="text mono" x="744" y="219" font-size="12">isRelevant</text>
+  <text class="muted" x="830" y="219" font-size="12">(shown?)</text>
+  <text class="text mono" x="744" y="240" font-size="12">isRequired</text>
+  <text class="text mono" x="744" y="261" font-size="12">isReadonly</text>
+  <text class="text mono" x="744" y="282" font-size="12">constraintMessage</text>
+  <text class="text mono" x="744" y="303" font-size="12">dataType, controlType</text>
+  <text class="text mono" x="744" y="324" font-size="12">label, hint, choices</text>
+  <text class="muted" x="744" y="341" font-size="11">in the session's current language</text>
+
+  <!-- Outputs -->
+  <text class="stage" x="30" y="440" font-size="13" font-weight="700" letter-spacing="0.5">WHAT YOUR APP DOES WITH A SESSION</text>
+  <rect class="out" x="30" y="472" width="220" height="96" rx="8" stroke-width="1.5"/>
+  <text class="text mono" x="140" y="500" font-size="13" font-weight="700" text-anchor="middle">answer(index, value)</text>
+  <text class="muted" x="140" y="522" font-size="12" text-anchor="middle">returns an AnswerResult:</text>
+  <text class="muted" x="140" y="539" font-size="12" text-anchor="middle">Accepted, Required,</text>
+  <text class="muted" x="140" y="556" font-size="12" text-anchor="middle">ConstraintViolated, Rejected</text>
+
+  <rect class="out" x="270" y="472" width="220" height="96" rx="8" stroke-width="1.5"/>
+  <text class="text mono" x="380" y="500" font-size="13" font-weight="700" text-anchor="middle">changes</text>
+  <text class="muted" x="380" y="522" font-size="12" text-anchor="middle">a stream of FormChange:</text>
+  <text class="muted" x="380" y="539" font-size="12" text-anchor="middle">answer, value, condition,</text>
+  <text class="muted" x="380" y="556" font-size="12" text-anchor="middle">repeat, language</text>
+
+  <rect class="out" x="510" y="472" width="210" height="96" rx="8" stroke-width="1.5"/>
+  <text class="text mono" x="615" y="500" font-size="13" font-weight="700" text-anchor="middle">saveDraft()</text>
+  <text class="muted" x="615" y="522" font-size="12" text-anchor="middle">the instance XML, every</text>
+  <text class="muted" x="615" y="539" font-size="12" text-anchor="middle">value kept; resume with</text>
+  <text class="muted" x="615" y="556" font-size="12" text-anchor="middle">createSession(existingInstance:)</text>
+
+  <rect class="out" x="740" y="472" width="210" height="96" rx="8" stroke-width="1.5"/>
+  <text class="text mono" x="845" y="500" font-size="13" font-weight="700" text-anchor="middle">finalize()</text>
+  <text class="muted" x="845" y="522" font-size="12" text-anchor="middle">validates everything; a</text>
+  <text class="muted" x="845" y="539" font-size="12" text-anchor="middle">Submission (XML without</text>
+  <text class="muted" x="845" y="556" font-size="12" text-anchor="middle">hidden answers) or a failure</text>
+
+  <path class="edge" d="M 710 420 V 452 H 140 V 470" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line class="edge" x1="380" y1="452" x2="380" y2="470" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line class="edge" x1="615" y1="452" x2="615" y2="470" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path class="edge" d="M 710 452 H 845 V 470" stroke-width="1.5" marker-end="url(#arrow)"/>
+</svg>
