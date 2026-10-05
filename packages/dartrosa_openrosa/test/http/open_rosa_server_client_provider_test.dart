@@ -239,6 +239,30 @@ void main() {
     },
   );
 
+  test('clients of the most recently used credentials are kept', () {
+    const user = HttpCredentials('user', 'pass');
+    final first = subject.get('http', 'Android', user);
+    expect(subject.get('http', 'Android', user), same(first));
+    final user1 = subject.get(
+      'http',
+      'Android',
+      const HttpCredentials('user1', 'pass'),
+    );
+    for (var i = 2; i < HttpOpenRosaServerClientProvider.maxClients; i++) {
+      subject.get('http', 'Android', HttpCredentials('user$i', 'pass'));
+    }
+    expect(subject.get('http', 'Android', user), same(first));
+    // Two more: the least recently used ones are dropped, not 'user'.
+    subject
+      ..get('https', 'Android', user)
+      ..get('http', 'Android', null);
+    expect(subject.get('http', 'Android', user), same(first));
+    expect(
+      subject.get('http', 'Android', const HttpCredentials('user1', 'pass')),
+      isNot(same(user1)),
+    );
+  });
+
   test('authentication is cached between instances', () async {
     enqueueDigestChallenge(mockWebServer);
     enqueueSuccess(mockWebServer);

@@ -66,6 +66,12 @@ final class HttpOpenRosaServerClientProvider
 
   final Random? _random;
 
+  /// How many clients (scheme and credentials pairs, each with its
+  /// authentication cache) are kept; the least recently used is dropped,
+  /// so changed credentials don't accumulate (Collect keeps only the
+  /// client of the last credentials).
+  static const maxClients = 8;
+
   final Map<(String, HttpCredentialsInterface?), _Client> _clients = {};
 
   @override
@@ -73,10 +79,20 @@ final class HttpOpenRosaServerClientProvider
     String scheme,
     String userAgent,
     HttpCredentialsInterface? credentials,
-  ) => _clients.putIfAbsent((
-    scheme,
-    credentials,
-  ), () => _Client(baseClient, scheme, userAgent, credentials, _random));
+  ) {
+    final key = (scheme, credentials);
+    final existing = _clients.remove(key);
+    if (existing != null) return _clients[key] = existing; // most recent
+    final client = _clients[key] = _Client(
+      baseClient,
+      scheme,
+      userAgent,
+      credentials,
+      _random,
+    );
+    if (_clients.length > maxClients) _clients.remove(_clients.keys.first);
+    return client;
+  }
 }
 
 final class _Client implements OpenRosaServerClient {
