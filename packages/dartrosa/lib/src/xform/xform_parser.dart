@@ -312,31 +312,29 @@ final class XFormParser {
       }
     }
 
-    final mainNode = _mainInstanceNode;
-    if (mainNode != null) {
-      final formInstance = instanceParser.parseInstance(
-        mainNode,
-        isMainInstance: true,
-        // The main instance is the first one saved.
-        name: _instanceNodeIds.first,
-        namespacePrefixesByUri: namespacePrefixesByUri,
+    final mainNode = _mainInstanceNodeOrThrow();
+    final formInstance = instanceParser.parseInstance(
+      mainNode,
+      isMainInstance: true,
+      // The main instance is the first one saved.
+      name: _instanceNodeIds.first,
+      namespacePrefixesByUri: namespacePrefixesByUri,
+    );
+    // Keep the form's prefixes so serialization uses the same ones.
+    loadNamespaces(root, formInstance);
+    loadInstanceData(mainNode, formInstance.root, _f);
+    _f
+      ..mainInstance = formInstance
+      ..localizer = _localizer;
+    try {
+      _f.finalizeTriggerables();
+    } on StateError catch (e) {
+      throw XFormParseException(
+        e.message.isEmpty
+            ? 'Form has an illegal cycle in its calculate and relevancy '
+                  'expressions!'
+            : e.message,
       );
-      // Keep the form's prefixes so serialization uses the same ones.
-      loadNamespaces(root, formInstance);
-      loadInstanceData(mainNode, formInstance.root, _f);
-      _f
-        ..mainInstance = formInstance
-        ..localizer = _localizer;
-      try {
-        _f.finalizeTriggerables();
-      } on StateError catch (e) {
-        throw XFormParseException(
-          e.message.isEmpty
-              ? 'Form has an illegal cycle in its calculate and relevancy '
-                    'expressions!'
-              : e.message,
-        );
-      }
     }
 
     for (final instance in _f.nonMainInstances.values) {
@@ -1235,8 +1233,20 @@ final class XFormParser {
   }
 
   TreeReference _formElementRef(FormElement element) => element is FormDef
-      ? const TreeReference.root().extend(_mainInstanceNode!.name, 0)
+      ? const TreeReference.root().extend(_mainInstanceNodeOrThrow().name, 0)
       : element.bind!;
+
+  /// The main instance's data node; a parse error when there is none yet.
+  ///
+  /// JavaRosa crashes with a `NullPointerException` here (no `<model>`,
+  /// no `<instance>`, or the body before the model); see
+  /// conformance/DEVIATIONS.md.
+  KElement _mainInstanceNodeOrThrow() =>
+      _mainInstanceNode ?? (throw XFormParseException(_noMainInstance));
+
+  static const _noMainInstance =
+      'XForm Parse: the form has no main instance (an <instance> in the '
+      '<model> of <h:head>, which must come before <h:body>)';
 
   /// [ref] (or the parent itself when `null`) anchored to [parent]'s
   /// reference. Port of `XFormParser.getAbsRef`.

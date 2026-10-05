@@ -17,6 +17,20 @@ keep this list as short as possible.
   identically.
 - **Traces affected:** none (parse failures compare `ok` only).
 
+## Forms without a main instance
+
+- **JavaRosa:** a form with no `<model>`, a `<model>` with no `<instance>`,
+  or the `<h:body>` before the `<h:head>` crashes `XFormParser.parse` with
+  an unchecked `NullPointerException` (on `mainInstanceNode` while
+  resolving a control's or bind's reference, or on `getMainInstance()`
+  after parsing).
+- **DartRosa:** throws `XFormParseException('XForm Parse: the form has no
+  main instance (...)')`.
+- **Why:** both reject the form; DartRosa reports a typed, catchable parse
+  error with a message saying what is missing instead of crashing.
+- **Traces affected:** `body-before-model.xml` (parse failures compare `ok`
+  only).
+
 ## Default locale for date names and week numbers
 
 - **JavaRosa:** `format-date` (`%b`, `%a`) and `%W` use the JVM default
