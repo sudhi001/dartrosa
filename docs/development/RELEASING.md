@@ -2,7 +2,9 @@
 
 **Audience:** maintainers publishing DartRosa to pub.dev. **Type:** task.
 
-All eight packages are on pub.dev; the first release was 0.1.0. The workspace packages name their
+All eight packages are on pub.dev under the verified publisher
+[sudhi.in](https://pub.dev/publishers/sudhi.in/packages), so any admin of
+that publisher can publish new versions; the first release was 0.1.0. The workspace packages name their
 siblings with caret version constraints (`^0.1.0`); inside the workspace
 they resolve to the local copies, and `dartrosa_flutter` uses its
 `pubspec_overrides.yaml` for the same purpose. Packages are versioned
