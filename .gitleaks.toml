@@ -1,0 +1,7 @@
+# gitleaks configuration: the default rules, plus one allowlisted file.
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Test-only RSA key used to generate encryption fixtures; it protects nothing (packages/dartrosa_encryption/tool/golden/README.md)"
+paths = ['''^packages/dartrosa_encryption/tool/golden/test_private_key\.pem$''']

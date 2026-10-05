@@ -1,0 +1,15 @@
+name: Feature request
+description: Support for an ODK feature, appearance or API that is missing.
+labels: [enhancement]
+body:
+  - type: textarea
+    id: need
+    attributes:
+      label: What do you need, and why?
+    validations:
+      required: true
+  - type: textarea
+    id: reference
+    attributes:
+      label: Reference behaviour
+      description: Link to the ODK XForms spec, JavaRosa or ODK Collect code or docs, if any.

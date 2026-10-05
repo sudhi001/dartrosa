@@ -84,3 +84,10 @@ SPDX-FileCopyrightText = [
   "The ODK Collect contributors",
 ]
 SPDX-License-Identifier = "Apache-2.0"
+
+# The Code of Conduct is the Contributor Covenant 2.1 (contact filled in).
+[[annotations]]
+path = "CODE_OF_CONDUCT.md"
+precedence = "override"
+SPDX-FileCopyrightText = "2014 Coraline Ada Ehmke and the Contributor Covenant contributors"
+SPDX-License-Identifier = "CC-BY-4.0"

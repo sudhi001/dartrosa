@@ -1,5 +1,8 @@
 # DartRosa
 
+[![CI](https://github.com/sudhi001/dartrosa/actions/workflows/ci.yml/badge.svg)](https://github.com/sudhi001/dartrosa/actions/workflows/ci.yml)
+[![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
+
 DartRosa fills [ODK](https://getodk.org) forms in Dart and Flutter. It is
 a faithful port of [JavaRosa](https://github.com/getodk/javarosa) 6.0.0,
 the form engine inside ODK Collect, plus the ODK Collect features around
@@ -115,9 +118,20 @@ conformance/jvm_oracle/oracle.sh batch conformance   # regenerate traces (Java 1
 How the conformance traces work: [conformance/TRACE_FORMAT.md](conformance/TRACE_FORMAT.md).
 Publishing: [docs/development/RELEASING.md](docs/development/RELEASING.md).
 
+## Contributing
+
+Contributions are welcome: read [CONTRIBUTING.md](CONTRIBUTING.md) and
+the [Code of Conduct](CODE_OF_CONDUCT.md). Report security problems
+privately as described in [SECURITY.md](SECURITY.md).
+
 ## Licence
 
 Apache License 2.0 ([LICENSE](LICENSE)). DartRosa is a derivative work of
 JavaRosa and ports code from ODK Collect and other Apache-2.0 and MIT
 projects. Attribution, third-party licences and compliance information:
 [docs/legal/README.md](docs/legal/README.md).
+
+DartRosa is an independent project. It is not affiliated with or endorsed
+by Get ODK Inc. or the JavaRosa and ODK Collect projects; their names are
+used only to describe where the code comes from and what it is compatible
+with.

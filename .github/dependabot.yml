@@ -1,0 +1,18 @@
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+  - package-ecosystem: pub
+    directories:
+      - /packages/dartrosa
+      - /packages/dartrosa_calendars
+      - /packages/dartrosa_collect
+      - /packages/dartrosa_encryption
+      - /packages/dartrosa_entities
+      - /packages/dartrosa_external_data
+      - /packages/dartrosa_openrosa
+      - /packages/dartrosa_flutter
+    schedule:
+      interval: monthly

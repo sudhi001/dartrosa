@@ -47,6 +47,7 @@ where the code comes from; "ODK" is used only in that descriptive sense.
 | `conformance/forms/webforms/` | Apache-2.0 | ODK Web Forms contributors |
 | `conformance/forms/pyxform/` (except its README) | BSD-2-Clause | 2015 XLSForm |
 | `packages/dartrosa_calendars/tool/oracle/src/org/odk/collect/.../MyanmarDateUtils.java` | Apache-2.0 | 2019 Nafundi (unmodified ODK Collect file) |
+| `CODE_OF_CONDUCT.md` | CC-BY-4.0 | Contributor Covenant 2.1 (contact filled in) |
 
 [REUSE.toml](../../REUSE.toml) records this table in machine-readable form,
 and [LICENSES/](../../LICENSES) holds the full text of every license used

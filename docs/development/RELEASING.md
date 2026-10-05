@@ -34,3 +34,34 @@ Publish in dependency order, running `dart pub publish` in each package
    `publish_to: none`; pub.dev rejects packages with path dependencies.
 
 The dependency graph is drawn in [ARCHITECTURE.md](../ARCHITECTURE.md#packages).
+
+After publishing each package, check its page on pub.dev (score, API
+docs, example) before publishing the next, and tag the release in Git:
+`git tag <package>-v<version>` for each package, then `git push --tags`.
+
+## Making the repository public
+
+Done once, by the repository owner, in this order:
+
+1. **Validate.** CI is green on `main`; `dart run tool/license_headers.dart
+   --check`, `python3 tool/check_docs.py` and `reuse lint` pass; a secret
+   scan of the full history finds only the allowlisted test key
+   (`gitleaks git .`, configured by `.gitleaks.toml`).
+2. **Review what becomes public:** the full Git history, including commit
+   author names and email addresses, every file under `conformance/`
+   (third-party forms, credited in NOTICE.md), and the issue tracker.
+3. **Repository settings** (Settings → General): description ("Faithful
+   Dart/Flutter port of the ODK JavaRosa XForms engine"), website, topics
+   (`odk`, `xforms`, `dart`, `flutter`, `data-collection`), enable Issues,
+   disable Wiki/Projects if unused.
+4. **Change visibility** (Settings → General → Danger Zone → Change
+   visibility → Public).
+5. **Security** (Settings → Code security): enable private vulnerability
+   reporting (SECURITY.md points to it), Dependabot alerts and security
+   updates (`.github/dependabot.yml` configures version updates), secret
+   scanning and push protection.
+6. **Branch protection** for `main` (free for public repositories): require
+   pull requests and the CI checks (`Dart`, `Flutter renderer`, `JavaRosa
+   oracle traces`), block force pushes.
+7. **Publish** the packages (sections above), then create a GitHub release
+   for the version with the CHANGELOG entries as notes.
