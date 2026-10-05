@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+# Copyright 2026 The DartRosa Authors
+# SPDX-License-Identifier: Apache-2.0
+
 # Copies JavaRosa's test forms (and their CSV/GeoJSON/XML secondary
 # instances) into conformance/forms/javarosa, pinned to the JavaRosa version
 # the oracle runs against.

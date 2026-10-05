@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+# Copyright 2026 The DartRosa Authors
+# SPDX-License-Identifier: Apache-2.0
+
 # Builds (if needed) and runs the JavaRosa oracle.
 #
 #   ./oracle.sh walk <form.xml>                 trace one form to stdout
