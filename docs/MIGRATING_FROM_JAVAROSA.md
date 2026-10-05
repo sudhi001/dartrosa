@@ -1,5 +1,8 @@
 # Migrating from JavaRosa
 
+**Audience:** developers moving Java code, plugins or knowledge from
+JavaRosa to DartRosa. **Type:** reference.
+
 DartRosa ports JavaRosa 6.0.0's behaviour exactly (the conformance suite
 diffs it against real JavaRosa on 401 forms), but its structure follows
 Dart idioms. This guide maps JavaRosa types and calls to DartRosa, lists

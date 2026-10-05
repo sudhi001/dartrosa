@@ -1,5 +1,8 @@
 # Compatibility
 
+**Audience:** developers and form designers checking whether their forms,
+features and platforms are supported. **Type:** reference.
+
 What DartRosa supports, compared with ODK JavaRosa 6.0.0 (the engine of
 ODK Collect) and ODK Collect itself. The reference is the
 [ODK XForms spec](https://getodk.github.io/xforms-spec/); where JavaRosa
@@ -26,7 +29,7 @@ typed); **app** = the engine exposes it and the app decides what to do;
 | Conformance corpus | 401 XForms in `conformance/forms` (JavaRosa 65, ODK Collect 119, ODK Web Forms 77, pyxform 132, DartRosa 8), counted as the `.xml` and `.xhtml` files with an `h:html` root; the other `.xml` files are secondary instances |
 | Oracle traces | 397 forms traced by real JavaRosa 6.0.0 (`conformance/jvm_oracle`): structure, initialization and full walks, 397 each; 1,191 seeded random-answer (fuzz) walks; DAG scenario traces. The other 4 forms are listed in `conformance/nondeterministic.txt` (unseeded `random()`, `decimal-date-time(now())`, and a JavaRosa error message that depends on Java identity-hash order) |
 | Result | 0 diffs: the Dart replay (`packages/dartrosa/test/conformance`) matches every trace, including byte-identical submission XML. CI regenerates the traces with JavaRosa and fails if they change |
-| JavaRosa unit tests | Every JavaRosa 6.0.0 test class in the port map (PORTING_PLAN §10.5) is ported (`packages/dartrosa/test`, 133 test files; each ported file says "Port of JavaRosa v6.0.0 \<Class\>"). Tests of dropped subjects (`ExternalizableTest`, `BufferedInputStreamTests`) are replaced by tests of the replacement (`FormDefCodec`) |
+| JavaRosa unit tests | Every JavaRosa 6.0.0 test class in the port map ([PORTING_PLAN §10.5](development/PORTING_PLAN.md#105-11-javarosa-test-class-port-map-all-130-classes)) is ported (`packages/dartrosa/test`, 133 test files; each ported file says "Port of JavaRosa v6.0.0 \<Class\>"). Tests of dropped subjects (`ExternalizableTest`, `BufferedInputStreamTests`) are replaced by tests of the replacement (`FormDefCodec`) |
 | Intentional deviations | Listed in [`conformance/DEVIATIONS.md`](../conformance/DEVIATIONS.md) (e.g. `regex()` uses the ECMAScript dialect, unknown `property()` names give `''`); none affects the corpus traces |
 | Renderer | The example app (`packages/dartrosa_flutter/example/test/corpus_test.dart`, run in CI) fills, saves, resumes, edits, finalizes, encrypts and exports every corpus form; forms JavaRosa or Collect reject are reported with the reason |
 
@@ -272,15 +275,15 @@ appearance. Any widget can be replaced with `widgetOverrides`.
   (a separate plugins package is planned). Image/audio capture
   appearances, geopoint accuracy thresholds and `orx:max-pixels` are left
   to the delegate. Multi-select `map` is not supported. Constraint range
-  hints are not shown. The `dartrosa_flutter` README's appearance table
-  predates calendar support (calendars are supported, see above).
+  hints are not shown.
 - **Engine**: `regex()` dialect is ECMAScript, not Java; `long` precision
   on the web is 53 bits; date names default to `en_US`.
-- **Open plan items** ([PORTING_PLAN.md §15](PORTING_PLAN.md)): not every
-  §7/§8 checklist row links a test yet; the full JavaRosa test suite has
-  not been confirmed green on Chrome/WASM for every class; pana 160/160
-  and the benchmark targets are not yet signed off (growing a repeat to
-  1,000 instances is about 1.5× slower than JavaRosa, see
-  [BENCHMARKS.md](BENCHMARKS.md)).
+- **Open items** from the original plan
+  ([development/PORTING_PLAN.md §15](development/PORTING_PLAN.md#15-definition-of-done-v10)):
+  not every §7/§8 checklist row links a test yet; the full JavaRosa test
+  suite has not been confirmed green on Chrome/WASM for every class;
+  pana 160/160 is not yet signed off; the performance targets are met on
+  a desktop but not yet measured on a phone
+  ([BENCHMARKS.md](BENCHMARKS.md)).
 - **Not provided**: XLSForm conversion; a `dart:io` resource resolver
   package (apps implement `ResourceResolver` on their storage).

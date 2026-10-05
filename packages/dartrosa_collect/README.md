@@ -65,6 +65,9 @@ See [example/example.dart](example/example.dart) for the complete program.
 
 ## Documentation
 
+- [Documentation index](https://github.com/sudhi001/dartrosa/blob/main/docs/README.md)
+- [Save and resume drafts](https://github.com/sudhi001/dartrosa/blob/main/docs/guides/save-and-resume-drafts.md)
+- [Use CSV data and entities](https://github.com/sudhi001/dartrosa/blob/main/docs/guides/external-data-and-entities.md)
 - [Getting started](https://github.com/sudhi001/dartrosa/blob/main/docs/GETTING_STARTED.md)
 - [Plugins and extension points](https://github.com/sudhi001/dartrosa/blob/main/docs/PLUGINS.md)
 - [Compatibility matrix](https://github.com/sudhi001/dartrosa/blob/main/docs/COMPATIBILITY.md)
@@ -74,4 +77,4 @@ See [example/example.dart](example/example.dart) for the complete program.
 
 Apache License 2.0 (see [LICENSE](LICENSE)). Ports classes of
 [ODK Collect](https://github.com/getodk/collect) (Apache-2.0); see
-[NOTICE.md](https://github.com/sudhi001/dartrosa/blob/main/NOTICE.md).
+[the licensing notes](https://github.com/sudhi001/dartrosa/blob/main/docs/legal/README.md).

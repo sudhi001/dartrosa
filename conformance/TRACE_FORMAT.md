@@ -1,5 +1,9 @@
 # Conformance trace format (v1)
 
+**Audience:** contributors changing the engine or the oracle. **Type:**
+reference. The overall flow is drawn in
+[docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md#how-correctness-is-checked).
+
 The JVM oracle (`jvm_oracle/`, real JavaRosa 6.0.0) and DartRosa both turn a
 form plus a scenario into a JSON **trace**. CI compares the two; any difference
 is a DartRosa bug (or a documented, intentional deviation).
@@ -9,7 +13,8 @@ is a DartRosa bug (or a documented, intentional deviation).
 **Forms** live in `forms/` (`forms/javarosa/` is imported from JavaRosa's
 test resources by `tool/import_javarosa_forms.sh`; `forms/dartrosa/` is ours;
 `forms/collect/`, `forms/webforms/` and `forms/pyxform/` come from ODK
-Collect, ODK Web Forms and pyxform, see `NOTICE.md`).
+Collect, ODK Web Forms and pyxform; their licences are listed in
+[docs/legal/README.md](../docs/legal/README.md)).
 `jr://file/…`, `jr://file-csv/…`, `jr://images/…`, `jr://audio/…` and
 `jr://video/…` resolve to the form's own directory.
 

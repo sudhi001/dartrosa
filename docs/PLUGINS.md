@@ -1,5 +1,9 @@
 # Extending DartRosa
 
+**Audience:** developers adding custom XPath functions, processors or
+data sources, or combining the Collect-layer packages. **Type:**
+reference with examples.
+
 JavaRosa is extended through static registries
 (`FormEntryController.addFunctionHandler`, `XFormParser.addProcessor`,
 `ReferenceManager.instance()`, `PrototypeManager`, ...). DartRosa has the
