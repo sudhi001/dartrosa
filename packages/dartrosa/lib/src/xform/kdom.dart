@@ -20,7 +20,10 @@
 ///   for HTML markup inside labels).
 library;
 
+import 'package:collection/collection.dart';
+import 'package:meta/meta.dart';
 import 'package:xml/xml.dart' as xml;
+import 'package:xml/xml_events.dart' as xmlevents;
 import '../util/java_lang.dart';
 
 /// Kinds of non-element child.
@@ -132,10 +135,162 @@ final class KElement {
 
 /// Parses [source] into a document element. Throws [xml.XmlException] for
 /// malformed XML.
+///
+/// Builds the tree from `package:xml`'s events (the parse behind
+/// `XmlDocument.parse`, with the namespace resolution of package:xml 7),
+/// without building its DOM first.
 KElement parseKDocument(String source) {
   final normalized = source.replaceAll('\r\n', '\n').replaceAll('\r', '\n');
-  final document = xml.XmlDocument.parse(normalized);
-  return _convert(document.rootElement, null);
+  try {
+    return _KDocumentBuilder().build(normalized);
+  } on _UseDom {
+    return parseKDocumentFromDom(normalized);
+  }
+}
+
+/// [parseKDocument] through `package:xml`'s DOM (what it did before
+/// reading events), for tests comparing the two.
+@visibleForTesting
+KElement parseKDocumentFromDom(String source) {
+  final normalized = source.replaceAll('\r\n', '\n').replaceAll('\r', '\n');
+  return _convert(xml.XmlDocument.parse(normalized).rootElement, null);
+}
+
+/// Thrown when the events contain what only the DOM rejects (a declaration
+/// or doctype inside an element), so the DOM path reports the error.
+final class _UseDom implements Exception {
+  const _UseDom();
+}
+
+/// Builds [KElement]s from XML events exactly as [_convert] does from the
+/// DOM of the same document.
+final class _KDocumentBuilder {
+  static const _xmlUri = 'http://www.w3.org/XML/1998/namespace';
+  static const _xmlnsUri = 'http://www.w3.org/2000/xmlns/';
+
+  /// The namespace declarations in scope, per prefix (`null` = default),
+  /// innermost last; `null` for an undeclaration (`xmlns:p=""`).
+  final Map<String?, List<String?>> _namespaces = {};
+
+  KElement build(String source) {
+    KElement? root;
+    KElement? current;
+    // Whether each open element has had a child node (of any kind).
+    final hadChild = <bool>[];
+    final declared = <List<String?>>[];
+
+    void end(KElement element, bool selfClosing, bool anyChild) {
+      if (!anyChild && !selfClosing) {
+        element.children.add(KText(KNodeType.ignorableWhitespace, ''));
+      }
+    }
+
+    for (final event in xmlevents.parseEvents(
+      source,
+      validateNesting: true,
+      validateDocument: true,
+    )) {
+      switch (event) {
+        case xmlevents.XmlStartElementEvent():
+          final prefixes = <String?>[];
+          for (final attribute in event.attributes) {
+            final (prefix, local) = _split(attribute.name);
+            if (attribute.name == 'xmlns') {
+              prefixes.add(null);
+              (_namespaces[null] ??= []).add(
+                attribute.value.isEmpty ? null : attribute.value,
+              );
+            } else if (prefix == 'xmlns') {
+              prefixes.add(local);
+              (_namespaces[local] ??= []).add(
+                attribute.value.isEmpty ? null : attribute.value,
+              );
+            }
+          }
+          final (prefix, local) = _split(event.name);
+          final element = KElement(local, _uri(prefix, event.name) ?? '')
+            ..parent = current;
+          for (final attribute in event.attributes) {
+            final (prefix, local) = _split(attribute.name);
+            if (prefix == 'xmlns') {
+              element.namespaceDeclarations.add((local, attribute.value));
+            } else if (prefix == null && local == 'xmlns') {
+              element.namespaceDeclarations.add((null, attribute.value));
+            } else {
+              element.attributes.add((
+                namespace: prefix == null
+                    ? ''
+                    : _uri(prefix, attribute.name) ?? '',
+                name: local,
+                value: attribute.value,
+              ));
+            }
+          }
+          if (current == null) {
+            root ??= element;
+          } else {
+            current.children.add(element);
+            hadChild[hadChild.length - 1] = true;
+          }
+          if (event.isSelfClosing) {
+            _undeclare(prefixes);
+            end(element, true, false);
+          } else {
+            current = element;
+            hadChild.add(false);
+            declared.add(prefixes);
+          }
+        case xmlevents.XmlEndElementEvent():
+          final element = current!;
+          _undeclare(declared.removeLast());
+          end(element, false, hadChild.removeLast());
+          current = element.parent;
+        case xmlevents.XmlTextEvent(:final value) ||
+            xmlevents.XmlCDATAEvent(:final value):
+          if (current != null) {
+            _appendText(current, value);
+            hadChild[hadChild.length - 1] = true;
+          }
+        case xmlevents.XmlCommentEvent(:final value):
+          if (current != null) {
+            current.children.add(KText(KNodeType.comment, value));
+            hadChild[hadChild.length - 1] = true;
+          }
+        case xmlevents.XmlProcessingEvent(:final value):
+          if (current != null) {
+            current.children.add(KText(KNodeType.processingInstruction, value));
+            hadChild[hadChild.length - 1] = true;
+          }
+        default:
+          // A declaration or doctype: fine outside the root element, an
+          // error (raised by the DOM) inside it.
+          if (current != null) throw const _UseDom();
+      }
+    }
+    return root!;
+  }
+
+  void _undeclare(List<String?> prefixes) {
+    for (final prefix in prefixes) {
+      _namespaces[prefix]!.removeLast();
+    }
+  }
+
+  /// The namespace URI package:xml gives the name [qualified] with
+  /// [prefix], or `null`.
+  String? _uri(String? prefix, String qualified) => prefix == 'xml'
+      ? _xmlUri
+      : prefix == 'xmlns' || qualified == 'xmlns'
+      ? _xmlnsUri
+      : _namespaces[prefix]?.lastOrNull;
+
+  /// The prefix and local part of [name], as package:xml splits it.
+  static (String?, String) _split(String name) {
+    final colon = name.indexOf(':');
+    return colon > 0
+        ? (name.substring(0, colon), name.substring(colon + 1))
+        : (null, name);
+  }
 }
 
 KElement _convert(xml.XmlElement node, KElement? parent) {

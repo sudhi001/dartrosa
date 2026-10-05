@@ -72,6 +72,8 @@ void main() {
     'unclosed': '<r><a>',
     'two roots': '<r/><s/>',
     'undeclared prefix, then malformed': '<r><p:a/><b></c></r>',
+    'declaration inside an element': '<r><a><?xml version="1.0"?></a></r>',
+    'doctype inside an element': '<r><!DOCTYPE r></r>',
     'empty': '',
   };
   for (final MapEntry(key: description, value: xml) in documents.entries) {

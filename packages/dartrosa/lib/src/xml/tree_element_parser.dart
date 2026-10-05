@@ -67,7 +67,21 @@ TreeElement parseTreeElement(
   while (events[builder._next] is! XmlStartElementEvent) {
     builder._next++;
   }
-  return builder.element(multiplicity);
+  try {
+    return builder.element(multiplicity);
+  } on _UseDom {
+    // Only the DOM rejects these; let it report the error.
+    return _parseElement(
+      XmlDocument.parse(xml).rootElement,
+      multiplicity,
+      instanceId,
+    );
+  }
+}
+
+/// Thrown for a declaration or doctype inside an element.
+final class _UseDom implements Exception {
+  const _UseDom();
 }
 
 /// Builds [TreeElement]s from the events of a whole document exactly as
@@ -136,6 +150,8 @@ final class _EventTreeBuilder {
             _next++;
             text.write(value);
             hasText = true;
+          case XmlDeclarationEvent() || XmlDoctypeEvent():
+            throw const _UseDom();
           default:
             // Comments and processing instructions are skipped; text on
             // either side of them is one event in kXML.
