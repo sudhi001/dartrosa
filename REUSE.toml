@@ -1,0 +1,86 @@
+# Licensing of files that can't carry a header (forms, traces, media,
+# generated data), in REUSE 3.x format (https://reuse.software). Source
+# files carry their own SPDX headers (tool/license_headers.dart), which take
+# precedence; NOTICE.md has the full attributions. When several annotations
+# match a path, the last one wins.
+version = 1
+SPDX-PackageName = "dartrosa"
+SPDX-PackageSupplier = "The DartRosa Authors"
+SPDX-PackageDownloadLocation = "https://github.com/sudhi001/dartrosa"
+
+# Default: DartRosa's own files.
+[[annotations]]
+path = "**"
+precedence = "closest"
+SPDX-FileCopyrightText = "2026 The DartRosa Authors"
+SPDX-License-Identifier = "Apache-2.0"
+
+# JavaRosa v6.0.0 test resources.
+[[annotations]]
+path = [
+  "conformance/forms/javarosa/**",
+  "packages/dartrosa_flutter/example/assets/forms/javarosa/**",
+]
+precedence = "override"
+SPDX-FileCopyrightText = "2009 JavaRosa and the JavaRosa contributors"
+SPDX-License-Identifier = "Apache-2.0"
+
+# ODK Collect test forms and media.
+[[annotations]]
+path = [
+  "conformance/forms/collect/**",
+  "packages/dartrosa_flutter/example/assets/forms/collect/**",
+  "packages/dartrosa_encryption/tool/golden/forms/**",
+]
+precedence = "override"
+SPDX-FileCopyrightText = "The ODK Collect contributors"
+SPDX-License-Identifier = "Apache-2.0"
+
+# ODK Web Forms fixtures.
+[[annotations]]
+path = "conformance/forms/webforms/**"
+precedence = "override"
+SPDX-FileCopyrightText = "The ODK Web Forms contributors"
+SPDX-License-Identifier = "Apache-2.0"
+
+# pyxform output and the XLSForm (markdown) sources from its test suite.
+[[annotations]]
+path = "conformance/forms/pyxform/**"
+precedence = "override"
+SPDX-FileCopyrightText = "2015 XLSForm"
+SPDX-License-Identifier = "BSD-2-Clause"
+
+[[annotations]]
+path = "conformance/forms/pyxform/README.md"
+precedence = "override"
+SPDX-FileCopyrightText = "2026 The DartRosa Authors"
+SPDX-License-Identifier = "Apache-2.0"
+
+# ODK Collect's MyanmarDateUtils, unmodified (keeps its own header).
+[[annotations]]
+path = "packages/dartrosa_calendars/tool/oracle/src/org/odk/collect/**"
+precedence = "closest"
+SPDX-FileCopyrightText = "2019 Nafundi"
+SPDX-License-Identifier = "Apache-2.0"
+
+# Translated from myanmar-calendar (MIT) as well (the header added by
+# tool/license_headers.dart says the same).
+[[annotations]]
+path = "packages/dartrosa_calendars/lib/src/myanmar/myanmar_calendar.dart"
+precedence = "closest"
+SPDX-FileCopyrightText = [
+  "2026 The DartRosa Authors",
+  "2017 Chan Mrate Ko Ko",
+  "2018 Yan Naing Aye",
+]
+SPDX-License-Identifier = "Apache-2.0 AND MIT"
+
+# Generated test fixtures embedding ODK Collect's encrypted test forms.
+[[annotations]]
+path = "packages/dartrosa_encryption/test/src/golden_fixtures.dart"
+precedence = "override"
+SPDX-FileCopyrightText = [
+  "2026 The DartRosa Authors",
+  "The ODK Collect contributors",
+]
+SPDX-License-Identifier = "Apache-2.0"
