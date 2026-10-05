@@ -8,8 +8,7 @@ import '../model/instance/tree_element.dart';
 ///
 /// Port of `org.javarosa.formmanager.view.IQuestionWidget`.
 abstract interface class QuestionWidget {
-  /// The element or its instance node changed ([ElementChange] /
-  /// [TreeElementChange] flags).
+  /// The element or its instance node changed ([ElementChange] flags).
   void refreshWidget(int changeFlags);
 }
 
