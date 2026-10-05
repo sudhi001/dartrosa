@@ -1,5 +1,8 @@
 # Intentional deviations from JavaRosa
 
+**Audience:** developers and contributors who need to know where DartRosa
+deliberately behaves differently from JavaRosa 6.0.0. **Type:** reference.
+
 Each entry: what differs, why, and which traces are affected. The goal is to
 keep this list as short as possible.
 

@@ -47,6 +47,8 @@ See [example/example.dart](example/example.dart).
 
 ## Documentation
 
+- [Documentation index](https://github.com/sudhi001/dartrosa/blob/main/docs/README.md)
+- [Use non-Gregorian calendars](https://github.com/sudhi001/dartrosa/blob/main/docs/guides/non-gregorian-calendars.md)
 - [Getting started](https://github.com/sudhi001/dartrosa/blob/main/docs/GETTING_STARTED.md)
 - [Compatibility matrix](https://github.com/sudhi001/dartrosa/blob/main/docs/COMPATIBILITY.md)
 - [Plugins and extension points](https://github.com/sudhi001/dartrosa/blob/main/docs/PLUGINS.md)
@@ -56,5 +58,5 @@ See [example/example.dart](example/example.dart).
 
 Apache License 2.0 (see [LICENSE](LICENSE)). Ports ODK Collect code and
 the calendar algorithms of the libraries it uses (Apache-2.0 and MIT);
-see [NOTICE.md](https://github.com/sudhi001/dartrosa/blob/main/NOTICE.md)
+see [the licensing notes](https://github.com/sudhi001/dartrosa/blob/main/docs/legal/README.md)
 for their attribution.

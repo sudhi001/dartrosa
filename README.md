@@ -1,104 +1,123 @@
 # DartRosa
 
-A pure-Dart port of [JavaRosa](https://github.com/getodk/javarosa), the ODK
-XForms engine used by ODK Collect, for Flutter and any other Dart platform.
+DartRosa fills [ODK](https://getodk.org) forms in Dart and Flutter. It is
+a faithful port of [JavaRosa](https://github.com/getodk/javarosa) 6.0.0,
+the form engine inside ODK Collect, plus the ODK Collect features around
+it and a Flutter form renderer. Forms behave exactly as they do in ODK
+Collect, on Android, iOS, the web, desktop and servers.
 
-> **Status:** the JavaRosa engine port is complete (Phases 0–6): every
-> JavaRosa test class is ported, and the JVM oracle comparison (parse
-> structure, initialization, recalculation scenarios, full walks, seeded
-> random-answer walks and byte-identical submission XML) matches on the
-> JavaRosa, DartRosa and ODK Collect test-form corpora. Phase 7 (Flutter
-> renderer) and Phase 8 (Collect layer) are well under way and Phase 9 has
-> started.
+![The life of a form: designed as a spreadsheet, filled in with DartRosa, sent to ODK Central](docs/images/form-lifecycle.svg)
 
-## Documentation
+New to ODK or XForms? Read the [overview](docs/OVERVIEW.md) first.
 
-- [Getting started](docs/GETTING_STARTED.md): parse a form, fill it, save,
-  resume, finalize, and show it in Flutter.
-- [Migrating from JavaRosa](docs/MIGRATING_FROM_JAVAROSA.md): Java class →
-  Dart equivalent, naming, behavioural differences, what is not ported.
-- [Compatibility](docs/COMPATIBILITY.md): ODK XForms features, XPath
-  functions, Collect appearances and platforms, with conformance numbers.
-- [Plugins](docs/PLUGINS.md): custom functions, processors, secondary
-  instances, and how the Collect packages compose.
-- API reference: run `dart doc` in a package (dartdoc on pub.dev once
-  published).
-- [Benchmarks](docs/BENCHMARKS.md) and the [porting plan](docs/PORTING_PLAN.md).
+| | | |
+|---|---|---|
+| ![Number questions](docs/images/screenshots/text_number_light.png) | ![Choices with pictures](docs/images/screenshots/select_images_light.png) | ![An Ethiopian-calendar date](docs/images/screenshots/date_ethiopian_dark.png) |
 
-The Dart snippets in the guides are run by the tests in
-`packages/*/test/docs/`, so they stay correct.
+## Quick start
+
+```dart
+import 'package:dartrosa/dartrosa.dart';
+
+Future<void> main() async {
+  final definition = await FormDefinition.parse(xform);
+  final session = definition.createSession();
+
+  final [name, age] = session.root.visibleChildren.cast<QuestionNode>();
+  session.answer(name.index, const StringValue('Ada'));
+  switch (session.answer(age.index, const IntegerValue(-3))) {
+    case AnswerConstraintViolated(:final message):
+      print('Rejected: $message');
+    case AnswerAccepted() || AnswerRequired() || AnswerRejected():
+      break;
+  }
+
+  if (session.finalize() case FinalizeSuccess(:final submission)) {
+    print(submission.xml); // ready to upload
+  }
+}
+```
+
+In Flutter, `XFormView(session: session)` shows the form with one
+question per screen, as in ODK Collect. The packages are not on pub.dev
+yet; [Getting started](docs/GETTING_STARTED.md) shows how to depend on
+them from Git and walks through the API.
 
 ## Packages
 
+![DartRosa package architecture](docs/images/architecture.svg)
+
 | Package | Purpose |
 |---|---|
-| [`dartrosa`](packages/dartrosa) | XForms engine: XPath, parse, recalculate, validate, navigate, serialize; JavaRosa-compatible API (`javarosa.dart`) and test DSL (`testing.dart`) |
-| [`dartrosa_external_data`](packages/dartrosa_external_data) | Collect's `pulldata()` and `search()` over CSV form media |
-| [`dartrosa_entities`](packages/dartrosa_entities) | ODK entities: entity forms, entity lists as secondary instances, offline updates |
-| [`dartrosa_collect`](packages/dartrosa_collect) | Collect services: audit log, fast external itemsets, last-saved instance, edited submissions |
+| [`dartrosa`](packages/dartrosa) | The XForms engine: parse, XPath, recalculate, validate, navigate, serialize. Session API, JavaRosa-compatible API and test DSL |
+| [`dartrosa_flutter`](packages/dartrosa_flutter) | Flutter renderer (`XFormView`), with an example app that fills every test form |
+| [`dartrosa_external_data`](packages/dartrosa_external_data) | `pulldata()` and `search()` over CSV media |
+| [`dartrosa_entities`](packages/dartrosa_entities) | ODK entities: entity forms, local entity lists, offline updates |
+| [`dartrosa_collect`](packages/dartrosa_collect) | Audit log, last-saved instance, fast external itemsets, edited submissions |
 | [`dartrosa_encryption`](packages/dartrosa_encryption) | Encrypted submissions, decryptable by ODK Central and Briefcase |
 | [`dartrosa_openrosa`](packages/dartrosa_openrosa) | OpenRosa client: form lists, manifests, downloads, submission upload |
-| [`dartrosa_calendars`](packages/dartrosa_calendars) | Collect's non-Gregorian date appearances (ethiopian, coptic, islamic, ...) |
-| [`dartrosa_flutter`](packages/dartrosa_flutter) | Flutter renderer (`XFormView`), with an example app that fills every corpus form |
+| [`dartrosa_calendars`](packages/dartrosa_calendars) | Ethiopian, Coptic, Islamic, Persian, Bikram Sambat, Myanmar and Buddhist dates |
 
-The core is pure Dart (no Flutter, no `dart:io`) and is tested on the VM,
-dart2js and dart2wasm. `tool/check_core_purity.dart` enforces this.
+Everything except `dartrosa_flutter` is pure Dart (no Flutter, no
+`dart:io`) and is tested on the Dart VM, dart2js and dart2wasm.
 
-## Publishing
+## Documentation
 
-The packages are not on pub.dev yet; until then depend on them from Git
-(`path: packages/<name>`) or with `path:` dependencies. To publish, go in
-dependency order, running `dart pub publish` in each package
-(`flutter pub publish` for the renderer), after bumping versions and
-CHANGELOGs together:
+* [Documentation index](docs/README.md): which document is for whom.
+* Concepts: [Overview](docs/OVERVIEW.md), [Architecture](docs/ARCHITECTURE.md).
+* Guides: [Getting started](docs/GETTING_STARTED.md),
+  [Show a form in Flutter](docs/guides/render-a-form-in-flutter.md),
+  [Save and resume drafts](docs/guides/save-and-resume-drafts.md),
+  [Encrypt and submit](docs/guides/encrypt-and-submit.md),
+  [CSV data and entities](docs/guides/external-data-and-entities.md),
+  [Non-Gregorian calendars](docs/guides/non-gregorian-calendars.md),
+  [Plugins](docs/PLUGINS.md).
+* Reference: [Compatibility](docs/COMPATIBILITY.md),
+  [Migrating from JavaRosa](docs/MIGRATING_FROM_JAVAROSA.md),
+  [Standards](docs/STANDARDS.md), [Benchmarks](docs/BENCHMARKS.md),
+  [Glossary](docs/GLOSSARY.md), API reference (`dart doc`).
 
-1. `dartrosa` and `dartrosa_calendars` (no sibling dependencies);
-2. `dartrosa_external_data` and `dartrosa_encryption`;
-3. `dartrosa_entities` (needs `dartrosa_external_data`) and
-   `dartrosa_openrosa` (needs `dartrosa_encryption`);
-4. `dartrosa_collect` (its dev dependencies, used by a docs test, include
-   `dartrosa_entities`, and publishing resolves dev dependencies too);
-5. `dartrosa_flutter`: first replace its `path:` dependencies (and its
-   `dependency_overrides`) with version constraints and remove its
-   `publish_to: none`; pub.dev rejects packages with path dependencies.
+The Dart code in the guides is compiled and run by the tests in
+`packages/*/test/docs/`.
 
-The workspace packages already name their siblings with version
-constraints (`^0.0.1`); inside the workspace they resolve to the local
-copies.
+## Status
+
+The JavaRosa engine port is complete. The Collect layer and the Flutter
+renderer cover the ODK Collect features listed in
+[Compatibility](docs/COMPATIBILITY.md), which also lists the gaps.
+
+* Conformance: 401 test forms from JavaRosa, ODK Collect, ODK Web Forms
+  and pyxform; 397 traced by real JavaRosa 6.0.0 (structure,
+  initialization, full walks, 1,191 seeded random-answer walks,
+  submission XML) with 0 differences. The other 4 use unseeded random
+  numbers by design. CI re-runs JavaRosa and fails if a trace changes.
+* Every JavaRosa 6.0.0 unit test class is ported and passes on the Dart VM.
+* The example app fills, saves, resumes, finalizes and encrypts every
+  corpus form.
+* Performance targets are met on a desktop
+  ([Benchmarks](docs/BENCHMARKS.md)); phone measurements are still to do.
+
+![How DartRosa is checked against JavaRosa](docs/images/conformance-flow.svg)
 
 ## Development
 
 ```sh
 dart pub get
 dart format .
-dart analyze
-dart test packages/dartrosa
+dart analyze --fatal-infos
 dart run tool/check_core_purity.dart
-# browser (run inside a package):
+dart test packages/dartrosa
 (cd packages/dartrosa && dart test -p chrome && dart test -p chrome --compiler dart2wasm)
+(cd packages/dartrosa_flutter && flutter test --exclude-tags golden)
+conformance/jvm_oracle/oracle.sh batch conformance   # regenerate traces (Java 17+)
 ```
 
-## Conformance against real JavaRosa
+How the conformance traces work: [conformance/TRACE_FORMAT.md](conformance/TRACE_FORMAT.md).
+Publishing: [docs/development/RELEASING.md](docs/development/RELEASING.md).
 
-DartRosa's goal is identical behaviour to JavaRosa 6.0.0. `conformance/`
-holds the evidence:
+## Licence
 
-- `forms/` — about 400 XForms: JavaRosa's own test forms (`tool/import_javarosa_forms.sh`),
-  ODK Collect and ODK Web Forms test forms, pyxform-generated forms, plus ours
-- `scenarios/` — form + sequence of user actions
-- `traces/` — JSON traces produced by real JavaRosa (committed goldens)
-- `jvm_oracle/` — the harness that produces them (needs Java 17+, no Gradle)
-
-```sh
-conformance/jvm_oracle/oracle.sh batch conformance          # regenerate all traces
-conformance/jvm_oracle/oracle.sh walk path/to/form.xml      # trace one form
-conformance/jvm_oracle/oracle.sh scenario conformance/scenarios/basics.scenario.json
-```
-
-The trace format and normalization rules are in
-[`conformance/TRACE_FORMAT.md`](conformance/TRACE_FORMAT.md).
-
-## License
-
-Apache License 2.0. DartRosa is a derivative work of JavaRosa; see
-[`NOTICE.md`](NOTICE.md).
+Apache License 2.0 ([LICENSE](LICENSE)). DartRosa is a derivative work of
+JavaRosa and ports code from ODK Collect and other Apache-2.0 and MIT
+projects. Attribution, third-party licences and compliance information:
+[docs/legal/README.md](docs/legal/README.md).

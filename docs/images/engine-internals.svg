@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="620" viewBox="0 0 980 620" role="img" aria-labelledby="title desc">
+  <title id="title">Inside the dartrosa engine</title>
+  <desc id="desc">The XForm XML goes into XFormParser, which builds a FormDef: the main instance tree that holds the answers, the body of groups, repeats and questions, the binds, the translations and secondary instances, and the TriggerableDag dependency graph. Form media and secondary instances are read through a ResourceResolver, and DartRosaConfig adds custom functions, processors and plugins. The XPath 1.0 evaluator computes every bind expression against the instance. On the right, the session API in dartrosa.dart is built on the JavaRosa-compatible API in javarosa.dart, which drives the FormDef. A serializer writes the submission XML and drafts.</desc>
+  <style>
+    .bg { fill: #ffffff; }
+    .text { fill: #1f2328; }
+    .muted { fill: #59636e; }
+    .edge { stroke: #59636e; fill: none; }
+    .head { fill: #59636e; }
+    .input { fill: #f6f8fa; stroke: #59636e; }
+    .core { fill: #ddf4ff; stroke: #0969da; }
+    .frame { fill: none; stroke: #0969da; stroke-dasharray: 6 4; }
+    .api { fill: #fbefff; stroke: #8250df; }
+    .app { fill: #fff1e5; stroke: #bc4c00; }
+    text { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #0d1117; }
+      .text { fill: #e6edf3; }
+      .muted { fill: #9198a1; }
+      .edge { stroke: #9198a1; }
+      .head { fill: #9198a1; }
+      .input { fill: #161b22; stroke: #9198a1; }
+      .core { fill: #0c2d6b; stroke: #4493f8; }
+      .frame { stroke: #4493f8; }
+      .api { fill: #2e1a47; stroke: #ab7df8; }
+      .app { fill: #3d1d00; stroke: #f0883e; }
+    }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path class="head" d="M 0 0 L 10 5 L 0 10 z"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="980" height="620" rx="8"/>
+  <text class="muted" x="30" y="36" font-size="12" font-weight="700" letter-spacing="0.5">INPUTS</text>
+  <text class="muted" x="270" y="36" font-size="12" font-weight="700" letter-spacing="0.5">ENGINE CORE</text>
+  <text class="muted" x="700" y="36" font-size="12" font-weight="700" letter-spacing="0.5">APIS</text>
+
+  <!-- Inputs -->
+  <rect class="input" x="30" y="52" width="200" height="64" rx="8" stroke-width="1.5"/>
+  <text class="text" x="130" y="80" font-size="14" font-weight="600" text-anchor="middle">XForm XML</text>
+  <text class="muted" x="130" y="100" font-size="12" text-anchor="middle">the form definition</text>
+
+  <rect class="input" x="30" y="150" width="200" height="84" rx="8" stroke-width="1.5"/>
+  <text class="text" x="130" y="176" font-size="14" font-weight="600" text-anchor="middle">Form media</text>
+  <text class="muted" x="130" y="196" font-size="12" text-anchor="middle">CSV, XML, GeoJSON files</text>
+  <text class="muted" x="130" y="213" font-size="12" text-anchor="middle">via your ResourceResolver</text>
+
+  <rect class="input" x="30" y="268" width="200" height="84" rx="8" stroke-width="1.5"/>
+  <text class="text" x="130" y="294" font-size="14" font-weight="600" text-anchor="middle">DartRosaConfig</text>
+  <text class="muted" x="130" y="314" font-size="12" text-anchor="middle">custom functions, parse and</text>
+  <text class="muted" x="130" y="331" font-size="12" text-anchor="middle">finalize processors, plugins</text>
+
+  <!-- Parser -->
+  <rect class="core" x="270" y="52" width="380" height="64" rx="8" stroke-width="1.5"/>
+  <text class="text" x="460" y="80" font-size="14" font-weight="600" text-anchor="middle">XFormParser</text>
+  <text class="muted" x="460" y="100" font-size="12" text-anchor="middle">reads model, binds, body, translations; runs processors</text>
+  <line class="edge" x1="230" y1="84" x2="268" y2="84" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line class="edge" x1="460" y1="116" x2="460" y2="148" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- FormDef -->
+  <rect class="frame" x="260" y="150" width="400" height="296" rx="10" stroke-width="1.5"/>
+  <text class="text" x="276" y="174" font-size="13" font-weight="700">FormDef: the parsed form and its answers</text>
+
+  <rect class="core" x="276" y="186" width="178" height="68" rx="8" stroke-width="1.5"/>
+  <text class="text" x="365" y="212" font-size="13.5" font-weight="600" text-anchor="middle">Main instance</text>
+  <text class="muted" x="365" y="232" font-size="11.5" text-anchor="middle">TreeElement tree that</text>
+  <text class="muted" x="365" y="247" font-size="11.5" text-anchor="middle">holds the answers</text>
+
+  <rect class="core" x="466" y="186" width="178" height="68" rx="8" stroke-width="1.5"/>
+  <text class="text" x="555" y="212" font-size="13.5" font-weight="600" text-anchor="middle">Body</text>
+  <text class="muted" x="555" y="232" font-size="11.5" text-anchor="middle">groups, repeats and</text>
+  <text class="muted" x="555" y="247" font-size="11.5" text-anchor="middle">questions (QuestionDef)</text>
+
+  <rect class="core" x="276" y="264" width="178" height="68" rx="8" stroke-width="1.5"/>
+  <text class="text" x="365" y="290" font-size="13.5" font-weight="600" text-anchor="middle">Binds</text>
+  <text class="muted" x="365" y="310" font-size="11.5" text-anchor="middle">relevant, required, readonly,</text>
+  <text class="muted" x="365" y="325" font-size="11.5" text-anchor="middle">constraint, calculate</text>
+
+  <rect class="core" x="466" y="264" width="178" height="68" rx="8" stroke-width="1.5"/>
+  <text class="text" x="555" y="290" font-size="13.5" font-weight="600" text-anchor="middle">Itext and instances</text>
+  <text class="muted" x="555" y="310" font-size="11.5" text-anchor="middle">translations (Localizer),</text>
+  <text class="muted" x="555" y="325" font-size="11.5" text-anchor="middle">secondary instances</text>
+
+  <rect class="core" x="276" y="344" width="368" height="86" rx="8" stroke-width="1.5"/>
+  <text class="text" x="460" y="372" font-size="13.5" font-weight="600" text-anchor="middle">TriggerableDag</text>
+  <text class="muted" x="460" y="392" font-size="11.5" text-anchor="middle">dependency graph of the binds: when a value changes,</text>
+  <text class="muted" x="460" y="408" font-size="11.5" text-anchor="middle">recomputes what depends on it in topological order;</text>
+  <text class="muted" x="460" y="423" font-size="11.5" text-anchor="middle">reports cycles as JavaRosa does</text>
+
+  <line class="edge" x1="230" y1="192" x2="258" y2="192" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line class="edge" x1="230" y1="310" x2="258" y2="310" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- XPath -->
+  <rect class="core" x="260" y="480" width="400" height="64" rx="8" stroke-width="1.5"/>
+  <text class="text" x="460" y="506" font-size="14" font-weight="600" text-anchor="middle">XPath 1.0 evaluator</text>
+  <text class="muted" x="460" y="526" font-size="12" text-anchor="middle">lexer, parser, expression tree and the ODK functions</text>
+  <line class="edge" x1="460" y1="448" x2="460" y2="478" stroke-width="1.5" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <text class="muted" x="470" y="468" font-size="11.5">evaluates the binds</text>
+
+  <!-- APIs -->
+  <rect class="app" x="700" y="52" width="250" height="64" rx="8" stroke-width="1.5"/>
+  <text class="text" x="825" y="80" font-size="14" font-weight="600" text-anchor="middle">Your app or renderer</text>
+  <text class="muted" x="825" y="100" font-size="12" text-anchor="middle">dartrosa_flutter, server code</text>
+  <line class="edge" x1="825" y1="116" x2="825" y2="148" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect class="api" x="700" y="150" width="250" height="120" rx="8" stroke-width="1.5"/>
+  <text class="text" x="825" y="176" font-size="14" font-weight="600" text-anchor="middle">Session API</text>
+  <text class="muted" x="825" y="194" font-size="12" text-anchor="middle">package:dartrosa/dartrosa.dart</text>
+  <text class="muted" x="825" y="216" font-size="12" text-anchor="middle">FormDefinition, FormSession,</text>
+  <text class="muted" x="825" y="233" font-size="12" text-anchor="middle">FormNavigator, FormNode tree,</text>
+  <text class="muted" x="825" y="250" font-size="12" text-anchor="middle">sealed AnswerResult</text>
+  <line class="edge" x1="825" y1="270" x2="825" y2="302" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text class="muted" x="835" y="291" font-size="11.5">built on</text>
+
+  <rect class="api" x="700" y="304" width="250" height="104" rx="8" stroke-width="1.5"/>
+  <text class="text" x="825" y="330" font-size="14" font-weight="600" text-anchor="middle">JavaRosa-compatible API</text>
+  <text class="muted" x="825" y="348" font-size="12" text-anchor="middle">package:dartrosa/javarosa.dart</text>
+  <text class="muted" x="825" y="370" font-size="12" text-anchor="middle">FormEntryController, FormEntryModel,</text>
+  <text class="muted" x="825" y="387" font-size="12" text-anchor="middle">FormEntryPrompt, FormDef, XPath AST</text>
+  <line class="edge" x1="698" y1="356" x2="662" y2="356" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect class="core" x="700" y="440" width="250" height="104" rx="8" stroke-width="1.5"/>
+  <text class="text" x="825" y="466" font-size="14" font-weight="600" text-anchor="middle">Serializers and cache</text>
+  <text class="muted" x="825" y="488" font-size="12" text-anchor="middle">XFormSerializingVisitor writes</text>
+  <text class="muted" x="825" y="505" font-size="12" text-anchor="middle">submission XML and drafts;</text>
+  <text class="muted" x="825" y="522" font-size="12" text-anchor="middle">FormDefCodec caches parsed forms</text>
+  <path class="edge" d="M 660 420 H 680 V 492 H 698" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <text class="muted" x="30" y="580" font-size="12.5">One answer: session.answer() writes the value into the main instance; TriggerableDag finds the binds that depend on it;</text>
+  <text class="muted" x="30" y="600" font-size="12.5">the XPath evaluator recomputes them (calculations, relevance, required, readonly); FormChange events tell the UI what changed.</text>
+</svg>

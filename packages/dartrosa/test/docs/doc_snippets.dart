@@ -1,6 +1,7 @@
-// Keeps the code in docs/*.md compiling: every ```dart block of a guide
-// must appear, line for line (ignoring indentation and blank lines), in one
-// of the doc test files under packages/*/test/docs/, which run the code.
+// Keeps the code in docs/*.md and docs/guides/*.md compiling: every
+// ```dart block of a guide must appear, line for line (ignoring indentation
+// and blank lines), in one of the doc test files under packages/*/test/docs/,
+// which run the code. all_docs_test.dart checks every guide.
 import 'dart:io';
 
 import 'package:test/test.dart';
@@ -40,6 +41,23 @@ String docTestSources() {
     }
   }
   return buffer.toString();
+}
+
+/// The guides (relative to the repository root) that contain Dart code:
+/// `docs/*.md` and `docs/guides/*.md`.
+List<String> guidesWithDartCode() {
+  final guides = <String>[];
+  for (final dir in ['docs', 'docs/guides']) {
+    final directory = Directory('${repoRoot.path}/$dir');
+    if (!directory.existsSync()) continue;
+    for (final file in directory.listSync().whereType<File>()) {
+      if (file.path.endsWith('.md') &&
+          dartBlocks(file.readAsStringSync()).isNotEmpty) {
+        guides.add('$dir/${file.uri.pathSegments.last}');
+      }
+    }
+  }
+  return guides..sort();
 }
 
 /// Checks that every Dart block of the guide [docPath] (relative to the

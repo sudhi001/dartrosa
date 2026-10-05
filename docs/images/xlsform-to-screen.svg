@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="440" viewBox="0 0 980 440" role="img" aria-labelledby="title desc">
+  <title id="title">A form as a spreadsheet and as a phone screen</title>
+  <desc id="desc">On the left, an XLSForm spreadsheet with four rows: a text question named name labelled "What is your name?", an integer question named age labelled "How old are you?" with the constraint that the age is at least 18, a yes or no question named consent labelled "Do you agree to take part?", and a note shown only when consent is yes. In the middle, an arrow labelled "pyxform, then DartRosa". On the right, a phone showing the same questions, filled in, with the note visible because the answer to consent is yes.</desc>
+  <style>
+    .bg { fill: #ffffff; }
+    .text { fill: #1f2328; }
+    .muted { fill: #59636e; }
+    .edge { stroke: #59636e; fill: none; }
+    .head { fill: #59636e; }
+    .sheet { fill: #ffffff; stroke: #1a7f37; }
+    .sheethead { fill: #dafbe1; }
+    .grid { stroke: #d0d7de; }
+    .phone { fill: #f6f8fa; stroke: #59636e; }
+    .screen { fill: #ffffff; stroke: #d0d7de; }
+    .field { fill: #ffffff; stroke: #8c959f; }
+    .accent { fill: #0969da; }
+    .accentstroke { stroke: #0969da; fill: none; }
+    .note { fill: #ddf4ff; stroke: #0969da; }
+    text { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #0d1117; }
+      .text { fill: #e6edf3; }
+      .muted { fill: #9198a1; }
+      .edge { stroke: #9198a1; }
+      .head { fill: #9198a1; }
+      .sheet { fill: #0d1117; stroke: #3fb950; }
+      .sheethead { fill: #0f3d1f; }
+      .grid { stroke: #30363d; }
+      .phone { fill: #161b22; stroke: #9198a1; }
+      .screen { fill: #0d1117; stroke: #30363d; }
+      .field { fill: #0d1117; stroke: #6e7681; }
+      .accent { fill: #4493f8; }
+      .accentstroke { stroke: #4493f8; }
+      .note { fill: #0c2d6b; stroke: #4493f8; }
+    }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path class="head" d="M 0 0 L 10 5 L 0 10 z"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="980" height="440" rx="8"/>
+
+  <!-- Spreadsheet -->
+  <text class="text" x="30" y="40" font-size="15" font-weight="600">The form designer writes a spreadsheet (XLSForm)</text>
+  <rect class="sheet" x="30" y="56" width="560" height="200" rx="4" stroke-width="1.5"/>
+  <rect class="sheethead" x="31" y="57" width="558" height="34"/>
+  <text class="text mono" x="42" y="79" font-size="13" font-weight="700">type</text>
+  <text class="text mono" x="160" y="79" font-size="13" font-weight="700">name</text>
+  <text class="text mono" x="250" y="79" font-size="13" font-weight="700">label</text>
+  <text class="text mono" x="450" y="79" font-size="13" font-weight="700">rule</text>
+  <line class="grid" x1="150" y1="57" x2="150" y2="255"/>
+  <line class="grid" x1="240" y1="57" x2="240" y2="255"/>
+  <line class="grid" x1="440" y1="57" x2="440" y2="255"/>
+  <line class="grid" x1="31" y1="91" x2="589" y2="91"/>
+  <line class="grid" x1="31" y1="132" x2="589" y2="132"/>
+  <line class="grid" x1="31" y1="173" x2="589" y2="173"/>
+  <line class="grid" x1="31" y1="214" x2="589" y2="214"/>
+
+  <text class="text mono" x="42" y="116" font-size="12.5">text</text>
+  <text class="text mono" x="160" y="116" font-size="12.5">name</text>
+  <text class="text" x="250" y="116" font-size="12.5">What is your name?</text>
+
+  <text class="text mono" x="42" y="157" font-size="12.5">integer</text>
+  <text class="text mono" x="160" y="157" font-size="12.5">age</text>
+  <text class="text" x="250" y="157" font-size="12.5">How old are you?</text>
+  <text class="text mono" x="450" y="157" font-size="12">. &gt;= 18</text>
+
+  <text class="text mono" x="42" y="198" font-size="12.5">select_one yn</text>
+  <text class="text mono" x="160" y="198" font-size="12.5">consent</text>
+  <text class="text" x="250" y="198" font-size="12.5">Do you agree to take part?</text>
+
+  <text class="text mono" x="42" y="239" font-size="12.5">note</text>
+  <text class="text mono" x="160" y="239" font-size="12.5">thanks</text>
+  <text class="text" x="250" y="239" font-size="12.5">Thank you, ${name}!</text>
+  <text class="text mono" x="450" y="239" font-size="12">${consent}='yes'</text>
+
+  <text class="muted" x="30" y="282" font-size="12.5">Each row is a question. The "rule" column stands for XLSForm's constraint</text>
+  <text class="muted" x="30" y="300" font-size="12.5">and relevant columns: age must be at least 18, and the note only appears</text>
+  <text class="muted" x="30" y="318" font-size="12.5">when the person agrees. pyxform turns the sheet into an XForm (XML),</text>
+  <text class="muted" x="30" y="336" font-size="12.5">which is what DartRosa reads.</text>
+
+  <!-- Arrow -->
+  <line class="edge" x1="606" y1="160" x2="690" y2="160" stroke-width="2" marker-end="url(#arrow)"/>
+  <text class="muted" x="648" y="146" font-size="12" text-anchor="middle">pyxform,</text>
+  <text class="muted" x="648" y="182" font-size="12" text-anchor="middle">then DartRosa</text>
+
+  <!-- Phone -->
+  <rect class="phone" x="710" y="24" width="240" height="400" rx="28" stroke-width="2"/>
+  <rect class="screen" x="724" y="56" width="212" height="340" rx="6"/>
+  <text class="text" x="738" y="84" font-size="14" font-weight="600">Household survey</text>
+
+  <text class="text" x="738" y="114" font-size="12" font-weight="600">What is your name?</text>
+  <rect class="field" x="738" y="122" width="184" height="28" rx="4"/>
+  <text class="text" x="746" y="141" font-size="12">Amina</text>
+
+  <text class="text" x="738" y="174" font-size="12" font-weight="600">How old are you?</text>
+  <rect class="field" x="738" y="182" width="184" height="28" rx="4"/>
+  <text class="text" x="746" y="201" font-size="12">34</text>
+
+  <text class="text" x="738" y="234" font-size="12" font-weight="600">Do you agree to take part?</text>
+  <circle class="accentstroke" cx="748" cy="254" r="7" stroke-width="2"/>
+  <circle class="accent" cx="748" cy="254" r="3.5"/>
+  <text class="text" x="762" y="258" font-size="12">Yes</text>
+  <circle class="edge" cx="748" cy="278" r="7" stroke-width="2"/>
+  <text class="text" x="762" y="282" font-size="12">No</text>
+
+  <rect class="note" x="738" y="300" width="184" height="34" rx="6" stroke-width="1"/>
+  <text class="text" x="748" y="322" font-size="12">Thank you, Amina!</text>
+
+  <rect class="accent" x="842" y="352" width="80" height="30" rx="15"/>
+  <text x="882" y="372" font-size="12.5" font-weight="600" text-anchor="middle" fill="#ffffff">Send</text>
+</svg>

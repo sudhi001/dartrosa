@@ -66,6 +66,10 @@ The complete program, with its form, is in
 
 ## Documentation
 
+- [Documentation index](https://github.com/sudhi001/dartrosa/blob/main/docs/README.md)
+- [Overview: what DartRosa is](https://github.com/sudhi001/dartrosa/blob/main/docs/OVERVIEW.md)
+- [Save and resume drafts](https://github.com/sudhi001/dartrosa/blob/main/docs/guides/save-and-resume-drafts.md)
+- [Architecture](https://github.com/sudhi001/dartrosa/blob/main/docs/ARCHITECTURE.md)
 - [Getting started](https://github.com/sudhi001/dartrosa/blob/main/docs/GETTING_STARTED.md)
 - [Migrating from JavaRosa](https://github.com/sudhi001/dartrosa/blob/main/docs/MIGRATING_FROM_JAVAROSA.md)
 - [Compatibility matrix](https://github.com/sudhi001/dartrosa/blob/main/docs/COMPATIBILITY.md)
@@ -84,4 +88,4 @@ Related packages: [dartrosa_flutter](https://github.com/sudhi001/dartrosa/tree/m
 
 Apache License 2.0 (see [LICENSE](LICENSE)). DartRosa is a derivative
 work of JavaRosa (Apache-2.0); see
-[NOTICE.md](https://github.com/sudhi001/dartrosa/blob/main/NOTICE.md).
+[the licensing notes](https://github.com/sudhi001/dartrosa/blob/main/docs/legal/README.md).

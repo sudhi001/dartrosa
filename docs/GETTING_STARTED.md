@@ -1,16 +1,20 @@
 # Getting started with DartRosa
 
+**Audience:** developers new to DartRosa (Dart or Flutter). **Type:**
+tutorial. Terms are explained in the [glossary](GLOSSARY.md).
+
 DartRosa fills [ODK XForms](https://getodk.github.io/xforms-spec/) in pure
 Dart: it parses a form, keeps its calculations, relevance, constraints and
 repeats up to date while you answer, and produces the submission XML, with
 the same results as JavaRosa (the engine of ODK Collect).
 
-This guide walks through the modern API (`package:dartrosa/dartrosa.dart`)
+This guide walks through the session API (`package:dartrosa/dartrosa.dart`)
 and then the Flutter renderer. Every Dart snippet below is run by
 `packages/dartrosa/test/docs/getting_started_test.dart` and
 `packages/dartrosa_flutter/test/docs/getting_started_test.dart`, so it
 compiles and does what it says.
 
+- New to ODK and XForms? Read the [overview](OVERVIEW.md) first.
 - Porting code from JavaRosa? See [MIGRATING_FROM_JAVAROSA.md](MIGRATING_FROM_JAVAROSA.md).
 - What is supported: [COMPATIBILITY.md](COMPATIBILITY.md).
 - Custom functions, entities, CSV data, ...: [PLUGINS.md](PLUGINS.md).
@@ -352,3 +356,13 @@ resumes and finalizes every form of the conformance corpus.
 `package:dartrosa/testing.dart` has JavaRosa's `Scenario` and its XForm
 builder DSL (`html`, `head`, `model`, `bind`, `input`, ...), so you can
 test your own forms the way the engine is tested.
+
+## Next steps
+
+- [Show a form in a Flutter app](guides/render-a-form-in-flutter.md):
+  media files, device features, theming and translations.
+- [Save and resume drafts](guides/save-and-resume-drafts.md).
+- [Download forms, encrypt and submit to ODK Central](guides/encrypt-and-submit.md).
+- [Use CSV data and entities](guides/external-data-and-entities.md).
+- [Use non-Gregorian calendars](guides/non-gregorian-calendars.md).
+- [How DartRosa is built](ARCHITECTURE.md).

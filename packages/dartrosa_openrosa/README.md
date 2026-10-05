@@ -73,6 +73,8 @@ against a mock server.
 
 ## Documentation
 
+- [Documentation index](https://github.com/sudhi001/dartrosa/blob/main/docs/README.md)
+- [Download forms, encrypt and submit](https://github.com/sudhi001/dartrosa/blob/main/docs/guides/encrypt-and-submit.md)
 - [Getting started](https://github.com/sudhi001/dartrosa/blob/main/docs/GETTING_STARTED.md)
 - [Compatibility matrix](https://github.com/sudhi001/dartrosa/blob/main/docs/COMPATIBILITY.md)
 - [Plugins and extension points](https://github.com/sudhi001/dartrosa/blob/main/docs/PLUGINS.md)
@@ -82,4 +84,4 @@ against a mock server.
 
 Apache License 2.0 (see [LICENSE](LICENSE)). Ports ODK Collect's
 `open-rosa` module and uploader (Apache-2.0); see
-[NOTICE.md](https://github.com/sudhi001/dartrosa/blob/main/NOTICE.md).
+[the licensing notes](https://github.com/sudhi001/dartrosa/blob/main/docs/legal/README.md).
