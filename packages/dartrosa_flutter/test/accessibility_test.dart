@@ -4,6 +4,7 @@
 import 'package:dartrosa_flutter/dartrosa_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/semantics.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'helpers.dart';
@@ -115,14 +116,12 @@ void main() {
   testWidgets('focus follows form order', (tester) async {
     final s = await _form();
     await tester.pumpWidget(app(XFormView(session: s, mode: XFormMode.scroll)));
-    final group = tester.widget<FocusTraversalGroup>(
-      find
-          .descendant(
-            of: find.byType(XFormView),
-            matching: find.byType(FocusTraversalGroup),
-          )
-          .first,
-    );
-    expect(group.policy, isA<WidgetOrderTraversalPolicy>());
+    await tester.showKeyboard(find.byType(TextField));
+    // Tab goes from the name to the first choice of the next question.
+    await tester.sendKeyEvent(LogicalKeyboardKey.tab);
+    await tester.pump();
+    final focused = FocusManager.instance.primaryFocus!.context!;
+    final question = focused.findAncestorWidgetOfExactType<QuestionWidget>();
+    expect(question!.node.label.text, 'A');
   });
 }

@@ -2,10 +2,10 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import 'dart:convert';
-import 'dart:typed_data';
 
 import 'package:dartrosa_flutter/dartrosa_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'helpers.dart';
@@ -160,6 +160,23 @@ void main() {
       isSemantics(isSelected: true),
     );
     handle.dispose();
+  });
+
+  testWidgets('the keyboard selects areas (Tab, then Enter or Space)', (
+    tester,
+  ) async {
+    final s = await _form('select');
+    await _pump(tester, s);
+    await tester.sendKeyEvent(LogicalKeyboardKey.tab);
+    await tester.pumpAndSettle();
+    // ignore: avoid_print
+    await tester.sendKeyEvent(LogicalKeyboardKey.enter);
+    await tester.pumpAndSettle();
+    expect(question(s, 0).value!.displayText, 'a');
+    await tester.sendKeyEvent(LogicalKeyboardKey.tab);
+    await tester.sendKeyEvent(LogicalKeyboardKey.space);
+    await tester.pumpAndSettle();
+    expect(question(s, 0).value!.displayText, 'a, b');
   });
 
   testWidgets('missing SVG shows a message', (tester) async {

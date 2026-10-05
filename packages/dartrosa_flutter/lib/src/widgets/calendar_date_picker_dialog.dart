@@ -131,7 +131,11 @@ class _CustomCalendarDatePickerDialogState
         children: [
           month,
           const SizedBox(height: 8),
-          Row(children: [?day, const Spacer(), year]),
+          Wrap(
+            alignment: WrapAlignment.spaceBetween,
+            spacing: 8,
+            children: [?day, year],
+          ),
         ],
       );
     }
@@ -153,6 +157,8 @@ class _CustomCalendarDatePickerDialogState
   Widget build(BuildContext context) {
     final material = MaterialLocalizations.of(context);
     return AlertDialog(
+      // Large text on a small screen: the content scrolls.
+      scrollable: true,
       title: Text(XFormLocalizations.of(context).selectDate),
       content: Column(
         mainAxisSize: MainAxisSize.min,

@@ -214,9 +214,7 @@ void main() {
       expect(field.center.dx, 640);
     });
 
-    testWidgets('scroll mode: double.infinity fills the width', (
-      tester,
-    ) async {
+    testWidgets('scroll mode: double.infinity fills the width', (tester) async {
       await _pump(
         tester,
         await _questions(),

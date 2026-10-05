@@ -305,7 +305,9 @@ class XFormViewState extends State<XFormView> {
                 key: const ValueKey('form'),
                 // Focus moves in form order, not by on-screen geometry.
                 child: FocusTraversalGroup(
-                  policy: WidgetOrderTraversalPolicy(),
+                  policy: _FormOrderTraversalPolicy(
+                    () => mounted ? this.context : null,
+                  ),
                   child: form,
                 ),
               ),
@@ -315,6 +317,41 @@ class XFormViewState extends State<XFormView> {
       ),
     ),
   );
+}
+
+/// Moves focus in the order of the widget tree (form order), also for
+/// controls built later than others (loaded images, lazily built list
+/// items), which [WidgetOrderTraversalPolicy] would put last.
+class _FormOrderTraversalPolicy extends FocusTraversalPolicy
+    with DirectionalFocusTraversalPolicyMixin {
+  _FormOrderTraversalPolicy(this.root);
+
+  /// The subtree whose order counts.
+  final BuildContext? Function() root;
+
+  @override
+  Iterable<FocusNode> sortDescendants(
+    Iterable<FocusNode> descendants,
+    FocusNode currentNode,
+  ) {
+    final context = root();
+    if (context == null) return descendants;
+    final order = <Element, int>{};
+    void visit(Element element) {
+      order[element] = order.length;
+      element.visitChildren(visit);
+    }
+
+    context.visitChildElements(visit);
+    final nodes = descendants.indexed.toList()
+      ..sort((a, b) {
+        final byTree = (order[a.$2.context] ?? order.length).compareTo(
+          order[b.$2.context] ?? order.length,
+        );
+        return byTree != 0 ? byTree : a.$1.compareTo(b.$1);
+      });
+    return [for (final (_, node) in nodes) node];
+  }
 }
 
 /// The side panel while hidden: a button showing it again.
@@ -647,10 +684,11 @@ class _PagerFormState extends State<_PagerForm> {
   };
 
   bool _pageShortcutEnabled(_PageIntent intent) {
-    final focused = FocusManager.instance.primaryFocus?.context?.widget;
-    if (focused is! EditableText) return true;
+    final field = FocusManager.instance.primaryFocus?.context
+        ?.findAncestorStateOfType<EditableTextState>();
+    if (field == null) return true;
     // Arrows move the cursor; page keys too in multi-line fields.
-    return !intent.arrow && focused.maxLines == 1;
+    return !intent.arrow && field.widget.maxLines == 1;
   }
 
   @override
