@@ -236,11 +236,13 @@ class _StackedQuestion extends StatelessWidget {
   final Appearance appearance;
   final String? error;
 
-  /// Whether [node] is a note: read-only text without an appearance
-  /// that shows a widget anyway (`printer` when printing is available,
-  /// `url`).
+  /// Whether [node] is a note: read-only text without a value (ODK
+  /// Collect shows the value of a read-only text, in place of the field)
+  /// and without an appearance that shows a widget anyway (`printer` when
+  /// printing is available, `url`).
   bool _isNote(BuildContext context) =>
       node.isNote &&
+      (node.value?.displayText ?? '').isEmpty &&
       !(appearance.has('printer') &&
           XFormScope.of(context).delegates.canPrint) &&
       !appearance.has('url');
