@@ -396,27 +396,41 @@ class _OutlineTile extends StatelessWidget {
     final label = _labelOf(node);
     final dense = isDesktopOrWeb(context);
     final padding = EdgeInsetsDirectional.only(
-      start: 16.0 + 16 * entry.depth,
-      end: 16,
+      start: 8.0 + 16 * entry.depth,
+      end: 8,
+    );
+    // The current screen's lines get a navigation-drawer-like indicator.
+    Widget tile(ListTile tile) => Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8),
+      child: ListTileTheme.merge(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        selectedTileColor: scheme.secondaryContainer,
+        selectedColor: scheme.onSecondaryContainer,
+        child: tile,
+      ),
     );
     if (node is! QuestionNode) {
       final target = firstQuestionIn(node);
-      return ListTile(
-        dense: dense,
-        contentPadding: padding,
-        selected: current,
-        leading: Icon(switch (node) {
-          RepeatNode() => Icons.repeat,
-          RepeatInstanceNode() => Icons.subdirectory_arrow_right,
-          _ => Icons.folder_outlined,
-        }, size: 20),
-        title: Text(
-          label,
-          maxLines: 2,
-          overflow: TextOverflow.ellipsis,
-          style: theme.textTheme.titleSmall,
+      return tile(
+        ListTile(
+          dense: dense,
+          contentPadding: padding,
+          selected: current,
+          leading: Icon(switch (node) {
+            RepeatNode() => Icons.repeat,
+            RepeatInstanceNode() => Icons.subdirectory_arrow_right,
+            _ => Icons.folder_outlined,
+          }, size: 20),
+          title: Text(
+            label,
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
+            style: theme.textTheme.titleSmall?.copyWith(
+              color: current ? scheme.onSecondaryContainer : null,
+            ),
+          ),
+          onTap: target == null ? null : onTap,
         ),
-        onTap: target == null ? null : onTap,
       );
     }
     final error = controller.failureFor(node.index) != null;
@@ -434,30 +448,31 @@ class _OutlineTile extends StatelessWidget {
         ? (Icons.check_circle, scheme.primary, strings.answered)
         : (Icons.radio_button_unchecked, scheme.outline, strings.notAnswered);
     final required = node.isRequired && answerable;
-    return ListTile(
-      dense: dense,
-      contentPadding: padding,
-      selected: current,
-      selectedTileColor: scheme.secondaryContainer,
-      leading: Icon(icon, color: color, size: 20, semanticLabel: state),
-      title: Text.rich(
-        TextSpan(
-          children: [
-            TextSpan(text: label),
-            if (required)
-              TextSpan(
-                text: ' *',
-                semanticsLabel: ', ${strings.required}',
-                style: TextStyle(
-                  color: XFormTheme.of(context).errorColorOf(context),
+    return tile(
+      ListTile(
+        dense: dense,
+        contentPadding: padding,
+        selected: current,
+        leading: Icon(icon, color: color, size: 20, semanticLabel: state),
+        title: Text.rich(
+          TextSpan(
+            children: [
+              TextSpan(text: label),
+              if (required)
+                TextSpan(
+                  text: ' *',
+                  semanticsLabel: ', ${strings.required}',
+                  style: TextStyle(
+                    color: XFormTheme.of(context).errorColorOf(context),
+                  ),
                 ),
-              ),
-          ],
+            ],
+          ),
+          maxLines: 2,
+          overflow: TextOverflow.ellipsis,
         ),
-        maxLines: 2,
-        overflow: TextOverflow.ellipsis,
+        onTap: onTap,
       ),
-      onTap: onTap,
     );
   }
 
