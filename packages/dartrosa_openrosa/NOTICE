@@ -1,0 +1,17 @@
+dartrosa_openrosa
+Copyright 2026 The DartRosa Authors
+
+This package is part of DartRosa (https://github.com/sudhi001/dartrosa),
+licensed under the Apache License, Version 2.0 (see LICENSE). It contains
+Dart translations of the Apache-2.0 code named below, a derivative work
+under section 4 of that license: each translated file says so in its
+header ("Derived from ..."). DartRosa's full NOTICE:
+https://github.com/sudhi001/dartrosa/blob/main/NOTICE.md
+
+ODK Collect
+-----------
+This package translates code from ODK Collect
+(https://github.com/getodk/collect), Copyright (C) 2009-2017 University of
+Washington, Copyright 2016-2019 Nafundi and the ODK Collect contributors,
+licensed under the Apache License, Version 2.0. ODK Collect ships no NOTICE
+file.
