@@ -12,12 +12,12 @@ import 'select_widgets.dart';
 /// The widget for any [node]: a question, group, repeat or repeat
 /// instance.
 Widget nodeWidget(FormNode node) => switch (node) {
-  QuestionNode() => QuestionWidget(node, key: ValueKey('q:${node.ref}')),
-  GroupNode() => GroupWidget(node, key: ValueKey('g:${node.ref}')),
-  RepeatNode() => RepeatWidget(node, key: ValueKey('r:${node.ref}')),
+  QuestionNode() => QuestionWidget(node, key: ValueKey('q:${node.index}')),
+  GroupNode() => GroupWidget(node, key: ValueKey('g:${node.index}')),
+  RepeatNode() => RepeatWidget(node, key: ValueKey('r:${node.index}')),
   RepeatInstanceNode() => RepeatInstanceWidget(
     node,
-    key: ValueKey('i:${node.ref}'),
+    key: ValueKey('i:${node.index}'),
   ),
   RootNode() => Column(
     crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -90,7 +90,7 @@ class GroupWidget extends StatelessWidget {
           QuestionWidget(
             child,
             inTableList: true,
-            key: ValueKey('q:${child.ref}'),
+            key: ValueKey('q:${child.index}'),
           )
         else
           nodeWidget(child),

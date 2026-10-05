@@ -1,20 +1,17 @@
 import 'dart:convert';
 
-import 'package:dartrosa/javarosa.dart' show FormDef, TreeElement;
+import 'package:dartrosa/javarosa.dart' show FormDef;
 import 'package:dartrosa_collect/dartrosa_collect.dart';
 import 'package:dartrosa_encryption/dartrosa_encryption.dart';
 import 'package:dartrosa_entities/dartrosa_entities.dart'
     show
         EntitiesRepository,
         InMemEntitiesRepository,
-        LocalEntitiesInstanceAdapter,
-        QueryException,
-        StringEqQuery,
         formEntities,
         saveFormEntities,
         withEntities;
 import 'package:dartrosa_external_data/dartrosa_external_data.dart'
-    show ExternalDataPlugin, PullDataInstanceAdapter, PullDataQueryException;
+    show ExternalDataPlugin;
 import 'package:dartrosa_flutter/dartrosa_flutter.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
@@ -110,36 +107,24 @@ class Workspace extends ChangeNotifier {
   Future<FormDefinition> load(CorpusForm form) async {
     final xml = await bundle.loadString('$corpusRoot/${form.path}');
     final media = AssetResolver(bundle, form.folder);
-    // Entities' pulldata() would shadow the CSV pulldata() of external
-    // data, so entity lists are served to external data's handler instead.
-    final withLists = withEntities(
-      DartRosaConfig(resolver: media),
+    final config = withEntities(
+      collectFormConfig(
+        media: media,
+        lastSaved: LastSaved(lastSaved, form.path),
+        plugins: [
+          ExternalDataPlugin(
+            // Collect imports every CSV of the form's media folder; corpus
+            // forms share folders, so only the CSVs a form names count.
+            listMedia: (_) => [
+              for (final name in corpus.mediaOf(form))
+                if (name.endsWith('.csv') &&
+                    xml.contains(name.substring(0, name.length - 4)))
+                  name,
+            ],
+          ),
+        ],
+      ),
       entitiesRepository: () => entities,
-    );
-    final config = collectFormConfig(
-      media: media,
-      lastSaved: LastSaved(lastSaved, form.path),
-      functions: [
-        for (final f in withLists.functions)
-          if (f.name != 'pulldata') f,
-      ],
-      filterStrategies: withLists.filterStrategies,
-      parseProcessors: withLists.parseProcessors,
-      finalizationProcessors: withLists.finalizationProcessors,
-      externalInstanceParser: withLists.externalInstanceParser,
-      plugins: [
-        ExternalDataPlugin(
-          // Collect imports every CSV of the form's media folder; corpus
-          // forms share folders, so only the CSVs a form names count.
-          listMedia: (_) => [
-            for (final name in corpus.mediaOf(form))
-              if (name.endsWith('.csv') &&
-                  xml.contains(name.substring(0, name.length - 4)))
-                name,
-          ],
-          instanceAdapter: _EntityLists(entities),
-        ),
-      ],
     );
     return FormDefinition.parse(xml, config: config);
   }
@@ -241,28 +226,3 @@ bool isEncrypted(FormDef form) =>
         ?.attribute(base64RsaPublicKeyAttribute)
         ?.isNotEmpty ??
     false;
-
-/// Local entity lists for external data's `pulldata()`.
-class _EntityLists implements PullDataInstanceAdapter {
-  _EntityLists(EntitiesRepository repository)
-    : _lists = LocalEntitiesInstanceAdapter(repository);
-
-  final LocalEntitiesInstanceAdapter _lists;
-
-  @override
-  bool supportsInstance(String instanceId) =>
-      _lists.supportsInstance(instanceId);
-
-  @override
-  List<TreeElement> query(
-    String instanceId,
-    String filterChild,
-    String filterValue,
-  ) {
-    try {
-      return _lists.query(instanceId, StringEqQuery(filterChild, filterValue));
-    } on QueryException catch (e) {
-      throw PullDataQueryException('$e');
-    }
-  }
-}

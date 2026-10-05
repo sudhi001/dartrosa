@@ -1,4 +1,6 @@
 import 'package:dartrosa/javarosa.dart';
+import 'package:dartrosa_external_data/dartrosa_external_data.dart'
+    show PullDataInstanceAdapter, PullDataQueryException;
 
 import '../../storage/entities_repository.dart';
 import '../../storage/query.dart';
@@ -57,5 +59,37 @@ final class PullDataFunctionHandler extends XPathFunctionHandler {
       }
     }
     return _fallback?.eval(args, context) ?? '';
+  }
+}
+
+/// Local entity lists as a `pulldata()` source for
+/// `dartrosa_external_data`'s `ExternalDataPlugin`, which asks it before
+/// falling back to CSV media — the order of Collect's entities
+/// `PullDataFunctionHandler` with its CSV fallback.
+final class EntitiesPullDataInstanceAdapter implements PullDataInstanceAdapter {
+  /// Creates the adapter over [entitiesRepository].
+  EntitiesPullDataInstanceAdapter(EntitiesRepository entitiesRepository)
+    : _instanceAdapter = LocalEntitiesInstanceAdapter(entitiesRepository);
+
+  final LocalEntitiesInstanceAdapter _instanceAdapter;
+
+  @override
+  bool supportsInstance(String instanceId) =>
+      _instanceAdapter.supportsInstance(instanceId);
+
+  @override
+  List<TreeElement> query(
+    String instanceId,
+    String filterChild,
+    String filterValue,
+  ) {
+    try {
+      return _instanceAdapter.query(
+        instanceId,
+        StringEqQuery(filterChild, filterValue),
+      );
+    } on QueryException catch (e) {
+      throw PullDataQueryException(e.message ?? '$e');
+    }
   }
 }

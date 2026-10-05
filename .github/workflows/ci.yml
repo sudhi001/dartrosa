@@ -58,11 +58,12 @@ jobs:
           flutter analyze --fatal-infos
           # Goldens are rendered on macOS (see test/golden_test.dart).
           flutter test --exclude-tags golden
-      - name: Analyze the example
+      - name: Analyze and test the example (fills the whole corpus)
         working-directory: packages/dartrosa_flutter/example
         run: |
           flutter pub get
           flutter analyze --fatal-infos
+          flutter test
 
   oracle:
     name: JavaRosa oracle traces are up to date

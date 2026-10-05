@@ -1,5 +1,7 @@
 import 'package:dartrosa/dartrosa.dart';
 import 'package:dartrosa/javarosa.dart';
+import 'package:dartrosa_external_data/dartrosa_external_data.dart'
+    show ExternalDataPlugin;
 
 import 'debug/debug_logger.dart';
 import 'debug/entity_event.dart';
@@ -57,18 +59,35 @@ DartRosaConfig withEntities(
             mediaFiles ?? InMemFormMediaFileRepository(),
           ),
         );
-  final pullDataFallback = base.functions
-      .where((f) => f.name == PullDataFunctionHandler.functionName)
-      .lastOrNull;
-
-  return DartRosaConfig(
-    resolver: base.resolver,
-    functions: [
+  // With CSV external data, entity lists join its pulldata() (entities
+  // first, then CSV, as in Collect) instead of a second handler.
+  final externalData = base.plugins.whereType<ExternalDataPlugin>().toList();
+  final List<XPathFunctionHandler> functions;
+  final List<FormLoadPlugin> plugins;
+  if (externalData.isNotEmpty) {
+    final adapter = EntitiesPullDataInstanceAdapter(repository);
+    functions = base.functions;
+    plugins = [
+      for (final plugin in base.plugins)
+        plugin is ExternalDataPlugin && plugin.instanceAdapter == null
+            ? plugin.withInstanceAdapter(adapter)
+            : plugin,
+    ];
+  } else {
+    final pullDataFallback = base.functions
+        .where((f) => f.name == PullDataFunctionHandler.functionName)
+        .lastOrNull;
+    functions = [
       ...base.functions.where(
         (f) => f.name != PullDataFunctionHandler.functionName,
       ),
       PullDataFunctionHandler(repository, fallback: pullDataFallback),
-    ],
+    ];
+    plugins = base.plugins;
+  }
+
+  return base.copyWith(
+    functions: functions,
     filterStrategies: [
       LocalEntitiesFilterStrategy(repository),
       ...base.filterStrategies,
@@ -78,10 +97,8 @@ DartRosaConfig withEntities(
       ...base.finalizationProcessors,
       const EntityFormFinalizationProcessor(),
     ],
-    preloadHandlers: base.preloadHandlers,
     externalInstanceParser: externalInstanceParser,
-    setGeopointAction: base.setGeopointAction,
-    properties: base.properties,
+    plugins: plugins,
   );
 }
 

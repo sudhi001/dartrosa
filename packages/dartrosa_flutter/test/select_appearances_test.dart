@@ -41,6 +41,7 @@ void main() {
         isEmpty,
       );
       expect(Appearance.parse('w2 field-list foo').unknown, ['foo']);
+      expect(Appearance.parse('ethiopian month-year').unknown, isEmpty);
     });
   });
 

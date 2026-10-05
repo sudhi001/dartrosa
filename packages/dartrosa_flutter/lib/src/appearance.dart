@@ -73,6 +73,8 @@ class Appearance {
     'table-list', 'quickcompact', 'compact', 'horizontal',
     'horizontal-compact', 'image-map', 'map', 'maps', 'placement-map',
     'hidden-answer', 'search', 'ex:', 'printer', 'url', 'bearing', 'counter',
+    'ethiopian', 'coptic', 'islamic', 'bikram-sambat', 'myanmar', 'persian',
+    'buddhist',
   };
 
   static final RegExp _knownPattern = RegExp(

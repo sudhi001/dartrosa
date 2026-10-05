@@ -13,6 +13,7 @@ environment:
 dependencies:
   collection: ^1.19.0
   dartrosa: any
+  dartrosa_external_data: any
   meta: ^1.16.0
 
 dev_dependencies:

@@ -1,10 +1,9 @@
-// Sibling groups without a `ref` get the same widget key. Fails today;
-// run with `--dart-define=KNOWN_ISSUES=true`.
+// Sibling groups without a `ref` used to get the same widget key (it came
+// from the instance reference, which they share with their parent);
+// widgets are now keyed by FormIndex.
 import 'package:dartrosa_flutter/dartrosa_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
-const _run = bool.fromEnvironment('KNOWN_ISSUES');
 
 // Reduced from conformance/forms/collect/form8.xml.
 const _form = '''
@@ -19,13 +18,7 @@ const _form = '''
 </h:html>''';
 
 void main() {
-  // Reason: nodeWidget() keys a GroupWidget with ValueKey('g:${node.ref}');
-  // a group without `ref` has its parent's reference (here /data), so
-  // sibling ref-less groups inside a group collide:
-  // "Duplicate keys found ... [<'g:/data'>]", then "Looking up a
-  // deactivated widget's ancestor is unsafe". The key should come from
-  // the node's FormIndex.
-  testWidgets('sibling groups without ref build', skip: !_run, (tester) async {
+  testWidgets('sibling groups without ref build', (tester) async {
     final session = (await tester.runAsync(
       () => FormDefinition.parse(_form),
     ))!.createSession();

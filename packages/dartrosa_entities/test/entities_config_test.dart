@@ -6,6 +6,8 @@ import 'package:dartrosa/dartrosa.dart';
 import 'package:dartrosa/javarosa.dart';
 import 'package:dartrosa/testing.dart';
 import 'package:dartrosa_entities/dartrosa_entities.dart';
+import 'package:dartrosa_external_data/dartrosa_external_data.dart'
+    show ExternalDataPlugin;
 import 'package:test/test.dart';
 
 import 'support/entity_xforms_element.dart';
@@ -133,6 +135,57 @@ void main() {
       isA<EntityFormFinalizationProcessor>(),
     );
     expect(config.filterStrategies.single, isA<LocalEntitiesFilterStrategy>());
+  });
+
+  test('withEntities keeps the base plugins and last-saved source', () {
+    final plugin = ExternalDataPlugin();
+    final config = withEntities(
+      DartRosaConfig(plugins: [plugin], lastSavedSrc: '<data/>'),
+      entitiesRepository: InMemEntitiesRepository.new,
+    );
+    expect(config.plugins.single, isA<ExternalDataPlugin>());
+    expect(config.lastSavedSrc, '<data/>');
+  });
+
+  test('withEntities with external data: pulldata() reads entity lists, '
+      'then CSV media', () async {
+    final repository = InMemEntitiesRepository()
+      ..save('people', [NewEntity(_shivId, 'Shiv')]);
+    final definition = await FormDefinition.parse(
+      html(
+        head([
+          title('pulldata'),
+          model([
+            mainInstance([
+              t('data id="p"', [t('person'), t('size')]),
+            ]),
+            bind('/data/person')
+              ..type('string')
+              ..calculate("pulldata('people', 'label', 'name', '$_shivId')"),
+            bind('/data/size')
+              ..type('string')
+              ..calculate("pulldata('sizes', 'size', 'name', 'big')"),
+          ]),
+        ]),
+        body([input('/data/person')]),
+      ).asXml(),
+      config: withEntities(
+        DartRosaConfig(
+          resolver: MapResourceResolver({
+            'jr://file/sizes.csv': Uint8List.fromList(
+              utf8.encode('name,label,size\nbig,Big,10\n'),
+            ),
+          }),
+          plugins: [
+            ExternalDataPlugin(listMedia: (_) => ['sizes.csv']),
+          ],
+        ),
+        entitiesRepository: () => repository,
+      ),
+    );
+    final session = definition.createSession();
+    expect(_value(session, 'person'), 'Shiv');
+    expect(_value(session, 'size'), '10');
   });
 
   test('withEntities rejects a base external instance parser', () {

@@ -345,7 +345,7 @@ Disposition: **PORT** = behaviour ported 1:1 (idiomatic structure) · **REDESIGN
 - [x] `jr:preload="property"` params `deviceid`, `subscriberid`, `simserial`, `phonenumber`, `username`, `email` (from `DeviceProperties`)
 - [x] `jr:preload="uid"` (instanceID — `uuid:` prefix)
 - [x] Custom `PreloadHandler` registration
-- [ ] (instanceID/instanceName done; `deprecatedID` on edit is Collect-layer, open) `meta/instanceID`, `meta/deprecatedID` (set when editing a finalized instance), `meta/instanceName` (calculate)
+- [x] (`deprecatedID` on edit: `dartrosa_collect` `EditedFormFinalizationProcessor`, packages/dartrosa_collect/test/finalization/edited_form_finalization_processor_test.dart) `meta/instanceID`, `meta/deprecatedID` (set when editing a finalized instance), `meta/instanceName` (calculate)
 
 ### 7.9 Actions & events
 - [x] Events: `odk-instance-first-load`, `odk-instance-load`, `xforms-ready` (deprecated alias), `odk-new-repeat`, `jr-insert` (deprecated alias), `xforms-value-changed`, `xforms-revalidate`
@@ -406,7 +406,7 @@ Disposition: **PORT** = behaviour ported 1:1 (idiomatic structure) · **REDESIGN
 ### 7.14 Serialization & instance lifecycle
 - [x] Submission XML (XFormSerializingVisitor): only relevant nodes (non-relevant pruned), attributes, namespaces/prefixes, `jr:template` removed, empty elements, encoding UTF-8, answer serialization per type
 - [x] Draft save (all nodes incl. non-relevant values preserved as JavaRosa), load draft → identical state
-- [ ] Edit finalized submission: new `instanceID`, old moved to `deprecatedID`
+- [x] Edit finalized submission: new `instanceID`, old moved to `deprecatedID` (`dartrosa_collect` `InstanceEdit`, packages/dartrosa_collect/test/finalization/edited_form_finalization_processor_test.dart)
 - [x] Attachments list from binary answers (for multipart submission)
 - [x] Compact & SMS serializers (ported into the core package: `CompactSerializingVisitor`, `SMSSerializingVisitor`)
 - [x] Form-definition cache (`FormDefCodec`, versioned; invalidated by codec version + form hash; restores by re-parsing)
@@ -603,5 +603,5 @@ corpora) cover them; open items are left unticked.
 - [ ] `dart analyze` clean with strict config; `dart format` clean; public API 100 % documented; pana score 160/160
 - [x] No global mutable state; no `dart:io`/Flutter imports in core (enforced by a CI import-lint)
 - [ ] Benchmarks within targets (§1)
-- [ ] Example app fills, saves, resumes, edits, finalizes, encrypts and exports every corpus form
+- [x] Example app fills, saves, resumes, edits, finalizes, encrypts and exports every corpus form (`packages/dartrosa_flutter/example/test/corpus_test.dart`, run in CI; forms that JavaRosa or Collect reject, or that can't be completed by design, are reported with the reason)
 - [ ] Docs: getting started, API reference, JavaRosa → DartRosa migration guide, compatibility matrix, plugin guide

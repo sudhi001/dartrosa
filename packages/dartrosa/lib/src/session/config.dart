@@ -26,6 +26,36 @@ final class DartRosaConfig {
     this.lastSavedSrc,
   });
 
+  /// A copy with the given fields replaced (so helpers that add plugins,
+  /// functions or processors keep everything else).
+  DartRosaConfig copyWith({
+    ResourceResolver? resolver,
+    List<XPathFunctionHandler>? functions,
+    List<FilterStrategy>? filterStrategies,
+    List<Object>? parseProcessors,
+    List<FormEntryFinalizationProcessor>? finalizationProcessors,
+    List<PreloadHandler>? preloadHandlers,
+    ExternalInstanceParser? externalInstanceParser,
+    SetGeopointAction Function(TreeReference target)? setGeopointAction,
+    PropertyManager? properties,
+    List<FormLoadPlugin>? plugins,
+    String? lastSavedSrc,
+  }) => DartRosaConfig(
+    resolver: resolver ?? this.resolver,
+    functions: functions ?? this.functions,
+    filterStrategies: filterStrategies ?? this.filterStrategies,
+    parseProcessors: parseProcessors ?? this.parseProcessors,
+    finalizationProcessors:
+        finalizationProcessors ?? this.finalizationProcessors,
+    preloadHandlers: preloadHandlers ?? this.preloadHandlers,
+    externalInstanceParser:
+        externalInstanceParser ?? this.externalInstanceParser,
+    setGeopointAction: setGeopointAction ?? this.setGeopointAction,
+    properties: properties ?? this.properties,
+    plugins: plugins ?? this.plugins,
+    lastSavedSrc: lastSavedSrc ?? this.lastSavedSrc,
+  );
+
   /// Reads `jr://` resources (media, CSV/XML/GeoJSON instances, last-saved).
   final ResourceResolver? resolver;
 

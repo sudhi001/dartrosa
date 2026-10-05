@@ -18,10 +18,6 @@ const _strings = XFormLocalizations();
 const _maxScreens = 300;
 const _debugDrafts = bool.fromEnvironment('DEBUG_DRAFTS');
 
-/// Forms whose walk fails because of an engine or renderer bug, with the
-/// reason (each reproduced in test/known_issues/).
-const _knownIssues = <String, String>{};
-
 /// Forms ODK Collect can't load either, though plain JavaRosa parses them.
 const _collectRejects = {
   'collect/one-question-entity-registration-broken.xml':
@@ -61,48 +57,10 @@ void main() {
   });
 
   for (final form in corpus.forms) {
-    testWidgets(form.path, skip: _knownIssues.containsKey(form.path), (
-      tester,
-    ) async {
-      // Report the renderer's known bugs (test/known_issues/) instead of
-      // failing; errors after a duplicate key are its consequences.
-      final known = <String>{};
-      final onError = FlutterError.onError;
-      FlutterError.onError = (details) {
-        final issue =
-            _knownError(details) ??
-            (known.contains(_duplicateKeys) ? _duplicateKeys : null);
-        if (issue == null) {
-          onError?.call(details);
-        } else {
-          known.add(issue);
-        }
-      };
-      try {
-        final outcome = await _fill(tester, Workspace(corpus), form);
-        outcomes[form.path] = known.isEmpty
-            ? outcome
-            : '$outcome [known: ${known.join(', ')}]';
-      } finally {
-        FlutterError.onError = onError;
-      }
+    testWidgets(form.path, (tester) async {
+      outcomes[form.path] = await _fill(tester, Workspace(corpus), form);
     });
   }
-}
-
-const _duplicateKeys = 'duplicate group keys';
-
-/// The known renderer bug [details] reports, if it is one.
-String? _knownError(FlutterErrorDetails details) {
-  final message = '${details.exception}';
-  if (message.contains('called during build') &&
-      '${details.stack}'.contains('FormEntryPrompt.selectChoices')) {
-    return 'itemset setState during build';
-  }
-  if (message.contains('Duplicate keys found') && message.contains("'g:")) {
-    return _duplicateKeys;
-  }
-  return null;
 }
 
 /// Loads [f], or returns why it can't be loaded.

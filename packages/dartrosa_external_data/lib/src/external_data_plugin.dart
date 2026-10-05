@@ -51,6 +51,18 @@ final class ExternalDataPlugin extends FormLoadPlugin {
   }) : _repository = repository ?? _inMemory,
        _listMedia = listMedia;
 
+  /// A copy of this plugin whose `pulldata()` asks [adapter] first (e.g.
+  /// for local entity lists), then falls back to CSV media.
+  ExternalDataPlugin withInstanceAdapter(PullDataInstanceAdapter adapter) =>
+      ExternalDataPlugin(
+        repository: _repository,
+        listMedia: _listMedia,
+        mediaUri: mediaUri,
+        instanceAdapter: adapter,
+        isCancelled: isCancelled,
+        onProgress: onProgress,
+      );
+
   static ExternalDataRepository _inMemory(FormDef form) =>
       InMemoryExternalDataRepository();
 
