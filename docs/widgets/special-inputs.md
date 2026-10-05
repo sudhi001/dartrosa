@@ -140,7 +140,8 @@ new answers by name.
 
 **Print** sends the answer to `XFormDelegates.print`. Collect parses it
 as HTML with `<qrcode>` and `<barcode>` elements; the app decides how to
-render and print it. Without `canPrint` the question is a note.
+render and print it. Without `canPrint` the answer shows as read-only
+text.
 
 ## Without delegates
 

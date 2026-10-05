@@ -19,6 +19,7 @@
         <data id="catalog-notes">
           <name>Amina</name>
           <welcome/>
+          <greeting/>
           <markdown/>
           <hinted/>
           <guided/>
@@ -30,6 +31,7 @@
       </instance>
       <bind nodeset="/data/name" type="string"/>
       <bind nodeset="/data/welcome" type="string" readonly="true()"/>
+      <bind nodeset="/data/greeting" type="string" readonly="true()" calculate="concat('Karibu, ', /data/name, '!')"/>
       <bind nodeset="/data/markdown" type="string" readonly="true()"/>
       <bind nodeset="/data/hinted" type="int"/>
       <bind nodeset="/data/guided" type="int"/>
@@ -46,6 +48,10 @@
     <input ref="/data/welcome">
       <label>Thank you, <output value="/data/name"/>. The next questions are about your household.</label>
       <hint>note (read-only text, label only), with ${name}</hint>
+    </input>
+    <input ref="/data/greeting">
+      <label>Greeting</label>
+      <hint>read-only text with a value (calculation)</hint>
     </input>
     <input ref="/data/markdown">
       <label># Section B

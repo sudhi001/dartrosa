@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 
 import '../localizations.dart';
 import '../theme.dart';
+import '../xform_controller.dart';
 import '../xform_scope.dart';
 import 'common.dart';
 import 'external_app_inputs.dart';
@@ -116,7 +117,9 @@ class GroupWidget extends StatelessWidget {
 }
 
 /// A repeat: its instances and an "add" button while instances can be
-/// added.
+/// added (never for `jr:count` and `jr:noAddRemove` repeats, whose
+/// instances are fixed; see
+/// [XFormController.createCountedRepeatInstances]).
 class RepeatWidget extends StatelessWidget {
   /// Creates the widget for [node].
   const RepeatWidget(this.node, {super.key});
@@ -140,7 +143,7 @@ class RepeatWidget extends StatelessWidget {
       children: [
         for (final instance in instances)
           if (instance.isRelevant) nodeWidget(instance),
-        if (node.canAddInstance)
+        if (!node.repeat.noAddRemove && node.canAddInstance)
           Align(
             alignment: AlignmentDirectional.centerStart,
             child: OutlinedButton.icon(

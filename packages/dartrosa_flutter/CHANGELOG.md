@@ -1,3 +1,9 @@
+## 0.2.1
+
+- Read-only text and number questions with a value (a calculation, a default) show the value as text in place of the field, as ODK Collect does (new `ReadOnlyAnswer`); a read-only text was treated as a note and showed only its label. Notes (read-only text without a value) stay label only; read-only numbers without a value show `—`; secrets stay masked.
+- Scroll mode creates the instances of `jr:count` repeats (on start and whenever a count goes up), as the pager does when it moves into them; it showed none and an add button. `jr:count` and `jr:noAddRemove` repeats never show the add button. New `XFormController.createCountedRepeatInstances()`.
+- Blocked Next and failed Finalize show the whole question in error (label, hint, field and error) before focusing it; the focused text field used to stop the scrolling with the label above the screen.
+
 ## 0.2.0
 
 - Adaptive layout by window size class (new `XFormWindowSize`): full width on phones; from 600dp a centered column, now capped by default at `XFormTheme.defaultMaxContentWidth` (720dp) when `maxContentWidth` is `null` (`double.infinity` fills the width).

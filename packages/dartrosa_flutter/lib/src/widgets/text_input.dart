@@ -25,9 +25,12 @@ class TextQuestionInput extends StatefulWidget {
 }
 
 class _TextQuestionInputState extends State<TextQuestionInput> {
-  late final TextEditingController _text = TextEditingController(
-    text: _display(),
-  );
+  /// The field's text, created when the field is first shown (read-only
+  /// questions show no field).
+  TextEditingController? _controller;
+
+  TextEditingController get _text =>
+      _controller ??= TextEditingController(text: _display());
 
   Appearance get _appearance => Appearance.parse(widget.node.appearance);
 
@@ -45,14 +48,15 @@ class _TextQuestionInputState extends State<TextQuestionInput> {
   void didUpdateWidget(covariant TextQuestionInput oldWidget) {
     super.didUpdateWidget(oldWidget);
     // Recalculated (or read-only) values replace the text.
-    if (!widget.node.isReadonly) return;
+    final controller = _controller;
+    if (controller == null || !widget.node.isReadonly) return;
     final value = _display();
-    if (_text.text != value) _text.text = value;
+    if (controller.text != value) controller.text = value;
   }
 
   @override
   void dispose() {
-    _text.dispose();
+    _controller?.dispose();
     super.dispose();
   }
 
@@ -94,6 +98,10 @@ class _TextQuestionInputState extends State<TextQuestionInput> {
     final numeric = _isNumeric(node) || appearance.has('numbers');
     final masked =
         node.controlType == ControlType.secret || appearance.has('masked');
+    // Read-only: the answer as text, as ODK Collect shows it (no field).
+    if (node.isReadonly) {
+      return ReadOnlyAnswer(_display(), masked: masked);
+    }
     final multiline = appearance.has('multiline') && !masked;
     final error = QuestionErrorScope.hasErrorOf(context)
         ? XFormTheme.of(context).errorColorOf(context)
@@ -138,6 +146,42 @@ class _TextQuestionInputState extends State<TextQuestionInput> {
       onEditingComplete: multiline ? null : () {},
       onSubmitted: multiline ? null : (_) => _submitted(),
       onChanged: (text) => answerQuestion(context, node, _parse(text)),
+    );
+  }
+}
+
+/// The answer of a read-only text or number question, as ODK Collect
+/// shows it: text in the color of the surface's content, without a field
+/// (`—` when there is none). Screen readers read it as read-only; on
+/// desktops and in browsers it can be selected with the mouse, like the
+/// form's other text.
+class ReadOnlyAnswer extends StatelessWidget {
+  /// Creates the display of [text], obscured if [masked].
+  const ReadOnlyAnswer(this.text, {this.masked = false, super.key});
+
+  /// The answer as displayed.
+  final String text;
+
+  /// Whether the answer is a secret (`masked`, `<secret>`): shown as dots.
+  final bool masked;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final shown = text.isEmpty
+        ? '—'
+        : masked
+        ? '•' * text.length
+        : text;
+    return Semantics(
+      readOnly: true,
+      obscured: masked && text.isNotEmpty,
+      child: Text(
+        shown,
+        style: theme.textTheme.bodyLarge?.copyWith(
+          color: theme.colorScheme.onSurface,
+        ),
+      ),
     );
   }
 }

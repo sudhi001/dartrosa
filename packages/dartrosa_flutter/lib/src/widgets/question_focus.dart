@@ -42,17 +42,42 @@ FocusNode? firstFocusIn(Element element) {
 }
 
 /// Scrolls the widget of [node] under [root] into view and, if [focus],
-/// moves keyboard focus to its first control; whether it is built.
+/// then moves keyboard focus to its first control; whether it is built.
+///
+/// The whole question shows: its label, hints, input and error, a tenth
+/// of the free space from the top (or from the top, for a question taller
+/// than the view). Focus moves once the scrolling is done: a text field
+/// that gets focus scrolls itself into view, just enough to show the
+/// field, and would otherwise stop the scrolling with the question's label
+/// above the view.
 bool revealNode(BuildContext root, FormNode node, {bool focus = true}) {
   final element = findNodeElement(root, node);
   if (element == null) return false;
-  Scrollable.ensureVisible(
-    element,
-    alignment: 0.1,
-    duration: const Duration(milliseconds: 200),
-  ).ignore();
-  if (focus) firstFocusIn(element)?.requestFocus();
+  _reveal(element, focus: focus).ignore();
   return true;
+}
+
+Future<void> _reveal(Element element, {required bool focus}) async {
+  await Scrollable.ensureVisible(
+    element,
+    alignment: _alignmentFor(element),
+    duration: const Duration(milliseconds: 200),
+  );
+  if (focus && element.mounted) firstFocusIn(element)?.requestFocus();
+}
+
+/// Where [element] goes in its scroll view: a tenth of the free space
+/// from the top when it fits, else at the top.
+double _alignmentFor(Element element) {
+  final size = element.renderObject is RenderBox
+      ? (element.renderObject! as RenderBox).size
+      : null;
+  final position = Scrollable.maybeOf(element)?.position;
+  if (size == null || position == null || !position.hasViewportDimension) {
+    return 0.1;
+  }
+  final extent = position.axis == Axis.vertical ? size.height : size.width;
+  return extent > position.viewportDimension ? 0 : 0.1;
 }
 
 /// Tells the input of a question whether its answer was rejected, so

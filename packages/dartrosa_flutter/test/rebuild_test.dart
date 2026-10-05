@@ -159,14 +159,14 @@ void main() {
     await tester.pumpWidget(
       app(XFormView(session: session, mode: XFormMode.scroll)),
     );
-    bool aEnabled() => tester
-        .widget<TextField>(
-          find.descendant(
-            of: find.widgetWithText(QuestionWidget, 'A'),
-            matching: find.byType(TextField),
-          ),
+    // Read-only, the answer shows as text in place of the field.
+    bool aEnabled() => find
+        .descendant(
+          of: find.widgetWithText(QuestionWidget, 'A'),
+          matching: find.byType(TextField),
         )
-        .enabled!;
+        .evaluate()
+        .isNotEmpty;
     expect(find.text('B'), findsNothing);
     expect(find.text('C'), findsNothing);
     expect(aEnabled(), isTrue);

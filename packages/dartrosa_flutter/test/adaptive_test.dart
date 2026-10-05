@@ -98,6 +98,29 @@ Finder _tile(String label) => find
 bool _focused(WidgetTester tester, String label) =>
     tester.widget<EditableText>(_field(label)).focusNode.hasFocus;
 
+/// Expects the question [label] (its label, hint, field and error)
+/// inside the viewport of the scroll view around it.
+void _expectWholeQuestionVisible(WidgetTester tester, String label) {
+  final question = find.byWidgetPredicate(
+    (w) => w is QuestionWidget && w.node.label.text == label,
+  );
+  final viewport = tester.getRect(
+    find.ancestor(of: question, matching: find.byType(Scrollable)).first,
+  );
+  final labelRect = tester.getRect(
+    find
+        .descendant(
+          of: question,
+          matching: find.textContaining(label, findRichText: true),
+        )
+        .first,
+  );
+  final whole = tester.getRect(question);
+  expect(labelRect.top, greaterThanOrEqualTo(viewport.top), reason: 'label');
+  expect(whole.top, greaterThanOrEqualTo(viewport.top), reason: 'top');
+  expect(whole.bottom, lessThanOrEqualTo(viewport.bottom), reason: 'bottom');
+}
+
 /// Taps Next (an icon button when the label doesn't fit).
 Future<void> _next(WidgetTester tester) async {
   final label = find.text('Next');
@@ -532,6 +555,78 @@ void main() {
       expect(_focused(tester, 'Last'), isTrue);
       expect(find.text('Sorry, this response is required!'), findsOneWidget);
     });
+
+    // The whole question in error is shown: label, hint, field and error,
+    // not only the field the keyboard focus moved to.
+    for (final (name, width, height, platform) in [
+      ('phone', 360.0, 640.0, null),
+      ('desktop', 1280.0, 800.0, TargetPlatform.linux),
+    ]) {
+      testWidgets('blocked Next shows the whole question ($name)', (
+        tester,
+      ) async {
+        final s = await formSession(
+          '<p>${[for (var i = 0; i < 30; i++) '<q$i/>'].join()}<last/></p>',
+          '<bind nodeset="/data/p/last" type="string" required="true()"/>',
+          '<group ref="/data/p" appearance="field-list">'
+              '${[for (var i = 0; i < 30; i++) '<input ref="/data/p/q$i"><label>Q$i</label></input>'].join()}'
+              '<input ref="/data/p/last"><label>Last</label>'
+              '<hint>The last one</hint></input></group>',
+        );
+        await _pump(
+          tester,
+          s,
+          width: width,
+          height: height,
+          platform: platform,
+        );
+        await _next(tester);
+        expect(_focused(tester, 'Last'), isTrue);
+        _expectWholeQuestionVisible(tester, 'Last');
+      });
+
+      // Far above Finish (not built yet), or just above the screen.
+      for (final after in [30, 8]) {
+        testWidgets('failed finalize shows the whole question ($name, $after)', (
+          tester,
+        ) async {
+          final s = await formSession(
+            '${[for (var i = 0; i < 30; i++) '<q$i/>'].join()}<mid/>'
+                '${[for (var i = 0; i < after; i++) '<r$i/>'].join()}',
+            '<bind nodeset="/data/mid" type="string" required="true()"/>',
+            '${[for (var i = 0; i < 30; i++) '<input ref="/data/q$i"><label>Q$i</label></input>'].join()}'
+                '<input ref="/data/mid"><label>Middle</label>'
+                '<hint>In the middle</hint></input>'
+                '${[for (var i = 0; i < after; i++) '<input ref="/data/r$i"><label>R$i</label></input>'].join()}',
+          );
+          await _pump(
+            tester,
+            s,
+            width: width,
+            height: height,
+            mode: XFormMode.scroll,
+            platform: platform,
+          );
+          // Finish is at the bottom.
+          await tester.scrollUntilVisible(
+            find.text('Finish'),
+            300,
+            scrollable: find
+                .ancestor(
+                  of: find.byType(QuestionWidget).first,
+                  matching: find.byType(Scrollable),
+                )
+                .first,
+          );
+          await tester.ensureVisible(find.text('Finish'));
+          await tester.pumpAndSettle();
+          await tester.tap(find.text('Finish'));
+          await tester.pumpAndSettle();
+          expect(_focused(tester, 'Middle'), isTrue);
+          _expectWholeQuestionVisible(tester, 'Middle');
+        });
+      }
+    }
 
     testWidgets('failed finalize in pager mode shows the field-list screen', (
       tester,

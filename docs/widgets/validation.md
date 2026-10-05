@@ -74,8 +74,8 @@ Integer fields filter out anything but digits, so they don't get there.
 
 Next re-checks every relevant, editable question of the screen. If any
 fails, the pager stays, every failing question shows its error, and the
-**first** one is scrolled into view and focused (a text field gets the
-cursor). Screen readers announce its message.
+**first** one is scrolled into view, its label, hint, field and error
+all on screen, and focused (a text field gets the cursor). Screen readers announce its message.
 
 ## Finalize
 
