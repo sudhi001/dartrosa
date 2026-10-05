@@ -26,7 +26,8 @@ import 'form_node.dart';
 /// A parsed form, ready to be filled.
 ///
 /// Until definitions can be cached and copied (Phase 6), a definition
-/// backs one session at a time: [createSession] resets it.
+/// backs one session at a time: [createSession] resets it and closes the
+/// session created before (see [FormSession.close]).
 final class FormDefinition {
   FormDefinition._(this.formDef, this.config)
     : _blankInstance = formDef.mainInstance.clone();
@@ -66,6 +67,9 @@ final class FormDefinition {
 
   final FormInstance _blankInstance;
 
+  /// The session filling the form, if not closed.
+  FormSession? _session;
+
   /// The form title.
   String? get title => formDef.title;
 
@@ -74,7 +78,13 @@ final class FormDefinition {
 
   /// Starts filling a new instance, or continues [existingInstance] (a
   /// saved draft or submission XML), in [language] if given.
+  ///
+  /// The session created before, which shared this definition's form, is
+  /// closed first (its [FormSession.changes] stream is done and it stops
+  /// receiving the form's events), so the definition doesn't keep every
+  /// session it ever created.
   FormSession createSession({String? existingInstance, String? language}) {
+    if (_session case final previous?) unawaited(previous._detach());
     formDef.mainInstance = _blankInstance.clone();
     if (existingInstance != null) {
       formDef.loadXmlInstance(
@@ -84,7 +94,10 @@ final class FormDefinition {
             defaultAnswerResolver,
       );
     }
-    final session = FormSession._(this, newInstance: existingInstance == null);
+    final session = _session = FormSession._(
+      this,
+      newInstance: existingInstance == null,
+    );
     if (language != null) session.language = language;
     return session;
   }
@@ -116,7 +129,13 @@ final class FormSession {
       _controller.addPostProcessor,
     );
     form.addEventListener(_onEvaluation);
-    form.initialize(newInstance: newInstance);
+    try {
+      form.initialize(newInstance: newInstance);
+    } catch (_) {
+      // The session is never returned: don't leave it listening.
+      form.removeEventListener(_onEvaluation);
+      rethrow;
+    }
     navigator = FormNavigator._(this);
   }
 
@@ -135,7 +154,18 @@ final class FormSession {
   Map<Object, Object?> get extras => _controller.model.extras;
 
   /// The engine's changes (recalculated values, relevance, repeats, ...).
+  ///
+  /// The stream is done once the session is closed ([close], or a new
+  /// session of the same [definition]).
   Stream<FormChange> get changes => _changes.stream;
+
+  /// Whether [close] was called, or the [definition] has started another
+  /// session.
+  bool get isClosed => _changes.isClosed;
+
+  void _emit(FormChange change) {
+    if (!_changes.isClosed) _changes.add(change);
+  }
 
   void _onEvaluation(EvaluationEvent event) {
     // Itemsets announce each (re-)evaluation of their choices, which
@@ -143,7 +173,7 @@ final class FormSession {
     // changes nothing.
     if (event.message == 'Dynamic choices') return;
     if (event.results.isEmpty || !_changes.hasListener) return;
-    _changes.add(
+    _emit(
       FormChange(event.message == 'Recalculate' ? 'value' : 'condition', [
         for (final result in event.results) result.ref,
       ]),
@@ -162,7 +192,7 @@ final class FormSession {
   /// Changes the language.
   set language(String? language) {
     _controller.language = language;
-    _changes.add(const FormChange('language', []));
+    _emit(const FormChange('language', []));
   }
 
   /// Answers the question at [index] after checking `required` and the
@@ -185,7 +215,7 @@ final class FormSession {
     value = typed;
     if (!validate) {
       _controller.saveAnswer(value, index: index, midSurvey: true);
-      _changes.add(FormChange('answer', [index.reference!]));
+      _emit(FormChange('answer', [index.reference!]));
       return const AnswerAccepted();
     }
     final status = _controller.answerQuestion(
@@ -196,7 +226,7 @@ final class FormSession {
     final prompt = _controller.model.questionPrompt(index);
     switch (status) {
       case AnswerStatus.ok:
-        _changes.add(FormChange('answer', [index.reference!]));
+        _emit(FormChange('answer', [index.reference!]));
         return const AnswerAccepted();
       case AnswerStatus.requiredButEmpty:
         return AnswerRequired(bindAttributeValue(prompt, 'requiredMsg'));
@@ -281,7 +311,7 @@ final class FormSession {
   FormIndex addRepeatInstance(FormIndex repeat) {
     final index = _form.descendIntoRepeat(repeat, -1);
     _form.createNewRepeat(index);
-    _changes.add(FormChange('repeat', [index.reference!]));
+    _emit(FormChange('repeat', [index.reference!]));
     return index;
   }
 
@@ -289,7 +319,7 @@ final class FormSession {
   /// instance's index.
   FormIndex removeRepeatInstance(FormIndex index) {
     final removed = _form.deleteRepeat(index);
-    _changes.add(FormChange('repeat', [removed.reference!]));
+    _emit(FormChange('repeat', [removed.reference!]));
     return removed;
   }
 
@@ -326,9 +356,18 @@ final class FormSession {
     return meta?.getChild('instanceID', 0)?.value?.displayText;
   }
 
-  /// Stops reporting changes.
-  Future<void> close() {
+  /// Stops reporting changes: [changes] is done and the session no longer
+  /// listens to its form, so it can be garbage collected. Call it when the
+  /// session is no longer needed (e.g. when its screen is disposed).
+  /// Calling it again does nothing.
+  ///
+  /// The session can still be read and answered afterwards, without
+  /// change events, until the [definition] starts another session.
+  Future<void> close() => _detach();
+
+  Future<void> _detach() {
     _form.removeEventListener(_onEvaluation);
+    if (identical(definition._session, this)) definition._session = null;
     return _changes.close();
   }
 }
