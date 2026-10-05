@@ -285,28 +285,28 @@ final class TreeReference {
   /// Returns `null` if [context] is relative.
   TreeReference? contextualize(TreeReference context) {
     if (!context.isAbsolute) return null;
-    var newRef = anchor(context);
-    for (var i = 0; i < context.size && i < newRef.size; i++) {
+    final anchored = anchor(context);
+    // Levels are adjusted in one working copy (JavaRosa mutates its clone).
+    final levels = [...anchored._levels];
+    for (var i = 0; i < context.size && i < levels.length; i++) {
+      var level = levels[i];
       // Fill in a wildcard name from the context.
-      if (newRef.nameAt(i) == nameWildcard &&
-          context.nameAt(i) != nameWildcard) {
-        newRef = newRef._copy(
-          levels: [...newRef._levels]
-            ..[i] = newRef._levels[i].withName(context.nameAt(i)),
-        );
+      if (level.name == nameWildcard && context.nameAt(i) != nameWildcard) {
+        level = levels[i] = level.withName(context.nameAt(i));
       }
-      if (context.nameAt(i) != newRef.nameAt(i)) break;
-      if (newRef.predicatesAt(i) == null && context.predicatesAt(i) != null) {
+      if (context.nameAt(i) != level.name) break;
+      if (level.predicates == null && context.predicatesAt(i) != null) {
         // A predicate wins over a multiplicity; never keep both.
-        newRef = newRef
-            .withPredicates(i, context.predicatesAt(i))
-            .withMultiplicity(i, indexUnbound);
+        level = level
+            .withPredicates(context.predicatesAt(i))
+            .withMultiplicity(indexUnbound);
       }
-      if (newRef.predicatesAt(i) == null && i < context.size - refLevel) {
-        newRef = newRef.withMultiplicity(i, context.multiplicityAt(i));
+      if (level.predicates == null && i < context.size - refLevel) {
+        level = level.withMultiplicity(context.multiplicityAt(i));
       }
+      levels[i] = level;
     }
-    return newRef;
+    return anchored._copy(levels: levels);
   }
 
   /// This reference relative to its ancestor [parent], with unbound

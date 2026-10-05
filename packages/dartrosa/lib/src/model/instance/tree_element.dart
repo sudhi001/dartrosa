@@ -118,6 +118,7 @@ final class TreeElement {
 
   set name(String? name) {
     _refCache = null;
+    _identityEpoch++;
     _name = name;
   }
 
@@ -127,6 +128,7 @@ final class TreeElement {
 
   set multiplicity(int multiplicity) {
     _refCache = null;
+    _identityEpoch++;
     _multiplicity = multiplicity;
   }
 
@@ -555,9 +557,25 @@ final class TreeElement {
 ///
 /// Port of `TreeElementChildrenList`, including its sticky "all same name"
 /// flag (never reset by removals).
+/// Bumped whenever any element's name or multiplicity changes, so
+/// [_TreeElementChildren] lookup tables built before are rebuilt (an
+/// element can be in a children list other than its parent's, e.g. after
+/// [TreeElement.shallowCopy]).
+int _identityEpoch = 0;
+
 final class _TreeElementChildren extends Iterable<TreeElement> {
   final _list = <TreeElement>[];
   bool _allSameNameAndNormalMultiplicity = true;
+
+  /// Added: for long lists (repeats), the first index of each name and
+  /// multiplicity, so lookups don't scan every sibling. Same result as
+  /// JavaRosa's linear search; dropped on any change.
+  Map<String, Map<int, int>>? _firstIndex;
+  int _firstIndexEpoch = -1;
+
+  static const _indexThreshold = 32;
+  static const _scansBeforeIndex = 4;
+  int _scans = 0;
 
   @override
   Iterator<TreeElement> get iterator => _list.iterator;
@@ -571,11 +589,13 @@ final class _TreeElementChildren extends Iterable<TreeElement> {
   TreeElement operator [](int i) => _list[i];
 
   void insert(int index, TreeElement child) {
+    _changed();
     _check(child.name, child.multiplicity);
     _list.insert(index, child);
   }
 
   void addAll(Iterable<TreeElement> children) {
+    _changed();
     for (final child in children) {
       _check(child.name, child.multiplicity);
       _list.add(child);
@@ -598,6 +618,7 @@ final class _TreeElementChildren extends Iterable<TreeElement> {
     final index = _indexOf(child.name!, searchMultiplicity);
     _check(child.name, child.multiplicity);
     _list.insert(index == -1 ? _list.length : index + adjustment, child);
+    _changed();
   }
 
   TreeElement? find(String name, int multiplicity) {
@@ -613,11 +634,25 @@ final class _TreeElementChildren extends Iterable<TreeElement> {
 
   int countWithName(String name) => _findWithName(name, null);
 
-  void remove(TreeElement child) => _list.remove(child);
+  void remove(TreeElement child) {
+    _changed();
+    _list.remove(child);
+  }
 
-  void removeAt(int i) => _list.removeAt(i);
+  void removeAt(int i) {
+    _changed();
+    _list.removeAt(i);
+  }
 
-  void clear() => _list.clear();
+  void clear() {
+    _changed();
+    _list.clear();
+  }
+
+  void _changed() {
+    _firstIndex = null;
+    _scans = 0;
+  }
 
   void _check(String? name, int multiplicity) {
     _allSameNameAndNormalMultiplicity = _sameNameAndNormal(name, multiplicity);
@@ -655,11 +690,35 @@ final class _TreeElementChildren extends Iterable<TreeElement> {
     if (_sameNameAndNormal(name, multiplicity) && multiplicity < _list.length) {
       if (_list[multiplicity].multiplicity == multiplicity) return multiplicity;
     }
+    if (_list.length >= _indexThreshold) {
+      final index = _indexed();
+      if (index != null) return index[name]?[multiplicity] ?? -1;
+    }
     for (var i = 0; i < _list.length; i++) {
       final child = _list[i];
       if (name == child.name && child.multiplicity == multiplicity) return i;
     }
     return -1;
+  }
+
+  /// The lookup table, built once lookups outnumber changes (building it
+  /// on every insert while a form is parsed would cost more than scanning).
+  Map<String, Map<int, int>>? _indexed() {
+    if (_firstIndexEpoch != _identityEpoch) {
+      _changed();
+      _firstIndexEpoch = _identityEpoch;
+    }
+    if (_firstIndex case final index?) return index;
+    if (++_scans < _scansBeforeIndex) return null;
+    final built = <String, Map<int, int>>{};
+    for (var i = 0; i < _list.length; i++) {
+      final child = _list[i];
+      final name = child.name;
+      if (name != null) {
+        (built[name] ??= {}).putIfAbsent(child.multiplicity, () => i);
+      }
+    }
+    return _firstIndex = built;
   }
 }
 
