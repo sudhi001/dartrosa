@@ -1,7 +1,8 @@
 // Copyright 2026 The DartRosa Authors
 // SPDX-License-Identifier: Apache-2.0
 
-// Every Dart snippet of every guide (docs/*.md and docs/guides/*.md) must
+// Every Dart snippet of every guide (docs/*.md and docs/{guides,tutorials,
+// cookbook}/*.md) must
 // be in a doc test, so the guides can't rot.
 @TestOn('vm')
 library;
@@ -15,7 +16,9 @@ void main() {
 
   test('the guides are found', () {
     expect(guides, contains('docs/GETTING_STARTED.md'));
-    expect(guides.where((g) => g.startsWith('docs/guides/')), isNotEmpty);
+    for (final folder in docFolders.skip(1)) {
+      expect(guides.where((g) => g.startsWith('$folder/')), isNotEmpty);
+    }
   });
 
   guides.forEach(expectSnippetsTested);

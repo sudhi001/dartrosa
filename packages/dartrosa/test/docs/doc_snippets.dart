@@ -1,7 +1,8 @@
 // Copyright 2026 The DartRosa Authors
 // SPDX-License-Identifier: Apache-2.0
 
-// Keeps the code in docs/*.md and docs/guides/*.md compiling: every
+// Keeps the code in the documentation compiling (docs/*.md and the guides,
+// tutorials and cookbook folders under docs/): every
 // ```dart block of a guide must appear, line for line (ignoring indentation
 // and blank lines), in one of the doc test files under packages/*/test/docs/,
 // which run the code. all_docs_test.dart checks every guide.
@@ -46,11 +47,15 @@ String docTestSources() {
   return buffer.toString();
 }
 
+/// The documentation folders whose Markdown files must have tested Dart
+/// code.
+const docFolders = ['docs', 'docs/guides', 'docs/tutorials', 'docs/cookbook'];
+
 /// The guides (relative to the repository root) that contain Dart code:
-/// `docs/*.md` and `docs/guides/*.md`.
+/// the Markdown files of [docFolders].
 List<String> guidesWithDartCode() {
   final guides = <String>[];
-  for (final dir in ['docs', 'docs/guides']) {
+  for (final dir in docFolders) {
     final directory = Directory('${repoRoot.path}/$dir');
     if (!directory.existsSync()) continue;
     for (final file in directory.listSync().whereType<File>()) {
