@@ -280,6 +280,81 @@ Future<CaseResult> repeatCase(int runs) async {
   );
 }
 
+/// The repository's `conformance/forms` directory (the benchmark runs from
+/// the package directory, as `run.sh` does, or from the repository root).
+String _formsDir() {
+  for (final candidate in ['../../conformance/forms', 'conformance/forms']) {
+    if (Directory(candidate).existsSync()) return candidate;
+  }
+  throw StateError('Run the benchmark from packages/dartrosa');
+}
+
+/// Parses `webforms/performance/bench9.xml` from the conformance corpus: a
+/// real 370 KB form with two languages, 750 translated texts and choice
+/// lists in secondary instances.
+Future<CaseResult> corpusParseCase(int runs) async {
+  final xml = File(
+    '${_formsDir()}/webforms/performance/bench9.xml',
+  ).readAsStringSync();
+  return CaseResult(
+    id: 'corpus',
+    label: 'Parse bench9.xml (370 KB real form)',
+    samples: await sample(() => FormDefinition.parse(xml), runs: runs),
+  );
+}
+
+/// Parses `javarosa/nigeria_wards_external.xml` with its external
+/// secondary instances (`lgas.xml`, and `wards.xml`: 2.2 MB, 8,800
+/// wards), starts a session and answers the LGA, which filters the wards.
+Future<CaseResult> externalCase(int runs) async {
+  final dir = '${_formsDir()}/javarosa';
+  final xml = File('$dir/nigeria_wards_external.xml').readAsStringSync();
+  final resolver = MapResourceResolver({
+    for (final name in ['lgas.xml', 'wards.xml'])
+      'jr://file/$name': File('$dir/$name').readAsBytesSync(),
+  });
+  return CaseResult(
+    id: 'external',
+    label: 'Load a form with a 2.2 MB external instance',
+    samples: await sample(() async {
+      final definition = await FormDefinition.parse(
+        xml,
+        config: DartRosaConfig(resolver: resolver),
+      );
+      final session = definition.createSession();
+      final [state, lga, ward as QuestionNode, ...] = session.root.children;
+      for (final (node, value) in [
+        (state, '1dbd3ad151ca7750720ee90f62295230'),
+        (lga, '61f9f2c365b21e5444b008217061baa1'),
+      ]) {
+        if (session.answer(node.index, UncastValue(value)) is! AnswerAccepted) {
+          throw StateError('answer rejected');
+        }
+      }
+      if (ward.choices.isEmpty) throw StateError('bad filter');
+      await session.close();
+    }, runs: runs),
+  );
+}
+
+/// Serializes the answered 1,000-question form (`saveDraft()`).
+Future<CaseResult> serializeCase(int runs) async {
+  final definition = await FormDefinition.parse(bigForm(1000));
+  final session = definition.createSession();
+  for (final node in session.root.children) {
+    if (node is QuestionNode && !node.isReadonly) {
+      session.answer(node.index, const IntegerValue(3), validate: false);
+    }
+  }
+  return CaseResult(
+    id: 'serialize',
+    label: 'Serialize an instance (1,000 answers)',
+    samples: await sample(() async {
+      if (session.saveDraft().isEmpty) throw StateError('empty');
+    }, runs: runs),
+  );
+}
+
 /// The first line of [executable]'s output for [arguments], or `null`.
 String? _command(String executable, List<String> arguments) {
   try {
@@ -356,6 +431,9 @@ Future<void> main(List<String> arguments) async {
     await sessionCase(runs(15)),
     await csvCase(runs(50)),
     await repeatCase(runs(5)),
+    await corpusParseCase(runs(15)),
+    await externalCase(runs(10)),
+    await serializeCase(runs(100)),
   ];
   // The load at the end covers the whole run.
   machine['loadAverageAfter'] = machineInfo()['loadAverage'];
