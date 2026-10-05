@@ -55,7 +55,8 @@ final class EvaluationEvent {
 /// run); DartRosa's keep registration order, one of the orders JavaRosa
 /// can produce.
 final class TriggerableDag {
-  /// Creates an empty graph publishing to [publish].
+  /// Creates an empty graph publishing evaluation events to the given
+  /// callback.
   TriggerableDag(this._publish);
 
   final void Function(EvaluationEvent event) _publish;

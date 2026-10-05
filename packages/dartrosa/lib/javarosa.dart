@@ -5,6 +5,7 @@
 /// Most apps should use `package:dartrosa/dartrosa.dart` instead.
 library;
 
+export 'src/codec/form_def_codec.dart';
 export 'src/form_api/form_entry_caption.dart';
 export 'src/form_api/form_entry_controller.dart';
 export 'src/form_api/form_entry_model.dart';

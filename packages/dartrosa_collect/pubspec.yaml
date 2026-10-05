@@ -1,11 +1,16 @@
 name: dartrosa_collect
 description: >-
-  ODK Collect form-filling services for DartRosa: the audit log
-  (meta/audit), fast external itemsets (itemsets.csv), the last-saved
-  instance and edited-submission finalization. Ports of the corresponding
-  ODK Collect classes.
+  ODK Collect form-filling services for DartRosa: audit log, fast external itemsets, last-saved instance and edited-submission finalization.
 version: 0.0.1
-publish_to: none
+homepage: https://github.com/sudhi001/dartrosa
+repository: https://github.com/sudhi001/dartrosa/tree/main/packages/dartrosa_collect
+issue_tracker: https://github.com/sudhi001/dartrosa/issues
+topics:
+  - odk
+  - xforms
+  - forms
+  - data-collection
+  - audit
 resolution: workspace
 
 environment:
@@ -13,7 +18,10 @@ environment:
 
 dependencies:
   crypto: ^3.0.0
-  dartrosa: any
+  dartrosa: ^0.0.1
 
 dev_dependencies:
+  # For the docs/PLUGINS.md test composing the Collect packages.
+  dartrosa_entities: ^0.0.1
+  dartrosa_external_data: ^0.0.1
   test: ^1.25.0
