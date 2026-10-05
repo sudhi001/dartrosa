@@ -1,7 +1,7 @@
 name: dartrosa_flutter
 description: >-
   Flutter renderer for DartRosa: shows ODK XForms as Material widgets, in a Collect-like pager or a single scrolling page.
-version: 0.1.0
+version: 0.2.0
 homepage: https://github.com/sudhi001/dartrosa
 repository: https://github.com/sudhi001/dartrosa/tree/main/packages/dartrosa_flutter
 issue_tracker: https://github.com/sudhi001/dartrosa/issues

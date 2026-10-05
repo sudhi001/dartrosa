@@ -155,15 +155,50 @@ group) per screen, checks the screen before moving on, asks before
 adding a repeat and ends with a finalize screen. `XFormMode.scroll`
 shows every question on one page instead.
 
+### On tablets and desktops
+
+`XFormView` lays itself out for the width it is given, following the
+Material 3 window size classes:
+
+| Width | Layout |
+|---|---|
+| under 600dp (phones) | one column, full width; 48dp pager buttons |
+| 600dp to 839dp | a centered column at most 720dp wide |
+| 840dp and wider | the same column, plus the form outline as a side panel |
+
+![A desktop window: the form outline beside a table-list screen](../images/screenshots/desktop_outline_light.png)
+
+The outline lists the groups and questions with their state (answered,
+required, in error) and highlights the current screen; selecting a
+question jumps to it, like ODK Collect's hierarchy view. The person can
+hide the panel. On narrower windows the outline opens as a bottom sheet
+from the pager's position button ("3 of 12"):
+
+![On a phone, the outline opens as a sheet](../images/screenshots/outline_sheet_light.png)
+
+Pass `outline: XFormOutlineMode.onRequest` to keep only the sheet, or
+`XFormOutlineMode.none` to turn the outline off. To open it from your own
+button (in scroll mode there is no position button), keep a
+`GlobalKey<XFormViewState>` on the view and call
+`key.currentState?.showOutline()`; `jumpTo(index)` shows a given
+question.
+
+With a keyboard, Page Down / Page Up and Alt+→ / Alt+← move between
+pager screens, Enter in a one-line field moves to the next field (or the
+next screen when the question is alone on it) and Tab follows the form
+order. When Next or Finalize is blocked, the first question in error is
+scrolled into view and focused. On desktops and in browsers the scroll
+bars stay visible and text can be selected with the mouse.
+
 To keep what the person entered when they leave before finishing, save a
 draft: see [Save and resume drafts](save-and-resume-drafts.md).
 
 ## 5. Match your app's look and language
 
 Add an `XFormTheme` to your theme to change spacing, the card style and
-the error color, and to cap the width of the form on large screens
-(`maxContentWidth`; by default the form fills the width); everything
-else follows your `ThemeData`. The button
+the error color, and the widest the form gets on large screens
+(`maxContentWidth`: 720dp by default, `double.infinity` to fill the
+width); everything else follows your `ThemeData`. The button
 labels and default messages come from `XFormLocalizations`, in English
 by default. To translate them, subclass it and register a delegate:
 

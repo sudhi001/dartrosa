@@ -280,11 +280,19 @@ class _FormOutlineState extends State<FormOutline> {
               itemCount: entries.length,
               itemBuilder: (context, i) {
                 final entry = entries[i];
+                bool isCurrent(int j) =>
+                    current != null &&
+                    j >= 0 &&
+                    j < entries.length &&
+                    entries[j].screen == current;
                 return _OutlineTile(
                   key: i == firstCurrent ? _currentKey : null,
                   entry: entry,
                   controller: controller,
-                  current: current != null && entry.screen == current,
+                  current: isCurrent(i),
+                  // The current screen's lines form one highlighted block.
+                  roundTop: !isCurrent(i - 1),
+                  roundBottom: !isCurrent(i + 1),
                   onTap: () => widget.onSelected(entry.node),
                 );
               },
@@ -379,9 +387,13 @@ class _OutlineTile extends StatelessWidget {
     required this.controller,
     required this.current,
     required this.onTap,
+    this.roundTop = true,
+    this.roundBottom = true,
     super.key,
   });
 
+  final bool roundTop;
+  final bool roundBottom;
   final OutlineEntry entry;
   final XFormController controller;
   final bool current;
@@ -403,7 +415,12 @@ class _OutlineTile extends StatelessWidget {
     Widget tile(ListTile tile) => Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8),
       child: ListTileTheme.merge(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(
+            top: roundTop ? const Radius.circular(12) : Radius.zero,
+            bottom: roundBottom ? const Radius.circular(12) : Radius.zero,
+          ),
+        ),
         selectedTileColor: scheme.secondaryContainer,
         selectedColor: scheme.onSecondaryContainer,
         child: tile,

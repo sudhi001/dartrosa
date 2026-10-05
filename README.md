@@ -17,6 +17,8 @@ New to ODK or XForms? Read the [overview](docs/OVERVIEW.md) first.
 |---|---|---|
 | ![Number questions](docs/images/screenshots/text_number_light.png) | ![Choices with pictures](docs/images/screenshots/select_images_light.png) | ![An Ethiopian-calendar date](docs/images/screenshots/date_ethiopian_dark.png) |
 
+![On a tablet or desktop: the form outline beside a table-list screen](docs/images/screenshots/desktop_outline_light.png)
+
 ## Quick start
 
 ```dart

@@ -30,7 +30,27 @@ XFormView(
   validates the screen before moving on, asks before adding repeat
   instances and ends with a finalize screen, like ODK Collect.
 - **Scroll** mode shows every relevant question on one page with
-  add/remove buttons for repeats.
+  add/remove buttons for repeats (removing asks first).
+- **Adaptive layout**, by the width `XFormView` is given (Material 3
+  window size classes, `XFormWindowSize`): phones (under 600dp) use the
+  full width; from 600dp the form is a centered column at most 720dp
+  wide (`XFormTheme.maxContentWidth`); from 840dp the **form outline**
+  (groups and questions, answered / required / error state, the current
+  screen) is a side panel that jumps to any question, like Collect's
+  hierarchy view. On narrower windows the outline is a bottom sheet,
+  opened from the pager's position ("3 of 12") or by
+  `XFormViewState.showOutline()` (use a `GlobalKey<XFormViewState>`);
+  `XFormView.outline` turns the panel off (`onRequest`) or the outline
+  off (`none`).
+- **Keyboard and mouse**: Page Down / Page Up and Alt+→ / Alt+← (mirrored
+  in right-to-left forms) move between pager screens, Enter in a
+  one-line field moves to the next field or screen, Tab follows form
+  order (image-map areas and rank moves included), Esc closes sheets and
+  dialogs. On desktops and in browsers scroll bars stay visible, text can
+  be selected and the time picker opens for typing.
+- **Errors**: when Next or Finalize is blocked, the first question in
+  error is scrolled into view and focused; its field turns red and the
+  message, with an icon, sits under it.
 - Widgets rebuild per question: each question listens only to its own
   node's changes (answers, recalculations, relevance).
 - Platform features go through `XFormDelegates`; without one, capture
@@ -48,11 +68,11 @@ XFormView(
 | time / dateTime | pickers |
 | select one | radio list, `minimal` (drop-down), `quick` (auto-advance in pager mode), `autocomplete`, `columns`, `columns-N`, `columns-pack`, `no-buttons`, `likert`, `label`, `list-nolabel`, `list`; Collect's old names `compact`, `quickcompact`, `compact-N`, `horizontal`, `horizontal-compact`; `image-map`; `map` (through `XFormDelegates.selectFromMap`) |
 | select multiple | check boxes, `minimal` (dialog), `autocomplete`, `columns*`, `no-buttons`, `label`, `list-nolabel`, `list`, `image-map` |
-| rank, trigger, note | reorderable list, acknowledge, read-only text |
+| rank, trigger, note | reorderable list (drag, or the move up / down buttons), acknowledge, read-only text |
 | range | slider, `vertical`, `picker`, `rating`, `no-ticks` |
 | geopoint, barcode, image / audio / video / file | through `XFormDelegates` (typed value otherwise) |
 | geopoint `maps` / `placement-map`, geotrace, geoshape | on the app's map through `XFormDelegates.geoFromMap` when `canShowMaps` (default widget otherwise); `hidden-answer` |
-| group | card, `field-list` (one pager screen), `table-list` (one grid: choice labels as header, a row of buttons per select), `intent` attribute (external app filling the group's questions) |
+| group | card, `field-list` (one pager screen), `table-list` (one grid: choice labels as header, a row of buttons per select, lines between rows), `intent` attribute (external app filling the group's questions) |
 | repeat | add / remove, "add another?" prompt in pager mode, `noAddRemove` |
 
 Choice images use `delegates.image(uri)`. Selects with a `search(...)`
@@ -81,8 +101,11 @@ back to the default widget (with one `debugPrint` per appearance).
   ...">`. Guidance hints are shown per `XFormView.guidanceHints` (`yes`,
   `collapsed`, `no`).
 - **Theme**: add an `XFormTheme` to `ThemeData.extensions` (page padding,
-  question spacing, error color, card style, and `maxContentWidth`, which
-  caps and centers the form on tablets and desktops in both modes).
+  question spacing, error color, card style (a Material 3 filled card by
+  default; groups inside groups are sections), `maxContentWidth` (720dp
+  by default, `double.infinity` to fill the width), `outlinePanelWidth`,
+  and `adaptiveChoiceColumns`: four or more short text choices go in
+  columns on wide forms).
 - **Performance**: answering a question rebuilds that question and the
   questions whose state depends on it, not the form; scroll mode builds
   questions lazily (`test/rebuild_test.dart` prints the rebuild counts of
@@ -99,6 +122,8 @@ back to the default widget (with one `debugPrint` per appearance).
 
 Golden tests (`test/golden_test.dart`, light/dark, LTR/RTL) use the
 default test font; refresh them with `flutter test --update-goldens`.
+`test/adaptive_test.dart` checks every size class (320 to 1920dp, text
+at 100% and 200%) for overflow and layout.
 
 Run the example: `cd example && flutter create . && flutter run`.
 

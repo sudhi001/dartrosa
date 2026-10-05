@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 // Renders the screenshots in docs/images/screenshots/: XFormView showing
-// conformance-corpus forms at phone size, in light and dark themes, with
+// conformance-corpus forms at phone size (and one desktop window), in light and dark themes, with
 // the real Roboto and Material Icons fonts (the default test font draws
 // boxes).
 //
@@ -15,6 +15,13 @@
 // then shrink the PNGs (lossless palette quantization keeps them small):
 //
 //   python3 test/screenshots/optimize_pngs.py ../../docs/images/screenshots
+//
+// To review the adaptive layout, render every shot at phone, small
+// phone (text at 100% and 200%), tablet and desktop sizes into a folder
+// of your choice (never the docs):
+//
+//   DARTROSA_SCREENSHOTS=1 DARTROSA_SCREENSHOTS_MATRIX=/tmp/matrix \
+//     flutter test test/screenshots --tags screenshots --plain-name matrix
 @Tags(['screenshots'])
 @TestOn('mac-os')
 library;
@@ -86,7 +93,13 @@ class _Shot {
     this.prepare,
     this.afterPump,
     this.images = const [],
+    this.size = _phone,
+    this.pixelRatio = _pixelRatio,
   });
+
+  /// The window, in logical pixels, and its pixel ratio.
+  final Size size;
+  final double pixelRatio;
 
   final String name;
   final String form;
@@ -120,6 +133,39 @@ T _node<T extends FormNode>(FormNode node, String name) {
 }
 
 final _shots = [
+  // A tablet or desktop window: the outline side panel beside a
+  // field-list screen in a centered column.
+  _Shot(
+    'desktop_outline',
+    'collect/all-widgets.xml',
+    size: const Size(1280, 800),
+    pixelRatio: 1,
+    prepare: (s) {
+      final text = _node<QuestionNode>(s.root, '/string_widget');
+      s.answer(text.index, const StringValue('Amina'));
+      final integer = _node<QuestionNode>(s.root, '/integer_widget');
+      s.answer(integer.index, const IntegerValue(42));
+      final grouped = _node<QuestionNode>(
+        s.root,
+        '/integer_thousands_sep_widget',
+      );
+      s.answer(grouped.index, const IntegerValue(1234567));
+      s.navigator.jumpTo(_node<GroupNode>(s.root, '/table_list_test').index);
+    },
+  ),
+  // On a phone the outline opens as a sheet from the pager's position.
+  _Shot(
+    'outline_sheet',
+    'collect/form8.xml',
+    prepare: (s) {
+      final first = _node<QuestionNode>(s.root, '/T1');
+      s.answer(first.index, const StringValue('Amina'));
+    },
+    afterPump: (tester) async {
+      await tester.tap(find.byIcon(Icons.toc).first);
+      await tester.pumpAndSettle();
+    },
+  ),
   // A group of number inputs with hints, some answered.
   _Shot(
     'text_number',
@@ -287,7 +333,13 @@ void main() {
     for (final brightness in Brightness.values) {
       testWidgets(
         '${shot.name} ${brightness.name}',
-        (tester) => _render(tester, shot, brightness),
+        (tester) => _render(
+          tester,
+          shot,
+          brightness,
+          size: shot.size,
+          pixelRatio: shot.pixelRatio,
+        ),
         skip: !_enabled,
       );
     }
