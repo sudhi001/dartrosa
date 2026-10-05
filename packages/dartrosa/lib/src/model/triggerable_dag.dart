@@ -4,6 +4,8 @@
 //  translated to Dart.
 // SPDX-License-Identifier: Apache-2.0
 
+import 'package:collection/collection.dart';
+
 import '../util/java_double.dart';
 import '../xpath/exceptions.dart';
 import 'condition/conditions.dart';
@@ -68,6 +70,7 @@ final class TriggerableDag {
   final void Function(EvaluationEvent event) _publish;
 
   final Set<Triggerable> _allTriggerables = {};
+  final Map<int, List<Triggerable>> _triggerablesByKey = {};
   Set<Triggerable> _dag = {};
   final Map<TreeReference, Set<Triggerable>> _triggerablesPerTrigger = {};
   Map<TreeReference, Triggerable> _relevancePerRepeat = {};
@@ -100,12 +103,21 @@ final class TriggerableDag {
   /// Registers [triggerable], or returns an equal one already registered
   /// (with its context narrowed to cover both).
   Triggerable addTriggerable(Triggerable triggerable) {
-    for (final existing in _allTriggerables) {
+    // Only triggerables of the same kind with the same triggers can match,
+    // so candidates are looked up by a hash of both (in registration
+    // order, so the first match is JavaRosa's).
+    final key = Object.hash(
+      triggerable.runtimeType,
+      const SetEquality<TreeReference>().hash(triggerable.triggers),
+    );
+    final candidates = _triggerablesByKey[key] ??= [];
+    for (final existing in candidates) {
       if (existing.matches(triggerable)) {
         existing.intersectContextWith(triggerable);
         return existing;
       }
     }
+    candidates.add(triggerable);
     _allTriggerables.add(triggerable);
     for (final trigger in triggerable.triggers) {
       (_triggerablesPerTrigger[trigger] ??= {}).add(triggerable);
