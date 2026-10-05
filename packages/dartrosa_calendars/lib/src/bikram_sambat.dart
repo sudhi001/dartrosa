@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from bikram-sambat (BsCalendar), Copyright Medic Mobile and
+//  contributors; modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 import 'gregorian.dart';
 
 /// A Bikram Sambat date (`bikramsambat.BikramSambatDate`).

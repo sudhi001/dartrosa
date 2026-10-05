@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 /// JavaRosa's own Base64 codec (`org.javarosa.core.util.Base64`).
 ///
 /// The decoder is lenient in JavaRosa's specific way: characters outside

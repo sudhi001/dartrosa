@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from JavaRosa (EncodingEncodeTest), Copyright 2018 Nafundi; modified:
+//  translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 // Port of JavaRosa v6.0.0 EncodingEncodeTest, EncodingDecodeTest,
 // XPathFuncAsSomethingTest, XPathBinaryOpExprTest, XPathUnaryOpExprTest,
 // XPathPathExprTest, XPathFilterExprTest and XPathFuncExprTest.

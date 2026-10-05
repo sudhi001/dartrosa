@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from JavaRosa (FormDef), Copyright (C) 2009 JavaRosa; modified:
+//  translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 // DartRosa tests (not ports) of FormLoadPlugin, DartRosaConfig.plugins and
 // FormDef.extras (a port of JavaRosa's FormDef.getExtras()).
 import 'dart:typed_data';

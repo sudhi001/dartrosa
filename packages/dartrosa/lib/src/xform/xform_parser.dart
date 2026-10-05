@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from JavaRosa (XFormParser, RangeParser, XPathReference), Copyright
+//  (C) 2009 JavaRosa; modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 import 'package:logging/logging.dart';
 import 'package:xml/xml.dart' as xml;
 

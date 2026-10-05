@@ -1,3 +1,9 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from JavaRosa (EvaluationResult, Event, TriggerableDag), Copyright
+//  (C) 2014 University of Washington; Copyright (C) 2009 JavaRosa; modified:
+//  translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 import '../util/java_double.dart';
 import '../xpath/exceptions.dart';
 import 'condition/conditions.dart';

@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from JavaRosa (FileNotFoundException, InvalidReferenceException),
+//  Copyright (C) 2009 JavaRosa and contributors; modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 import 'dart:typed_data';
 
 /// Reads form resources such as `jr://file/towns.csv`.

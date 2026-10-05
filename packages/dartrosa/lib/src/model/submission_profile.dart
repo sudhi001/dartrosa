@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from JavaRosa (SubmissionProfile), Copyright (C) 2009 JavaRosa and
+//  contributors; modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 import 'instance/tree_reference.dart';
 
 /// A `<submission>`: where and how to send the form.

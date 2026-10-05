@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from JavaRosa (Scenario), Copyright 2019 Nafundi; modified:
+//  translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 import '../model/instance/tree_reference.dart';
 import '../util/java_lang.dart';
 import '../xpath/expression.dart';

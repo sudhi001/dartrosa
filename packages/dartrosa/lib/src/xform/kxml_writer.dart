@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 import 'kdom.dart';
 
 /// An output element: kdom's `Element` as JavaRosa builds it (a `null`

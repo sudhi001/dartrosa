@@ -1,3 +1,9 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from ODK Collect (Instance, InstanceExt,
+//  EditedFormFinalizationProcessor), Copyright 2017 Nafundi; modified:
+//  translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 import 'package:dartrosa/dartrosa.dart';
 import 'package:dartrosa/javarosa.dart';
 

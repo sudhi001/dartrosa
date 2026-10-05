@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 // DartRosa tests (not ports) of FormElement / QuestionDef / GroupDef
 // details: the `;form` suffix stripped from text ids, attaching selections
 // to static choices (Selection.attachChoice), removing choices, and the

@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 // DartRosa tests of FormAudit over a FormSession, including ports of the
 // audit tests of Collect's FormSaveViewModelTest and
 // IdentityPromptViewModelTest.

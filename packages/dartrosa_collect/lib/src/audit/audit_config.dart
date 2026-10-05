@@ -1,3 +1,9 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from ODK Collect (LocationClient, AuditConfig, Builder,
+//  JavaRosaFormController), Copyright 2018 Nafundi; Copyright (C) 2009
+//  JavaRosa; modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 import 'package:dartrosa/dartrosa.dart' show StringValue;
 import 'package:dartrosa/javarosa.dart';
 

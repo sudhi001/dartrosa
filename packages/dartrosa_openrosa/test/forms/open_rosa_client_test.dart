@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from ODK Collect (OpenRosaClientTest), Copyright University of
+//  Washington, Nafundi and contributors; modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 // Port of Collect's OpenRosaClientTest (Mockito mocks replaced by fakes).
 import 'package:dartrosa/javarosa.dart' show KElement;
 import 'package:dartrosa_openrosa/dartrosa_openrosa.dart';

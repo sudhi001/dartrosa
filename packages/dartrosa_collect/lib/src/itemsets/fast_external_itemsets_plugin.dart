@@ -1,3 +1,9 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from ODK Collect (FormLoaderTask, SelectChoiceUtils,
+//  QuestionAnswerProcessor), Copyright (C) 2009 University of Washington;
+//  modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 import 'dart:convert';
 
 import 'package:crypto/crypto.dart';

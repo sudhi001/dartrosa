@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from ODK Collect (ExternalSelectChoice), Copyright (C) 2014
+//  University of Washington; modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 import 'package:dartrosa/dartrosa.dart';
 
 /// A choice created by a `search()` appearance from a CSV row, with an

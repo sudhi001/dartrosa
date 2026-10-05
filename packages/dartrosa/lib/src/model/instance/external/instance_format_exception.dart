@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from JavaRosa (IOException), Copyright (C) 2009 JavaRosa and
+//  contributors; modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 /// A secondary-instance file (CSV, GeoJSON) is malformed.
 ///
 /// Port of the `IOException`s JavaRosa's file instance parsers throw for

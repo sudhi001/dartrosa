@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 // DartRosa test pinning JavaRosa's dates before the Gregorian cutover:
 // java.util's hybrid calendar reads them as Julian dates (and the ten
 // skipped days of October 1582 leniently), year 0 is 1 BC and years are

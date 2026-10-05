@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from JavaRosa (XmlTextConsolidator, XFormParser, XFormSerializer),
+//  Copyright (C) 2009 JavaRosa; modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 /// A small DOM with kXML's `kdom` semantics, which the XForm parser is
 /// written against.
 ///

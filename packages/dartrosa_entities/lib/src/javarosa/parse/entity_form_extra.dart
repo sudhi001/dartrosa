@@ -1,3 +1,9 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from ODK Collect (EntityFormExtra, Externalizable), Copyright
+//  University of Washington, Nafundi and contributors; modified: translated to
+//  Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 import 'save_to.dart';
 
 /// The entity information of a parsed form, stored in its

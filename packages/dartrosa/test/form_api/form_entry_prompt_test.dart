@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 // DartRosa tests (not ports) of FormEntryPrompt: hints, answer texts of
 // secret and multi-select questions, special text forms of choices,
 // constraint hints, bind attributes and deprecated <copy> itemsets. JavaRosa

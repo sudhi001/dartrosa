@@ -1,3 +1,9 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from JavaRosa (LocaleDataSource, TableLocaleSource,
+//  LocalizationUtils), Copyright (C) 2009 JavaRosa; modified: translated to
+//  Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 /// Sources of localized text for a [Localizer].
 ///
 /// @docImport 'localizer.dart';

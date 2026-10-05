@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 import '../form_api/form_entry_caption.dart';
 import '../form_api/form_entry_model.dart';
 import '../form_api/form_entry_prompt.dart';

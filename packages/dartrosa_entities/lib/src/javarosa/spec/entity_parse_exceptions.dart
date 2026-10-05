@@ -1,3 +1,11 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from JavaRosa (XFormParser), Copyright (C) 2009 JavaRosa; modified:
+//  translated to Dart.
+// Derived from ODK Collect (XFormParser, UnrecognizedEntityVersionException),
+//  Copyright University of Washington, Nafundi and contributors; modified:
+//  translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 /// An entity form can't be parsed. Port of JavaRosa's
 /// `XFormParser.ParseException` (which DartRosa's parser doesn't
 /// otherwise need), thrown by `EntityFormParseProcessor`.

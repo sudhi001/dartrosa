@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 import 'package:flutter/foundation.dart';
 
 /// The space-separated tokens of an `appearance` attribute, with ODK

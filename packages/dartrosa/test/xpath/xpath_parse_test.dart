@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from JavaRosa (XPathParseTest), Copyright (C) 2009 JavaRosa;
+//  modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 // Port of JavaRosa v6.0.0 XPathParseTest (generated from its case table).
 import 'package:dartrosa/src/xpath/exceptions.dart';
 import 'package:dartrosa/src/xpath/parser.dart';

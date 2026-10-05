@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from JavaRosa (SubmissionParserTest), Copyright (C) 2009 JavaRosa and
+//  contributors; modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 // Port of JavaRosa v6.0.0 SubmissionParserTest. JavaRosa's SubmissionParser
 // is a separate class with a dead extension point (no way to register
 // custom parsers); DartRosa inlines it, so it is tested through a form.

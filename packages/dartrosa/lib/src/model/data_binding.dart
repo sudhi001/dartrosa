@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from JavaRosa (DataBinding), Copyright (C) 2009 JavaRosa; modified:
+//  translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 import 'condition/conditions.dart';
 import 'data_type.dart';
 import 'instance/tree_element.dart';

@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 import '../model/form_index.dart';
 
 /// The outcome of answering a question.

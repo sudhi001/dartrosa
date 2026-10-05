@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from ODK Collect, Copyright University of Washington, Nafundi and
+//  contributors; modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 /// An OpenRosa server client for DartRosa.
 ///
 /// A port of ODK Collect's `open-rosa` module and its OpenRosa instance

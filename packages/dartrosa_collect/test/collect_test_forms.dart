@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 // ODK Collect test forms and media (test-forms/src/main/resources),
 // embedded so the tests also run on the web.
 

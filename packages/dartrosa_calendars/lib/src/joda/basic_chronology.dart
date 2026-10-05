@@ -1,3 +1,9 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from Joda-Time (BasicChronology, BasicFixedMonthChronology,
+//  CopticChronology, EthiopicChronology), Copyright 2001-2015 Stephen
+//  Colebourne; modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 import '../gregorian.dart';
 
 /// A date in a Joda-Time chronology: the `year`, `monthOfYear` and

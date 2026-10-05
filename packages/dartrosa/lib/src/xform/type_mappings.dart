@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from JavaRosa (TypeMappings), Copyright (C) 2009 JavaRosa and
+//  contributors; modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 import '../model/data_type.dart';
 
 /// Bind `type` names (without namespace prefix) → data types.

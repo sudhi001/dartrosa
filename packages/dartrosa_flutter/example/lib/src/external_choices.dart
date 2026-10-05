@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 import 'package:dartrosa/javarosa.dart' show FormEntryPrompt;
 import 'package:dartrosa_collect/dartrosa_collect.dart'
     show isFastExternalItemsetUsed, loadItemsetChoices;

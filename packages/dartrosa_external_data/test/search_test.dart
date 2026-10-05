@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 // search() appearances: the engine-level assertions of Collect's
 // instrumented DynamicPreLoadedDataSelects, ExternalSelectsTest and
 // SearchAppearancesTest, plus DartRosa tests of ExternalDataHandlerSearch

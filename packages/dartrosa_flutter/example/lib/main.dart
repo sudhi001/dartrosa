@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 // Fills, saves, resumes, edits, finalizes, encrypts and exports the
 // DartRosa conformance corpus. Bundle the corpus with
 // `dart run tool/bundle_corpus.dart`, add platforms with `flutter create .`

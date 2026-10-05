@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from JavaRosa, Copyright (C) 2009 JavaRosa and contributors;
+//  modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 /// Pure-Dart ODK XForms engine. A port of JavaRosa.
 ///
 /// Parse a form with [FormDefinition.parse], start a [FormSession] with

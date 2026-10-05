@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 import 'package:dartrosa/src/xpath/exceptions.dart';
 import 'package:dartrosa/src/xpath/parser.dart';
 import 'package:test/test.dart';

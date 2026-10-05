@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from JavaRosa (SelectCachingTest), Copyright (C) 2009 JavaRosa and
+//  contributors; modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 // Port of JavaRosa v6.0.0 SelectCachingTest.
 import 'package:dartrosa/src/util/measure.dart';
 import 'package:dartrosa/testing.dart';

@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from JavaRosa (XFormParseException, XFormParser), Copyright (C) 2009
+//  JavaRosa; modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 import 'kdom.dart';
 
 /// The form can't be parsed.

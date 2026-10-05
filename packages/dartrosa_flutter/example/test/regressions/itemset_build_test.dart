@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 // Showing a select with an itemset used to assert in debug builds: reading
 // its choices published a change while the widget was building.
 import 'package:dartrosa_flutter/dartrosa_flutter.dart';

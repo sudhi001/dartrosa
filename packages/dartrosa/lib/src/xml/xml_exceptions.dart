@@ -1,3 +1,9 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from JavaRosa (InvalidStructureException,
+//  UnfullfilledRequirementsException), Copyright (C) 2009 JavaRosa and
+//  contributors; modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 /// Exceptions of JavaRosa's XML parsing layer (`org.javarosa.xml.util`).
 library;
 

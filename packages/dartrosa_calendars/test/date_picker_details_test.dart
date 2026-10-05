@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from ODK Collect (DateTimeWidgetUtilsTest), Copyright University of
+//  Washington, Nafundi and contributors; modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 // Port of DateTimeWidgetUtilsTest.getDatePickerDetailsTest (ODK Collect).
 import 'package:dartrosa_calendars/dartrosa_calendars.dart';
 import 'package:test/test.dart';

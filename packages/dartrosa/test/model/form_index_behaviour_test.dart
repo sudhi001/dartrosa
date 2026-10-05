@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 // DartRosa tests (not ports) of FormIndex operations that JavaRosa's
 // FormIndexTest doesn't cover: assignRefs, trimNegativeIndices,
 // isSubElement, wrap without a current level, equality/hashing and the

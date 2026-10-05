@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from JavaRosa (SelectChoiceTest), Copyright 2020 Nafundi; modified:
+//  translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 @TestOn('vm')
 library;
 

@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 // Engine benchmarks for DartRosa's performance targets: parsing a large
 // form, the answer -> recompute cascade, starting a session, filtering a
 // large CSV choice list and growing a repeat. docs/BENCHMARKS.md explains

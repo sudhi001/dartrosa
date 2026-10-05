@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from ODK Collect (ExternalDataReaderTest), Copyright University of
+//  Washington, Nafundi and contributors; modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 // Port of Collect's ExternalDataReaderTest (SQLite database files become an
 // ExternalDataRepository), plus DartRosa tests of the CSV import rules of
 // ExternalSQLiteOpenHelper.onCreateNamed.

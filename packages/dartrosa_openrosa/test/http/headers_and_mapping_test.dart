@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 // Ports of Collect's CaseInsensitiveEmptyHeadersTest,
 // OkHttpCaseInsensitiveHeadersTest, CollectThenSystemContentTypeMapperTest
 // and the toUri cases of the entities module's StringExtTest.

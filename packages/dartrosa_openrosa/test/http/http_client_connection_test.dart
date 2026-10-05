@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 // Ports of Collect's OpenRosaGetRequestTest, OpenRosaHeadRequestTest and
 // OpenRosaPostRequestTest (run there against OkHttpConnection), with
 // package:http's MockClient in place of OkHttp's MockWebServer.

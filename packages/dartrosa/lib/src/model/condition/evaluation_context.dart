@@ -1,3 +1,9 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from JavaRosa (Class, IFunctionHandler, IFallbackFunctionHandler,
+//  FilterStrategy, EvaluationContext), Copyright (C) 2009 JavaRosa; modified:
+//  translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 import '../../util/measure.dart';
 import '../../xpath/expression.dart';
 import '../../xpath/nodeset.dart';

@@ -1,3 +1,10 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from ODK Collect (OpenRosaServerClient, OpenRosaServerClientProvider,
+//  OkHttpOpenRosaServerClientProvider, DispatchingAuthenticator), Copyright
+//  University of Washington, Nafundi and contributors; modified: translated to
+//  Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 import 'dart:math';
 
 import 'package:http/http.dart' as http;

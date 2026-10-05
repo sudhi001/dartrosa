@@ -1,3 +1,10 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from JavaRosa (XPathSyntaxException, XPathException,
+//  XPathArityException, XPathTypeMismatchException, XPathUnhandledException,
+//  XPathUnsupportedException, XPathMissingInstanceException), Copyright (C)
+//  2009 JavaRosa; modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 /// Port of the `org.javarosa.xpath` exception classes.
 ///
 /// Messages match JavaRosa's exactly so conformance traces can compare

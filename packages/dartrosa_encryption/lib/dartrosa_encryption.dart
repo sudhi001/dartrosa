@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from ODK Collect (EncryptionUtils), Copyright (C) 2011 University of
+//  Washington; modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 /// Encrypted ODK submissions for DartRosa.
 ///
 /// A port of ODK Collect's `EncryptionUtils`: when a form's `<submission>`

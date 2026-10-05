@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from ODK Collect (EntitySchema), Copyright University of Washington,
+//  Nafundi and contributors; modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 /// The reserved column names of an entity list (in its CSV and in the
 /// secondary instance forms see).
 ///

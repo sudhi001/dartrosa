@@ -1,3 +1,10 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from JavaRosa (Actions, Action, ActionController, SetValueAction,
+//  SetGeopointAction, StubSetGeopointAction, RecordAudioActionListener,
+//  RecordAudioAction, RecordAudioActions), Copyright 2019 Nafundi; modified:
+//  translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 import '../../xpath/expression.dart';
 import '../condition/evaluation_context.dart';
 import '../form_def.dart';

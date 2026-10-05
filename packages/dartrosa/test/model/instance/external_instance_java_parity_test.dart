@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 // Edge cases of secondary-instance parsing. Expected trees were captured
 // from JavaRosa 6.0.0 (jshell: CsvExternalInstance, GeoJsonExternalInstance,
 // XmlExternalInstance on the same input). For inputs JavaRosa rejects, the

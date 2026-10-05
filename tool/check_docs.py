@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+# Copyright 2026 The DartRosa Authors
+# SPDX-License-Identifier: Apache-2.0
+
 """Checks relative links (and #anchors) in the repository's Markdown files,
 and that every SVG in docs/images parses as XML."""
 import os

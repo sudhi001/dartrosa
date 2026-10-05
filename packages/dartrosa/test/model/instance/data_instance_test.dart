@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 // DartRosa tests (not ports) of DataInstance / FormInstance reference
 // operations JavaRosa has no direct tests for: explodeReference,
 // hasTemplatePath (which lets a setvalue target a repeat with no

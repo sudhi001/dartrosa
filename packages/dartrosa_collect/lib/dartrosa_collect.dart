@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 /// ODK Collect form-filling services for DartRosa: the audit log
 /// (`meta/audit`), fast external itemsets (`itemsets.csv` with a select's
 /// `query`), the last-saved instance (`jr://instance/last-saved`) and the

@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 // Regressions found while wiring the Collect packages together in the
 // example app: withEntities() keeps the base config, and entity lists and
 // CSV media share one pulldata().

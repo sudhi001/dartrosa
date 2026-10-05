@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from JavaRosa (XFormAnswerDataParser), Copyright (C) 2009 JavaRosa;
+//  modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 import '../model/data/answer_value.dart';
 import '../model/data_type.dart';
 import '../model/form_element.dart';

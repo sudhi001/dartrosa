@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from JavaRosa (DateUtils), Copyright (C) 2009 JavaRosa; modified:
+//  translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 /// Date and time helpers with JavaRosa-identical behaviour.
 ///
 /// Port of `org.javarosa.core.model.utils.DateUtils`. A Dart [DateTime] in

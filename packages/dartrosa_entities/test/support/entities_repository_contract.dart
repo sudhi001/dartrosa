@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from ODK Collect (EntitiesRepositoryTest), Copyright University of
+//  Washington, Nafundi and contributors; modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 // Port of org.odk.collect.android.entities.EntitiesRepositoryTest (an
 // abstract contract test every EntitiesRepository implementation should
 // pass) and support/EntitySameAsMatcher.

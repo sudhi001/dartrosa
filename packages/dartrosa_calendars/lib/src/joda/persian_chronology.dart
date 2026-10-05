@@ -1,3 +1,9 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from persianjodatime (PersianChronologyKhayyamBorkowski,
+//  PersianChronology), Copyright the persianjodatime authors; modified:
+//  translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 import '../gregorian.dart';
 import 'basic_chronology.dart';
 

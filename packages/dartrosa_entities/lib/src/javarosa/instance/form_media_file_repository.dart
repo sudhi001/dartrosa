@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from ODK Collect (FormMediaFileRepository), Copyright University of
+//  Washington, Nafundi and contributors; modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 /// Tells whether a form has a media file attached for a `jr://` source.
 ///
 /// Port of the part of Collect's `FormMediaFileRepository` the entities

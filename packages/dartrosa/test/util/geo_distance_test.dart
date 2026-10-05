@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from JavaRosa (GeoDistanceTest), Copyright 2018 Nafundi; modified:
+//  translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 // Port of JavaRosa v6.0.0 GeoDistanceTest.
 import 'package:dartrosa/src/model/triggerable_dag.dart';
 import 'package:dartrosa/src/util/geo_utils.dart';

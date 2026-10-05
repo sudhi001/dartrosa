@@ -1,3 +1,9 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from ODK Collect (Kxml2OpenRosaResponseParserTest), Copyright
+//  University of Washington, Nafundi and contributors; modified: translated to
+//  Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 // Port of Collect's Kxml2OpenRosaResponseParserTest, plus form list cases.
 import 'package:dartrosa/javarosa.dart' show getXmlDocument;
 import 'package:dartrosa_openrosa/dartrosa_openrosa.dart';

@@ -1,3 +1,9 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from opencsv (CSVReader, CSVParser), Copyright 2005 Bytecode Pty
+//  Ltd., and ODK Collect (ExternalSQLiteOpenHelper); modified: translated to
+//  Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 import 'external_data_exception.dart';
 
 /// Reads CSV records the way ODK Collect's external data import does.

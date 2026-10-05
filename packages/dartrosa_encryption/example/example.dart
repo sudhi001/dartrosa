@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 // Finalizes an encrypted form and encrypts its submission the way ODK
 // Collect does (decryptable by ODK Central and ODK Briefcase with the
 // matching private key).

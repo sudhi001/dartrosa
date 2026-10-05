@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 // DartRosa tests (not ports) of XPathNodeset's lazy and invalid-path
 // variants (JavaRosa's public XPathLazyNodeset and
 // XPathNodeset.ConstructInvalidPathNodeset, which the engine itself doesn't

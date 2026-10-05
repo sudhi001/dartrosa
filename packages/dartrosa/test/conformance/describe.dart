@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 /// The oracle's `describe` of a form-entry event (shared by the walk and
 /// fuzz conformance tests).
 library;

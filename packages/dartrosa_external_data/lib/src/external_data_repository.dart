@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from ODK Collect (ExternalSQLiteOpenHelper), Copyright (C) 2014
+//  University of Washington; modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 import 'external_data_set.dart';
 
 /// Where imported CSV data sets are kept between form loads.

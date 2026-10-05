@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from ODK Collect, Copyright University of Washington, Nafundi and
+//  contributors; modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 /// Appends [params] to the query of [url], as Collect's `String.toUri(vararg
 /// Pair)` extension does with Android's `Uri.Builder.appendQueryParameter`:
 /// keys and values are percent-encoded like `Uri.encode` and a `null` value

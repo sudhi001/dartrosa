@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 // Added for Phase 8: Scenario.parserFactory and FormDef.extras (parser
 // plugins such as ODK Collect's entities keep data in FormDef.extras).
 import 'package:dartrosa/javarosa.dart';

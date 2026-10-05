@@ -1,3 +1,9 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from ODK Collect (FormListItem, MediaFile, ManifestFile,
+//  EntityIntegrity), Copyright 2017 Nafundi; Copyright 2018 Nafundi; modified:
+//  translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 import 'package:collection/collection.dart';
 import 'package:meta/meta.dart';
 

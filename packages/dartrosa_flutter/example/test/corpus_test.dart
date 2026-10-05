@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 // Fills every bundled corpus form through the pager, finalizes it, saves a
 // draft and resumes it, edits the finalized instance and encrypts and
 // exports it when the form asks for it. Prints a per-form summary.

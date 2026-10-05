@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 // Loads a form the way ODK Collect does: the last-saved instance
 // pre-fills the next one, and editing a finalized submission gives it a
 // new instanceID (the old one becomes deprecatedID).

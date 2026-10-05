@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 /// Integer arithmetic on proleptic Gregorian dates, shared by the calendar
 /// ports. Works identically on the VM and on the web (no bit operations,
 /// no values beyond 2^53).

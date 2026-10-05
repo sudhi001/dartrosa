@@ -1,3 +1,9 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from ODK Collect (FastExternalItemsetsRepository), Copyright
+//  University of Washington, Nafundi and contributors; modified: translated to
+//  Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 /// An imported `itemsets.csv`: its column names (from the header) and
 /// rows.
 ///

@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from ODK Collect, Copyright University of Washington, Nafundi and
+//  contributors; modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 // pulldata(): Collect's DynamicPreLoadedDataPullTest (instrumented; the
 // engine-level assertions), DartRosa tests of ExternalDataHandlerPull, and
 // a port of the entities module's PullDataFunctionHandlerTest.

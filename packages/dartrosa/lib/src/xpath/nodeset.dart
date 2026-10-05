@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from JavaRosa (XPathNodeset, XPathLazyNodeset), Copyright (C) 2009
+//  JavaRosa and contributors; modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 import '../model/condition/evaluation_context.dart';
 import '../model/instance/data_instance.dart';
 import '../model/instance/tree_reference.dart';

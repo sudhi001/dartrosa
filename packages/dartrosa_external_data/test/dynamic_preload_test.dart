@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 // Ports of Collect's DynamicPreloadParseProcessorTest, DynamicPreloadExtraTest
 // and ExternalDataUseCasesTest (mocks become real expressions and questions;
 // the media directory becomes a ResourceResolver).

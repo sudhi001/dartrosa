@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 // DartRosa tests of EditedFormFinalizationProcessor, following the
 // meta-ID assertions of Collect's EditSavedFormTest (Collect has no unit
 // tests for the processor or Instance.isEdit).

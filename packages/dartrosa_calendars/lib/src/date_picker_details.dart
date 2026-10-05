@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from ODK Collect (DatePickerDetails), Copyright 2017 Nafundi;
+//  modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 import 'package:meta/meta.dart';
 
 /// The calendar a date question's picker uses (Collect's

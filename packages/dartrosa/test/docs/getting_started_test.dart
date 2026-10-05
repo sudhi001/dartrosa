@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 // The code of docs/GETTING_STARTED.md, run as tests so the guide can't rot.
 // Every ```dart block of the guide must appear here (or in another doc
 // test); doc_snippets.dart checks it.

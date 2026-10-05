@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 // DartRosa tests of FormDef preloads, properties and evaluation events
 // (JavaRosa covers these through Scenario-based tests ported in P4).
 import 'package:clock/clock.dart';

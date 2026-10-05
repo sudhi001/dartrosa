@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 // DartRosa's session facade (FormDefinition / FormSession / FormNavigator).
 import 'dart:convert';
 

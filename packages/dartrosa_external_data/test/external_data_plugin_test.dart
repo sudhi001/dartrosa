@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 // DartRosa tests of ExternalDataPlugin through the app API
 // (DartRosaConfig.plugins, FormDefinition, FormSession).
 import 'dart:convert';

@@ -1,3 +1,9 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from JavaRosa (XPathExpression, ConstraintHint, RangeHint,
+//  IntegerRangeHint, DecimalRangeHint, DateRangeHint, StringLengthRangeHint),
+//  Copyright (C) 2009 JavaRosa; modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 /// Constraint hints: deriving "value must be between X and Y" from a
 /// constraint expression.
 ///

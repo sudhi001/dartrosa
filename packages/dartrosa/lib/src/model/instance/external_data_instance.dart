@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from JavaRosa (ExternalDataInstance), Copyright (C) 2009 JavaRosa and
+//  contributors; modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 import '../../reference/resource_resolver.dart';
 import 'data_instance.dart';
 import 'external/external_instance_parser.dart';

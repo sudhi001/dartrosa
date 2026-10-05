@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from JavaRosa (PropertyUtils), Copyright (C) 2009 JavaRosa; modified:
+//  translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 import 'dart:math' as math;
 
 /// A random (version 4) UUID such as `0f8fad5b-d9cb-469f-a165-70867728950e`.

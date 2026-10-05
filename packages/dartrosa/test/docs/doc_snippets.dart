@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 // Keeps the code in docs/*.md and docs/guides/*.md compiling: every
 // ```dart block of a guide must appear, line for line (ignoring indentation
 // and blank lines), in one of the doc test files under packages/*/test/docs/,

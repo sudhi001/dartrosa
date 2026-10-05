@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from myanmar-calendar (mmcalendar), Copyright (c) 2017 Chan Mrate Ko
+//  Ko, (c) 2018 Yan Naing Aye; modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0 AND MIT
+
 /// Port of the parts of the `mmcalendar` library (myanmar-calendar
 /// 1.1.1.RELEASE, github.com/chanmratekoko/myanmar-calendar, MIT; itself
 /// a port of Yan Naing Aye's Myanmar calendar algorithm,

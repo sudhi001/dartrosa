@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from JavaRosa (GeoJsonExternalInstance, GeojsonFeature,
+//  GeojsonGeometry), Copyright 2022 ODK; modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 /// GeoJSON secondary instances (`….geojson`).
 ///
 /// Port of `GeoJsonExternalInstance`, `GeojsonFeature` and

@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from JavaRosa (DataType), Copyright 2018 Nafundi; modified:
+//  translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 /// Data types of instance nodes and answers.
 ///
 /// Port of `org.javarosa.core.model.DataType` (and the `DATATYPE_*`

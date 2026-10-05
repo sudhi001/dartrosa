@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 /// Java standard-library behaviour that JavaRosa relies on and Dart does
 /// differently: number parsing and `String.split`.
 library;

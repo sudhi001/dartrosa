@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from ODK Collect (ExternalDataHandlerPull), Copyright (C) 2014
+//  University of Washington; modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 import 'package:dartrosa/javarosa.dart';
 import 'package:logging/logging.dart';
 

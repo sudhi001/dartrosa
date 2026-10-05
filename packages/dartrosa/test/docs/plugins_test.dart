@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 // The core code of docs/PLUGINS.md, run as tests so the guide can't rot
 // (doc_snippets.dart checks that its snippets are here or in
 // packages/dartrosa_collect/test/docs).

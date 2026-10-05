@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 // Shows a Gregorian date the way ODK Collect's `ethiopian` and
 // `persian` date appearances do.
 import 'package:dartrosa_calendars/dartrosa_calendars.dart';

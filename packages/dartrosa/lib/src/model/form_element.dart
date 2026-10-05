@@ -1,3 +1,9 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from JavaRosa (FormElementStateListener, IFormElement, GroupDef,
+//  OSMTag, OSMTagItem, QuestionDef, Selection, RangeQuestion), Copyright (C)
+//  2009 JavaRosa; modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 import '../i18n/localizer.dart';
 import '../xpath/exceptions.dart';
 import 'actions/actions.dart';

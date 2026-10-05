@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from ODK Collect (MyanmarDateUtils), Copyright 2019 Nafundi;
+//  modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 import '../gregorian.dart';
 import 'myanmar_calendar.dart';
 

@@ -1,3 +1,9 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from JavaRosa (FormEntryController, FormEntryFinalizationProcessor,
+//  ValidateOutcome, FormDef, TriggerableDag), Copyright (C) 2009 JavaRosa;
+//  Copyright (C) 2014 JavaRosa; modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 import '../model/condition/evaluation_context.dart';
 import '../model/data/answer_value.dart';
 import '../model/form_def.dart';

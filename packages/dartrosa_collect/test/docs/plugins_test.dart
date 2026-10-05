@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 // The Collect-packages code of docs/PLUGINS.md, run as a test so the guide
 // can't rot (packages/dartrosa/test/docs checks that the guide's snippets
 // are here or there).

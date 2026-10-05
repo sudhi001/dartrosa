@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from ODK Collect (OpenRosaClient), Copyright University of
+//  Washington, Nafundi and contributors; modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 import '../http/open_rosa_constants.dart';
 import '../http/open_rosa_http_interface.dart';
 import '../http/uri_utils.dart';

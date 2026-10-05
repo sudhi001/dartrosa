@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 // DartRosa tests (not ports) of answer values not covered by the JavaRosa
 // ports: long/decimal/date-time/time casts and texts, geo trace/shape
 // accuracy, wrapData's failures and pointer answers. Every expectation was

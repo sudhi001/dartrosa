@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 // DartRosa tests (not ports) of FormEntryController operations JavaRosa's
 // FormEntryControllerTest doesn't cover: saveAnswer (no checks), answering
 // at the current index, finalization processors, and registering function

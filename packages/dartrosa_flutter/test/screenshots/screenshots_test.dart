@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 // Renders the screenshots in docs/images/screenshots/: XFormView showing
 // conformance-corpus forms at phone size, in light and dark themes, with
 // the real Roboto and Material Icons fonts (the default test font draws

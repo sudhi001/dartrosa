@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 /// Builds the "structure" trace (see conformance/TRACE_FORMAT.md) for a
 /// parsed form, matching the JVM oracle's Structure.java.
 library;

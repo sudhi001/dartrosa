@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from JavaRosa (GeoUtils), Copyright (C) 2014 University of
+//  Washington; modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 /// Geodesic helpers for `area()`, `distance()` and `geofence()`.
 ///
 /// Port of `org.javarosa.core.util.GeoUtils`, keeping its formulas and

@@ -1,3 +1,10 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from JavaRosa (FormDef, EventNotifier, FormIndex, TreeReference,
+//  TreeElement, InstanceInitializationFactory, SetValueAction), Copyright (C)
+//  2009 JavaRosa; Copyright (C) 2014 University of Washington; modified:
+//  translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 import 'package:collection/collection.dart';
 
 import '../i18n/localizer.dart';

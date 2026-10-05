@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 // Range hints from constraints. JavaRosa has no tests for these; every
 // expectation below was captured from JavaRosa 6.0.0 (jshell, RangeHint on
 // an XPathConditional) with age = 7 and other = 3.

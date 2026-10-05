@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from JavaRosa (Localizable, Localizer), Copyright (C) 2009 JavaRosa;
+//  modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 import '../util/java_lang.dart';
 import 'locale_exceptions.dart';
 import 'locale_source.dart';

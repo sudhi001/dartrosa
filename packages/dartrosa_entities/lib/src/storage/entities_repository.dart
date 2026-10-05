@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from ODK Collect (EntitiesRepository), Copyright University of
+//  Washington, Nafundi and contributors; modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 /// @docImport 'in_mem_entities_repository.dart';
 /// @docImport 'query_exception.dart';
 library;

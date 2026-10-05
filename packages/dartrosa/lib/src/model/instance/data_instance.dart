@@ -1,3 +1,9 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from JavaRosa (PartialElementEncounteredException, DataInstance,
+//  FormInstance, InvalidReferenceException), Copyright (C) 2009 JavaRosa;
+//  modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 /// @docImport '../condition/evaluation_context.dart';
 library;
 

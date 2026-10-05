@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 // Ports of JavaRosa v6.0.0 TreeReferenceAnchorTest,
 // TreeReferenceAnchorHarnessTest, TreeReferenceContextualizeTest,
 // TreeReferenceEqualsTest, TreeReferenceGenericizeTest,

@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 // Added: the DartRosaConfig wiring (Collect's form-loading setup).
 import 'dart:convert';
 import 'dart:typed_data';

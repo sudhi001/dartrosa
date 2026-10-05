@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 // DartRosa tests (not ports) of the session facade's nodes (FormNode and
 // subclasses) and the FormSession / FormNavigator operations not covered
 // by form_session_test. The facade is DartRosa's own API; the texts and

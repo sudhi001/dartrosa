@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 import '../form_api/form_entry_controller.dart';
 import '../model/actions/actions.dart';
 import '../model/condition/evaluation_context.dart';

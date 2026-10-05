@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 // TreeReference behaviour beyond JavaRosa's TreeReference*Test suites
 // (ported in tree_reference_suites_test.dart).
 import 'package:dartrosa/dartrosa.dart';

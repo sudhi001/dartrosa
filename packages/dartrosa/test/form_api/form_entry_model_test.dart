@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 // DartRosa tests (not ports) of FormEntryModel: index arithmetic in the
 // linear and non-linear repeat structures, relevance/read-only/compound
 // queries, the caption hierarchy and form metadata. JavaRosa has no tests

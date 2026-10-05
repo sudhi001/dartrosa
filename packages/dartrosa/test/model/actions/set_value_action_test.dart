@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from JavaRosa (SetValueActionTest), Copyright 2020 Nafundi; modified:
+//  translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 // Port of JavaRosa v6.0.0 SetValueActionTest.
 import 'package:dartrosa/src/xpath/exceptions.dart';
 import 'package:dartrosa/testing.dart';

@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from ODK Collect (ExternalDataManager, ExternalDataManagerImpl),
+//  Copyright (C) 2014 University of Washington; modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 import 'external_data_set.dart';
 
 /// The data sets available to one form's `pulldata()` and `search()`.

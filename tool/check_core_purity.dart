@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 // Fails if a pure-Dart core package imports something that would stop it
 // running on every platform (web, server, Flutter). See docs/development/PORTING_PLAN.md §3.
 import 'dart:io';

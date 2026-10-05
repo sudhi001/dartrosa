@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from JavaRosa (Extras), Copyright (C) 2009 JavaRosa and contributors;
+//  modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 /// App- or plugin-defined objects attached to a form, at most one per type.
 ///
 /// Port of `org.javarosa.core.util.Extras` (JavaRosa keys them by class

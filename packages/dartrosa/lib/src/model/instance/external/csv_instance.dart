@@ -1,3 +1,9 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from JavaRosa (CsvExternalInstance,
+//  SecondaryInstanceCSVParserBuilder, Apache, CSVFormat), Copyright (C) 2009
+//  JavaRosa and contributors; modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 /// CSV secondary instances (`jr://file-csv/…`).
 ///
 /// Port of `CsvExternalInstance` and `SecondaryInstanceCSVParserBuilder`,

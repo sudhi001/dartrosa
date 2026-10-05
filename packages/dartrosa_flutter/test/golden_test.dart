@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 // Golden images are rendered on macOS; text rasterization differs on other
 // platforms, so CI (Linux) excludes the `golden` tag. Regenerate with
 // `flutter test --update-goldens --tags golden` on macOS.

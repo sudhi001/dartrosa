@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from JavaRosa (XPathEvalTest), Copyright 2019 Nafundi; modified:
+//  translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 // Port of JavaRosa v6.0.0 XPathEvalTest (cases generated from the Java
 // source; setup statements translated by hand) and IFunctionHandlerHelpers.
 import 'dart:math' as math;

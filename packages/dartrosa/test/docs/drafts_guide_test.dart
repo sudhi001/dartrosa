@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 // The code of docs/guides/save-and-resume-drafts.md, run as tests so the
 // guide can't rot (doc_snippets.dart checks that its snippets are here).
 @TestOn('vm')

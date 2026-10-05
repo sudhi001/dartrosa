@@ -1,3 +1,11 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from JavaRosa (InvalidReferenceException, Reference,
+//  ResourceReference, ReferenceFactory, PrefixedRootFactory,
+//  ReferenceManagerTestUtils, ResourceReferenceFactory, RootTranslator,
+//  ReferenceManager), Copyright (C) 2009 JavaRosa and contributors; modified:
+//  translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 import 'dart:typed_data';
 
 import 'package:logging/logging.dart';

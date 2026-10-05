@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from JavaRosa (XPathParseTool, Parser, XPathReference), Copyright (C)
+//  2009 JavaRosa; modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 import '../model/instance/tree_reference.dart';
 import 'exceptions.dart';
 import 'expression.dart';

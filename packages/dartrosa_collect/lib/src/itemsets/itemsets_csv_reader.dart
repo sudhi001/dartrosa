@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from opencsv (CSVReader), Copyright 2005 Bytecode Pty Ltd., and ODK
+//  Collect (FormLoaderTask); modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 import '../util/read_lines.dart';
 
 /// Thrown for a CSV that can't be read (an unterminated quoted field).

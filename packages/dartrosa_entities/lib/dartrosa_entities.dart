@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from ODK Collect, Copyright University of Washington, Nafundi and
+//  contributors; modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 /// ODK entities for DartRosa: a port of ODK Collect's entities module.
 ///
 /// * Enable entities for a form load with [withEntities], then after

@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from ODK Collect (CustomDatePickerDialog, EthiopianDatePickerDialog),
+//  Copyright 2017 Nafundi; modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 import 'bikram_sambat.dart';
 import 'custom_calendar.dart';
 import 'date_picker_details.dart';

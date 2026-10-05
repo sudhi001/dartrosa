@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 /// An encryption produced by ODK Collect's algorithm on the JVM
 /// (`tool/golden/Golden.java`), with deterministic randomness: the random
 /// bytes are `seed, seed + 1, ...` (mod 256).

@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 // Copies the conformance corpus (conformance/forms/**) into assets/forms/,
 // writes assets/forms/index.json and lists the asset folders in
 // pubspec.yaml. Run from the example directory:

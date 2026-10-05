@@ -1,3 +1,9 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from ODK Collect (OpenRosaServerInstanceUploader), Copyright
+//  University of Washington, Nafundi and contributors; modified: translated to
+//  Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 // Tests of the port of Collect's OpenRosaServerInstanceUploader (Collect
 // has no unit tests for it; these follow its code paths).
 import 'dart:convert';

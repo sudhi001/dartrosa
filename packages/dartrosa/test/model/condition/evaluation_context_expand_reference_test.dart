@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from JavaRosa (EvaluationContextExpandReferenceTest), Copyright 2019
+//  Nafundi; modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 // Port of JavaRosa v6.0.0 EvaluationContextExpandReferenceTest.
 import 'package:dartrosa/src/model/condition/evaluation_context.dart';
 import 'package:dartrosa/testing.dart';

@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 /// Helpers for tests whose JavaRosa originals switch the JVM default time
 /// zone. Dart can't change the local zone at runtime, so those tests run
 /// when the suite is started with a matching `TZ` (see CI) and are skipped

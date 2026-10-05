@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from ODK Collect (EncryptionUtils, CipherOutputStream), Copyright (C)
+//  2011 University of Washington; modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 import 'dart:convert';
 import 'dart:math';
 import 'dart:typed_data';

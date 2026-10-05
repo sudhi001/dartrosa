@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 // Added: long children lists use a lookup table (not in JavaRosa); every
 // lookup must still return what JavaRosa's linear search returns.
 import 'package:dartrosa/src/model/instance/tree_element.dart';

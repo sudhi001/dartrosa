@@ -1,3 +1,9 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from ODK Collect (FormUploadException,
+//  FormUploadAuthRequestedException, FormUploadInterruptedException), Copyright
+//  (C) 2018 Nafundi; modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 /// A problem submitting a finalized form.
 ///
 /// Throwing one makes the submission attempt move on to the next

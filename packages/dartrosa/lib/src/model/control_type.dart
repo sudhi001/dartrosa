@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from JavaRosa (Constants), Copyright (C) 2009 JavaRosa; modified:
+//  translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 /// Kinds of form control (widget) a question uses.
 ///
 /// Port of the `Constants.CONTROL_*` constants, keeping JavaRosa's codes.

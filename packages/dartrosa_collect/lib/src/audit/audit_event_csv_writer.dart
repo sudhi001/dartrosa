@@ -1,3 +1,9 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from ODK Collect (AsyncTaskAuditEventWriter, AuditEventSaveTask),
+//  Copyright University of Washington, Nafundi and contributors; modified:
+//  translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 import 'dart:async';
 
 import '../util/read_lines.dart';

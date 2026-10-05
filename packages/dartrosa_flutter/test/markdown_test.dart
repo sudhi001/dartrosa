@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 import 'package:dartrosa_flutter/dartrosa_flutter.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';

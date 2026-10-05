@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 // DartRosa tests (not ports): repeat captions of FormEntryCaption. JavaRosa
 // has no tests for these; every expectation was captured from JavaRosa
 // 6.0.0 (jshell, FormEntryCaption.getRepeatText / getRepetitionText /

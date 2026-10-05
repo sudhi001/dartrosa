@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from JavaRosa (XFormsElement, BindBuilderXFormsElement), Copyright
+//  2019 Nafundi; modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 import 'dart:math';
 
 /// A piece of an XForm document built in code.

@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 // Edge cases whose expected values were captured from JavaRosa 6.0.0 via
 // jshell (Java 27), beyond JavaRosa's own DateUtils tests.
 import 'package:clock/clock.dart';

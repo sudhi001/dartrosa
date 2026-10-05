@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from ODK Collect, Copyright University of Washington, Nafundi and
+//  contributors; modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 // Port of ODK Collect's instrumented DateTimeUtilsTest.getDateTimeLabelTest
 // (Locale.ENGLISH), plus the labels of the picker dialog tests.
 import 'package:dartrosa_calendars/dartrosa_calendars.dart';

@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 /// The lines of [text] as Java's `BufferedReader.readLine` returns them:
 /// split at `\n`, `\r` or `\r\n`, without a trailing empty line.
 List<String> readLines(String text) {

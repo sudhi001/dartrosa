@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 // DartRosa tests of ExternalDataTable: the SQLite semantics of Collect's
 // externalData table (NOCASE text columns, LIKE, the REAL c_sortby column).
 import 'package:dartrosa_external_data/dartrosa_external_data.dart';

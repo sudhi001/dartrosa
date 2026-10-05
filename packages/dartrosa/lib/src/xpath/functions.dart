@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from JavaRosa (XPathFuncExpr, BigDecimal), Copyright (C) 2009
+//  JavaRosa; modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 /// The XPath function library.
 ///
 /// Port of `XPathFuncExpr.eval` and its helpers, including JavaRosa's

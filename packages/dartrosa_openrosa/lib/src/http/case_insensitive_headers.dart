@@ -1,3 +1,10 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from ODK Collect (CaseInsensitiveHeaders,
+//  CaseInsensitiveEmptyHeaders, OkHttpCaseInsensitiveHeaders, Headers),
+//  Copyright University of Washington, Nafundi and contributors; modified:
+//  translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 /// Response headers, looked up regardless of case.
 ///
 /// Port of Collect's `org.odk.collect.openrosa.http.CaseInsensitiveHeaders`.

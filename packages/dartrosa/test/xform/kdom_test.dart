@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 // kXML DOM and serializer behaviour that JavaRosa labels depend on. Each
 // expectation was taken from JavaRosa v6.0.0 (kXML 2.3) with jshell.
 import 'package:dartrosa/src/xform/kdom.dart';

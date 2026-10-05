@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from ODK Collect (EntityXFormsElement), Copyright University of
+//  Washington, Nafundi and contributors; modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 // Port of org.odk.collect.entities.javarosa.support.EntityXFormsElement.
 import 'package:dartrosa/dartrosa.dart';
 import 'package:dartrosa/javarosa.dart';

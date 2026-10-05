@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 /// Formats [value] exactly as Java's `Double.toString(double)` (JDK 19+).
 ///
 /// JavaRosa uses Java's formatting wherever a number becomes text: XPath

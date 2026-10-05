@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 // DartRosa tests (not ports) of ReferenceManager behaviour beyond JavaRosa's
 // ReferenceManagerTest: duplicate registration, removal and reset,
 // relative references without a context or through a root translator,

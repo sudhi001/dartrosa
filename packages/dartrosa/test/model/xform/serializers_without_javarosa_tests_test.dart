@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 // DartRosa tests for SMSSerializingVisitor and DataModelSerializer, which
 // have no JavaRosa tests (expected output follows the JavaRosa sources).
 import 'package:dartrosa/src/xform/data_model_serializer.dart';

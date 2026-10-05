@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from JavaRosa (DateTimeTest), Copyright (C) 2009 JavaRosa and
+//  contributors; modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 // Port of JavaRosa v6.0.0 DateTimeTest.
 import 'package:dartrosa/src/model/data/answer_value.dart';
 import 'package:dartrosa/testing.dart';

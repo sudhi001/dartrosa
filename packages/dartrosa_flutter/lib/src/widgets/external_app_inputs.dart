@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from ODK Collect (ODKView), Copyright (C) 2011 University of
+//  Washington; modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 import 'package:dartrosa/dartrosa.dart';
 import 'package:dartrosa/javarosa.dart' show FormEntryCaption;
 import 'package:flutter/material.dart';

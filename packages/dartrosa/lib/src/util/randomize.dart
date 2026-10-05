@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from JavaRosa (FisherYates, ParkMiller, RandomizeHelper), Copyright
+//  2018 Nafundi; modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 /// `randomize()` support: JavaRosa's Fisher–Yates shuffle with the
 /// Park–Miller generator for seeded shuffles, and its seed derivation.
 ///

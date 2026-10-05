@@ -1,3 +1,10 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from ODK Collect (IdentityPromptViewModel, FormEntryViewModel,
+//  FormFillingActivity, FormHierarchyFragment, FormSaveViewModel,
+//  BackgroundLocationHelper), Copyright (C) 2009 University of Washington;
+//  modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 import 'dart:async';
 
 import 'package:dartrosa/dartrosa.dart';

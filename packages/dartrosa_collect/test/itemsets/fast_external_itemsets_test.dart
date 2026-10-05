@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 // Ports of Collect's ExternalSelectsTest (fast external itemsets cases)
 // and DartRosa tests of the itemsets.csv import and query semantics
 // (Collect's ItemsetDao / FormLoaderTask.readCSV over SQLite).

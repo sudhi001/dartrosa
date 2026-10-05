@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 // Turns the JSON of `engine_benchmark.dart --json` into an SVG bar chart,
 // one row per case, each on its own linear scale with its target (or
 // JavaRosa's time) marked.
@@ -6,7 +9,6 @@
 //
 // Reads standard input when the input path is `-` and writes standard
 // output when the output path is omitted.
-// ignore_for_file: avoid_print
 library;
 
 import 'dart:convert';
@@ -40,7 +42,7 @@ String renderChart(Map<String, Object?> report) {
     for (final c in report['cases']! as List<Object?>)
       c! as Map<String, Object?>,
   ];
-  final plotWidth = _width - _left - _right;
+  const plotWidth = _width - _left - _right;
   final height = _top + cases.length * _rowHeight + 56;
   final out = StringBuffer()
     ..writeln(

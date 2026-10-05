@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from JavaRosa (QuestionDataElementTests), Copyright (C) 2009
+//  JavaRosa; modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 // Port of JavaRosa v6.0.0 QuestionDataElementTests and
 // QuestionDataGroupTests (TreeElement as a question and as a group). The
 // visitor tests check selfAndDescendants, which replaces accept(visitor).

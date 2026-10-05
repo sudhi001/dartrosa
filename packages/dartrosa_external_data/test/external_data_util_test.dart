@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from ODK Collect (ExternalDataUtilTest), Copyright University of
+//  Washington, Nafundi and contributors; modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 // Port of Collect's ExternalDataUtilTest, plus DartRosa tests of the other
 // ExternalDataUtil helpers.
 import 'package:dartrosa_external_data/dartrosa_external_data.dart';

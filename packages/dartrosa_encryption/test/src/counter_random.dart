@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 import 'dart:math';
 
 /// A [Random] whose bytes are `seed, seed + 1, ...` (mod 256): the

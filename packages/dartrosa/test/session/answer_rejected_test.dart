@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 // DartRosa tests: FormSession.answer reads text answers as the question's
 // type (as ODK Collect's widgets do) and rejects values that don't fit.
 import 'package:dartrosa/dartrosa.dart';

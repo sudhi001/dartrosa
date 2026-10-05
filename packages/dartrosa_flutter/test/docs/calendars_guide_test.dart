@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 // The code of docs/guides/non-gregorian-calendars.md, run as tests so the
 // guide can't rot (packages/dartrosa/test/docs checks that the guide's
 // snippets are here).

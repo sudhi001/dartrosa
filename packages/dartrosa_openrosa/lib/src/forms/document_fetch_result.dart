@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from ODK Collect (DocumentFetchResult), Copyright (C) 2011 University
+//  of Washington; modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 import 'package:dartrosa/javarosa.dart';
 
 /// The result of fetching an XML document: either the document (and

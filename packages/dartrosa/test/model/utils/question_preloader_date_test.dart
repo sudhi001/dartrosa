@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 // DartRosa tests (not ports) of `jr:preload="date"` with
 // `jr:preloadParams="prevperiod-..."` and unknown preload types. JavaRosa
 // has no tests for these; dates were captured from JavaRosa 6.0.0 (jshell,

@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 // DartRosa's FormDefCodec (replacing JavaRosa's Externalizable FormDef).
 import 'package:dartrosa/src/codec/form_def_codec.dart';
 import 'package:dartrosa/testing.dart';

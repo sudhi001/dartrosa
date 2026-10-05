@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from ODK Collect (FormEntityElement), Copyright University of
+//  Washington, Nafundi and contributors; modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 /// Element and attribute names of a form's `<entity>` element.
 ///
 /// Port of `org.odk.collect.entities.javarosa.spec.FormEntityElement`.

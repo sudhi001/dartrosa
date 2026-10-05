@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from ODK Collect (AsyncTaskAuditEventWriterTest), Copyright 2019
+//  Nafundi; modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 // Port of Collect's AsyncTaskAuditEventWriterTest.
 import 'package:dartrosa_collect/dartrosa_collect.dart';
 import 'package:test/test.dart';

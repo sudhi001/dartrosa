@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from ODK Collect (CustomDatePickerDialog), Copyright 2017 Nafundi;
+//  modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 import 'package:dartrosa_calendars/dartrosa_calendars.dart';
 import 'package:flutter/material.dart';
 

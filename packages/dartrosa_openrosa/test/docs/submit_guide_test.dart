@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 // The code of docs/guides/encrypt-and-submit.md, run against a mock
 // OpenRosa server so the guide can't rot (packages/dartrosa/test/docs
 // checks that the guide's snippets are here).

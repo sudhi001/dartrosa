@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from JavaRosa (ExternalInstanceParser, XmlExternalInstance),
+//  Copyright (C) 2009 JavaRosa and contributors; modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 /// Loading secondary instances from `src` URIs.
 ///
 /// Port of `org.javarosa.xform.parse.ExternalInstanceParser` and

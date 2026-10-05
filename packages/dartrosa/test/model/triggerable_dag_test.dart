@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from JavaRosa (TriggerableDagTest), Copyright (C) 2009 JavaRosa and
+//  contributors; modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 // Port of JavaRosa v6.0.0 TriggerableDagTest.
 import 'package:dartrosa/src/form_api/form_entry_controller.dart';
 import 'package:dartrosa/src/form_api/form_entry_model.dart';

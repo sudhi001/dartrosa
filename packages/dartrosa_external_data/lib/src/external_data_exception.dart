@@ -1,3 +1,9 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from ODK Collect (ExternalDataException, FileNotFoundException,
+//  ExternalDataUtil), Copyright (C) 2014 University of Washington; modified:
+//  translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 /// External data could not be imported or queried.
 ///
 /// Port of Collect's `org.odk.collect.android.exception.ExternalDataException`.

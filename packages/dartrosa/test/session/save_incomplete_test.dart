@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 // DartRosa test: QuestionNode.saveIncomplete exposes the ODK spec's
 // `saveIncomplete="true()"` bind attribute (kept by JavaRosa as a bind
 // attribute) to apps.

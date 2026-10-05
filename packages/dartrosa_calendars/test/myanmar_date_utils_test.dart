@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from ODK Collect (MyanmarDateUtilsTest), Copyright 2019 Nafundi;
+//  modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 // Port of ODK Collect's MyanmarDateUtilsTest ("Results confirmed with
 // https://yan9a.github.io/mcal/").
 import 'package:dartrosa_calendars/src/gregorian.dart';

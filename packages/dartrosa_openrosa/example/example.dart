@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 // Fetches an OpenRosa form list. A MockClient stands in for the server
 // here; pass `http.Client()` and your server's URL in an app.
 import 'package:dartrosa_openrosa/dartrosa_openrosa.dart';

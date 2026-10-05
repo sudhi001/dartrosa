@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 // Ports of ODK Collect's *DatePickerDialogTest classes (the dialog opens
 // on 2020-05-12) and of BuddhistDatePickerDialogTest, against the picker
 // model, plus vector-driven checks of every picker month.

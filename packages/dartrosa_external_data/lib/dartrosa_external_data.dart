@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from ODK Collect (PullDataFunctionHandler), Copyright University of
+//  Washington, Nafundi and contributors; modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 /// ODK Collect's external data ("dynamic preload") for DartRosa:
 /// `pulldata()` and `search()` appearances over CSV form media.
 ///

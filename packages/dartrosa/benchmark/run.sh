@@ -1,4 +1,7 @@
 #!/bin/sh
+# Copyright 2026 The DartRosa Authors
+# SPDX-License-Identifier: Apache-2.0
+
 # Runs the engine benchmark compiled ahead of time, saves the JSON results
 # and redraws docs/images/benchmarks.svg. Run from anywhere:
 #

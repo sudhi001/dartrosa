@@ -1,3 +1,9 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from JavaRosa (RecordAudioActionTest,
+//  CapturingRecordAudioActionListener), Copyright 2021 ODK; modified:
+//  translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 // Port of JavaRosa v6.0.0 RecordAudioActionTest.
 //
 // JavaRosa's listener is static (`RecordAudioActions`); DartRosa's is

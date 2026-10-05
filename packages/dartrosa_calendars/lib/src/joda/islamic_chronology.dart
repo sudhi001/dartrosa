@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from Joda-Time (IslamicChronology), Copyright 2001-2015 Stephen
+//  Colebourne; modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 import '../gregorian.dart';
 import 'basic_chronology.dart';
 

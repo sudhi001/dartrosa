@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 // Sibling groups without a `ref` used to get the same widget key (it came
 // from the instance reference, which they share with their parent);
 // widgets are now keyed by FormIndex.

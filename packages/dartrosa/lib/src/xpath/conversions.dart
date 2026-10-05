@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from JavaRosa (XPathFuncExpr, XPathPathExpr), Copyright (C) 2009
+//  JavaRosa; modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 /// XPath type conversions and value unpacking.
 ///
 /// Port of the conversion helpers in `XPathFuncExpr` (`toBoolean`,

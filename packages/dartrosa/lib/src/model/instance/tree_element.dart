@@ -1,3 +1,9 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from JavaRosa (FormElementStateListener, TreeElement,
+//  TreeElementChildrenList, TreeElementNameComparator), Copyright (C) 2009
+//  JavaRosa; modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 import '../data/answer_value.dart';
 import '../data_type.dart';
 import 'tree_reference.dart';

@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 // Every Dart snippet of every guide (docs/*.md and docs/guides/*.md) must
 // be in a doc test, so the guides can't rot.
 @TestOn('vm')

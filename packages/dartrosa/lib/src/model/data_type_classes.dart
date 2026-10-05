@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from JavaRosa (DataTypeClasses), Copyright 2018 Nafundi; modified:
+//  translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 import 'data/answer_value.dart';
 import 'data_type.dart';
 

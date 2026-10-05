@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 /// The non-Gregorian date appearances of ODK Collect: `ethiopian`,
 /// `coptic`, `islamic`, `bikram-sambat`, `myanmar`, `persian` and
 /// `buddhist`.

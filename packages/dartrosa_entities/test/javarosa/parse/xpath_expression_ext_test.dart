@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from ODK Collect (XPathExpressionExtTest), Copyright University of
+//  Washington, Nafundi and contributors; modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 // Port of org.odk.collect.entities.javarosa.parse.XPathExpressionExtTest.
 import 'package:dartrosa/javarosa.dart';
 import 'package:dartrosa_entities/dartrosa_entities.dart';

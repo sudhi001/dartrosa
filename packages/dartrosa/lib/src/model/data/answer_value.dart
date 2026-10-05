@@ -1,3 +1,10 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from JavaRosa (IAnswerData, IExprDataType, Selection,
+//  SelectMultiData, IDataPointer, PointerAnswerData, MultiPointerAnswerData,
+//  AnswerDataFactory, AnswerDataUtil), Copyright (C) 2009 JavaRosa; Copyright
+//  2018 Nafundi; modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 import 'package:collection/collection.dart';
 import 'package:meta/meta.dart';
 

@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from JavaRosa (GeoUtilsTest), Copyright (C) 2012-14 Dobility, Inc.;
+//  modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 // Port of JavaRosa v6.0.0 GeoUtilsTest.
 import 'package:dartrosa/src/util/geo_utils.dart';
 import 'package:test/test.dart';

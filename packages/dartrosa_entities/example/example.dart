@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 // An entity form: the local `people` list is a secondary instance, and
 // finalizing creates a new person in it.
 import 'package:dartrosa/dartrosa.dart';

@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 // Drives the app: fill, save a draft, resume, finalize, audit, edit,
 // encrypt and export.
 import 'dart:io';

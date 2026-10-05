@@ -1,3 +1,8 @@
+// Copyright 2026 The DartRosa Authors
+// Derived from JavaRosa, Copyright (C) 2009 JavaRosa and contributors;
+//  modified: translated to Dart.
+// SPDX-License-Identifier: Apache-2.0
+
 /// The JavaRosa-compatible API of DartRosa: `FormDef`, the form-entry
 /// controller/model/prompts, the XForm parser and its plugin interfaces,
 /// for code ported from JavaRosa or needing its full surface.

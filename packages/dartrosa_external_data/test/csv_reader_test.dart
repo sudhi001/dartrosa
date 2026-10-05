@@ -1,3 +1,6 @@
+// Copyright 2026 The DartRosa Authors
+// SPDX-License-Identifier: Apache-2.0
+
 // DartRosa tests of CollectCsvReader against opencsv's CSVParser behaviour
 // (separator ',', quote '"', escape '\0', the settings Collect uses).
 import 'package:dartrosa_external_data/dartrosa_external_data.dart';
