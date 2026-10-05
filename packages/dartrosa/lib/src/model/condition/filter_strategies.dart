@@ -6,6 +6,8 @@
 //  contributors; modified: translated to Dart.
 // SPDX-License-Identifier: Apache-2.0
 
+import 'package:meta/meta.dart';
+
 import '../../util/java_double.dart';
 import '../../util/measure.dart';
 import '../../xpath/conversions.dart';
@@ -135,9 +137,29 @@ final class EqualityExpressionIndexFilterStrategy implements FilterStrategy {
 /// Caches the results of node-comparison predicates (and `and`/`or` of
 /// two of them) on secondary instances, keyed by the context value.
 ///
-/// Port of `ComparisonExpressionCacheFilterStrategy`.
+/// Port of `ComparisonExpressionCacheFilterStrategy`. JavaRosa's cache
+/// grows with every value compared (e.g. each answer typed into a
+/// question a cascading select filters on) for as long as the form lives;
+/// this one keeps the [maxEntries] most recently used results (secondary
+/// instances don't change, so a dropped result is recomputed the same).
 final class ComparisonExpressionCacheFilterStrategy implements FilterStrategy {
+  /// How many results are kept at most.
+  static const maxEntries = 1000;
+
   final Map<String, List<TreeReference>> _cache = {};
+
+  /// The number of results cached.
+  @visibleForTesting
+  int get length => _cache.length;
+
+  List<TreeReference> _cached(String key, List<TreeReference> Function() next) {
+    final hit = _cache.remove(key);
+    if (hit != null) return _cache[key] = hit; // now the most recent
+    final result = next();
+    _cache[key] = result;
+    if (_cache.length > maxEntries) _cache.remove(_cache.keys.first);
+    return result;
+  }
 
   @override
   List<TreeReference> filter(
@@ -151,7 +173,7 @@ final class ComparisonExpressionCacheFilterStrategy implements FilterStrategy {
     if (sourceInstance.instanceId == null) return next();
     final candidate = CompareToNodeExpression.parse(predicate);
     if (candidate != null) {
-      return _cache.putIfAbsent(
+      return _cached(
         _key(sourceInstance, nodeset, predicate, context, candidate),
         next,
       );
@@ -164,7 +186,7 @@ final class ComparisonExpressionCacheFilterStrategy implements FilterStrategy {
             'XPathBoolExpr:${predicate.op}'
             '${_key(sourceInstance, nodeset, predicate.a, context, candidateA)}'
             '${_key(sourceInstance, nodeset, predicate.b, context, candidateB)}';
-        return _cache.putIfAbsent(key, next);
+        return _cached(key, next);
       }
     }
     return next();
