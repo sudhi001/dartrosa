@@ -166,8 +166,14 @@ final class RepeatNode extends FormNode {
     ];
   }
 
-  /// Whether another instance may be added (no fixed `jr:count`/
-  /// `noAddRemove`, and the repeat is relevant).
+  /// Whether the engine allows another instance: the repeat is relevant
+  /// and either not fixed (`noAddRemove`) or, for a `jr:count` repeat, has
+  /// fewer instances than the count.
+  ///
+  /// Counted instances are created by the engine as navigation enters them
+  /// (`dartrosa_flutter` creates them up front in scroll mode), so apps
+  /// should offer an "add" button only when [GroupDef.noAddRemove] is
+  /// false.
   bool get canAddInstance {
     final newIndex = _model.form.descendIntoRepeat(index, -1);
     return _model.isIndexRelevant(newIndex);

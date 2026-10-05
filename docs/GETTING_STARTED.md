@@ -256,8 +256,11 @@ final count = members.instances.length; // 1
 session.removeRepeatInstance(first);
 ```
 
-`RepeatNode.canAddInstance` is false for repeats with a fixed `jr:count`
-or `jr:noAddRemove`. `RepeatInstanceNode.header` is the instance's
+`RepeatNode.canAddInstance` says whether the engine allows another
+instance: always for an ordinary repeat, never for a `jr:noAddRemove`
+repeat, and for a `jr:count` repeat only while it has fewer instances than
+the count (those are created as navigation enters them). Offer an "add"
+button only when `members.repeat.noAddRemove` is false. `RepeatInstanceNode.header` is the instance's
 caption (such as `Member 2/3`).
 
 ```dart
