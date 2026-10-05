@@ -27,32 +27,30 @@ after warm-up runs.
 
 | Case | Runs | Median | p90 | Target |
 |---|---:|---:|---:|---|
-| Parse a 1,000-question form | 15 | 162 ms | 270 ms | < 300 ms on a phone |
+| Parse a 1,000-question form | 15 | 73 ms | 95 ms | < 300 ms on a phone |
 | Answer → recompute dependents (1,000 questions) | 200 | 0.06 ms | 0.10 ms | < 16 ms |
-| Start a session (1,000 questions, all calculations) | 15 | 20 ms | 23 ms | none |
-| Filter a 100,000-row CSV choice list | 50 | 9.5 ms | 19 ms | < 50 ms |
-| Grow a repeat to 1,000 instances | 5 | 1.62 s | 1.70 s | JavaRosa 6.0.0: 3.0 s |
+| Start a session (1,000 questions, all calculations) | 15 | 12 ms | 16 ms | none |
+| Filter a 100,000-row CSV choice list | 50 | 8.3 ms | 14 ms | < 50 ms |
+| Grow a repeat to 1,000 instances | 5 | 1.02 s | 1.39 s | JavaRosa 6.0.0: 3.0 s |
 
-Machine: Apple M4 (10 cores), macOS 27.0.1, Dart 3.13.4, AOT. The
-machine was busy with other work during this run (load average 6.6
-before, 11.5 after, on 10 cores), which mostly widens the spread
-between median and p90 (parse and CSV filter above). These numbers will
-be replaced by a run on a quiet machine; the raw output is in
+Machine: Apple M4 (10 cores), macOS 27.0.1, Dart 3.13.4, AOT, with no
+other build or test running (an Android emulator in the background; load
+average 6.5 before, 5.8 after, on 10 cores; every case is
+single-threaded). The raw output is in
 [`packages/dartrosa/benchmark/results.json`](../packages/dartrosa/benchmark/results.json).
 
 ### Reading the results
 
-* Every target is met on a desktop, with room to spare except parsing,
-  which uses half its budget at the median here. A mid-range phone is
-  several times slower than this desktop, so parsing is the case to
-  watch on low-end devices. Filtering has a fivefold margin and
-  answering a margin of over two hundred times.
+* Every target is met on a desktop with room to spare: parsing uses a
+  quarter of its budget at the median, filtering a sixth, answering
+  well under one percent. A mid-range phone is several times slower
+  than this desktop, so parsing is the case to watch on low-end devices.
 * Growing a repeat is quadratic in both engines: on every insertion,
   JavaRosa recomputes the calculations that depend on the repeat's size
   (`position()`, `count()`) in every instance, and DartRosa reproduces
   that algorithm exactly, because the conformance traces require the
   same evaluation order. DartRosa is currently faster than JavaRosa on
-  this case (1.6 s against 3.0 s). The JavaRosa figure was measured with
+  this case (1.0 s against 3.0 s). The JavaRosa figure was measured with
   JavaRosa 6.0.0 on the JVM on the same machine when the case was added;
   it is not re-measured by this benchmark.
 * Starting a session evaluates every calculation once; it has no target

@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="760" height="468" viewBox="0 0 760 468" role="img" aria-labelledby="title desc">
 <title id="title">DartRosa engine benchmark: median time per case against its target</title>
-<desc id="desc">Parse a 1,000-question form: median 162 ms, target 300 ms; Answer -&gt; recompute (1,000 questions): median 0.06 ms, target 16 ms; Start a session (1,000 questions): median 20 ms; Filter a 100,000-row CSV choice list: median 9.5 ms, target 50 ms; Grow a repeat to 1,000 instances: median 1.62 s, JavaRosa 3.00 s.</desc>
+<desc id="desc">Parse a 1,000-question form: median 73 ms, target 300 ms; Answer -&gt; recompute (1,000 questions): median 0.06 ms, target 16 ms; Start a session (1,000 questions): median 12 ms; Filter a 100,000-row CSV choice list: median 8.3 ms, target 50 ms; Grow a repeat to 1,000 instances: median 1.02 s, JavaRosa 3.00 s.</desc>
 <style>
   .bg{fill:#fcfcfb}.t1{fill:#0b0b0b}.t2{fill:#52514e}.grid{stroke:#d9d8d3}.bar{fill:#2a78d6}.whisker{stroke:#0b0b0b}.target{stroke:#b3261e}.ttext{fill:#b3261e}
   @media (prefers-color-scheme: dark){.bg{fill:#1a1a19}.t1{fill:#fff}.t2{fill:#c3c2b7}.grid{stroke:#3a3a37}.bar{fill:#3987e5}.whisker{stroke:#fff}.target{stroke:#f2b8b5}.ttext{fill:#f2b8b5}}
@@ -10,14 +10,14 @@
 <text class="t1" x="24" y="34" font-size="18" font-weight="600">DartRosa engine benchmark</text>
 <text class="t2" x="24" y="56" font-size="13">Median of N runs (bar), 90th percentile (whisker), target or JavaRosa 6.0.0 (red line). Each row has its own scale.</text>
 <g>
-<title>Parse a 1,000-question form: median 162 ms, p90 270 ms over 15 runs</title>
+<title>Parse a 1,000-question form: median 73 ms, p90 95 ms over 15 runs</title>
 <text class="t1" x="24" y="118" font-size="14">Parse a 1,000-question form</text>
 <text class="t2" x="24" y="136" font-size="12">15 runs</text>
 <line class="grid" x1="330" y1="100" x2="330" y2="128" stroke-width="1"/>
-<rect class="bar" x="330" y="106" width="187.7" height="16" rx="4"/>
-<line class="whisker" x1="517.7" y1="114.0" x2="642.9" y2="114.0" stroke-width="1.5"/>
-<line class="whisker" x1="642.9" y1="109" x2="642.9" y2="119" stroke-width="1.5"/>
-<text class="t1" x="330" y="144" font-size="12"><tspan font-weight="600">162 ms</tspan><tspan class="t2"> median, p90 270 ms</tspan></text>
+<rect class="bar" x="330" y="106" width="84.8" height="16" rx="4"/>
+<line class="whisker" x1="414.8" y1="114.0" x2="440.6" y2="114.0" stroke-width="1.5"/>
+<line class="whisker" x1="440.6" y1="109" x2="440.6" y2="119" stroke-width="1.5"/>
+<text class="t1" x="330" y="144" font-size="12"><tspan font-weight="600">73 ms</tspan><tspan class="t2"> median, p90 95 ms</tspan></text>
 <line class="target" x1="678.2" y1="98" x2="678.2" y2="130" stroke-width="2" stroke-dasharray="4 3"/>
 <text class="ttext" x="678.2" y="144" font-size="12" text-anchor="end">target 300 ms</text>
 </g>
@@ -27,47 +27,47 @@
 <text class="t2" x="24" y="200" font-size="12">200 runs</text>
 <line class="grid" x1="330" y1="164" x2="330" y2="192" stroke-width="1"/>
 <rect class="bar" x="330" y="170" width="2.0" height="16" rx="4"/>
-<line class="whisker" x1="331.4" y1="178.0" x2="332.1" y2="178.0" stroke-width="1.5"/>
+<line class="whisker" x1="331.3" y1="178.0" x2="332.1" y2="178.0" stroke-width="1.5"/>
 <line class="whisker" x1="332.1" y1="173" x2="332.1" y2="183" stroke-width="1.5"/>
 <text class="t1" x="330" y="208" font-size="12"><tspan font-weight="600">0.06 ms</tspan><tspan class="t2"> median, p90 0.10 ms</tspan></text>
 <line class="target" x1="678.2" y1="162" x2="678.2" y2="194" stroke-width="2" stroke-dasharray="4 3"/>
 <text class="ttext" x="678.2" y="208" font-size="12" text-anchor="end">target 16 ms</text>
 </g>
 <g>
-<title>Start a session (1,000 questions): median 20 ms, p90 23 ms over 15 runs</title>
+<title>Start a session (1,000 questions): median 12 ms, p90 16 ms over 15 runs</title>
 <text class="t1" x="24" y="246" font-size="14">Start a session (1,000 questions)</text>
 <text class="t2" x="24" y="264" font-size="12">15 runs</text>
 <line class="grid" x1="330" y1="228" x2="330" y2="256" stroke-width="1"/>
-<rect class="bar" x="330" y="234" width="301.9" height="16" rx="4"/>
-<line class="whisker" x1="631.9" y1="242.0" x2="678.2" y2="242.0" stroke-width="1.5"/>
+<rect class="bar" x="330" y="234" width="253.5" height="16" rx="4"/>
+<line class="whisker" x1="583.5" y1="242.0" x2="678.2" y2="242.0" stroke-width="1.5"/>
 <line class="whisker" x1="678.2" y1="237" x2="678.2" y2="247" stroke-width="1.5"/>
-<text class="t1" x="330" y="272" font-size="12"><tspan font-weight="600">20 ms</tspan><tspan class="t2"> median, p90 23 ms</tspan></text>
+<text class="t1" x="330" y="272" font-size="12"><tspan font-weight="600">12 ms</tspan><tspan class="t2"> median, p90 16 ms</tspan></text>
 <text class="t2" x="720" y="272" font-size="12" text-anchor="end">no target set</text>
 </g>
 <g>
-<title>Filter a 100,000-row CSV choice list: median 9.5 ms, p90 19 ms over 50 runs</title>
+<title>Filter a 100,000-row CSV choice list: median 8.3 ms, p90 14 ms over 50 runs</title>
 <text class="t1" x="24" y="310" font-size="14">Filter a 100,000-row CSV choice list</text>
 <text class="t2" x="24" y="328" font-size="12">50 runs</text>
 <line class="grid" x1="330" y1="292" x2="330" y2="320" stroke-width="1"/>
-<rect class="bar" x="330" y="298" width="66.5" height="16" rx="4"/>
-<line class="whisker" x1="396.5" y1="306.0" x2="463.8" y2="306.0" stroke-width="1.5"/>
-<line class="whisker" x1="463.8" y1="301" x2="463.8" y2="311" stroke-width="1.5"/>
-<text class="t1" x="330" y="336" font-size="12"><tspan font-weight="600">9.5 ms</tspan><tspan class="t2"> median, p90 19 ms</tspan></text>
+<rect class="bar" x="330" y="298" width="57.7" height="16" rx="4"/>
+<line class="whisker" x1="387.7" y1="306.0" x2="424.4" y2="306.0" stroke-width="1.5"/>
+<line class="whisker" x1="424.4" y1="301" x2="424.4" y2="311" stroke-width="1.5"/>
+<text class="t1" x="330" y="336" font-size="12"><tspan font-weight="600">8.3 ms</tspan><tspan class="t2"> median, p90 14 ms</tspan></text>
 <line class="target" x1="678.2" y1="290" x2="678.2" y2="322" stroke-width="2" stroke-dasharray="4 3"/>
 <text class="ttext" x="678.2" y="336" font-size="12" text-anchor="end">target 50 ms</text>
 </g>
 <g>
-<title>Grow a repeat to 1,000 instances: median 1.62 s, p90 1.70 s over 5 runs</title>
+<title>Grow a repeat to 1,000 instances: median 1.02 s, p90 1.39 s over 5 runs</title>
 <text class="t1" x="24" y="374" font-size="14">Grow a repeat to 1,000 instances</text>
 <text class="t2" x="24" y="392" font-size="12">5 runs</text>
 <line class="grid" x1="330" y1="356" x2="330" y2="384" stroke-width="1"/>
-<rect class="bar" x="330" y="362" width="188.0" height="16" rx="4"/>
-<line class="whisker" x1="518.0" y1="370.0" x2="527.6" y2="370.0" stroke-width="1.5"/>
-<line class="whisker" x1="527.6" y1="365" x2="527.6" y2="375" stroke-width="1.5"/>
-<text class="t1" x="330" y="400" font-size="12"><tspan font-weight="600">1.62 s</tspan><tspan class="t2"> median, p90 1.70 s</tspan></text>
+<rect class="bar" x="330" y="362" width="118.8" height="16" rx="4"/>
+<line class="whisker" x1="448.8" y1="370.0" x2="491.3" y2="370.0" stroke-width="1.5"/>
+<line class="whisker" x1="491.3" y1="365" x2="491.3" y2="375" stroke-width="1.5"/>
+<text class="t1" x="330" y="400" font-size="12"><tspan font-weight="600">1.02 s</tspan><tspan class="t2"> median, p90 1.39 s</tspan></text>
 <line class="target" x1="678.2" y1="354" x2="678.2" y2="386" stroke-width="2" stroke-dasharray="4 3"/>
 <text class="ttext" x="678.2" y="400" font-size="12" text-anchor="end">JavaRosa 3.00 s</text>
 </g>
-<text class="t2" x="24" y="436" font-size="12">Apple M4 · macos Version 27.0.1 · Dart 3.13.4 AOT · load 6.61 7.38 7.21 · 2026-10-05</text>
+<text class="t2" x="24" y="436" font-size="12">Apple M4 · macos Version 27.0.1 · Dart 3.13.4 AOT · load 6.46 7.52 9.43 · 2026-10-05</text>
 <text class="t2" x="24" y="454" font-size="12">Desktop numbers; phones are several times slower. Targets are for a mid-range Android phone.</text>
 </svg>
