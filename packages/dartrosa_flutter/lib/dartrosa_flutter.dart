@@ -30,6 +30,7 @@ export 'src/widgets/range_input.dart';
 export 'src/widgets/select_widgets.dart';
 export 'src/widgets/special_inputs.dart';
 export 'src/widgets/text_input.dart';
+export 'src/window_size.dart' show XFormWindowSize;
 export 'src/xform_controller.dart';
 export 'src/xform_scope.dart';
 export 'src/xform_view.dart';

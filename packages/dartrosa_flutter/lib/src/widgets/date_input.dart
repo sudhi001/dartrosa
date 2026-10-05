@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 
 import '../appearance.dart';
 import '../localizations.dart';
+import '../window_size.dart';
 import 'calendar_date_picker_dialog.dart';
 import 'common.dart';
 
@@ -90,6 +91,10 @@ class DateTimeInput extends StatelessWidget {
       final time = await showTimePicker(
         context: context,
         initialTime: TimeOfDay.fromDateTime(current),
+        // With a keyboard, typing the time is quicker than the dial.
+        initialEntryMode: isDesktopOrWeb(context)
+            ? TimePickerEntryMode.input
+            : TimePickerEntryMode.dial,
       );
       if (time == null || !context.mounted) return;
       picked = DateTime(

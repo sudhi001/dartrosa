@@ -70,6 +70,7 @@ class ChoiceLayout extends StatelessWidget {
   const ChoiceLayout({
     required this.appearance,
     required this.children,
+    this.adaptive = false,
     super.key,
   });
 
@@ -78,6 +79,19 @@ class ChoiceLayout extends StatelessWidget {
 
   /// The choice widgets.
   final List<Widget> children;
+
+  /// Whether choices without a column appearance go in columns when the
+  /// layout is at least [adaptiveMinWidth] wide: as many columns of
+  /// [adaptiveColumnWidth] (times the text scale) as fit, at most four.
+  /// For short text choices, which would otherwise leave most of a wide
+  /// line empty.
+  final bool adaptive;
+
+  /// The narrowest layout that gets [adaptive] columns.
+  static const adaptiveMinWidth = 560.0;
+
+  /// The width of an [adaptive] column, at text scale 1.
+  static const adaptiveColumnWidth = 240.0;
 
   @override
   Widget build(BuildContext context) {
@@ -95,9 +109,21 @@ class ChoiceLayout extends StatelessWidget {
         ),
       );
     }
-    return Column(
+    final column = Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: children,
+    );
+    if (!adaptive) return column;
+    final textScale = MediaQuery.textScalerOf(context).scale(1).clamp(1, 3);
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final width = constraints.maxWidth;
+        if (!width.isFinite || width < adaptiveMinWidth) return column;
+        final columns = (width / (adaptiveColumnWidth * textScale))
+            .floor()
+            .clamp(1, 4);
+        return columns < 2 ? column : _grid(columns);
+      },
     );
   }
 
@@ -140,6 +166,9 @@ class _ChoiceTile extends StatelessWidget {
     return MergeSemantics(
       child: InkWell(
         onTap: enabled ? onTap : null,
+        // The radio button or check box takes keyboard focus.
+        canRequestFocus: false,
+        borderRadius: BorderRadius.circular(8),
         child: ConstrainedBox(
           constraints: const BoxConstraints(minHeight: 48),
           child: Row(
@@ -250,6 +279,7 @@ class _Likert extends StatelessWidget {
           child: MergeSemantics(
             child: InkWell(
               onTap: node.isReadonly ? null : () => onTap(c),
+              canRequestFocus: false,
               child: Padding(
                 padding: const EdgeInsets.symmetric(vertical: 4),
                 child: Column(
@@ -279,7 +309,12 @@ class _ChoiceTiles extends StatelessWidget {
     required this.choices,
     required this.selected,
     required this.onTap,
+    this.adaptiveColumns = true,
   });
+
+  /// Whether short choices may go in columns on wide layouts (not in a
+  /// dialog, which sizes itself to its content).
+  final bool adaptiveColumns;
 
   final QuestionNode node;
   final Appearance appearance;
@@ -293,6 +328,10 @@ class _ChoiceTiles extends StatelessWidget {
     final noButtons = appearance.has('no-buttons');
     return ChoiceLayout(
       appearance: appearance,
+      adaptive:
+          adaptiveColumns &&
+          XFormTheme.of(context).adaptiveChoiceColumns &&
+          _shortChoices(context, node, choices),
       children: [
         for (final c in choices)
           noButtons
@@ -313,6 +352,24 @@ class _ChoiceTiles extends StatelessWidget {
       ],
     );
   }
+}
+
+/// Whether [choices] of [node] suit columns: four or more, text only,
+/// none longer than 24 characters.
+bool _shortChoices(
+  BuildContext context,
+  QuestionNode node,
+  List<SelectChoice> choices,
+) {
+  if (choices.length < 4) return false;
+  final delegates = XFormScope.of(context).delegates;
+  for (final c in choices) {
+    final uri = choiceImage(node, c);
+    if (uri != null && delegates.image(uri) != null) return false;
+    final label = odkMarkdownToPlainText(node.choiceLabel(c) ?? c.value);
+    if (label.length > 24) return false;
+  }
+  return true;
 }
 
 /// Shows [builder]'s choices among [choices] filtered by a search field
@@ -404,6 +461,7 @@ class ChoiceRowInput extends StatelessWidget {
             child: MergeSemantics(
               child: InkWell(
                 onTap: enabled ? () => tap(c) : null,
+                canRequestFocus: !showButtons,
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
@@ -680,11 +738,13 @@ class _SelectMultiChoices extends StatelessWidget {
     required this.node,
     required this.appearance,
     required this.choices,
+    this.adaptiveColumns = true,
   });
 
   final QuestionNode node;
   final Appearance appearance;
   final List<SelectChoice> choices;
+  final bool adaptiveColumns;
 
   @override
   Widget build(BuildContext context) => _ChoiceTiles(
@@ -693,6 +753,7 @@ class _SelectMultiChoices extends StatelessWidget {
     choices: choices,
     selected: selectedValues(node),
     onTap: (c) => toggleSelection(context, node, c.value),
+    adaptiveColumns: adaptiveColumns,
   );
 }
 
@@ -721,6 +782,7 @@ class _SelectMultiDialogField extends StatelessWidget {
                 node: node,
                 appearance: Appearance.parse(null),
                 choices: choicesOf(context, node),
+                adaptiveColumns: false,
               ),
             ),
           ),

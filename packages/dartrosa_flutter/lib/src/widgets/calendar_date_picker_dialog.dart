@@ -3,6 +3,8 @@
 //  modified: translated to Dart.
 // SPDX-License-Identifier: Apache-2.0
 
+import 'dart:math' as math;
+
 import 'package:dartrosa_calendars/dartrosa_calendars.dart';
 import 'package:flutter/material.dart';
 
@@ -94,6 +96,59 @@ class _CustomCalendarDatePickerDialogState
     return date.year < 1970 ? DateTime(1913, 4, 13) : DateTime(2034, 4, 13);
   }
 
+  /// The day, month and year spinners in one row, or with the month on a
+  /// line of its own when the row would leave it too little room (narrow
+  /// windows, large text).
+  Widget _spinners(BuildContext context) {
+    // The dialog's content width (AlertDialog: 40dp insets, 24dp padding,
+    // at most 560dp); the dialog sizes itself to its content, so this is
+    // derived from the window.
+    final width = math.min(560, MediaQuery.sizeOf(context).width - 80) - 48;
+    final day = _model.showsDay
+        ? _Spinner(
+            name: 'day',
+            picker: _model.dayPicker,
+            onChanged: (v) => setState(() => _model.setDay(v)),
+          )
+        : null;
+    final month = _model.showsMonth
+        ? _Spinner(
+            name: 'month',
+            picker: _model.monthPicker,
+            onChanged: (v) => setState(() => _model.setMonth(v)),
+            expand: true,
+          )
+        : null;
+    final year = _Spinner(
+      name: 'year',
+      picker: _model.yearPicker,
+      onChanged: (v) => setState(() => _model.setYear(v)),
+    );
+    final scale = MediaQuery.textScalerOf(context).scale(1);
+    if (month != null && width / scale < 240) {
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          month,
+          const SizedBox(height: 8),
+          Row(children: [?day, const Spacer(), year]),
+        ],
+      );
+    }
+    return Row(
+      children: [
+        if (day != null) ...[day, const SizedBox(width: 8)],
+        if (month != null) ...[
+          Expanded(child: month),
+          const SizedBox(width: 8),
+        ],
+        year,
+        // In year mode the year is alone; keep it at the start.
+        if (month == null) const Spacer(),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final material = MaterialLocalizations.of(context);
@@ -103,36 +158,7 @@ class _CustomCalendarDatePickerDialogState
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Row(
-            children: [
-              if (_model.showsDay) ...[
-                _Spinner(
-                  name: 'day',
-                  picker: _model.dayPicker,
-                  onChanged: (v) => setState(() => _model.setDay(v)),
-                ),
-                const SizedBox(width: 8),
-              ],
-              if (_model.showsMonth) ...[
-                Expanded(
-                  child: _Spinner(
-                    name: 'month',
-                    picker: _model.monthPicker,
-                    onChanged: (v) => setState(() => _model.setMonth(v)),
-                    expand: true,
-                  ),
-                ),
-                const SizedBox(width: 8),
-              ],
-              _Spinner(
-                name: 'year',
-                picker: _model.yearPicker,
-                onChanged: (v) => setState(() => _model.setYear(v)),
-              ),
-              // In year mode the year is alone; keep it at the start.
-              if (!_model.showsMonth) const Spacer(),
-            ],
-          ),
+          _spinners(context),
           const SizedBox(height: 16),
           Text(
             _model.label(),

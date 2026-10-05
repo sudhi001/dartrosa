@@ -183,13 +183,35 @@ final _shots = [
   ),
 ];
 
+/// A window size the matrix renders: name, logical size, text scale.
+typedef _Window = ({String name, Size size, double textScale});
+
+const List<_Window> _matrix = [
+  (name: 'phone', size: Size(360, 780), textScale: 1),
+  (name: 'small', size: Size(320, 640), textScale: 1),
+  (name: 'small_x2', size: Size(320, 640), textScale: 2),
+  (name: 'tablet_portrait', size: Size(800, 1280), textScale: 1),
+  (name: 'tablet_landscape', size: Size(1280, 800), textScale: 1),
+  (name: 'desktop', size: Size(1440, 900), textScale: 1),
+  (name: 'desktop_fhd', size: Size(1920, 1080), textScale: 1),
+];
+
+/// Where the matrix goes (`DARTROSA_SCREENSHOTS_MATRIX=<directory>`); it
+/// is never written to the docs.
+final _matrixOut = Platform.environment['DARTROSA_SCREENSHOTS_MATRIX'];
+
 Future<void> _render(
   WidgetTester tester,
   _Shot shot,
-  Brightness brightness,
-) async {
-  tester.view.physicalSize = _phone * _pixelRatio;
-  tester.view.devicePixelRatio = _pixelRatio;
+  Brightness brightness, {
+  Size size = _phone,
+  double pixelRatio = _pixelRatio,
+  double textScale = 1,
+  String? fileName,
+  Directory? out,
+}) async {
+  tester.view.physicalSize = size * pixelRatio;
+  tester.view.devicePixelRatio = pixelRatio;
   addTearDown(tester.view.reset);
 
   final formFile = File('${_corpus.path}/${shot.form}');
@@ -213,6 +235,12 @@ Future<void> _render(
           brightness: brightness,
           colorSchemeSeed: const Color(0xFF1A73E8),
           fontFamily: 'Roboto',
+        ),
+        builder: (context, child) => MediaQuery(
+          data: MediaQuery.of(
+            context,
+          ).copyWith(textScaler: TextScaler.linear(textScale)),
+          child: child!,
         ),
         home: Scaffold(
           appBar: AppBar(title: Text(session!.definition.title ?? '')),
@@ -238,14 +266,16 @@ Future<void> _render(
   final bytes = await tester.runAsync(() async {
     final render =
         boundary.currentContext!.findRenderObject()! as RenderRepaintBoundary;
-    final image = await render.toImage(pixelRatio: _pixelRatio);
+    final image = await render.toImage(pixelRatio: pixelRatio);
     final data = await image.toByteData(format: ui.ImageByteFormat.png);
     image.dispose();
     return data!.buffer.asUint8List();
   });
   final theme = brightness == Brightness.light ? 'light' : 'dark';
-  _out.createSync(recursive: true);
-  File('${_out.path}/${shot.name}_$theme.png').writeAsBytesSync(bytes!);
+  final directory = (out ?? _out)..createSync(recursive: true);
+  File(
+    '${directory.path}/${fileName ?? '${shot.name}_$theme'}.png',
+  ).writeAsBytesSync(bytes!);
 }
 
 void main() {
@@ -259,6 +289,27 @@ void main() {
         '${shot.name} ${brightness.name}',
         (tester) => _render(tester, shot, brightness),
         skip: !_enabled,
+      );
+    }
+  }
+
+  // Every shot at every window size of [_matrix], light theme, at pixel
+  // ratio 1, for reviewing the adaptive layout.
+  for (final window in _matrix) {
+    for (final shot in _shots) {
+      testWidgets(
+        'matrix ${window.name} ${shot.name}',
+        (tester) => _render(
+          tester,
+          shot,
+          Brightness.light,
+          size: window.size,
+          pixelRatio: 1,
+          textScale: window.textScale,
+          fileName: '${window.name}_${shot.name}',
+          out: Directory(_matrixOut ?? ''),
+        ),
+        skip: !_enabled || _matrixOut == null,
       );
     }
   }

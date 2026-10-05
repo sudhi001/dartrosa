@@ -149,6 +149,47 @@ class XFormLocalizations {
   /// Precedes the selected choices of an `image-map` select.
   String get selected => 'Selected:';
 
+  /// The title of the form outline (groups and questions to jump to),
+  /// and the tooltip of the button opening it.
+  String get outline => 'Form outline';
+
+  /// Hides the outline side panel or closes the outline sheet.
+  String get hideOutline => 'Hide outline';
+
+  /// The pager's position: screen [position] of [total].
+  String progress(int position, int total) => '$position of $total';
+
+  /// How many of the [total] questions taking an answer have one.
+  String answeredCount(int answered, int total) =>
+      '$answered of $total answered';
+
+  /// How many required questions have no answer.
+  String requiredLeft(int count) => count == 1
+      ? '1 required question unanswered'
+      : '$count required questions unanswered';
+
+  /// An answered question in the outline, for screen readers.
+  String get answered => 'answered';
+
+  /// An unanswered question in the outline, for screen readers.
+  String get notAnswered => 'not answered';
+
+  /// A question whose answer was rejected, in the outline.
+  String get needsAttention => 'needs attention';
+
+  /// Asks before removing the repeat instance [name] and its answers.
+  String removeRepeatTitle(String name) => 'Remove "$name"?';
+
+  /// Explains what removing a repeat instance does.
+  String get removeRepeatMessage =>
+      'Its answers will be deleted. This cannot be undone.';
+
+  /// Moves a choice of a rank question up.
+  String get moveUp => 'Move up';
+
+  /// Moves a choice of a rank question down.
+  String get moveDown => 'Move down';
+
   /// The name of [month] (1-12).
   String monthName(int month) => const [
     'January', 'February', 'March', 'April', 'May', 'June', 'July', //

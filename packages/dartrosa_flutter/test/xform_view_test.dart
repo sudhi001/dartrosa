@@ -89,8 +89,17 @@ void main() {
     expect(repeat().instances, hasLength(2));
     await tester.ensureVisible(find.byTooltip('Remove').first);
     await tester.pumpAndSettle();
+    // Removing asks first.
     await tester.tap(find.byTooltip('Remove').first);
-    await tester.pump();
+    await tester.pumpAndSettle();
+    expect(find.byType(AlertDialog), findsOneWidget);
+    await tester.tap(find.text('Cancel'));
+    await tester.pumpAndSettle();
+    expect(repeat().instances, hasLength(2));
+    await tester.tap(find.byTooltip('Remove').first);
+    await tester.pumpAndSettle();
+    await tester.tap(find.widgetWithText(FilledButton, 'Remove'));
+    await tester.pumpAndSettle();
     expect(repeat().instances, hasLength(1));
   });
 

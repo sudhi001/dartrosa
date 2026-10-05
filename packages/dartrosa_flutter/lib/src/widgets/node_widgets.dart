@@ -99,11 +99,14 @@ class GroupWidget extends StatelessWidget {
           showButtons: false,
           leading: const SizedBox.shrink(),
         ),
-      for (final child in children)
+      for (final (i, child) in children.indexed) ...[
+        // Lines between the rows help follow a row across a wide table.
+        if (i > 0) const Divider(height: 1),
         if (child is QuestionNode && _isSelect(child))
           QuestionWidget(child, inTableList: true, key: nodeKey(child))
         else
           nodeWidget(child),
+      ],
     ];
   }
 
@@ -167,6 +170,41 @@ class RepeatInstanceWidget extends StatelessWidget {
     builder: (context, _) => _build(context),
   );
 
+  /// Asks before deleting the instance and its answers.
+  Future<bool> _confirmRemove(BuildContext context) async {
+    final strings = XFormLocalizations.of(context);
+    final material = MaterialLocalizations.of(context);
+    final name = node.header ?? '${node.position + 1}';
+    // The dialog is a route outside the form: keep the form's direction.
+    final direction = Directionality.of(context);
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (context) => Directionality(
+        textDirection: direction,
+        child: AlertDialog(
+          icon: const Icon(Icons.delete_outline),
+          title: Text(strings.removeRepeatTitle(name)),
+          content: Text(strings.removeRepeatMessage),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context, false),
+              child: Text(material.cancelButtonLabel),
+            ),
+            FilledButton(
+              style: FilledButton.styleFrom(
+                backgroundColor: XFormTheme.of(context).errorColorOf(context),
+                foregroundColor: Theme.of(context).colorScheme.onError,
+              ),
+              onPressed: () => Navigator.pop(context, true),
+              child: Text(strings.remove),
+            ),
+          ],
+        ),
+      ),
+    );
+    return confirmed ?? false;
+  }
+
   Widget _build(BuildContext context) {
     final controller = XFormScope.of(context).controller;
     final repeat = node.element as GroupDef;
@@ -186,7 +224,11 @@ class RepeatInstanceWidget extends StatelessWidget {
                 IconButton(
                   tooltip: XFormLocalizations.of(context).remove,
                   icon: const Icon(Icons.delete_outline),
-                  onPressed: () => controller.removeRepeatInstance(node),
+                  onPressed: () async {
+                    if (await _confirmRemove(context)) {
+                      controller.removeRepeatInstance(node);
+                    }
+                  },
                 ),
             ],
           ),

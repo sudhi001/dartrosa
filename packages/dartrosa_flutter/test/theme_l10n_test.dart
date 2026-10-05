@@ -148,7 +148,16 @@ void main() {
 
   test('XFormTheme.pagePaddingFor centers content of maxContentWidth', () {
     const theme = XFormTheme(pagePadding: EdgeInsets.all(16));
-    expect(theme.pagePaddingFor(1280), const EdgeInsets.all(16));
+    // By default content is at most 720dp wide.
+    expect(
+      theme.pagePaddingFor(1280),
+      const EdgeInsets.fromLTRB(280, 16, 280, 16),
+    );
+    expect(theme.pagePaddingFor(360), const EdgeInsets.all(16));
+    expect(
+      theme.copyWith(maxContentWidth: double.infinity).pagePaddingFor(1280),
+      const EdgeInsets.all(16),
+    );
     final capped = theme.copyWith(maxContentWidth: 600);
     expect(
       capped.pagePaddingFor(1280),

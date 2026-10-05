@@ -38,6 +38,13 @@ class XFormController extends ChangeNotifier {
   /// The last known relevance of each instance node, by reference.
   final Map<String, bool> _relevance = {};
 
+  final _RefNotifier _anyChange = _RefNotifier();
+
+  /// Notified on every change: any node's value or state, any answer
+  /// error, and structural changes. For widgets summarizing the whole
+  /// form (progress, outline); question widgets use [listenableFor].
+  Listenable get formChanges => _anyChange;
+
   /// The key of the form's root, whose children are the top-level nodes.
   static const _rootKey = 'null';
 
@@ -66,6 +73,7 @@ class XFormController extends ChangeNotifier {
   }
 
   void _onChange(FormChange change) {
+    _anyChange.bump();
     switch (change.kind) {
       case 'repeat' || 'language':
         _learnRelevance();
@@ -159,7 +167,10 @@ class XFormController extends ChangeNotifier {
     } else {
       _errors[key] = result;
     }
-    if (previous != _errors[key]) _bump(key);
+    if (previous != _errors[key]) {
+      _bump(key);
+      _anyChange.bump();
+    }
   }
 
   /// Answers the question at [index] with [value]; rejected answers are
@@ -199,6 +210,7 @@ class XFormController extends ChangeNotifier {
     }
     _byRef.clear();
     _merged.clear();
+    _anyChange.dispose();
     super.dispose();
   }
 }

@@ -402,7 +402,8 @@ class _ImageMapInputState extends State<ImageMapInput> {
                             excludeFromSemantics: true,
                           ),
                         ),
-                        // Screen readers see each area as a choice over
+                        // Screen readers and the keyboard (Tab, then
+                        // Enter or Space) see each area as a choice over
                         // its bounds; taps fall through to the detector.
                         for (final c in choices)
                           if (map.areaBounds(c.value) case final bounds?)
@@ -413,19 +414,14 @@ class _ImageMapInputState extends State<ImageMapInput> {
                                 (bounds.right - box.left) * scaleX,
                                 (bounds.bottom - box.top) * scaleY,
                               ),
-                              child: Semantics(
+                              child: _ImageMapArea(
                                 label: node.choiceLabel(c) ?? c.value,
                                 selected: selected.contains(c.value),
-                                checked:
-                                    node.controlType == ControlType.selectMulti
-                                    ? selected.contains(c.value)
-                                    : null,
-                                inMutuallyExclusiveGroup:
-                                    node.controlType == ControlType.selectOne,
+                                multi:
+                                    node.controlType == ControlType.selectMulti,
                                 onTap: node.isReadonly
                                     ? null
                                     : () => _tap(c.value),
-                                child: const SizedBox.expand(),
                               ),
                             ),
                       ],
@@ -452,6 +448,68 @@ class _ImageMapInputState extends State<ImageMapInput> {
           ],
         );
       },
+    );
+  }
+}
+
+/// An image-map area for screen readers and the keyboard: focusable,
+/// selected with Enter or Space, outlined while focused. It doesn't take
+/// pointer events (taps reach the map's detector).
+class _ImageMapArea extends StatefulWidget {
+  const _ImageMapArea({
+    required this.label,
+    required this.selected,
+    required this.multi,
+    required this.onTap,
+  });
+
+  final String label;
+  final bool selected;
+  final bool multi;
+  final VoidCallback? onTap;
+
+  @override
+  State<_ImageMapArea> createState() => _ImageMapAreaState();
+}
+
+class _ImageMapAreaState extends State<_ImageMapArea> {
+  var _focused = false;
+
+  @override
+  Widget build(BuildContext context) {
+    final onTap = widget.onTap;
+    final scheme = Theme.of(context).colorScheme;
+    return Semantics(
+      label: widget.label,
+      selected: widget.selected,
+      checked: widget.multi ? widget.selected : null,
+      inMutuallyExclusiveGroup: !widget.multi,
+      onTap: onTap,
+      child: Actions(
+        actions: {
+          ActivateIntent: CallbackAction<ActivateIntent>(
+            onInvoke: (_) {
+              onTap?.call();
+              return null;
+            },
+          ),
+        },
+        child: Focus(
+          canRequestFocus: onTap != null,
+          onFocusChange: (focused) => setState(() => _focused = focused),
+          child: IgnorePointer(
+            child: DecoratedBox(
+              decoration: BoxDecoration(
+                border: _focused
+                    ? Border.all(color: scheme.primary, width: 3)
+                    : null,
+                borderRadius: BorderRadius.circular(4),
+              ),
+              child: const SizedBox.expand(),
+            ),
+          ),
+        ),
+      ),
     );
   }
 }

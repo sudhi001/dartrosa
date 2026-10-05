@@ -7,7 +7,9 @@ import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 
 import '../appearance.dart';
+import '../theme.dart';
 import 'common.dart';
+import 'question_focus.dart';
 
 /// Text, integer, decimal and long inputs (`multiline`, `numbers`,
 /// `masked`, `thousands-sep`).
@@ -74,6 +76,15 @@ class _TextQuestionInputState extends State<TextQuestionInput> {
     };
   }
 
+  void _submitted() {
+    final advance = XFormPagerScope.advanceOf(context);
+    if (advance != null) {
+      advance();
+    } else {
+      FocusScope.of(context).nextFocus();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final node = widget.node;
@@ -83,14 +94,18 @@ class _TextQuestionInputState extends State<TextQuestionInput> {
     final numeric = _isNumeric(node) || appearance.has('numbers');
     final masked =
         node.controlType == ControlType.secret || appearance.has('masked');
+    final multiline = appearance.has('multiline') && !masked;
+    final error = QuestionErrorScope.hasErrorOf(context)
+        ? XFormTheme.of(context).errorColorOf(context)
+        : null;
     return TextField(
       controller: _text,
       enabled: !node.isReadonly,
       obscureText: masked,
       enableSuggestions: !masked,
       autocorrect: !masked,
-      maxLines: appearance.has('multiline') && !masked ? null : 1,
-      minLines: appearance.has('multiline') && !masked ? 3 : null,
+      maxLines: multiline ? null : 1,
+      minLines: multiline ? 3 : null,
       keyboardType: numeric
           ? TextInputType.numberWithOptions(
               decimal: node.dataType == DataType.decimal,
@@ -105,7 +120,23 @@ class _TextQuestionInputState extends State<TextQuestionInput> {
         else if (integral)
           FilteringTextInputFormatter.allow(RegExp(r'^-?\d*')),
       ],
-      decoration: const InputDecoration(border: OutlineInputBorder()),
+      // The error shows under the question; the outline turns red too.
+      decoration: error == null
+          ? const InputDecoration(border: OutlineInputBorder())
+          : InputDecoration(
+              border: const OutlineInputBorder(),
+              enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: error),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: error, width: 2),
+              ),
+            ),
+      // Enter moves on: to the next screen when the question is alone on
+      // a pager screen, else to the next field.
+      textInputAction: multiline ? null : TextInputAction.next,
+      onEditingComplete: multiline ? null : () {},
+      onSubmitted: multiline ? null : (_) => _submitted(),
       onChanged: (text) => answerQuestion(context, node, _parse(text)),
     );
   }

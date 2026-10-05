@@ -68,7 +68,10 @@ class XFormHint extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final style = theme.textTheme.bodySmall;
+    // Supporting text: a step below the label, in the variant color.
+    final style = theme.textTheme.bodyMedium?.copyWith(
+      color: theme.colorScheme.onSurfaceVariant,
+    );
     final hint = node.hint;
     final mode =
         XFormScope.maybeOf(context)?.guidanceHints ?? GuidanceHintMode.yes;

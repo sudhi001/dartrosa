@@ -123,6 +123,7 @@ Future<void> _pump(
   double height = 640,
   XFormMode mode = XFormMode.scroll,
   XFormTheme? theme,
+  XFormOutlineMode outline = XFormOutlineMode.adaptive,
 }) async {
   tester.view.physicalSize = Size(width, height);
   tester.view.devicePixelRatio = 1;
@@ -141,6 +142,7 @@ Future<void> _pump(
           session: session,
           mode: mode,
           delegates: const _AllDelegates(),
+          outline: outline,
         ),
       ),
     ),
@@ -197,10 +199,32 @@ void main() {
     Rect firstField(WidgetTester tester) =>
         tester.getRect(find.byType(TextField).first);
 
-    testWidgets('scroll mode: content fills the width by default', (
+    testWidgets('scroll mode: content is 720dp wide by default', (
       tester,
     ) async {
-      await _pump(tester, await _questions(), width: 1280, textScale: 1);
+      await _pump(
+        tester,
+        await _questions(),
+        width: 1280,
+        textScale: 1,
+        outline: XFormOutlineMode.none,
+      );
+      final field = firstField(tester);
+      expect(field.width, XFormTheme.defaultMaxContentWidth);
+      expect(field.center.dx, 640);
+    });
+
+    testWidgets('scroll mode: double.infinity fills the width', (
+      tester,
+    ) async {
+      await _pump(
+        tester,
+        await _questions(),
+        width: 1280,
+        textScale: 1,
+        theme: const XFormTheme(maxContentWidth: double.infinity),
+        outline: XFormOutlineMode.none,
+      );
       // 16dp page padding on both sides.
       expect(firstField(tester).width, 1280 - 32);
     });
@@ -212,6 +236,7 @@ void main() {
         width: 1280,
         textScale: 1,
         theme: capped,
+        outline: XFormOutlineMode.none,
       );
       final field = firstField(tester);
       expect(field.width, 600);
@@ -250,17 +275,18 @@ void main() {
         textScale: 1,
         mode: XFormMode.pager,
         theme: capped,
+        outline: XFormOutlineMode.none,
       );
       final field = firstField(tester);
       expect(field.width, 600);
       expect(field.center.dx, 640);
       // The buttons stay at the content's edges (8dp in from them).
       expect(
-        tester.getRect(find.byWidgetPredicate((w) => w is TextButton)).left,
+        tester.getRect(find.byWidgetPredicate((w) => w is OutlinedButton)).left,
         lessThan(340),
       );
       expect(
-        tester.getRect(find.byWidgetPredicate((w) => w is TextButton)).left,
+        tester.getRect(find.byWidgetPredicate((w) => w is OutlinedButton)).left,
         greaterThan(316),
       );
       expect(

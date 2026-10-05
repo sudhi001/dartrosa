@@ -15,6 +15,7 @@ import 'date_input.dart';
 import 'external_app_inputs.dart';
 import 'label.dart';
 import 'map_inputs.dart';
+import 'question_focus.dart';
 import 'range_input.dart';
 import 'select_widgets.dart';
 import 'special_inputs.dart';
@@ -139,13 +140,20 @@ class _QuestionWidgetState extends State<QuestionWidget> {
     return _QuestionSemantics(
       node: node,
       invalid: error != null,
-      child: inRow
-          ? _ChoiceRowQuestion(
-              node: node,
-              error: error,
-              labelsOnly: !widget.inTableList && appearance.has('label'),
-            )
-          : _StackedQuestion(node: node, appearance: appearance, error: error),
+      child: QuestionErrorScope(
+        hasError: error != null,
+        child: inRow
+            ? _ChoiceRowQuestion(
+                node: node,
+                error: error,
+                labelsOnly: !widget.inTableList && appearance.has('label'),
+              )
+            : _StackedQuestion(
+                node: node,
+                appearance: appearance,
+                error: error,
+              ),
+      ),
     );
   }
 }
@@ -330,20 +338,38 @@ class _QuestionInput extends StatelessWidget {
   }
 }
 
-/// A validation error, read out by screen readers when it appears.
+/// A validation error next to its question, with an error icon; read
+/// out by screen readers when it appears.
 class _Error extends StatelessWidget {
   const _Error(this.message);
 
   final String message;
 
   @override
-  Widget build(BuildContext context) => Semantics(
-    liveRegion: true,
-    child: Text(
-      message,
-      style: TextStyle(color: XFormTheme.of(context).errorColorOf(context)),
-    ),
-  );
+  Widget build(BuildContext context) {
+    final color = XFormTheme.of(context).errorColorOf(context);
+    final style = Theme.of(
+      context,
+    ).textTheme.bodyMedium?.copyWith(color: color);
+    return Semantics(
+      liveRegion: true,
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsetsDirectional.only(end: 6, top: 1),
+            // Scales with the text.
+            child: Icon(
+              Icons.error_outline,
+              color: color,
+              size: MediaQuery.textScalerOf(context).scale(18),
+            ),
+          ),
+          Expanded(child: Text(message, style: style)),
+        ],
+      ),
+    );
+  }
 }
 
 /// Rank: a reorderable list.
@@ -361,26 +387,58 @@ class _Rank extends StatelessWidget {
       ],
       _ => node.choices,
     };
+    void move(int from, int to) {
+      if (node.isReadonly) return;
+      final list = [...order];
+      final moved = list.removeAt(from);
+      list.insert(to, moved);
+      answerQuestion(
+        context,
+        node,
+        MultipleItemsValue([for (final c in list) Selection.ofChoice(c)]),
+      );
+    }
+
+    final strings = XFormLocalizations.of(context);
+    final enabled = !node.isReadonly;
+    // Dragging, or the move buttons (keyboard, mouse, screen readers).
     return ReorderableListView(
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
-      onReorderItem: (from, to) {
-        if (node.isReadonly) return;
-        final list = [...order];
-        final moved = list.removeAt(from);
-        list.insert(to, moved);
-        answerQuestion(
-          context,
-          node,
-          MultipleItemsValue([for (final c in list) Selection.ofChoice(c)]),
-        );
-      },
+      buildDefaultDragHandles: false,
+      onReorderItem: move,
       children: [
-        for (final c in order)
-          ListTile(
+        for (final (i, c) in order.indexed)
+          ReorderableDelayedDragStartListener(
             key: ValueKey(c.value),
-            title: Text(node.choiceLabel(c) ?? c.value),
-            trailing: const Icon(Icons.drag_handle),
+            index: i,
+            enabled: enabled,
+            child: ListTile(
+              contentPadding: const EdgeInsetsDirectional.only(start: 8),
+              leading: ReorderableDragStartListener(
+                index: i,
+                enabled: enabled,
+                child: const Icon(Icons.drag_indicator),
+              ),
+              title: Text(node.choiceLabel(c) ?? c.value),
+              trailing: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  IconButton(
+                    tooltip: strings.moveUp,
+                    icon: const Icon(Icons.arrow_upward),
+                    onPressed: enabled && i > 0 ? () => move(i, i - 1) : null,
+                  ),
+                  IconButton(
+                    tooltip: strings.moveDown,
+                    icon: const Icon(Icons.arrow_downward),
+                    onPressed: enabled && i < order.length - 1
+                        ? () => move(i, i + 1)
+                        : null,
+                  ),
+                ],
+              ),
+            ),
           ),
       ],
     );
