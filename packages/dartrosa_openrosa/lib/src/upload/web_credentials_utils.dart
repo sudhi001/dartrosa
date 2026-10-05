@@ -107,7 +107,7 @@ final class WebCredentialsUtils implements WebCredentialsProvider {
       return hostCredentials ??
           HttpCredentials(userNameFromPreferences, passwordFromPreferences);
     } else {
-      return hostCredentials ?? HttpCredentials('', '');
+      return hostCredentials ?? const HttpCredentials('', '');
     }
   }
 

@@ -8,10 +8,6 @@ import 'instance/tree_element.dart';
 /// the parser; [index] is assigned afterwards by the owning question.
 /// Plugins may subclass it (e.g. Collect's `ExternalSelectChoice`).
 base class SelectChoice {
-  /// A choice whose label is the itext id [labelId].
-  SelectChoice.localized(String labelId, String value)
-    : this._(labelId, null, value, true, null, null);
-
   /// A choice with explicit label text or id.
   SelectChoice(
     String? labelId,
@@ -19,6 +15,10 @@ base class SelectChoice {
     String value, {
     required bool isLocalizable,
   }) : this._(labelId, labelInnerText, value, isLocalizable, null, null);
+
+  /// A choice whose label is the itext id [labelId].
+  SelectChoice.localized(String labelId, String value)
+    : this._(labelId, null, value, true, null, null);
 
   /// A choice built from an itemset [item]; [labelOrId] is an itext id when
   /// [isLocalizable], otherwise the label text.

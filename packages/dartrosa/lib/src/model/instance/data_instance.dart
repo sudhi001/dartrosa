@@ -62,7 +62,7 @@ abstract class DataInstance {
   List<TreeElement>? explodeReference(TreeReference ref) {
     if (!ref.isAbsolute) return null;
     final nodes = <TreeElement>[];
-    TreeElement current = base;
+    var current = base;
     for (var i = 0; i < ref.size; i++) {
       final name = ref.nameAt(i);
       var multiplicity = ref.multiplicityAt(i);
@@ -97,7 +97,7 @@ abstract class DataInstance {
   TreeElement? getTemplatePath(TreeReference ref) {
     if (!ref.isAbsolute) return null;
     TreeElement? walker;
-    TreeElement node = base;
+    var node = base;
     for (var i = 0; i < ref.size; i++) {
       final name = ref.nameAt(i);
       if (ref.multiplicityAt(i) == TreeReference.indexAttribute) {

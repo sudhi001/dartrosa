@@ -6,7 +6,7 @@ import 'package:dartrosa_openrosa/dartrosa_openrosa.dart';
 final class StubWebCredentialsProvider implements WebCredentialsProvider {
   @override
   HttpCredentialsInterface getCredentials(Uri url) =>
-      HttpCredentials(null, null);
+      const HttpCredentials(null, null);
 }
 
 /// A recorded call to [FakeHttpInterface].

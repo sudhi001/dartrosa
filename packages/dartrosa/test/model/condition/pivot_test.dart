@@ -61,6 +61,9 @@ void main() {
 
   for (final (kind, constraint, expected) in cases) {
     test('$kind: $constraint', () {
+      // The annotation is needed: the arms' least upper bound is not
+      // RangeHint (the lint misses this).
+      // ignore: omit_local_variable_types
       final RangeHint hint = switch (kind) {
         'int' => IntegerRangeHint(),
         'dec' => DecimalRangeHint(),

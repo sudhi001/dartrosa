@@ -5,6 +5,13 @@ import 'package:meta/meta.dart';
 /// Port of `org.javarosa.xpath.expr.XPathQName`.
 @immutable
 final class XPathQName {
+  /// Creates a name; [name] and a non-null [namespace] must be non-empty.
+  XPathQName(this.namespace, this.name) {
+    if (name.isEmpty || (namespace != null && namespace!.isEmpty)) {
+      throw ArgumentError('Invalid QName');
+    }
+  }
+
   /// Parses [qname], splitting at the first `:` into [namespace] and [name].
   factory XPathQName.parse(String qname) {
     final separator = qname.indexOf(':');
@@ -14,13 +21,6 @@ final class XPathQName {
             qname.substring(0, separator),
             qname.substring(separator + 1),
           );
-  }
-
-  /// Creates a name; [name] and a non-null [namespace] must be non-empty.
-  XPathQName(this.namespace, this.name) {
-    if (name.isEmpty || (namespace != null && namespace!.isEmpty)) {
-      throw ArgumentError('Invalid QName');
-    }
   }
 
   /// Namespace prefix, or `null` when unqualified.

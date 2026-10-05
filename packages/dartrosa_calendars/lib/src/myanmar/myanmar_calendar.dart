@@ -226,8 +226,7 @@ MyanmarDate julianToMyanmarDate(double jd) {
   var mmonth = ((dd - b * a + c * a * 30 + 29.26) / 29.544).floor();
   final e = (mmonth + 12) ~/ 16;
   final f = (mmonth + 11) ~/ 16;
-  final monthDay =
-      (dd - (29.544 * mmonth - 29.26).floor() - b * e + c * f * 30);
+  final monthDay = dd - (29.544 * mmonth - 29.26).floor() - b * e + c * f * 30;
   mmonth += f * 3 - e * 4 + 12 * monthType;
   var monthLength = 30 - mmonth.remainder(2);
   if (mmonth == 3) monthLength += myt ~/ 2;

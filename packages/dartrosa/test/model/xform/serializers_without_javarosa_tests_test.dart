@@ -1,6 +1,5 @@
 // DartRosa tests for SMSSerializingVisitor and DataModelSerializer, which
 // have no JavaRosa tests (expected output follows the JavaRosa sources).
-// ignore_for_file: deprecated_member_use_from_same_package
 import 'package:dartrosa/src/xform/data_model_serializer.dart';
 import 'package:dartrosa/src/xform/sms_serializing_visitor.dart';
 import 'package:dartrosa/testing.dart';

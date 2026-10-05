@@ -183,7 +183,7 @@ final class ExternalDataReader {
     ) {
       // SCTO-894: skip empty lines, pad short rows.
       if (!ExternalDataUtil.containsAnyData(row)) continue;
-      final List<String> fullRow = row.length < headerRow.length
+      final fullRow = row.length < headerRow.length
           ? ExternalDataUtil.fillUpNullValues(row, headerRow)
           : row;
       final values = <String, Object?>{

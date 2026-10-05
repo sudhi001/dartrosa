@@ -127,13 +127,13 @@ void main() {
 
   group('GeoPointDataTests', () {
     test('display text is space-separated components', () {
-      expect(GeoPointValue([0, 1, 2, 3]).displayText, '0.0 1.0 2.0 3.0');
+      expect(GeoPointValue(const [0, 1, 2, 3]).displayText, '0.0 1.0 2.0 3.0');
     });
     test('display text is empty when all components are zero', () {
-      expect(GeoPointValue([0, 0, 0, 0]).displayText, '');
+      expect(GeoPointValue(const [0, 0, 0, 0]).displayText, '');
     });
     test('display text has three components when accuracy omitted', () {
-      expect(GeoPointValue([2.3, 7.3, 3.2]).displayText, '2.3 7.3 3.2');
+      expect(GeoPointValue(const [2.3, 7.3, 3.2]).displayText, '2.3 7.3 3.2');
     });
     test('missing accuracy is not treated as 0', () async {
       final scenario =
@@ -165,15 +165,15 @@ void main() {
       expect(scenario.getAnswerNode('/data/note').isRelevant, isTrue);
     });
     test('equals compares points', () {
-      final data = GeoPointValue([0, 0, 0, 0]);
+      final data = GeoPointValue(const [0, 0, 0, 0]);
       expect(data, equals(data));
-      expect(data, equals(GeoPointValue([0, 0, 0, 0])));
-      expect(data, isNot(equals(GeoPointValue([1, 1, 1, 1]))));
+      expect(data, equals(GeoPointValue(const [0, 0, 0, 0])));
+      expect(data, isNot(equals(GeoPointValue(const [1, 1, 1, 1]))));
     });
     test('hashCode is the same for the same points', () {
       expect(
-        GeoPointValue([0, 0, 0, 0]).hashCode,
-        GeoPointValue([0, 0, 0, 0]).hashCode,
+        GeoPointValue(const [0, 0, 0, 0]).hashCode,
+        GeoPointValue(const [0, 0, 0, 0]).hashCode,
       );
     });
   });

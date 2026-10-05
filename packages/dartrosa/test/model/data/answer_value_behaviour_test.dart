@@ -169,12 +169,12 @@ void main() {
     expect(single, const PointerValue(a));
     expect(single.hashCode, const PointerValue(a).hashCode);
 
-    final multi = MultiPointerValue([a, b]);
+    final multi = MultiPointerValue(const [a, b]);
     expect(multi.value, [a, b]);
     expect(multi.displayText, 'a.jpg, b.jpg');
     expect(multi.uncast().string, 'a.jpg b.jpg');
-    expect(multi, MultiPointerValue([a, b]));
-    expect(multi.hashCode, MultiPointerValue([a, b]).hashCode);
+    expect(multi, MultiPointerValue(const [a, b]));
+    expect(multi.hashCode, MultiPointerValue(const [a, b]).hashCode);
   });
 
   test('uncast values', () {

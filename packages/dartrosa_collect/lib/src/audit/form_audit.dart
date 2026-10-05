@@ -39,17 +39,6 @@ typedef AuditLocationSource =
 /// `BackgroundAudioViewModel` and `BackgroundLocationHelper`. Times come
 /// from the injected [AuditClock].
 final class FormAudit {
-  FormAudit._(
-    this.session,
-    this.config,
-    this.logger,
-    this._state,
-    this._writer,
-    this._clock,
-    this._locationSource, {
-    required this.isEditing,
-  });
-
   /// The audit of [session], writing to [store] (the instance's
   /// `audit.csv`). When the form has no `meta/audit`, nothing is logged
   /// ([isEnabled] is `false`).
@@ -90,6 +79,17 @@ final class FormAudit {
       isEditing: isEditing,
     );
   }
+
+  FormAudit._(
+    this.session,
+    this.config,
+    this.logger,
+    this._state,
+    this._writer,
+    this._clock,
+    this._locationSource, {
+    required this.isEditing,
+  });
 
   /// The session audited.
   final FormSession session;

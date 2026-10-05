@@ -60,7 +60,7 @@ AnswerValue? parseAnswerData(
       if (value == '0') return const BooleanValue(false);
       return BooleanValue(value == 't');
     case DataType.geopoint:
-      if (value == null) return GeoPointValue.empty();
+      if (value == null) return const GeoPointValue.empty();
       try {
         return GeoPointValue.cast(UncastValue(value));
       } on Object {

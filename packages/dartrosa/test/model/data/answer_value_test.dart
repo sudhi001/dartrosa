@@ -32,8 +32,8 @@ void main() {
         GeoPointValue.cast(const UncastValue('1 2')).uncast().string,
         '1.0 2.0 0.0 0.0',
       );
-      expect(GeoPointValue.empty().displayText, '');
-      expect(GeoPointValue.empty().toNumeric(), 9999999.0);
+      expect(const GeoPointValue.empty().displayText, '');
+      expect(const GeoPointValue.empty().toNumeric(), 9999999.0);
       final trace = GeoTraceValue.cast(const UncastValue('1 2; 3 4;'));
       expect(trace.points, hasLength(2));
       expect(trace.uncast().string, '1.0 2.0 0.0 0.0;3.0 4.0 0.0 0.0');

@@ -128,7 +128,7 @@ final class FormInstanceParser {
       ).expandReference(ref, includeTemplates: true)!.isEmpty) {
         _log.warning(
           "XForm Parse Warning: <bind> defined for a node that doesn't exist "
-          '[$ref]. The node\'s name was probably changed and the bind should '
+          "[$ref]. The node's name was probably changed and the bind should "
           'be updated.',
         );
       }

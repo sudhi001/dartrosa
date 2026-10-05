@@ -417,14 +417,17 @@ void main() {
     returns(() => getResult(response, openRosaHeaders, '', 200));
     responseParser.formList = [];
     final c = client()..serverUrl = 'http://other.org/';
-    final credentials = _FixedCredentials(HttpCredentials('u', 'p'));
+    final credentials = _FixedCredentials(const HttpCredentials('u', 'p'));
     c.webCredentialsProvider = credentials;
     await c.fetchFormList();
     expect(
       httpInterface.gets.single.uri.toString(),
       'http://other.org/formList?deviceID=myDeviceId',
     );
-    expect(httpInterface.gets.single.credentials, HttpCredentials('u', 'p'));
+    expect(
+      httpInterface.gets.single.credentials,
+      const HttpCredentials('u', 'p'),
+    );
   });
 
   group('exception classification of package:http errors', () {

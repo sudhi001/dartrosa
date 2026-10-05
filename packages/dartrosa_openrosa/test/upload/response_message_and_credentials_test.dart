@@ -62,14 +62,14 @@ void main() {
     test('uses the saved credentials for the server host', () {
       expect(
         utils.getCredentials(Uri.parse('https://SERVER.org/formList')),
-        HttpCredentials('user', 'pass'),
+        const HttpCredentials('user', 'pass'),
       );
     });
 
     test('uses empty credentials for other hosts', () {
       expect(
         utils.getCredentials(Uri.parse('https://other.org/formList')),
-        HttpCredentials('', ''),
+        const HttpCredentials('', ''),
       );
     });
 
@@ -80,21 +80,21 @@ void main() {
         ..saveCredentials('https://ignored.org/x', '', 'p');
       expect(
         utils.getCredentials(Uri.parse('https://server.org/a')),
-        HttpCredentials('temp', 'p'),
+        const HttpCredentials('temp', 'p'),
       );
       expect(
         utils.getCredentials(Uri.parse('https://other.org/a')),
-        HttpCredentials('o', 'p'),
+        const HttpCredentials('o', 'p'),
       );
       utils.clearCredentials('https://server.org/z');
       expect(
         utils.getCredentials(Uri.parse('https://server.org/a')),
-        HttpCredentials('user', 'pass'),
+        const HttpCredentials('user', 'pass'),
       );
       utils.clearAllCredentials();
       expect(
         utils.getCredentials(Uri.parse('https://other.org/a')),
-        HttpCredentials('', ''),
+        const HttpCredentials('', ''),
       );
     });
   });

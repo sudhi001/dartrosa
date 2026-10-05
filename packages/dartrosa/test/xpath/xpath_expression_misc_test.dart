@@ -84,15 +84,15 @@ void main() {
         isFalse,
       );
       expect(
-        XPathPathExpr.fromFilter(XPathFilterExpr(fn('a'), []), [
+        XPathPathExpr.fromFilter(XPathFilterExpr(fn('a'), const []), [
           step('b'),
         ]).containsFunc('c'),
         isFalse,
       );
       expect(
         XPathPathExpr.fromFilter(
-          XPathFilterExpr(fn('a'), []),
-          [],
+          XPathFilterExpr(fn('a'), const []),
+          const [],
         ).containsFunc('a'),
         isTrue,
       );

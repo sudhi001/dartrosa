@@ -209,9 +209,7 @@ final class FormEntryModel {
     final countRef = element.count;
     if (countRef == null) return;
     final contextualized = countRef.contextualize(index.reference!)!;
-    final AnswerValue? count = form.mainInstance
-        .resolveReference(contextualized)!
-        .value;
+    final count = form.mainInstance.resolveReference(contextualized)!.value;
     if (count == null) return;
     final fullCount = answerDataToInt(count);
     final ref = form.childInstanceRef(index)!;

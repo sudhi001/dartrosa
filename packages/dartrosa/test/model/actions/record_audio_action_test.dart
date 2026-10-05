@@ -4,7 +4,6 @@
 // `FormDef.recordAudioListener`, so it is set between parsing and
 // initializing the form.
 import 'package:dartrosa/src/codec/form_def_codec.dart';
-import 'package:dartrosa/src/model/form_def.dart';
 import 'package:dartrosa/src/model/instance/tree_reference.dart';
 import 'package:dartrosa/src/xform/xform_parser.dart';
 import 'package:dartrosa/testing.dart';
@@ -26,7 +25,7 @@ Future<Scenario> initWithListener(
   XFormsElement form,
   CapturingRecordAudioActionListener listener,
 ) async {
-  final FormDef formDef = await XFormParser().parse(form.asXml());
+  final formDef = await XFormParser().parse(form.asXml());
   formDef.recordAudioListener = listener.call;
   return Scenario.fromFormDef(formDef);
 }

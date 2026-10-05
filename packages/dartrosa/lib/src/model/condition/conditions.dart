@@ -18,13 +18,13 @@ import 'pivot.dart';
 /// Port of `org.javarosa.xpath.XPathConditional` (and `IConditionExpr`).
 @immutable
 final class XPathConditional {
+  /// Wraps an already parsed [expr].
+  const XPathConditional(this.expr) : xpath = null, hasNow = false;
+
   /// Parses [xpath]. Throws [XPathSyntaxException].
   XPathConditional.parse(String this.xpath)
     : expr = parseXPath(xpath),
       hasNow = xpath.contains('now()');
-
-  /// Wraps an already parsed [expr].
-  XPathConditional(this.expr) : xpath = null, hasNow = false;
 
   /// Wraps [expr], already parsed from [xpath].
   XPathConditional.fromParsed(this.expr, String this.xpath)

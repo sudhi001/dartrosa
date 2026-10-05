@@ -6,12 +6,6 @@ import 'package:dartrosa/javarosa.dart';
 ///
 /// Port of Collect's `org.odk.collect.openrosa.forms.DocumentFetchResult`.
 final class DocumentFetchResult {
-  /// A failure with [errorMessage] and [responseCode].
-  const DocumentFetchResult.error(String this.errorMessage, this.responseCode)
-    : doc = null,
-      isOpenRosaResponse = false,
-      hash = null;
-
   /// A fetched document.
   const DocumentFetchResult(
     KElement this.doc, {
@@ -19,6 +13,12 @@ final class DocumentFetchResult {
     required this.hash,
   }) : errorMessage = null,
        responseCode = 0;
+
+  /// A failure with [errorMessage] and [responseCode].
+  const DocumentFetchResult.error(String this.errorMessage, this.responseCode)
+    : doc = null,
+      isOpenRosaResponse = false,
+      hash = null;
 
   /// What went wrong, or `null` on success.
   final String? errorMessage;

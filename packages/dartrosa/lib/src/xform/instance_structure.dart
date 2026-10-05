@@ -75,7 +75,7 @@ TreeElement buildInstanceStructure(
     }
   }
   if (hasElements) {
-    int? childMultiplicity = childOptimizationsOk(node) ? 0 : null;
+    var childMultiplicity = childOptimizationsOk(node) ? 0 : null;
     for (final child in node.childElements) {
       element.addChild(
         buildInstanceStructure(

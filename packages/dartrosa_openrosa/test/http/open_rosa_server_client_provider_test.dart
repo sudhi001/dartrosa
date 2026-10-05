@@ -92,7 +92,7 @@ void main() {
       enqueueBasicChallenge(mockWebServer);
       enqueueSuccess(mockWebServer);
       final response = await subject
-          .get('http', 'Android', HttpCredentials('user', 'pass'))
+          .get('http', 'Android', const HttpCredentials('user', 'pass'))
           .makeRequest(buildRequest(mockWebServer, ''), DateTime.now());
       expect(mockWebServer.requestCount, 1);
       expect(response.statusCode, 401);
@@ -105,7 +105,7 @@ void main() {
       enqueueBasicChallenge(mockWebServer);
       enqueueSuccess(mockWebServer);
       await subject
-          .get('https', 'Android', HttpCredentials('user', 'pass'))
+          .get('https', 'Android', const HttpCredentials('user', 'pass'))
           .makeRequest(buildRequest(mockWebServer, ''), DateTime.now());
       expect(mockWebServer.requestCount, 2);
       mockWebServer.takeRequest();
@@ -122,7 +122,7 @@ void main() {
       enqueueDigestChallenge(mockWebServer);
       enqueueSuccess(mockWebServer);
       await subject
-          .get('http', 'Android', HttpCredentials('user', 'pass'))
+          .get('http', 'Android', const HttpCredentials('user', 'pass'))
           .makeRequest(buildRequest(mockWebServer, ''), DateTime.now());
       expect(mockWebServer.requestCount, 2);
       mockWebServer.takeRequest();
@@ -139,7 +139,7 @@ void main() {
       enqueueDigestChallenge(mockWebServer);
       enqueueSuccess(mockWebServer);
       await subject
-          .get('https', 'Android', HttpCredentials('user', 'pass'))
+          .get('https', 'Android', const HttpCredentials('user', 'pass'))
           .makeRequest(buildRequest(mockWebServer, ''), DateTime.now());
       expect(mockWebServer.requestCount, 2);
       mockWebServer.takeRequest();
@@ -159,7 +159,7 @@ void main() {
       final client = subject.get(
         'https',
         'Android',
-        HttpCredentials('user', 'pass'),
+        const HttpCredentials('user', 'pass'),
       );
       await client.makeRequest(buildRequest(mockWebServer, ''), DateTime.now());
       await client.makeRequest(
@@ -186,7 +186,7 @@ void main() {
       final client = subject.get(
         'http',
         'Android',
-        HttpCredentials('user', 'pass'),
+        const HttpCredentials('user', 'pass'),
       );
       await client.makeRequest(buildRequest(mockWebServer, ''), DateTime.now());
       await client.makeRequest(
@@ -215,7 +215,7 @@ void main() {
       final client = subject.get(
         'https',
         'Android',
-        HttpCredentials('user', 'pass'),
+        const HttpCredentials('user', 'pass'),
       );
       await client.makeRequest(buildRequest(mockWebServer, ''), DateTime.now());
       await client.makeRequest(
@@ -238,10 +238,10 @@ void main() {
     enqueueSuccess(mockWebServer);
     enqueueSuccess(mockWebServer);
     await subject
-        .get('http', 'Android', HttpCredentials('user', 'pass'))
+        .get('http', 'Android', const HttpCredentials('user', 'pass'))
         .makeRequest(buildRequest(mockWebServer, ''), DateTime.now());
     await subject
-        .get('http', 'Android', HttpCredentials('user', 'pass'))
+        .get('http', 'Android', const HttpCredentials('user', 'pass'))
         .makeRequest(buildRequest(mockWebServer, '/different'), DateTime.now());
     expect(mockWebServer.requestCount, 3);
     mockWebServer
@@ -261,10 +261,10 @@ void main() {
       enqueueDigestChallenge(mockWebServer);
       enqueueSuccess(mockWebServer);
       await subject
-          .get('http', 'Android', HttpCredentials('user', 'pass'))
+          .get('http', 'Android', const HttpCredentials('user', 'pass'))
           .makeRequest(buildRequest(mockWebServer, ''), DateTime.now());
       await subject
-          .get('http', 'Android', HttpCredentials('new-user', 'pass'))
+          .get('http', 'Android', const HttpCredentials('new-user', 'pass'))
           .makeRequest(
             buildRequest(mockWebServer, '/different'),
             DateTime.now(),
@@ -287,7 +287,7 @@ void main() {
           .get('http', 'Android', null)
           .makeRequest(buildRequest(mockWebServer, ''), DateTime.now());
       await subject
-          .get('http', 'Android', HttpCredentials('new-user', 'pass'))
+          .get('http', 'Android', const HttpCredentials('new-user', 'pass'))
           .makeRequest(
             buildRequest(mockWebServer, '/different'),
             DateTime.now(),
@@ -313,10 +313,10 @@ void main() {
       enqueueDigestChallenge(host2);
       enqueueSuccess(host2);
       await provider
-          .get('http', 'Android', HttpCredentials('user', 'pass'))
+          .get('http', 'Android', const HttpCredentials('user', 'pass'))
           .makeRequest(buildRequest(host1, ''), DateTime.now());
       await provider
-          .get('http', 'Android', HttpCredentials('user', 'pass'))
+          .get('http', 'Android', const HttpCredentials('user', 'pass'))
           .makeRequest(buildRequest(host2, ''), DateTime.now());
       expect(host2.requestCount, 2);
       expect(host2.takeRequest().header('Authorization'), isNull);
@@ -331,10 +331,10 @@ void main() {
       enqueueBasicChallenge(mockWebServer);
       enqueueSuccess(mockWebServer);
       await subject
-          .get('https', 'Android', HttpCredentials('user', 'pass'))
+          .get('https', 'Android', const HttpCredentials('user', 'pass'))
           .makeRequest(buildRequest(mockWebServer, ''), DateTime.now());
       await subject
-          .get('http', 'Android', HttpCredentials('user', 'pass'))
+          .get('http', 'Android', const HttpCredentials('user', 'pass'))
           .makeRequest(buildRequest(mockWebServer, ''), DateTime.now());
       expect(mockWebServer.requestCount, 3);
       mockWebServer
@@ -350,10 +350,10 @@ void main() {
       mockWebServer.enqueue(MockResponse(headers: {'set-cookie': 'blah=blah'}));
       enqueueSuccess(mockWebServer);
       await subject
-          .get('http', 'Android', HttpCredentials('user', 'pass'))
+          .get('http', 'Android', const HttpCredentials('user', 'pass'))
           .makeRequest(buildRequest(mockWebServer, ''), DateTime.now());
       await subject
-          .get('http', 'Android', HttpCredentials('user', 'pass'))
+          .get('http', 'Android', const HttpCredentials('user', 'pass'))
           .makeRequest(buildRequest(mockWebServer, ''), DateTime.now());
       mockWebServer.takeRequest();
       expect(mockWebServer.takeRequest().header('Cookie'), isNull);
@@ -364,17 +364,17 @@ void main() {
     final instance1 = subject.get(
       'http',
       'Android',
-      HttpCredentials('user', 'pass'),
+      const HttpCredentials('user', 'pass'),
     );
     final instance2 = subject.get(
       'http',
       'Android',
-      HttpCredentials('other', 'pass'),
+      const HttpCredentials('other', 'pass'),
     );
     final instance3 = subject.get(
       'http',
       'Android',
-      HttpCredentials('user', 'pass'),
+      const HttpCredentials('user', 'pass'),
     );
     expect(identical(instance1, instance2), isFalse);
     expect(identical(instance1, instance3), isTrue);
@@ -385,7 +385,7 @@ void main() {
     enqueueDigestChallenge(mockWebServer);
     enqueueSuccess(mockWebServer);
     final response = await subject
-        .get('http', 'Android', HttpCredentials('user', 'wrong'))
+        .get('http', 'Android', const HttpCredentials('user', 'wrong'))
         .makeRequest(buildRequest(mockWebServer, ''), DateTime.now());
     expect(response.statusCode, 401);
     expect(mockWebServer.requestCount, 2);
@@ -396,7 +396,7 @@ void main() {
       // RFC 2617 section 3.5's example.
       final authenticator =
           DigestAuthenticator(
-            HttpCredentials('Mufasa', 'Circle Of Life'),
+            const HttpCredentials('Mufasa', 'Circle Of Life'),
             cnonce: () => '0a4f113b',
           )..takeChallenge(
             parseAuthChallenges(

@@ -86,7 +86,7 @@ Object? _json(Object? o) => jsonDecode(jsonEncode(o));
 String exceptionMessage(Object e) => stableMessage(switch (e) {
   FormatException() => e.message,
   StateError() => e.message,
-  ArgumentError(message: final Object message) => '$message',
+  ArgumentError(:final Object message) => '$message',
   _ => '$e',
 });
 

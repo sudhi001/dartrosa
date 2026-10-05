@@ -9,7 +9,7 @@ import 'package:test/test.dart';
 
 import 'collect_test_forms.dart';
 
-String pullForm(String calculate, {String type = 'string'}) => (html(
+String pullForm(String calculate, {String type = 'string'}) => html(
   head([
     title('Pull data form'),
     model([
@@ -23,7 +23,7 @@ String pullForm(String calculate, {String type = 'string'}) => (html(
     ]),
   ]),
   body([input('/data/question'), input('/data/calculate')]),
-)).asXml();
+).asXml();
 
 void main() {
   group('DynamicPreLoadedDataPullTest', () {

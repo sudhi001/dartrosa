@@ -1,6 +1,5 @@
 // ODK Collect test forms and media (test-forms/src/main/resources),
 // embedded so the tests also run on the web.
-// ignore_for_file: lines_longer_than_80_chars
 
 /// Forms by file name.
 const forms = <String, String>{

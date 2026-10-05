@@ -19,6 +19,7 @@ import 'xform_answer_data_serializer.dart';
 @Deprecated('Deprecated in JavaRosa; use CompactSerializingVisitor')
 final class SMSSerializingVisitor {
   /// Creates a serializer.
+  @Deprecated('Deprecated in JavaRosa; use CompactSerializingVisitor')
   SMSSerializingVisitor();
 
   String _smsText = '';

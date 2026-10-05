@@ -632,7 +632,7 @@ void entitiesRepositoryContract(
     );
   }, skip: 'https://github.com/getodk/collect/issues/6615');
 
-  test('#updateList creates list if doesn\'t exist', () {
+  test("#updateList creates list if doesn't exist", () {
     final repository = buildSubject()
       ..updateList('blah', 'abcd', needsApproval: false);
     expect(repository.getLists(), hasLength(1));

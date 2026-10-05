@@ -50,7 +50,7 @@ void main() {
       'https://x.org/a?b=c%20d&deviceID=myDeviceId#frag',
     );
     expect(call.contentType, 'text/xml');
-    expect(call.credentials, HttpCredentials('', ''));
+    expect(call.credentials, const HttpCredentials('', ''));
   });
 
   test('fetch rejects URLs without a host', () {

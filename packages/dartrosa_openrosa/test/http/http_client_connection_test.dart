@@ -75,7 +75,7 @@ void main() {
       'when response is gzipped returns body',
       () {},
       skip:
-          'Content decoding is the http.Client\'s job (dart:io and browsers '
+          "Content decoding is the http.Client's job (dart:io and browsers "
           'decompress transparently, as OkHttp does).',
     );
 

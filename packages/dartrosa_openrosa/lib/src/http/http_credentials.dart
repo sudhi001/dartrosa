@@ -17,7 +17,7 @@ abstract interface class HttpCredentialsInterface {
 @immutable
 final class HttpCredentials implements HttpCredentialsInterface {
   /// Creates credentials.
-  HttpCredentials(String? username, String? password)
+  const HttpCredentials(String? username, String? password)
     : username = username ?? '',
       password = password ?? '';
 

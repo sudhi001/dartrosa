@@ -386,7 +386,9 @@ final class GeoPointValue extends AnswerValue implements ExprDataType {
   }
 
   /// The empty point (0 0), as JavaRosa's default `GeoPointData()`.
-  GeoPointValue.empty() : _parts = const [0, 0, 0, 0], length = requiredParts;
+  const GeoPointValue.empty()
+    : _parts = const [0, 0, 0, 0],
+      length = requiredParts;
 
   /// Parses space-separated numbers. As in JavaRosa the result always has
   /// four parts (missing ones are 0).

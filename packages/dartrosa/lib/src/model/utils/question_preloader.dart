@@ -105,7 +105,7 @@ final class _DatePreloadHandler implements PreloadHandler {
   AnswerValue? handlePreload(String? params) {
     if (params == null) {
       // JavaRosa fails with a NullPointerException.
-      throw ArgumentError('invalid preload params for preload mode \'date\'');
+      throw ArgumentError("invalid preload params for preload mode 'date'");
     }
     DateTime? date;
     if (params == 'today') {

@@ -106,7 +106,7 @@ final class ExternalDataHandlerSearch extends ExternalDataHandler {
       filterValue!,
       trailingSpace: true,
     );
-    final ExternalDataCondition? where = searchRows && useFilter
+    final where = searchRows && useFilter
         ? LikeAndEquals(like(), filter())
         : searchRows
         ? like()

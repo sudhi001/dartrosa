@@ -52,7 +52,7 @@ final class ParkMiller implements _DoubleSource {
 /// A shuffled copy of [input]: seeded with [seed] (a Java `long` as a
 /// double) when given, otherwise random.
 List<T> shuffle<T>(List<T> input, [double? seed]) {
-  final _DoubleSource random = seed == null ? _DartRandom() : ParkMiller(seed);
+  final random = seed == null ? _DartRandom() : ParkMiller(seed);
   final size = input.length;
   final output = List<T?>.filled(size, null);
   for (var i = 0; i < size; i++) {

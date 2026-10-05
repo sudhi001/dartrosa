@@ -28,8 +28,8 @@ void main() {
 
     test('unhandled and unsupported', () {
       expect(
-        XPathUnhandledException('function \'floor\'').message,
-        'XPath evaluation: cannot handle function \'floor\'',
+        XPathUnhandledException("function 'floor'").message,
+        "XPath evaluation: cannot handle function 'floor'",
       );
       expect(
         XPathUnsupportedException('axis').message,

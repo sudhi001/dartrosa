@@ -190,7 +190,7 @@ void main() {
       );
     });
 
-    test('the element signature source follows Collect\'s order', () {
+    test("the element signature source follows Collect's order", () {
       final info = _info(formVersion: null);
       generateEncryptedSubmission(
         info,
@@ -405,7 +405,7 @@ void main() {
       );
     });
 
-    test('instanceId overrides the instance\'s', () async {
+    test("instanceId overrides the instance's", () async {
       final session = await start(_withTestKey(collectEncryptedForm));
       final info = getEncryptedFormInformation(
         session.definition.formDef,

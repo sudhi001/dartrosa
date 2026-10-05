@@ -78,10 +78,6 @@ final class NumberPickerState {
 /// the first month). Call [setDay], [setMonth] and [setYear] as the user
 /// turns the spinners; [gregorianDate] is what OK saves.
 sealed class CustomDatePickerModel {
-  CustomDatePickerModel._(this.details, DateTime date) : _initialDate = date {
-    _setUpDatePicker();
-  }
-
   /// The picker for [details] (a custom calendar), showing [date] (a
   /// Gregorian date; its time of day is ignored).
   factory CustomDatePickerModel(DatePickerDetails details, DateTime date) =>
@@ -95,6 +91,10 @@ sealed class CustomDatePickerModel {
         ),
         final MyanmarCalendar c => _MyanmarPickerModel(details, date, c),
       };
+
+  CustomDatePickerModel._(this.details, DateTime date) : _initialDate = date {
+    _setUpDatePicker();
+  }
 
   /// The picker's calendar and mode.
   final DatePickerDetails details;

@@ -286,14 +286,14 @@ void main() {
             'people',
             stringAnswer(scenario, '/data/people/meta/entity/@id'),
             'Tom Wambsgans',
-            [('name', 'Tom Wambsgans')],
+            const [('name', 'Tom Wambsgans')],
           ),
           FormEntity(
             action,
             'cars',
             stringAnswer(scenario, '/data/cars/meta/entity/@id'),
             'Range Rover',
-            [('car_model', 'Range Rover')],
+            const [('car_model', 'Range Rover')],
           ),
         ]),
       );
@@ -321,14 +321,14 @@ void main() {
               'people',
               stringAnswer(scenario, '/data/people[1]/meta/entity/@id'),
               'Tom Wambsgans',
-              [('name', 'Tom Wambsgans')],
+              const [('name', 'Tom Wambsgans')],
             ),
             FormEntity(
               action,
               'people',
               stringAnswer(scenario, '/data/people[2]/meta/entity/@id'),
               'Shiv Roy',
-              [('name', 'Shiv Roy')],
+              const [('name', 'Shiv Roy')],
             ),
           ]),
         );

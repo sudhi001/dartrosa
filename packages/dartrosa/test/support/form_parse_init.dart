@@ -1,7 +1,6 @@
 /// Port of JavaRosa's `org.javarosa.test.FormParseInit` (VM only).
 library;
 
-import 'package:dartrosa/src/form_api/form_entry_caption.dart';
 import 'package:dartrosa/src/form_api/form_entry_controller.dart';
 import 'package:dartrosa/src/form_api/form_entry_model.dart';
 import 'package:dartrosa/src/model/form_def.dart';
@@ -40,7 +39,7 @@ final class FormParseInit {
 
   /// The question at the current index, if any.
   QuestionDef? get currentQuestion {
-    final FormEntryCaption caption = formEntryModel.captionPrompt();
+    final caption = formEntryModel.captionPrompt();
     final element = caption.formElement;
     return element is QuestionDef ? element : null;
   }
