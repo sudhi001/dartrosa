@@ -5,8 +5,10 @@ import 'dart:io';
 
 import 'package:test/test.dart';
 
-/// The repository root (tests run from packages/dartrosa).
-final Directory repoRoot = Directory.current.parent.parent;
+import '../support/forms.dart' show conformanceDir;
+
+/// The repository root (found from the package or the root directory).
+final Directory repoRoot = conformanceDir().parent;
 
 String _normalize(String code) => code
     .split('\n')
