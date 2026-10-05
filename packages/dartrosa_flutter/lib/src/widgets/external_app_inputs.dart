@@ -100,13 +100,11 @@ class _ExternalAppInputState extends State<ExternalAppInput> {
       );
     }
     final hidden = Appearance.parse(node.appearance).has('hidden-answer');
-    return Row(
-      children: [
-        Expanded(
-          child: hidden
-              ? const SizedBox()
-              : Text(numberDisplay(context, node) ?? ''),
-        ),
+    return AnswerWithActions(
+      answer: hidden
+          ? const SizedBox.shrink()
+          : Text(numberDisplay(context, node) ?? ''),
+      actions: [
         if (!node.isReadonly)
           FilledButton.tonalIcon(
             icon: const Icon(Icons.open_in_new),

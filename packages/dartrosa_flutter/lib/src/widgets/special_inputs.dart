@@ -53,9 +53,9 @@ class BearingInput extends StatelessWidget {
     final strings = XFormLocalizations.of(context);
     final text = node.displayValue;
     final hasValue = text != null && text.isNotEmpty;
-    return Row(
-      children: [
-        Expanded(child: Text(text ?? '')),
+    return AnswerWithActions(
+      answer: Text(text ?? ''),
+      actions: [
         if (!node.isReadonly)
           FilledButton.tonalIcon(
             icon: const Icon(Icons.explore_outlined),
@@ -110,12 +110,14 @@ class CounterInput extends StatelessWidget {
               ? () => set(value - 1)
               : null,
         ),
-        ConstrainedBox(
-          constraints: const BoxConstraints(minWidth: 96),
-          child: Text(
-            value?.toString() ?? '',
-            textAlign: TextAlign.center,
-            style: Theme.of(context).textTheme.headlineMedium,
+        Flexible(
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(minWidth: 96),
+            child: Text(
+              value?.toString() ?? '',
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.headlineMedium,
+            ),
           ),
         ),
         IconButton.filledTonal(

@@ -7,6 +7,7 @@ import '../localizations.dart';
 import '../markdown.dart';
 import '../theme.dart';
 import '../xform_scope.dart';
+import 'common.dart';
 import 'date_input.dart';
 import 'external_app_inputs.dart';
 import 'label.dart';
@@ -296,9 +297,9 @@ class _Captured extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (!available) return TextQuestionInput(node);
-    return Row(
-      children: [
-        Expanded(child: Text(node.displayValue ?? '—')),
+    return AnswerWithActions(
+      answer: Text(node.displayValue ?? '—'),
+      actions: [
         if (!node.isReadonly)
           FilledButton.tonalIcon(
             icon: Icon(icon),

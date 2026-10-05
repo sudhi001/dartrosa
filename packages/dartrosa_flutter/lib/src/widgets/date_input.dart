@@ -122,9 +122,9 @@ class DateTimeInput extends StatelessWidget {
   Widget build(BuildContext context) {
     final appearance = Appearance.parse(node.appearance);
     final strings = XFormLocalizations.of(context);
-    return Row(
-      children: [
-        Expanded(child: Text(_display(context, appearance))),
+    return AnswerWithActions(
+      answer: Text(_display(context, appearance)),
+      actions: [
         if (!node.isReadonly) ...[
           if (node.value != null)
             IconButton(
