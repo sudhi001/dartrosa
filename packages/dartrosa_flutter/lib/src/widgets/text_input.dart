@@ -40,8 +40,9 @@ class _TextQuestionInputState extends State<TextQuestionInput> {
   void didUpdateWidget(covariant TextQuestionInput oldWidget) {
     super.didUpdateWidget(oldWidget);
     // Recalculated (or read-only) values replace the text.
+    if (!widget.node.isReadonly) return;
     final value = _display();
-    if (widget.node.isReadonly && _text.text != value) _text.text = value;
+    if (_text.text != value) _text.text = value;
   }
 
   @override
