@@ -46,7 +46,7 @@ question, **Do not add** moves past the repeat.
 
 ## jr:count
 
-<img src="../images/screenshots/widgets/repeat_count_pager.png" width="270" alt="A question of a jr:count repeat instance on a pager screen">
+<img src="../images/screenshots/widgets/repeat_count.png" width="360" alt="The count 2, then the cards Plot 1/2 and Plot 2/2 without add or delete buttons"> <img src="../images/screenshots/widgets/repeat_count_pager.png" width="270" alt="A question of a jr:count repeat instance on a pager screen">
 
 | type | name | label | repeat_count |
 |---|---|---|---|
@@ -59,10 +59,12 @@ question, **Do not add** moves past the repeat.
 <repeat nodeset="/data/plot" jr:count="/data/plots">
 ```
 
-The pager creates as many instances as the count and never asks to add
-more. Known gap: scroll mode doesn't create the counted instances; it
-shows the instances already in the instance and an add button, so use
-the pager for forms with `jr:count` repeats.
+There are as many instances as the count, without add or delete
+buttons, and the pager never asks to add more. The pager creates each
+instance as it moves into it, as JavaRosa does; scroll mode creates them
+all when the form opens and whenever the count goes up
+(`XFormController.createCountedRepeatInstances`). As in JavaRosa,
+instances beyond a count that went down stay.
 
 ## jr:noAddRemove
 

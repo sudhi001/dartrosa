@@ -27,8 +27,24 @@ Form: [`forms/notes.xml`](../../packages/dartrosa_flutter/test/screenshots/forms
 </input>
 ```
 
-A note is a read-only text input: only its label and hints show.
-`<output>` values update as the answers they read change.
+A note is a read-only text input without a value: only its label and
+hints show. `<output>` values update as the answers they read change.
+
+<img src="../images/screenshots/widgets/read_only_value.png" width="360" alt="A read-only Greeting question showing Karibu, Amina!">
+
+| type | name | label | read_only | calculation |
+|---|---|---|---|---|
+| text | greeting | Greeting | yes | concat('Karibu, ', ${name}, '!') |
+
+```xml
+<bind nodeset="/data/greeting" type="string" readonly="true()"
+      calculate="concat('Karibu, ', /data/name, '!')"/>
+```
+
+A read-only text *with* a value (a calculation, a default) shows the
+value under its label, as Collect does: plain text in the theme's
+`onSurface` color, read as read-only by screen readers and selectable
+with the mouse on desktops and in browsers.
 
 ## Markdown in labels
 

@@ -517,6 +517,7 @@ final List<_Crops> _crops = [
     'notes',
     crops: {
       'note': ['name', 'welcome'],
+      'read_only_value': ['greeting'],
       'note_markdown': ['markdown'],
       'hint': ['hinted'],
       'guidance_hint': ['guided'],
@@ -539,6 +540,7 @@ final List<_Crops> _crops = [
     'repeats',
     crops: {
       'repeat': ['member'],
+      'repeat_count': ['plots', 'plot'],
       'repeat_no_add_remove': ['visit'],
     },
     dark: {'repeat'},

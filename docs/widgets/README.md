@@ -73,7 +73,7 @@ states apply to every control:
 |---|---|---|
 | Empty | the input without a value (`—` for captured values) | no answer yet |
 | Answered | the value | the instance, an answer, a calculation |
-| Read-only | the value, inputs disabled | `readonly` (a read-only *text* question is a note: label only) |
+| Read-only | the value, inputs disabled (text and numbers: the value as text) | `readonly` (a read-only *text* question without a value is a note: label only) |
 | Required, missing | red `*` before the label; after Next or Finalize, the error | `required`, message from `jr:requiredMsg` |
 | Constraint failed | the typed value stays, the error appears as you type | `constraint`, message from `jr:constraintMsg` |
 | Not relevant | not shown | `relevant` |

@@ -119,9 +119,10 @@ the answer is `1250000`.
       jr:constraintMsg="Age must be between 0 and 120."/>
 ```
 
-- **Read-only** numbers show a disabled field. A read-only *text*
-  question is a note: only its label shows, so put a calculated value in
-  the label (`${name}`) as in [Notes](notes-labels-and-triggers.md#notes).
+- **Read-only** text and numbers show the answer as text in place of
+  the field (`ReadOnlyAnswer`), as Collect does: a read-only number
+  without an answer shows `—`, a read-only text without one is a
+  [note](notes-labels-and-triggers.md#notes) (label only).
 - **Required** questions show a red `*`; the error appears when Next or
   Finalize is tapped while it is empty.
 - **Constraint**: the typed `150` stays in the field, outlined in red,
