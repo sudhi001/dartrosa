@@ -1,7 +1,28 @@
 # dartrosa_flutter
 
-Flutter renderer for [DartRosa](../dartrosa), the pure-Dart ODK XForms
+Flutter renderer for [DartRosa](https://github.com/sudhi001/dartrosa/tree/main/packages/dartrosa), the pure-Dart ODK XForms
 engine.
+
+## Install
+
+DartRosa is not on pub.dev yet; depend on it from Git (or a local path):
+
+```yaml
+dependencies:
+  dartrosa_flutter:
+    git:
+      url: https://github.com/sudhi001/dartrosa
+      path: packages/dartrosa_flutter
+```
+
+`dartrosa_flutter` re-exports `package:dartrosa/dartrosa.dart`. The
+DartRosa packages name each other by version, so until they are
+published an app using them from Git or a path also needs
+`dependency_overrides` pointing `dartrosa`, `dartrosa_calendars` and
+`dartrosa_external_data` (and any other DartRosa package it uses) at the
+same source, as `example/pubspec.yaml` does.
+
+## Usage
 
 ```dart
 final definition = await FormDefinition.parse(xformXml);
@@ -33,7 +54,7 @@ XFormView(
 |---|---|
 | text | `multiline`, `numbers`, `masked` (also `secret`), `ex:` (external app), `printer` (also `printer:...`), `url` (opened with `XFormDelegates.openLink`) |
 | integer / decimal / long | `thousands-sep` (the locale's grouping separator, a space where it is `.`; display only, the answer has no separators), `ex:`, `counter` (integer), `bearing` (decimal, from `XFormDelegates.compassBearing`; typed otherwise) |
-| date | `no-calendar` (typed date), `month-year`, `year` (saved as the 1st) |
+| date | `no-calendar` (typed date), `month-year`, `year` (saved as the 1st); calendars `ethiopian`, `coptic`, `islamic`, `bikram-sambat`, `myanmar`, `persian`, `buddhist` (shown as Collect labels them and picked with that calendar's spinners, via [dartrosa_calendars](https://github.com/sudhi001/dartrosa/tree/main/packages/dartrosa_calendars); the Gregorian date is stored) |
 | time / dateTime | pickers |
 | select one | radio list, `minimal` (drop-down), `quick` (auto-advance in pager mode), `autocomplete`, `columns`, `columns-N`, `columns-pack`, `no-buttons`, `likert`, `label`, `list-nolabel`, `list`; Collect's old names `compact`, `quickcompact`, `compact-N`, `horizontal`, `horizontal-compact`; `image-map`; `map` (through `XFormDelegates.selectFromMap`) |
 | select multiple | check boxes, `minimal` (dialog), `autocomplete`, `columns*`, `no-buttons`, `label`, `list-nolabel`, `list`, `image-map` |
@@ -46,7 +67,7 @@ XFormView(
 
 Choice images use `delegates.image(uri)`. Selects with a `search(...)`
 appearance get their choices from CSV form media through
-[dartrosa_external_data](../dartrosa_external_data) (parse the form with
+[dartrosa_external_data](https://github.com/sudhi001/dartrosa/tree/main/packages/dartrosa_external_data) (parse the form with
 its `ExternalDataPlugin`); combine it with `autocomplete`, `minimal`, ...
 as in Collect (bare `search` is the old name of `autocomplete`). A
 missing CSV shows Collect's warning instead of choices. `image-map` selects show the
@@ -85,3 +106,16 @@ Golden tests (`test/golden_test.dart`, light/dark, LTR/RTL) use the
 default test font; refresh them with `flutter test --update-goldens`.
 
 Run the example: `cd example && flutter create . && flutter run`.
+
+## Documentation
+
+- [Getting started](https://github.com/sudhi001/dartrosa/blob/main/docs/GETTING_STARTED.md)
+- [Compatibility matrix](https://github.com/sudhi001/dartrosa/blob/main/docs/COMPATIBILITY.md)
+- [Plugins and extension points](https://github.com/sudhi001/dartrosa/blob/main/docs/PLUGINS.md)
+- [Migrating from JavaRosa](https://github.com/sudhi001/dartrosa/blob/main/docs/MIGRATING_FROM_JAVAROSA.md)
+
+## License
+
+Apache License 2.0 (see [LICENSE](LICENSE)). The widgets follow ODK
+Collect's behaviour; the engine is a port of JavaRosa. See
+[NOTICE.md](https://github.com/sudhi001/dartrosa/blob/main/NOTICE.md).
