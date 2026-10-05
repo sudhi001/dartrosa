@@ -91,7 +91,12 @@ back to the default widget (with one `debugPrint` per appearance).
   ...">`. Guidance hints are shown per `XFormView.guidanceHints` (`yes`,
   `collapsed`, `no`).
 - **Theme**: add an `XFormTheme` to `ThemeData.extensions` (page padding,
-  question spacing, error color, card style).
+  question spacing, error color, card style, and `maxContentWidth`, which
+  caps and centers the form on tablets and desktops in both modes).
+- **Performance**: answering a question rebuilds that question and the
+  questions whose state depends on it, not the form; scroll mode builds
+  questions lazily (`test/rebuild_test.dart` prints the rebuild counts of
+  a 1,000-question form). The tests run with Flutter's leak tracker.
 - **Strings**: buttons, prompts and default messages come from
   `XFormLocalizations` (English); subclass it and register a
   `LocalizationsDelegate` for other languages.

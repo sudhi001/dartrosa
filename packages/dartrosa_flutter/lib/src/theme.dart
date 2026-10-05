@@ -19,6 +19,7 @@ class XFormTheme extends ThemeExtension<XFormTheme> {
     this.cardShape,
     this.cardMargin = const EdgeInsets.symmetric(vertical: 8),
     this.cardPadding = const EdgeInsets.all(16),
+    this.maxContentWidth,
   });
 
   /// Padding around a page (pager screen or scrolling form).
@@ -45,9 +46,32 @@ class XFormTheme extends ThemeExtension<XFormTheme> {
   /// Padding inside group and repeat-instance cards.
   final EdgeInsets cardPadding;
 
+  /// The widest the form's content gets, [pagePadding] not included;
+  /// `null` (the default) lets it fill the width.
+  ///
+  /// On tablets and desktops a form as wide as the window has lines too
+  /// long to read and controls far apart; with a maximum (e.g. 840, a
+  /// Material expanded window) the questions, the pager's buttons and the
+  /// scroll mode's finish button stay that wide, centered. In scroll mode
+  /// the whole width still scrolls.
+  final double? maxContentWidth;
+
   /// The theme's form theme, or the defaults.
   static XFormTheme of(BuildContext context) =>
       Theme.of(context).extension<XFormTheme>() ?? const XFormTheme();
+
+  /// [pagePadding] widened so that content of at most [maxContentWidth]
+  /// is centered in [width].
+  EdgeInsets pagePaddingFor(double width) {
+    final max = maxContentWidth;
+    if (max == null || !width.isFinite) return pagePadding;
+    final extra = (width - pagePadding.horizontal - max) / 2;
+    if (extra <= 0) return pagePadding;
+    return pagePadding.copyWith(
+      left: pagePadding.left + extra,
+      right: pagePadding.right + extra,
+    );
+  }
 
   /// The error color in [context].
   Color errorColorOf(BuildContext context) =>
@@ -63,6 +87,7 @@ class XFormTheme extends ThemeExtension<XFormTheme> {
     ShapeBorder? cardShape,
     EdgeInsets? cardMargin,
     EdgeInsets? cardPadding,
+    double? maxContentWidth,
   }) => XFormTheme(
     pagePadding: pagePadding ?? this.pagePadding,
     questionSpacing: questionSpacing ?? this.questionSpacing,
@@ -72,6 +97,7 @@ class XFormTheme extends ThemeExtension<XFormTheme> {
     cardShape: cardShape ?? this.cardShape,
     cardMargin: cardMargin ?? this.cardMargin,
     cardPadding: cardPadding ?? this.cardPadding,
+    maxContentWidth: maxContentWidth ?? this.maxContentWidth,
   );
 
   @override
@@ -86,6 +112,7 @@ class XFormTheme extends ThemeExtension<XFormTheme> {
       cardShape: ShapeBorder.lerp(cardShape, other.cardShape, t),
       cardMargin: EdgeInsets.lerp(cardMargin, other.cardMargin, t)!,
       cardPadding: EdgeInsets.lerp(cardPadding, other.cardPadding, t)!,
+      maxContentWidth: lerpDouble(maxContentWidth, other.maxContentWidth, t),
     );
   }
 }

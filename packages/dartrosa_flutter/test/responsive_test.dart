@@ -122,12 +122,14 @@ Future<void> _pump(
   required double textScale,
   double height = 640,
   XFormMode mode = XFormMode.scroll,
+  XFormTheme? theme,
 }) async {
   tester.view.physicalSize = Size(width, height);
   tester.view.devicePixelRatio = 1;
   addTearDown(tester.view.reset);
   await tester.pumpWidget(
     MaterialApp(
+      theme: theme == null ? null : ThemeData(extensions: [theme]),
       builder: (context, child) => MediaQuery(
         data: MediaQuery.of(
           context,
@@ -189,4 +191,87 @@ void main() {
       expect(tester.takeException(), isNull);
     });
   }
+
+  group('maxContentWidth at 1280dp', () {
+    const capped = XFormTheme(maxContentWidth: 600);
+    Rect firstField(WidgetTester tester) =>
+        tester.getRect(find.byType(TextField).first);
+
+    testWidgets('scroll mode: content fills the width by default', (
+      tester,
+    ) async {
+      await _pump(tester, await _questions(), width: 1280, textScale: 1);
+      // 16dp page padding on both sides.
+      expect(firstField(tester).width, 1280 - 32);
+    });
+
+    testWidgets('scroll mode: content is capped and centered', (tester) async {
+      await _pump(
+        tester,
+        await _questions(),
+        width: 1280,
+        textScale: 1,
+        theme: capped,
+      );
+      final field = firstField(tester);
+      expect(field.width, 600);
+      expect(field.center.dx, 640);
+      expect(tester.takeException(), isNull);
+
+      // The margins still scroll the form.
+      final position = tester
+          .state<ScrollableState>(find.byType(Scrollable).first)
+          .position;
+      await tester.dragFrom(const Offset(40, 400), const Offset(0, -300));
+      await tester.pumpAndSettle();
+      expect(position.pixels, greaterThan(0));
+
+      await tester.scrollUntilVisible(
+        find.text('Finish'),
+        500,
+        scrollable: find.byType(Scrollable).first,
+      );
+      expect(tester.getRect(find.byType(FilledButton).last).width, 600);
+    });
+
+    testWidgets('pager mode: page and buttons are capped and centered', (
+      tester,
+    ) async {
+      final session = await formSession(
+        '<a/><b/>',
+        '',
+        '<input ref="/data/a"><label>A</label></input>'
+            '<input ref="/data/b"><label>B</label></input>',
+      );
+      await _pump(
+        tester,
+        session,
+        width: 1280,
+        textScale: 1,
+        mode: XFormMode.pager,
+        theme: capped,
+      );
+      final field = firstField(tester);
+      expect(field.width, 600);
+      expect(field.center.dx, 640);
+      // The buttons stay at the content's edges (8dp in from them).
+      expect(
+        tester.getRect(find.byWidgetPredicate((w) => w is TextButton)).left,
+        lessThan(340),
+      );
+      expect(
+        tester.getRect(find.byWidgetPredicate((w) => w is TextButton)).left,
+        greaterThan(316),
+      );
+      expect(
+        tester.getRect(find.byWidgetPredicate((w) => w is FilledButton)).right,
+        greaterThan(900),
+      );
+      expect(
+        tester.getRect(find.byWidgetPredicate((w) => w is FilledButton)).right,
+        lessThan(964),
+      );
+      expect(tester.takeException(), isNull);
+    });
+  });
 }

@@ -139,5 +139,23 @@ void main() {
     expect(b.errorColor, Colors.red);
     expect(a.lerp(b, 0.5).questionSpacing, 15);
     expect(a.lerp(null, 0.5), same(a));
+    expect(a.maxContentWidth, isNull);
+    final c = a.copyWith(maxContentWidth: 600);
+    expect(c.maxContentWidth, 600);
+    expect(c.copyWith(questionSpacing: 1).maxContentWidth, 600);
+    expect(c.lerp(a.copyWith(maxContentWidth: 800), 0.5).maxContentWidth, 700);
+  });
+
+  test('XFormTheme.pagePaddingFor centers content of maxContentWidth', () {
+    const theme = XFormTheme(pagePadding: EdgeInsets.all(16));
+    expect(theme.pagePaddingFor(1280), const EdgeInsets.all(16));
+    final capped = theme.copyWith(maxContentWidth: 600);
+    expect(
+      capped.pagePaddingFor(1280),
+      const EdgeInsets.fromLTRB(340, 16, 340, 16),
+    );
+    // Narrower than the maximum: the page padding only.
+    expect(capped.pagePaddingFor(400), const EdgeInsets.all(16));
+    expect(capped.pagePaddingFor(double.infinity), const EdgeInsets.all(16));
   });
 }

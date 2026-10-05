@@ -177,7 +177,9 @@ draft: see [Save and resume drafts](save-and-resume-drafts.md).
 ## 5. Match your app's look and language
 
 Add an `XFormTheme` to your theme to change spacing, the card style and
-the error color; everything else follows your `ThemeData`. The button
+the error color, and to cap the width of the form on large screens
+(`maxContentWidth`; by default the form fills the width); everything
+else follows your `ThemeData`. The button
 labels and default messages come from `XFormLocalizations`, in English
 by default. To translate them, subclass it and register a delegate:
 
@@ -211,7 +213,10 @@ class FrenchXFormLocalizationsDelegate
 Widget buildApp(FormSession session, Directory media) => MaterialApp(
   theme: ThemeData(
     colorSchemeSeed: Colors.indigo,
-    extensions: const [XFormTheme(pagePadding: EdgeInsets.all(24))],
+    extensions: const [
+      // On tablets and desktops, questions at most 840dp wide, centered.
+      XFormTheme(pagePadding: EdgeInsets.all(24), maxContentWidth: 840),
+    ],
   ),
   locale: const Locale('fr'),
   supportedLocales: const [Locale('en'), Locale('fr')],

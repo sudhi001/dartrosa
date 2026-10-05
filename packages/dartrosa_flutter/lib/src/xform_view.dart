@@ -143,23 +143,26 @@ class _ScrollForm extends StatelessWidget {
       builder: (context, _) {
         final nodes = scope.controller.session.root.visibleChildren;
         Map<Key, int>? positions;
+        final theme = XFormTheme.of(context);
         // Built lazily: forms can have hundreds of questions.
-        return ListView.builder(
-          padding: XFormTheme.of(context).pagePadding,
-          itemCount: nodes.length + 1,
-          // Questions shown or hidden above keep the others' elements.
-          findChildIndexCallback: (key) => (positions ??= {
-            for (var i = 0; i < nodes.length; i++) nodeKey(nodes[i]): i,
-          })[key],
-          itemBuilder: (context, i) => i < nodes.length
-              ? nodeWidget(nodes[i])
-              : Padding(
-                  padding: const EdgeInsets.only(top: 16),
-                  child: FilledButton(
-                    onPressed: onFinalize,
-                    child: Text(XFormLocalizations.of(context).finish),
+        return LayoutBuilder(
+          builder: (context, constraints) => ListView.builder(
+            padding: theme.pagePaddingFor(constraints.maxWidth),
+            itemCount: nodes.length + 1,
+            // Questions shown or hidden above keep the others' elements.
+            findChildIndexCallback: (key) => (positions ??= {
+              for (var i = 0; i < nodes.length; i++) nodeKey(nodes[i]): i,
+            })[key],
+            itemBuilder: (context, i) => i < nodes.length
+                ? nodeWidget(nodes[i])
+                : Padding(
+                    padding: const EdgeInsets.only(top: 16),
+                    child: FilledButton(
+                      onPressed: onFinalize,
+                      child: Text(XFormLocalizations.of(context).finish),
+                    ),
                   ),
-                ),
+          ),
         );
       },
     );
@@ -277,28 +280,36 @@ class _PagerFormState extends State<_PagerForm> {
       builder: (context, _) {
         final event = _nav.event;
         final Widget page = switch (event) {
-          FormEntryEvent.endOfForm => _EndPage(onFinalize: widget.onFinalize),
-          FormEntryEvent.promptNewRepeat => _NewRepeatPage(
-            node: _nav.current,
-            onAdd: () => setState(() {
-              _nav.addRepeatAndEnter();
-              _forward();
-            }),
-            onSkip: () => setState(_forward),
+          FormEntryEvent.endOfForm => _MaxContentWidth(
+            child: _EndPage(onFinalize: widget.onFinalize),
           ),
-          _ => SingleChildScrollView(
-            padding: XFormTheme.of(context).pagePadding,
-            // `quick` selects advance only when alone on the screen.
-            child: _nav.current is QuestionNode
-                ? XFormPagerScope(
-                    advance: _next,
-                    child: inIntentGroup(
-                      context,
-                      _nav.current as QuestionNode,
-                      nodeWidget(_nav.current),
-                    ),
-                  )
-                : nodeWidget(_nav.current),
+          FormEntryEvent.promptNewRepeat => _MaxContentWidth(
+            child: _NewRepeatPage(
+              node: _nav.current,
+              onAdd: () => setState(() {
+                _nav.addRepeatAndEnter();
+                _forward();
+              }),
+              onSkip: () => setState(_forward),
+            ),
+          ),
+          _ => LayoutBuilder(
+            builder: (context, constraints) => SingleChildScrollView(
+              padding: XFormTheme.of(
+                context,
+              ).pagePaddingFor(constraints.maxWidth),
+              // `quick` selects advance only when alone on the screen.
+              child: _nav.current is QuestionNode
+                  ? XFormPagerScope(
+                      advance: _next,
+                      child: inIntentGroup(
+                        context,
+                        _nav.current as QuestionNode,
+                        nodeWidget(_nav.current),
+                      ),
+                    )
+                  : nodeWidget(_nav.current),
+            ),
           ),
         };
         return Column(
@@ -306,30 +317,55 @@ class _PagerFormState extends State<_PagerForm> {
             Expanded(child: page),
             SafeArea(
               top: false,
-              child: Padding(
-                padding: const EdgeInsets.all(8),
-                child: Row(
-                  children: [
-                    TextButton.icon(
-                      icon: const Icon(Icons.chevron_left),
-                      label: Text(XFormLocalizations.of(context).back),
-                      onPressed: () => setState(_back),
-                    ),
-                    const Spacer(),
-                    if (event != FormEntryEvent.endOfForm &&
-                        event != FormEntryEvent.promptNewRepeat)
-                      FilledButton.icon(
-                        icon: const Icon(Icons.chevron_right),
-                        label: Text(XFormLocalizations.of(context).next),
-                        onPressed: _next,
+              child: _MaxContentWidth(
+                child: Padding(
+                  padding: const EdgeInsets.all(8),
+                  child: Row(
+                    children: [
+                      TextButton.icon(
+                        icon: const Icon(Icons.chevron_left),
+                        label: Text(XFormLocalizations.of(context).back),
+                        onPressed: () => setState(_back),
                       ),
-                  ],
+                      const Spacer(),
+                      if (event != FormEntryEvent.endOfForm &&
+                          event != FormEntryEvent.promptNewRepeat)
+                        FilledButton.icon(
+                          icon: const Icon(Icons.chevron_right),
+                          label: Text(XFormLocalizations.of(context).next),
+                          onPressed: _next,
+                        ),
+                    ],
+                  ),
                 ),
               ),
             ),
           ],
         );
       },
+    );
+  }
+}
+
+/// [child] at most as wide as the theme's content (with its page
+/// padding), centered.
+class _MaxContentWidth extends StatelessWidget {
+  const _MaxContentWidth({required this.child});
+
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = XFormTheme.of(context);
+    final max = theme.maxContentWidth;
+    if (max == null) return child;
+    return Center(
+      child: ConstrainedBox(
+        constraints: BoxConstraints(
+          maxWidth: max + theme.pagePadding.horizontal,
+        ),
+        child: child,
+      ),
     );
   }
 }

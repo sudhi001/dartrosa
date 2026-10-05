@@ -144,7 +144,10 @@ class FrenchXFormLocalizationsDelegate
 Widget buildApp(FormSession session, Directory media) => MaterialApp(
   theme: ThemeData(
     colorSchemeSeed: Colors.indigo,
-    extensions: const [XFormTheme(pagePadding: EdgeInsets.all(24))],
+    extensions: const [
+      // On tablets and desktops, questions at most 840dp wide, centered.
+      XFormTheme(pagePadding: EdgeInsets.all(24), maxContentWidth: 840),
+    ],
   ),
   locale: const Locale('fr'),
   supportedLocales: const [Locale('en'), Locale('fr')],
