@@ -172,7 +172,7 @@ while (nav.next() != FormEntryEvent.endOfForm) {
   if (nav.current case final QuestionNode q) {
     switch (session.answer(q.index, const IntegerValue(5))) {
       case AnswerConstraintViolated(:final message):
-        print(message);
+        messages.add(message);
       case AnswerAccepted() || AnswerRequired() || AnswerRejected():
         break;
     }
@@ -189,9 +189,12 @@ final fec = FormEntryController(FormEntryModel(form));
 form.initialize(newInstance: true);
 while (fec.stepToNextEvent() != FormEntryEvent.endOfForm) {
   if (fec.model.event() == FormEntryEvent.question) {
-    final status = fec.answerQuestion(const IntegerValue(5), midSurvey: true);
+    final status = fec.answerQuestion(
+      const IntegerValue(5),
+      midSurvey: true,
+    );
     if (status == AnswerStatus.constraintViolated) {
-      print(fec.model.questionPrompt().constraintText());
+      messages.add(fec.model.questionPrompt().constraintText());
     }
   }
 }
