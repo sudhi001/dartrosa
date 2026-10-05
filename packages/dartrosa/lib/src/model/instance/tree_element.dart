@@ -169,23 +169,34 @@ final class TreeElement {
   TreeReference get ref => _refCache ??= buildRef(this);
 
   /// Builds the reference to [element] by walking up its parents.
+  ///
+  /// The named elements up to the first unnamed one (an instance's hidden
+  /// root, which makes the reference absolute) give the levels; the last
+  /// element visited gives the instance name and context type. Same result
+  /// as prepending one step per element with [TreeReference.parent], in
+  /// one list.
   static TreeReference buildRef(TreeElement? element) {
-    var ref = const TreeReference.self();
-    while (element != null) {
-      final elementName = element.name;
-      final instanceName = element.instanceName;
-      var step = elementName != null
-          ? const TreeReference.self().extend(elementName, element.multiplicity)
-          : const TreeReference.root();
-      step = step.withInstanceName(instanceName);
-      if (instanceName != null) {
-        // A named instance doesn't inherit runtime context.
-        step = step.withContextType(ReferenceContext.instance);
-      }
-      ref = ref.parent(step)!;
-      element = element.parent;
+    if (element == null) return const TreeReference.self();
+    final levels = <TreeReferenceLevel>[];
+    var top = element;
+    for (TreeElement? e = element; e != null; e = e.parent) {
+      top = e;
+      final elementName = e.name;
+      if (elementName == null) break;
+      levels.add(TreeReferenceLevel(elementName, e.multiplicity));
     }
-    return ref;
+    final instanceName = top.instanceName;
+    final absolute = top.name == null;
+    return TreeReference.ofLevels(
+      levels.reversed.toList(),
+      refLevel: absolute ? TreeReference.refAbsolute : 0,
+      contextType: instanceName != null
+          ? ReferenceContext.instance
+          : absolute
+          ? ReferenceContext.absolute
+          : ReferenceContext.inherited,
+      instanceName: instanceName,
+    );
   }
 
   /// Number of named ancestors including this element.
@@ -577,20 +588,51 @@ int _identityEpoch = 0;
 
 /// Lookup tables over a long children list (see [_TreeElementChildren]).
 final class _ChildIndex {
+  _ChildIndex(List<TreeElement> children) {
+    for (var i = 0; i < children.length; i++) {
+      _addFirst(children[i], i);
+    }
+  }
+
   /// The first index of each name and multiplicity (templates included),
   /// for [_TreeElementChildren.find]: JavaRosa's exact-name search.
   final Map<String, Map<int, int>> first = {};
 
   /// The indexes, in order, of the non-template children matching each
   /// name as [elementMatchesName] does (the name itself, or
-  /// `prefix:name`), for [_TreeElementChildren.withName].
-  final Map<String, List<int>> matching = {};
+  /// `prefix:name`), for [_TreeElementChildren.withName]; built on first
+  /// use.
+  Map<String, List<int>>? _matching;
 
+  Map<String, List<int>> matching(List<TreeElement> children) {
+    if (_matching case final matching?) return matching;
+    final matching = _matching = {};
+    for (var i = 0; i < children.length; i++) {
+      _addMatching(matching, children[i], i);
+    }
+    return matching;
+  }
+
+  /// Records [child], appended at [i].
   void add(TreeElement child, int i) {
+    _addFirst(child, i);
+    if (_matching case final matching?) _addMatching(matching, child, i);
+  }
+
+  void _addFirst(TreeElement child, int i) {
     final name = child.name;
-    final multiplicity = child.multiplicity;
-    if (name != null) (first[name] ??= {}).putIfAbsent(multiplicity, () => i);
-    if (multiplicity == TreeReference.indexTemplate) return;
+    if (name != null) {
+      (first[name] ??= {}).putIfAbsent(child.multiplicity, () => i);
+    }
+  }
+
+  static void _addMatching(
+    Map<String, List<int>> matching,
+    TreeElement child,
+    int i,
+  ) {
+    if (child.multiplicity == TreeReference.indexTemplate) return;
+    final name = child.name;
     if (name != null) (matching[name] ??= []).add(i);
     final prefix = child.namespacePrefix;
     if (prefix != null) {
@@ -724,7 +766,7 @@ final class _TreeElementChildren extends Iterable<TreeElement> {
         name != TreeReference.nameWildcard) {
       final tables = _indexed();
       if (tables != null) {
-        final matching = tables.matching[name];
+        final matching = tables.matching(_list)[name];
         if (matching == null) return 0;
         if (results != null) {
           for (final i in matching) {
@@ -781,11 +823,7 @@ final class _TreeElementChildren extends Iterable<TreeElement> {
   _ChildIndex? _indexed() {
     if (_current() case final tables?) return tables;
     if (++_scans < _scansBeforeIndex) return null;
-    final built = _ChildIndex();
-    for (var i = 0; i < _list.length; i++) {
-      built.add(_list[i], i);
-    }
-    return _index = built;
+    return _index = _ChildIndex(_list);
   }
 }
 

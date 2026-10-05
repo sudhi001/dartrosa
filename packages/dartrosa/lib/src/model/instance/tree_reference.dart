@@ -40,6 +40,9 @@ final class TreeReferenceLevel {
     List<XPathExpression>? predicates,
   ]) : predicates = predicates == null ? null : List.unmodifiable(predicates);
 
+  // Shares [predicates], already an unmodifiable copy.
+  const TreeReferenceLevel._(this.name, this.multiplicity, this.predicates);
+
   /// Element (or attribute) name, or [TreeReference.nameWildcard].
   final String name;
 
@@ -52,7 +55,7 @@ final class TreeReferenceLevel {
 
   /// A copy with a different [multiplicity].
   TreeReferenceLevel withMultiplicity(int multiplicity) =>
-      TreeReferenceLevel(name, multiplicity, predicates);
+      TreeReferenceLevel._(name, multiplicity, predicates);
 
   /// A copy with different (or no) [predicates].
   TreeReferenceLevel withPredicates(List<XPathExpression>? predicates) =>
@@ -60,7 +63,7 @@ final class TreeReferenceLevel {
 
   /// A copy with a different [name].
   TreeReferenceLevel withName(String name) =>
-      TreeReferenceLevel(name, multiplicity, predicates);
+      TreeReferenceLevel._(name, multiplicity, predicates);
 
   @override
   bool operator ==(Object other) =>
@@ -95,6 +98,16 @@ final class TreeReference {
     required this.contextType,
     required this.instanceName,
     required List<TreeReferenceLevel> levels,
+  }) : _levels = levels;
+
+  /// A reference with [levels], which it keeps (the caller must not
+  /// modify the list afterwards). For `TreeElement.buildRef`.
+  @internal
+  const TreeReference.ofLevels(
+    List<TreeReferenceLevel> levels, {
+    required this.refLevel,
+    required this.contextType,
+    required this.instanceName,
   }) : _levels = levels;
 
   /// An empty relative reference (the context node itself).
