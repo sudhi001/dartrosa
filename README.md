@@ -59,8 +59,8 @@ CHANGELOGs together:
 4. `dartrosa_collect` (its dev dependencies, used by a docs test, include
    `dartrosa_entities`, and publishing resolves dev dependencies too);
 5. `dartrosa_flutter`: first replace its `path:` dependencies (and its
-   `dependency_overrides`) with version constraints; pub.dev rejects
-   packages with path dependencies.
+   `dependency_overrides`) with version constraints and remove its
+   `publish_to: none`; pub.dev rejects packages with path dependencies.
 
 The workspace packages already name their siblings with version
 constraints (`^0.0.1`); inside the workspace they resolve to the local

@@ -23,10 +23,21 @@ dependencies:
   flutter:
     sdk: flutter
 
-# The Collect packages depend on dartrosa from their pub workspace.
+# The DartRosa packages name their siblings by version (for pub.dev);
+# use the local checkouts.
 dependency_overrides:
   dartrosa:
     path: ../../dartrosa
+  dartrosa_calendars:
+    path: ../../dartrosa_calendars
+  dartrosa_collect:
+    path: ../../dartrosa_collect
+  dartrosa_encryption:
+    path: ../../dartrosa_encryption
+  dartrosa_entities:
+    path: ../../dartrosa_entities
+  dartrosa_external_data:
+    path: ../../dartrosa_external_data
 
 dev_dependencies:
   flutter_lints: ^6.0.0
