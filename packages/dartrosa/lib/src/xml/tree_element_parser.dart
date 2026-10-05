@@ -18,6 +18,7 @@ import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:xml/xml.dart';
+import 'package:xml/xml_events.dart';
 
 import '../model/data/answer_value.dart';
 import '../model/instance/data_instance.dart';
@@ -47,12 +48,127 @@ String decodeXmlBytes(Uint8List bytes) {
 ///
 /// Port of `new TreeElementParser(parser, multiplicity, instanceId).parse()`
 /// on a freshly instantiated parser.
+///
+/// Reads `package:xml`'s events rather than a DOM (the same parse that
+/// `XmlDocument.parse` does, so malformed XML fails the same way, before
+/// anything is built), which halves the cost for large external
+/// instances.
 TreeElement parseTreeElement(
   String xml, {
   int multiplicity = 0,
   String? instanceId,
-}) =>
-    _parseElement(XmlDocument.parse(xml).rootElement, multiplicity, instanceId);
+}) {
+  final events = parseEvents(
+    xml,
+    validateNesting: true,
+    validateDocument: true,
+  ).toList(growable: false);
+  final builder = _EventTreeBuilder(events, instanceId);
+  while (events[builder._next] is! XmlStartElementEvent) {
+    builder._next++;
+  }
+  return builder.element(multiplicity);
+}
+
+/// Builds [TreeElement]s from the events of a whole document exactly as
+/// [_parseElement] does from its DOM.
+final class _EventTreeBuilder {
+  _EventTreeBuilder(this._events, this._instanceId);
+
+  final List<XmlEvent> _events;
+  final String? _instanceId;
+
+  /// The attributes of the open elements, innermost last.
+  final List<List<XmlEventAttribute>> _open = [];
+
+  /// The index of the next event to read.
+  int _next = 0;
+
+  /// The element starting at the next event, which is a start tag.
+  TreeElement element(int multiplicity) {
+    final start = _events[_next++] as XmlStartElementEvent;
+    _open.add(start.attributes);
+    final (prefix, local) = _split(start.name);
+    _namespaceOf(prefix);
+    final element = TreeElement(local, multiplicity)
+      ..instanceName = _instanceId;
+    for (final attribute in start.attributes) {
+      final (prefix, local) = _split(attribute.name);
+      if (prefix == 'xmlns' || (prefix == null && local == 'xmlns')) {
+        continue; // namespace declarations aren't attributes in kXML
+      }
+      element.setAttribute(
+        prefix == null ? '' : _namespaceOf(prefix),
+        local,
+        attribute.value,
+      );
+    }
+    if (!start.isSelfClosing) {
+      final multiplicities = <String, int>{};
+      final text = StringBuffer();
+      var hasText = false;
+
+      void flushText() {
+        if (hasText) {
+          final value = text.toString();
+          if (!_isWhitespace(value)) {
+            element.value = UncastValue(javaTrim(value));
+          }
+        }
+        text.clear();
+        hasText = false;
+      }
+
+      for (;;) {
+        switch (_events[_next]) {
+          case XmlEndElementEvent():
+            _next++;
+            flushText();
+            _open.removeLast();
+            return element;
+          case XmlStartElementEvent(:final name):
+            flushText();
+            final (_, local) = _split(name);
+            final childMultiplicity = (multiplicities[local] ?? -1) + 1;
+            multiplicities[local] = childMultiplicity;
+            element.addChild(this.element(childMultiplicity));
+          case XmlTextEvent(:final value) || XmlCDATAEvent(:final value):
+            _next++;
+            text.write(value);
+            hasText = true;
+          default:
+            // Comments and processing instructions are skipped; text on
+            // either side of them is one event in kXML.
+            _next++;
+        }
+      }
+    }
+    _open.removeLast();
+    return element;
+  }
+
+  /// [_namespaceOf] for the innermost open element.
+  String _namespaceOf(String? prefix) {
+    if (prefix == null) return '';
+    if (prefix == 'xml') return _xmlNamespace;
+    final declaration = 'xmlns:$prefix';
+    for (var i = _open.length - 1; i >= 0; i--) {
+      for (final attribute in _open[i]) {
+        if (attribute.name == declaration) return attribute.value;
+      }
+    }
+    throw FormatException('undefined prefix: $prefix');
+  }
+
+  /// The prefix and local part of the qualified [name], as `XmlName`
+  /// splits it.
+  static (String?, String) _split(String name) {
+    final colon = name.indexOf(':');
+    return colon > 0
+        ? (name.substring(0, colon), name.substring(colon + 1))
+        : (null, name);
+  }
+}
 
 /// Parses [element] (and its subtree) into a [TreeElement].
 ///
