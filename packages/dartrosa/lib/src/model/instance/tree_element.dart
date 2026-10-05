@@ -73,6 +73,10 @@ final class TreeElement {
   List<TreeElementListener>? _listeners;
   TreeReference? _refCache;
 
+  /// Whether this element was ever put in a children list (whose lookup
+  /// tables then depend on its name, multiplicity and prefix).
+  bool _listed = false;
+
   final _children = _TreeElementChildren();
   final _attributes = <TreeElement>[];
 
@@ -96,7 +100,7 @@ final class TreeElement {
   String? get namespacePrefix => _namespacePrefix;
 
   set namespacePrefix(String? namespacePrefix) {
-    _identityEpoch++;
+    if (_listed) _identityEpoch++;
     _namespacePrefix = namespacePrefix;
   }
 
@@ -131,7 +135,7 @@ final class TreeElement {
 
   set name(String? name) {
     _refCache = null;
-    _identityEpoch++;
+    if (_listed) _identityEpoch++;
     _name = name;
   }
 
@@ -141,7 +145,7 @@ final class TreeElement {
 
   set multiplicity(int multiplicity) {
     _refCache = null;
-    _identityEpoch++;
+    if (_listed) _identityEpoch++;
     _multiplicity = multiplicity;
   }
 
@@ -687,13 +691,9 @@ final class _TreeElementChildren extends Iterable<TreeElement> {
 
   /// Inserts [child] at [index]; an append keeps the lookup tables.
   void _insert(int index, TreeElement child) {
+    child._listed = true;
     if (index == _list.length) {
-      final tables = _current();
-      if (tables == null) {
-        _scans = 0;
-      } else {
-        tables.add(child, index);
-      }
+      _current()?.add(child, index);
       _list.add(child);
     } else {
       _changed();
@@ -776,8 +776,8 @@ final class _TreeElementChildren extends Iterable<TreeElement> {
     return _index;
   }
 
-  /// The lookup tables, built once lookups outnumber changes (building them
-  /// on every insert while a form is parsed would cost more than scanning).
+  /// The lookup tables, built after a few scans of a long list (appends
+  /// update them; other changes drop them and restart the count).
   _ChildIndex? _indexed() {
     if (_current() case final tables?) return tables;
     if (++_scans < _scansBeforeIndex) return null;

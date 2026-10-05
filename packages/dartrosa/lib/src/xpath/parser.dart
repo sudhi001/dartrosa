@@ -129,7 +129,7 @@ abstract final class _Parser {
     Set<TokenType> ops, {
     bool rightAssociative = false,
   }) {
-    if (node is _AbstractExpr) {
+    if (node is _AbstractExpr && node.containsAny(ops)) {
       final part = node.partition(ops, 0, node.content.length);
       if (part.separators.isNotEmpty) {
         node.condense(
@@ -160,12 +160,11 @@ abstract final class _Parser {
 
   static void _parsePathExpr(_Node node) {
     if (node is _AbstractExpr) {
-      final part = node.partition(
-        const {TokenType.slash, TokenType.dblSlash},
-        0,
-        node.content.length,
-      );
-      if (part.separators.isEmpty) {
+      const pathSeparators = {TokenType.slash, TokenType.dblSlash};
+      final part = node.containsAny(pathSeparators)
+          ? node.partition(pathSeparators, 0, node.content.length)
+          : null;
+      if (part == null) {
         if (_isStep(node)) {
           final path = _LocPath()..clauses.add(_parseStep(node));
           node.condense(path, 0, node.content.length);
@@ -360,6 +359,15 @@ final class _AbstractExpr extends _Node {
       return true;
     }
     return isTerminal;
+  }
+
+  /// Whether a token of one of [types] is in [content] (a cheap check
+  /// before [partition], which copies the content).
+  bool containsAny(Set<TokenType> types) {
+    for (final item in content) {
+      if (item is Token && types.contains(item.type)) return true;
+    }
+    return false;
   }
 
   Token? tokenAt(int i) {

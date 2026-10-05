@@ -152,7 +152,7 @@ final class TreeReference {
   final List<TreeReferenceLevel> _levels;
 
   /// The named steps, in order.
-  List<TreeReferenceLevel> get levels => List.unmodifiable(_levels);
+  List<TreeReferenceLevel> get levels => UnmodifiableListView(_levels);
 
   /// Number of named steps.
   int get size => _levels.length;
@@ -196,7 +196,9 @@ final class TreeReference {
     refLevel: refLevel ?? this.refLevel,
     contextType: contextType ?? this.contextType,
     instanceName: instanceName == null ? this.instanceName : instanceName(),
-    levels: levels == null ? _levels : List.unmodifiable(levels),
+    // Every caller passes a list it just built and never touches again, and
+    // `_levels` is never modified, so it needn't be copied.
+    levels: levels ?? _levels,
   );
 
   /// A copy with a different [refLevel].
@@ -280,7 +282,10 @@ final class TreeReference {
       );
     }
     return base._copy(
-      levels: [...base._levels.sublist(0, base.size - refLevel), ..._levels],
+      levels: [
+        for (var i = 0; i < base.size - refLevel; i++) base._levels[i],
+        ..._levels,
+      ],
     );
   }
 
@@ -291,8 +296,11 @@ final class TreeReference {
   TreeReference? contextualize(TreeReference context) {
     if (!context.isAbsolute) return null;
     final anchored = anchor(context);
-    // Levels are adjusted in one working copy (JavaRosa mutates its clone).
-    final levels = [...anchored._levels];
+    // Levels are adjusted in one working copy (JavaRosa mutates its clone):
+    // the list [anchor] just built, or a copy of this reference's own.
+    final levels = identical(anchored, this)
+        ? [...anchored._levels]
+        : anchored._levels;
     for (var i = 0; i < context.size && i < levels.length; i++) {
       var level = levels[i];
       // Fill in a wildcard name from the context.
