@@ -16,23 +16,42 @@ linter:
   rules:
     - always_declare_return_types
     - always_put_required_named_parameters_first
+    - avoid_catches_without_on_clauses
     - avoid_dynamic_calls
     - avoid_equals_and_hash_code_on_mutable_classes
     - avoid_print
     - avoid_returning_this
+    - avoid_void_async
     - cancel_subscriptions
     - directives_ordering
+    - discarded_futures
+    - join_return_with_assignment
+    - literal_only_boolean_expressions
+    - no_literal_bool_comparisons
+    - no_runtimeType_toString
     - only_throw_errors
+    - prefer_asserts_in_initializer_lists
     - prefer_const_constructors
+    - prefer_const_declarations
+    - prefer_const_literals_to_create_immutables
     - prefer_final_fields
     - prefer_final_in_for_each
     - prefer_final_locals
+    - prefer_null_aware_method_calls
     - prefer_single_quotes
     - sort_constructors_first
     - throw_in_finally
     - type_annotate_public_apis
     - unawaited_futures
+    - unnecessary_await_in_return
+    - unnecessary_breaks
     - unnecessary_lambdas
+    - unnecessary_null_checks
+    - unnecessary_parenthesis
     - unnecessary_statements
+    - use_colored_box
+    - use_decorated_box
+    - use_if_null_to_convert_nulls_to_bools
+    - use_named_constants
     - use_setters_to_change_properties
     - use_super_parameters
