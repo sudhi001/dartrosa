@@ -1,0 +1,69 @@
+{
+  "machine": {
+    "os": "macos Version 27.0.1 (Build 26A434)",
+    "cpu": "Apple M4",
+    "cores": 10,
+    "dart": "3.13.4",
+    "mode": "AOT",
+    "loadAverage": "6.61 7.38 7.21",
+    "date": "2026-10-05T03:04:24.182388Z",
+    "loadAverageAfter": "11.51 8.47 7.61"
+  },
+  "cases": [
+    {
+      "id": "parse",
+      "label": "Parse a 1,000-question form",
+      "runs": 15,
+      "medianMs": 161.723,
+      "p90Ms": 269.573,
+      "minMs": 120.285,
+      "targetMs": 300.0,
+      "targetLabel": "target < 300 ms (mid-range phone)",
+      "javarosaMs": null
+    },
+    {
+      "id": "answer",
+      "label": "Answer -> recompute (1,000 questions)",
+      "runs": 200,
+      "medianMs": 0.063,
+      "p90Ms": 0.096,
+      "minMs": 0.06,
+      "targetMs": 16.0,
+      "targetLabel": "target < 16 ms (one frame)",
+      "javarosaMs": null
+    },
+    {
+      "id": "session",
+      "label": "Start a session (1,000 questions)",
+      "runs": 15,
+      "medianMs": 20.015,
+      "p90Ms": 23.089,
+      "minMs": 13.885,
+      "targetMs": null,
+      "targetLabel": null,
+      "javarosaMs": null
+    },
+    {
+      "id": "csv",
+      "label": "Filter a 100,000-row CSV choice list",
+      "runs": 50,
+      "medianMs": 9.543,
+      "p90Ms": 19.207,
+      "minMs": 5.07,
+      "targetMs": 50.0,
+      "targetLabel": "target < 50 ms",
+      "javarosaMs": null
+    },
+    {
+      "id": "repeat",
+      "label": "Grow a repeat to 1,000 instances",
+      "runs": 5,
+      "medianMs": 1619.397,
+      "p90Ms": 1702.183,
+      "minMs": 1567.617,
+      "targetMs": null,
+      "targetLabel": null,
+      "javarosaMs": 3000.0
+    }
+  ]
+}
