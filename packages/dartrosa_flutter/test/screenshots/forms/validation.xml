@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa">
+  <h:head>
+    <h:title>Validation</h:title>
+    <model>
+      <instance>
+        <data id="catalog-validation">
+          <v_required_default/>
+          <v_required_message/>
+          <constraint_default/>
+          <constraint_message/>
+          <weight/>
+          <choice/>
+        </data>
+      </instance>
+      <bind nodeset="/data/v_required_default" type="string" required="true()"/>
+      <bind nodeset="/data/v_required_message" type="string" required="true()" jr:requiredMsg="Please enter the village."/>
+      <bind nodeset="/data/constraint_default" type="int" constraint=". &lt;= 20"/>
+      <bind nodeset="/data/constraint_message" type="int" constraint=". &lt;= 20" jr:constraintMsg="A household has at most 20 people."/>
+      <bind nodeset="/data/weight" type="decimal"/>
+      <bind nodeset="/data/choice" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input ref="/data/v_required_default">
+      <label>Required, no jr:requiredMsg</label>
+    </input>
+    <input ref="/data/v_required_message">
+      <label>Required, with jr:requiredMsg</label>
+    </input>
+    <input ref="/data/constraint_default">
+      <label>Constraint, no jr:constraintMsg</label>
+      <hint>constraint: . &lt;= 20</hint>
+    </input>
+    <input ref="/data/constraint_message">
+      <label>Constraint, with jr:constraintMsg</label>
+      <hint>constraint: . &lt;= 20</hint>
+    </input>
+    <input ref="/data/weight">
+      <label>Wrong type (decimal)</label>
+      <hint>"12.5.1" can't be read as a decimal: the engine rejects it</hint>
+    </input>
+    <select1 ref="/data/choice">
+      <label>Choice that isn't in the list</label>
+      <hint>answered from code with a value that isn't a choice</hint>
+      <item><label>Yes</label><value>yes</value></item>
+      <item><label>No</label><value>no</value></item>
+    </select1>
+  </h:body>
+</h:html>

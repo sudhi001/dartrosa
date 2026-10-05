@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa">
+  <h:head>
+    <h:title>Repeats</h:title>
+    <model>
+      <instance>
+        <data id="catalog-repeats">
+          <member jr:template="">
+            <name/>
+            <age/>
+          </member>
+          <member>
+            <name>Amina</name>
+            <age>34</age>
+          </member>
+          <member>
+            <name>Juma</name>
+            <age>9</age>
+          </member>
+          <plots>2</plots>
+          <plot jr:template="">
+            <crop/>
+          </plot>
+          <visit jr:template="">
+            <day/>
+          </visit>
+          <visit>
+            <day>Monday</day>
+          </visit>
+        </data>
+      </instance>
+      <bind nodeset="/data/member/name" type="string"/>
+      <bind nodeset="/data/member/age" type="int"/>
+      <bind nodeset="/data/plots" type="int"/>
+      <bind nodeset="/data/plot/crop" type="string"/>
+      <bind nodeset="/data/visit/day" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="/data/member">
+      <label>Household member</label>
+      <repeat nodeset="/data/member">
+        <input ref="/data/member/name">
+          <label>Name</label>
+        </input>
+        <input ref="/data/member/age">
+          <label>Age</label>
+        </input>
+      </repeat>
+    </group>
+    <input ref="/data/plots">
+      <label>How many plots do you farm?</label>
+    </input>
+    <group ref="/data/plot">
+      <label>Plot</label>
+      <repeat nodeset="/data/plot" jr:count="/data/plots">
+        <input ref="/data/plot/crop">
+          <label>Main crop on this plot</label>
+        </input>
+      </repeat>
+    </group>
+    <group ref="/data/visit">
+      <label>Visit</label>
+      <repeat nodeset="/data/visit" jr:noAddRemove="true()">
+        <input ref="/data/visit/day">
+          <label>Day of the visit (jr:noAddRemove)</label>
+        </input>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

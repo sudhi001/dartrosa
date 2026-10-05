@@ -11,6 +11,7 @@
 - Non-Gregorian date dialog: the month gets its own line on narrow screens with large text, and the content scrolls.
 - `XFormController.formChanges`: notified on every change, for form-wide summaries.
 - Allows `xml` 7.x (was 6.x only).
+- Docs: an illustrated widget catalog (`docs/widgets/` in the repository) with a page per control family (XLSForm and XForm for every appearance, states, keyboard and accessibility notes, the `XFormDelegates` each needs, theming), 137 screenshots and 8 GIFs rendered by widget tests from purpose-built forms (`test/screenshots/`); a pub.dev screenshot gallery and a visual tour in the README.
 
 ## 0.1.0
 

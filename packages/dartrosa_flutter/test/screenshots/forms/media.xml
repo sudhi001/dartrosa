@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa">
+  <h:head>
+    <h:title>Media and barcodes</h:title>
+    <model>
+      <instance>
+        <data id="catalog-media">
+          <photo>photo-1730.jpg</photo>
+          <photo_empty/>
+          <recording>interview-1730.m4a</recording>
+          <video/>
+          <document>household-roster.pdf</document>
+          <signature/>
+          <sketch/>
+          <marked/>
+          <code>9780201379624</code>
+          <code_empty/>
+          <m_required/>
+        </data>
+      </instance>
+      <bind nodeset="/data/photo" type="binary"/>
+      <bind nodeset="/data/photo_empty" type="binary"/>
+      <bind nodeset="/data/recording" type="binary"/>
+      <bind nodeset="/data/video" type="binary"/>
+      <bind nodeset="/data/document" type="binary"/>
+      <bind nodeset="/data/signature" type="binary"/>
+      <bind nodeset="/data/sketch" type="binary"/>
+      <bind nodeset="/data/marked" type="binary"/>
+      <bind nodeset="/data/code" type="barcode"/>
+      <bind nodeset="/data/code_empty" type="barcode"/>
+      <bind nodeset="/data/m_required" type="binary" required="true()" jr:requiredMsg="Take a photo of the house."/>
+    </model>
+  </h:head>
+  <h:body>
+    <upload ref="/data/photo" mediatype="image/*">
+      <label>Photo of the house</label>
+      <hint>image</hint>
+    </upload>
+    <upload ref="/data/photo_empty" mediatype="image/*">
+      <label>Photo of the latrine</label>
+      <hint>image, not taken yet</hint>
+    </upload>
+    <upload ref="/data/recording" mediatype="audio/*">
+      <label>Record the interview</label>
+      <hint>audio</hint>
+    </upload>
+    <upload ref="/data/video" mediatype="video/*">
+      <label>Film the water source</label>
+      <hint>video</hint>
+    </upload>
+    <upload ref="/data/document" mediatype="application/*">
+      <label>Attach the roster</label>
+      <hint>file</hint>
+    </upload>
+    <upload ref="/data/signature" mediatype="image/*" appearance="signature">
+      <label>Respondent's signature</label>
+      <hint>image, appearance: signature</hint>
+    </upload>
+    <upload ref="/data/sketch" mediatype="image/*" appearance="draw">
+      <label>Sketch the compound</label>
+      <hint>image, appearance: draw</hint>
+    </upload>
+    <upload ref="/data/marked" mediatype="image/*" appearance="annotate">
+      <label>Mark the damage on a photo</label>
+      <hint>image, appearance: annotate</hint>
+    </upload>
+    <input ref="/data/code">
+      <label>Scan the ID card</label>
+      <hint>barcode</hint>
+    </input>
+    <input ref="/data/code_empty">
+      <label>Scan the vaccination card</label>
+      <hint>barcode, not scanned yet</hint>
+    </input>
+    <upload ref="/data/m_required" mediatype="image/*">
+      <label>Required, left empty</label>
+    </upload>
+  </h:body>
+</h:html>

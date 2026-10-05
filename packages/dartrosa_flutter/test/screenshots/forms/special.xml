@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa">
+  <h:head>
+    <h:title>Counters, links, apps and printing</h:title>
+    <model>
+      <instance>
+        <data id="catalog-special">
+          <people>4</people>
+          <heading>274.5</heading>
+          <heading_empty/>
+          <guide>https://getodk.org</guide>
+          <reading>37</reading>
+          <reading_empty/>
+          <label_text>Household HH-0042</label_text>
+          <sensor>
+            <temperature>21.5</temperature>
+            <humidity>64</humidity>
+          </sensor>
+        </data>
+      </instance>
+      <bind nodeset="/data/people" type="int"/>
+      <bind nodeset="/data/heading" type="decimal"/>
+      <bind nodeset="/data/heading_empty" type="decimal"/>
+      <bind nodeset="/data/guide" type="string" readonly="true()"/>
+      <bind nodeset="/data/reading" type="int"/>
+      <bind nodeset="/data/reading_empty" type="int"/>
+      <bind nodeset="/data/label_text" type="string" readonly="true()"/>
+      <bind nodeset="/data/sensor/temperature" type="decimal"/>
+      <bind nodeset="/data/sensor/humidity" type="int"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input ref="/data/people" appearance="counter">
+      <label>People in the household</label>
+      <hint>integer, appearance: counter</hint>
+    </input>
+    <input ref="/data/heading" appearance="bearing">
+      <label>Direction of the river</label>
+      <hint>decimal, appearance: bearing</hint>
+    </input>
+    <input ref="/data/heading_empty" appearance="bearing">
+      <label>Direction of the road</label>
+      <hint>decimal, appearance: bearing, not recorded yet</hint>
+    </input>
+    <input ref="/data/guide" appearance="url">
+      <label>Interview guide</label>
+      <hint>text, appearance: url</hint>
+    </input>
+    <input ref="/data/reading" appearance="ex:org.example.thermometer(unit='celsius')">
+      <label>Water temperature</label>
+      <hint>integer, appearance: ex:org.example.thermometer(unit='celsius')</hint>
+    </input>
+    <input ref="/data/reading_empty" appearance="ex:org.example.thermometer(unit='celsius')">
+      <label>Air temperature</label>
+      <hint>ex: app not installed, after tapping Launch</hint>
+    </input>
+    <input ref="/data/label_text" appearance="printer:org.example.printer">
+      <label>Print the household label</label>
+      <hint>text, appearance: printer</hint>
+    </input>
+    <group ref="/data/sensor" intent="org.example.sensor(device='kit-7')">
+      <label>Weather sensor</label>
+      <input ref="/data/sensor/temperature">
+        <label>Temperature (°C)</label>
+      </input>
+      <input ref="/data/sensor/humidity">
+        <label>Humidity (%)</label>
+      </input>
+    </group>
+  </h:body>
+</h:html>
