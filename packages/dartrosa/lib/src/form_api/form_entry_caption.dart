@@ -19,9 +19,11 @@ abstract interface class QuestionWidget {
 /// Port of `org.javarosa.form.api.FormEntryCaption`.
 class FormEntryCaption {
   /// The caption of the element at [index] in [form].
-  FormEntryCaption(this.form, this.index)
-    : element = form.elementAt(index),
-      _textId = form.elementAt(index).textId;
+  FormEntryCaption(FormDef form, FormIndex index)
+    : this._(form, index, form.elementAt(index));
+
+  FormEntryCaption._(this.form, this.index, this.element)
+    : _textId = element.textId;
 
   /// The form.
   final FormDef form;

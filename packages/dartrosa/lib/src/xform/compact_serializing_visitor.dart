@@ -76,12 +76,12 @@ final class CompactSerializingVisitor {
   /// The `tag value ` text of the leaf [instanceNode]: empty without an
   /// answer, `null` when non-relevant or a repeat template.
   String? serializeNode(TreeElement instanceNode) {
-    final sb = StringBuffer();
     // don't serialize template nodes or non-relevant nodes
     if (!instanceNode.isRelevant ||
         instanceNode.multiplicity == TreeReference.indexTemplate) {
       return null;
     }
+    final sb = StringBuffer();
     final value = instanceNode.value;
     if (value != null) {
       final serializedAnswer = serializeAnswerData(value);

@@ -40,10 +40,7 @@ AnswerValue? externalAnswerResolver(
         } else {
           // Collect checks whether the values contain the whole saved
           // text, so this only matches a single saved value.
-          final textValues = textVal
-              .split(' ')
-              .where((v) => v.isNotEmpty)
-              .toList();
+          final textValues = textVal.split(' ').where((v) => v.isNotEmpty);
           if (textValues.contains(textVal) && selectChoiceValue == textVal) {
             return SelectMultiValue([selection]);
           }

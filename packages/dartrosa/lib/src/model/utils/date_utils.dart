@@ -11,6 +11,8 @@
 /// defaulting to US English.
 library;
 
+import 'dart:math' as math;
+
 import 'package:clock/clock.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/date_symbols.dart';
@@ -238,11 +240,7 @@ String formatDateTime(
   DaysFromTodayLocalizer? localize,
 }) {
   if (d == null) return '';
-  final fields = getFields(
-    d,
-    timeZone: style == DateFormatStyle.timestampHttp ? 'UTC' : null,
-    locale: locale,
-  );
+  final fields = _fieldsFor(d, style, locale);
   final delimiter = switch (style) {
     DateFormatStyle.iso8601 => 'T',
     DateFormatStyle.timestampSuffix => '',
@@ -268,32 +266,23 @@ String formatDate(
   DaysFromTodayLocalizer? localize,
 }) => d == null
     ? ''
-    : _formatDate(
-        getFields(
-          d,
-          timeZone: style == DateFormatStyle.timestampHttp ? 'UTC' : null,
-          locale: locale,
-        ),
-        style,
-        locale,
-        localize,
-      );
+    : _formatDate(_fieldsFor(d, style, locale), style, locale, localize);
 
 /// Formats the time part of [d] with [style]; `''` for `null` and for
 /// [DateFormatStyle.humanReadableDaysFromToday], which has no time part.
 String formatTime(DateTime? d, DateFormatStyle style, {String? locale}) =>
     d == null
     ? ''
-    : _formatTime(
-            getFields(
-              d,
-              timeZone: style == DateFormatStyle.timestampHttp ? 'UTC' : null,
-              locale: locale,
-            ),
-            style,
-            locale,
-          ) ??
-          '';
+    : _formatTime(_fieldsFor(d, style, locale), style, locale) ?? '';
+
+/// The fields [style] formats: in UTC for [DateFormatStyle.timestampHttp],
+/// otherwise local.
+DateFields _fieldsFor(DateTime d, DateFormatStyle style, String? locale) =>
+    getFields(
+      d,
+      timeZone: style == DateFormatStyle.timestampHttp ? 'UTC' : null,
+      locale: locale,
+    );
 
 /// Looks up the text for a JavaRosa message [key] with [args].
 typedef DaysFromTodayLocalizer = String Function(String key, List<String> args);
@@ -872,12 +861,12 @@ DateSymbols _symbols(String? locale) {
       _symbolMap['en']!;
 }
 
+final _gmtOffset = RegExp(r'^GMT([+-])(\d{1,2})(?::?(\d{2}))?$');
+
 /// Offset in milliseconds of a supported time zone name.
 int _fixedOffset(String timeZone) {
   if (timeZone == 'UTC' || timeZone == 'GMT' || timeZone == 'Z') return 0;
-  final match = RegExp(
-    r'^GMT([+-])(\d{1,2})(?::?(\d{2}))?$',
-  ).firstMatch(timeZone);
+  final match = _gmtOffset.firstMatch(timeZone);
   if (match == null) {
     throw ArgumentError.value(timeZone, 'timeZone', 'unsupported time zone');
   }
@@ -894,21 +883,22 @@ int _offsetAt(int instantMs) => DateTime.fromMillisecondsSinceEpoch(
 int _localWallToInstant(int wall) {
   final before = _offsetAt(wall - dayInMilliseconds);
   final after = _offsetAt(wall + dayInMilliseconds);
-  final candidates = <int>{
-    for (final offset in [before, after])
-      if (_offsetAt(wall - offset) == offset) wall - offset,
-  };
-  if (candidates.isEmpty) return wall - before; // gap
-  return candidates.reduce((a, b) => a < b ? a : b); // overlap → earlier
+  final withBefore = _offsetAt(wall - before) == before;
+  final withAfter = _offsetAt(wall - after) == after;
+  if (withBefore && withAfter) {
+    return math.min(wall - before, wall - after); // overlap → earlier
+  }
+  if (withAfter) return wall - after;
+  return wall - before; // also a gap
 }
 
 /// Java `TimeZone.getOffset(era, year, month, day, dow, millis)`: the
 /// offset in effect when the wall time is read as local *standard* time.
 int _offsetForWallTime(int wall, int year) {
-  final raw = [
+  final raw = math.min(
     DateTime(year, 1, 1).timeZoneOffset.inMilliseconds,
     DateTime(year, 7, 1).timeZoneOffset.inMilliseconds,
-  ].reduce((a, b) => a < b ? a : b);
+  );
   return _offsetAt(wall - raw);
 }
 
@@ -957,8 +947,10 @@ int? _javaParseInt(String s) {
 int _javaParseIntOrThrow(String s) =>
     _javaParseInt(s) ?? (throw FormatException('For input string: "$s"'));
 
+final _asciiDecimal = RegExp(r'^(\d+\.?\d*|\.\d+)$');
+
 /// Java `Double.parseDouble` for strings of ASCII digits and dots.
 double? _javaParseDouble(String s) {
-  if (!RegExp(r'^(\d+\.?\d*|\.\d+)$').hasMatch(s)) return null;
+  if (!_asciiDecimal.hasMatch(s)) return null;
   return double.parse(s.endsWith('.') ? '${s}0' : s);
 }

@@ -16,6 +16,11 @@ import 'open_rosa_server_client.dart';
 
 final _log = Logger('dartrosa_openrosa');
 
+final _charsetParameter = RegExp(
+  r'charset\s*=\s*"?([^";\s]+)',
+  caseSensitive: false,
+);
+
 /// An [OpenRosaHttpInterface] over `package:http`, so it works on the VM
 /// and the web.
 ///
@@ -218,10 +223,7 @@ final class HttpClientConnection implements OpenRosaHttpInterface {
   static Encoding _charset(String? contentType) {
     final match = contentType == null
         ? null
-        : RegExp(
-            r'charset\s*=\s*"?([^";\s]+)',
-            caseSensitive: false,
-          ).firstMatch(contentType);
+        : _charsetParameter.firstMatch(contentType);
     final named = match == null ? null : Encoding.getByName(match.group(1));
     return named == null || named == utf8
         ? const Utf8Codec(allowMalformed: true)

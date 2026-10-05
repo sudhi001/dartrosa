@@ -149,9 +149,11 @@ final class XPathConditional {
 final class Constraint {
   /// Creates a constraint; a message of the form `jr:itext('id')` is
   /// compiled so it can be localized.
-  Constraint(this.constraint, String? message)
-    : message = message == null ? null : javaTrim(message),
-      _messageExpression = _compile(message == null ? null : javaTrim(message));
+  Constraint(XPathConditional constraint, String? message)
+    : this._(constraint, message == null ? null : javaTrim(message));
+
+  Constraint._(this.constraint, this.message)
+    : _messageExpression = _compile(message);
 
   /// The constraint expression.
   final XPathConditional constraint;
@@ -262,7 +264,7 @@ sealed class Triggerable {
   final Set<TreeReference> _targets = {};
 
   /// The nodes this triggerable sets.
-  Set<TreeReference> get targets => Set.unmodifiable(_targets);
+  Set<TreeReference> get targets => UnmodifiableSetView(_targets);
 
   /// Adds a node this triggerable sets.
   void addTarget(TreeReference target) => _targets.add(target);

@@ -459,17 +459,20 @@ final class XPathFuncExpr extends XPathExpression {
     Object sentinel,
   ) {
     final isIdentity = id.toString() == 'string-length';
-    final values = [
-      for (final arg in args) arg.pivot(model, context, pivots, sentinel),
-    ];
+    // Every argument is pivoted (collecting its pivots) before deciding.
     var pivoted = false;
-    for (final value in values) {
+    var isNode = false;
+    for (final arg in args) {
+      final value = arg.pivot(model, context, pivots, sentinel);
       if (value == null) {
         pivoted = true;
       } else if (sentinel == value) {
-        if (isIdentity) return sentinel;
-        throw const UnpivotableExpressionException();
+        isNode = true;
       }
+    }
+    if (isNode) {
+      if (isIdentity) return sentinel;
+      throw const UnpivotableExpressionException();
     }
     if (pivoted) {
       if (isIdentity) return null;
@@ -608,7 +611,7 @@ final class XPathPathExpr extends XPathExpression {
     List<Object> pivots,
     Object sentinel,
   ) {
-    final ref = toTreeReference();
+    final ref = _reference;
     if (ref == sentinel || ref.refLevel == 0) return sentinel;
     for (var i = 0; i < ref.size; i++) {
       final predicates = ref.predicatesAt(i);
@@ -659,11 +662,14 @@ final class XPathPathExpr extends XPathExpression {
         'has not been loaded',
       );
     }
-    final refs = context
-        .expandReference(ref)!
-        .where((r) => instance.resolveReference(r)!.isRelevant)
-        .toList();
-    return XPathNodeset(refs, instance, context);
+    return XPathNodeset(
+      [
+        for (final r in context.expandReference(ref)!)
+          if (instance.resolveReference(r)!.isRelevant) r,
+      ],
+      instance,
+      context,
+    );
   }
 
   @override

@@ -80,12 +80,12 @@ final class SMSSerializingVisitor {
   /// The `tag value ` text of [instanceNode]: empty without an answer,
   /// `null` when non-relevant or a repeat template.
   String? serializeNode(TreeElement instanceNode) {
-    final b = StringBuffer();
     // don't serialize template nodes or non-relevant nodes
     if (!instanceNode.isRelevant ||
         instanceNode.multiplicity == TreeReference.indexTemplate) {
       return null;
     }
+    final b = StringBuffer();
     final value = instanceNode.value;
     if (value != null) {
       final serializedAnswer = serializeAnswerData(value);

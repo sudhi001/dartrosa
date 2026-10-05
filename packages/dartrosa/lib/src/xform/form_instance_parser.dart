@@ -23,7 +23,8 @@ final _log = Logger('dartrosa.xform');
 ///
 /// Port of `org.javarosa.xform.parse.FormInstanceParser`.
 final class FormInstanceParser {
-  /// Creates a parser for [formDef] with what the XForm parser collected.
+  /// Creates a parser for the form being built, with what the XForm parser
+  /// collected.
   FormInstanceParser(
     this._formDef,
     this._defaultNamespace,
@@ -482,7 +483,12 @@ final class FormInstanceParser {
     }
   }
 
-  List<TreeReference> get _repeatableRefs {
+  /// The repeat references plus itemset sources and copy destinations.
+  /// Computed once, when the main instance is processed (after
+  /// [FormDef.updateItemsetReferences]); the lists don't change afterwards.
+  late final List<TreeReference> _repeatableRefs = _collectRepeatableRefs();
+
+  List<TreeReference> _collectRepeatableRefs() {
     final refs = [..._repeats];
     for (final itemset in _itemsets) {
       final source = itemset.nodesetRef!;

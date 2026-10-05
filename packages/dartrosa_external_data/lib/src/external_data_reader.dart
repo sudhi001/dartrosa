@@ -147,7 +147,8 @@ final class ExternalDataReader {
       throw ExternalDataException('Columns [${conflicting.join(', ')}] match!');
     }
 
-    final cache = <String, String>{};
+    // The safe column name of each header, null for blank headers.
+    final safeNames = List<String?>.filled(headerRow.length, null);
     final columns = <String>[];
     var sortColumnAlreadyPresent = false;
     for (var i = 0; i < headerRow.length; i++) {
@@ -161,10 +162,11 @@ final class ExternalDataReader {
         }
         continue;
       }
-      final safe = ExternalDataUtil.toSafeColumnNameCached(columnName, cache);
+      final safe = ExternalDataUtil.toSafeColumnName(columnName);
       if (safe == ExternalDataUtil.sortColumnName) {
         sortColumnAlreadyPresent = true;
       }
+      safeNames[i] = safe;
       columns.add(safe);
     }
     if (!sortColumnAlreadyPresent) columns.add(ExternalDataUtil.sortColumnName);
@@ -191,10 +193,9 @@ final class ExternalDataReader {
           ExternalDataUtil.sortColumnName: (rowCount + 1).toDouble(),
       };
       for (var i = 0; i < fullRow.length && i < headerRow.length; i++) {
-        final columnName = javaTrim(headerRow[i]);
+        final safe = safeNames[i];
+        if (safe == null) continue;
         final columnValue = fullRow[i];
-        if (columnName.isEmpty) continue;
-        final safe = ExternalDataUtil.toSafeColumnNameCached(columnName, cache);
         if (safe == ExternalDataUtil.sortColumnName) {
           final number = javaParseDouble(columnValue);
           if (number == null) {

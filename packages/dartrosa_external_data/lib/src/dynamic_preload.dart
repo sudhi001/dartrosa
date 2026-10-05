@@ -48,7 +48,6 @@ final class DynamicPreloadParseProcessor
     if (search?.args.first case XPathStringLiteral(:final value)) {
       _dataSets.add(ExternalDataHandler.normalize(value));
     }
-    if (_containsSearch) return;
     if (search != null) _containsSearch = true;
   }
 
@@ -62,14 +61,11 @@ final class DynamicPreloadParseProcessor
   void _collectPullDataSets(XPathExpression expression) {
     switch (expression) {
       case XPathFuncExpr(:final id, :final args):
-        if (id.toString() == ExternalDataHandlerPull.handlerName &&
-            args.isNotEmpty &&
-            args.first is XPathStringLiteral) {
-          _dataSets.add(
-            ExternalDataHandler.normalize(
-              (args.first as XPathStringLiteral).value,
-            ),
-          );
+        if (args case [
+          XPathStringLiteral(:final value),
+          ...,
+        ] when id.toString() == ExternalDataHandlerPull.handlerName) {
+          _dataSets.add(ExternalDataHandler.normalize(value));
         }
         args.forEach(_collectPullDataSets);
       case XPathBinaryOpExpr(:final a, :final b):

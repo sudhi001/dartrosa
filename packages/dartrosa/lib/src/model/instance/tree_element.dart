@@ -68,7 +68,7 @@ final class TreeElement {
   TreeReference? _refCache;
 
   final _children = _TreeElementChildren();
-  var _attributes = <TreeElement>[];
+  final _attributes = <TreeElement>[];
 
   /// The data type declared by the bind (default [DataType.nullType]).
   DataType dataType = DataType.nullType;
@@ -156,11 +156,12 @@ final class TreeElement {
     var ref = const TreeReference.self();
     while (element != null) {
       final elementName = element.name;
+      final instanceName = element.instanceName;
       var step = elementName != null
           ? const TreeReference.self().extend(elementName, element.multiplicity)
           : const TreeReference.root();
-      step = step.withInstanceName(element.instanceName);
-      if (element.instanceName != null) {
+      step = step.withInstanceName(instanceName);
+      if (instanceName != null) {
         // A named instance doesn't inherit runtime context.
         step = step.withContextType(ReferenceContext.instance);
       }
@@ -323,8 +324,7 @@ final class TreeElement {
     copy
       .._setFlag(_relevantFlag, _flag(_relevantFlag))
       .._setFlag(_requiredFlag, _flag(_requiredFlag))
-      .._setFlag(_enabledFlag, _flag(_enabledFlag))
-      .._attributes = [];
+      .._setFlag(_enabledFlag, _flag(_enabledFlag));
     for (final attribute in _attributes) {
       copy.setAttribute(
         attribute.namespace,
@@ -354,7 +354,7 @@ final class TreeElement {
   void populatePartial(TreeElement element) {
     if (!_isPartial) return;
     _children.clear();
-    for (final child in element.children) {
+    for (final child in element._children) {
       addChild(child);
     }
     _isPartial = false;
@@ -552,17 +552,17 @@ final class TreeElement {
   String toString() => '${_name ?? 'NULL'} - Children: ${_children.length}';
 }
 
-/// Child list with JavaRosa's fast paths for the common case of a repeat
-/// whose children all share one name and have normal multiplicities.
-///
-/// Port of `TreeElementChildrenList`, including its sticky "all same name"
-/// flag (never reset by removals).
 /// Bumped whenever any element's name or multiplicity changes, so
 /// [_TreeElementChildren] lookup tables built before are rebuilt (an
 /// element can be in a children list other than its parent's, e.g. after
 /// [TreeElement.shallowCopy]).
 int _identityEpoch = 0;
 
+/// Child list with JavaRosa's fast paths for the common case of a repeat
+/// whose children all share one name and have normal multiplicities.
+///
+/// Port of `TreeElementChildrenList`, including its sticky "all same name"
+/// flag (never reset by removals).
 final class _TreeElementChildren extends Iterable<TreeElement> {
   final _list = <TreeElement>[];
   bool _allSameNameAndNormalMultiplicity = true;

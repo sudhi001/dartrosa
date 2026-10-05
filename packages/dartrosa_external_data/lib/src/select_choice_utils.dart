@@ -63,7 +63,7 @@ List<SelectChoice> populateExternalChoices(
     }
 
     final selectChoices = prompt.selectChoices;
-    if (!selectChoices.any((c) => !ExternalDataUtil.isAnInteger(c.value))) {
+    if (selectChoices.every((c) => ExternalDataUtil.isAnInteger(c.value))) {
       throw ExternalDataFileMissingException(
         _filePath(xpathFuncExpr, form, manager),
       );

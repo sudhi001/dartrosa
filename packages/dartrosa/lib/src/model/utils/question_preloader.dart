@@ -114,26 +114,17 @@ final class _DatePreloadHandler implements PreloadHandler {
       // `prevperiod-<type>-<start>-<head|tail>[-x|-][-<nAgo>]`
       final p = date_utils.split(params.substring(11), '-');
       try {
-        final bool beginning;
-        if (p[2] == 'head') {
-          beginning = true;
-        } else if (p[2] == 'tail') {
-          beginning = false;
-        } else {
-          throw const FormatException();
-        }
-        final bool includeToday;
-        if (p.length >= 4) {
-          if (p[3] == 'x') {
-            includeToday = true;
-          } else if (p[3] == '') {
-            includeToday = false;
-          } else {
-            throw const FormatException();
-          }
-        } else {
-          includeToday = false;
-        }
+        final beginning = switch (p[2]) {
+          'head' => true,
+          'tail' => false,
+          _ => throw const FormatException(),
+        };
+        // A missing fourth part means "exclude today", like an empty one.
+        final includeToday = switch (p.length >= 4 ? p[3] : '') {
+          'x' => true,
+          '' => false,
+          _ => throw const FormatException(),
+        };
         final nAgo = p.length >= 5
             ? javaParseInt(p[4]) ?? (throw const FormatException())
             : 1;

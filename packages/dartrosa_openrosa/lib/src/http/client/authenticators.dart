@@ -62,7 +62,7 @@ List<AuthChallenge> parseAuthChallenges(String header) {
         j < header.length &&
         header[j] == '=' &&
         // A token68 ends with '='s and is followed by a comma or the end.
-        !RegExp(r'^=+\s*(,|$)').hasMatch(header.substring(j));
+        !_token68End.hasMatch(header.substring(j));
     if (!isParameter) {
       if (scheme != null && j < header.length && header[j] == '=') {
         // token68 (e.g. Basic's or Negotiate's): skip it.
@@ -103,6 +103,8 @@ List<AuthChallenge> parseAuthChallenges(String header) {
   finish();
   return challenges;
 }
+
+final _token68End = RegExp(r'^=+\s*(,|$)');
 
 /// Answers authentication challenges for one scheme and, once it has,
 /// authorizes later requests proactively.

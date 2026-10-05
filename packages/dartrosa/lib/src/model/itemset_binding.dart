@@ -100,7 +100,7 @@ final class ItemsetBinding implements Localizable {
           _cachedTriggerValues,
         ) &&
         randomSeed == _cachedRandomSeed) {
-      _updateAnswerFromCache(form, questionRef, cached);
+      _bindAnswer(form, questionRef, cached);
       return randomize && _cachedRandomSeed == null ? shuffle(cached) : cached;
     }
     form.publishEvent(
@@ -116,16 +116,11 @@ final class ItemsetBinding implements Localizable {
       formInstance = form.mainInstance;
     }
     final items = nodesetExpr!.evalNodeset(form.mainInstance, contextEc);
-    final answerMap = _initializeAnswerMap(form, questionRef);
-    final choices = <SelectChoice>[];
-    for (var i = 0; i < items.length; i++) {
-      final choice = _choiceFor(form, formInstance, i, items[i]);
-      choices.add(choice);
-      if (answerMap != null && answerMap.containsKey(choice.value)) {
-        answerMap[choice.value] = choice;
-      }
-    }
-    _updateAnswer(form, questionRef, answerMap);
+    final choices = [
+      for (var i = 0; i < items.length; i++)
+        _choiceFor(form, formInstance, i, items[i]),
+    ];
+    _bindAnswer(form, questionRef, choices);
     _cachedChoices = randomize ? shuffle(choices, randomSeed) : choices;
     if (randomize) {
       // JavaRosa renumbers the unshuffled list (its own TODO doubts this).
@@ -228,14 +223,16 @@ final class ItemsetBinding implements Localizable {
     node.setAnswer(bound);
   }
 
-  void _updateAnswerFromCache(
+  /// Binds the current answer's selections to their [choices], dropping
+  /// those without one (see [_updateAnswer]).
+  void _bindAnswer(
     FormDef form,
     TreeReference questionRef,
-    List<SelectChoice> cached,
+    List<SelectChoice> choices,
   ) {
     final answerMap = _initializeAnswerMap(form, questionRef);
     if (answerMap != null) {
-      for (final choice in cached) {
+      for (final choice in choices) {
         if (answerMap.containsKey(choice.value)) {
           answerMap[choice.value] = choice;
         }

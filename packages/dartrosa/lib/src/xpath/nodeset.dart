@@ -58,7 +58,7 @@ class XPathNodeset {
   /// when it has one node; throws when it has several.
   Object unpack() {
     final refs = _refs;
-    if (refs == null) throw _invalidNodesetException();
+    if (refs == null) _throwInvalidPath();
     if (refs.isEmpty) return unpackValue(null);
     if (refs.length > 1) {
       throw XPathTypeMismatchException(
@@ -71,7 +71,7 @@ class XPathNodeset {
 
   /// The values of all nodes.
   List<Object> toArgList() {
-    if (_refs == null) throw _invalidNodesetException();
+    if (_refs == null) _throwInvalidPath();
     return [for (var i = 0; i < size; i++) valueAt(i)];
   }
 
@@ -90,7 +90,7 @@ class XPathNodeset {
   /// The reference of node [i].
   TreeReference refAt(int i) {
     final refs = _refs;
-    if (refs == null) throw _invalidNodesetException();
+    if (refs == null) _throwInvalidPath();
     return refs[i];
   }
 
@@ -104,7 +104,7 @@ class XPathNodeset {
     return refs.join(';');
   }
 
-  XPathTypeMismatchException _invalidNodesetException() {
+  Never _throwInvalidPath() {
     if (_pathEvaluated != _originalPath) {
       throw XPathTypeMismatchException(
         'The path $_originalPath refers to the location $_pathEvaluated '
@@ -127,10 +127,10 @@ final class _LazyNodeset extends XPathNodeset {
 
   void _evaluate() {
     if (_evaluated) return;
-    _refs = _context!
-        .expandReference(_unexpanded)!
-        .where((ref) => _instance!.resolveReference(ref)!.isRelevant)
-        .toList();
+    _refs = [
+      for (final ref in _context!.expandReference(_unexpanded)!)
+        if (_instance!.resolveReference(ref)!.isRelevant) ref,
+    ];
     _evaluated = true;
   }
 

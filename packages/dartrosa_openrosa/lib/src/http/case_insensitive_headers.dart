@@ -76,8 +76,11 @@ final class ListCaseInsensitiveHeaders implements CaseInsensitiveHeaders {
   }
 
   @override
-  List<String> getValues(String header) => [
-    for (final (name, value) in _entries)
-      if (name.toLowerCase() == header.toLowerCase()) value,
-  ];
+  List<String> getValues(String header) {
+    final lowerHeader = header.toLowerCase();
+    return [
+      for (final (name, value) in _entries)
+        if (name.toLowerCase() == lowerHeader) value,
+    ];
+  }
 }

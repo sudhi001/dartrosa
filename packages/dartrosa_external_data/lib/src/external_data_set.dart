@@ -217,13 +217,31 @@ final class ExternalDataTable implements ExternalDataSet {
       row[indexOf(column)],
       value,
     ),
-    ColumnsLike(:final likeColumns, :final patterns) => [
-      for (var i = 0; i < likeColumns.length; i++)
-        (likeColumns[i], patterns[i]),
-    ].any((p) => _like(p.$2, _asText(row[indexOf(p.$1)]))),
+    ColumnsLike(:final likeColumns, :final patterns) => _anyLike(
+      likeColumns,
+      patterns,
+      row,
+      indexOf,
+    ),
     LikeAndEquals(:final like, :final equals) =>
       _matches(like, row, indexOf) && _matches(equals, row, indexOf),
   };
+
+  /// Whether any of [likeColumns] of [row] matches its pattern in
+  /// [patterns].
+  static bool _anyLike(
+    List<String> likeColumns,
+    List<String> patterns,
+    List<Object?> row,
+    int Function(String) indexOf,
+  ) {
+    for (var i = 0; i < likeColumns.length; i++) {
+      if (_like(patterns[i], _asText(row[indexOf(likeColumns[i])]))) {
+        return true;
+      }
+    }
+    return false;
+  }
 
   /// `column = ?` with a text argument: `NOCASE` for text, numeric
   /// affinity for the `REAL` column.

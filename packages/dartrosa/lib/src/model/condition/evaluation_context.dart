@@ -79,12 +79,14 @@ abstract interface class XPathFallbackFunctionHandler {
   Object eval(String name, List<Object> args, EvaluationContext context);
 }
 
-/// Filters [children] of [nodeset] by [predicate], or delegates to [next].
+/// Filters the children of a nodeset by a predicate, or delegates to the
+/// next strategy in the chain.
 ///
 /// Port of `org.javarosa.core.model.condition.FilterStrategy`; strategies
 /// form a chain ending with [RawFilterStrategy].
 abstract interface class FilterStrategy {
-  /// The children that pass [predicate].
+  /// The [children] of [nodeset] that pass [predicate], or the result of
+  /// [next] (the rest of the chain) when this strategy doesn't apply.
   List<TreeReference> filter(
     DataInstance sourceInstance,
     TreeReference nodeset,
@@ -363,15 +365,14 @@ final class EvaluationContext {
   /// A context for evaluating a predicate on [ref], the
   /// [position]-th (0-based) node of a nodeset.
   EvaluationContext rescope(TreeReference ref, int position) {
+    // The copy keeps an explicit original context; without one, the current
+    // context node becomes it (the nodeset itself when there is none yet).
     final context = EvaluationContext.withContext(this, ref)
       ..contextPosition = position;
-    if (_original != null) {
-      context.originalContext = originalContext;
-    } else if (contextRef == const TreeReference.root()) {
-      // No context yet: the nodeset itself is the original context.
-      context.originalContext = ref;
-    } else {
-      context.originalContext = contextRef;
+    if (_original == null) {
+      context.originalContext = contextRef == const TreeReference.root()
+          ? ref
+          : contextRef;
     }
     return context;
   }

@@ -89,7 +89,7 @@ typedef ActionElementHandler =
 /// Port of `org.javarosa.xform.parse.XFormParser`. Everything JavaRosa
 /// keeps in static registries (action handlers, processors) is configured
 /// per parser. Parsing is asynchronous only because external secondary
-/// instances are read through [resolver].
+/// instances are read through a [ResourceResolver].
 final class XFormParser {
   /// Creates a parser reading `jr://` resources through [resolver].
   XFormParser({
@@ -312,7 +312,8 @@ final class XFormParser {
       final formInstance = instanceParser.parseInstance(
         mainNode,
         isMainInstance: true,
-        name: _instanceNodeIds[_instanceNodes.indexOf(mainNode)],
+        // The main instance is the first one saved.
+        name: _instanceNodeIds.first,
         namespacePrefixesByUri: namespacePrefixesByUri,
       );
       // Keep the form's prefixes so serialization uses the same ones.
@@ -365,8 +366,8 @@ final class XFormParser {
   /// `title` and `meta`); unknown elements are warned about and their
   /// children processed.
   void _parseElement(KElement e, FormElement parent, {required bool topLevel}) {
-    final handled = switch (e.name) {
-      'input' => () {
+    switch (e.name) {
+      case 'input':
         const passedThrough = ['rows', 'query'];
         _parseControl(
           parent,
@@ -375,45 +376,46 @@ final class XFormParser {
           passedThrough,
           passedThrough,
         );
-      },
-      'range' => () => _parseControl(parent, e, ControlType.range, [
-        'start',
-        'end',
-        'step',
-      ]),
-      'secret' => () => _parseControl(parent, e, ControlType.secret),
-      'select' => () => _parseControl(parent, e, ControlType.selectMulti),
-      'rank' => () => _parseControl(parent, e, ControlType.rank),
-      'select1' => () => _parseControl(parent, e, ControlType.selectOne),
-      'group' => () => _parseGroup(parent, e, isRepeat: false),
-      'repeat' => () => _parseGroup(parent, e, isRepeat: true),
-      'trigger' => () => _parseControl(parent, e, ControlType.trigger),
-      'upload' => () => _parseUpload(parent, e),
-      'label' => () {
-        if (parent is GroupDef) {
-          _parseGroupLabel(parent, e);
-        } else {
+      case 'range':
+        _parseControl(parent, e, ControlType.range, ['start', 'end', 'step']);
+      case 'secret':
+        _parseControl(parent, e, ControlType.secret);
+      case 'select':
+        _parseControl(parent, e, ControlType.selectMulti);
+      case 'rank':
+        _parseControl(parent, e, ControlType.rank);
+      case 'select1':
+        _parseControl(parent, e, ControlType.selectOne);
+      case 'group':
+        _parseGroup(parent, e, isRepeat: false);
+      case 'repeat':
+        _parseGroup(parent, e, isRepeat: true);
+      case 'trigger':
+        _parseControl(parent, e, ControlType.trigger);
+      case 'upload':
+        _parseUpload(parent, e);
+      case 'label':
+        if (parent is! GroupDef) {
           throw XFormParseException('parent of element is not a group', e);
         }
-      },
-      'model' when topLevel => () => _parseModel(e),
-      'title' when topLevel => () => _parseTitle(e),
-      'meta' when topLevel => () => _parseMeta(e),
-      _ => null,
-    };
-    if (handled != null) {
-      handled();
-      return;
-    }
-    if (!_validElementNames.contains(e.name)) {
-      _triggerWarning(
-        'Unrecognized element [${e.name}]. Ignoring and processing '
-        'children...',
-        vagueLocation(e),
-      );
-    }
-    for (final child in [...e.childElements]) {
-      _parseElement(child, parent, topLevel: topLevel);
+        _parseGroupLabel(parent, e);
+      case 'model' when topLevel:
+        _parseModel(e);
+      case 'title' when topLevel:
+        _parseTitle(e);
+      case 'meta' when topLevel:
+        _parseMeta(e);
+      default:
+        if (!_validElementNames.contains(e.name)) {
+          _triggerWarning(
+            'Unrecognized element [${e.name}]. Ignoring and processing '
+            'children...',
+            vagueLocation(e),
+          );
+        }
+        for (final child in e.childElements) {
+          _parseElement(child, parent, topLevel: topLevel);
+        }
     }
   }
 
@@ -791,7 +793,7 @@ final class XFormParser {
     question
       ..controlType = controlType
       ..appearance = e.attribute(null, 'appearance');
-    for (final child in [...e.childElements]) {
+    for (final child in e.childElements) {
       switch (child.name) {
         case 'label':
           _parseQuestionLabel(question, child);
@@ -893,10 +895,16 @@ final class XFormParser {
     _warnUnusedAttributes(e, const ['ref']);
   }
 
-  /// The text id in `jr:itext('id')` [ref], verified to exist.
-  String _itextRef(String ref, String type, String element) {
+  /// The text id in `jr:itext('id')` [ref], verified to exist; a malformed
+  /// [ref] is reported for [element] (located at [location] when given).
+  String _itextRef(
+    String ref,
+    String type,
+    String element, [
+    KElement? location,
+  ]) {
     if (!ref.startsWith(_itextOpen) || !ref.endsWith(_itextClose)) {
-      throw XFormParseException('malformed ref [$ref] for $element');
+      throw XFormParseException('malformed ref [$ref] for $element', location);
     }
     final textRef = ref.substring(
       _itextOpen.length,
@@ -987,25 +995,20 @@ final class XFormParser {
     _warnUnusedAttributes(e, const ['ref']);
   }
 
+  static final _unsafeChoiceValueCharacter = RegExp('[ \n\t\f\r\'"`]');
+
   void _parseItem(QuestionDef q, KElement e) {
     const maxValueLength = 32;
     String? labelInnerText;
     String? textRef;
     String? value;
-    for (final child in [...e.childElements]) {
+    for (final child in e.childElements) {
       if (child.name == 'label') {
         _warnUnusedAttributes(child, const ['ref']);
         labelInnerText = _label(child);
         final ref = child.attribute('', 'ref');
         if (ref != null) {
-          if (!ref.startsWith(_itextOpen) || !ref.endsWith(_itextClose)) {
-            throw XFormParseException('malformed ref [$ref] for <item>', child);
-          }
-          textRef = ref.substring(
-            _itextOpen.length,
-            ref.lastIndexOf(_itextClose),
-          );
-          _verifyTextMappings(textRef, 'Item <label>', allowSubforms: true);
+          textRef = _itextRef(ref, 'Item <label>', '<item>', child);
         }
       } else if (child.name == 'value') {
         value = xmlText(child, trim: true);
@@ -1018,15 +1021,13 @@ final class XFormParser {
               vagueLocation(child),
             );
           }
-          if (value.split('').any(" \n\t\f\r'\"`".contains)) {
-            final isMultiple =
-                q.controlType == ControlType.selectMulti ||
-                q.controlType == ControlType.rank;
-            final type = !isMultiple
-                ? 'select1'
-                : (q.controlType == ControlType.selectMulti
-                      ? 'select'
-                      : 'rank');
+          if (value.contains(_unsafeChoiceValueCharacter)) {
+            final type = switch (q.controlType) {
+              ControlType.selectMulti => 'select',
+              ControlType.rank => 'rank',
+              _ => 'select1',
+            };
+            final isMultiple = type != 'select1';
             _triggerWarning(
               '$type question <value>s [$value] '
               '${isMultiple ? 'cannot' : 'should not'} contain spaces, and '
@@ -1084,7 +1085,7 @@ final class XFormParser {
       ..nodesetExpr = XPathConditional(_pathExpr(nodeset))
       ..contextRef = q.bind
       ..copyMode = false;
-    for (final child in [...e.childElements]) {
+    for (final child in e.childElements) {
       switch (child.name) {
         case 'label':
           _warnUnusedAttributes(child, const ['ref']);
@@ -1189,7 +1190,7 @@ final class XFormParser {
             e.attribute(namespaceJavaRosa, 'noAddRemove') != null;
       }
     }
-    for (final child in [...e.childElements]) {
+    for (final child in e.childElements) {
       if (isRepeat && child.namespace == namespaceJavaRosa) {
         switch (child.name) {
           case 'chooseCaption':
@@ -1340,8 +1341,8 @@ final class XFormParser {
     _warnUnusedAttributes(text, const ['id', 'form']);
   }
 
-  bool _hasITextMapping(String textId, String? locale) =>
-      _localizer!.hasMapping(locale ?? _localizer!.defaultLocale, textId);
+  bool _hasITextMapping(String textId, String locale) =>
+      _localizer!.hasMapping(locale, textId);
 
   void _verifyTextMappings(
     String textId,

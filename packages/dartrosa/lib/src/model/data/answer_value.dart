@@ -369,8 +369,8 @@ final class SelectMultiValue extends MultipleItemsValue {
 }
 
 /// JavaRosa's `DateUtils.split(value, " ", true)`.
-List<String> _splitOnSpaces(String value) =>
-    value.split(' ').where((piece) => piece.isNotEmpty).toList();
+Iterable<String> _splitOnSpaces(String value) =>
+    value.split(' ').where((piece) => piece.isNotEmpty);
 
 /// A `geopoint`: latitude, longitude, altitude and accuracy.
 final class GeoPointValue extends AnswerValue implements ExprDataType {

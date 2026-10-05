@@ -1,4 +1,6 @@
 /// Sources of localized text for a [Localizer].
+///
+/// @docImport 'localizer.dart';
 library;
 
 import '../util/java_lang.dart';
@@ -47,7 +49,7 @@ final class TableLocaleSource implements LocaleDataSource {
 Map<String, String> parseLocaleInput(String input) {
   final locale = <String, String>{};
   const chunk = 100;
-  var line = StringBuffer();
+  final line = StringBuffer();
   for (var offset = 0; offset < input.length; offset += chunk) {
     final end = offset + chunk < input.length ? offset + chunk : input.length;
     final piece = input.substring(offset, end);
@@ -61,7 +63,7 @@ Map<String, String> parseLocaleInput(String input) {
       }
       line.write(piece.substring(index, next));
       _parseAndAdd(locale, line.toString());
-      line = StringBuffer();
+      line.clear();
       index = next + 1;
     }
   }

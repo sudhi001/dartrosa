@@ -45,8 +45,22 @@ abstract final class EntityFormParser {
 
   /// Whether [treeElement] has `<entity>` elements (see
   /// [getEntityElements]).
-  static bool hasEntityElement(TreeElement treeElement) =>
-      getEntityElements(treeElement).isNotEmpty;
+  static bool hasEntityElement(TreeElement treeElement) {
+    for (var i = 0; i < treeElement.numChildren; i++) {
+      final childTreeElement = treeElement.childAt(i);
+      if (childTreeElement.name == 'meta') {
+        if (childTreeElement.firstChild(FormEntityElement.elementEntity) !=
+            null) {
+          return true;
+        }
+      } else if (childTreeElement.hasChildren &&
+          childTreeElement.multiplicity != TreeReference.indexTemplate &&
+          hasEntityElement(childTreeElement)) {
+        return true;
+      }
+    }
+    return false;
+  }
 
   /// The action [entity]'s `create` and `update` attributes ask for
   /// (XPath `boolean-from-string` values), or `null` for none.

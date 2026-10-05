@@ -30,39 +30,34 @@ final class XFormParseException implements Exception {
 /// Port of `XFormParser.getVagueLocation`.
 String vagueLocation(KElement e) {
   var path = e.name;
-  KElement? walker = e;
-  while (walker != null) {
-    final parent = walker.parent;
-    if (parent != null) {
-      walker = parent;
-      var step = walker.name;
-      for (final a in walker.attributes) {
-        step += '[@${a.name}=${a.value}]';
-      }
-      path = '$step/$path';
-    } else {
-      walker = null;
-      path = '/$path';
+  for (var ancestor = e.parent; ancestor != null; ancestor = ancestor.parent) {
+    final step = StringBuffer(ancestor.name);
+    for (final a in ancestor.attributes) {
+      step.write('[@${a.name}=${a.value}]');
     }
+    path = '$step/$path';
   }
+  path = '/$path';
   return '\n    Problem found at nodeset: $path'
       '\n    With element ${_vagueElementPrintout(e, 2)}\n';
 }
 
 String _vagueElementPrintout(KElement e, int maxDepth) {
-  var s = '<${e.name}';
+  final s = StringBuffer('<${e.name}');
   for (final a in e.attributes) {
-    s += ' ${a.name}="${a.value}"';
+    s.write(' ${a.name}="${a.value}"');
   }
   if (e.childCount > 0) {
-    s += '>';
+    s.write('>');
     if (e.isElement(0)) {
-      s += maxDepth > 0
-          ? _vagueElementPrintout(e.elementAt(0)!, maxDepth - 1)
-          : '...';
+      s.write(
+        maxDepth > 0
+            ? _vagueElementPrintout(e.elementAt(0)!, maxDepth - 1)
+            : '...',
+      );
     }
   } else {
-    s += '/>';
+    s.write('/>');
   }
-  return s;
+  return s.toString();
 }

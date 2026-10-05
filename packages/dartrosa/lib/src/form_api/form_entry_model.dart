@@ -307,8 +307,7 @@ final class FormEntryModel {
           elements.add(parent.children[0]);
           if (repeatStructure == RepeatStructure.nonLinear &&
               _isRepeat(elements.last)) {
-            multiplicities[multiplicities.length - 1] =
-                TreeReference.indexRepeatJuncture;
+            multiplicities.last = TreeReference.indexRepeatJuncture;
           }
           return;
         }
@@ -335,8 +334,7 @@ final class FormEntryModel {
         elements[i] = parent.children[curIndex + 1];
         if (repeatStructure == RepeatStructure.nonLinear &&
             _isRepeat(elements.last)) {
-          multiplicities[multiplicities.length - 1] =
-              TreeReference.indexRepeatJuncture;
+          multiplicities.last = TreeReference.indexRepeatJuncture;
         }
         return;
       }
@@ -418,8 +416,7 @@ final class FormEntryModel {
       )!;
       mult = parentNode.childMultiplicity(node.name!);
     }
-    multiplicities[multiplicities.length -
-        1] = repeatStructure == RepeatStructure.nonLinear
+    multiplicities.last = repeatStructure == RepeatStructure.nonLinear
         ? TreeReference.indexRepeatJuncture
         : mult;
     return true;

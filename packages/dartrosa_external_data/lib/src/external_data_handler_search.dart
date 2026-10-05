@@ -159,7 +159,7 @@ final class ExternalDataHandlerSearch extends ExternalDataHandler {
     for (final row in rows) {
       // The value is always the first column.
       final value = row[0];
-      if (uniqueValues.contains(value)) continue;
+      if (!uniqueValues.add(value)) continue;
       final label = buildLabel(
         row,
         columnNames,
@@ -179,7 +179,6 @@ final class ExternalDataHandlerSearch extends ExternalDataHandler {
       }
       selectChoices.add(selectChoice);
       index++;
-      uniqueValues.add(value);
     }
     return selectChoices;
   }
@@ -204,8 +203,7 @@ final class ExternalDataHandlerSearch extends ExternalDataHandler {
         continue;
       }
       if (columnNames.length - columnsToExcludeFromLabels.length == 2) break;
-      if (columnIndex > 1) sb.write(' ');
-      sb.write('(${selectColumnMap[columnName]}: $value)');
+      sb.write(' (${selectColumnMap[columnName]}: $value)');
     }
     return sb.toString();
   }

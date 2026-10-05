@@ -61,10 +61,9 @@ DartRosaConfig withEntities(
         );
   // With CSV external data, entity lists join its pulldata() (entities
   // first, then CSV, as in Collect) instead of a second handler.
-  final externalData = base.plugins.whereType<ExternalDataPlugin>().toList();
   final List<XPathFunctionHandler> functions;
   final List<FormLoadPlugin> plugins;
-  if (externalData.isNotEmpty) {
+  if (base.plugins.any((plugin) => plugin is ExternalDataPlugin)) {
     final adapter = EntitiesPullDataInstanceAdapter(repository);
     functions = base.functions;
     plugins = [

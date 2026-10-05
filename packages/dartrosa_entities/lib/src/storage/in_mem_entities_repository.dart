@@ -28,7 +28,7 @@ final class InMemEntitiesRepository implements EntitiesRepository {
   List<EntityList> getLists() => List.unmodifiable(_lists);
 
   @override
-  int getCount(String list) => query(list).length;
+  int getCount(String list) => _entities[list]?.length ?? 0;
 
   @override
   void addList(String list) {
@@ -40,68 +40,89 @@ final class InMemEntitiesRepository implements EntitiesRepository {
       _entities[list]?.removeWhere((it) => it.id == id);
 
   @override
-  List<SavedEntity> query(String list, [Query? query]) {
-    final entities = [
-      for (final (index, entity) in (_entities[list] ?? const []).indexed)
-        SavedEntity(
-          entity.id,
-          entity.label,
-          index: index,
-          version: entity.version,
-          properties: _buildProperties(list, entity),
-          state: entity.state,
-          trunkVersion: entity.trunkVersion,
-          branchId: entity.branchId,
-        ),
-    ];
+  List<SavedEntity> query(String list, [Query? query]) => switch (query) {
+    StringEqQuery(:final column, :final value) => _where(
+      list,
+      (it) => _fieldValue(it, column) == value,
+    ),
+    StringNotEqQuery(:final column, :final value) => _where(
+      list,
+      (it) => _fieldValue(it, column) != value,
+    ),
+    NumericEqQuery(:final column, :final value) => _where(
+      list,
+      (it) => _toDoubleOrNull(_fieldValue(it, column)) == value,
+    ),
+    NumericNotEqQuery(:final column, :final value) => _where(
+      list,
+      (it) => _toDoubleOrNull(_fieldValue(it, column)) != value,
+    ),
+    AndQuery(:final queryA, :final queryB) => _and(list, queryA, queryB),
+    OrQuery(:final queryA, :final queryB) => {
+      ...this.query(list, queryA),
+      ...this.query(list, queryB),
+    }.toList(),
+    null => _where(list, (_) => true),
+  };
 
-    return switch (query) {
-      StringEqQuery(:final column, :final value) =>
-        entities.where((it) => _fieldValue(it, column) == value).toList(),
-      StringNotEqQuery(:final column, :final value) =>
-        entities.where((it) => _fieldValue(it, column) != value).toList(),
-      NumericEqQuery(:final column, :final value) =>
-        entities
-            .where((it) => _toDoubleOrNull(_fieldValue(it, column)) == value)
-            .toList(),
-      NumericNotEqQuery(:final column, :final value) =>
-        entities
-            .where((it) => _toDoubleOrNull(_fieldValue(it, column)) != value)
-            .toList(),
-      AndQuery(:final queryA, :final queryB) => () {
-        final b = this.query(list, queryB).toSet();
-        return {
-          for (final it in this.query(list, queryA))
-            if (b.contains(it)) it,
-        }.toList();
-      }(),
-      OrQuery(:final queryA, :final queryB) => {
-        ...this.query(list, queryA),
-        ...this.query(list, queryB),
-      }.toList(),
-      null => entities,
-    };
+  /// The entities of [list] (as saved entities) that pass [test].
+  List<SavedEntity> _where(String list, bool Function(SavedEntity) test) {
+    final result = <SavedEntity>[];
+    for (final (index, entity) in (_entities[list] ?? const []).indexed) {
+      final saved = _toSaved(list, entity, index);
+      if (test(saved)) result.add(saved);
+    }
+    return result;
   }
+
+  List<SavedEntity> _and(String list, Query queryA, Query queryB) {
+    final b = query(list, queryB).toSet();
+    return {
+      for (final it in query(list, queryA))
+        if (b.contains(it)) it,
+    }.toList();
+  }
+
+  SavedEntity _toSaved(String list, NewEntity entity, int index) => SavedEntity(
+    entity.id,
+    entity.label,
+    index: index,
+    version: entity.version,
+    properties: _buildProperties(list, entity),
+    state: entity.state,
+    trunkVersion: entity.trunkVersion,
+    branchId: entity.branchId,
+  );
 
   static String _fieldValue(Entity entity, String column) => switch (column) {
     EntitySchema.id => entity.id,
     EntitySchema.label => entity.label!,
     EntitySchema.version => '${entity.version}',
     _ =>
-      entity.properties
-              .where((it) => it.$1 == column)
-              .map((it) => it.$2)
-              .firstOrNull ??
+      _propertyValue(entity, column) ??
           (throw QueryException('No such column: $column')),
   };
+
+  /// The value of [entity]'s first property called [name], if any.
+  static String? _propertyValue(Entity entity, String name) {
+    for (final (propertyName, value) in entity.properties) {
+      if (propertyName == name) return value;
+    }
+    return null;
+  }
 
   /// Kotlin's `String.toDoubleOrNull()` (close enough: Dart's parser also
   /// accepts `NaN` and `Infinity`, but not Java's `d`/`f` suffixes).
   static double? _toDoubleOrNull(String value) => double.tryParse(value);
 
   @override
-  SavedEntity? getByIndex(String list, int index) =>
-      query(list).where((it) => it.index == index).firstOrNull;
+  SavedEntity? getByIndex(String list, int index) {
+    final entities = _entities[list];
+    if (entities == null || index < 0 || index >= entities.length) {
+      return null;
+    }
+    return _toSaved(list, entities[index], index);
+  }
 
   @override
   void updateList(String list, String hash, {required bool needsApproval}) {
@@ -193,8 +214,8 @@ final class InMemEntitiesRepository implements EntitiesRepository {
     for (final (name, _) in entity.properties) {
       // distinctBy { it.lowercase() }, then only names not already in the
       // list (ignoring case).
-      if (!seen.add(name.toLowerCase())) continue;
       final lower = name.toLowerCase();
+      if (!seen.add(lower)) continue;
       if (!properties.any((it) => it.toLowerCase() == lower)) {
         properties.add(name);
       }
@@ -213,13 +234,6 @@ final class InMemEntitiesRepository implements EntitiesRepository {
 
   List<EntityProperty> _buildProperties(String list, NewEntity entity) => [
     for (final property in _listProperties[list] ?? const <String>{})
-      (
-        property,
-        entity.properties
-                .where((it) => it.$1 == property)
-                .map((it) => it.$2)
-                .firstOrNull ??
-            '',
-      ),
+      (property, _propertyValue(entity, property) ?? ''),
   ];
 }

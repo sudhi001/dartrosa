@@ -14,6 +14,7 @@ import 'condition/filter_strategies.dart';
 import 'control_type.dart';
 import 'data/answer_value.dart';
 import 'data_type.dart';
+import 'data_type_classes.dart';
 import 'form_element.dart';
 import 'form_index.dart';
 import 'instance/data_instance.dart';
@@ -434,8 +435,7 @@ final class FormDef extends FormElement {
   /// The number of instances of the repeat at [index].
   int numRepetitions(FormIndex index) {
     if (!index.isInForm) throw StateError('not an in-form index');
-    final elements = explodeIndex(index);
-    final last = elements.last;
+    final last = elementAt(index);
     if (last is! GroupDef || !last.isRepeat) {
       throw StateError('current element not a repeat');
     }
@@ -690,7 +690,7 @@ final class FormDef extends FormElement {
       final value = incoming.value;
       if (value == null) {
         node.value = null;
-      } else if (!_answerTypeSupported(node.dataType)) {
+      } else if (DataTypeClasses.classForType(node.dataType) == null) {
         throw StateError(
           'data type [${value.runtimeType}] not supported inside itemset',
         );
@@ -725,26 +725,7 @@ final class FormDef extends FormElement {
     }
   }
 
-  /// Whether JavaRosa's `DataTypeClasses` has a class for [type].
-  static bool _answerTypeSupported(DataType type) => switch (type) {
-    DataType.nullType ||
-    DataType.text ||
-    DataType.integer ||
-    DataType.long ||
-    DataType.decimal ||
-    DataType.boolean ||
-    DataType.date ||
-    DataType.time ||
-    DataType.dateTime ||
-    DataType.choice ||
-    DataType.multipleItems ||
-    DataType.geopoint ||
-    DataType.geoshape ||
-    DataType.geotrace => true,
-    _ => false,
-  };
-
-  /// Whether [value] is an instance of `DataTypeClasses`' class for
+  /// Whether [value] is an instance of the [DataTypeClasses] class for
   /// [type].
   static bool _answerTypeMatches(DataType type, AnswerValue value) =>
       switch (type) {
@@ -953,7 +934,7 @@ final class FormDef extends FormElement {
   String toString() => title ?? '';
 }
 
-/// `jr:itext(id)`: the text for [id] in the current language (or the form
+/// `jr:itext(id)`: the text for `id` in the current language (or the form
 /// requested by the evaluation context).
 final class _ItextFunction extends XPathFunctionHandler {
   _ItextFunction(this._form);
@@ -983,7 +964,7 @@ final class _ItextFunction extends XPathFunctionHandler {
   }
 }
 
-/// `jr:choice-name(value, question)`: the label of the choice with [value]
+/// `jr:choice-name(value, question)`: the label of the choice with `value`
 /// in the select question at the given path.
 final class _ChoiceNameFunction extends XPathFunctionHandler {
   _ChoiceNameFunction(this._form);

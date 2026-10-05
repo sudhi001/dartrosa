@@ -37,7 +37,7 @@ final class CollectCsvReader {
         return record;
       }
       final tokens = _parseLine(_lines[_nextLine++]);
-      if (tokens.isNotEmpty) record = [...?record, ...tokens];
+      if (tokens.isNotEmpty) (record ??= []).addAll(tokens);
     } while (_pending != null);
     return record;
   }

@@ -20,7 +20,8 @@ XPathExpression parseXPath(String xpath) => _Parser.parse(lex(xpath));
 /// error messages are identical.
 abstract final class _Parser {
   static XPathExpression parse(List<Token> tokens) {
-    final root = _AbstractExpr([...tokens]);
+    // A List<Object>: tokens get condensed into nodes in place.
+    final root = _AbstractExpr(List<Object>.of(tokens));
     _parseFuncCalls(root);
     _parseBalanced(root, (node) => node, TokenType.lparen, TokenType.rparen);
     _parseBalanced(root, _Predicate.new, TokenType.lbrack, TokenType.rbrack);
@@ -283,15 +284,15 @@ abstract final class _Parser {
   }
 
   static _FilterExpr? _parseFilterExpr(_AbstractExpr node) {
-    final predicates = <_Node>[];
-    var i = node.content.length - 1;
-    for (; i >= 0; i--) {
-      final item = node.content[i];
-      if (item is! _Predicate) break;
-      predicates.insert(0, item);
+    final content = node.content;
+    var start = content.length;
+    while (start > 0 && content[start - 1] is _Predicate) {
+      start--;
     }
-    if (predicates.isEmpty) return null;
-    return _FilterExpr(node.extract(0, i + 1), predicates);
+    if (start == content.length) return null;
+    return _FilterExpr(node.extract(0, start), [
+      for (var i = start; i < content.length; i++) content[i] as _Node,
+    ]);
   }
 
   static void _verifyBaseExpr(_Node node) {
@@ -309,7 +310,7 @@ abstract final class _Parser {
 // ---------------------------------------------------------------------------
 
 sealed class _Node {
-  List<_Node> get children;
+  Iterable<_Node> get children;
   XPathExpression build();
 }
 
@@ -321,7 +322,7 @@ final class _AbstractExpr extends _Node {
   final List<Object> content;
 
   @override
-  List<_Node> get children => content.whereType<_Node>().toList();
+  Iterable<_Node> get children => content.whereType<_Node>();
 
   @override
   XPathExpression build() {
@@ -401,11 +402,7 @@ final class _AbstractExpr extends _Node {
         separatorIndexes.add(i);
       }
     }
-    for (var i = 0; i <= separatorIndexes.length; i++) {
-      final pieceStart = i == 0 ? start : separatorIndexes[i - 1] + 1;
-      final pieceEnd = i == separatorIndexes.length ? end : separatorIndexes[i];
-      part.pieces.add(extract(pieceStart, pieceEnd));
-    }
+    _addPieces(part, separatorIndexes, start, end);
     return part;
   }
 
@@ -426,12 +423,24 @@ final class _AbstractExpr extends _Node {
       separatorIndexes.add(k);
       part.separators.add(separator);
     }
-    for (var i = 0; i <= separatorIndexes.length; i++) {
-      final pieceStart = i == 0 ? start + 1 : separatorIndexes[i - 1] + 1;
-      final pieceEnd = i == separatorIndexes.length ? end : separatorIndexes[i];
-      part.pieces.add(extract(pieceStart, pieceEnd));
-    }
+    _addPieces(part, separatorIndexes, start + 1, end);
     return part;
+  }
+
+  /// Adds to [part] the runs of [content] between [start] and [end] that
+  /// the separators at [separatorIndexes] delimit.
+  void _addPieces(
+    _Partition part,
+    List<int> separatorIndexes,
+    int start,
+    int end,
+  ) {
+    var pieceStart = start;
+    for (final separator in separatorIndexes) {
+      part.pieces.add(extract(pieceStart, separator));
+      pieceStart = separator + 1;
+    }
+    part.pieces.add(extract(pieceStart, end));
   }
 
   @override

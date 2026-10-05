@@ -63,8 +63,8 @@ final class ResourceReference implements Reference {
 
 /// Derives [Reference]s for the URIs it accepts.
 ///
-/// Port of `org.javarosa.core.reference.ReferenceFactory`; [manager] replaces
-/// JavaRosa's `ReferenceManager.instance()` calls.
+/// Port of `org.javarosa.core.reference.ReferenceFactory`; the `manager`
+/// argument of [derive] replaces JavaRosa's `ReferenceManager.instance()` calls.
 abstract interface class ReferenceFactory {
   /// Whether this factory derives [uri].
   bool derives(String uri);
@@ -264,7 +264,7 @@ final class ReferenceManager {
       '$portion "$uriRoot" is not available on this system and may have been '
       'mis-typed. Some available roots: ',
     );
-    for (final root in [..._sessionTranslators, ..._translators]) {
+    for (final root in _sessionTranslators.followedBy(_translators)) {
       message.write('\n${root.prefix}');
     }
     for (final factory in _factories) {

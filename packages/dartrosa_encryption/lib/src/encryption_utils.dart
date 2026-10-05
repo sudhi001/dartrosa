@@ -54,9 +54,9 @@ final class EncryptedSubmission {
 ///
 /// As Collect does for the files in the instance directory, media files
 /// whose names start with `.` or end with `.enc`, or that are named
-/// [submissionXmlName], are skipped. Only the [EncryptedSubmission.
-/// mediaFileNames] were encrypted; the attachments not listed there must
-/// not be submitted.
+/// [submissionXmlName], are skipped. Only the
+/// [EncryptedSubmission.mediaFileNames] were encrypted; the attachments not
+/// listed there must not be submitted.
 ///
 /// [formInfo] is single-use: it advances through the IVs as it encrypts.
 ///
@@ -77,16 +77,18 @@ EncryptedSubmission generateEncryptedSubmission(
         name,
   ];
   final encrypted = <String, Uint8List>{};
-  // Step 1: encrypt the media files, then the submission.xml as the last
-  // file...
-  for (final (name, content) in [
-    for (final name in toProcess) (name, mediaFiles[name]!),
-    (submissionXmlName, submissionXml),
-  ]) {
+  void encryptFile(String name, Uint8List content) {
     // add elementSignatureSource for this file...
     formInfo.appendFileSignatureSource(name, content);
     encrypted['$name$encryptedFileSuffix'] = formInfo.encryptNextFile(content);
   }
+
+  // Step 1: encrypt the media files, then the submission.xml as the last
+  // file...
+  for (final name in toProcess) {
+    encryptFile(name, mediaFiles[name]!);
+  }
+  encryptFile(submissionXmlName, submissionXml);
   // Step 2: build the encrypted-submission manifest.
   return EncryptedSubmission(
     manifest: _submissionManifest(formInfo, submissionXmlName, toProcess),

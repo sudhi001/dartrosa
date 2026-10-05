@@ -171,15 +171,15 @@ final class GeojsonFeature {
     }
     final properties = this.properties;
     if (properties != null) {
-      properties.forEach((name, value) {
+      for (final MapEntry(key: name, :value) in properties.entries) {
         item.addChild(TreeElement(name, 0)..value = UncastValue(value ?? ''));
-      });
+      }
     }
     final id = this.id;
     if (id != null) {
-      final existing = item.childrenWithName('id');
-      if (existing.isNotEmpty) {
-        existing.first.value = UncastValue(id);
+      final existing = item.getChild('id', 0);
+      if (existing != null) {
+        existing.value = UncastValue(id);
       } else {
         item.addChild(TreeElement('id', 0)..value = UncastValue(id));
       }
@@ -253,8 +253,7 @@ final class GeojsonGeometry {
 
     switch (type) {
       case 'Point':
-        final c = coordinates!;
-        return '${_javaString(c[1])} ${_javaString(c[0])} 0 0';
+        return point(coordinates);
       case 'LineString':
         return coordinates!.map(point).join('; ');
       case 'Polygon':

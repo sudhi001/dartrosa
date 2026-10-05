@@ -292,7 +292,7 @@ final class TreeReference {
       var level = levels[i];
       // Fill in a wildcard name from the context.
       if (level.name == nameWildcard && context.nameAt(i) != nameWildcard) {
-        level = levels[i] = level.withName(context.nameAt(i));
+        level = level.withName(context.nameAt(i));
       }
       if (context.nameAt(i) != level.name) break;
       if (level.predicates == null && context.predicatesAt(i) != null) {
@@ -426,7 +426,7 @@ final class TreeReference {
         case indexRepeatJuncture:
           sb.write('[@juncture]');
         default:
-          if ((i > 0 || mult != 0) && mult != -4) {
+          if ((i > 0 || mult != 0) && mult != indexAttribute) {
             if (sb.isNotEmpty) sb.write('_');
             sb.write(mult + 1);
           }

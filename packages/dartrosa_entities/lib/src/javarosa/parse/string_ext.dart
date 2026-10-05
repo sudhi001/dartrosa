@@ -19,15 +19,19 @@ bool isV4Uuid(String? value) {
   return ((groups[2] & 0xffff) >> 12) & 0xf == 4;
 }
 
+final _javaHexLong = RegExp(r'^[+-]?[0-9a-fA-F]+$');
+final _sign = RegExp('^[+-]');
+final _maxLong = BigInt.parse('7fffffffffffffff', radix: 16);
+final _minLong = -_maxLong - BigInt.one;
+
 /// Java's `Long.parseLong(s, 16)`: an optional sign and hex digits.
 int? _parseJavaHexLong(String s) {
-  if (!RegExp(r'^[+-]?[0-9a-fA-F]+$').hasMatch(s)) return null;
+  if (!_javaHexLong.hasMatch(s)) return null;
   final negative = s.startsWith('-');
-  final digits = s.replaceFirst(RegExp('^[+-]'), '');
+  final digits = s.replaceFirst(_sign, '');
   final magnitude = BigInt.parse(digits, radix: 16);
   final signed = negative ? -magnitude : magnitude;
-  final max = BigInt.parse('7fffffffffffffff', radix: 16);
-  if (signed > max || signed < -max - BigInt.one) return null;
+  if (signed > _maxLong || signed < _minLong) return null;
   // Masking to 16 bits only needs the low bits, which BigInt keeps
   // exactly (two's complement) on every platform.
   return (signed & BigInt.from(0xffffffff)).toInt();

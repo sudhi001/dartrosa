@@ -492,24 +492,31 @@ final class TriggerableDag {
     for (final root in cascadeRoots) {
       if (genericRepeatRef.isAncestorOf(root.context)) result.add(root);
     }
-    var toConsider = {...cascadeRoots};
+    var toConsider = cascadeRoots;
     while (toConsider.isNotEmpty) {
       final next = <Triggerable>{};
       for (final triggerable in toConsider) {
         if (!genericRepeatRef.isAncestorOf(triggerable.context, proper: true)) {
           outsideRepeat.add(triggerable);
-        } else {
-          for (final parent in {...outsideRepeat, ...result}) {
-            if (_immediateCascades[parent]?.contains(triggerable) ?? false) {
-              result.add(triggerable);
-            }
-          }
+        } else if (_cascadesTo(outsideRepeat, triggerable) ||
+            _cascadesTo(result, triggerable)) {
+          result.add(triggerable);
         }
         next.addAll(_immediateCascades[triggerable] ?? const <Triggerable>{});
       }
       toConsider = next;
     }
     return result;
+  }
+
+  /// Whether any of [parents] immediately cascades to [triggerable].
+  bool _cascadesTo(Set<Triggerable> parents, Triggerable triggerable) {
+    for (final parent in parents) {
+      if (_immediateCascades[parent]?.contains(triggerable) ?? false) {
+        return true;
+      }
+    }
+    return false;
   }
 
   /// The relevance condition of the repeat at [genericRepeatRef], if any.

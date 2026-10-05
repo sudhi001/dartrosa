@@ -315,7 +315,7 @@ String exceptionMessage(Exception e) => switch (e) {
 
 /// Android's `Uri.getHost()` for [url]: `null` if it has no authority.
 String? androidUriHost(String url) {
-  final match = RegExp(r'^[^:/?#]+://([^/?#]*)').firstMatch(url);
+  final match = _schemeAndAuthority.firstMatch(url);
   if (match == null) return null;
   var authority = match.group(1)!;
   final at = authority.lastIndexOf('@');
@@ -327,6 +327,8 @@ String? androidUriHost(String url) {
   final colon = authority.lastIndexOf(':');
   return colon == -1 ? authority : authority.substring(0, colon);
 }
+
+final _schemeAndAuthority = RegExp(r'^[^:/?#]+://([^/?#]*)');
 
 /// `java.net.URI.create(url)` (`null` where it throws), as a Dart [Uri].
 Uri? _createUri(String url) {
@@ -348,9 +350,11 @@ String _withQuery(String url, String query) {
       : '${url.substring(0, hash)}?$query${url.substring(hash)}';
 }
 
+final _javaLong = RegExp(r'^[+-]?[0-9]+$');
+
 /// Java's `Long.parseLong`, or `null` where it throws.
 int? _parseJavaLong(String? s) {
-  if (s == null || !RegExp(r'^[+-]?[0-9]+$').hasMatch(s)) return null;
+  if (s == null || !_javaLong.hasMatch(s)) return null;
   return int.tryParse(s);
 }
 

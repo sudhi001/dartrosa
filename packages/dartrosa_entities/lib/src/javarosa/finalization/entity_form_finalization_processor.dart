@@ -29,13 +29,13 @@ final class EntityFormFinalizationProcessor
     final mainInstance = formDef.mainInstance;
 
     final entityFormExtra = formDef.extras.get<EntityFormExtra>();
-    if (entityFormExtra is! EntityFormExtra) return;
+    if (entityFormExtra == null) return;
     final saveTos = entityFormExtra.saveTos;
 
     final entityElements = EntityFormParser.getEntityElements(
       mainInstance.root,
     );
-    var entitiesExtra = EntitiesExtra();
+    final entities = <FormEntity>[];
     for (final element in entityElements) {
       final action = EntityFormParser.parseAction(element);
       final dataset = EntityFormParser.parseDataset(element)!;
@@ -43,7 +43,7 @@ final class EntityFormFinalizationProcessor
       final label = EntityFormParser.parseLabel(element);
 
       if (action != null) {
-        entitiesExtra = entitiesExtra.plus(
+        entities.add(
           _createEntity(
             dataset,
             id,
@@ -57,7 +57,7 @@ final class EntityFormFinalizationProcessor
       }
     }
 
-    model.extras[EntitiesExtra] = entitiesExtra;
+    model.extras[EntitiesExtra] = EntitiesExtra(entities);
   }
 
   FormEntity _createEntity(

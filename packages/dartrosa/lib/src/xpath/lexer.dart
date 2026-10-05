@@ -159,9 +159,13 @@ List<Token> lex(String expr) {
     } else if (c == _plus) {
       token = const Token(TokenType.plus);
     } else if (c == _minus) {
-      token = Token(expectingValue ? TokenType.uminus : TokenType.minus);
+      token = expectingValue
+          ? const Token(TokenType.uminus)
+          : const Token(TokenType.minus);
     } else if (c == _star) {
-      token = Token(expectingValue ? TokenType.wildcard : TokenType.mult);
+      token = expectingValue
+          ? const Token(TokenType.wildcard)
+          : const Token(TokenType.mult);
     } else if (c == _pipe) {
       token = const Token(TokenType.union);
     } else if (c == _slash) {

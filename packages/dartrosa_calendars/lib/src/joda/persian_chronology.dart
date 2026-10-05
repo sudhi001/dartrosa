@@ -30,15 +30,11 @@ final class PersianChronologyKhayyamBorkowski extends BasicChronology {
     for (var i = 1; i < _breakYears.length; i++) {
       final nextBreakYear = _breakYears[i];
       jump = nextBreakYear - breakYear;
-      if (!(persianYear < nextBreakYear)) {
-        if (calcLeaps) {
-          jalaaliLeaps =
-              jalaaliLeaps + jump ~/ 33 * 8 + jump.remainder(33) ~/ 4;
-        }
-        breakYear = nextBreakYear;
-      } else {
-        break;
+      if (persianYear < nextBreakYear) break;
+      if (calcLeaps) {
+        jalaaliLeaps = jalaaliLeaps + jump ~/ 33 * 8 + jump.remainder(33) ~/ 4;
       }
+      breakYear = nextBreakYear;
     }
     return (jump, persianYear - breakYear, jalaaliLeaps);
   }

@@ -178,26 +178,14 @@ Object evalFunction(
       return _position(name, args, context);
     case 'count':
       _assertArgsCount(name, n, 1);
-      final nodes = args[0];
-      if (nodes is! XPathNodeset) {
-        throw XPathTypeMismatchException('not a nodeset');
-      }
-      return nodes.size.toDouble();
+      return _nodesetArg(args[0]).size.toDouble();
     case 'count-non-empty':
       _assertArgsCount(name, n, 1);
-      final nodes = args[0];
-      if (nodes is! XPathNodeset) {
-        throw XPathTypeMismatchException('not a nodeset');
-      }
-      return nodes.nonEmptySize.toDouble();
+      return _nodesetArg(args[0]).nonEmptySize.toDouble();
     case 'sum':
       _assertArgsCount(name, n, 1);
-      final nodes = args[0];
-      if (nodes is! XPathNodeset) {
-        throw XPathTypeMismatchException('not a nodeset');
-      }
       var sum = 0.0;
-      for (final value in nodes.toArgList()) {
+      for (final value in _nodesetArg(args[0]).toArgList()) {
         final d = toNumeric(value);
         if (!d.isNaN) sum += d;
       }
@@ -216,8 +204,8 @@ Object evalFunction(
       return _join('', _singleNodesetOr(args));
     case 'join' when n >= 1:
       final separator = args[0];
-      if (n == 2 && args[1] is XPathNodeset) {
-        return _join(separator, (args[1] as XPathNodeset).toArgList());
+      if (args case [_, final XPathNodeset nodes]) {
+        return _join(separator, nodes.toArgList());
       }
       return _join(separator, args.sublist(1));
     case 'substr' when n == 2 || n == 3:
@@ -252,16 +240,22 @@ Object evalFunction(
         toXPathString(n == 1 ? args[0] : _currentNodeValue(model, context)),
       );
     case 'checklist' when n >= 2:
-      final factors = n == 3 && args[2] is XPathNodeset
-          ? (args[2] as XPathNodeset).toArgList()
-          : args.sublist(2);
+      final factors = switch (args) {
+        [_, _, final XPathNodeset nodes] => nodes.toArgList(),
+        _ => args.sublist(2),
+      };
       return _checklist(args[0], args[1], factors);
     case 'weighted-checklist' when n >= 2 && n.isEven:
       final List<Object> factors;
       final List<Object> weights;
-      if (n == 4 && args[2] is XPathNodeset && args[3] is XPathNodeset) {
-        factors = (args[2] as XPathNodeset).toArgList();
-        weights = (args[3] as XPathNodeset).toArgList();
+      if (args case [
+        _,
+        _,
+        final XPathNodeset factorNodes,
+        final XPathNodeset weightNodes,
+      ]) {
+        factors = factorNodes.toArgList();
+        weights = weightNodes.toArgList();
         if (factors.length != weights.length) {
           throw XPathTypeMismatchException(
             'weighted-checklist: nodesets not same length',
@@ -360,11 +354,16 @@ void _checkArity(String name, int expected, int provided) {
   }
 }
 
+/// [value] as a nodeset; throws when it is another kind of value.
+XPathNodeset _nodesetArg(Object value) => value is XPathNodeset
+    ? value
+    : throw XPathTypeMismatchException('not a nodeset');
+
 /// The values of a single nodeset argument, or the arguments themselves.
-List<Object> _singleNodesetOr(List<Object> args) =>
-    args.length == 1 && args[0] is XPathNodeset
-    ? (args[0] as XPathNodeset).toArgList()
-    : args;
+List<Object> _singleNodesetOr(List<Object> args) => switch (args) {
+  [final XPathNodeset nodes] => nodes.toArgList(),
+  _ => args,
+};
 
 /// The value of the context node (for `string-length()`, `once()` …).
 Object _currentNodeValue(DataInstance? model, EvaluationContext context) =>
@@ -561,6 +560,8 @@ bool _checklistWeighted(
   return sum >= min && sum <= max;
 }
 
+final _javaInlineFlags = RegExp(r'^\(\?([ism]+)\)');
+
 /// Java `Pattern.matches(regex, input)`: the whole input must match.
 ///
 /// Leading inline flags `(?i)`, `(?s)`, `(?m)` are translated; other Java
@@ -571,7 +572,7 @@ bool javaRegexMatches(String regex, String input) {
   var caseSensitive = true;
   var dotAll = false;
   var multiLine = false;
-  final flags = RegExp(r'^\(\?([ism]+)\)').firstMatch(pattern);
+  final flags = _javaInlineFlags.firstMatch(pattern);
   if (flags != null) {
     final f = flags.group(1)!;
     caseSensitive = !f.contains('i');

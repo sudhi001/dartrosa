@@ -63,5 +63,7 @@ List<int> _utf8(int rune) {
 /// Whether `java.net.URI` accepts [url]'s characters: no spaces, control
 /// characters, `"<>\\^`{|}` or `%` not starting an escape.
 bool hasValidJavaUriCharacters(String url) =>
-    !RegExp(r'[\x00-\x20"<>\\^`{|}\x7F]').hasMatch(url) &&
-    !RegExp(r'%(?![0-9A-Fa-f]{2})').hasMatch(url);
+    !_illegalJavaUriCharacter.hasMatch(url) && !_percentNotEscape.hasMatch(url);
+
+final _illegalJavaUriCharacter = RegExp(r'[\x00-\x20"<>\\^`{|}\x7F]');
+final _percentNotEscape = RegExp(r'%(?![0-9A-Fa-f]{2})');

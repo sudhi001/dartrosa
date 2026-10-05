@@ -130,7 +130,7 @@ final class ActionController {
     TreeReference? context,
     ActionResultProcessor? resultProcessor,
   ) {
-    for (final action in listenersFor(event)) {
+    for (final action in _listeners[event] ?? const <Action>[]) {
       final ref = action.processAction(form, context);
       if (resultProcessor != null && ref != null) resultProcessor(ref, event);
     }
